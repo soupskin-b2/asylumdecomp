@@ -3079,7 +3079,6 @@ void sub_01556930()
     g_026dfcbc->Stop(0.0f, 1, 0);
 }
 
-
 // @baa 0x01557320
 UBOOL ARCameraBlockingVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
@@ -3114,15 +3113,10 @@ C_0155e3c0* C_0155e3c0::sub_0155e3c0(const INT* P1, const INT* P2)
     return this;
 }
 
-struct URAnimNode_AnimCapture_ : public URAnimNode_AnimCapture
-{
-    void sub_00c535b0(FLOAT A, FLOAT B);
-};
-
 // @baa 0x0155cad0
 void URAnimNode_AnimCapture::TickAnim(FLOAT A, FLOAT B)
 {
-    ((URAnimNode_AnimCapture_*)this)->sub_00c535b0(A, B);
+    ((URAnimNode_AnimCapture*)this)->sub_00c535b0(A, B);
 }
 
 void sub_0155c5d0(const FVector& OriginA, const FVector& DirectionA,

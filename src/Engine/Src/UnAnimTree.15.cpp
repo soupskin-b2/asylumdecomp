@@ -63,11 +63,6 @@ struct FIntArray : public TArray<INT>
 	INT sub_00540c80(INT Count);			/* Add, out of line here */
 };
 
-struct UAnimNode_ : public UAnimNode
-{
-	static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh);	/* EnsureParentsPresent */
-};
-
 // @baa 0x00c62170
 void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 {
@@ -109,5 +104,5 @@ void UAnimNodeAimOffset::UpdateListOfRequiredBones()
 	}
 
 	// the parents of the bones we change must be there too
-	UAnimNode_::sub_00c52e80(RequiredBones, SkelComponent->SkeletalMesh);
+	UAnimNode::sub_00c52e80(RequiredBones, SkelComponent->SkeletalMesh);
 }

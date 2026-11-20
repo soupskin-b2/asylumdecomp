@@ -316,17 +316,12 @@ void AController::execActorReachable(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ActorReachable(anActor);
 }
 
-struct AController__00c85160 : public AController
-{
-	UBOOL InLatentExecution(INT);
-};
-
 // @baa 0x00c85160
 void AController::execInLatentExecution(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(LatentActionNumber);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController__00c85160*)this)->InLatentExecution(LatentActionNumber);
+	*(UBOOL*)Result = ((AController*)this)->InLatentExecution(LatentActionNumber);
 }
 
 // @baa 0x00c87b40
@@ -337,17 +332,12 @@ void AEmitterPool::execGetPooledComponent(FFrame& Stack, RESULT_DECL)
 	*(UParticleSystemComponent**)Result = ((AEmitterPool*)this)->GetPooledComponent(EmitterTemplate);
 }
 
-struct ANavigationPoint_ : public ANavigationPoint
-{
-	UBOOL IsOnDifferentNetwork(ANavigationPoint*);
-};
-
 // @baa 0x00c880a0
 void ANavigationPoint::execIsOnDifferentNetwork(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ANavigationPoint, Nav);
 	P_FINISH;
-	*(UBOOL*)Result = ((ANavigationPoint_*)this)->IsOnDifferentNetwork(Nav);
+	*(UBOOL*)Result = ((ANavigationPoint*)this)->IsOnDifferentNetwork(Nav);
 }
 
 // @baa 0x00c8b900

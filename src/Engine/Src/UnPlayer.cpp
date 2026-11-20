@@ -315,7 +315,7 @@ int C_008898e0::sub_008898e0()
 }
 
 // @baa 0x00889a50
-void UGameViewportClient::FViewportClient_vf040(INT) {}
+void UGameViewportClient::LostFocus(FViewport* Viewport) {}
 
 // @baa 0x0088e5c0
 // @baa 0x0088e5f0
@@ -804,7 +804,7 @@ void UGameViewportClient::RedrawRequested(FViewport* Viewport) {}
 void UGameViewportClient::vf_114(int a0, int a1) {  }
 
 // @baa 0x0089f6b0
-INT UGameViewportClient::FViewportClient_vf050() { return 0; }
+UBOOL UGameViewportClient::RequiresHitProxyStorage() { return FALSE; }
 
 // @baa 0x0089f6c0
 class UObject* UGameViewportClient::GetUObject() { return this; }
@@ -973,7 +973,7 @@ struct C_00e6fba0_T
 
 C_00e6fba0_T* sub_00e6fba0();
 // @baa 0x00889a60
-void UGameViewportClient::FViewportClient_vf044(INT Param)
+void UGameViewportClient::ReceivedFocus(FViewport* Viewport)
 {
     if (sub_00e6fba0() != 0)
         sub_00e6fba0()->sub_00e5f880();

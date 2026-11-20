@@ -170,18 +170,11 @@ void UUIScreenObject::Initialize(UUIScene* inOwnerScene, UUIObject* inOwner)
     }
 }
 
-/* Unnamed in the kit: UE3's static INT UUIInteraction::GetPlayerIndex(INT ControllerId), and a UUIScreenObject helper
- * that falls back to the owning player's index. */
-struct UUIInteraction__00db0370 : public UUIInteraction
-{
-    static INT sub_00d78350(INT ControllerId);
-};
-
 // @baa 0x00db0370
 /* UE3's UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex). */
 INT UUIScreenObject::GetPlayerOwnerIndex(UBOOL bRequireValidIndex)
 {
-    INT PlayerIndex = UUIInteraction__00db0370::sub_00d78350(GetBestControllerId());
+    INT PlayerIndex = UUIInteraction::sub_00d78350(GetBestControllerId());
     if (PlayerIndex == INDEX_NONE && bRequireValidIndex)
     {
         PlayerIndex = ((UUIScreenObject*)this)->GetBestPlayerIndex();

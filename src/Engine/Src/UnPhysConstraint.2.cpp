@@ -33,16 +33,11 @@ void ARB_ConstraintActor::execTermConstraint( FFrame& Stack, RESULT_DECL )
 	TermConstraint();
 }
 
-struct URB_ConstraintInstance__00c95810 : public URB_ConstraintInstance
-{
-	UPhysicsAssetInstance* GetPhysicsAssetInstance();
-};
-
 // @baa 0x00c95810
 void URB_ConstraintInstance::execGetPhysicsAssetInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance__00c95810*)this)->GetPhysicsAssetInstance();
+	*(UPhysicsAssetInstance**)Result = ((URB_ConstraintInstance*)this)->GetPhysicsAssetInstance();
 }
 
 // @baa 0x00c96410

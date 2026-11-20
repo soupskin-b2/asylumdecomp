@@ -519,15 +519,13 @@ undefined4 ANavigationPoint::vf_378(void)
 void ANavigationPoint::vf_38c(int a0) {  }
 
 // @baa 0x00835b60
-undefined4 ANavigationPoint::IsOnDifferentNetwork(int param_2)
+UBOOL ANavigationPoint::IsOnDifferentNetwork(ANavigationPoint* Nav)
 {
-    int param_1 = (int)this;
-
-  if ((((param_2 != 0) && (*(int *)(param_2 + 0x264) != -1)) && (*(int *)(param_1 + 0x264) != -1))
-     && (*(int *)(param_1 + 0x264) != *(int *)(param_2 + 0x264))) {
-    return 1;
-  }
-  return 0;
+	if (Nav != NULL && Nav->NetworkID != -1 && NetworkID != -1 && NetworkID != Nav->NetworkID)
+	{
+		return TRUE;
+	}
+	return FALSE;
 }
 
 struct C_008366a0 {

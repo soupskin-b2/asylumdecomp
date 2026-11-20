@@ -6,14 +6,8 @@
 
 extern FName g_026c4358;
 	/* ENGINE_OnRegister */
-/* Kit gap: the generated glue for UIDataProvider_OnlinePlayerDataBase's script event OnRegister (EngineClasses.h) isn't declared; this build keeps it out of line. */
-struct UUIDataProvider_OnlinePlayerDataBase_ : public UUIDataProvider_OnlinePlayerDataBase
-{
-	void eventOnRegister(class ULocalPlayer* InPlayer);
-};
-
 // @baa 0x00d8f8a0
-void UUIDataProvider_OnlinePlayerDataBase_::eventOnRegister(class ULocalPlayer* InPlayer)
+void UUIDataProvider_OnlinePlayerDataBase::eventOnRegister(class ULocalPlayer* InPlayer)
 {
 	struct UIDataProvider_OnlinePlayerDataBase_eventOnRegister_Parms
 	{

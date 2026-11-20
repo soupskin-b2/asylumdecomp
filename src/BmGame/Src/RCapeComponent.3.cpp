@@ -17,7 +17,6 @@ void URCapeComponent_::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = GetIsInitialised();
 }
 
-
 // @baa 0x01701fa0
 void URCapeComponent::execGetCurrentCapeStateName(FFrame& Stack, RESULT_DECL)
 {
@@ -31,7 +30,6 @@ void URCapeComponent::execForceCapeToAnimPose( FFrame& Stack, RESULT_DECL )
 	P_FINISH;
 	ForceCapeToAnimPose();
 }
-
 
 // @baa 0x01702460
 void URCapeComponent::execGetIsInCinematicsState( FFrame& Stack, RESULT_DECL )
@@ -122,17 +120,12 @@ void URCapeComponent::execUpdateDamageState(FFrame& Stack, RESULT_DECL)
 	this->UpdateDamageState(NewMat);
 }
 
-struct URCapeComponent__01702bf0 : public URCapeComponent
-{
-	void AddCinematicAnimSet(UAnimSet*);
-};
-
 // @baa 0x01702bf0
 void URCapeComponent::execAddCinematicAnimSet(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimSet, NewAnimSet);
 	P_FINISH;
-	((URCapeComponent__01702bf0*)this)->AddCinematicAnimSet(NewAnimSet);
+	((URCapeComponent*)this)->AddCinematicAnimSet(NewAnimSet);
 }
 
 // @baa 0x01702a10
@@ -211,7 +204,6 @@ void URCapeComponent::execSetAutoCapeAnimBlendWeights(FFrame& Stack, RESULT_DECL
     this->SetAutoCapeAnimBlendWeights(IsBlendWeightSettingEnabled, rootWeight, childWeights);
 }
 
-
 // @baa 0x01702110
 void URCapeComponent::execChangeCapeStateGeneral(FFrame& Stack, RESULT_DECL)
 {
@@ -245,7 +237,6 @@ void URCapeComponent::execBeginCinematicState(FFrame& Stack, RESULT_DECL)
     this->BeginCinematicState(AnimName, TemporaryAnimSet, AnimStartTime, AnimPlayRate, SyncAnimName, SyncAnimOffset, MirroredType, TemplateStateConfig, ClearVelocityOnExit, bTeleportToInitialPose);
 }
 
-
 // @baa 0x01701ff0
 void URCapeComponent::execChangeCapeState(FFrame& Stack, RESULT_DECL)
 {
@@ -257,7 +248,6 @@ void URCapeComponent::execChangeCapeState(FFrame& Stack, RESULT_DECL)
 	this->ChangeCapeState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
 }
 
-
 // @baa 0x01702310
 void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
 {
@@ -268,7 +258,6 @@ void URCapeComponent::execStartCapeInState(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	this->StartCapeInState(NewCapeStateName, AnimStartTime, AnimPlayRate, MirroredType);
 }
-
 
 // @baa 0x01701f00
 /* native function InitEnable(byte NewState, bool bEnable) */

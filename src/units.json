@@ -7205,7 +7205,7 @@
     {
      "va": "01579fb0",
      "size": 30,
-     "symbol": "?GetCurrentCapeAnimNode@URAnimNode_Cape@@QAEIXZ"
+     "symbol": "?GetCurrentCapeAnimNode@URAnimNode_Cape@@QAEPAUUAnimNode@@XZ"
     },
     {
      "va": "01586380",
@@ -14465,7 +14465,7 @@
     {
      "va": "016ae940",
      "size": 63,
-     "symbol": "?AddCinematicAnimSet@URCapeComponent@@QAEXI@Z"
+     "symbol": "?AddCinematicAnimSet@URCapeComponent@@QAEXPAUUAnimSet@@@Z"
     },
     {
      "va": "016ae980",
@@ -19556,7 +19556,7 @@
     {
      "va": "01615440",
      "size": 25,
-     "symbol": "?SpecialMoveFinished@ARPlayerController@@QAEXH@Z"
+     "symbol": "?SpecialMoveFinished@ARPlayerController@@QAEXPAUARSpecialMoveInstance@@@Z"
     },
     {
      "va": "01615460",
@@ -20406,7 +20406,7 @@
     {
      "va": "016d2420",
      "size": 4,
-     "symbol": "?GetPlayMovieAction@URGFxFSCmdHandler_PlayMovie@@QAEHXZ"
+     "symbol": "?GetPlayMovieAction@URGFxFSCmdHandler_PlayMovie@@QAEPAUURSeqAct_PlayGfxMovie@@XZ"
     },
     {
      "va": "016d2430",
@@ -170967,12 +170967,12 @@
     {
      "va": "0064e0c0",
      "size": 18,
-     "symbol": "?SetDecalMaterial@UDecalComponent@@QAEXI@Z"
+     "symbol": "?SetDecalMaterial@UDecalComponent@@QAEXPAUUMaterialInterface@@@Z"
     },
     {
      "va": "0064e0e0",
      "size": 7,
-     "symbol": "?GetDecalMaterial@UDecalComponent@@QAEHXZ"
+     "symbol": "?GetDecalMaterial@UDecalComponent@@QAEPAUUMaterialInterface@@XZ"
     },
     {
      "va": "0064e0f0",
@@ -200385,7 +200385,7 @@
     {
      "va": "00c4afe0",
      "size": 22,
-     "symbol": "?FinishAnim@AActor@@QAEXI@Z"
+     "symbol": "?FinishAnim@AActor@@QAEXPAUUAnimNodeSequence@@@Z"
     },
     {
      "va": "00c4b080",
@@ -225421,7 +225421,7 @@
     {
      "va": "00a051a0",
      "size": 26,
-     "symbol": "?GetPhysicsAssetInstance@URB_BodyInstance@@QAEIXZ"
+     "symbol": "?GetPhysicsAssetInstance@URB_BodyInstance@@QAEPAUUPhysicsAssetInstance@@XZ"
     },
     {
      "va": "00a0acb0",
@@ -226567,7 +226567,7 @@
     {
      "va": "00a385d0",
      "size": 26,
-     "symbol": "?GetPhysicsAssetInstance@URB_ConstraintInstance@@QAEIXZ"
+     "symbol": "?GetPhysicsAssetInstance@URB_ConstraintInstance@@QAEPAUUPhysicsAssetInstance@@XZ"
     },
     {
      "va": "00a3f300",
@@ -227406,12 +227406,12 @@
     {
      "va": "00889a50",
      "size": 3,
-     "symbol": "?FViewportClient_vf040@UGameViewportClient@@UAEXH@Z"
+     "symbol": "?LostFocus@UGameViewportClient@@UAEXPAUFViewport@@@Z"
     },
     {
      "va": "00889a60",
      "size": 24,
-     "symbol": "?FViewportClient_vf044@UGameViewportClient@@UAEXH@Z"
+     "symbol": "?ReceivedFocus@UGameViewportClient@@UAEXPAUFViewport@@@Z"
     },
     {
      "va": "00889be0",
@@ -227676,7 +227676,7 @@
     {
      "va": "0089f6b0",
      "size": 3,
-     "symbol": "?FViewportClient_vf050@UGameViewportClient@@UAEHXZ"
+     "symbol": "?RequiresHitProxyStorage@UGameViewportClient@@UAEHXZ"
     },
     {
      "va": "0089f6c0",
@@ -291813,7 +291813,7 @@
     {
      "va": "00758b80",
      "size": 49,
-     "symbol": "?AreUniqueNetIdsEqual@APlayerReplicationInfo@@QAEIH@Z"
+     "symbol": "?AreUniqueNetIdsEqual@APlayerReplicationInfo@@QAEHPAU1@@Z"
     },
     {
      "va": "00758d90",
@@ -297130,7 +297130,7 @@
     {
      "va": "007a0da0",
      "size": 19,
-     "symbol": "?InLatentExecution@AController@@QAE_NI@Z"
+     "symbol": "?InLatentExecution@AController@@QAEHH@Z"
     },
     {
      "va": "007a0de0",
@@ -305908,7 +305908,7 @@
     {
      "va": "00835b60",
      "size": 47,
-     "symbol": "?IsOnDifferentNetwork@ANavigationPoint@@QAEIH@Z"
+     "symbol": "?IsOnDifferentNetwork@ANavigationPoint@@QAEHPAU1@@Z"
     },
     {
      "va": "008366a0",
@@ -357700,12 +357700,12 @@
     {
      "va": "00d1ff30",
      "size": 13,
-     "symbol": "?SetOwnerPrefab@UPrefabSequence@@QAEXH@Z"
+     "symbol": "?SetOwnerPrefab@UPrefabSequence@@QAEXPAUAPrefabInstance@@@Z"
     },
     {
      "va": "00d1ff40",
      "size": 7,
-     "symbol": "?GetOwnerPrefab@UPrefabSequence@@QAEHXZ"
+     "symbol": "?GetOwnerPrefab@UPrefabSequence@@QAEPAUAPrefabInstance@@XZ"
     }
    ]
   },

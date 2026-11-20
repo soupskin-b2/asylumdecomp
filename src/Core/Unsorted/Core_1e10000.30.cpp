@@ -4,112 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// URAnimNode_Pose's script natives that the kit's class does not declare.
-struct URAnimNode_Pose_ : public URAnimNode_Pose
-{
-	void execSnapFloorCorrection(FFrame& Stack, RESULT_DECL);
-	void execGetFloorNormalInfo(FFrame& Stack, RESULT_DECL);
-	void execGetFloorCorrectionInfo(FFrame& Stack, RESULT_DECL);
-	void execProcessStepUp(FFrame& Stack, RESULT_DECL);
-	void execGetPelvisPhysicsBody(FFrame& Stack, RESULT_DECL);
-	void execDisableTick(FFrame& Stack, RESULT_DECL);
-	void execGetAdditiveAnim(FFrame& Stack, RESULT_DECL);
-	void execGetEmptyAnim(FFrame& Stack, RESULT_DECL);
-	void execGetFullBodyAnim(FFrame& Stack, RESULT_DECL);
-	void execIsAimAtOnTarget(FFrame& Stack, RESULT_DECL);
-	void execSetIdleTimeScale(FFrame& Stack, RESULT_DECL);
-	void execGetRagdollFacing(FFrame& Stack, RESULT_DECL);
-	void execAddRagdollForce(FFrame& Stack, RESULT_DECL);
-	void execBreakRagdollConstraint(FFrame& Stack, RESULT_DECL);
-	void execSetRagdollConstraintLimit(FFrame& Stack, RESULT_DECL);
-	void execDeactivateMotors(FFrame& Stack, RESULT_DECL);
-	void execActivateAllMotors(FFrame& Stack, RESULT_DECL);
-	void execActivateMotors(FFrame& Stack, RESULT_DECL);
-	void execIsConsideringStuckAsARagdoll(FFrame& Stack, RESULT_DECL);
-	void execIsStuckAsARagdoll(FFrame& Stack, RESULT_DECL);
-	void execIsRagdoll(FFrame& Stack, RESULT_DECL);
-	void execPopRagdoll(FFrame& Stack, RESULT_DECL);
-	void execPushRagdollOff(FFrame& Stack, RESULT_DECL);
-	void execPushRagdollOnMostlyFixed(FFrame& Stack, RESULT_DECL);
-	void execPushRagdollOn(FFrame& Stack, RESULT_DECL);
-	void execGetThoughts(FFrame& Stack, RESULT_DECL);
-	void execIsFallingOrLanding(FFrame& Stack, RESULT_DECL);
-	void execIsFalling(FFrame& Stack, RESULT_DECL);
-	void execSetAdditiveAnimStateOnAll(FFrame& Stack, RESULT_DECL);
-	void execSetAdditiveAnimState(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionAnimFromCurrent(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionAnim(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionActorPosition(FFrame& Stack, RESULT_DECL);
-	void execIsPastTransitionMeetingPointEnd(FFrame& Stack, RESULT_DECL);
-	void execIsPastTransitionMeetingPointBegin(FFrame& Stack, RESULT_DECL);
-	void execWillBeInTransition(FFrame& Stack, RESULT_DECL);
-	void execGetTimeThroughTransition(FFrame& Stack, RESULT_DECL);
-	void execIsInTransition(FFrame& Stack, RESULT_DECL);
-	void execIsInAnyNonAutomaticTransition(FFrame& Stack, RESULT_DECL);
-	void execIsInAnyAutomaticTransition(FFrame& Stack, RESULT_DECL);
-	void execIsInAnyTransition(FFrame& Stack, RESULT_DECL);
-	void execIsPlayingAnyOverlay(FFrame& Stack, RESULT_DECL);
-	void execIsPlayingOverlay(FFrame& Stack, RESULT_DECL);
-	void execStopAdditiveOverlay(FFrame& Stack, RESULT_DECL);
-	void execPlayAdditiveOverlay(FFrame& Stack, RESULT_DECL);
-	void execStopIdleOverlay(FFrame& Stack, RESULT_DECL);
-	void execPlayIdleOverlay(FFrame& Stack, RESULT_DECL);
-	void execStopMovementOverlay(FFrame& Stack, RESULT_DECL);
-	void execPlayMovementOverlay(FFrame& Stack, RESULT_DECL);
-	void execStopWeaponOverlay(FFrame& Stack, RESULT_DECL);
-	void execPlayWeaponOverlay(FFrame& Stack, RESULT_DECL);
-	void execOverrideYawVelocity(FFrame& Stack, RESULT_DECL);
-	void execOverrideTranslationVelocity(FFrame& Stack, RESULT_DECL);
-	void execAddYaw(FFrame& Stack, RESULT_DECL);
-	void execAddYawVelocity(FFrame& Stack, RESULT_DECL);
-	void execAddTranslation(FFrame& Stack, RESULT_DECL);
-	void execAddTranslationVelocity(FFrame& Stack, RESULT_DECL);
-	void execGetLegDirection(FFrame& Stack, RESULT_DECL);
-	void execGetFaceAtDirection(FFrame& Stack, RESULT_DECL);
-	void execStopFaceAt(FFrame& Stack, RESULT_DECL);
-	void execFaceAtActor(FFrame& Stack, RESULT_DECL);
-	void execFaceAt(FFrame& Stack, RESULT_DECL);
-	void execStopLookAt(FFrame& Stack, RESULT_DECL);
-	void execLookAtActor(FFrame& Stack, RESULT_DECL);
-	void execLookAt(FFrame& Stack, RESULT_DECL);
-	void execGetActualAimAtDirection(FFrame& Stack, RESULT_DECL);
-	void execGetTargetAimAtDirection(FFrame& Stack, RESULT_DECL);
-	void execSnapAimAt(FFrame& Stack, RESULT_DECL);
-	void execStopAimAt(FFrame& Stack, RESULT_DECL);
-	void execAimAtActor(FFrame& Stack, RESULT_DECL);
-	void execAimAt(FFrame& Stack, RESULT_DECL);
-	void execIsMoveToFinished(FFrame& Stack, RESULT_DECL);
-	void execIsMoveToActive(FFrame& Stack, RESULT_DECL);
-	void execGetMoveToDirection(FFrame& Stack, RESULT_DECL);
-	void execInstantStopMoveTo(FFrame& Stack, RESULT_DECL);
-	void execStopMoveTo(FFrame& Stack, RESULT_DECL);
-	void execMoveTo(FFrame& Stack, RESULT_DECL);
-	void execGetMovementSpeedScale(FFrame& Stack, RESULT_DECL);
-	void execGetMovementSpeed(FFrame& Stack, RESULT_DECL);
-	void execSetMovementSpeed(FFrame& Stack, RESULT_DECL);
-	void execIsInWeaponTransition(FFrame& Stack, RESULT_DECL);
-	void execIsPoseMirrored(FFrame& Stack, RESULT_DECL);
-	void execHasPose(FFrame& Stack, RESULT_DECL);
-	void execIsInWeaponStance(FFrame& Stack, RESULT_DECL);
-	void execIsInMovementStance(FFrame& Stack, RESULT_DECL);
-	void execGetIdleStance(FFrame& Stack, RESULT_DECL);
-	void execGetWeaponStance(FFrame& Stack, RESULT_DECL);
-	void execGetMovementStance(FFrame& Stack, RESULT_DECL);
-	void execEndSetDirectionalWeights(FFrame& Stack, RESULT_DECL);
-	void execSetDirectionalWeight(FFrame& Stack, RESULT_DECL);
-	void execBeginSetDirectionalWeights(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionTargetRotation(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionTargetYaw(FFrame& Stack, RESULT_DECL);
-	void execGetTransitionTargetPosition(FFrame& Stack, RESULT_DECL);
-	void execSetTransitionTargetRotation(FFrame& Stack, RESULT_DECL);
-	void execSetTransitionTargetYaw(FFrame& Stack, RESULT_DECL);
-	void execSetTransitionTargetPosition(FFrame& Stack, RESULT_DECL);
-	void execOverrideTransitionTime(FFrame& Stack, RESULT_DECL);
-	void execChangePose(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (URAnimNode_Pose_::*URAnimNode_PoseNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (URAnimNode_Pose::*URAnimNode_PoseNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct URAnimNode_PoseNativeInfo
@@ -119,7 +15,7 @@ struct URAnimNode_PoseNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &URAnimNode_Pose_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &URAnimNode_Pose::name },
 // @baa 0x01e1e6c0
 URAnimNode_PoseNativeInfo GBmGameURAnimNode_PoseNatives[] =
 {

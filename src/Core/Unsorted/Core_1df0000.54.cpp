@@ -4,28 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// UUISceneClient's script natives that the kit's class does not declare.
-struct UUISceneClient_ : public UUISceneClient
-{
-	void execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL);
-	void execGetCanvasToScreen(FFrame& Stack, RESULT_DECL);
-	void execUpdateCanvasToScreen(FFrame& Stack, RESULT_DECL);
-	void execChangeMouseCursor(FFrame& Stack, RESULT_DECL);
-	void execSetMousePosition(FFrame& Stack, RESULT_DECL);
-	void execCloseSceneAtIndex(FFrame& Stack, RESULT_DECL);
-	void execCloseScene(FFrame& Stack, RESULT_DECL);
-	void execReplaceSceneAtIndex(FFrame& Stack, RESULT_DECL);
-	void execReplaceScene(FFrame& Stack, RESULT_DECL);
-	void execInsertScene(FFrame& Stack, RESULT_DECL);
-	void execOpenScene(FFrame& Stack, RESULT_DECL);
-	void execInitializeScene(FFrame& Stack, RESULT_DECL);
-	void execIsSceneInitialized(FFrame& Stack, RESULT_DECL);
-	void execIsUIActive(FFrame& Stack, RESULT_DECL);
-	void execChangeActiveSkin(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (UUISceneClient_::*UUISceneClientNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (UUISceneClient::*UUISceneClientNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct UUISceneClientNativeInfo
@@ -35,7 +15,7 @@ struct UUISceneClientNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UUISceneClient_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UUISceneClient::name },
 // @baa 0x01df5ec0
 UUISceneClientNativeInfo GEngineUUISceneClientNatives[] =
 {

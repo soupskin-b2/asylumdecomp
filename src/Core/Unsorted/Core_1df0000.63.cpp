@@ -4,21 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// UGFxDataStoreSubscriber's script natives that the kit's class does not declare.
-struct UGFxDataStoreSubscriber_ : public UGFxDataStoreSubscriber
-{
-	void execSaveSubscriberValue(FFrame& Stack, RESULT_DECL);
-	void execClearBoundDataStores(FFrame& Stack, RESULT_DECL);
-	void execGetBoundDataStores(FFrame& Stack, RESULT_DECL);
-	void execNotifyDataStoreValueUpdated(FFrame& Stack, RESULT_DECL);
-	void execRefreshSubscriberValue(FFrame& Stack, RESULT_DECL);
-	void execGetDataStoreBinding(FFrame& Stack, RESULT_DECL);
-	void execSetDataStoreBinding(FFrame& Stack, RESULT_DECL);
-	void execPublishValues(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (UGFxDataStoreSubscriber_::*UGFxDataStoreSubscriberNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (UGFxDataStoreSubscriber::*UGFxDataStoreSubscriberNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct UGFxDataStoreSubscriberNativeInfo
@@ -28,7 +15,7 @@ struct UGFxDataStoreSubscriberNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UGFxDataStoreSubscriber_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UGFxDataStoreSubscriber::name },
 // @baa 0x01df7a10
 UGFxDataStoreSubscriberNativeInfo GGFxUIUGFxDataStoreSubscriberNatives[] =
 {

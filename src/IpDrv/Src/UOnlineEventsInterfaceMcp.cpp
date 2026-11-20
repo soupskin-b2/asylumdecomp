@@ -152,16 +152,10 @@ void C_00e3e4f0::sub_00e3e4f0(undefined4 param_2)
 
 // @baa 0x00e3e510
 
-
 /* Slot 0x118 (EscapeString): passes (0, its result pointer, Source) on to slot 0x11c, which C++ can't say with
  * EscapeString's hidden return pointer, so it's written on the raw stack layout. */
-struct UOnlineEventsInterfaceMcp_EscapeString : public UOnlineEventsInterfaceMcp
-{
-    void sub_00e2c7f0(INT Result, INT Source);
-};
-
 // @baa 0x00e2c7f0
-void UOnlineEventsInterfaceMcp_EscapeString::sub_00e2c7f0(INT Result, INT Source)
+void UOnlineEventsInterfaceMcp::sub_00e2c7f0(INT Result, INT Source)
 {
     vf_11c(0, Result, Source);
 }

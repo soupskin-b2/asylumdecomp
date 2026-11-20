@@ -4,16 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// UGFxInteraction's script natives that the kit's class does not declare.
-struct UGFxInteraction_ : public UGFxInteraction
-{
-	void execNotifyGameSessionEnded(FFrame& Stack, RESULT_DECL);
-	void execGetFocusMovie(FFrame& Stack, RESULT_DECL);
-	void execSetFocusMovie(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (UGFxInteraction_::*UGFxInteractionNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (UGFxInteraction::*UGFxInteractionNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct UGFxInteractionNativeInfo
@@ -23,7 +15,7 @@ struct UGFxInteractionNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UGFxInteraction_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UGFxInteraction::name },
 // @baa 0x01df79d0
 UGFxInteractionNativeInfo GGFxUIUGFxInteractionNatives[] =
 {

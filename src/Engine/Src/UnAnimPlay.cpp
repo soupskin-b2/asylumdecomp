@@ -2,6 +2,7 @@
 // Placed here by: class 21, neighbours 6, file 5, callers 4.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Script.h"
 
 struct C_00788140 { void sub_00788140(int a0); };
 // @baa 0x00788140
@@ -55,13 +56,10 @@ FLOAT UAnimNodeSequence::GetSliderPosition(INT param_2, INT param_3) {
 }
 
 // @baa 0x00c4afe0
-void AActor::FinishAnim(undefined4 param_2)
+void AActor::FinishAnim(UAnimNodeSequence* SeqNode)
 {
-    int param_1 = (int)this;
-
-  *(undefined2 *)(*(int *)(param_1 + 0x18) + 0x34) = 0x181;
-  *(undefined4 *)(param_1 + 0xf4) = param_2;
-  return;
+	StateFrame->LatentAction = EPOLL_FinishAnim;
+	LatentSeqNode = SeqNode;
 }
 
 extern undefined4 g_02050c70;
@@ -228,12 +226,8 @@ UBOOL UAnimNodeSequenceBlendByAim::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct UAnimNodeSequenceBlendByAim2 : public UAnimNodeSequenceBlendByAim {
-    FVector2D sub_00c4b080();
-};
-
 // @baa 0x00c4b080
-FVector2D UAnimNodeSequenceBlendByAim2::sub_00c4b080()
+FVector2D UAnimNodeSequenceBlendByAim::sub_00c4b080()
 {
     return Aim;
 }

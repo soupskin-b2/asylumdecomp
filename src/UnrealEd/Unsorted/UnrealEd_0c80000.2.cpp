@@ -48,17 +48,12 @@ void AActor::execSetCollisionType(FFrame& Stack, RESULT_DECL)
 	this->SetCollisionType(NewCollisionType);
 }
 
-struct AActor__00c80da0 : public AActor
-{
-	void FinishAnim(UAnimNodeSequence*);
-};
-
 // @baa 0x00c80da0
 void AActor::execFinishAnim(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UAnimNodeSequence, SeqNode);
 	P_FINISH;
-	((AActor__00c80da0*)this)->FinishAnim(SeqNode);
+	((AActor*)this)->FinishAnim(SeqNode);
 }
 
 // @baa 0x00c80d30

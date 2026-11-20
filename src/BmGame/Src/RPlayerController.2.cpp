@@ -420,14 +420,12 @@ UBOOL ARPlayerController::IsJokerDLCPresent() { return 0; }
 UBOOL ARPlayerController::IsArmouredBatmanDLCPresent() { return 0; }
 
 // @baa 0x01615440
-void ARPlayerController::SpecialMoveFinished(int param_2)
+void ARPlayerController::SpecialMoveFinished(ARSpecialMoveInstance* SpecialMove)
 {
-    int param_1 = (int)this;
-
-  if (*(int *)(param_1 + 0x830) == param_2) {
-    *(undefined4 *)(param_1 + 0x830) = 0;
-  }
-  return;
+	if (NewCurrentSpecialMove == SpecialMove)
+	{
+		NewCurrentSpecialMove = NULL;
+	}
 }
 
 // @baa 0x01615460
@@ -1551,7 +1549,7 @@ UBOOL URGFxFSCmdHandler_PlayMovie::HasParentClassChanged() const
 }
 
 // @baa 0x016d2420
-int URGFxFSCmdHandler_PlayMovie::GetPlayMovieAction(void) { return *(int*)((char*)this + 48); }
+URSeqAct_PlayGfxMovie* URGFxFSCmdHandler_PlayMovie::GetPlayMovieAction() { return (URSeqAct_PlayGfxMovie*)OwnerAction.Dummy; }
 
 // @baa 0x016d2430
 IMPLEMENT_CLASS_AT(URCharacterBioCue, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\BmGameGFxSupportClasses.cpp", 627);

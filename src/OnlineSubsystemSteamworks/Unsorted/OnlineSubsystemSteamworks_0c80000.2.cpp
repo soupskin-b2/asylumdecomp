@@ -39,14 +39,12 @@ void AWorldInfo::execIsPlayInEditor( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsPlayInEditor();
 }
 
-
 // @baa 0x00c89c70
 void AWorldInfo::execVerifyNavList( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	VerifyNavList();
 }
-
 
 // @baa 0x00c89da0
 void AWorldInfo::execIsPreparingMapChange( FFrame& Stack, RESULT_DECL )
@@ -78,17 +76,12 @@ void AGameInfo::execEndSentinelRun(FFrame& Stack, RESULT_DECL)
 	EndSentinelRun(*(INT*)&RunResult);
 }
 
-struct APlayerReplicationInfo__00c89650 : public APlayerReplicationInfo
-{
-	UBOOL AreUniqueNetIdsEqual(APlayerReplicationInfo*);
-};
-
 // @baa 0x00c89650
 void APlayerReplicationInfo::execAreUniqueNetIdsEqual(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APlayerReplicationInfo, OtherPRI);
 	P_FINISH;
-	*(UBOOL*)Result = ((APlayerReplicationInfo__00c89650*)this)->AreUniqueNetIdsEqual(OtherPRI);
+	*(UBOOL*)Result = ((APlayerReplicationInfo*)this)->AreUniqueNetIdsEqual(OtherPRI);
 }
 
 // @baa 0x00c89b00

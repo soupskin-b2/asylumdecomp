@@ -184,7 +184,7 @@ struct C_view_016ae940 {
 int sub_006311e0(...);
 extern undefined4 g_02383f1c;
 // @baa 0x016ae940
-void URCapeComponent::AddCinematicAnimSet(undefined4 param_2)
+void URCapeComponent::AddCinematicAnimSet(UAnimSet* AnimSet)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
@@ -193,7 +193,7 @@ void URCapeComponent::AddCinematicAnimSet(undefined4 param_2)
                    "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RCapeComponent.cpp"
                    ,0x158,&g_02383f1c);
     }
-    ((C_view_016ae940 *)((*(char **)((char *)this + 0x54))))->sub_016d5a90(param_2);
+    ((C_view_016ae940 *)((*(char **)((char *)this + 0x54))))->sub_016d5a90((int)AnimSet);
   }
   return;
 }

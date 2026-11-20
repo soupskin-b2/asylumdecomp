@@ -4,17 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// ARPawnVillain's script natives that the kit's class does not declare.
-struct ARPawnVillain_ : public ARPawnVillain
-{
-	void execMonitorRagdollForHighVelocity(FFrame& Stack, RESULT_DECL);
-	void execCancelBarkSetLoading(FFrame& Stack, RESULT_DECL);
-	void execInitBarkSet(FFrame& Stack, RESULT_DECL);
-	void execLoadBarkSet(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (ARPawnVillain_::*ARPawnVillainNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (ARPawnVillain::*ARPawnVillainNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct ARPawnVillainNativeInfo
@@ -24,7 +15,7 @@ struct ARPawnVillainNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnVillain_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnVillain::name },
 // @baa 0x01e1ef60
 ARPawnVillainNativeInfo GBmGameARPawnVillainNatives[] =
 {

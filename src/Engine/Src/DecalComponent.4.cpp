@@ -11,27 +11,17 @@ void UDecalComponent::execResetToDefaults( FFrame& Stack, RESULT_DECL )
 	ResetToDefaults();
 }
 
-struct UDecalComponent__00c9edd0 : public UDecalComponent
-{
-	UMaterialInterface* GetDecalMaterial();
-};
-
 // @baa 0x00c9edd0
 void UDecalComponent::execGetDecalMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UMaterialInterface**)Result = ((UDecalComponent__00c9edd0*)this)->GetDecalMaterial();
+	*(UMaterialInterface**)Result = ((UDecalComponent*)this)->GetDecalMaterial();
 }
-
-struct UDecalComponent__00c9ed70 : public UDecalComponent
-{
-	void SetDecalMaterial(UMaterialInterface*);
-};
 
 // @baa 0x00c9ed70
 void UDecalComponent::execSetDecalMaterial(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UMaterialInterface, NewDecalMaterial);
 	P_FINISH;
-	((UDecalComponent__00c9ed70*)this)->SetDecalMaterial(NewDecalMaterial);
+	((UDecalComponent*)this)->SetDecalMaterial(NewDecalMaterial);
 }

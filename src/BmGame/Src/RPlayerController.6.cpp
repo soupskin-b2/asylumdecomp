@@ -943,17 +943,12 @@ void ARPlayerController::execStealthModeModifyPlayerMovement(FFrame& Stack, RESU
     *(FLOAT*)Result = static_cast<RPlayerControllerNative_016f98c0*>(this)->sub_01618660(MoveDirection, DeltaTime);
 }
 
-struct ARPlayerController__016f90b0 : public ARPlayerController
-{
-	void SpecialMoveFinished(ARSpecialMoveInstance*);
-};
-
 // @baa 0x016f90b0
 void ARPlayerController::execSpecialMoveFinished(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(ARSpecialMoveInstance, FinishedMove);
 	P_FINISH;
-	((ARPlayerController__016f90b0*)this)->SpecialMoveFinished(FinishedMove);
+	((ARPlayerController*)this)->SpecialMoveFinished(FinishedMove);
 }
 
 // @baa 0x016f9690

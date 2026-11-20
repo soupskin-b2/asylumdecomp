@@ -46,16 +46,11 @@ void USequenceObject::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 	*(AWorldInfo**)Result = ((USequenceObject*)this)->GetWorldInfo();
 }
 
-struct UPrefabSequence_ : public UPrefabSequence
-{
-	APrefabInstance* GetOwnerPrefab();
-};
-
 // @baa 0x00c983b0
 void UPrefabSequence::execGetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(APrefabInstance**)Result = ((UPrefabSequence_*)this)->GetOwnerPrefab();
+	*(APrefabInstance**)Result = ((UPrefabSequence*)this)->GetOwnerPrefab();
 }
 
 // @baa 0x00c98280
@@ -66,17 +61,12 @@ void USequenceOp::execForceActivateInput(FFrame& Stack, RESULT_DECL)
 	((USequenceOp*)this)->ForceActivateInput(InputIdx);
 }
 
-struct UPrefabSequence__00c98350 : public UPrefabSequence
-{
-	void SetOwnerPrefab(APrefabInstance*);
-};
-
 // @baa 0x00c98350
 void UPrefabSequence::execSetOwnerPrefab(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APrefabInstance, InOwner);
 	P_FINISH;
-	((UPrefabSequence__00c98350*)this)->SetOwnerPrefab(InOwner);
+	((UPrefabSequence*)this)->SetOwnerPrefab(InOwner);
 }
 
 // @baa 0x00c98190

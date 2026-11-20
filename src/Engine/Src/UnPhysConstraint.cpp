@@ -2,6 +2,7 @@
 // Placed here by: neighbours 110, class 15, file 11, callers 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Cast.h"
 
 // @baa 0x00a2ff80
 int sub_00a2ff80(int a0, int a1) { return a1; }
@@ -950,19 +951,15 @@ undefined4 * C_00a36fb0::sub_00a36fb0(byte param_2)
 // @baa 0x00a37570
 // @baa 0x00a37630
 // @baa 0x00a376f0
-int sub_006b0420(...);
 // @baa 0x00a385d0
-undefined4 URB_ConstraintInstance::GetPhysicsAssetInstance(void)
+UPhysicsAssetInstance* URB_ConstraintInstance::GetPhysicsAssetInstance()
 {
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  iVar1 = sub_006b0420(*(undefined4 *)(param_1 + 0x34));
-  if (iVar1 != 0) {
-    return *(undefined4 *)(iVar1 + 0x1dc);
-  }
-  return 0;
+	USkeletalMeshComponent* SkelComp = Cast<USkeletalMeshComponent>(OwnerComponent);
+	if (SkelComp)
+	{
+		return SkelComp->PhysicsAssetInstance;
+	}
+	return NULL;
 }
 
 // @baa 0x00a4d4a0

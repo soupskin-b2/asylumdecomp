@@ -2,6 +2,7 @@
 // Placed here by: class 16, neighbours 9, file 6, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Cast.h"
 
 // @baa 0x009f7540
 IMPLEMENT_CLASS_AT(URB_BodyInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 19);
@@ -41,19 +42,15 @@ IMPLEMENT_CLASS_AT(UPhysicalMaterialPropertyBase, "e:\\Projects\\Amadeus\\AA\\Ga
 IMPLEMENT_CLASS_AT(UPhysicalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 21);
 
 // @baa 0x00a04880
-int sub_006b0420(...);
 // @baa 0x00a051a0
-undefined4 URB_BodyInstance::GetPhysicsAssetInstance(void)
+UPhysicsAssetInstance* URB_BodyInstance::GetPhysicsAssetInstance()
 {
-    int param_1 = (int)this;
-
-  int iVar1;
-  
-  iVar1 = sub_006b0420(*(undefined4 *)(param_1 + 0x30));
-  if (iVar1 != 0) {
-    return *(undefined4 *)(iVar1 + 0x1dc);
-  }
-  return 0;
+	USkeletalMeshComponent* SkelComp = Cast<USkeletalMeshComponent>(OwnerComponent);
+	if (SkelComp)
+	{
+		return SkelComp->PhysicsAssetInstance;
+	}
+	return NULL;
 }
 
 int sub_00a0ab90(void);

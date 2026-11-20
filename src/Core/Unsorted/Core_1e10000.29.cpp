@@ -4,30 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// ARPawnPlayer's script natives that the kit's class does not declare.
-struct ARPawnPlayer_ : public ARPawnPlayer
-{
-	void execResetRagdollLinearDamping(FFrame& Stack, RESULT_DECL);
-	void execSetRagdollLinearDampingForGrappleDeath(FFrame& Stack, RESULT_DECL);
-	void execGetThoughts(FFrame& Stack, RESULT_DECL);
-	void execWillFlightPathHit(FFrame& Stack, RESULT_DECL);
-	void execSetupLocatorFromCornerPoint(FFrame& Stack, RESULT_DECL);
-	void execGetRailingTopAndNormal(FFrame& Stack, RESULT_DECL);
-	void execSetDeferredVelocity(FFrame& Stack, RESULT_DECL);
-	void execShouldIFallOffEdge(FFrame& Stack, RESULT_DECL);
-	void execIsLedgeATunnelLedge(FFrame& Stack, RESULT_DECL);
-	void execIsLedgeADangleLedge(FFrame& Stack, RESULT_DECL);
-	void execOnDestroyPhysicsAssetInstance(FFrame& Stack, RESULT_DECL);
-	void execOnCreatePhysicsAssetInstance(FFrame& Stack, RESULT_DECL);
-	void execClearOverridableTransition(FFrame& Stack, RESULT_DECL);
-	void execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL);
-	void execForceUnCrouch(FFrame& Stack, RESULT_DECL);
-	void execCheckSurroundingEnvironment(FFrame& Stack, RESULT_DECL);
-	void execApplyDistributedForceToRagdoll(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (ARPawnPlayer_::*ARPawnPlayerNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (ARPawnPlayer::*ARPawnPlayerNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct ARPawnPlayerNativeInfo
@@ -37,7 +15,7 @@ struct ARPawnPlayerNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnPlayer_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnPlayer::name },
 // @baa 0x01e1ed40
 ARPawnPlayerNativeInfo GBmGameARPawnPlayerNatives[] =
 {

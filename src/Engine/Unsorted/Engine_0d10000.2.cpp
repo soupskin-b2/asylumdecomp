@@ -458,8 +458,8 @@ UBOOL UPrefabSequence::HasParentClassChanged() const
 }
 
 // @baa 0x00d1ff30
-void UPrefabSequence::SetOwnerPrefab(int a0) { *(int*)((char*)this + 268) = a0; }
+void UPrefabSequence::SetOwnerPrefab(APrefabInstance* InOwner) { OwnerPrefab = InOwner; }
 
 // @baa 0x00d1ff40
-int UPrefabSequence::GetOwnerPrefab(void) { return *(int*)((char*)this + 268); }
+APrefabInstance* UPrefabSequence::GetOwnerPrefab() { return OwnerPrefab; }
 

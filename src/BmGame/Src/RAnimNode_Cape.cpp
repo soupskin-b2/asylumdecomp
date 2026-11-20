@@ -208,13 +208,13 @@ struct C_view {
 };
 
 // @baa 0x01579fb0
-undefined4 URAnimNode_Cape::GetCurrentCapeAnimNode(void)
+UAnimNode* URAnimNode_Cape::GetCurrentCapeAnimNode()
 {
     int param_1 = (int)this;
   int iVar1;
   iVar1 = ((C_view *)(this))->sub_01575560(*(undefined4 *)(param_1 + 0xf4), *(undefined4 *)(param_1 + 0xf8));
   if (iVar1 != 0) {
-    return *(undefined4 *)(iVar1 + 8);
+    return *(UAnimNode **)(iVar1 + 8);
   }
   return 0;
 }

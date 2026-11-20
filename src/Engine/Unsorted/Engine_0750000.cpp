@@ -1862,15 +1862,13 @@ bool AActor::vf_1c4(undefined4 param_2, int param_3)
 void __stdcall SetNetUpdateTime(int a0) {  }
 
 // @baa 0x00758b80
-undefined4 APlayerReplicationInfo::AreUniqueNetIdsEqual(int param_2)
+UBOOL APlayerReplicationInfo::AreUniqueNetIdsEqual(APlayerReplicationInfo* OtherPRI)
 {
-    int param_1 = (int)this;
-
-  if (((param_2 != 0) && (*(int *)(param_1 + 0x234) == *(int *)(param_2 + 0x234))) &&
-     (*(int *)(param_1 + 0x238) == *(int *)(param_2 + 0x238))) {
-    return 1;
-  }
-  return 0;
+	if (OtherPRI != NULL && UniqueId.Uid.A == OtherPRI->UniqueId.Uid.A && UniqueId.Uid.B == OtherPRI->UniqueId.Uid.B)
+	{
+		return TRUE;
+	}
+	return FALSE;
 }
 
 // @baa 0x00758d90

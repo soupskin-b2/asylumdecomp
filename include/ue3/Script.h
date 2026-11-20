@@ -94,6 +94,13 @@ struct FStateFrame : public FFrame {
 };
 #pragma pack(pop)
 
+// Latent functions (UnStack.h): FStateFrame::LatentAction while the native waits
+enum EPollSlowFuncs
+{
+    EPOLL_Sleep      = 384,
+    EPOLL_FinishAnim = 385
+};
+
 // Parameters, read in declaration order.
 #define P_GET_UBOOL(v)     UBOOL v = 0; Stack.Step(Stack.Object, &v); v = (v != 0);
 #define P_GET_BYTE(v)      BYTE v = 0; Stack.Step(Stack.Object, &v);

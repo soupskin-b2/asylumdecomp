@@ -4,18 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// ARPawnPlayerChallengeJokerBase's script natives that the kit's class does not declare.
-struct ARPawnPlayerChallengeJokerBase_ : public ARPawnPlayerChallengeJokerBase
-{
-	void execResetCameraToJoker(FFrame& Stack, RESULT_DECL);
-	void execUpdateJokerSounds(FFrame& Stack, RESULT_DECL);
-	void execCalculateJacketFlapsWindValue(FFrame& Stack, RESULT_DECL);
-	void execSetupJokerCustomPhysics(FFrame& Stack, RESULT_DECL);
-	void execGetFlapsWindValue(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (ARPawnPlayerChallengeJokerBase_::*ARPawnPlayerChallengeJokerBaseNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (ARPawnPlayerChallengeJokerBase::*ARPawnPlayerChallengeJokerBaseNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct ARPawnPlayerChallengeJokerBaseNativeInfo
@@ -25,7 +15,7 @@ struct ARPawnPlayerChallengeJokerBaseNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnPlayerChallengeJokerBase_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &ARPawnPlayerChallengeJokerBase::name },
 // @baa 0x01e1eee0
 ARPawnPlayerChallengeJokerBaseNativeInfo GBmGameARPawnPlayerChallengeJokerBaseNatives[] =
 {

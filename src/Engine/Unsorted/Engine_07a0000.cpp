@@ -2,6 +2,7 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Script.h"
 
 int sub_007814b0(void);
 extern undefined4 g_026b62b8;
@@ -59,11 +60,9 @@ void C_007a06f0::sub_007a06f0(void)
 void AController::SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase) {  }
 
 // @baa 0x007a0da0
-bool AController::InLatentExecution(uint param_2)
+UBOOL AController::InLatentExecution(INT LatentActionNumber)
 {
-    int param_1 = (int)this;
-
-  return *(ushort *)(*(int *)(param_1 + 0x18) + 0x34) == param_2;
+	return StateFrame->LatentAction == LatentActionNumber;
 }
 
 struct C_007a0ec0 { void sub_007a0ec0(void); };

@@ -44,16 +44,11 @@ void URAnimNode_Cape__016ec110::execGetNumBonesInCape( FFrame& Stack, RESULT_DEC
 	*(INT*)Result = GetNumBonesInCape();
 }
 
-struct URAnimNode_Cape__016ec150 : public URAnimNode_Cape
-{
-	UAnimNode* GetCurrentCapeAnimNode();
-};
-
 // @baa 0x016ec150
 void URAnimNode_Cape::execGetCurrentCapeAnimNode(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UAnimNode**)Result = ((URAnimNode_Cape__016ec150*)this)->GetCurrentCapeAnimNode();
+	*(UAnimNode**)Result = ((URAnimNode_Cape*)this)->GetCurrentCapeAnimNode();
 }
 
 // @baa 0x016ec190

@@ -28,11 +28,6 @@ void UAnimNodeBlend::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
 
 #define KINDA_SMALL_NUMBER (1.e-4)
 /* UAnimNodeBlendBase::TickAnim (vtable 0x134, declared only as vf_134). */
-struct UAnimNodeBlendBase_ : public UAnimNodeBlendBase
-{
-	void sub_00c535b0(FLOAT DeltaSeconds, FLOAT TotalWeight);	/* TickAnim */
-};
-
 /* UAnimNodeBlend's TickAnim override. */
 struct UAnimNodeBlend__00c53f20 : public UAnimNodeBlend
 {
@@ -63,5 +58,5 @@ void UAnimNodeBlend__00c53f20::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 	Children(0).Weight = 1.f - Child2Weight;
 	Children(1).Weight = Child2Weight;
 
-	((UAnimNodeBlendBase_*)this)->sub_00c535b0(DeltaSeconds, TotalWeight);
+	((UAnimNodeBlendBase*)this)->sub_00c535b0(DeltaSeconds, TotalWeight);
 }

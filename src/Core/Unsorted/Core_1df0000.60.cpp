@@ -4,16 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// UPartyBeaconClient's script natives that the kit's class does not declare.
-struct UPartyBeaconClient_ : public UPartyBeaconClient
-{
-	void execDestroyBeacon(FFrame& Stack, RESULT_DECL);
-	void execCancelReservation(FFrame& Stack, RESULT_DECL);
-	void execRequestReservation(FFrame& Stack, RESULT_DECL);
-};
-
 /* UnScript.h DECLARE_NATIVE_TYPE: the class's table of script natives (name, member pointer). */
-typedef void (UPartyBeaconClient_::*UPartyBeaconClientNative)(FFrame& TheStack, RESULT_DECL);
+typedef void (UPartyBeaconClient::*UPartyBeaconClientNative)(FFrame& TheStack, RESULT_DECL);
 
 #pragma pack(push, 4)
 struct UPartyBeaconClientNativeInfo
@@ -23,7 +15,7 @@ struct UPartyBeaconClientNativeInfo
 };
 
 #pragma pack(pop)
-#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UPartyBeaconClient_::name },
+#define MAP_NATIVE(cls, name) { TEXT("int") TEXT(#cls) TEXT(#name), &UPartyBeaconClient::name },
 // @baa 0x01df7290
 UPartyBeaconClientNativeInfo GIpDrvUPartyBeaconClientNatives[] =
 {

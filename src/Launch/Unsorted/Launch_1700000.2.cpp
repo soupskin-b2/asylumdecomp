@@ -4,16 +4,11 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URGFxFSCmdHandler_PlayMovie_ : public URGFxFSCmdHandler_PlayMovie
-{
-	URSeqAct_PlayGfxMovie* GetPlayMovieAction();
-};
-
 // @baa 0x0170b5d0
 void URGFxFSCmdHandler_PlayMovie::execGetPlayMovieAction(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(URSeqAct_PlayGfxMovie**)Result = ((URGFxFSCmdHandler_PlayMovie_*)this)->GetPlayMovieAction();
+	*(URSeqAct_PlayGfxMovie**)Result = ((URGFxFSCmdHandler_PlayMovie*)this)->GetPlayMovieAction();
 }
 
 // @baa 0x0170b610
