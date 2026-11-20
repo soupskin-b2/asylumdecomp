@@ -20,17 +20,9 @@ UBOOL UUIScene::RebuildNavigationLinks()
 	return bSupportsNavigation;
 }
 
-/* Kit gap: these UUIRoot statics aren't declared. */
-
-struct UUIRoot_ : public UUIRoot
-{
-	static UClass* GetDefaultUIControllerClass();
-	static UUIInteraction* GetDefaultUIController();
-};
-
 // @baa 0x00dacd00
 /* The UIController class the game viewport client's defaults name. */
-UClass* UUIRoot_::GetDefaultUIControllerClass()
+UClass* UUIRoot::GetDefaultUIControllerClass()
 {
 	UClass* GameViewportClass = GEngine->GameViewportClientClass;
 #line 252 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
@@ -51,7 +43,7 @@ UClass* UUIRoot_::GetDefaultUIControllerClass()
 
 // @baa 0x00dacda0
 /* The default object of the game's UIController class, falling back to UUIInteraction's. */
-UUIInteraction* UUIRoot_::GetDefaultUIController()
+UUIInteraction* UUIRoot::GetDefaultUIController()
 {
 	UClass* UIControllerClass = GetDefaultUIControllerClass();
 #line 275 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"

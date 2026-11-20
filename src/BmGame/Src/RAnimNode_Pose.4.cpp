@@ -194,12 +194,8 @@ void C_015c2be0::sub_015c2be0()
     ((T_015be1f0 *)((int)p + 0x5bc))->sub_015be1f0();
 }
 
-struct URAnimNode_Pose_Pose : public URAnimNode_Pose {
-    virtual void vf_24c(FLOAT Delta);
-};
-
 // @baa 0x01595bd0
-void URAnimNode_Pose_Pose::vf_24c(FLOAT Delta)
+void URAnimNode_Pose::vf_24c(FLOAT Delta)
 {
     MovementOutput.ProceduralMovement.AddYawVelocity += Delta;
 }

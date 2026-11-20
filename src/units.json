@@ -7701,7 +7701,7 @@
     {
      "va": "01595bd0",
      "size": 25,
-     "symbol": "?vf_24c@URAnimNode_Pose_Pose@@UAEXM@Z"
+     "symbol": "?vf_24c@URAnimNode_Pose@@UAEXM@Z"
     },
     {
      "va": "01595bf0",
@@ -14097,7 +14097,7 @@
     {
      "va": "01702e00",
      "size": 54,
-     "symbol": "?execUpdateSkeletalMeshDepthBias@URCapeComponent__01702e00@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execUpdateSkeletalMeshDepthBias@URCapeComponent@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "01702e40",
@@ -59349,7 +59349,7 @@
     {
      "va": "01533870",
      "size": 82,
-     "symbol": "?eventUpdateOpScript@URSeqAct_ChangeRain_None_@@QAEHM@Z"
+     "symbol": "?eventUpdateOpScript@URSeqAct_ChangeRain_None@@QAEHM@Z"
     },
     {
      "va": "01516990",
@@ -200653,7 +200653,7 @@
     {
      "va": "00c4ba00",
      "size": 121,
-     "symbol": "?GetSliderPosition@UAnimNodeAimOffset__00c4ba00@@UAEMHH@Z"
+     "symbol": "?GetSliderPosition@UAnimNodeAimOffset@@UAEMHH@Z"
     },
     {
      "va": "00c52fa0",
@@ -200758,7 +200758,7 @@
     {
      "va": "00c71100",
      "size": 250,
-     "symbol": "?GetBoneAtoms@UAnimTree__00c71100@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
+     "symbol": "?GetBoneAtoms@UAnimTree@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@AAUFBoneAtom@@AAH@Z"
     },
     {
      "va": "00c77bf0",
@@ -200878,12 +200878,12 @@
     {
      "va": "00c7ecf0",
      "size": 106,
-     "symbol": "?PostEditChange@UAnimNodeAimOffset__00c7ecf0@@UAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@UAnimNodeAimOffset@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00c7ef10",
      "size": 72,
-     "symbol": "?OnChildAnimEnd@UAnimNodeRandom_@@UAEXPAUUAnimNodeSequence@@MM@Z"
+     "symbol": "?OnChildAnimEnd@UAnimNodeRandom@@UAEXPAUUAnimNodeSequence@@MM@Z"
     }
    ]
   },
@@ -200971,7 +200971,7 @@
     {
      "va": "00c4bb40",
      "size": 82,
-     "symbol": "?GetScaleValue@UAnimNodeScaleRateBySpeed_@@UAEMXZ"
+     "symbol": "?GetScaleValue@UAnimNodeScaleRateBySpeed@@UAEMXZ"
     },
     {
      "va": "00c50080",
@@ -202699,7 +202699,7 @@
     {
      "va": "00c53f20",
      "size": 283,
-     "symbol": "?TickAnim@UAnimNodeBlend__00c53f20@@UAEXMM@Z"
+     "symbol": "?TickAnim@UAnimNodeBlend@@UAEXMM@Z"
     },
     {
      "va": "00c54040",
@@ -211128,7 +211128,7 @@
     {
      "va": "007dcb50",
      "size": 88,
-     "symbol": "??1GameInfo_eventPreCommitMapChange_Parms@?1??eventPreCommitMapChange@AGameInfo_@@QAEXABVFString@@0@Z@QAE@XZ"
+     "symbol": "??1GameInfo_eventPreCommitMapChange_Parms@?1??eventPreCommitMapChange@AGameInfo@@QAEXABVFString@@0@Z@QAE@XZ"
     },
     {
      "va": "007dcbc0",
@@ -211143,7 +211143,7 @@
     {
      "va": "007e10d0",
      "size": 176,
-     "symbol": "?eventPreCommitMapChange@AGameInfo_@@QAEXABVFString@@0@Z"
+     "symbol": "?eventPreCommitMapChange@AGameInfo@@QAEXABVFString@@0@Z"
     },
     {
      "va": "007e1180",
@@ -223846,7 +223846,7 @@
     {
      "va": "00864d20",
      "size": 176,
-     "symbol": "?SetCollisionForPathBuilding@AActor__00864d20@@UAEXH@Z"
+     "symbol": "?SetCollisionForPathBuilding@AActor@@UAEXH@Z"
     },
     {
      "va": "00864dd0",
@@ -225795,7 +225795,7 @@
     {
      "va": "00a400a0",
      "size": 52,
-     "symbol": "?execTermConstraint@URB_ConstraintInstance__00a400a0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execTermConstraint@URB_ConstraintInstance@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00c937d0",
@@ -229173,7 +229173,7 @@
     {
      "va": "008bce40",
      "size": 33,
-     "symbol": "?GetValueStr@USeqVar_Name_@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Name@@UAE?AVFString@@XZ"
     },
     {
      "va": "008bd7b0",
@@ -229223,17 +229223,17 @@
     {
      "va": "008c84a0",
      "size": 208,
-     "symbol": "?GetValueStr@USeqVar_Object_@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Object@@UAE?AVFString@@XZ"
     },
     {
      "va": "008c8a60",
      "size": 33,
-     "symbol": "?GetValueStr@USeqVar_Vector_@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Vector@@UAE?AVFString@@XZ"
     },
     {
      "va": "008cb850",
      "size": 225,
-     "symbol": "?GetValueStr@USeqVar_Named_@@UAE?AVFString@@XZ"
+     "symbol": "?GetValueStr@USeqVar_Named@@UAE?AVFString@@XZ"
     },
     {
      "va": "008e6260",
@@ -241128,7 +241128,7 @@
     {
      "va": "0091c910",
      "size": 488,
-     "symbol": "?UpdateChildComponents@USkeletalMeshComponent__0091c910@@UAEXXZ"
+     "symbol": "?UpdateChildComponents@USkeletalMeshComponent@@UAEXXZ"
     },
     {
      "va": "0091f3f0",
@@ -251507,7 +251507,7 @@
     {
      "va": "00dc62d0",
      "size": 302,
-     "symbol": "?execGetPrimitiveTransform@UUIRoot__00dc62d0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execGetPrimitiveTransform@UUIRoot@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00dc9730",
@@ -251769,12 +251769,12 @@
     {
      "va": "00dacd00",
      "size": 145,
-     "symbol": "?GetDefaultUIControllerClass@UUIRoot_@@SAPAUUClass@@XZ"
+     "symbol": "?GetDefaultUIControllerClass@UUIRoot@@SAPAUUClass@@XZ"
     },
     {
      "va": "00dacda0",
      "size": 135,
-     "symbol": "?GetDefaultUIController@UUIRoot_@@SAPAUUUIInteraction@@XZ"
+     "symbol": "?GetDefaultUIController@UUIRoot@@SAPAUUUIInteraction@@XZ"
     },
     {
      "va": "00db0b50",
@@ -299099,7 +299099,7 @@
     {
      "va": "007dca60",
      "size": 89,
-     "symbol": "??1PlayerController_eventSetProgressMessage_Parms@?1??eventSetProgressMessage@APlayerController_@@QAEXEABVFString@@0@Z@QAE@XZ"
+     "symbol": "??1PlayerController_eventSetProgressMessage_Parms@?1??eventSetProgressMessage@APlayerController@@QAEXEABVFString@@0@Z@QAE@XZ"
     }
    ]
   },
@@ -515669,7 +515669,7 @@
     {
      "va": "00a33c90",
      "size": 64,
-     "symbol": "?eventScriptCall@UObject_@@QAEHXZ"
+     "symbol": "?eventScriptCall@UObject@@QAEHXZ"
     },
     {
      "va": "00a33eb0",

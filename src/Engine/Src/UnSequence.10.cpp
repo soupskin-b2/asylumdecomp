@@ -227,25 +227,15 @@ void USeqEvent_Console::PostLoad()
 }
 
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Name_ : public USeqVar_Name
-{
-    FString GetValueStr();
-};
-
 // @baa 0x008bce40
-FString USeqVar_Name_::GetValueStr()
+FString USeqVar_Name::GetValueStr()
 {
     return NameValue.ToString();
 }
 
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Vector_ : public USeqVar_Vector
-{
-    FString GetValueStr();
-};
-
 // @baa 0x008c8a60
-FString USeqVar_Vector_::GetValueStr()
+FString USeqVar_Vector::GetValueStr()
 {
     return ((const FVector&)VectValue).ToString();
 }
@@ -343,13 +333,8 @@ void USeqAct_ParticleEventGenerator::HandleEnableInputs()
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Named_ : public USeqVar_Named
-{
-    FString GetValueStr();
-};
-
 // @baa 0x008cb850
-FString USeqVar_Named_::GetValueStr()
+FString USeqVar_Named::GetValueStr()
 {
     if (FindVarName != NAME_None)
     {
@@ -360,13 +345,8 @@ FString USeqVar_Named_::GetValueStr()
 
 /* UObject::GetName (0x0043bbb0); the kit doesn't declare it. */
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
-struct USeqVar_Object_ : public USeqVar_Object
-{
-    FString GetValueStr();
-};
-
 // @baa 0x008c84a0
-FString USeqVar_Object_::GetValueStr()
+FString USeqVar_Object::GetValueStr()
 {
     return FString::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString&)ObjValue->GetName() : TEXT("???"));
 }

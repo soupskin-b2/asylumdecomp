@@ -52,14 +52,8 @@ FLOAT UForceFieldShapeCapsule::eventGetHeight()
 }
 
 extern FName g_026c537c;
-// A parameterless UnrealScript event that returns an int: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    INT eventScriptCall();
-};
-
 // @baa 0x00a33c90
-INT UObject_::eventScriptCall()
+INT UObject::eventScriptCall()
 {
     struct ScriptCall_Parms
     {

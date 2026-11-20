@@ -13,14 +13,8 @@ void URB_ConstraintInstance::execSetAngularVelocityDrive(FFrame& Stack, RESULT_D
     SetAngularVelocityDrive(bEnableSwingDrive, bEnableTwistDrive);
 }
 
-struct URB_ConstraintInstance__00a400a0 : public URB_ConstraintInstance
-{
-	INT TermConstraint(INT Arg0, INT Arg1);
-	void execTermConstraint(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00a400a0
-void URB_ConstraintInstance__00a400a0::execTermConstraint( FFrame& Stack, RESULT_DECL )
+void URB_ConstraintInstance::execTermConstraint( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	TermConstraint( 0, 1 );

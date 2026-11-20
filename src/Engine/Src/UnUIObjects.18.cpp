@@ -174,7 +174,6 @@ BYTE UUIScreenObject::GetInputMask(UBOOL bInheritedMaskOnly, UBOOL bOverrideMask
     PURE_VIRTUAL(UUIScreenObject::GetInputMask, return 0xff;);
 }
 
-
 // @baa 0x00ca6510
 void UUIScene::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
 {
@@ -182,7 +181,6 @@ void UUIScene::execGetSceneDataStore(FFrame& Stack, RESULT_DECL)
 
 	*(USceneDataStore**)Result = GetSceneDataStore();
 }
-
 
 // @baa 0x00d990d0
 void UUIScreenObject::RequestPrimitiveReview(UBOOL bReinitializePrimitives, UBOOL bReviewPrimitiveUsage)
@@ -385,7 +383,6 @@ void UUIRoot::execGetInputPlatformType(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = ((UUIRoot_*)this)->GetInputPlatformType(OwningPlayer);
 }
 
-
 // @baa 0x00ca5180
 void UUIObject::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
 {
@@ -394,7 +391,6 @@ void UUIObject::execSetAnchorPosition(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	SetAnchorPosition(NewAnchorPosition, InputType);
 }
-
 
 // @baa 0x00ca2fc0
 void UUIScreenObject::execSetZDepth(FFrame& Stack, RESULT_DECL)
@@ -414,7 +410,6 @@ void UUIScreenObject::execContainsChild(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = ContainsChild(Child, bRecurse);
 }
 
-
 // @baa 0x00ca3900
 void UUIScreenObject::execContainsChildOfClass(FFrame& Stack, RESULT_DECL)
 {
@@ -423,7 +418,6 @@ void UUIScreenObject::execContainsChildOfClass(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = ContainsChildOfClass(SearchClass, bRecurse);
 }
-
 
 // @baa 0x00ca6630
 void UUIScene::execResolveDataStore(FFrame& Stack, RESULT_DECL)
@@ -443,7 +437,6 @@ void UUIObject::execRotateWidget(FFrame& Stack, RESULT_DECL)
 	RotateWidget(NewRotationAmount, bAccumulateRotation);
 }
 
-
 // @baa 0x00ca3650
 void UUIScreenObject::execFindChild(FFrame& Stack, RESULT_DECL)
 {
@@ -461,7 +454,6 @@ void UUIObject::execGetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = GetDefaultDataBinding(BindingIndex);
 }
 
-
 // @baa 0x00ca66e0
 void UUIScene::execGetNextScene(FFrame& Stack, RESULT_DECL)
 {
@@ -471,7 +463,6 @@ void UUIScene::execGetNextScene(FFrame& Stack, RESULT_DECL)
 	*(UUIScene**)Result = GetNextScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
 }
 
-
 // @baa 0x00ca67a0
 void UUIScene::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
 {
@@ -480,7 +471,6 @@ void UUIScene::execGetPreviousScene(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UUIScene**)Result = GetPreviousScene(bRequireMatchingPlayerOwner, bIgnoreUnfocusedScenes);
 }
-
 
 // @baa 0x00ca3710
 void UUIScreenObject::execFindChildUsingID(FFrame& Stack, RESULT_DECL)
@@ -520,7 +510,6 @@ void UUIObject::execSetForcedNavigationTarget(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = SetForcedNavigationTarget(Face, NavTarget, bIsNullOverride);
 }
 
-
 // @baa 0x00ca4980
 void UUIScreenObject::execResolveUIExtent(FFrame& Stack, RESULT_DECL)
 {
@@ -540,7 +529,6 @@ void UUIObject::execSetDefaultDataBinding(FFrame& Stack, RESULT_DECL)
 	SetDefaultDataBinding(MarkupText, BindingIndex);
 }
 
-
 // @baa 0x00ca4810
 void UUIScreenObject::execGetBounds(FFrame& Stack, RESULT_DECL)
 {
@@ -550,7 +538,6 @@ void UUIScreenObject::execGetBounds(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(FLOAT*)Result = GetBounds(Dimension, OutputType, bIgnoreDockPadding);
 }
-
 
 // @baa 0x00ca5cf0
 void UUIObject::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
@@ -692,14 +679,8 @@ void UUIScreenObject::execGetInputMask(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = GetInputMask(bInheritedMaskOnly, bOverrideMaskOnly);
 }
 
-struct UUIRoot__00dc62d0 : public UUIRoot
-{
-	static FMatrix GetPrimitiveTransform(UUIObject* Widget, UBOOL bIncludeAnchorPosition, UBOOL bIncudeRotation, UBOOL bIncludeScale);
-	void execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00dc62d0
-void UUIRoot__00dc62d0::execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL)
+void UUIRoot::execGetPrimitiveTransform(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UUIObject, Widget);
 	P_GET_UBOOL_OPTX(bIncludeAnchorPosition, FALSE);
@@ -854,7 +835,6 @@ void UUIScreenObject::execGetViewportSize(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = GetViewportSize(out_ViewportSize);
 }
 
-
 // @baa 0x00ca2ec0
 void UUIScreenObject::execIsVisible(FFrame& Stack, RESULT_DECL)
 {
@@ -863,7 +843,6 @@ void UUIScreenObject::execIsVisible(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = IsVisible(bIncludeParents);
 }
 
-
 // @baa 0x00ca2f40
 void UUIScreenObject::execIsHidden(FFrame& Stack, RESULT_DECL)
 {
@@ -871,7 +850,6 @@ void UUIScreenObject::execIsHidden(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = IsHidden(bIncludeParents);
 }
-
 
 // @baa 0x00ca4460
 void UUIScreenObject::execGetPlayerOwnerIndex(FFrame& Stack, RESULT_DECL)
@@ -896,7 +874,6 @@ void UUIScene::execGetSceneInputMode(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(BYTE*)Result = GetSceneInputMode(bMemberValueOnly);
 }
-
 
 // @baa 0x00ca6a00
 void UUIScene::execIsSceneActive(FFrame& Stack, RESULT_DECL)
@@ -1003,7 +980,6 @@ void UUIScene::execFindTickableObjectIndex(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = FindTickableObjectIndex(SearchObj);
 }
 
-
 // @baa 0x00ca4af0
 void UUIScreenObject::execDeProject(FFrame& Stack, RESULT_DECL)
 {
@@ -1044,7 +1020,6 @@ void UUIObject::execSetNavigationTarget(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = SetNavigationTarget(Face, NewNavTarget);
 }
-
 
 // @baa 0x00ca48f0
 void UUIScreenObject::execGetPositionVector(FFrame& Stack, RESULT_DECL)

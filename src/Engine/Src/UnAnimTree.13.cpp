@@ -57,14 +57,8 @@ void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 }
 
 /* UAnimNodeRandom's OnChildAnimEnd override (vtable 0x18c, declared only as a vf_). */
-struct UAnimNodeRandom_ : public UAnimNodeRandom
-{
-	void sub_00c7c270(FLOAT BlendTime, FLOAT StartTime);	/* PlayPendingAnimation */
-	void OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime);
-};
-
 // @baa 0x00c7ef10
-void UAnimNodeRandom_::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
+void UAnimNodeRandom::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {
 	UAnimNodeBlendBase::OnChildAnimEnd(Child, PlayedTime, ExcessTime);
 
@@ -374,13 +368,8 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 };
 
 /* UAnimTree's GetBoneAtoms override (its vtable slot is declared only as a vf_). */
-struct UAnimTree__00c71100 : public UAnimTree
-{
-	void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion);
-};
-
 // @baa 0x00c71100
-void UAnimTree__00c71100::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
+void UAnimTree::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
 {
 	// the saved pose, if we want it
 	if (bUseSavedPose)
@@ -513,13 +502,8 @@ INT UAnimNode::CountNumParentsTicked()
 }
 
 /* UAnimNodeAimOffset's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNodeAimOffset__00c4ba00 : public UAnimNodeAimOffset
-{
-	FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex);
-};
-
 // @baa 0x00c4ba00
-FLOAT UAnimNodeAimOffset__00c4ba00::GetSliderPosition(INT SliderIndex, INT ValueIndex)
+FLOAT UAnimNodeAimOffset::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 {
 #line 4138 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
 	check(SliderIndex == 0);
@@ -562,14 +546,8 @@ void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
 }
 
 /* UAnimNodeAimOffset's PostEditChange (vtable 0x4c, declared only as vf_04c). */
-struct UAnimNodeAimOffset__00c7ecf0 : public UAnimNodeAimOffset
-{
-	void sub_00c7bab0();		/* BakeOffsetsFromAnimations */
-	void PostEditChange(UProperty* PropertyThatChanged);
-};
-
 // @baa 0x00c7ecf0
-void UAnimNodeAimOffset__00c7ecf0::PostEditChange(UProperty* PropertyThatChanged)
+void UAnimNodeAimOffset::PostEditChange(UProperty* PropertyThatChanged)
 {
 	UObject::PostEditChange(PropertyThatChanged);
 

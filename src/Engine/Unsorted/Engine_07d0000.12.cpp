@@ -21,15 +21,10 @@ void AGameInfo::eventPostLogin(class APlayerController* NewPlayer)
 
 extern FName g_026c55e4;
 	/* ENGINE_SetProgressMessage */
-struct APlayerController_ : public APlayerController
-{
-	void eventSetProgressMessage(BYTE MessageType, const FString& Message, const FString& Title);
-};
-
 // @baa 0x007dca60
 /* The script event's generated glue (EngineClasses.h), out of line here. The Parms struct's
  * implicit destructor (two FStrings) stays out of line (007dca60). Callers pass GamePlayers(0)->Actor. */
-void APlayerController_::eventSetProgressMessage(BYTE MessageType, const FString& Message, const FString& Title)
+void APlayerController::eventSetProgressMessage(BYTE MessageType, const FString& Message, const FString& Title)
 {
 	struct PlayerController_eventSetProgressMessage_Parms
 	{
@@ -78,7 +73,6 @@ void AActor::PostBeginPlay()
         }
     }
 }
-
 
 // @baa 0x007d5bb0
 /* The script event's generated glue (EngineClasses.h), out of line here. PostBeginPlay is a probe

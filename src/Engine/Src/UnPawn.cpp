@@ -1327,15 +1327,8 @@ UBOOL AActor::AnchorNeedNotBeReachable()
   return 1;
 }
 
-struct AActor__00864d20 : public AActor
-{
-    UBOOL sub_00764820(); // TRUE if CollisionComponent is the only actor-colliding component (00764820)
-    void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); // 00784170
-    void SetCollisionForPathBuilding(UBOOL bNowPathBuilding); // 00864d20
-};
-
 // @baa 0x00864d20
-void AActor__00864d20::SetCollisionForPathBuilding(UBOOL bNowPathBuilding)
+void AActor::SetCollisionForPathBuilding(UBOOL bNowPathBuilding)
 {
     if (bNowPathBuilding)
     {

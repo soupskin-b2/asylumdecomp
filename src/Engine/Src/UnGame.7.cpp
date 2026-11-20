@@ -58,15 +58,10 @@ void APlayerController::eventSetProgressMessage(BYTE MessageType, const FString&
 
 extern FName g_026c46b4;
 	/* ENGINE_PreCommitMapChange */
-struct AGameInfo_ : public AGameInfo
-{
-	void eventPreCommitMapChange(const FString& PreviousMapName, const FString& NextMapName);
-};
-
 // @baa 0x007dcb50
 /* The script event's generated glue (EngineClasses.h), out of line here. The Parms struct's
  * implicit destructor (two FStrings) stays out of line (007dcb50). */
-void AGameInfo_::eventPreCommitMapChange(const FString& PreviousMapName, const FString& NextMapName)
+void AGameInfo::eventPreCommitMapChange(const FString& PreviousMapName, const FString& NextMapName)
 {
 	struct GameInfo_eventPreCommitMapChange_Parms
 	{

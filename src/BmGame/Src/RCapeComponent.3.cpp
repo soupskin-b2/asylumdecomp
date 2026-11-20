@@ -53,14 +53,8 @@ void URCapeComponent::execCalculateAngularVelocity( FFrame& Stack, RESULT_DECL )
 	*(FLOAT*)Result = CalculateAngularVelocity();
 }
 
-struct URCapeComponent__01702e00 : public URCapeComponent
-{
-	UBOOL UpdateSkeletalMeshDepthBias();
-	void execUpdateSkeletalMeshDepthBias(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702e00
-void URCapeComponent__01702e00::execUpdateSkeletalMeshDepthBias( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execUpdateSkeletalMeshDepthBias( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = UpdateSkeletalMeshDepthBias();

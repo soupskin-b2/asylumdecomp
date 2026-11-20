@@ -646,13 +646,8 @@ inline UBOOL IsZero(const FVector& V) { return V.X == 0.0f && V.Y == 0.0f && V.Z
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 /* slot 0x128 (vf_128) is UActorComponent::UpdateChildComponents */
-struct USkeletalMeshComponent__0091c910 : public USkeletalMeshComponent
-{
-    void UpdateChildComponents();
-};
-
 // @baa 0x0091c910
-void USkeletalMeshComponent__0091c910::UpdateChildComponents()
+void USkeletalMeshComponent::UpdateChildComponents()
 {
 #line 1496 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalComponent.cpp"
     check(bEnableUpdateChildComponents);

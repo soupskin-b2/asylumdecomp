@@ -129,29 +129,11 @@ struct FSeqOpOutputLink_ : public FSeqOpOutputLink
     }
 };
 
-/* The UpdateOpScript script event's generated glue (inline in CommonGameClasses.h). */
-struct URSeqAct_ChangeRain_None_ : public URSeqAct_ChangeRain_None
-{
-    UBOOL eventUpdateOpScript(FLOAT DeltaTime)
-    {
-        struct RSeqAct_ChangeRain_None_eventUpdateOpScript_Parms
-        {
-            FLOAT DeltaTime;
-            UBOOL ReturnValue;
-        };
-        RSeqAct_ChangeRain_None_eventUpdateOpScript_Parms Parms;
-        Parms.ReturnValue = FALSE;
-        Parms.DeltaTime = DeltaTime;
-        ProcessEvent(FindFunctionChecked(g_026e0f18), &Parms);
-        return Parms.ReturnValue;
-    }
-};
-
 // @baa 0x015338d0
 /* The latent action runs in script; it finishes when UpdateOpScript returns TRUE. */
 UBOOL URSeqAct_ChangeRain_None::UpdateOp(FLOAT DeltaTime)
 {
-    UBOOL bFinished = ((URSeqAct_ChangeRain_None_*)this)->eventUpdateOpScript(DeltaTime);
+    UBOOL bFinished = ((URSeqAct_ChangeRain_None*)this)->eventUpdateOpScript(DeltaTime);
     if (bFinished)
     {
         ((FSeqOpOutputLink_&)OutputLinks(0)).ActivateOutputLink();

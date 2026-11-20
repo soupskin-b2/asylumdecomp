@@ -34,7 +34,6 @@ FLOAT UAnimNodeBlendBase::GetBlendWeight(FLOAT ChildWeight)
 /* FVector::Size (UnMath.h), not in the kit. */
 static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z); }
 
-
 // @baa 0x00c4b660
 FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 {
@@ -59,13 +58,8 @@ FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 #define KINDA_SMALL_NUMBER (1.e-4)
 /* UAnimNodeScaleRateBySpeed's GetScaleValue override (UAnimNodeScalePlayRate vtable 0x19c, declared
  * only as vf_19c). */
-struct UAnimNodeScaleRateBySpeed_ : public UAnimNodeScaleRateBySpeed
-{
-	FLOAT GetScaleValue();
-};
-
 // @baa 0x00c4bb40
-FLOAT UAnimNodeScaleRateBySpeed_::GetScaleValue()
+FLOAT UAnimNodeScaleRateBySpeed::GetScaleValue()
 {
 	AActor* Owner = SkelComponent ? SkelComponent->GetOwner() : NULL;
 	if (Owner && BaseSpeed > KINDA_SMALL_NUMBER)
