@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-extern FName g_026c537c;
-	/* ENGINE_GetDrawComponent */
-extern FName g_026c42d8;
-	/* ENGINE_FillBySphere */
 extern FName g_026c3df4;
 	/* ENGINE_FillByCylinder */
 /* out of line in the exe (0075eeb0) */
@@ -16,25 +12,6 @@ extern template INT TArray<UActorComponent*>::AddItem(UActorComponent* const& It
 /* UForceFieldShape's script events (generated glue, EngineClasses.h) */
 struct UForceFieldShape_ : public UForceFieldShape
 {
-	class UPrimitiveComponent* eventGetDrawComponent()
-	{
-		struct ForceFieldShape_eventGetDrawComponent_Parms
-		{
-			class UPrimitiveComponent* ReturnValue;
-		} Parms;
-		Parms.ReturnValue = NULL;
-		ProcessEvent(FindFunctionChecked(g_026c537c), &Parms);
-		return Parms.ReturnValue;
-	}
-	void eventFillBySphere(FLOAT Radius)
-	{
-		struct ForceFieldShape_eventFillBySphere_Parms
-		{
-			FLOAT Radius;
-		} Parms;
-		Parms.Radius = Radius;
-		ProcessEvent(FindFunctionChecked(g_026c42d8), &Parms);
-	}
 	void eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset)
 	{
 		struct ForceFieldShape_eventFillByCylinder_Parms

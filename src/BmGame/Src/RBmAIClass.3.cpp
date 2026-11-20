@@ -6,9 +6,8 @@
 
 extern FName g_026e32fc;
 	/* BMGAME_GetAnimationFearLevel */
-/* Kit gaps: ARBMAIController's script event glue (BmGameClasses.h) isn't declared (inline here as the generated
- * header has it; out of line at 015d89f0), and BmGame's hardcoded names (0x516..0x51a, the silent-predator idle
- * stances) have no EName identifiers. */
+/* Inlined here: the script-event glue for eventGetAnimationFearLevel (0x015d89f0); Classes.h declares the
+ * out-of-line copy. */
 struct ARBMAIController_ : public ARBMAIController
 {
 	FORCEINLINE BYTE eventGetAnimationFearLevel()

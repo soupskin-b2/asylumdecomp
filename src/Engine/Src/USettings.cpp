@@ -421,31 +421,9 @@ void USettings::GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT&
 	}
 }
 
-/* Kit gap: FSettingsData's structcpptext (CleanUp and the SetData overloads) isn't declared. */
-
-struct FSettingsData_ : public FSettingsData
-{
-	/* Frees the string or blob this holds and empties it. */
-	inline void CleanUp()
-	{
-		if (Type == SDT_String)
-		{
-			delete [] (TCHAR*)Value2.Dummy;
-		}
-		else if (Type == SDT_Blob)
-		{
-			delete [] (BYTE*)Value2.Dummy;
-		}
-		Type = SDT_Empty;
-		Value1 = 0;
-		Value2.Dummy = 0;
-	}
-	void SetData(const TCHAR* InString);
-};
-
 // @baa 0x00d6e1f0
 /* Makes this a string value holding its own copy of InString. */
-void FSettingsData_::SetData(const TCHAR* InString)
+void FSettingsData::SetData(const TCHAR* InString)
 {
 	CleanUp();
 	Type = SDT_String;

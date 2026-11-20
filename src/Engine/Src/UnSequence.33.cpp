@@ -7,7 +7,8 @@
 
 extern FName g_026c4fcc;
  /* ENGINE_GetObjClassVersion */
-/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventGetObjClassVersion (0x008aa210);
+ * Classes.h declares the out-of-line copy. */
 struct USequenceObject_ : public USequenceObject
 {
     INT eventGetObjClassVersion()
@@ -32,7 +33,7 @@ void USeqVar_ObjectList::OnCreated()
 
 extern FName g_026c45cc;
  /* ENGINE_Update */
-/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventUpdate (0x008aa600); Classes.h declares the out-of-line copy. */
 struct USeqAct_Latent_ : public USeqAct_Latent
 {
     UBOOL eventUpdate(FLOAT DeltaTime)

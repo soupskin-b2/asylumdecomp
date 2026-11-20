@@ -16,11 +16,6 @@ struct FScriptDelegate_ : public FScriptDelegate
     }
 };
 
-struct FSettingsData_ : public FSettingsData
-{
-    FSettingsData_& operator=(const FSettingsData_& Other); /* 0x00d74260 */
-};
-
 struct FSettingsProperty_ : public FSettingsProperty
 {
     FSettingsProperty_& operator=(const FSettingsProperty_& Other)
@@ -28,7 +23,7 @@ struct FSettingsProperty_ : public FSettingsProperty
         if (&Other != this)
         {
             PropertyId = Other.PropertyId;
-            (FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+            Data = (const FSettingsData&)Other.Data;
         }
         return *this;
     }

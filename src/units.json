@@ -191532,7 +191532,7 @@
     {
      "va": "00d67c90",
      "size": 158,
-     "symbol": "??8FSettingsData_@@QBEHABU0@@Z"
+     "symbol": "??8FSettingsData@@QBEHABU0@@Z"
     }
    ]
   },
@@ -191556,7 +191556,7 @@
     {
      "va": "00d742c0",
      "size": 19,
-     "symbol": "?SetData@FSettingsData_@@QAEXABV?$TArray@E@@@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXABV?$TArray@E@@@Z"
     }
    ]
   },
@@ -191568,7 +191568,7 @@
     {
      "va": "00d6e3f0",
      "size": 52,
-     "symbol": "?SetData@FSettingsData_@@QAEX_K@Z"
+     "symbol": "?SetData@FSettingsData@@QAEX_K@Z"
     }
    ]
   },
@@ -191580,7 +191580,7 @@
     {
      "va": "00d6e430",
      "size": 52,
-     "symbol": "?SetData@FSettingsData_@@QAEXHH@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXHH@Z"
     }
    ]
   },
@@ -191592,7 +191592,7 @@
     {
      "va": "00d67b90",
      "size": 31,
-     "symbol": "?GetData@FSettingsData_@@QBEXAAM@Z"
+     "symbol": "?GetData@FSettingsData@@QBEXAAM@Z"
     }
    ]
   },
@@ -191604,7 +191604,7 @@
     {
      "va": "00d67c30",
      "size": 28,
-     "symbol": "?GetData@FSettingsData_@@QBEXAAN@Z"
+     "symbol": "?GetData@FSettingsData@@QBEXAAN@Z"
     }
    ]
   },
@@ -191616,7 +191616,7 @@
     {
      "va": "00d6e470",
      "size": 42,
-     "symbol": "?GetData@FSettingsData_@@QBEXAAVFString@@@Z"
+     "symbol": "?GetData@FSettingsData@@QBEXAAVFString@@@Z"
     }
    ]
   },
@@ -191640,7 +191640,7 @@
     {
      "va": "00d67de0",
      "size": 29,
-     "symbol": "??9FSettingsData_@@QBEHH@Z"
+     "symbol": "??9FSettingsData@@QBEHH@Z"
     }
    ]
   },
@@ -191652,7 +191652,7 @@
     {
      "va": "00d67e70",
      "size": 40,
-     "symbol": "??8FSettingsData_@@QBEH_K@Z"
+     "symbol": "??8FSettingsData@@QBEH_K@Z"
     }
    ]
   },
@@ -191664,7 +191664,7 @@
     {
      "va": "00d67ea0",
      "size": 58,
-     "symbol": "??9FSettingsData_@@QBEH_K@Z"
+     "symbol": "??9FSettingsData@@QBEH_K@Z"
     }
    ]
   },
@@ -191676,7 +191676,7 @@
     {
      "va": "00d67d80",
      "size": 52,
-     "symbol": "??9FSettingsData_@@QBEHM@Z"
+     "symbol": "??9FSettingsData@@QBEHM@Z"
     }
    ]
   },
@@ -191688,7 +191688,7 @@
     {
      "va": "00d67e30",
      "size": 53,
-     "symbol": "??9FSettingsData_@@QBEHN@Z"
+     "symbol": "??9FSettingsData@@QBEHN@Z"
     }
    ]
   },
@@ -191700,7 +191700,7 @@
     {
      "va": "00d67ee0",
      "size": 90,
-     "symbol": "??8FSettingsData_@@QBEHPB_W@Z"
+     "symbol": "??8FSettingsData@@QBEHPB_W@Z"
     }
    ]
   },
@@ -191712,7 +191712,7 @@
     {
      "va": "00d67f40",
      "size": 20,
-     "symbol": "??9FSettingsData_@@QBEHPB_W@Z"
+     "symbol": "??9FSettingsData@@QBEHPB_W@Z"
     }
    ]
   },
@@ -191724,7 +191724,7 @@
     {
      "va": "00d6e560",
      "size": 153,
-     "symbol": "??8FSettingsData_@@QBEHABVFString@@@Z"
+     "symbol": "??8FSettingsData@@QBEHABVFString@@@Z"
     }
    ]
   },
@@ -191736,7 +191736,7 @@
     {
      "va": "00d6e600",
      "size": 20,
-     "symbol": "??9FSettingsData_@@QBEHABVFString@@@Z"
+     "symbol": "??9FSettingsData_@@QBEHPB_W@Z"
     }
    ]
   },
@@ -192058,7 +192058,7 @@
     {
      "va": "00d6e320",
      "size": 45,
-     "symbol": "?SetData@FSettingsData_@@QAEXN@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXN@Z"
     },
     {
      "va": "00d88830",
@@ -192105,7 +192105,7 @@
     {
      "va": "00d6e350",
      "size": 52,
-     "symbol": "?SetData@FSettingsData_@@QAEXM@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXM@Z"
     },
     {
      "va": "00d74a60",
@@ -192359,7 +192359,7 @@
     {
      "va": "00d6e1f0",
      "size": 152,
-     "symbol": "?SetData@FSettingsData_@@QAEXPB_W@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXPB_W@Z"
     },
     {
      "va": "00d6e620",

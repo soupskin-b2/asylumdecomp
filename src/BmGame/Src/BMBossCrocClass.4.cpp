@@ -8,7 +8,8 @@ extern FName g_026e3684;
 	/* BMGAME_BackToGameCamera */
 extern FName g_026e2718;
 	/* BMGAME_UpdateCameraRoot */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
+/* Inlined here: the script-event glue for eventBackToGameCamera (0x016cc0e0), eventUpdateCameraRoot (0x016cc110);
+ * Classes.h declares the out-of-line copy. */
 struct URSeqAct_CrocRelativeAnimCamera_ : public URSeqAct_CrocRelativeAnimCamera
 {
 	void eventBackToGameCamera()

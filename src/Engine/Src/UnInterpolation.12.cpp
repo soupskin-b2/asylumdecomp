@@ -3,17 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-extern FName g_026c45cc;
- /* ENGINE_Update */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
-struct AMatineeActor_ : public AMatineeActor
-{
-    void eventUpdate()
-    {
-        ProcessEvent(FindFunctionChecked(g_026c45cc), NULL);
-    }
-};
-
 // @baa 0x00ceb450
 /* USeqAct_Interp slot 0x16c (UE3's PopulateLinkedVariableValues()): pull the linked variables in and, when the play
  * rate changed, have the replication actor resend its state. */
@@ -23,13 +12,14 @@ void USeqAct_Interp::PublishLinkedVariableValues()
     Super::PublishLinkedVariableValues();
     if (PlayRate != OldPlayRate && ReplicatedActor != NULL)
     {
-        ((AMatineeActor_*)ReplicatedActor)->eventUpdate();
+        ((AMatineeActor*)ReplicatedActor)->eventUpdate();
     }
 }
 
 extern FName g_026c4c28;
  /* ENGINE_Update */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventInterpolationChanged (0x00ce8490);
+ * Classes.h declares the out-of-line copy. */
 struct AActor_ : public AActor
 {
     void eventInterpolationChanged(USeqAct_Interp* InterpAction)
@@ -59,7 +49,7 @@ void USeqAct_Interp::NotifyActorsOfChange()
     }
     if (ReplicatedActor != NULL)
     {
-        ((AMatineeActor_*)ReplicatedActor)->eventUpdate();
+        ((AMatineeActor*)ReplicatedActor)->eventUpdate();
     }
 }
 

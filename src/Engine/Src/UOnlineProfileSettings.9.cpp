@@ -20,42 +20,6 @@ struct FScriptDelegate_ : public FScriptDelegate
 	}
 };
 
-struct FSettingsData_ : public FSettingsData
-{
-	FSettingsData_& operator=(const FSettingsData_& Other); /* 0x00d74260 */
-	FORCEINLINE void CleanUp()
-	{
-		if (Type == SDT_String)
-		{
-			delete [] (TCHAR*)Value2.Dummy;
-		}
-		else if (Type == SDT_Blob)
-		{
-			delete [] (BYTE*)Value2.Dummy;
-		}
-		Type = SDT_Empty;
-		Value1 = 0;
-		Value2.Dummy = 0;
-	}
-	FORCEINLINE UBOOL operator==(INT Other) const
-	{
-		if (Type == SDT_Int32)
-		{
-			return Other == Value1;
-		}
-		return FALSE;
-	}
-	FORCEINLINE UBOOL operator!=(INT Other) const
-	{
-		return !(*this == Other);
-	}
-	UBOOL operator==(const FString& Other) const; /* 0x00d6e560 */
-	FORCEINLINE UBOOL operator!=(const FString& Other) const
-	{
-		return !(*this == Other);
-	}
-};
-
 /* TArray<FOnlineProfileSetting>::Add (0x00d6cf90) is out of line in this build; Array.h's body. */
 template<> __declspec(noinline) INT TArray<FOnlineProfileSetting>::Add(INT Count)
 {
@@ -104,7 +68,7 @@ struct FSettingsProperty_ : public FSettingsProperty
 		if (&Other != this)
 		{
 			PropertyId = Other.PropertyId;
-			(FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+			Data = (const FSettingsData&)Other.Data;
 		}
 		return *this;
 	}

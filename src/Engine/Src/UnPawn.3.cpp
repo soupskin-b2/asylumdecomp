@@ -468,19 +468,6 @@ void APawn::execSetBasedPosition(FFrame& Stack, RESULT_DECL)
     this->SetBasedPosition(BP, pos, ForcedBase);
 }
 
-extern FName g_026c49f0;
-	/* ENGINE_Recycle */
-/* Kit gap: the Recycle script-event glue (EngineClasses.h, inline) isn't declared on the constraint classes. */
-struct UPathConstraint_ : public UPathConstraint
-{
-    FORCEINLINE void eventRecycle() { ProcessEvent(FindFunctionChecked(g_026c49f0), NULL); }
-};
-
-struct UPathGoalEvaluator_ : public UPathGoalEvaluator
-{
-    FORCEINLINE void eventRecycle() { ProcessEvent(FindFunctionChecked(g_026c49f0), NULL); }
-};
-
 // @baa 0x008a66e0
 /* APawn slot 0x3a0: UE3's APawn::ClearConstraints(): hand every path constraint and goal evaluator back to script
  * for recycling. */
@@ -489,13 +476,13 @@ void APawn::ClearConstraints()
     while (PathConstraintList != NULL)
     {
         UPathConstraint* NextConstraint = PathConstraintList->NextConstraint;
-        ((UPathConstraint_*)PathConstraintList)->eventRecycle();
+        ((UPathConstraint*)PathConstraintList)->eventRecycle();
         PathConstraintList = NextConstraint;
     }
     while (PathGoalList != NULL)
     {
         UPathGoalEvaluator* NextEvaluator = PathGoalList->NextEvaluator;
-        ((UPathGoalEvaluator_*)PathGoalList)->eventRecycle();
+        ((UPathGoalEvaluator*)PathGoalList)->eventRecycle();
         PathGoalList = NextEvaluator;
     }
 }

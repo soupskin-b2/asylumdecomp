@@ -215,6 +215,14 @@ happened; on HTTP 429 or 503 wait as told, don't retry in a loop.
   Only for methods the headers lack: never redeclare or override one they declare (see below).
   `Kit gap:` comments in src/ record what the headers lacked when that function matched; many are
   stale since. Check include/ before copying a local stand-in from one.
+- One exception: a function the headers declare out of line (with its address) that the original
+  inlined into the function you're writing. Script event glue (`eventFoo`) is the usual case: VC8 kept
+  most copies out of line, so Classes.h declares them that way, but some callers have the body
+  inlined. Write the inlined copy as a `FORCEINLINE` member of a helper struct
+  (`struct AActor_ : public AActor { FORCEINLINE void eventPostBeginPlay() { ... } };`, called
+  through `((AActor_*)this)->`) and say in a comment that it is the inlined copy of the declared
+  one. Glue the exe never keeps out of line is defined inline in Classes.h itself (the
+  "generated script-event glue" blocks); call it directly.
 - A class the headers don't have: define it in your file under its real name when you know it
   (`FNetworkNotify`, say), with its fields by name and its virtual functions declared
   `virtual` (not a hand-written vtable pointer). CI renames a type that clashes with one already in

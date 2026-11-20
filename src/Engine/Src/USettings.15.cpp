@@ -7,55 +7,15 @@
 #include <wchar.h>
 #include <string.h>
 
-/* Kit gap: FString has no operator* (UnString.h), and FSettingsData's structcpptext (SetData/GetData overloads and
- * the comparison operators) isn't declared. */
-
-struct FSettingsData_ : public FSettingsData
-{
-	FORCEINLINE void CleanUp()
-	{
-		if (Type == SDT_String)
-		{
-			delete [] (TCHAR*)Value2.Dummy;
-		}
-		else if (Type == SDT_Blob)
-		{
-			delete [] (BYTE*)Value2.Dummy;
-		}
-		Type = SDT_Empty;
-		Value1 = 0;
-		Value2.Dummy = 0;
-	}
-	void SetData(DWORD InSize, const BYTE* InData); /* 0x00d6e390 */
-	void SetData(const TArray<BYTE>& InData);
-	void SetData(QWORD InData);
-	void SetData(INT InValue1, INT InValue2);
-	void GetData(FLOAT& OutData) const;
-	void GetData(DOUBLE& OutData) const;
-	void GetData(FString& OutData) const;
-	UBOOL operator==(INT Other) const;
-	UBOOL operator!=(INT Other) const;
-	UBOOL operator==(QWORD Other) const;
-	UBOOL operator!=(QWORD Other) const;
-	UBOOL operator==(FLOAT Other) const;
-	UBOOL operator!=(FLOAT Other) const;
-	UBOOL operator==(DOUBLE Other) const;
-	UBOOL operator!=(DOUBLE Other) const;
-	UBOOL operator==(const TCHAR* Other) const;
-	UBOOL operator!=(const TCHAR* Other) const;
-	UBOOL operator==(const FString& Other) const;
-	UBOOL operator!=(const FString& Other) const;
-};
-
 // @baa 0x00d6e3f0
 /* Makes this a blob holding a copy of InData. */
-void FSettingsData_::SetData(const TArray<BYTE>& InData)
+void FSettingsData::SetData(const TArray<BYTE>& InData)
 {
 	SetData(InData.Num(), InData.GetTypedData());
 }
 
 /* Makes this a 64-bit integer value. */
-void FSettingsData_::SetData(QWORD InData)
+void FSettingsData::SetData(QWORD InData)
 {
 	CleanUp();
 	Type = SDT_Int64;
@@ -63,7 +23,7 @@ void FSettingsData_::SetData(QWORD InData)
 }
 
 /* Makes this a date/time value (two 32-bit halves). */
-void FSettingsData_::SetData(INT InValue1, INT InValue2)
+void FSettingsData::SetData(INT InValue1, INT InValue2)
 {
 	CleanUp();
 	Type = SDT_DateTime;
@@ -72,7 +32,7 @@ void FSettingsData_::SetData(INT InValue1, INT InValue2)
 }
 
 /* The float this holds; 0 when it isn't a float. */
-void FSettingsData_::GetData(FLOAT& OutData) const
+void FSettingsData::GetData(FLOAT& OutData) const
 {
 	if (Type == SDT_Float)
 	{
@@ -85,7 +45,7 @@ void FSettingsData_::GetData(FLOAT& OutData) const
 }
 
 /* The double this holds; 0 when it isn't a double. */
-void FSettingsData_::GetData(DOUBLE& OutData) const
+void FSettingsData::GetData(DOUBLE& OutData) const
 {
 	if (Type == SDT_Double)
 	{
@@ -98,7 +58,7 @@ void FSettingsData_::GetData(DOUBLE& OutData) const
 }
 
 /* The string this holds; empty when it isn't a string. */
-void FSettingsData_::GetData(FString& OutData) const
+void FSettingsData::GetData(FString& OutData) const
 {
 	if (Type == SDT_String && Value2.Dummy != 0)
 	{
@@ -110,7 +70,7 @@ void FSettingsData_::GetData(FString& OutData) const
 	}
 }
 
-UBOOL FSettingsData_::operator==(INT Other) const
+UBOOL FSettingsData::operator==(INT Other) const
 {
 	UBOOL bEqual = FALSE;
 	if (Type == SDT_Int32)
@@ -120,12 +80,12 @@ UBOOL FSettingsData_::operator==(INT Other) const
 	return bEqual;
 }
 
-UBOOL FSettingsData_::operator!=(INT Other) const
+UBOOL FSettingsData::operator!=(INT Other) const
 {
 	return !(*this == Other);
 }
 
-UBOOL FSettingsData_::operator==(QWORD Other) const
+UBOOL FSettingsData::operator==(QWORD Other) const
 {
 	if (Type == SDT_Int64)
 	{
@@ -139,12 +99,12 @@ UBOOL FSettingsData_::operator==(QWORD Other) const
 	return FALSE;
 }
 
-UBOOL FSettingsData_::operator!=(QWORD Other) const
+UBOOL FSettingsData::operator!=(QWORD Other) const
 {
 	return !(*this == Other);
 }
 
-UBOOL FSettingsData_::operator==(FLOAT Other) const
+UBOOL FSettingsData::operator==(FLOAT Other) const
 {
 	if (Type == SDT_Float && Other == *(const FLOAT*)&Value1)
 	{
@@ -153,12 +113,12 @@ UBOOL FSettingsData_::operator==(FLOAT Other) const
 	return FALSE;
 }
 
-UBOOL FSettingsData_::operator!=(FLOAT Other) const
+UBOOL FSettingsData::operator!=(FLOAT Other) const
 {
 	return !(*this == Other);
 }
 
-UBOOL FSettingsData_::operator==(DOUBLE Other) const
+UBOOL FSettingsData::operator==(DOUBLE Other) const
 {
 	if (Type == SDT_Double && Other == *(const DOUBLE*)&Value1)
 	{
@@ -167,12 +127,12 @@ UBOOL FSettingsData_::operator==(DOUBLE Other) const
 	return FALSE;
 }
 
-UBOOL FSettingsData_::operator!=(DOUBLE Other) const
+UBOOL FSettingsData::operator!=(DOUBLE Other) const
 {
 	return !(*this == Other);
 }
 
-UBOOL FSettingsData_::operator==(const TCHAR* Other) const
+UBOOL FSettingsData::operator==(const TCHAR* Other) const
 {
 	if (Type == SDT_String && Value2.Dummy != 0 && Other != NULL)
 	{
@@ -181,12 +141,12 @@ UBOOL FSettingsData_::operator==(const TCHAR* Other) const
 	return FALSE;
 }
 
-UBOOL FSettingsData_::operator!=(const TCHAR* Other) const
+UBOOL FSettingsData::operator!=(const TCHAR* Other) const
 {
 	return !(*this == Other);
 }
 
-UBOOL FSettingsData_::operator==(const FString& Other) const
+UBOOL FSettingsData::operator==(const FString& Other) const
 {
 	if (Type == SDT_String && Value2.Dummy != 0)
 	{
@@ -195,7 +155,7 @@ UBOOL FSettingsData_::operator==(const FString& Other) const
 	return FALSE;
 }
 
-UBOOL FSettingsData_::operator!=(const FString& Other) const
+UBOOL FSettingsData::operator!=(const FString& Other) const
 {
 	return !(*this == Other);
 }

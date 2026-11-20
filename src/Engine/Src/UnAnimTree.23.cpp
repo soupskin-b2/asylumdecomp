@@ -107,22 +107,11 @@ void UAnimNodeSynch::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 	Super::InitAnim(MeshComp, Parent);
 }
 
-extern FName g_026c4f90;
-	/* ENGINE_OnInit */
-/* Kit gap: the OnInit event's generated glue (EngineClasses.h) isn't declared; inlined here. */
-struct UAnimNode_ : public UAnimNode
-{
-	FORCEINLINE void eventOnInit()
-	{
-		ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
-	}
-};
-
 // @baa 0x00c4b4f0
 void UAnimNode::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	SkelComponent = MeshComp;
-	((UAnimNode_*)this)->eventOnInit();
+	eventOnInit();
 }
 
 // @baa 0x00c69940

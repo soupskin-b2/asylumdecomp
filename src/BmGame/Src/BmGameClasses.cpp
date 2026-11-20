@@ -1019,34 +1019,17 @@ void ARCinematicActor::TermRBPhys(FRBPhysScene* A)
     Super::TermRBPhys(A);
 }
 
-extern FName g_026e27d0;
-	/* BMGAME_Play */
-extern FName g_026e2fb8;
-	/* BMGAME_Pause */
-/* The action's script events (generated glue, BmGameClasses.h) */
-struct URSeqAct_ChangeMovieStatus_ : public URSeqAct_ChangeMovieStatus
-{
-	void eventPlay()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e27d0), NULL);
-	}
-	void eventPause()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e2fb8), NULL);
-	}
-};
-
 // @baa 0x0157e7a0
 /* Inputs: 0 play, 1 pause (both handled in script), 2 stop and rewind the movie. */
 UBOOL URSeqAct_ChangeMovieStatus::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_ChangeMovieStatus_*)this)->eventPlay();
+		eventPlay();
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_ChangeMovieStatus_*)this)->eventPause();
+		eventPause();
 	}
 	if (InputLinks(2).bHasImpulse)
 	{
@@ -1199,17 +1182,11 @@ UBOOL URSeqAct_PlayScaledDistanceSound::UpdateOp(FLOAT DeltaTime)
 	return FALSE;
 }
 
-extern FName g_026e2898;
-	/* BMGAME_Activate1stPersonCamera */
-extern FName g_026e35e8;
-	/* BMGAME_Stop1stPersonCamera */
 extern FName g_026e27b8;
 	/* BMGAME_ForceLookDirection */
 /* The action's script events (generated glue, BmGameClasses.h) */
 struct URSeqAct_SetStationary1stPersonCamera_ : public URSeqAct_SetStationary1stPersonCamera
 {
-	void eventActivate1stPersonCamera() { ProcessEvent(FindFunctionChecked(g_026e2898), NULL); }
-	void eventStop1stPersonCamera() { ProcessEvent(FindFunctionChecked(g_026e35e8), NULL); }
 	void eventForceLookDirection(UBOOL bForce)
 	{
 		struct RSeqAct_SetStationary1stPersonCamera_eventForceLookDirection_Parms
@@ -1227,7 +1204,7 @@ UBOOL URSeqAct_SetStationary1stPersonCamera::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventActivate1stPersonCamera();
+		eventActivate1stPersonCamera();
 		FSeqOpOutputLink& Link = OutputLinks(0);
 		if (!Link.bDisabled)
 		{
@@ -1237,7 +1214,7 @@ UBOOL URSeqAct_SetStationary1stPersonCamera::UpdateOp(FLOAT DeltaTime)
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_SetStationary1stPersonCamera_*)this)->eventStop1stPersonCamera();
+		eventStop1stPersonCamera();
 		FSeqOpOutputLink& Link = OutputLinks(1);
 		if (!Link.bDisabled)
 		{

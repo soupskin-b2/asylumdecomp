@@ -4,17 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-extern FName g_026c3e7c;
- /* ENGINE_ClientForceGarbageCollection */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
-struct APlayerController_ : public APlayerController
-{
-    void eventClientForceGarbageCollection()
-    {
-        ProcessEvent(FindFunctionChecked(g_026c3e7c), NULL);
-    }
-};
-
 // @baa 0x008ac870
 /* UE3's USeqAct_ForceGarbageCollection::Activated(): ask every player controller to collect garbage. */
 void USeqAct_ForceGarbageCollection::Activated()
@@ -25,7 +14,7 @@ void USeqAct_ForceGarbageCollection::Activated()
         APlayerController* PC = Controller->GetAPlayerController();
         if (PC != NULL)
         {
-            ((APlayerController_*)PC)->eventClientForceGarbageCollection();
+            ((APlayerController*)PC)->eventClientForceGarbageCollection();
         }
     }
 }

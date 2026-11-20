@@ -4586,6 +4586,51 @@ struct FSettingsData {
     void GetData(FString& OutData) const;
     void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
     FString ToString() const; /* 0x00d797a0 */
+    /* the rest of the structcpptext (USettings.h); the exe has these inlined or as per-caller copies */
+    FORCEINLINE void CleanUp()
+    {
+        if (Type == SDT_String)
+        {
+            delete [] (TCHAR*)Value2.Dummy;
+        }
+        else if (Type == SDT_Blob)
+        {
+            delete [] (BYTE*)Value2.Dummy;
+        }
+        Type = SDT_Empty;
+        Value1 = 0;
+        Value2.Dummy = 0;
+    }
+    void SetData(INT InValue1, INT InValue2); /* SDT_DateTime */
+    FSettingsData& operator=(const FSettingsData& Other); /* 0x00d74260 */
+    UBOOL operator==(const FSettingsData& Other) const;
+    UBOOL operator!=(const FSettingsData& Other) const;
+    UBOOL operator==(INT Other) const;
+    UBOOL operator!=(INT Other) const;
+    UBOOL operator==(QWORD Other) const;
+    UBOOL operator!=(QWORD Other) const;
+    UBOOL operator==(FLOAT Other) const;
+    UBOOL operator!=(FLOAT Other) const;
+    UBOOL operator==(DOUBLE Other) const;
+    UBOOL operator!=(DOUBLE Other) const;
+    UBOOL operator==(const TCHAR* Other) const;
+    UBOOL operator!=(const TCHAR* Other) const;
+    UBOOL operator==(const FString& Other) const; /* 0x00d6e560 */
+    UBOOL operator!=(const FString& Other) const;
+    template<typename TYPE, ESettingsDataType ENUM_TYPE> FORCEINLINE void Increment(TYPE IncBy)
+    {
+        if (Type == ENUM_TYPE)
+        {
+            *(TYPE*)&Value1 += IncBy;
+        }
+    }
+    template<typename TYPE, ESettingsDataType ENUM_TYPE> FORCEINLINE void Decrement(TYPE DecBy)
+    {
+        if (Type == ENUM_TYPE)
+        {
+            *(TYPE*)&Value1 -= DecBy;
+        }
+    }
 };
 
 struct FSettingsProperty {
@@ -11553,6 +11598,17 @@ struct AActor : public UObject {
     void FindTouchingActors(); /* 0x007814c0 */
     void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); /* 0x00784170 */
     UBOOL ActorIsPendingKill() const { return bDeleteMe || HasAnyFlags(RF_PendingKill); } /* out-of-line copy: 0x00753b30 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventFinishAnimControl()
+    {
+        extern FName g_026c54a8; /* ENGINE_FinishAnimControl */
+        ProcessEvent(FindFunctionChecked(g_026c54a8), NULL);
+    }
+    FORCEINLINE void eventSetInitialState()
+    {
+        extern FName g_026c3ff8; /* ENGINE_SetInitialState */
+        ProcessEvent(FindFunctionChecked(g_026c3ff8), NULL);
+    }
 };
 
 /* FBasedPosition::operator* (UnActor.h), here because it reads AActor */
@@ -12988,6 +13044,12 @@ struct APlayerController : public AController {
     UBOOL IsPlayerMuted(FUniqueNetId&); /* 0x007b5600 */
     class UInterpTrackInstDirector* sub_007a1500(); /* 0x007a1500: returns ControllingDirTrackInst */
     /* registered size 0x5b0 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventClientForceGarbageCollection()
+    {
+        extern FName g_026c3e7c; /* ENGINE_ClientForceGarbageCollection */
+        ProcessEvent(FindFunctionChecked(g_026c3e7c), NULL);
+    }
 };
 
 struct AAdmin : public APlayerController {
@@ -13956,6 +14018,12 @@ struct UAnimNode : public UAnimObject {
     UAnimNode* FindAnimNode(FName InNodeName); /* 0x00c5ef30 */
     static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh); /* 0x00c52e80 */
     /* registered size 0xb4 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    FORCEINLINE void eventOnInit()
+    {
+        extern FName g_026c4f90; /* ENGINE_OnInit */
+        ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
+    }
 };
 
 struct UAnimNodeBlendBase : public UAnimNode {
@@ -19898,6 +19966,28 @@ struct UForceFieldShape : public UObject {
     /* other member functions */
     void eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset); /* 0x00a33cd0 */
     void eventFillByBox(FVector Dimension); /* 0x00a33d40 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    class UPrimitiveComponent* eventGetDrawComponent()
+    {
+        extern FName g_026c537c; /* ENGINE_GetDrawComponent */
+        struct ForceFieldShape_eventGetDrawComponent_Parms
+        {
+            class UPrimitiveComponent* ReturnValue;
+        } Parms;
+        Parms.ReturnValue = NULL;
+        ProcessEvent(FindFunctionChecked(g_026c537c), &Parms);
+        return Parms.ReturnValue;
+    }
+    void eventFillBySphere(FLOAT Radius)
+    {
+        extern FName g_026c42d8; /* ENGINE_FillBySphere */
+        struct ForceFieldShape_eventFillBySphere_Parms
+        {
+            FLOAT Radius;
+        } Parms;
+        Parms.Radius = Radius;
+        ProcessEvent(FindFunctionChecked(g_026c42d8), &Parms);
+    }
 };
 
 struct UForceFieldShapeBox : public UForceFieldShape {
@@ -20476,6 +20566,12 @@ struct AGameInfo : public AInfo {
     void ForceClearUnpauseDelegates(AActor*); /* 0x008c7500 */
     void DoNavFearCostFallOff(); /* 0x008a9420 */
     /* registered size 0x398 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    FORCEINLINE void eventClearPause()
+    {
+        extern FName g_026c4dc8; /* ENGINE_ClearPause */
+        ProcessEvent(FindFunctionChecked(g_026c4dc8), NULL);
+    }
 };
 
 struct UGameInfoDataProvider : public UUIDynamicDataProvider {
@@ -20866,6 +20962,12 @@ struct UPathGoalEvaluator : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* registered size 0x40 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    FORCEINLINE void eventRecycle()
+    {
+        extern FName g_026c49f0; /* ENGINE_Recycle */
+        ProcessEvent(FindFunctionChecked(g_026c49f0), NULL);
+    }
 };
 
 struct UGoal_AtActor : public UPathGoalEvaluator {
@@ -24266,6 +24368,12 @@ struct AMatineeActor : public AActor {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void TickSpecial( FLOAT DeltaSeconds ); /* 0x1b4 */
     /* registered size 0x1b8 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventUpdate()
+    {
+        extern FName g_026c45cc; /* ENGINE_Update */
+        ProcessEvent(FindFunctionChecked(g_026c45cc), NULL);
+    }
 };
 
 struct UPrimitiveComponentFactory : public UObject {
@@ -27292,6 +27400,12 @@ struct UPathConstraint : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* registered size 0x38 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    FORCEINLINE void eventRecycle()
+    {
+        extern FName g_026c49f0; /* ENGINE_Recycle */
+        ProcessEvent(FindFunctionChecked(g_026c49f0), NULL);
+    }
 };
 
 struct UPath_AlongLine : public UPathConstraint {
@@ -31435,6 +31549,12 @@ struct USequenceEvent : public USequenceOp {
     /* other member functions */
     UBOOL sub_008ac050(UBOOL bTest); /* 0x008ac050 */
     /* registered size 0xf8 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventRegisterEvent()
+    {
+        extern FName g_026c530c; /* ENGINE_RegisterEvent */
+        ProcessEvent(FindFunctionChecked(g_026c530c), NULL);
+    }
 };
 
 struct USeqEvent_AISeeEnemy : public USequenceEvent {
@@ -43992,6 +44112,12 @@ struct URSeqAct_PlaySpeechBase : public USeqAct_Latent {
     /* other member functions */
     void eventDisableQuitLines(); /* 0x01584c70 */
     UBOOL eventCheckPlayOnce(); /* 0x01584db0 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventExitSpeech()
+    {
+        extern FName g_026e321c; /* BMGAME_ExitSpeech */
+        ProcessEvent(FindFunctionChecked(g_026e321c), NULL);
+    }
 };
 
 struct URBMSeqAct_PlaySpeech : public URSeqAct_PlaySpeechBase {
@@ -46010,6 +46136,7 @@ struct ARControllableChatteringTeethBase : public APawn {
     class UAnimNodeCrossfader* eventGetJumpBlenderAnimNode(); /* 0x01707e80 */
     void sub_01714f10(FLOAT DeltaTime); /* 0x01714f10 */
     UBOOL sub_0171f1a0(); /* 0x0171f1a0 */
+    void sub_0171a4b0(FLOAT DeltaTime); /* 0x0171a4b0 the teeth are done: the throwing Joker faces them and finishes his special move, then the teeth and their camera go */
     /* registered size 0x4cc */
 };
 
@@ -53892,6 +54019,17 @@ struct URSeqAct_ChangeMovieStatus : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventPlay()
+    {
+        extern FName g_026e27d0; /* BMGAME_Play */
+        ProcessEvent(FindFunctionChecked(g_026e27d0), NULL);
+    }
+    void eventPause()
+    {
+        extern FName g_026e2fb8; /* BMGAME_Pause */
+        ProcessEvent(FindFunctionChecked(g_026e2fb8), NULL);
+    }
 };
 
 struct URSeqAct_ChangeWind : public USequenceAction {
@@ -54531,6 +54669,12 @@ struct URSeqAct_GetThugStatus : public USequenceAction {
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     virtual void DeActivated(); /* 0x178 */
     /* registered size 0xdc */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventGetStatus()
+    {
+        extern FName g_026e3844; /* BMGAME_GetStatus */
+        ProcessEvent(FindFunctionChecked(g_026e3844), NULL);
+    }
 };
 
 struct URSeqAct_GFxMovieChallengeHUD : public USequenceAction {
@@ -54778,6 +54922,17 @@ struct URSeqAct_MakeBatmanLookAtItems : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe4 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventSet()
+    {
+        extern FName g_026e3520; /* BMGAME_Set */
+        ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
+    }
+    void eventClear()
+    {
+        extern FName g_026e29a4; /* BMGAME_Clear */
+        ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
+    }
 };
 
 struct URSeqAct_Mixbin : public USeqAct_Latent {
@@ -55231,6 +55386,17 @@ struct URSeqAct_ScarecrowEffect : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xdc */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventSet()
+    {
+        extern FName g_026e3520; /* BMGAME_Set */
+        ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
+    }
+    void eventClear()
+    {
+        extern FName g_026e29a4; /* BMGAME_Clear */
+        ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
+    }
 };
 
 struct URSeqAct_SetAIAwareness : public USequenceAction {
@@ -55381,6 +55547,17 @@ struct URSeqAct_SetRoomUnlocked : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xd8 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventUnlock()
+    {
+        extern FName g_026e3558; /* BMGAME_Unlock */
+        ProcessEvent(FindFunctionChecked(g_026e3558), NULL);
+    }
+    void eventLock()
+    {
+        extern FName g_026e3410; /* BMGAME_Lock */
+        ProcessEvent(FindFunctionChecked(g_026e3410), NULL);
+    }
 };
 
 struct URSeqAct_SetScarecrowCamera : public USeqAct_Latent {
@@ -55424,6 +55601,17 @@ struct URSeqAct_SetScarecrowFocus : public USequenceAction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL UpdateOp(FLOAT DeltaTime); /* 0x170 */
     /* registered size 0xe0 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventFocusIn()
+    {
+        extern FName g_026e2884; /* BMGAME_FocusIn */
+        ProcessEvent(FindFunctionChecked(g_026e2884), NULL);
+    }
+    void eventFocusOut()
+    {
+        extern FName g_026e2a48; /* BMGAME_FocusOut */
+        ProcessEvent(FindFunctionChecked(g_026e2a48), NULL);
+    }
 };
 
 struct URSeqAct_SetScarecrowInspect : public USequenceAction {
@@ -55536,6 +55724,17 @@ struct URSeqAct_SetStationary1stPersonCamera : public USeqAct_Latent {
     /* registered size 0xf8 */
     /* other member functions */
     void eventForceLookDirection(UBOOL Force); /* 0x0154bd30 */
+    /* generated script-event glue (inline in the exe; no out-of-line copy) */
+    void eventActivate1stPersonCamera()
+    {
+        extern FName g_026e2898; /* BMGAME_Activate1stPersonCamera */
+        ProcessEvent(FindFunctionChecked(g_026e2898), NULL);
+    }
+    void eventStop1stPersonCamera()
+    {
+        extern FName g_026e35e8; /* BMGAME_Stop1stPersonCamera */
+        ProcessEvent(FindFunctionChecked(g_026e35e8), NULL);
+    }
 };
 
 struct URSeqAct_SetThugBarkState : public USequenceAction {

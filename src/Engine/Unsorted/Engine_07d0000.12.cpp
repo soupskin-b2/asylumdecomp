@@ -40,11 +40,8 @@ void APlayerController::eventSetProgressMessage(BYTE MessageType, const FString&
 
 extern FName g_026c4570;
 	/* ENGINE_PostBeginPlay */
-extern FName g_026c3ff8;
-	/* ENGINE_SetInitialState */
-/* EName entry Core.h doesn't list yet (UnNames.h): the PostBeginPlay probe. */
-/* Kit gap: the script-event glue (EngineClasses.h, inline) isn't declared. PostBeginPlay is a probe function: the
- * glue only calls into script when the current state probes for it. */
+/* Inlined here: the script-event glue for eventPostBeginPlay (0x007d5bb0); Classes.h declares the out-of-line copy.
+ * PostBeginPlay is a probe function: the glue only calls into script when the current state probes for it. */
 struct AActor_ : public AActor
 {
     FORCEINLINE void eventPostBeginPlay()
@@ -54,7 +51,6 @@ struct AActor_ : public AActor
             ProcessEvent(FindFunctionChecked(g_026c4570), NULL);
         }
     }
-    FORCEINLINE void eventSetInitialState() { ProcessEvent(FindFunctionChecked(g_026c3ff8), NULL); }
 };
 
 // @baa 0x007d7170
@@ -66,7 +62,7 @@ void AActor::PostBeginPlay()
     bDonePostBeginPlay = TRUE;
     if (!bDeleteMe)
     {
-        ((AActor_*)this)->eventSetInitialState();
+        eventSetInitialState();
         if (!Base && bCollideWorld && bShouldBaseAtStartup && (Physics == PHYS_None || Physics == PHYS_Rotating))
         {
             FindBase();

@@ -7,8 +7,8 @@
 
 extern FName g_026e3740;
 	/* BMGAME_GetOutputLinkForCurrentSelection */
-/* Kit gaps: the script events' generated glue (BmGameClasses.h); RSeqAct_PlayerDialogueLine's SetSource copy is
- * out of line (0x01558540). */
+/* Inlined here: the script-event glue for eventGetOutputLinkForCurrentSelection (0x01558360); Classes.h declares
+ * the out-of-line copy. RSeqAct_PlayerDialogueLine's SetSource is called out of line (0x01558540). */
 struct URSeqAct_PlayerDialogueOptions_ : public URSeqAct_PlayerDialogueOptions
 {
 	INT eventGetOutputLinkForCurrentSelection()

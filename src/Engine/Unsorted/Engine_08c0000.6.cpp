@@ -5,18 +5,6 @@
 #include "ue3/Script.h"
 #include "ue3/Cast.h"
 
-extern FName g_026c4dc8;
-	/* ENGINE_ClearPause */
-/* Kit gap: the GameInfo.ClearPause script event's glue (EngineClasses.h, inline) isn't declared. */
-
-struct AGameInfo_ : public AGameInfo
-{
-	FORCEINLINE void eventClearPause()
-	{
-		ProcessEvent(FindFunctionChecked(g_026c4dc8), NULL);
-	}
-};
-
 // @baa 0x008c7500
 /* AGameInfo::ForceClearUnpauseDelegates (UnGame.cpp): drops every CanUnpause delegate PauseActor registered, and if
  * PauseActor's player was the pauser, hands that role to another live player (or clears it). */
@@ -38,7 +26,7 @@ void AGameInfo::ForceClearUnpauseDelegates(AActor* PauseActor)
 		// if we removed some CanUnpause delegates, we may be able to unpause the game now
 		if (bUpdatePausedState)
 		{
-			((AGameInfo_*)this)->eventClearPause();
+			eventClearPause();
 		}
 
 		APlayerController* PC = Cast<APlayerController>(PauseActor);

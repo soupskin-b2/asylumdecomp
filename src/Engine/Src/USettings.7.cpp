@@ -3,32 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* Kit gap: FSettingsData's structcpptext (CleanUp and the SetData overloads) isn't declared. */
-
-struct FSettingsData_ : public FSettingsData
-{
-	/* Frees the string or blob this holds and empties it. */
-	inline void CleanUp()
-	{
-		if (Type == SDT_String)
-		{
-			delete [] (TCHAR*)Value2.Dummy;
-		}
-		else if (Type == SDT_Blob)
-		{
-			delete [] (BYTE*)Value2.Dummy;
-		}
-		Type = SDT_Empty;
-		Value1 = 0;
-		Value2.Dummy = 0;
-	}
-	void SetData(DOUBLE InData);
-	void SetData(FLOAT InData);
-};
-
 // @baa 0x00d6e320
 /* Makes this a double value. */
-void FSettingsData_::SetData(DOUBLE InData)
+void FSettingsData::SetData(DOUBLE InData)
 {
 	CleanUp();
 	Type = SDT_Double;
@@ -36,7 +13,7 @@ void FSettingsData_::SetData(DOUBLE InData)
 }
 
 /* Makes this a float value. */
-void FSettingsData_::SetData(FLOAT InData)
+void FSettingsData::SetData(FLOAT InData)
 {
 	CleanUp();
 	Type = SDT_Float;

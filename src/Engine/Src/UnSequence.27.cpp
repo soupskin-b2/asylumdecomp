@@ -120,7 +120,8 @@ UBOOL USeqAct_PlayCameraAnim::UpdateOp(FLOAT DeltaTime)
 
 extern FName g_026c4fcc;
  /* ENGINE_GetObjClassVersion */
-/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventGetObjClassVersion (0x008aa210);
+ * Classes.h declares the out-of-line copy. */
 struct USequenceObject_ : public USequenceObject
 {
     INT eventGetObjClassVersion()
@@ -160,7 +161,7 @@ void USeqEvent_ParticleEvent::OnCreated()
 
 extern FName g_026c4db8;
  /* ENGINE_CheckLogins */
-/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventCheckLogins (0x008e7cd0); Classes.h declares the out-of-line copy. */
 struct USeqCond_IsLoggedIn_ : public USeqCond_IsLoggedIn
 {
     UBOOL eventCheckLogins()
@@ -189,17 +190,6 @@ void USeqCond_IsLoggedIn::Activated()
     }
 }
 
-extern FName g_026c530c;
- /* ENGINE_RegisterEvent */
-/* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
-struct USequenceEvent_ : public USequenceEvent
-{
-    void eventRegisterEvent()
-    {
-        ProcessEvent(FindFunctionChecked(g_026c530c), NULL);
-    }
-};
-
 // @baa 0x008be6c0
 /* UE3's USequenceEvent::RegisterEvent(): hook the event into its originator's GeneratedEvents, let script register,
  * and mark it registered. */
@@ -209,7 +199,7 @@ UBOOL USequenceEvent::RegisterEvent()
     {
         Originator->GeneratedEvents.AddUniqueItem(this);
     }
-    ((USequenceEvent_*)this)->eventRegisterEvent();
+    eventRegisterEvent();
     bRegistered = TRUE;
     return bRegistered;
 }

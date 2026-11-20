@@ -5,17 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Classes.h"
 
-extern FName g_026c54a8;
- /* ENGINE_FinishAnimControl */
-
-/* EngineClasses.h's inline script-event glue (not in the kit). */
-struct AActor_ : public AActor
-{
-    void eventFinishAnimControl()
-    {
-        ProcessEvent(FindFunctionChecked(g_026c54a8), NULL);
-    }
-};
 
 // @baa 0x00cfab00
 /* UE3's UInterpGroupInst::TermGroupInst(UBOOL bDeleteData): shut down every track instance, then let the group's
@@ -32,7 +21,7 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
     UBOOL bHasAnimTrack = Group->HasAnimControlTrack();
     if (GroupActor != NULL && !GroupActor->IsPendingKill() && bHasAnimTrack)
     {
-        ((AActor_*)GroupActor)->eventFinishAnimControl();
+        ((AActor*)GroupActor)->eventFinishAnimControl();
     }
 }
 

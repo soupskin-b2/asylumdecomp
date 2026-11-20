@@ -7,15 +7,8 @@
 
 /* The engine calls the CRT memcmp out of line (0053de70) rather than its intrinsic form. */
 #pragma function(memcmp)
-/* Kit gap: FSettingsData's structcpptext (operator==, operator!=) isn't declared. */
-struct FSettingsData_ : public FSettingsData
-{
-	UBOOL operator==(const FSettingsData_& Other) const;
-	UBOOL operator!=(const FSettingsData_& Other) const;
-};
-
 /* Whether both hold the same type and value (blobs and strings compare by contents). */
-UBOOL FSettingsData_::operator==(const FSettingsData_& Other) const
+UBOOL FSettingsData::operator==(const FSettingsData& Other) const
 {
 	if (Type == Other.Type)
 	{
@@ -34,7 +27,7 @@ UBOOL FSettingsData_::operator==(const FSettingsData_& Other) const
 
 // @baa 0x00d67c90
 /* Whether they differ in type or value. */
-UBOOL FSettingsData_::operator!=(const FSettingsData_& Other) const
+UBOOL FSettingsData::operator!=(const FSettingsData& Other) const
 {
 	return !(*this == Other);
 }

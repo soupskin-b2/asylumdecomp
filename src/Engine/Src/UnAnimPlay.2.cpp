@@ -83,23 +83,12 @@ void UAnimNodeSequence::execPlayAnim(FFrame& Stack, RESULT_DECL)
     PlayAnim(bLoop, InRate, StartTime);
 }
 
-extern FName g_026c4f90;
-	/* ENGINE_OnInit */
-/* Kit gap: the OnInit event's generated glue (EngineClasses.h) isn't declared. */
-struct UAnimNode_ : public UAnimNode
-{
-	FORCEINLINE void eventOnInit()
-	{
-		ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
-	}
-};
-
 // @baa 0x00c4d1e0
 void UAnimNodeSequence::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	/* Super::InitAnim (UAnimNode::InitAnim, 0x00c4b4f0), inlined: same source file in the original. */
 	SkelComponent = MeshComp;
-	((UAnimNode_*)this)->eventOnInit();
+	eventOnInit();
 
 	SetAnim(AnimSeqName);
 

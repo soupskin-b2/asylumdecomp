@@ -872,114 +872,52 @@ UBOOL URSeqAct_Credits::UpdateOp(FLOAT DeltaTime)
 	return FALSE;
 }
 
-extern FName g_026e3520;
-	/* BMGAME_Set */
-extern FName g_026e29a4;
-	/* BMGAME_Clear */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
-struct URSeqAct_ScarecrowEffect_ : public URSeqAct_ScarecrowEffect
-{
-	void eventSet()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
-	}
-	void eventClear()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
-	}
-};
-
 // @baa 0x0157fe70
 /* The first input calls script Set, the second Clear; the action finishes at once. */
 UBOOL URSeqAct_ScarecrowEffect::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_ScarecrowEffect_*)this)->eventSet();
+		eventSet();
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_ScarecrowEffect_*)this)->eventClear();
+		eventClear();
 	}
 	return TRUE;
 }
 
 	/* BMGAME_Clear */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
-struct URSeqAct_MakeBatmanLookAtItems_ : public URSeqAct_MakeBatmanLookAtItems
-{
-	void eventSet()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3520), NULL);
-	}
-	void eventClear()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e29a4), NULL);
-	}
-};
-
 // @baa 0x0157f9f0
 /* The first input calls script Set, the second Clear; the action finishes at once. */
 UBOOL URSeqAct_MakeBatmanLookAtItems::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_MakeBatmanLookAtItems_*)this)->eventSet();
+		eventSet();
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_MakeBatmanLookAtItems_*)this)->eventClear();
+		eventClear();
 	}
 	return TRUE;
 }
 
 	/* BMGAME_Unlock */
-extern FName g_026e3410;
-	/* BMGAME_Lock */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
-struct URSeqAct_SetRoomUnlocked_ : public URSeqAct_SetRoomUnlocked
-{
-	void eventUnlock()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3558), NULL);
-	}
-	void eventLock()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3410), NULL);
-	}
-};
-
 // @baa 0x01580570
 /* The first input calls script Unlock, the second Lock; the action finishes at once. */
 UBOOL URSeqAct_SetRoomUnlocked::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_SetRoomUnlocked_*)this)->eventUnlock();
+		eventUnlock();
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_SetRoomUnlocked_*)this)->eventLock();
+		eventLock();
 	}
 	return TRUE;
 }
-
-extern FName g_026e2884;
-	/* BMGAME_FocusIn */
-extern FName g_026e2a48;
-	/* BMGAME_FocusOut */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
-struct URSeqAct_SetScarecrowFocus_ : public URSeqAct_SetScarecrowFocus
-{
-	void eventFocusIn()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e2884), NULL);
-	}
-	void eventFocusOut()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e2a48), NULL);
-	}
-};
 
 // @baa 0x01580740
 /* The first input calls script FocusIn, the second FocusOut; the action finishes at once. */
@@ -987,25 +925,14 @@ UBOOL URSeqAct_SetScarecrowFocus::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_SetScarecrowFocus_*)this)->eventFocusIn();
+		eventFocusIn();
 	}
 	if (InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_SetScarecrowFocus_*)this)->eventFocusOut();
+		eventFocusOut();
 	}
 	return TRUE;
 }
-
-extern FName g_026e3844;
-	/* BMGAME_GetStatus */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URSeqAct_GetThugStatus_ : public URSeqAct_GetThugStatus
-{
-	void eventGetStatus()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3844), NULL);
-	}
-};
 
 // @baa 0x0157f300
 /* Script works out the thug's status and picks the output; that output fires (USequenceOp::ActivateOutputLink,
@@ -1014,7 +941,7 @@ UBOOL URSeqAct_GetThugStatus::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_GetThugStatus_*)this)->eventGetStatus();
+		eventGetStatus();
 		FSeqOpOutputLink& Link = OutputLinks(OutputToFire);
 		if (!Link.bDisabled)
 		{

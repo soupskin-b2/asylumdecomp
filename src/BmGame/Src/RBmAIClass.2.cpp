@@ -213,8 +213,7 @@ void C_015dc830::sub_015dc830(UINT A)
 
 extern FName g_026e2794;
 	/* BMGAME_UpdateLinks */
-/* Kit gap: URBMBehaviourAutoStringUp's script event glue (BmGameClasses.h) isn't declared; inline here as the
- * generated header has it (out of line at 015fbb60). */
+/* Inlined here: the script-event glue for eventUpdateLinks (0x015fbb60); Classes.h declares the out-of-line copy. */
 struct URBMBehaviourAutoStringUp_ : public URBMBehaviourAutoStringUp
 {
 	FORCEINLINE void eventUpdateLinks()

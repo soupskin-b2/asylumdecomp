@@ -6,17 +6,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Native.h"
 
-extern FName g_026e321c;
-	/* BMGAME_ExitSpeech */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URSeqAct_PlaySpeechBase_ : public URSeqAct_PlaySpeechBase
-{
-	void eventExitSpeech()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e321c), NULL);
-	}
-};
-
 /* Kit gap: USeqAct_Latent's script event glue for Update (0x008aa600, out of line). */
 
 // @baa 0x01568380
@@ -26,7 +15,7 @@ UBOOL URSeqAct_PlaySpeechBase::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks.Num() >= 2 && InputLinks(1).bHasImpulse)
 	{
-		((URSeqAct_PlaySpeechBase_*)this)->eventExitSpeech();
+		eventExitSpeech();
 	}
 
 	UFMODAudioDevice* FMODDevice = Cast<UFMODAudioDevice>(GEngine->Client->GetAudioDevice());

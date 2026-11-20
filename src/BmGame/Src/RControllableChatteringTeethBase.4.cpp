@@ -11,22 +11,18 @@ extern FName g_026e3124;
 	/* DestroyTeethCamera */
 extern FName g_026e2f38;
 	/* DestroyTeeth */
-/* Kit gap: FVector::Rotation (UnMath.cpp) isn't declared. */
-
 struct ARControllableChatteringTeethBase_ : public ARControllableChatteringTeethBase
 {
-	/* RControllableChatteringTeethBase script events: the generated glue, inlined here. */
+	/* Inlined here: the script-event glue Classes.h declares out of line (01707c40, 01707dc0, 01707df0). */
 	FORCEINLINE void eventFinishStandSpecialMove() { ProcessEvent(FindFunctionChecked(g_026e3954), NULL); }
 	FORCEINLINE void eventDestroyTeethCamera() { ProcessEvent(FindFunctionChecked(g_026e3124), NULL); }
 	FORCEINLINE void eventDestroyTeeth() { ProcessEvent(FindFunctionChecked(g_026e2f38), NULL); }
-
-	void sub_0171a4b0(FLOAT DeltaTime);
 };
 
 // @baa 0x0171a4b0
 /* The teeth are done: the Joker who threw them turns to face where they went off and finishes his special move,
  * then the teeth camera and the teeth themselves go. */
-void ARControllableChatteringTeethBase_::sub_0171a4b0(FLOAT DeltaTime)
+void ARControllableChatteringTeethBase::sub_0171a4b0(FLOAT DeltaTime)
 {
 #line 216 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RControllableChatteringTeethBase.cpp"
 	check(TeethState == CHATTERINGTEETHSTATE_Destroy);
@@ -41,12 +37,12 @@ void ARControllableChatteringTeethBase_::sub_0171a4b0(FLOAT DeltaTime)
 			ToTeeth.Z = Location.Z - Joker->Location.Z;
 			const FRotator FaceTeeth = ToTeeth.Rotation();
 			Joker->sub_016a0360(FaceTeeth);
-			eventFinishStandSpecialMove();
+			((ARControllableChatteringTeethBase_*)this)->eventFinishStandSpecialMove();
 		}
 	}
-	eventDestroyTeethCamera();
+	((ARControllableChatteringTeethBase_*)this)->eventDestroyTeethCamera();
 	bExploded = TRUE;
-	eventDestroyTeeth();
+	((ARControllableChatteringTeethBase_*)this)->eventDestroyTeeth();
 }
 
 template ARPawnPlayerChallengeJokerBase* Cast<ARPawnPlayerChallengeJokerBase>(UObject* Src);

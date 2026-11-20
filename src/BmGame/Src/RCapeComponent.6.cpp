@@ -6,7 +6,8 @@
 
 extern FName g_026e2d68;
 	/* BMGAME_UpdateDamageLevel */
-/* Kit gap: the generated glue for RCapeSkeletalMeshComponent's script event UpdateDamageLevel (BmGameClasses.h) isn't declared. */
+/* Inlined here: the script-event glue for eventUpdateDamageLevel (0x016ad7e0);
+ * Classes.h declares the out-of-line copy. */
 struct URCapeSkeletalMeshComponent_ : public URCapeSkeletalMeshComponent
 {
 	void eventUpdateDamageLevel(class UMaterialInstance* NewMat)

@@ -14,7 +14,8 @@
 
 extern FName g_026c4580;
  /* ENGINE_ClientSetForceMipLevelsToBeResident */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventClientSetForceMipLevelsToBeResident (0x008a4fa0);
+ * Classes.h declares the out-of-line copy. */
 struct APlayerController_ : public APlayerController
 {
     void eventClientSetForceMipLevelsToBeResident(UMaterialInterface* Material, FLOAT ForceDuration)

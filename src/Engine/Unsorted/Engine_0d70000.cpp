@@ -2366,13 +2366,6 @@ int C_00d7f9f0::sub_00d7f9f0(void)
   return param_1[5] * 0x10 + 4 + *(int *)*param_1;
 }
 
-/* Kit gap: the structcpptext of FSettingsData (operator=), FSettingsProperty (copy constructor, operator=) and
- * FOnlineProfileSetting (operator=) isn't declared. */
-struct FSettingsData_ : public FSettingsData
-{
-	FSettingsData_& operator=(const FSettingsData_& Other); /* 0x00d74260 */
-};
-
 struct FSettingsProperty_ : public FSettingsProperty
 {
 	FSettingsProperty_(const FSettingsProperty_& Other);
@@ -2381,7 +2374,7 @@ struct FSettingsProperty_ : public FSettingsProperty
 		if (&Other != this)
 		{
 			PropertyId = Other.PropertyId;
-			(FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+			Data = (const FSettingsData&)Other.Data;
 		}
 		return *this;
 	}
@@ -2396,7 +2389,7 @@ struct FOnlineProfileSetting_ : public FOnlineProfileSetting
 FSettingsProperty_::FSettingsProperty_(const FSettingsProperty_& Other)
 {
 	PropertyId = Other.PropertyId;
-	(FSettingsData_&)Data = (const FSettingsData_&)Other.Data;
+	Data = (const FSettingsData&)Other.Data;
 }
 
 // @baa 0x00d79520

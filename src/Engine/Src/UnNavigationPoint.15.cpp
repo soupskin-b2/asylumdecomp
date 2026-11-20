@@ -7,7 +7,7 @@
 
 extern FName g_026c4ba8;
  /* ENGINE_SetDisabled */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventSetDisabled (0x00833c90); Classes.h declares the out-of-line copy. */
 struct ACoverLink_ : public ACoverLink
 {
     void eventSetDisabled(UBOOL bNewDisabled)

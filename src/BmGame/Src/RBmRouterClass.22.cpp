@@ -6,10 +6,8 @@
 
 extern FName g_026e364c;
 	/* BMGAME_AddTransientCosts */
-/* Kit gaps: the world's first navigation point (GetWorldInfo()->NavigationPointList, out of line at 009c8530) and
- * ANavigationPoint::ClearForPathFinding (non-virtual here, 00856a10) aren't declared, nor is the nervous search's
- * script event glue (BmGameClasses.h; out of line at 0160e030). */
-
+/* Inlined here: the script-event glue for eventAddTransientCosts (0x0160e030); Classes.h declares the out-of-line
+ * copy. */
 struct ARBMRouteRequest_NervousSearch_ : public ARBMRouteRequest_NervousSearch
 {
 	FORCEINLINE void eventAddTransientCosts(FVector CentrePoint)

@@ -6,8 +6,7 @@
 
 extern FName g_026e2788;
 	/* BMGAME_SmoothEnd */
-/* Kit gap: URBMRouterPath's script event glue (BmGameClasses.h) isn't declared; inline here as the generated
- * header has it (out of line at 0160e3f0). */
+/* Inlined here: the script-event glue for eventSmoothEnd (0x0160e3f0); Classes.h declares the out-of-line copy. */
 struct URBMRouterPath_ : public URBMRouterPath
 {
 	FORCEINLINE void eventSmoothEnd(class ARPawn* User, INT& NumSmoothed)

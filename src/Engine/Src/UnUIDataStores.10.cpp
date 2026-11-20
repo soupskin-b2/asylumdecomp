@@ -27,7 +27,8 @@ INT UDataStoreClient::FindPlayerDataStoreIndex(ULocalPlayer* PlayerOwner) const
 
 extern FName g_026c3dfc;
 	/* ENGINE_ProviderInstanceUnbound */
-/* Kit gap: the script event's generated glue (EngineClasses.h, inline) isn't declared. */
+/* Inlined here: the script-event glue for eventProviderInstanceUnbound (0x00d8f9c0);
+ * Classes.h declares the out-of-line copy. */
 struct UUIDynamicDataProvider_ : public UUIDynamicDataProvider
 {
 	FORCEINLINE void eventProviderInstanceUnbound(UObject* DataSourceInstance)
@@ -56,7 +57,8 @@ UBOOL UUIDynamicDataProvider::UnbindProviderInstance()
 
 extern FName g_026c3db4;
 	/* ENGINE_ProviderClientUnbound */
-/* Kit gap: the script event's generated glue (EngineClasses.h, inline) isn't declared. */
+/* Inlined here: the script-event glue for eventProviderClientUnbound (0x00d8fab0);
+ * Classes.h declares the out-of-line copy. */
 struct USessionSettingsProvider_ : public USessionSettingsProvider
 {
 	FORCEINLINE void eventProviderClientUnbound(UClass* DataSourceClass)

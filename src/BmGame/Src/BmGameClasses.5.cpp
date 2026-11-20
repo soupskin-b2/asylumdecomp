@@ -7,7 +7,7 @@
 
 extern FName g_026e2ac8;
 	/* BMGAME_DeactivatePP */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
+/* Inlined here: the script-event glue for eventDeactivatePP (0x0154bc40); Classes.h declares the out-of-line copy. */
 struct URSeqAct_ModifyPostProcess_ : public URSeqAct_ModifyPostProcess
 {
 	void eventDeactivatePP(class ULocalPlayer* Player)

@@ -8,7 +8,8 @@
 
 extern FName g_026c4cb0;
  /* ENGINE_ClientSetCameraFade */
-/* EngineClasses.h's inline script-event glue (not in the kit). */
+/* Inlined here: the script-event glue for eventClientSetCameraFade (0x008a5100);
+ * Classes.h declares the out-of-line copy. */
 struct APlayerController_ : public APlayerController
 {
     void eventClientSetCameraFade(UBOOL bEnableFading, FColor FadeColor, FVector2D FadeAlpha, FLOAT FadeTime)
