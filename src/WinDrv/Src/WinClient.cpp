@@ -619,95 +619,11 @@ int C_00eb6590::sub_00eb6590(void)
   return *(int *)*param_1 + param_1[5] * 0x14;
 }
 
-struct FFeedbackTarget {
-    virtual void d000();
-    virtual void d004();
-    virtual void d008();
-    virtual void d00c();
-    virtual void d010();
-    virtual void d014();
-    virtual void d018();
-    virtual void d01c();
-    virtual void d020();
-    virtual void d024();
-    virtual void d028();
-    virtual void d02c();
-    virtual void d030();
-    virtual void d034();
-    virtual void d038();
-    virtual void d03c();
-    virtual void d040();
-    virtual void d044();
-    virtual void d048();
-    virtual void d04c();
-    virtual void d050();
-    virtual void d054();
-    virtual void d058();
-    virtual void d05c();
-    virtual void d060();
-    virtual void d064();
-    virtual void d068();
-    virtual void d06c();
-    virtual void d070();
-    virtual void d074();
-    virtual void d078();
-    virtual void d07c();
-    virtual void d080();
-    virtual void d084();
-    virtual void d088();
-    virtual void d08c();
-    virtual void d090();
-    virtual void d094();
-    virtual void d098();
-    virtual void d09c();
-    virtual void d0a0();
-    virtual void d0a4();
-    virtual void d0a8();
-    virtual void d0ac();
-    virtual void d0b0();
-    virtual void d0b4();
-    virtual void d0b8();
-    virtual void d0bc();
-    virtual void d0c0();
-    virtual void d0c4();
-    virtual void d0c8();
-    virtual void d0cc();
-    virtual void d0d0();
-    virtual void d0d4();
-    virtual void d0d8();
-    virtual void d0dc();
-    virtual void d0e0();
-    virtual void d0e4();
-    virtual void d0e8();
-    virtual void d0ec();
-    virtual void d0f0();
-    virtual void d0f4();
-    virtual void d0f8();
-    virtual void d0fc();
-    virtual void d100();
-    virtual void d104();
-    virtual void d108();
-    virtual void d10c();
-    virtual void d110();
-    virtual void ClearForceFeedback(INT Index); /* 0x114 */
-};
-
-struct FFeedbackClient {
-    virtual void d00();
-    virtual void d04();
-    virtual void d08();
-    virtual void d0c();
-    virtual void d10();
-    virtual void d14();
-    virtual void d18();
-    virtual void d1c();
-    virtual void d20();
-    virtual FFeedbackTarget* GetTarget(INT Index); /* 0x24 */
-};
-
+/* UWindowsClient's viewports (FWindowsViewport : FViewport); this build keeps FViewport::ViewportClient at 0x24.
+ * The kit has no FViewport layout yet, so only that member is spelled out here. */
 struct FFeedbackViewport {
     BYTE _pad[0x24];
-    FFeedbackClient* Client; /* 0x24 */
+    FViewportClient* ViewportClient; /* 0x24 */
 };
 
 extern TArray<FFeedbackViewport*> g_026ccab0;
@@ -717,14 +633,14 @@ void UWindowsClient::ForceClearForceFeedback()
 {
     for (UINT ViewportIndex = 0; ViewportIndex < (UINT)g_026ccab0.Num(); ViewportIndex++)
     {
-        if (g_026ccab0(ViewportIndex) && g_026ccab0(ViewportIndex)->Client)
+        if (g_026ccab0(ViewportIndex) && g_026ccab0(ViewportIndex)->ViewportClient)
         {
             for (INT Index = 0; Index < g_026cca94; Index++)
             {
-                FFeedbackTarget* Target = g_026ccab0(ViewportIndex)->Client->GetTarget(Index);
-                if (Target)
+                UForceFeedbackManager* Manager = g_026ccab0(ViewportIndex)->ViewportClient->GetForceFeedbackManager(Index);
+                if (Manager)
                 {
-                    Target->ClearForceFeedback(Index);
+                    Manager->ForceClearWaveformData(Index);
                 }
             }
         }
