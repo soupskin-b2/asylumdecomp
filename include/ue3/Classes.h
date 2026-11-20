@@ -58413,14 +58413,16 @@ struct UCheckPrefabsCommandlet : public UCommandlet {
     /* registered size 0x70 */
 };
 
-struct FNativeDtor_00c13780_c { ~FNativeDtor_00c13780_c(); /* 0x00c13780 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00c066b0_2c { ~FNativeDtor_00c066b0_2c(); /* 0x00c066b0 */ DWORD _data[11]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_0060ecc0_14 { ~FNativeDtor_0060ecc0_14(); /* 0x0060ecc0 */ DWORD _data[5]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00c14cd0_c { ~FNativeDtor_00c14cd0_c(); /* 0x00c14cd0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00c17130_40 { ~FNativeDtor_00c17130_40(); /* 0x00c17130 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00c00410_c { ~FNativeDtor_00c00410_c(); /* 0x00c00410 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00572130_4c8c { ~FNativeDtor_00572130_4c8c(); /* 0x00572130 */ DWORD _data[4899]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00572130_fc { ~FNativeDtor_00572130_fc(); /* 0x00572130 */ DWORD _data[63]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UNetConnection's containers and bit writers, with their out-of-line destructors (the names keep the old sizes so the
+ * destructors' symbols stay). The ones whose element type isn't recovered stay opaque. */
+struct FNativeDtor_00c13780_c { ~FNativeDtor_00c13780_c(); /* 0x00c13780 */ DWORD _data[3]; };  /* TArray<DelayedPacket> (UnConn.h; element not recovered) */
+struct FNativeDtor_00c066b0_2c : public TArrayNoInit<class UChildConnection*> { ~FNativeDtor_00c066b0_2c(); /* 0x00c066b0 */ };
+struct FNativeDtor_0060ecc0_14 { ~FNativeDtor_0060ecc0_14(); /* 0x0060ecc0 */ DWORD _data[3]; };  /* TArray<FPackageInfo> (element not recovered) */
+struct FNativeDtor_00c14cd0_c { ~FNativeDtor_00c14cd0_c(); /* 0x00c14cd0 */ DWORD _data[3]; };  /* TArray<FDownloadInfo> (element not recovered) */
+struct FNativeDtor_00c17130_40 : public FMap_Mirror { ~FNativeDtor_00c17130_40(); /* 0x00c17130 */ };  /* TMap<AActor*, UActorChannel*> (Map.h; cast to it) */
+struct FNativeDtor_00c00410_c : public TArrayNoInit<class UChannel*> { ~FNativeDtor_00c00410_c(); /* 0x00c00410 */ };
+struct FNativeDtor_00572130_4c8c { ~FNativeDtor_00572130_4c8c(); /* 0x00572130 */ DWORD _data[36]; };  /* an FBitWriter (only its destructor is known here) */
+struct FNativeDtor_00572130_fc { ~FNativeDtor_00572130_fc(); /* 0x00572130 */ DWORD _data[46]; };  /* an FOutBunch, an FBitWriter (only its destructor is known here) */
 struct UNetConnection : public UPlayer, public FOutputDevice {
     /* Engine.NetConnection (native only: no script package describes it) */
     DECLARE_CLASS(UNetConnection, UPlayer, 0x1000000d, 0x0, Engine)
@@ -58429,32 +58431,77 @@ struct UNetConnection : public UPlayer, public FOutputDevice {
     void StaticConstructor(); /* 0x00e165e0 */
     class UNetDriver* Driver; /* 0x64 */
     EConnectionState State; /* 0x68 */
-    FURL Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
-    BYTE _native1[0xc];
+    /* UnConn.h's members as this build has them (the constructor's stores place them: ProtocolVersion, NegotiatedVer,
+     * StatPeriod = 1, the lag fields = 9999, InPacketId/OutAckPacketId = -1; four MAX_CHANNELS (1023) arrays) */
+    FURL URL; /* 0x6c */
+    class UPackageMap* PackageMap; /* 0xb0 */
+    BYTE _native1[0x8]; /* not set by the constructor; no reader found (UE3 later has bNeedsByteSwapping, bWelcomed here) */
     INT ProtocolVersion; /* 0xbc */
     INT MaxPacket; /* 0xc0 */
     INT PacketOverhead; /* 0xc4 */
     UBOOL InternalAck; /* 0xc8 */
     FStringNoInit Challenge; /* 0xcc */
     FStringNoInit ClientResponse; /* 0xd8 */
-    BYTE _native3[0xc];
-    FStringNoInit Native_f0; /* 0xf0: C++ only (destroyed by its destructor) */
-    FString Native_fc; /* 0xfc: C++ only (destroyed by its destructor) */
-    FString Native_108; /* 0x108: C++ only (destroyed by its destructor) */
-    BYTE _native6[0x3c];
-    FNativeDtor_00572130_fc Native_150; /* 0x150: C++ only (destroyed by its destructor) */
-    FNativeDtor_00572130_4c8c Native_24c; /* 0x24c: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_4ed8; /* 0x4ed8: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_4ee4; /* 0x4ee4: C++ only (destroyed by its destructor) */
-    FNativeDtor_00c00410_c Native_4ef0; /* 0x4ef0: C++ only (destroyed by its destructor) */
-    TArray<class AActor*> Native_4efc; /* 0x4efc: C++ only (destroyed by its destructor) */
-    FNativeDtor_00c17130_40 Native_4f08; /* 0x4f08: C++ only (destroyed by its destructor) */
-    FNativeDtor_00c14cd0_c Native_4f48; /* 0x4f48: C++ only (destroyed by its destructor) */
-    FNativeDtor_0060ecc0_14 Native_4f54; /* 0x4f54: C++ only (destroyed by its destructor) */
-    TArray<FName> Native_4f68; /* 0x4f68: C++ only (destroyed by its destructor) */
-    TArray<FGuid> Native_4f74; /* 0x4f74: C++ only (destroyed by its destructor) */
-    FNativeDtor_00c066b0_2c Native_4f80; /* 0x4f80: C++ only (destroyed by its destructor) */
-    FNativeDtor_00c13780_c Native_4fac; /* 0x4fac: C++ only (destroyed by its destructor) */
+    INT ResponseId; /* 0xe4 */
+    INT NegotiatedVer; /* 0xe8 */
+    BYTE _native3[0x4]; /* zeroed by the constructor; no reader found */
+    FStringNoInit RequestURL; /* 0xf0 */
+    FString CDKeyHash; /* 0xfc */
+    FString CDKeyResponse; /* 0x108 */
+    DOUBLE LastReceiveTime; /* 0x114 */
+    DOUBLE LastSendTime; /* 0x11c */
+    DOUBLE LastTickTime; /* 0x124 */
+    INT QueuedBytes; /* 0x12c */
+    INT TickCount; /* 0x130 */
+    INT LastStart[2]; /* 0x134: FBitWriterMark (Overflowed, Num) */
+    INT LastEnd[2]; /* 0x13c: FBitWriterMark */
+    UBOOL AllowMerge; /* 0x144 */
+    UBOOL TimeSensitive; /* 0x148 */
+    struct FOutBunch* LastOutBunch; /* 0x14c */
+    FNativeDtor_00572130_fc LastOut; /* 0x150 */
+    DOUBLE StatUpdateTime; /* 0x208 */
+    FLOAT StatPeriod; /* 0x210 */
+    FLOAT BestLag; /* 0x214 */
+    FLOAT AvgLag; /* 0x218 */
+    FLOAT LagAcc; /* 0x21c */
+    FLOAT BestLagAcc; /* 0x220 */
+    INT LagCount; /* 0x224 */
+    DOUBLE LastTime; /* 0x228 */
+    DOUBLE FrameTime; /* 0x230 */
+    DOUBLE CumulativeTime; /* 0x238 */
+    DOUBLE AverageFrameTime; /* 0x240 */
+    INT CountedFrames; /* 0x248 */
+    FNativeDtor_00572130_4c8c Out; /* 0x24c */
+    DOUBLE OutLagTime[256]; /* 0x2dc */
+    INT OutLagPacketId[256]; /* 0xadc */
+    INT InPacketId; /* 0xedc */
+    INT OutPacketId; /* 0xee0 */
+    INT OutAckPacketId; /* 0xee4 */
+    class UChannel* Channels[1023]; /* 0xee8 */
+    INT OutReliable[1023]; /* 0x1ee4 */
+    INT InReliable[1023]; /* 0x2ee0 */
+    INT PendingOutRec[1023]; /* 0x3edc */
+    TArray<INT> QueuedAcks; /* 0x4ed8 */
+    TArray<INT> ResendAcks; /* 0x4ee4 */
+    FNativeDtor_00c00410_c OpenChannels; /* 0x4ef0 */
+    TArray<class AActor*> SentTemporaries; /* 0x4efc */
+    FNativeDtor_00c17130_40 ActorChannels; /* 0x4f08 */
+    class UDownload* Download; /* 0x4f44 */
+    FNativeDtor_00c14cd0_c DownloadInfo; /* 0x4f48 */
+    FNativeDtor_0060ecc0_14 PendingPackageInfos; /* 0x4f54 */
+    FName ClientWorldPackageName; /* 0x4f60 */
+    TArray<FName> ClientVisibleLevelNames; /* 0x4f68 */
+    TArray<FGuid> PendingRemovePackageGUIDs; /* 0x4f74 */
+    FNativeDtor_00c066b0_2c Children; /* 0x4f80 */
+    class AActor* Viewer; /* 0x4f8c */
+    class AActor** OwnedConsiderList; /* 0x4f90 */
+    INT OwnedConsiderListSize; /* 0x4f94 */
+    INT PktLoss; /* 0x4f98: FPacketSimulationSettings PacketSimulationSettings */
+    INT PktOrder; /* 0x4f9c */
+    INT PktDup; /* 0x4fa0 */
+    INT PktLag; /* 0x4fa4 */
+    INT PktLagVariance; /* 0x4fa8 */
+    FNativeDtor_00c13780_c Delayed; /* 0x4fac */
     /* virtual functions this class introduces (vtable 0x02031b30) */
     virtual class UChildConnection* GetUChildConnection(); /* 0x110 */
     virtual FString LowLevelGetRemoteAddress(); /* 0x114 */
@@ -59698,9 +59745,11 @@ struct UExporterT3DX : public UExporter {
 struct FNativeDtor_00e74580_c { ~FNativeDtor_00e74580_c(); /* 0x00e74580 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00bef6d0_c { ~FNativeDtor_00bef6d0_c(); /* 0x00bef6d0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00e75430_c { ~FNativeDtor_00e75430_c(); /* 0x00e75430 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00e7f560_40 { ~FNativeDtor_00e7f560_40(); /* 0x00e7f560 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00e7f4f0_98 { ~FNativeDtor_00e7f4f0_98(); /* 0x00e7f4f0 */ DWORD _data[38]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00e7f480_3c { ~FNativeDtor_00e7f480_3c(); /* 0x00e7f480 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UFMODAudioDevice's maps (the constructor builds each as a TMap: TSet init plus the hash pointer and size zeroed; key and value
+ * types not recovered), with their out-of-line destructors (the names keep the old sizes so the destructors' symbols stay) */
+struct FNativeDtor_00e7f560_40 : public FMap_Mirror { ~FNativeDtor_00e7f560_40(); /* 0x00e7f560 */ };
+struct FNativeDtor_00e7f4f0_98 : public FMap_Mirror { ~FNativeDtor_00e7f4f0_98(); /* 0x00e7f4f0 */ };
+struct FNativeDtor_00e7f480_3c : public FMap_Mirror { ~FNativeDtor_00e7f480_3c(); /* 0x00e7f480 */ };
 struct FNativeDtor_00e744a0_c { ~FNativeDtor_00e744a0_c(); /* 0x00e744a0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00e74360_14 { ~FNativeDtor_00e74360_14(); /* 0x00e74360 */ DWORD _data[5]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00e7abf0_c { ~FNativeDtor_00e7abf0_c(); /* 0x00e7abf0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -59718,7 +59767,11 @@ struct UFMODAudioDevice : public UAudioDevice {
     FNativeDtor_00e7f480_3c Native_1e8; /* 0x1e8: C++ only (destroyed by its destructor) */
     FNativeDtor_00e7f480_3c Native_224; /* 0x224: C++ only (destroyed by its destructor) */
     FNativeDtor_00e7f4f0_98 Native_260; /* 0x260: C++ only (destroyed by its destructor) */
+    BYTE _native_29c[0x4];
+    BITFIELD Mute : 1; /* 0x2a0: a config property StaticConstructor registers */
+    BYTE _native_2a4[0x54];
     FNativeDtor_00e7f560_40 Native_2f8; /* 0x2f8: C++ only (destroyed by its destructor) */
+    BYTE _native_334[0x4];
     FNativeDtor_00e75430_c Native_338; /* 0x338: C++ only (destroyed by its destructor) */
     FNativeDtor_00bef6d0_c Native_344; /* 0x344: C++ only (destroyed by its destructor) */
     FNativeDtor_00e74580_c Native_350; /* 0x350: C++ only (destroyed by its destructor) */
@@ -60165,24 +60218,40 @@ struct UStaticMesh : public UObject {
     UStaticMesh(); /* 0x007ca510 */
     void StaticConstructor(); /* 0x00956010 */
     void InitializeIntrinsicPropertyValues(); /* 0x0094d4b0 */
-    TArray<FNativeElem_007ca1b0> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    TArray<FNativeElem_007c81e0> Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x20];
+    /* UnStaticMesh.h's members as this build has them: the offsets StaticConstructor registers, plus Serialize's order
+     * (Bounds, BodySetup, kDOPTree, InternalVersion, ContentTags, LODModels, LODInfo, Thumbnail*, LODMaxRange,
+     * PhysMeshScale3D, HighResSourceMeshName, HighResSourceMeshCRC). The array element types aren't recovered. */
+    TArray<FNativeElem_007ca1b0> LODModels; /* 0x30: TIndirectArray<FStaticMeshRenderData> */
+    TArray<FNativeElem_007c81e0> LODInfo; /* 0x3c: TArray<FStaticMeshLODInfo> */
+    FLOAT LODDistanceRatio; /* 0x48 */
+    FLOAT LODMaxRange; /* 0x4c */
+    FRotator ThumbnailAngle; /* 0x50 */
+    FLOAT ThumbnailDistance; /* 0x5c */
+    INT LightMapResolution; /* 0x60 */
+    INT LightMapCoordinateIndex; /* 0x64 */
     FStaticMeshkDOPTree kDOPTree; /* 0x68 */
     class URB_BodySetup* BodySetup; /* 0x80 */
-    BYTE _native_84[0x1c];
-    TArray<FPointer> Native_a0; /* 0xa0: C++ only (destroyed by its destructor) */
-    TArray<FVector> Native_ac; /* 0xac: C++ only (destroyed by its destructor) */
-    BYTE _native5[0x20];
-    TArray<FName> Native_d8; /* 0xd8: C++ only (destroyed by its destructor) */
-    BYTE _native6[0x4];
-    FStringNoInit Native_e8; /* 0xe8: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_f4; /* 0xf4: C++ only (destroyed by its destructor) */
-    BYTE _native8[0x4];
+    FBoxSphereBounds Bounds; /* 0x84 */
+    TArray<FPointer> PhysMesh; /* 0xa0 */
+    TArray<FVector> PhysMeshScale3D; /* 0xac */
+    UBOOL UseSimpleLineCollision; /* 0xb8 */
+    UBOOL UseSimpleBoxCollision; /* 0xbc */
+    UBOOL UseSimpleRigidBodyCollision; /* 0xc0 */
+    UBOOL ForceStripComplexCollision; /* 0xc4 */
+    UBOOL ForceDoubleSidedShadowVolumes; /* 0xc8 */
+    UBOOL UseFullPrecisionUVs; /* 0xcc */
+    UBOOL bUsedForInstancing; /* 0xd0 */
+    UBOOL ForceShadowVolumes; /* 0xd4 */
+    TArray<FName> ContentTags; /* 0xd8 */
+    INT InternalVersion; /* 0xe4 */
+    FStringNoInit SourceFilePath; /* 0xe8 */
+    FStringNoInit SourceFileTimestamp; /* 0xf4 */
+    BYTE _native_100[0x4]; /* InitializeIntrinsicPropertyValues sets this INT to -1; not identified */
     TArray<FLOAT> CachedStreamingTextureFactors; /* 0x104 */
     FRenderCommandFence ReleaseResourcesFence; /* 0x110 */
     FString HighResSourceMeshName; /* 0x114 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x128 */
+    DWORD HighResSourceMeshCRC; /* 0x120 */
+    INT ElementToIgnoreForTexFactor; /* 0x124: INDEX_NONE by default, as UE3's */
     /* virtual functions this class introduces (vtable 0x01f2b160) */
     virtual INT vf_10c(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
@@ -60207,17 +60276,54 @@ struct UStaticMesh : public UObject {
     /* registered size 0x128 */
 };
 
-struct FNativeDtor_007c7360_14 { ~FNativeDtor_007c7360_14(); /* 0x007c7360 */ DWORD _data[5]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_007c7360_14 { ~FNativeDtor_007c7360_14(); /* 0x007c7360 */ DWORD _data[3]; };  /* UFracturedStaticMesh::Fragments, a TArrayNoInit<FFragmentInfo> (element not recovered); the name keeps the old size so the destructor's symbol stays */
 struct UFracturedStaticMesh : public UStaticMesh {
     /* Engine.FracturedStaticMesh (native only: no script package describes it) */
     DECLARE_CLASS(UFracturedStaticMesh, UStaticMesh, 0x10002040, 0x0, Engine)
     UFracturedStaticMesh() {  }
     void StaticConstructor(); /* 0x007a5f10 */
     void InitializeIntrinsicPropertyValues(); /* 0x007a5e30 */
-    BYTE _native0[0x44];
-    TArray<UParticleSystem*> Native_16c; /* 0x16c: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x64];
-    FNativeDtor_007c7360_14 Native_1dc; /* 0x1dc: C++ only (destroyed by its destructor) */
+    /* UnFracturedStaticMesh.h's members as this build has them (the offsets StaticConstructor registers and
+     * InitializeIntrinsicPropertyValues' defaults; no bAlwaysBreakOffIsolatedIslands; BreakSound is this game's) */
+    class UStaticMesh* SourceStaticMesh; /* 0x128 */
+    class UStaticMesh* SourceCoreMesh; /* 0x12c */
+    FLOAT CoreMeshScale; /* 0x130 */
+    FVector CoreMeshScale3D; /* 0x134 */
+    FVector CoreMeshOffset; /* 0x140 */
+    FRotator CoreMeshRotation; /* 0x14c */
+    FVector PlaneBias; /* 0x158 */
+    UBOOL bSliceUsingCoreCollision; /* 0x164 */
+    class UParticleSystem* FragmentDestroyEffect; /* 0x168 */
+    TArray<UParticleSystem*> FragmentDestroyEffects; /* 0x16c */
+    FLOAT FragmentDestroyEffectScale; /* 0x178 */
+    FLOAT FragmentHealthScale; /* 0x17c */
+    FLOAT FragmentMinHealth; /* 0x180 */
+    FLOAT FragmentMaxHealth; /* 0x184 */
+    UBOOL bUniformFragmentHealth; /* 0x188 */
+    FLOAT ChunkLinVel; /* 0x18c */
+    FLOAT ChunkAngVel; /* 0x190 */
+    FLOAT ChunkLinHorizontalScale; /* 0x194 */
+    FLOAT ExplosionVelScale; /* 0x198 */
+    UBOOL bCompositeChunksExplodeOnImpact; /* 0x19c */
+    UBOOL bFixIsolatedChunks; /* 0x1a0 */
+    UBOOL bSpawnPhysicsChunks; /* 0x1a4 */
+    FLOAT ChanceOfPhysicsChunk; /* 0x1a8 */
+    FLOAT ExplosionChanceOfPhysicsChunk; /* 0x1ac */
+    FLOAT NormalPhysicsChunkScaleMin; /* 0x1b0 */
+    FLOAT NormalPhysicsChunkScaleMax; /* 0x1b4 */
+    FLOAT ExplosionPhysicsChunkScaleMin; /* 0x1b8 */
+    FLOAT ExplosionPhysicsChunkScaleMax; /* 0x1bc */
+    FLOAT MinConnectionSupportArea; /* 0x1c0 */
+    class UMaterialInterface* DynamicOutsideMaterial; /* 0x1c4 */
+    class UMaterialInterface* LoseChunkOutsideMaterial; /* 0x1c8 */
+    class USoundCue* BreakSound; /* 0x1cc */
+    INT OutsideMaterialIndex; /* 0x1d0 */
+    class FBoneInfluenceVertexBuffer* InfluenceVertexBuffer; /* 0x1d4 */
+    WORD NonCriticalBuildVersion; /* 0x1d8 */
+    WORD LicenseeNonCriticalBuildVersion; /* 0x1da */
+    FNativeDtor_007c7360_14 Fragments; /* 0x1dc */
+    INT CoreFragmentIndex; /* 0x1e8 */
+    INT InteriorElementIndex; /* 0x1ec */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64190,8 +64296,11 @@ struct USoundTTSFactory : public UFactory {
     USoundTTSFactory() {  }
     void StaticConstructor(); /* 0x00f232b0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f20880 */
-    BYTE _native0[0xc];
-    FString Native_70; /* 0x70: C++ only (destroyed by its destructor) */
+    /* the config properties StaticConstructor registers, at its offsets */
+    UBOOL bAutoCreateCue; /* 0x64 */
+    UBOOL bIncludeAttenuationNode; /* 0x68 */
+    UBOOL bUseTTS; /* 0x6c */
+    FString SpokenText; /* 0x70 */
     /* offsets as the StaticConstructor registers them */
     FLOAT CueVolume; /* 0x7c */
     /* overrides */
@@ -64918,9 +65027,10 @@ struct UTrueTypeMultiFontFactory : public UTrueTypeFontFactory {
     UTrueTypeMultiFontFactory() {  }
     void StaticConstructor(); /* 0x00ecdc30 */
     void InitializeIntrinsicPropertyValues(); /* 0x00ec9c70 */
-    TArray<FLOAT> Native_b4; /* 0xb4: C++ only (destroyed by its destructor) */
-    TArray<FLOAT> Native_c0; /* 0xc0: C++ only (destroyed by its destructor) */
-    TArrayNoInit<class UFont*> Native_cc; /* 0xcc: C++ only (destroyed by its destructor) */
+    /* the properties StaticConstructor registers, at its offsets */
+    TArray<FLOAT> ResTests; /* 0xb4 */
+    TArray<FLOAT> ResHeights; /* 0xc0 */
+    TArrayNoInit<class UFont*> ResFonts; /* 0xcc */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
