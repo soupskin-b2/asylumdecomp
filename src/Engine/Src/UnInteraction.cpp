@@ -174,14 +174,14 @@ struct O_00d6c850 { char pad[112]; V_00d6c850* p; void sub_00d6c850(int a0); };
 void O_00d6c850::sub_00d6c850(int a0) { p->g(a0); }
 
 // @baa 0x00d6c900
-int UUIInteraction::vf_128(void) { return *(int*)((char*)this + 412); }
+/* Slot 0x128: the UI's canvas scene. */
+FCanvasScene* UUIInteraction::vf_128() { return (FCanvasScene*)CanvasScene.Dummy; }
 
 // @baa 0x00d6c910
-uint UUIInteraction::vf_12c(void)
+/* Slot 0x12c: whether the UI's primitives still need InitializePrimitives. */
+UBOOL UUIInteraction::vf_12c()
 {
-    int param_1 = (int)this;
-
-  return ~(*(uint *)(param_1 + 0xdc) >> 4) & 1;
+    return !bIsUIPrimitiveSceneInitialized;
 }
 
 // @baa 0x00d6e0c0

@@ -1190,29 +1190,13 @@ void UObject::execMultiply_MatrixMatrix(FFrame& Stack, RESULT_DECL)
 	*(FMatrix*)Result = (A) * B;
 }
 
-/* Kit gap: UField::IsChildOf (UnClass.h, inline in this build) isn't declared. */
-struct UField_ : public UField
-{
-	FORCEINLINE UBOOL IsChildOf(const UField* SomeBase) const
-	{
-		for (const UField* Struct = this; Struct; Struct = Struct->SuperField)
-		{
-			if (Struct == SomeBase)
-			{
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-};
-
 // @baa 0x0059eea0
 void UObject::execClassIsChildOf(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UClass, TestClass);
 	P_GET_OBJECT(UClass, ParentClass);
 	P_FINISH;
-	*(UBOOL*)Result = (ParentClass && TestClass) ? ((UField_*)TestClass)->IsChildOf(ParentClass) : FALSE;
+	*(UBOOL*)Result = (ParentClass && TestClass) ? TestClass->IsChildOf(ParentClass) : FALSE;
 }
 
 // @baa 0x00599a60
@@ -1225,7 +1209,7 @@ void UObject::execIsChildState(FFrame& Stack, RESULT_DECL)
 	if (ParentState)
 	{
 		UState* State = this->FindState(TestState);
-		if (State && ((UField_*)State)->IsChildOf((UField*)ParentState))
+		if (State && State->IsChildOf((UField*)ParentState))
 		{
 			*(UBOOL*)Result = TRUE;
 			return;

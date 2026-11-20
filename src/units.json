@@ -211867,12 +211867,12 @@
     {
      "va": "00d6c900",
      "size": 7,
-     "symbol": "?vf_128@UUIInteraction@@UAEHXZ"
+     "symbol": "?vf_128@UUIInteraction@@UAEPAVFCanvasScene@@XZ"
     },
     {
      "va": "00d6c910",
      "size": 15,
-     "symbol": "?vf_12c@UUIInteraction@@UAEIXZ"
+     "symbol": "?vf_12c@UUIInteraction@@UAEHXZ"
     },
     {
      "va": "00d6e0c0",
@@ -251942,7 +251942,7 @@
     {
      "va": "00db1250",
      "size": 19,
-     "symbol": "?CanAcceptFocus@UUIObject@@UAEHH@Z"
+     "symbol": "?CanAcceptFocus@UUIObject@@UBEHH@Z"
     },
     {
      "va": "00db2cb0",
@@ -498736,12 +498736,12 @@
     {
      "va": "0149b000",
      "size": 7,
-     "symbol": "?vf_194@UEditorUISceneClient@@UAEHXZ"
+     "symbol": "?vf_194@UEditorUISceneClient@@UAEPAVFCanvasScene@@XZ"
     },
     {
      "va": "0149b040",
      "size": 25,
-     "symbol": "?vf_19c@UEditorUISceneClient@@UAEIXZ"
+     "symbol": "?vf_19c@UEditorUISceneClient@@UAEHXZ"
     },
     {
      "va": "0149b060",

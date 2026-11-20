@@ -712,16 +712,11 @@ struct FSettingsData__00d75890 : public FSettingsData
 	}
 };
 
-struct USettings__00d75890 : public USettings
-{
-	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
-};
-
 // @baa 0x00d75890
 /* Sets an int property (only when it already holds an int) and tells the NotifyPropertyValueUpdated delegate. */
 void USettings::SetIntProperty(INT PropertyId, INT Value)
 {
-	FSettingsProperty* Property = ((USettings__00d75890*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL && Property->Data.Type == SDT_Int32)
 	{
 		((FSettingsData__00d75890&)Property->Data).SetData(Value);
@@ -772,16 +767,11 @@ struct FSettingsData__00d75710 : public FSettingsData
 	}
 };
 
-struct USettings__00d75710 : public USettings
-{
-	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
-};
-
 // @baa 0x00d75710
 /* Sets a float property (only when it already holds a float) and tells the NotifyPropertyValueUpdated delegate. */
 void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 {
-	FSettingsProperty* Property = ((USettings__00d75710*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL && Property->Data.Type == SDT_Float)
 	{
 		((FSettingsData__00d75710&)Property->Data).SetData(Value);
@@ -792,16 +782,11 @@ void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 	}
 }
 
-struct USettings__00d759f0 : public USettings
-{
-	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
-};
-
 // @baa 0x00d759f0
 /* Sets a string property (only when it already holds a string) and tells the NotifyPropertyValueUpdated delegate. */
 void USettings::SetStringProperty(INT PropertyId, const FString& Value)
 {
-	FSettingsProperty* Property = ((USettings__00d759f0*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL && Property->Data.Type == SDT_String)
 	{
 		Property->Data.SetData(Value);

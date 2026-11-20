@@ -16237,7 +16237,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual UBOOL IsHoldingCtrl(INT ControllerId); /* 0x128 */
     virtual UBOOL IsHoldingAlt(INT ControllerId); /* 0x12c */
     virtual UBOOL IsHoldingShift(INT ControllerId); /* 0x130 */
-    virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
+    virtual UBOOL CanAcceptFocus(INT PlayerIndex=0) const; /* 0x134 */
     virtual INT vf_138(INT, INT, INT, INT, INT, INT, INT); /* 0x138 */
     virtual class UUIScreenObject* GetParent(); /* 0x13c */
     virtual class UUIObject* GetOwner(); /* 0x140 */
@@ -16424,12 +16424,12 @@ struct UUIScreenObject : public UUIRoot {
     FLOAT GetPosition(BYTE Face, BYTE OutputType, UBOOL bIncludeOrigin, UBOOL bIgnoreDockPadding) const; /* 0x00dbe380 */
     FVector GetPositionVector(UBOOL bIncludeParentPosition); /* 0x00dbe5d0 */
     void InvalidateAllPositions(UBOOL bIgnoreDockedFaces); /* 0x00dbe620 */
-    FMatrix GetCanvasToScreen(); /* 0x00dbe710 */
+    FMatrix GetCanvasToScreen() const; /* 0x00dbe710 */
     FVector4 CanvasToScreen(const FVector& CanvasPosition) const; /* 0x00dc0e10 */
     FVector4 PixelToScreen(const FVector2D& PixelPosition) const; /* 0x00da9500 */
     FVector2D ScreenToPixel(const FVector4& ScreenPosition) const; /* 0x00daff10 */
     FVector ScreenToCanvas(const FVector4& ScreenPosition) const; /* 0x00dc0f00 */
-    FMatrix GetInverseCanvasToScreen(); /* 0x00dbe770 */
+    FMatrix GetInverseCanvasToScreen() const; /* 0x00dbe770 */
     FVector Project(const FVector& CanvasPosition); /* 0x00dc3550 */
     FVector DeProject(const FVector& PixelPosition); /* 0x00dc3690 */
     FVector PixelToCanvas(const FVector2D& PixelPosition); /* 0x00dc3700 */
@@ -16508,7 +16508,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void PostRename(); /* 0x058 */
     virtual void PostEditImport(); /* 0x09c */
     virtual void Initialize(class UUIScene* inOwnerScene, class UUIObject* inOwner); /* 0x118 */
-    virtual INT CanAcceptFocus(INT PlayerIndex); /* 0x134 */
+    virtual UBOOL CanAcceptFocus(INT PlayerIndex=0) const; /* 0x134 */
     virtual class UUIScreenObject* GetParent(); /* 0x13c */
     virtual class UUIObject* GetOwner(); /* 0x140 */
     /* overloads take slots in reverse order: the const GetScene is 0x144 */
@@ -34691,12 +34691,12 @@ struct UUIInteraction : public UInteraction, public FExec, public FGlobalDataSto
     FUIAxisEmulationData AxisInputEmulation[4]; /* 0x14c */
     FPointer CanvasScene; /* 0x19c */
     /* virtual functions this class introduces (vtable 0x020b7740) */
-    virtual INT vf_120(); /* 0x120 */
-    virtual INT vf_124(); /* 0x124 */
-    virtual INT vf_128(); /* 0x128 */
-    virtual UINT vf_12c(); /* 0x12c */
-    virtual INT vf_130(INT); /* 0x130 */
-    virtual INT vf_134(INT); /* 0x134 */
+    virtual void vf_120(); /* 0x120 */
+    virtual UBOOL vf_124(); /* 0x124 */
+    virtual class FCanvasScene* vf_128(); /* 0x128 */
+    virtual UBOOL vf_12c(); /* 0x12c */
+    virtual void InitializePrimitives(class FCanvasScene* InCanvasScene); /* 0x130 */
+    virtual void UpdateActivePrimitives(class FCanvasScene* InCanvasScene); /* 0x134 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -36174,7 +36174,7 @@ struct UPartyBeaconClient : public UPartyBeacon {
     FScriptDelegate __OnHostIsReady__Delegate; /* 0xac */
     FScriptDelegate __OnHostHasCancelled__Delegate; /* 0xb8 */
     /* virtual functions this class introduces (vtable 0x020f4c90) */
-    virtual INT vf_110(INT, INT, INT, INT); /* 0x110 */
+    virtual UBOOL RequestReservation(const struct FOnlineGameSearchResult& DesiredHost,struct FUniqueNetId RequestingPartyLeader,const TArray<struct FPlayerReservation>& Players); /* 0x110 */
     virtual UBOOL CancelReservation(struct FUniqueNetId CancellingPartyLeader); /* 0x114 */
     virtual UBOOL HandleHostResponsePacketType(BYTE HostResponsePacketType,FNboSerializeFromBuffer& FromBuffer); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
@@ -36218,7 +36218,7 @@ struct UPartyBeaconHost : public UPartyBeacon {
     virtual void TellClientsToTravel(FName SessionName,class UClass* SearchClass,BYTE* PlatformSpecificInfo); /* 0x114 */
     virtual void TellClientsHostIsReady(); /* 0x118 */
     virtual void TellClientsHostHasCancelled(); /* 0x11c */
-    virtual void vf_120(INT); /* 0x120 */
+    virtual void AppendReservationSkillsToSearch(class UOnlineGameSearch* Search); /* 0x120 */
     virtual INT GetTeamAssignment(); /* 0x124 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -60643,10 +60643,10 @@ struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice
     BITFIELD bPrimitivesInitialized : 1; /* 0xfc: set by InitializePrimitives */
     /* virtual functions this class introduces (vtable 0x022b1de0) */
     virtual void vf_18c(INT); /* 0x18c */
-    virtual void vf_190(); /* 0x190 */
-    virtual INT vf_194(); /* 0x194 */
-    virtual INT vf_198(); /* 0x198 */
-    virtual UINT vf_19c(); /* 0x19c */
+    virtual UBOOL vf_190(); /* 0x190 */
+    virtual class FCanvasScene* vf_194(); /* 0x194 */
+    virtual void vf_198(); /* 0x198 */
+    virtual UBOOL vf_19c(); /* 0x19c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */

@@ -207,20 +207,19 @@ struct V_0149aff0 {
 void V_0149aff0::sub_0149aff0() { g(8); }
 
 // @baa 0x0149b000
-int UEditorUISceneClient::vf_194(void) { return *(int*)((char*)this + 248); }
+/* Slot 0x194: the scene client's canvas scene. */
+FCanvasScene* UEditorUISceneClient::vf_194() { return CanvasScene; }
 
 // @baa 0x0149b040
-undefined4 UEditorUISceneClient::vf_19c(void)
+/* Slot 0x19c: whether the primitives still need InitializePrimitives. */
+UBOOL UEditorUISceneClient::vf_19c()
 {
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  uVar1 = 1;
-  if (((*(byte *)(param_1 + 0xfc) & 1) != 0) && (*(int *)(param_1 + 0xf8) != 0)) {
-    uVar1 = 0;
-  }
-  return uVar1;
+	UBOOL bResult = TRUE;
+	if (bPrimitivesInitialized && CanvasScene != NULL)
+	{
+		bResult = FALSE;
+	}
+	return bResult;
 }
 
 // @baa 0x0149b0e0

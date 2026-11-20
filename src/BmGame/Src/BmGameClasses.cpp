@@ -1408,20 +1408,6 @@ extern FName g_026e315c;
 	/* BMGAME_SetFadeType */
 extern UBOOL g_0266e85c;
 	/* unnamed engine flag: set while capturing a movie */
-/* Inlined here: FSeqOpOutputLink::ActivateOutputLink (Classes.h declares the out-of-line copy, 0x008aa370). */
-struct FSeqOpOutputLink_ : public FSeqOpOutputLink
-{
-	UBOOL ActivateOutputLink()
-	{
-		if (!bDisabled)
-		{
-			bHasImpulse = TRUE;
-			return TRUE;
-		}
-		return FALSE;
-	}
-};
-
 /* The action's script events (generated glue, BmGameClasses.h) */
 struct URSeqAct_FadeScreen_ : public URSeqAct_FadeScreen
 {
@@ -1479,11 +1465,11 @@ UBOOL URSeqAct_FadeScreen::UpdateOp(FLOAT DeltaTime)
 		bSeqActive = FALSE;
 		if (bFadeIn)
 		{
-			((FSeqOpOutputLink_&)OutputLinks(1)).ActivateOutputLink();
+			OutputLinks(1).ActivateOutputLink();
 		}
 		else
 		{
-			((FSeqOpOutputLink_&)OutputLinks(0)).ActivateOutputLink();
+			OutputLinks(0).ActivateOutputLink();
 		}
 		return TRUE;
 	}
@@ -1524,11 +1510,11 @@ UBOOL URSeqAct_FadeSound::UpdateOp(FLOAT DeltaTime)
 		bSeqActive = FALSE;
 		if (bFadeIn)
 		{
-			((FSeqOpOutputLink_&)OutputLinks(1)).ActivateOutputLink();
+			OutputLinks(1).ActivateOutputLink();
 		}
 		else
 		{
-			((FSeqOpOutputLink_&)OutputLinks(0)).ActivateOutputLink();
+			OutputLinks(0).ActivateOutputLink();
 		}
 		return TRUE;
 	}

@@ -10,25 +10,6 @@ extern FName g_026c3df4;
 extern template INT TArray<UActorComponent*>::AddItem(UActorComponent* const& Item);
 
 /* UForceFieldShape's script events (generated glue, EngineClasses.h) */
-struct UForceFieldShape_ : public UForceFieldShape
-{
-	void eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset)
-	{
-		struct ForceFieldShape_eventFillByCylinder_Parms
-		{
-			FLOAT BottomRadius;
-			FLOAT TopRadius;
-			FLOAT Height;
-			FLOAT HeightOffset;
-		} Parms;
-		Parms.BottomRadius = BottomRadius;
-		Parms.TopRadius = TopRadius;
-		Parms.Height = Height;
-		Parms.HeightOffset = HeightOffset;
-		ProcessEvent(FindFunctionChecked(g_026c3df4), &Parms);
-	}
-};
-
 // @baa 0x00a42830
 void ANxForceFieldRadial::PostLoad()
 {
@@ -36,8 +17,8 @@ void ANxForceFieldRadial::PostLoad()
 
 	if (Shape)
 	{
-		DrawComponent = ((UForceFieldShape_*)Shape)->eventGetDrawComponent();
-		((UForceFieldShape_*)Shape)->eventFillBySphere(ForceRadius);
+		DrawComponent = Shape->eventGetDrawComponent();
+		Shape->eventFillBySphere(ForceRadius);
 		if (DrawComponent)
 		{
 			Components.AddItem(DrawComponent);

@@ -112,9 +112,9 @@ void UUIObject::GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
 // @baa 0x00db1250
 /* UE3's UUIObject::CanAcceptFocus(INT PlayerIndex): never while the not-focusable private behavior (bit 2,
  * UCONST_PRIVATE_NotFocusable) is set. */
-INT UUIObject::CanAcceptFocus(INT PlayerIndex)
+UBOOL UUIObject::CanAcceptFocus(INT PlayerIndex) const
 {
-    INT bResult = FALSE;
+    UBOOL bResult = FALSE;
     if ((PrivateFlags & 4) == 0)
     {
         bResult = Super::CanAcceptFocus(PlayerIndex);
