@@ -1,4 +1,4 @@
-// UnFPoly.cpp: 2 functions
+// UnFPoly.cpp: 3 functions
 // Placed here by: callers 1, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
@@ -19,3 +19,13 @@ void C::sub_00ced2b0(undefined4 param_2, undefined4 param_3, float param_4)
 
 // @baa 0x00d18d80
 IMPLEMENT_CLASS_AT(UPolys, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFPoly.cpp", 956);
+
+// @baa 0x00ce8db0
+void UPolys::StaticConstructor()
+{
+    UClass* TheClass = GetClass();
+    const DWORD SkipIndexIndex = TheClass->EmitStructArrayBegin(STRUCT_OFFSET(UPolys, Element), sizeof(FPoly));
+    TheClass->EmitObjectReference(STRUCT_OFFSET(FPoly, Actor));
+    TheClass->EmitObjectReference(STRUCT_OFFSET(FPoly, Material));
+    TheClass->EmitStructArrayEnd(SkipIndexIndex);
+}

@@ -28663,6 +28663,7 @@ struct URB_BodyInstance : public UObject {
     void EnableCollisionResponse(UBOOL); /* 0x009f9b50 */
     void SetContactReportForceThreshold(FLOAT); /* 0x009f9ba0 */
     UBOOL IsValidBodyInstance(); /* 0x00a04940 */
+    class NxActor* GetNxActor() { return (class NxActor*)BodyData.Dummy; } /* inlined everywhere */
     FMatrix GetUnrealWorldTM(); /* 0x00a04950 */
     FVector GetUnrealWorldVelocity(); /* 0x00a049e0 */
     FVector GetUnrealWorldAngularVelocity(); /* 0x00a04a90 */
@@ -63628,13 +63629,47 @@ struct UPlayerInputMask_CustomInputProxy : public UPropertyInputBool {
     /* registered size 0x40 */
 };
 
-struct FNativeDtor_0068d660_10 { ~FNativeDtor_0068d660_10(); /* 0x0068d660 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* FPoly::Vertices, UnObj.h's TArray<FVector,TInlineAllocator<16> > (the kit's TArray takes no allocator): 16 vertices
+ * in place, then the heap. Layout as PolysExporterT3D's ExportText reads it. */
+struct FPolyVertexArray {
+    DWORD InlineData[16 * 3]; /* 0x0: room for 16 FVectors */
+    FVector* SecondaryData; /* 0xc0: the heap allocation once there are more than 16 */
+    INT ArrayNum; /* 0xc4 */
+    INT ArrayMax; /* 0xc8 */
+    ~FPolyVertexArray(); /* 0x00686770 */
+    FVector* GetTypedData() { return SecondaryData ? SecondaryData : (FVector*)InlineData; }
+    const FVector* GetTypedData() const { return SecondaryData ? SecondaryData : (const FVector*)InlineData; }
+    INT Num() const { return ArrayNum; }
+    FVector& operator()(INT i) { return GetTypedData()[i]; }
+    const FVector& operator()(INT i) const { return GetTypedData()[i]; }
+};
+
+/* UnObj.h: an editor polygon (0x124 bytes; this build has no RulesetVariation or LightmassSettings). Offsets from
+ * UPolysExporterT3D::ExportText (0x00f01470) and UPolys::StaticConstructor (Actor, Material are its object refs). */
+class FPoly {
+public:
+    FVector Base; /* 0x0 */
+    FVector Normal; /* 0xc */
+    FVector TextureU; /* 0x18 */
+    FVector TextureV; /* 0x24 */
+    FPolyVertexArray Vertices; /* 0x30 */
+    DWORD PolyFlags; /* 0xfc */
+    class ABrush* Actor; /* 0x100 */
+    class UMaterialInterface* Material; /* 0x104 */
+    FName ItemName; /* 0x108 */
+    INT iLink; /* 0x110 */
+    INT iBrushPoly; /* 0x114 */
+    DWORD SmoothingMask; /* 0x118 */
+    FLOAT ShadowMapScale; /* 0x11c */
+    DWORD LightingChannels; /* 0x120 */
+};
 struct UPolys : public UObject {
     /* Engine.Polys (native only: no script package describes it) */
     DECLARE_CLASS(UPolys, UObject, 0x10000000, 0x0, Engine)
     UPolys(); /* 0x00694230 */
     void StaticConstructor(); /* 0x00ce8db0 */
-    FNativeDtor_0068d660_10 Native_30; /* 0x30: C++ only (destroyed by its destructor) */
+    TArray<FPoly> Element; /* 0x30: a TTransArray<FPoly> (~TArray<FPoly> 0x0068d660) */
+    class UObject* ElementOwner; /* 0x3c: its Owner */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */

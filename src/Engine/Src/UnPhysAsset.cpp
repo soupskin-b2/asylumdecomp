@@ -1,8 +1,9 @@
-// UnPhysAsset.cpp: 41 functions
+// UnPhysAsset.cpp: 42 functions
 // Placed here by: class 16, neighbours 9, file 6, callers 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 #include "ue3/Cast.h"
+#include "ue3/PhysX.h"
 
 // @baa 0x009f7540
 IMPLEMENT_CLASS_AT(URB_BodyInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnPhysAsset.cpp", 19);
@@ -179,21 +180,25 @@ int sub_00c94df0(void)
   return g_026c5e7c;
 }
 
-struct C_00a04940
-{
-    char pad_00[0x58];
-    INT Value;
-
-    INT sub_00a04940();
-};
-
 // @baa 0x00a04940
-INT C_00a04940::sub_00a04940()
+UBOOL URB_BodyInstance::IsValidBodyInstance()
 {
-    INT Result = 0;
-    if (Value)
-        Result = 1;
+    UBOOL Result = FALSE;
+    if (GetNxActor())
+        Result = TRUE;
     return Result;
+}
+
+// @baa 0x00a04b40
+FVector URB_BodyInstance::GetUnrealWorldPosition()
+{
+    NxActor* Actor = GetNxActor();
+    if (Actor)
+    {
+        NxVec3 nPos = Actor->getCMassGlobalPosition();
+        return N2UPosition(nPos);
+    }
+    return FVector(0.f, 0.f, 0.f);
 }
 
 // @baa 0x00a0bb00

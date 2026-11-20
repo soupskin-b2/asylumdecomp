@@ -2,19 +2,19 @@
  "updated": "2026-11-19",
  "functions": {
   "total": 174166,
-  "matched": 104818
+  "matched": 104820
  },
  "bytes": {
   "total": 24308116,
-  "matched": 4869175
+  "matched": 4869311
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201953,
-   "matched": 44307,
-   "matched_bytes": 2244646
+   "matched": 44309,
+   "matched_bytes": 2244782
   },
   {
    "name": "Editor",

@@ -209112,6 +209112,11 @@
    "profile": "ue3",
    "functions": [
     {
+     "va": "00ce8db0",
+     "size": 56,
+     "symbol": "?StaticConstructor@UPolys@@QAEXXZ"
+    },
+    {
      "va": "00ced2b0",
      "size": 32,
      "symbol": "?sub_00ced2b0@C@@QAEXIIM@Z"
@@ -216588,7 +216593,7 @@
     {
      "va": "009d7b70",
      "size": 25,
-     "symbol": "?sub_009d7b70@@YA?AUFVector@@PAM@Z"
+     "symbol": "?U2NVectorCopy@@YA?AUNxVec3@@ABUFVector@@@Z"
     },
     {
      "va": "009d7db0",
@@ -225416,7 +225421,12 @@
     {
      "va": "00a04940",
      "size": 13,
-     "symbol": "?sub_00a04940@C_00a04940@@QAEHXZ"
+     "symbol": "?IsValidBodyInstance@URB_BodyInstance@@QAEHXZ"
+    },
+    {
+     "va": "00a04b40",
+     "size": 80,
+     "symbol": "?GetUnrealWorldPosition@URB_BodyInstance@@QAE?AUFVector@@XZ"
     },
     {
      "va": "00a051a0",

@@ -2,17 +2,11 @@
 // Placed here by: file 3, neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Core.h"
+#include "ue3/PhysX.h"
 
 // @baa 0x0166ac80
 void sub_0166ac80(void) {  }
 
-struct NxActor;
-struct NxScene {
-    virtual void vf_00(); virtual void vf_04(); virtual void vf_08(); virtual void vf_0c();
-    virtual void vf_10(); virtual void vf_14(); virtual void vf_18(); virtual void vf_1c();
-    virtual void vf_20(); virtual void vf_24();
-    virtual void releaseActor(NxActor* Actor);
-};
 
 struct FRBPhysScene {
     virtual void vf_00();
@@ -35,7 +29,7 @@ void FRSimpleRopePhysics::sub_0166ac90()
         appFailAssert("GetIsInitialised()", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RSimpleRopePhysics.cpp", 794, TEXT(""));
     if (Actor)
     {
-        Scene->GetNovodexPrimaryScene()->releaseActor(Actor);
+        Scene->GetNovodexPrimaryScene()->releaseActor(*Actor);
         Actor = NULL;
     }
 }

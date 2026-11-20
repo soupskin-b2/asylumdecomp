@@ -2,6 +2,7 @@
 // Placed here by: neighbours 16, class 10, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/PhysX.h"
 
 // @baa 0x009d7970
 void __stdcall sub_009d7970(int a0) {  }
@@ -218,13 +219,13 @@ undefined4 * C_00a046e0::sub_00a046e0(byte param_2)
 }
 
 // @baa 0x009d7b70
-FVector sub_009d7b70(FLOAT* Src)
+NxVec3 U2NVectorCopy(const FVector& uVec)
 {
-	FVector V;
-	V.X = Src[0];
-	V.Y = Src[1];
-	V.Z = Src[2];
-	return V;
+	NxVec3 nVec;
+	nVec.x = uVec.X;
+	nVec.y = uVec.Y;
+	nVec.z = uVec.Z;
+	return nVec;
 }
 
 // Shared virtual (URB_BodyInstance vtable slot 79): forwards to the object's own
