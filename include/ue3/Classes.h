@@ -57835,26 +57835,70 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     enum EMousePositionType { MP_None, MP_WorldspacePosition, MP_Translate, MP_Rotate, MP_Scale, MP_CameraSpeed, MP_NoChange };
     UEditorEngine(); /* 0x00f67e50 */
     void StaticConstructor(); /* 0x00f4cdc0 */
-    BYTE _native0[0xc];
-    TArray<FNativeElem_00cc4be0> Native_43c; /* 0x43c: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x74];
-    TArray<FNativeElem_00f59f60> Native_4bc; /* 0x4bc: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x8];
-    FEditorPolyMember_4d0 Native_4d0; /* 0x4d0: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x5c];
-    FStringNoInit Native_530; /* 0x530: C++ only (destroyed by its destructor) */
-    BYTE _native4[0x4];
-    FStringNoInit Native_540; /* 0x540: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_54c; /* 0x54c: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_558; /* 0x558: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_564; /* 0x564: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_570; /* 0x570: C++ only (destroyed by its destructor) */
-    BYTE _native9[0x4];
-    FString Native_580; /* 0x580: C++ only (destroyed by its destructor) */
-    TArray<FNativeElem_00f59fc0> Native_58c; /* 0x58c: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_598; /* 0x598: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_5a4; /* 0x5a4: C++ only (destroyed by its destructor) */
-    BYTE _native13[0x44];
+    /* Editor.h's members as this build has them (Editor.u isn't shipped). UE3's order with ConversionTempModel and EditorFont
+     * absent fits every anchor: CreateTrans's result at 0x434, ClearPreviewAudioComponents' PreviewSoundCue/
+     * PreviewAudioComponent, Constraints.Snap(ClickLocation), the constructor's C++ containers, the PIE code's PlayWorld,
+     * PlayWorldLocation and bit flags, InitEditor's two propagators. Members not attested keep _native names. */
+    class UModel* TempModel; /* 0x430 */
+    class UTransactor* Trans; /* 0x434 */
+    class UTextBuffer* Results; /* 0x438 */
+    TArray<FNativeElem_00cc4be0> ActorProperties; /* 0x43c: TArray<WxPropertyWindowFrame*> */
+    class WxPropertyWindowFrame* LevelProperties; /* 0x448 */
+    class UTexture2D* Bad; /* 0x44c */
+    class UTexture2D* Bkgnd; /* 0x450 */
+    class UTexture2D* BkgndHi; /* 0x454 */
+    class UTexture2D* BadHighlight; /* 0x458 */
+    class UTexture2D* MaterialArrow; /* 0x45c */
+    class UTexture2D* MaterialBackdrop; /* 0x460 */
+    class USoundCue* PreviewSoundCue; /* 0x464 */
+    class UAudioComponent* PreviewAudioComponent; /* 0x468 */
+    class UStaticMesh* TexPropCube; /* 0x46c */
+    class UStaticMesh* TexPropSphere; /* 0x470 */
+    class UStaticMesh* TexPropPlane; /* 0x474 */
+    class UStaticMesh* TexPropCylinder; /* 0x478 */
+    BITFIELD FastRebuild : 1; /* 0x47c */
+    BITFIELD Bootstrapping : 1;
+    BITFIELD IsImportingT3D : 1;
+    INT TerrainEditBrush; /* 0x480 */
+    DWORD ClickFlags; /* 0x484: CF_MOVE_ACTOR is bit 1 */
+    class UPackage* ParentContext; /* 0x488 */
+    FVector ClickLocation; /* 0x48c */
+    FLOAT ClickPlane[4]; /* 0x498: an FPlane (X, Y, Z, W) at an offset FPlane's 16-byte alignment would move */
+    FVector MouseMovement; /* 0x4a8 */
+    BYTE _native_4b4[0x8]; /* not identified */
+    TArray<FNativeElem_00f59f60> ViewportClients; /* 0x4bc: TArray<FEditorLevelViewportClient*> */
+    BYTE _native_4c8[0x8]; /* not identified (UE3 has FarClippingPlane, DetailMode here) */
+    FEditorPolyMember_4d0 Constraints; /* 0x4d0: FEditorConstraints (its vtable; the fields aren't recovered) */
+    BYTE _native3[0x5c]; /* the rest of Constraints, then UE3's UseSizingBox/UseAxisIndicator, FOVAngle, GodMode (not confirmed) */
+    FStringNoInit AutoSaveDir; /* 0x530 */
+    UBOOL InvertwidgetZAxis; /* 0x53c */
+    FStringNoInit GameCommandLine; /* 0x540 */
+    TArrayNoInit<FString> EditPackages; /* 0x54c */
+    FStringNoInit EditPackagesInPath; /* 0x558 */
+    FStringNoInit EditPackagesOutPath; /* 0x564 */
+    FStringNoInit FRScriptOutputPath; /* 0x570 */
+    BITFIELD AlwaysShowTerrain : 1; /* 0x57c */
+    BITFIELD UseActorRotationGizmo : 1;
+    BITFIELD bShowBrushMarkerPolys : 1;
+    BITFIELD bUseMayaCameraControls : 1;
+    BITFIELD bPrefabsLocked : 1; /* the prefab code tests it */
+    FString HeightMapExportClassName; /* 0x580 */
+    TArray<FNativeElem_00f59fc0> ActorFactories; /* 0x58c: TArray<UActorFactory*> */
+    FStringNoInit UserOpenedFile; /* 0x598 */
+    FStringNoInit InEditorGameURLOptions; /* 0x5a4 */
+    class UWorld* PlayWorld; /* 0x5b0 */
+    FVector PlayWorldLocation; /* 0x5b4 */
+    FRotator PlayWorldRotation; /* 0x5c0 */
+    BITFIELD bIsPlayWorldQueued : 1; /* 0x5cc */
+    BITFIELD bStartInSpectatorMode : 1; /* adds ?SpectatorOnly=1 */
+    BITFIELD bHasPlayWorldPlacement : 1;
+    INT PlayWorldDestination; /* 0x5d0: -1 is this editor */
+    INT CurrentPlayWorldDestination; /* 0x5d4 */
+    class FObjectPropagator* InEditorPropagator; /* 0x5d8 */
+    class FObjectPropagator* RemotePropagator; /* 0x5dc */
+    BITFIELD bIsPushingView : 1; /* 0x5e0 */
+    BITFIELD bDecalUpdateRequested : 1; /* cleared by the decal update */
+    BYTE _native13[0x10]; /* not identified (0x5f0 is a C++ member the constructor zeroes) */
     FNativeDtor_00f62350_24 Native_5f4; /* 0x5f4: C++ only (destroyed by its destructor) */
     /* virtual functions this class introduces (vtable 0x021599b8) */
     virtual void UpdateMousePositionText( EMousePositionType PositionType, const FVector &Position ); /* 0x190 */
@@ -59840,7 +59884,8 @@ struct FNativeDtor_00e7f560_40 : public FMap_Mirror { ~FNativeDtor_00e7f560_40()
 struct FNativeDtor_00e7f4f0_98 : public FMap_Mirror { ~FNativeDtor_00e7f4f0_98(); /* 0x00e7f4f0 */ };
 struct FNativeDtor_00e7f480_3c : public FMap_Mirror { ~FNativeDtor_00e7f480_3c(); /* 0x00e7f480 */ };
 struct FNativeDtor_00e744a0_c { ~FNativeDtor_00e744a0_c(); /* 0x00e744a0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00e74360_14 { ~FNativeDtor_00e74360_14(); /* 0x00e74360 */ DWORD _data[5]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+namespace FMOD { class EventSystem; class System; }  /* the FMOD Ex / Designer API classes UFMODAudioDevice holds */
+struct FNativeDtor_00e74360_14 { ~FNativeDtor_00e74360_14(); /* 0x00e74360 */ DWORD _data[3]; };  /* a TArray (element not recovered); the name keeps the old size so the destructor's symbol stays */
 struct FNativeDtor_00e7abf0_c { ~FNativeDtor_00e7abf0_c(); /* 0x00e7abf0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_00e742c0_c { ~FNativeDtor_00e742c0_c(); /* 0x00e742c0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct UFMODAudioDevice : public UAudioDevice {
@@ -59851,7 +59896,9 @@ struct UFMODAudioDevice : public UAudioDevice {
     BYTE _native0[0x14];
     FNativeDtor_00e742c0_c Native_1b0; /* 0x1b0: C++ only (destroyed by its destructor) */
     FNativeDtor_00e7abf0_c Native_1bc; /* 0x1bc: C++ only (destroyed by its destructor) */
-    FNativeDtor_00e74360_14 Native_1c8; /* 0x1c8: C++ only (destroyed by its destructor) */
+    FNativeDtor_00e74360_14 Native_1c8; /* 0x1c8: a TArray, C++ only (destroyed by its destructor) */
+    FMOD::EventSystem* EventSystem; /* 0x1d4: from FMOD::EventSystem_Create in Init (slot 0x128) */
+    FMOD::System* System; /* 0x1d8: EventSystem->getSystemObject() */
     FNativeDtor_00e744a0_c Native_1dc; /* 0x1dc: C++ only (destroyed by its destructor) */
     FNativeDtor_00e7f480_3c Native_1e8; /* 0x1e8: C++ only (destroyed by its destructor) */
     FNativeDtor_00e7f480_3c Native_224; /* 0x224: C++ only (destroyed by its destructor) */
@@ -62214,7 +62261,7 @@ struct UMarkUnusedScriptNoExportCommandlet : public UCommandlet {
     /* registered size 0x70 */
 };
 
-struct FNativeDtor_01414450_10 { ~FNativeDtor_01414450_10(); /* 0x01414450 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_01414450_10 { ~FNativeDtor_01414450_10(); /* 0x01414450 */ DWORD _data[3]; };  /* a TArray of the editor's parameter records (element not recovered); the name keeps the old size so the destructor's symbol stays */
 struct FNativeDtor_014143f0_c { ~FNativeDtor_014143f0_c(); /* 0x014143f0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_01414390_c { ~FNativeDtor_01414390_c(); /* 0x01414390 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_01414330_c { ~FNativeDtor_01414330_c(); /* 0x01414330 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -62223,14 +62270,19 @@ struct FNativeDtor_01414270_c { ~FNativeDtor_01414270_c(); /* 0x01414270 */ DWOR
 struct UMaterialEditorInstanceConstant : public UObject {
     /* UnrealEd.MaterialEditorInstanceConstant (native only: no script package describes it) */
     DECLARE_CLASS(UMaterialEditorInstanceConstant, UObject, 0x0, 0x0, UnrealEd)
-    BYTE _native0[0x8];
-    FNativeDtor_01414270_c Native_38; /* 0x38: C++ only (destroyed by its destructor) */
-    FNativeDtor_014142d0_c Native_44; /* 0x44: C++ only (destroyed by its destructor) */
-    FNativeDtor_01414330_c Native_50; /* 0x50: C++ only (destroyed by its destructor) */
-    FNativeDtor_01414390_c Native_5c; /* 0x5c: C++ only (destroyed by its destructor) */
-    FNativeDtor_014143f0_c Native_68; /* 0x68: C++ only (destroyed by its destructor) */
-    FNativeDtor_01414450_10 Native_74; /* 0x74: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FGuid> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
+    /* MaterialEditorInstanceConstant.uc's members (UnrealEd.u isn't shipped): CopyToSourceInstance (0x014213a0) copies
+     * PhysMaterial and feeds each array to SourceInstance's Set*ParameterValue slot. Element types aren't recovered
+     * (vector records are 0x20 bytes, scalar 0x14). */
+    class UPhysicalMaterial* PhysMaterial; /* 0x30 */
+    class UMaterialInterface* Parent; /* 0x34 */
+    FNativeDtor_01414270_c VectorParameterValues; /* 0x38 */
+    FNativeDtor_014142d0_c ScalarParameterValues; /* 0x44 */
+    FNativeDtor_01414330_c TextureParameterValues; /* 0x50 */
+    FNativeDtor_01414390_c FontParameterValues; /* 0x5c */
+    FNativeDtor_014143f0_c StaticSwitchParameterValues; /* 0x68: UE3's order */
+    FNativeDtor_01414450_10 StaticComponentMaskParameterValues; /* 0x74 */
+    class UMaterialInstanceConstant* SourceInstance; /* 0x80 */
+    TArrayNoInit<FGuid> VisibleExpressions; /* 0x84 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62239,7 +62291,7 @@ struct UMaterialEditorInstanceConstant : public UObject {
     /* registered size 0x90 */
 };
 
-struct FNativeDtor_014145d0_10 { ~FNativeDtor_014145d0_10(); /* 0x014145d0 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_014145d0_10 { ~FNativeDtor_014145d0_10(); /* 0x014145d0 */ DWORD _data[3]; };  /* a TArray of the editor's parameter records (element not recovered); the name keeps the old size so the destructor's symbol stays */
 struct FNativeDtor_01414570_c { ~FNativeDtor_01414570_c(); /* 0x01414570 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_01414510_c { ~FNativeDtor_01414510_c(); /* 0x01414510 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_014144b0_c { ~FNativeDtor_014144b0_c(); /* 0x014144b0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
@@ -62248,14 +62300,19 @@ struct FNativeDtor_0141cbf0_c { ~FNativeDtor_0141cbf0_c(); /* 0x0141cbf0 */ DWOR
 struct UMaterialEditorInstanceTimeVarying : public UObject {
     /* UnrealEd.MaterialEditorInstanceTimeVarying (native only: no script package describes it) */
     DECLARE_CLASS(UMaterialEditorInstanceTimeVarying, UObject, 0x0, 0x0, UnrealEd)
-    BYTE _native0[0xc];
-    FNativeDtor_0141cbf0_c Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
-    FNativeDtor_0141ccc0_c Native_48; /* 0x48: C++ only (destroyed by its destructor) */
-    FNativeDtor_014144b0_c Native_54; /* 0x54: C++ only (destroyed by its destructor) */
-    FNativeDtor_01414510_c Native_60; /* 0x60: C++ only (destroyed by its destructor) */
-    FNativeDtor_01414570_c Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
-    FNativeDtor_014145d0_10 Native_78; /* 0x78: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FGuid> Native_88; /* 0x88: C++ only (destroyed by its destructor) */
+    /* MaterialEditorInstanceTimeVarying.uc's members (UnrealEd.u isn't shipped): CopyToSourceInstance (0x01421c60) copies
+     * PhysMaterial and feeds each array to SourceInstance's Set*ParameterValue slot. Element types aren't recovered. */
+    class UPhysicalMaterial* PhysMaterial; /* 0x30 */
+    class UMaterialInterface* Parent; /* 0x34 */
+    BYTE _native_38[0x4]; /* not identified */
+    FNativeDtor_0141cbf0_c VectorParameterValues; /* 0x3c */
+    FNativeDtor_0141ccc0_c ScalarParameterValues; /* 0x48: SetScalarCurveParameterValue and SetScalarParameterValue */
+    FNativeDtor_014144b0_c TextureParameterValues; /* 0x54 */
+    FNativeDtor_01414510_c FontParameterValues; /* 0x60 */
+    FNativeDtor_01414570_c StaticSwitchParameterValues; /* 0x6c: UE3's order */
+    FNativeDtor_014145d0_10 StaticComponentMaskParameterValues; /* 0x78 */
+    class UMaterialInstanceTimeVarying* SourceInstance; /* 0x84 */
+    TArrayNoInit<FGuid> VisibleExpressions; /* 0x88 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
