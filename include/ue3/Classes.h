@@ -58435,7 +58435,22 @@ struct UCheckPrefabsCommandlet : public UCommandlet {
  * destructors' symbols stay). The ones whose element type isn't recovered stay opaque. */
 struct FNativeDtor_00c13780_c { ~FNativeDtor_00c13780_c(); /* 0x00c13780 */ DWORD _data[3]; };  /* TArray<DelayedPacket> (UnConn.h; element not recovered) */
 struct FNativeDtor_00c066b0_2c : public TArrayNoInit<class UChildConnection*> { ~FNativeDtor_00c066b0_2c(); /* 0x00c066b0 */ };
-struct FNativeDtor_0060ecc0_14 { ~FNativeDtor_0060ecc0_14(); /* 0x0060ecc0 */ DWORD _data[3]; };  /* TArray<FPackageInfo> (element not recovered) */
+/* UnCoreNet.h's package record as this build has it (0x38 bytes: AddPackageInfo strides 56). FPackageInfo(UPackage*) at 0x0061a4f0
+ * fills it: the package's name, the package, the pointer at UPackage+0x58 (a GUID: AddPackageInfo compares the 16 bytes it points
+ * at, NULL meaning all zero), ObjectBase INDEX_NONE, UPackage+0x64 (its array's count) and UPackage::PackageFlags. */
+struct FPackageInfo {
+    FName PackageName; /* 0x0 */
+    class UPackage* Parent; /* 0x8 */
+    const FGuid* Guid; /* 0xc */
+    INT ObjectBase; /* 0x10 */
+    INT ObjectCount; /* 0x14 */
+    INT NetObjectCount; /* 0x18 */
+    INT LocalGeneration; /* 0x1c */
+    DWORD PackageFlags; /* 0x20 */
+    BYTE _native_24[0x8]; /* zeroed by the constructor; not identified */
+    FString Extension; /* 0x2c */
+};
+struct FNativeDtor_0060ecc0_14 : public TArrayNoInit<FPackageInfo> { ~FNativeDtor_0060ecc0_14(); /* 0x0060ecc0 */ };  /* TArray<FPackageInfo> with its out-of-line destructor (the name keeps the old size so its symbol stays) */
 struct FNativeDtor_00c14cd0_c { ~FNativeDtor_00c14cd0_c(); /* 0x00c14cd0 */ DWORD _data[3]; };  /* TArray<FDownloadInfo> (element not recovered) */
 struct FNativeDtor_00c17130_40 : public FMap_Mirror { ~FNativeDtor_00c17130_40(); /* 0x00c17130 */ };  /* TMap<AActor*, UActorChannel*> (Map.h; cast to it) */
 struct FNativeDtor_00c00410_c : public TArrayNoInit<class UChannel*> { ~FNativeDtor_00c00410_c(); /* 0x00c00410 */ };
@@ -62755,13 +62770,13 @@ struct UPackageFactory : public UFactory {
 };
 
 struct FNativeDtor_00617350_3c { ~FNativeDtor_00617350_3c(); /* 0x00617350 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_0060ecc0_c { ~FNativeDtor_0060ecc0_c(); /* 0x0060ecc0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_0060ecc0_c : public TArrayNoInit<FPackageInfo> { ~FNativeDtor_0060ecc0_c(); /* 0x0060ecc0 */ };  /* TArray<FPackageInfo> with its out-of-line destructor */
 struct UPackageMap : public UObject {
     /* Core.PackageMap (native only: no script package describes it) */
     DECLARE_CLASS(UPackageMap, UObject, 0x10000008, 0x0, Core)
     UPackageMap(); /* 0x0061bbe0 */
     void StaticConstructor(); /* 0x005fc100 */
-    FNativeDtor_0060ecc0_c Native_30; /* 0x30: C++ only (destroyed by its destructor) */
+    FNativeDtor_0060ecc0_c List; /* 0x30: UnCoreNet.h's List, the packages in map order */
     FMap_Mirror PackageListMap; /* 0x3c */
     FNativeDtor_00617350_3c ClassFieldIndices; /* 0x78 */
     /* virtual functions this class introduces (vtable 0x01ea79c8) */
