@@ -59004,44 +59004,91 @@ struct UControlChannel : public UChannel, public FOutputDevice {
     /* other member functions */
 };
 
+/* UnTex.h's per-platform texture LOD settings: TEXTUREGROUP_MAX (26) groups; the constructor at 0x00c200a0 sets each to
+ * MinLODMipCount 0, MaxLODMipCount 12, LODBias 0, Filter 4. This build's group has no NumStreamedMips or MipGenSettings.
+ * GSystemSettings' copy is at 0x026c0ba8. */
+struct FTextureLODGroup {
+    INT MinLODMipCount; /* 0x0 */
+    INT MaxLODMipCount; /* 0x4 */
+    INT LODBias; /* 0x8 */
+    DWORD Filter; /* 0xc: ESamplerFilter */
+};
+struct FTextureLODSettings {
+    FTextureLODSettings(); /* 0x00c200a0 */
+    void Initialize(const TCHAR* IniFilename, const TCHAR* IniSection); /* 0x0072a360 */
+    INT CalculateLODBias(class UTexture* Texture) const; /* 0x0071ce80 */
+    FTextureLODGroup TextureLODGroups[26]; /* 0x0 */
+};
 struct FNativeDtor_008c2810_c { ~FNativeDtor_008c2810_c(); /* 0x008c2810 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
 struct FNativeDtor_0109e1f0_c { ~FNativeDtor_0109e1f0_c(); /* 0x0109e1f0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4dc0_3c { ~FNativeDtor_010a4dc0_3c(); /* 0x010a4dc0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4d50_3c { ~FNativeDtor_010a4d50_3c(); /* 0x010a4d50 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_0055bb00_3c { ~FNativeDtor_0055bb00_3c(); /* 0x0055bb00 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4ce0_3c { ~FNativeDtor_010a4ce0_3c(); /* 0x010a4ce0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_005b5c80_3c { ~FNativeDtor_005b5c80_3c(); /* 0x005b5c80 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4c50_3c { ~FNativeDtor_010a4c50_3c(); /* 0x010a4c50 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_010a4dc0_3c : public FMap_Mirror { ~FNativeDtor_010a4dc0_3c(); /* 0x010a4dc0 */ };  /* a TMap (types not recovered) */
+struct FNativeDtor_010a4d50_3c : public FMap_Mirror { ~FNativeDtor_010a4d50_3c(); /* 0x010a4d50 */ };  /* a TMap (types not recovered) */
+struct FNativeDtor_0055bb00_3c : public FMap_Mirror { ~FNativeDtor_0055bb00_3c(); /* 0x0055bb00 */ };  /* TMap<FString, INT> (Map.h; cast to it) */
+struct FNativeDtor_010a4ce0_3c : public FSet_Mirror { ~FNativeDtor_010a4ce0_3c(); /* 0x010a4ce0 */ };  /* TSet<FString> (Map.h; cast to it) */
+struct FNativeDtor_005b5c80_3c : public FMap_Mirror { ~FNativeDtor_005b5c80_3c(); /* 0x005b5c80 */ };  /* TMap<FName, FString> (Map.h; cast to it) */
+struct FNativeDtor_010a4c50_3c : public FMap_Mirror { ~FNativeDtor_010a4c50_3c(); /* 0x010a4c50 */ };  /* TMap<FName, FArchive*> (Map.h; cast to it) */
 struct UCookPackagesCommandlet : public UCommandlet {
     /* Editor.CookPackagesCommandlet (native only: no script package describes it) */
     DECLARE_CLASS(UCookPackagesCommandlet, UCommandlet, 0x10000008, 0x0, Editor)
     UCookPackagesCommandlet(); /* 0x010b5a40 */
     void InitializeIntrinsicPropertyValues(); /* 0x0108ca70 */
-    BYTE _native0[0x1c];
-    TArray<FString> Native_8c; /* 0x8c: C++ only (destroyed by its destructor) */
-    TArray<FString> Native_98; /* 0x98: C++ only (destroyed by its destructor) */
-    FString Native_a4; /* 0xa4: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x58];
-    TArray<FString> Native_108; /* 0x108: C++ only (destroyed by its destructor) */
-    BYTE _native4[0x4];
-    FNativeDtor_010a4c50_3c Native_118; /* 0x118: C++ only (destroyed by its destructor) */
-    FNativeDtor_005b5c80_3c Native_154; /* 0x154: C++ only (destroyed by its destructor) */
-    FString Native_190; /* 0x190: C++ only (destroyed by its destructor) */
-    FNativeDtor_0055bb00_3c Native_19c; /* 0x19c: C++ only (destroyed by its destructor) */
-    TArray<FString> Native_1d8; /* 0x1d8: C++ only (destroyed by its destructor) */
-    BYTE _native9[0x1ac];
-    FNativeDtor_010a4ce0_3c Native_390; /* 0x390: C++ only (destroyed by its destructor) */
-    FNativeDtor_010a4ce0_3c Native_3cc; /* 0x3cc: C++ only (destroyed by its destructor) */
-    TArray<FString> Native_408; /* 0x408: C++ only (destroyed by its destructor) */
-    BYTE _native12[0x800];
-    FNativeDtor_0055bb00_3c Native_c14; /* 0xc14: C++ only (destroyed by its destructor) */
+    /* EditorCommandlets.h's members as this build has them: the constructor's containers, the switch parser at 0x010b7910
+     * (SKIPMAPS .. ANALYZEREFERENCEDCONTENT, each stored at UE3's position for that switch) and the ini reads that fill the
+     * other flags. UE3 members this build lacks are left out; ones not attested keep _native names. */
+    class FConsoleSupport* ConsoleSupport; /* 0x70 */
+    DWORD Platform; /* 0x74: UE3::EPlatformType (1 PC, 4 Xbox 360, 8 PS3) */
+    DWORD ShaderPlatform; /* 0x78: EShaderPlatform, indexes the global shader maps */
+    struct FConsoleTextureCooker* TextureCooker; /* 0x7c */
+    class FConsoleSoundCooker* SoundCooker; /* 0x80 */
+    struct FConsoleSkeletalMeshCooker* SkeletalMeshCooker; /* 0x84 */
+    struct FConsoleStaticMeshCooker* StaticMeshCooker; /* 0x88 */
+    TArray<FString> Tokens; /* 0x8c */
+    TArray<FString> Switches; /* 0x98 */
+    FString CookedDir; /* 0xa4 */
+    UBOOL bOnlyCookDependencies; /* 0xb0 */
+    UBOOL bSkipCookingMaps; /* 0xb4: SKIPMAPS */
+    UBOOL bSkipSavingMaps; /* 0xb8: SKIPSAVINGMAPS */
+    UBOOL bSkipNotRequiredPackages; /* 0xbc: SKIPNOTREQUIREDPACKAGES */
+    UBOOL bForceRecookSeekfree; /* 0xc0: RECOOKSEEKFREE */
+    UBOOL bIniFilesOnly; /* 0xc4: INISONLY */
+    UBOOL bGenerateSHAHashes; /* 0xc8 */
+    BYTE _native_cc[0x4]; /* not identified (UE3 has bShouldPreFinalizeIniFilesInCooker here) */
+    UBOOL bCookOutStaticMeshActors; /* 0xd0: StaticMeshCollectionActor's ini flag, RemoveStaticMeshActors / KeepStaticMeshActors */
+    UBOOL bCookOutStaticLightActors; /* 0xd4: RemoveStaticLights / KeepStaticLights */
+    UBOOL bBakeAndPruneDuringCook; /* 0xd8: Cooker.MatineeOptions, BakeAndPrune */
+    UBOOL bIsDLCCook; /* 0xdc: named from use: always set by the parser; picks the DLC\<platform>\<DLCName> output paths, UserModName= */
+    BYTE _native_e0[0x8]; /* not identified (0xe0 gates stamping every package's GUID into GuidCache) */
+    UBOOL bCookAllMaps; /* 0xe8: COOKALLMAPS */
+    UBOOL bCookMapsOnly; /* 0xec: MAPSONLY */
+    UBOOL bSaveShaderCacheAtEnd; /* 0xf0: SAVESHADERSATEND */
+    UBOOL bDisallowPackageCompression; /* 0xf4: NOPACKAGECOMPRESSION */
+    UBOOL bShouldConvertPWLGamma; /* 0xf8: Engine.PWLGamma */
+    UBOOL bCookCurrentLanguageOnly; /* 0xfc: NOLOCCOOKING */
+    UBOOL bVerifyTextureFileCache; /* 0x100: VERIFYTFC */
+    UBOOL bAnalyzeReferencedContent; /* 0x104: ANALYZEREFERENCEDCONTENT */
+    TArray<FString> EditorOnlyContentPackageNames; /* 0x108: Editor.EditorEngine EditorOnlyContentPackages */
+    INT PlatformDetailMode; /* 0x114: SystemSettings DetailMode */
+    FNativeDtor_010a4c50_3c TextureCacheNameToArMap; /* 0x118 */
+    FNativeDtor_005b5c80_3c TextureCacheNameToFilenameMap; /* 0x154 */
+    FString DLCName; /* 0x190: UserModName= */
+    FNativeDtor_0055bb00_3c PackageDependencies; /* 0x19c */
+    TArray<FString> RequiredPackages; /* 0x1d8 */
+    class UPersistentCookerData* PersistentCookerData; /* 0x1e4 */
+    class UGuidCache* GuidCache; /* 0x1e8 */
+    FTextureLODSettings PlatformLODSettings; /* 0x1ec */
+    class UShaderCache* ShaderCache; /* 0x38c */
+    FNativeDtor_010a4ce0_3c AlreadyHandledMaterials; /* 0x390 */
+    FNativeDtor_010a4ce0_3c AlreadyHandledMaterialInstances; /* 0x3cc */
+    TArray<FString> FilesForSHA; /* 0x408 */
+    TCHAR PlatformEngineConfigFilename[1024]; /* 0x414: the ini every platform setting is read from */
+    FNativeDtor_0055bb00_3c NeverCookObjects; /* 0xc14: Cooker.ObjectsToNeverCook */
     FNativeDtor_010a4d50_3c Native_c50; /* 0xc50: C++ only (destroyed by its destructor) */
     FNativeDtor_010a4dc0_3c Native_c8c; /* 0xc8c: C++ only (destroyed by its destructor) */
     FNativeDtor_0109e1f0_c Native_cc8; /* 0xcc8: C++ only (destroyed by its destructor) */
     FNativeDtor_0109e1f0_c Native_cd4; /* 0xcd4: C++ only (destroyed by its destructor) */
-    FNativeDtor_01059430_154 Native_ce0; /* 0xce0: C++ only (destroyed by its destructor) */
+    FNativeDtor_01059430_154 PersistentFaceFXAnimSetGenerator; /* 0xce0: LOGPERSISTENTFACEFX sets its 0x14c, PersistentAnimSet its 0x150 */
     FNativeDtor_008c2810_c Native_e34; /* 0xe34: C++ only (destroyed by its destructor) */
-    FNativeDtor_01054d20_2d4 Native_e40; /* 0xe40: C++ only (destroyed by its destructor) */
+    FNativeDtor_01054d20_2d4 ReferencedContentStat; /* 0xe40: FAnalyzeReferencedContentStat, used under bAnalyzeReferencedContent */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */

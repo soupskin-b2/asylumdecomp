@@ -4,13 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* GSystemSettings.TextureLODSettings (FSystemSettings/FTextureLODSettings aren't in the kit). */
-class FTextureLODSettings
-{
-public:
-	INT CalculateLODBias(UTexture* Texture) const; /* 0x0071ce80 */
-};
-
+/* GSystemSettings.TextureLODSettings (FSystemSettings isn't in the kit). */
 extern FTextureLODSettings g_026c0ba8;
 #define GSystemSettings_TextureLODSettings g_026c0ba8
 // @baa 0x00720ef0
