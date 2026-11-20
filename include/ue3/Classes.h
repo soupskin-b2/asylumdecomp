@@ -62022,10 +62022,10 @@ struct ULinker : public UObject {
     /* registered size 0xe8 */
 };
 
-struct FNativeDtor_005b7b80_3c { ~FNativeDtor_005b7b80_3c(); /* 0x005b7b80 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_005b7b10_3c { ~FNativeDtor_005b7b10_3c(); /* 0x005b7b10 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_005b7aa0_3c { ~FNativeDtor_005b7aa0_3c(); /* 0x005b7aa0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_005ab010_70 { ~FNativeDtor_005ab010_70(); /* 0x005ab010 */ DWORD _data[28]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_005b7b80_3c : public FMap_Mirror { ~FNativeDtor_005b7b80_3c(); /* 0x005b7b80 */ };  /* TMap<INT, FEnumPatchData*> (Map.h; cast to it) */
+struct FNativeDtor_005b7b10_3c : public FMap_Mirror { ~FNativeDtor_005b7b10_3c(); /* 0x005b7b10 */ };  /* TMap<INT, FPatchData*> (Map.h; cast to it) */
+struct FNativeDtor_005b7aa0_3c : public FMap_Mirror { ~FNativeDtor_005b7aa0_3c(); /* 0x005b7aa0 */ };  /* TMap<INT, FScriptPatchData*> (Map.h; cast to it) */
+struct FNativeDtor_005ab010_70 : public TArrayNoInit<void*> { ~FNativeDtor_005ab010_70(); /* 0x005ab010 */ };  /* TArray<FUntypedBulkData*> (the name keeps the old size so the destructor's symbol stays) */
 struct ULinkerLoad : public ULinker {
     /* Core.LinkerLoad (native only: no script package describes it) */
     DECLARE_CLASS(ULinkerLoad, ULinker, 0x10000008, 0x0, Core)
@@ -62033,11 +62033,46 @@ struct ULinkerLoad : public ULinker {
     /* 0xe8: the FArchive base (UE3: class ULinkerLoad : public ULinker, public FArchive), its first fields */
     void* ArchiveVtable; /* 0xe8 */
     INT ArVer; /* 0xec: the package's version */
-    BYTE _native0[0x47c];
-    FNativeDtor_005ab010_70 Native_56c; /* 0x56c: C++ only (destroyed by its destructor) */
-    FNativeDtor_005b7aa0_3c Native_5dc; /* 0x5dc: C++ only (destroyed by its destructor) */
-    FNativeDtor_005b7b10_3c Native_618; /* 0x618: C++ only (destroyed by its destructor) */
-    FNativeDtor_005b7b80_3c Native_654; /* 0x654: C++ only (destroyed by its destructor) */
+    INT ArNetVer; /* 0xf0 */
+    INT ArLicenseeVer; /* 0xf4 */
+    UBOOL ArIsLoading; /* 0xf8 */
+    UBOOL ArIsSaving; /* 0xfc */
+    UBOOL ArFlags18[12]; /* 0x100: Core.h's FArchive flags, not named there either */
+    UBOOL ArForceByteSwapping; /* 0x130 */
+    DWORD ArState4c[12]; /* 0x134 */
+    /* UnLinker.h's members as this build has them (the code using each: LoadFlags tests, VerifyImports, the hash lookup,
+     * Detach, the Serialize*Map steps, the six patch flags reset together, IsTimeLimitExceeded's fields) */
+    DWORD LoadFlags; /* 0x164 */
+    UBOOL bHaveImportsBeenVerified; /* 0x168 */
+    INT ExportHash[256]; /* 0x16c */
+    FNativeDtor_005ab010_70 BulkDataLoaders; /* 0x56c: TArray<FUntypedBulkData*> */
+    FArchive* Loader; /* 0x578 */
+    INT NameMapIndex; /* 0x57c */
+    INT ImportMapIndex; /* 0x580 */
+    INT ExportMapIndex; /* 0x584 */
+    INT DependsMapIndex; /* 0x588 */
+    INT ExportHashIndex; /* 0x58c */
+    UBOOL bHasSerializedPackageFileSummary; /* 0x590 */
+    UBOOL bHasFixedUpImportMap; /* 0x594 */
+    UBOOL bHasFoundExistingExports; /* 0x598 */
+    UBOOL bHasFinishedInitialization; /* 0x59c */
+    UBOOL bHasIntegratedNamePatches; /* 0x5a0 */
+    UBOOL bHasIntegratedImportPatches; /* 0x5a4 */
+    UBOOL bHasIntegratedExportPatches; /* 0x5a8 */
+    UBOOL bHasIntegratedScriptPatches; /* 0x5ac */
+    UBOOL bHasIntegratedDefaultsPatches; /* 0x5b0 */
+    UBOOL bHasIntegratedEnumPatches; /* 0x5b4 */
+    BYTE _native_5b8[0x4]; /* a flag 0x0059a560 sets (UE3 has bHasRemappedExternalPackageReferences here) */
+    UBOOL bIsGatheringDependencies; /* 0x5bc */
+    UBOOL bTimeLimitExceeded; /* 0x5c0 */
+    INT IsTimeLimitExceededCallCount; /* 0x5c4 */
+    UBOOL bUseTimeLimit; /* 0x5c8 */
+    FLOAT TimeLimit; /* 0x5cc */
+    DOUBLE TickStartTime; /* 0x5d0 */
+    FArchive* Native_5d8; /* 0x5d8: an FArchive subclass (0x90 bytes, vtable 0x01e7d660) 0x005ac630 creates on demand with this linker at +0x8c; deleted by Detach */
+    FNativeDtor_005b7aa0_3c FunctionsToPatch; /* 0x5dc: TMap<INT, FScriptPatchData*> */
+    FNativeDtor_005b7b10_3c DefaultsToPatch; /* 0x618: TMap<INT, FPatchData*> */
+    FNativeDtor_005b7b80_3c EnumsToPatch; /* 0x654: TMap<INT, FEnumPatchData*> */
     /* virtual functions this class introduces (vtable 0x01e8c6d8) */
     virtual void DetachAllBulkData( UBOOL bEnsureBulkDataIsLoaded ); /* 0x10c */
     virtual void Detach( UBOOL bEnsureAllBulkDataIsLoaded ); /* 0x110 */
@@ -62055,9 +62090,19 @@ struct ULinkerSave : public ULinker {
     /* Core.LinkerSave (native only: no script package describes it) */
     DECLARE_CLASS(ULinkerSave, ULinker, 0x10000008, 0x0, Core)
     ULinkerSave(); /* 0x005b3d20 */
-    BYTE _native0[0x80];
-    TArray<INT> Native_168; /* 0x168: C++ only (destroyed by its destructor) */
-    TArray<INT> Native_174; /* 0x174: C++ only (destroyed by its destructor) */
+    /* 0xe8: the FArchive base (UE3: class ULinkerSave : public ULinker, public FArchive), as in ULinkerLoad */
+    void* ArchiveVtable; /* 0xe8 */
+    INT ArVer; /* 0xec */
+    INT ArNetVer; /* 0xf0 */
+    INT ArLicenseeVer; /* 0xf4 */
+    UBOOL ArIsLoading; /* 0xf8 */
+    UBOOL ArIsSaving; /* 0xfc */
+    UBOOL ArFlags18[12]; /* 0x100: Core.h's FArchive flags, not named there either */
+    UBOOL ArForceByteSwapping; /* 0x130 */
+    DWORD ArState4c[12]; /* 0x134 */
+    FArchive* Saver; /* 0x164: deleted by Detach (0x0059a610) */
+    TArray<INT> ObjectIndices; /* 0x168 */
+    TArray<INT> NameIndices; /* 0x174 */
     /* virtual functions this class introduces (vtable 0x01e8c560) */
     virtual INT MapName( const FName* Name ) const; /* 0x10c */
     virtual INT MapObject( const UObject* Object ) const; /* 0x110 */
@@ -63004,20 +63049,23 @@ struct UPerformTerrainMaterialDumpCommandlet : public UCommandlet {
     /* registered size 0x70 */
 };
 
-struct FNativeDtor_0055bb00_44 { ~FNativeDtor_0055bb00_44(); /* 0x0055bb00 */ DWORD _data[17]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4be0_3c { ~FNativeDtor_010a4be0_3c(); /* 0x010a4be0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4b70_3c { ~FNativeDtor_010a4b70_3c(); /* 0x010a4b70 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_010a4b00_3c { ~FNativeDtor_010a4b00_3c(); /* 0x010a4b00 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_0055bb00_44 : public FMap_Mirror { ~FNativeDtor_0055bb00_44(); /* 0x0055bb00 */ };  /* TMap<FString, INT> (Map.h; cast to it); the same destructor as FNativeDtor_0055bb00_3c, the name keeps the old size so its symbol stays */
+struct FNativeDtor_010a4be0_3c : public FMap_Mirror { ~FNativeDtor_010a4be0_3c(); /* 0x010a4be0 */ };  /* TMap<FString, DOUBLE> (0x20-byte set elements; Map.h, cast to it) */
+struct FNativeDtor_010a4b70_3c : public FMap_Mirror { ~FNativeDtor_010a4b70_3c(); /* 0x010a4b70 */ };  /* a TMap<FString, 0x14-byte value> (0x28-byte set elements; value type not recovered) */
+struct FNativeDtor_010a4b00_3c : public FMap_Mirror { ~FNativeDtor_010a4b00_3c(); /* 0x010a4b00 */ };  /* TMap<FString, FCookedBulkDataInfo> (0x2c-byte set elements: a 0x18-byte value; Map.h, cast to it) */
 struct UPersistentCookerData : public UObject {
     /* Editor.PersistentCookerData (native only: no script package describes it) */
     DECLARE_CLASS(UPersistentCookerData, UObject, 0x10000000, 0x0, Editor)
     UPersistentCookerData(); /* 0x010ad290 */
-    FNativeDtor_010a4b00_3c Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FNativeDtor_010a4b70_3c Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
-    FNativeDtor_010a4be0_3c Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
-    FNativeDtor_0055bb00_44 Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
-    FString Native_128; /* 0x128: C++ only (destroyed by its destructor) */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x13c */
+    /* UnContentCookers.h's members as this build has them: Serialize (0x010b4fb0) writes CookedBulkDataInfoMap,
+     * FilenameToTimeMap and the two QWORDs; the map types follow from their set element sizes. */
+    FNativeDtor_010a4b00_3c CookedBulkDataInfoMap; /* 0x30 */
+    FNativeDtor_010a4b70_3c Native_6c; /* 0x6c: a TMap keyed by FString (UE3's CookedTextureFileCacheInfoMap is the likely one) */
+    FNativeDtor_010a4be0_3c FilenameToTimeMap; /* 0xa8 */
+    FNativeDtor_0055bb00_44 FilenameToCookedVersion; /* 0xe4 */
+    BYTE _native_120[0x8]; /* a QWORD Serialize writes (not identified) */
+    FString Filename; /* 0x128 */
+    BYTE _native_134[0x8]; /* a QWORD Serialize writes (UE3's TextureFileCacheWaste is the likely one) */
     /* virtual functions this class introduces (vtable 0x0219a910) */
     virtual INT vf_10c(); /* 0x10c */
     virtual void vf_110(INT, INT, INT); /* 0x110 */
@@ -64258,16 +64306,22 @@ struct USetTextureLODGroupCommandlet : public UCommandlet {
     /* registered size 0x70 */
 };
 
-struct FNativeDtor_007364d0_40 { ~FNativeDtor_007364d0_40(); /* 0x007364d0 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00736450_3c { ~FNativeDtor_00736450_3c(); /* 0x00736450 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_007363e0_40 { ~FNativeDtor_007363e0_40(); /* 0x007363e0 */ DWORD _data[16]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+struct FNativeDtor_007364d0_40 : public FMap_Mirror { ~FNativeDtor_007364d0_40(); /* 0x007364d0 */ };  /* a TMap (types not recovered; the name keeps the old size so the destructor's symbol stays) */
+struct FNativeDtor_00736450_3c : public FMap_Mirror { ~FNativeDtor_00736450_3c(); /* 0x00736450 */ };  /* TMap<FStaticParameterSet, TRefCountPtr<FMaterialShaderMap> > (Map.h; cast to it) */
+struct FNativeDtor_007363e0_40 : public FMap_Mirror { ~FNativeDtor_007363e0_40(); /* 0x007363e0 */ };  /* FShaderCache's shader map (types not recovered; the name keeps the old size so the destructor's symbol stays) */
 struct UShaderCache : public UObject {
     /* Engine.ShaderCache (native only: no script package describes it) */
     DECLARE_CLASS(UShaderCache, UObject, 0x10000000, 0x0, Engine)
     UShaderCache(); /* 0x0073d860 */
-    FNativeDtor_007363e0_40 Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FNativeDtor_00736450_3c Native_70; /* 0x70: C++ only (destroyed by its destructor) */
-    FNativeDtor_007364d0_40 Native_ac; /* 0xac: C++ only (destroyed by its destructor) */
+    /* ShaderCache.h's members as this build has them: FShaderCache's part first (its shader map and Platform, which
+     * Serialize at 0x00752a60 writes first and the global caches are indexed by), then MaterialShaderMap and bDirty
+     * (cleared once the cache is saved). */
+    FNativeDtor_007363e0_40 Shaders; /* 0x30 */
+    BYTE Platform; /* 0x6c: EShaderPlatform */
+    BYTE _native_6d[0x3];
+    FNativeDtor_00736450_3c MaterialShaderMap; /* 0x70 */
+    FNativeDtor_007364d0_40 Native_ac; /* 0xac: a TMap, C++ only */
+    UBOOL bDirty; /* 0xe8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
