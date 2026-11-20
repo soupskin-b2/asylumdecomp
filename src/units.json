@@ -250655,7 +250655,7 @@
     {
      "va": "00db0160",
      "size": 94,
-     "symbol": "?InitializePrimitives@UUIScreenObject@@UAEXPAVFCanvas@@@Z"
+     "symbol": "?InitializePrimitives@UUIScreenObject@@UAEXPAVFCanvasScene@@@Z"
     },
     {
      "va": "00db01c0",
@@ -257197,12 +257197,12 @@
     {
      "va": "00de1490",
      "size": 27,
-     "symbol": "?InitializePrimitives@UUISceneClient@@UAEXPAVFCanvas@@@Z"
+     "symbol": "?UpdateActivePrimitives@UUISceneClient@@UAEXPAVFCanvasScene@@@Z"
     },
     {
      "va": "00de14b0",
      "size": 27,
-     "symbol": "?UpdateActivePrimitives@UUISceneClient@@UAEXPAVFCanvas@@@Z"
+     "symbol": "?InitializePrimitives@UUISceneClient@@UAEXPAVFCanvasScene@@@Z"
     },
     {
      "va": "00de14d0",

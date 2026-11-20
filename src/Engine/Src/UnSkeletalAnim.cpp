@@ -2108,13 +2108,7 @@ void USkeletalMeshComponent::UpdateTransform()
 	}
 }
 
-/* Kit gaps (UnName.h): FName has no constructor from a hardcoded name (EName). The three names here are
- * hardcoded indices 0x61b..0x61d (the spine bones; their EName identifiers aren't known). */
-struct FName_ : public FName
-{
-	FName_(INT N) { Index = N; Number = 0; }
-};
-
+/* The three names here are hardcoded indices 0x61b..0x61d (the spine bones; their EName identifiers aren't known). */
 /* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
@@ -2131,9 +2125,9 @@ inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 /* Finds the three spine bones; the fixer works only if the mesh has all of them. */
 void FBreathingFixer::Init(USkeletalMeshComponent* SkelComp)
 {
-	Spine1Index = MatchRefBone(SkelComp, FName_(0x61b));
-	Spine2Index = MatchRefBone(SkelComp, FName_(0x61c));
-	Spine3Index = MatchRefBone(SkelComp, FName_(0x61d));
+	Spine1Index = MatchRefBone(SkelComp, FName((EName)0x61b));
+	Spine2Index = MatchRefBone(SkelComp, FName((EName)0x61c));
+	Spine3Index = MatchRefBone(SkelComp, FName((EName)0x61d));
 	Ok = (Spine1Index != INDEX_NONE && Spine2Index != INDEX_NONE && Spine3Index != INDEX_NONE);
 }
 

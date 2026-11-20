@@ -4,15 +4,8 @@
 #define BAA_OUTLINE_ALLOC	/* appRealloc out of line, as in Empty */
 #include "ue3/Classes.h"
 
-/* Kit gaps (UnName.h): FName has no constructor from a hardcoded name (EName), nor operator!=. The names
- * here are hardcoded indices (twist and helper bones; their EName identifiers aren't known).
+/* The names here are hardcoded indices (twist and helper bones; their EName identifiers aren't known).
  * TArray<INT>::AddItem is out of line here (00545f40). */
-struct FName_ : public FName
-{
-	FName_(INT N) { Index = N; Number = 0; }
-};
-
-#define NAME_None	FName_(0)
 struct FIntArray : public TArray<INT>
 {
 	INT sub_00545f40(const INT& Item);	/* AddItem */

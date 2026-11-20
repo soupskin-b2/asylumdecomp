@@ -232,11 +232,11 @@ FVector UUIScreenObject::GetPositionVector(UBOOL bIncludeParentPosition)
 
 // @baa 0x00db0160
 /* UUIScreenObject slot 0x1d0: pass the notification on to every child. */
-void UUIScreenObject::InitializePrimitives(FCanvas* Canvas)
+void UUIScreenObject::InitializePrimitives(FCanvasScene* CanvasScene)
 {
     for (INT ChildIndex = 0; ChildIndex < Children.Num(); ChildIndex++)
     {
-        Children(ChildIndex)->InitializePrimitives(Canvas);
+        Children(ChildIndex)->InitializePrimitives(CanvasScene);
     }
 }
 

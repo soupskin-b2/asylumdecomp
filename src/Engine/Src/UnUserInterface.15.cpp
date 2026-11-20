@@ -61,7 +61,7 @@ INT UGameUISceneClient::vf_1b0(INT a0, INT a1, INT a2)
 }
 
 // @baa 0x00de14b0
-void UUISceneClient::UpdateActivePrimitives( FCanvas* Canvas )
+void UUISceneClient::UpdateActivePrimitives( FCanvasScene* CanvasScene )
 PURE_VIRTUAL(UUISceneClient::UpdateActivePrimitives,)
 
 // UnUserInterface.cpp
@@ -111,7 +111,7 @@ void UUISceneClient::RequestPrimitiveReinitialization( UUIScene* Scene )
 PURE_VIRTUAL(UUISceneClient::RequestPrimitiveReinitialization,)
 
 // @baa 0x00de1490
-void UUISceneClient::InitializePrimitives( FCanvas* Canvas )
+void UUISceneClient::InitializePrimitives( FCanvasScene* CanvasScene )
 PURE_VIRTUAL(UUISceneClient::InitializePrimitives,)
 
 struct Inner
