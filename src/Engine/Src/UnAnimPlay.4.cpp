@@ -16,16 +16,12 @@ FLOAT UAnimNodeSequence::GetNormalizedPosition()
 	return 0.f;
 }
 
-#define KINDA_SMALL_NUMBER	(1.e-4)
+/* Inlined here: ClearCachedResult (0x00c5e220); Classes.h declares the out-of-line copy. */
 struct UAnimNodeSequence_ : public UAnimNodeSequence
 {
-	void sub_00c52860(FLOAT DeltaTime);			/* IssueNotifies */
-	UBOOL sub_00c4ad70();					/* ShouldKeepCachedResult */
-
-	/* ClearCachedResult (00c5e220), inline here. */
-	void ClearCachedResult()
+	FORCEINLINE void ClearCachedResult()
 	{
-		if (CachedBoneAtoms.Num() > 0 && !sub_00c4ad70())
+		if (CachedBoneAtoms.Num() > 0 && !ShouldKeepCachedResult())
 		{
 			CachedBoneAtoms.Reset();
 		}
@@ -43,7 +39,7 @@ void UAnimNodeSequence::SetPosition(FLOAT NewTime, UBOOL bFireNotifies)
 	const FLOAT MoveDelta = NewTime - CurrentTime;
 	if (bFireNotifies && MoveDelta > 0.f && !bNoNotifies && NodeTotalWeight >= NotifyWeightThreshold)
 	{
-		((UAnimNodeSequence_*)this)->sub_00c52860(MoveDelta);
+		IssueNotifies(MoveDelta);
 	}
 
 	CurrentTime = NewTime;
@@ -72,14 +68,15 @@ FLOAT UAnimNodeSequence::FindGroupPosition(FLOAT GroupRelativePosition)
 	return Position;
 }
 
-/* Kit gaps: FName's operator!= (out of line here, 0053f4c0) and two UAnimNodeSequence methods
- * (00c4ad70, which says whether the cached bone atoms are still wanted, and IssueNotifies 00c52860) aren't declared. */
+/* FName's operator!= kept out of line here (0x0053f4c0); Classes.h's is the inline one. */
 struct FName_ : public FName
 {
 	UBOOL operator!=(const FName& Other) const;
 };
 
-/* Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
+/* UAnimNodeSequence::ShouldKeepCachedResult (0x00c4ad70, matched in UnAnimPlay.3.cpp) is defined in this file
+ * too: AdvanceBy below was compiled with it in the same file (UnAnimPlay.cpp), which steers its registers.
+ * Whether the cached bone atoms can be kept: only for an unrendered mesh, a node that skips ticking at zero
  * weight, and no root motion extraction. */
 UBOOL UAnimNodeSequence::ShouldKeepCachedResult()
 {
