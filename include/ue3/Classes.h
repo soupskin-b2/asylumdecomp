@@ -36983,7 +36983,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     /* virtual functions this class introduces (vtable 0x0211c1b8) */
     virtual INT vf_120(INT); /* 0x120 */
     virtual UBOOL Login(BYTE LocalUserNum,const FString& LoginName,const FString& Password,UBOOL bWantsLocalOnly=FALSE); /* 0x124 */
-    virtual INT vf_128(); /* 0x128 */
+    virtual UBOOL AutoLogin(); /* 0x128 */
     virtual INT GetLoginStatus(BYTE LocalUserNum); /* 0x12c */
     virtual BYTE CanPlayOnline(BYTE LocalUserNum); /* 0x130 */
     virtual BYTE CanCommunicate(BYTE LocalUserNum); /* 0x134 */
@@ -37019,7 +37019,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual UBOOL WriteOnlineStats(FName SessionName,FUniqueNetId Player,class UOnlineStatsWrite* StatsWrite); /* 0x1ac */
     virtual UBOOL FlushOnlineStats(FName SessionName); /* 0x1b0 */
     virtual UBOOL WriteOnlinePlayerScores(FName SessionName,INT LeaderboardId,const TArray<FOnlinePlayerScore>& PlayerScores); /* 0x1b4 */
-    virtual INT vf_1b8(); /* 0x1b8 */
+    virtual UBOOL HasLinkConnection(); /* 0x1b8 */
     virtual void SetNetworkNotificationPosition(BYTE NewPos); /* 0x1bc */
     virtual INT vf_1c0(INT); /* 0x1c0 */
     virtual bool vf_1c4(); /* 0x1c4 */
@@ -37051,14 +37051,14 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual INT vf_22c(INT, INT, INT, INT); /* 0x22c */
     virtual INT vf_230(INT, INT); /* 0x230 */
     virtual INT vf_234(INT, INT); /* 0x234 */
-    virtual void vf_238(BYTE, INT); /* 0x238 */
+    virtual void UnlockAchievement(BYTE LocalUserNum, INT AchievementId); /* 0x238 */
     virtual INT vf_23c(INT, INT); /* 0x23c */
     virtual UBOOL ShowFriendsUI(BYTE LocalUserNum); /* 0x240 */
     virtual UBOOL ShowFriendsInviteUI(BYTE LocalUserNum,struct FUniqueNetId PlayerID); /* 0x244 */
     virtual UBOOL ShowPlayersUI(BYTE LocalUserNum); /* 0x248 */
     virtual UBOOL ReadAchievements(BYTE LocalUserNum,INT TitleId=0,UBOOL bShouldReadText=TRUE,UBOOL bShouldReadImages=FALSE); /* 0x24c */
-    virtual bool vf_250(BYTE, INT, INT); /* 0x250 */
-    virtual INT vf_254(INT, INT, INT, INT); /* 0x254 */
+    virtual BYTE GetAchievements(BYTE LocalUserNum, TArray<FAchievementDetails>& Achievements, INT TitleId); /* 0x250 */
+    virtual UBOOL GetFriendJoinURL(FUniqueNetId FriendUID, FString& ServerURL, FString& ServerUID); /* 0x254 */
     virtual INT vf_258(INT, INT, INT, INT, INT); /* 0x258 */
     virtual INT vf_25c(); /* 0x25c */
     /* overrides */
@@ -38170,24 +38170,24 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void SetMovementSpeed(BYTE Speed, FLOAT Rate); /* 0x1e8 */
     virtual BYTE vf_1ec(); /* 0x1ec */
     virtual FLOAT vf_1f0(); /* 0x1f0 */
-    virtual void vf_1f4(FVector Target, UBOOL bIsDirection); /* 0x1f4 */
-    virtual INT vf_1f8(); /* 0x1f8 */
-    virtual void vf_1fc(); /* 0x1fc */
+    virtual void MoveTo(FVector Target, UBOOL bIsDirection); /* 0x1f4 */
+    virtual INT StopMoveTo(); /* 0x1f8 */
+    virtual void InstantStopMoveTo(); /* 0x1fc */
     virtual FVector vf_200(); /* 0x200 */
     virtual INT vf_204(); /* 0x204 */
     virtual INT vf_208(); /* 0x208 */
     virtual void vf_20c(INT, INT, INT, INT, INT, BYTE, BYTE); /* 0x20c */
-    virtual void vf_210(AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim); /* 0x210 */
-    virtual INT vf_214(); /* 0x214 */
-    virtual INT vf_218(); /* 0x218 */
+    virtual void AimAtActor(AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim); /* 0x210 */
+    virtual INT StopAimAt(); /* 0x214 */
+    virtual INT SnapAimAt(); /* 0x218 */
     virtual FVector vf_21c(); /* 0x21c */
     virtual FVector GetActualAimAtDirection(); /* 0x220 */
-    virtual void vf_224(FVector Target, UBOOL bIsDirection); /* 0x224 */
+    virtual void LookAt(FVector Target, UBOOL bIsDirection); /* 0x224 */
     virtual void LookAtActor(class AActor* Actor, FName BoneName); /* 0x228 */
-    virtual INT vf_22c(); /* 0x22c */
-    virtual void vf_230(FVector Target, UBOOL bIsDirection); /* 0x230 */
+    virtual INT StopLookAt(); /* 0x22c */
+    virtual void FaceAt(FVector Target, UBOOL bIsDirection); /* 0x230 */
     virtual void FaceAtActor(class AActor* Actor, FName BoneName); /* 0x234 */
-    virtual INT vf_238(); /* 0x238 */
+    virtual INT StopFaceAt(); /* 0x238 */
     virtual FVector vf_23c(); /* 0x23c */
     virtual INT vf_240(INT); /* 0x240 */
     virtual void AddTranslationVelocity(FVector Velocity); /* 0x244 */

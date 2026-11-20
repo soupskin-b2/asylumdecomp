@@ -174,7 +174,7 @@ void sub_00e88760(void) {  }
 void sub_00e88770(void) {  }
 
 // @baa 0x00e88780
-int UOnlineSubsystemSteamworks::vf_128(void) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::AutoLogin() { return 0; }
 
 // @baa 0x00e88790
 INT UOnlineSubsystemSteamworks::GetLoginStatus(BYTE a0) { return 0; }
@@ -223,7 +223,7 @@ void force_ref() {
 int UOnlineSubsystemSteamworks::vf_1c0(int a0) { return 1; }
 
 // @baa 0x00e88c00
-int UOnlineSubsystemSteamworks::vf_1b8(void) { return 1; }
+UBOOL UOnlineSubsystemSteamworks::HasLinkConnection() { return 1; }
 
 // @baa 0x00e88c10
 int UOnlineSubsystemSteamworks::vf_120(int a0) { return 0; }
@@ -252,7 +252,7 @@ UBOOL UOnlineSubsystemSteamworks::ShowInviteUI(BYTE a0, const FString& a1) { ret
 int UOnlineSubsystemSteamworks::vf_1d8(int a0, int a1, int a2, int a3, int a4, int a5, int a6) { return 0; }
 
 // @baa 0x00e88df0
-int UOnlineSubsystemSteamworks::vf_254(int a0, int a1, int a2, int a3) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::GetFriendJoinURL(FUniqueNetId FriendUID, FString& ServerURL, FString& ServerUID) { return 0; }
 
 // @baa 0x00e88e00
 UBOOL UOnlineSubsystemSteamworks::ShowContentMarketplaceUI(BYTE a0, INT a1, INT a2) { return 0; }

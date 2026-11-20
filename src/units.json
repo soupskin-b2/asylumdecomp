@@ -464015,7 +464015,7 @@
     {
      "va": "00e88780",
      "size": 3,
-     "symbol": "?vf_128@UOnlineSubsystemSteamworks@@UAEHXZ"
+     "symbol": "?AutoLogin@UOnlineSubsystemSteamworks@@UAEHXZ"
     },
     {
      "va": "00e88790",
@@ -464085,7 +464085,7 @@
     {
      "va": "00e88c00",
      "size": 6,
-     "symbol": "?vf_1b8@UOnlineSubsystemSteamworks@@UAEHXZ"
+     "symbol": "?HasLinkConnection@UOnlineSubsystemSteamworks@@UAEHXZ"
     },
     {
      "va": "00e88c10",
@@ -464130,7 +464130,7 @@
     {
      "va": "00e88df0",
      "size": 5,
-     "symbol": "?vf_254@UOnlineSubsystemSteamworks@@UAEHHHHH@Z"
+     "symbol": "?GetFriendJoinURL@UOnlineSubsystemSteamworks@@UAEHUFUniqueNetId@@AAVFString@@1@Z"
     },
     {
      "va": "00e88e00",

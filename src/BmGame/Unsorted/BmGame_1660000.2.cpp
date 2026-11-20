@@ -628,7 +628,7 @@ void ARPawnCharacter::AimAtActor(AActor* Actor, FName Description, FName ActorBo
     if (Anim)
     {
         ModifyPoseNode();
-        Anim->vf_210(Actor, Description, ActorBoneName, AllowTurningToAim);
+        Anim->AimAtActor(Actor, Description, ActorBoneName, AllowTurningToAim);
     }
 }
 
