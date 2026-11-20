@@ -18,27 +18,15 @@ void URAnimNode_Cape::execResumeAnim( FFrame& Stack, RESULT_DECL )
 	ResumeAnim();
 }
 
-struct URAnimNode_Cape_ : public URAnimNode_Cape
-{
-	UBOOL GetHasCurrentAnimEnded();
-	void execGetHasCurrentAnimEnded(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ec0d0
-void URAnimNode_Cape_::execGetHasCurrentAnimEnded( FFrame& Stack, RESULT_DECL )
+void URAnimNode_Cape::execGetHasCurrentAnimEnded( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetHasCurrentAnimEnded();
 }
 
-struct URAnimNode_Cape__016ec110 : public URAnimNode_Cape
-{
-	INT GetNumBonesInCape();
-	void execGetNumBonesInCape(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ec110
-void URAnimNode_Cape__016ec110::execGetNumBonesInCape( FFrame& Stack, RESULT_DECL )
+void URAnimNode_Cape::execGetNumBonesInCape( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetNumBonesInCape();

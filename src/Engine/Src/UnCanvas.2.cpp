@@ -93,14 +93,8 @@ void UCanvas::execProjectSphereBounds(FFrame& Stack, RESULT_DECL)
 	ProjectSphereBounds(Center, Radius, Min, Max);
 }
 
-struct UCanvas__00aa97a0 : public UCanvas
-{
-	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor& Color );
-	void execDrawTile(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00aa97a0
-void UCanvas__00aa97a0::execDrawTile(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawTile(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UTexture, Tex);
 	P_GET_FLOAT(XL);
@@ -160,14 +154,8 @@ void UCanvas::execDrawMaterialTile(FFrame& Stack, RESULT_DECL)
 	CurYL = Max(CurYL, YL);
 }
 
-struct UCanvas__00aaa040 : public UCanvas
-{
-	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor& Color );
-	void execDrawTileClipped(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00aaa040
-void UCanvas__00aaa040::execDrawTileClipped(FFrame& Stack, RESULT_DECL)
+void UCanvas::execDrawTileClipped(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UTexture, Tex);
 	P_GET_FLOAT(XL);

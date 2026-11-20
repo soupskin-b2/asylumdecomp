@@ -25,14 +25,8 @@ void UParticleSystemComponent::execForceKillParticlesWithEvents( FFrame& Stack, 
 	ForceKillParticlesWithEvents();
 }
 
-struct UParticleSystemComponent__00c9cfa0 : public UParticleSystemComponent
-{
-	UBOOL GetSkipUpdateDynamicDataDuringTick();
-	void execGetSkipUpdateDynamicDataDuringTick(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9cfa0
-void UParticleSystemComponent__00c9cfa0::execGetSkipUpdateDynamicDataDuringTick( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execGetSkipUpdateDynamicDataDuringTick( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetSkipUpdateDynamicDataDuringTick();
@@ -45,27 +39,15 @@ void UParticleSystemComponent::execRewindEmitterInstances( FFrame& Stack, RESULT
 	RewindEmitterInstances();
 }
 
-struct UParticleSystemComponent__00c9db00 : public UParticleSystemComponent
-{
-	INT GetLODLevel();
-	void execGetLODLevel(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9db00
-void UParticleSystemComponent__00c9db00::execGetLODLevel( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execGetLODLevel( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetLODLevel();
 }
 
-struct UParticleSystemComponent__00c9db40 : public UParticleSystemComponent
-{
-	INT GetEditorLODLevel();
-	void execGetEditorLODLevel(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c9db40
-void UParticleSystemComponent__00c9db40::execGetEditorLODLevel( FFrame& Stack, RESULT_DECL )
+void UParticleSystemComponent::execGetEditorLODLevel( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(INT*)Result = GetEditorLODLevel();

@@ -88,14 +88,8 @@ void ARPawnCharacter::execSnapFloorCorrection( FFrame& Stack, RESULT_DECL )
 	SnapFloorCorrection();
 }
 
-struct ARPawnCombat_ : public ARPawnCombat
-{
-	UBOOL IsTargetted();
-	void execIsTargetted(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f60c0
-void ARPawnCombat_::execIsTargetted( FFrame& Stack, RESULT_DECL )
+void ARPawnCombat::execIsTargetted( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsTargetted();

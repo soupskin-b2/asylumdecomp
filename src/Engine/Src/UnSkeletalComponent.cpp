@@ -539,15 +539,8 @@ void USkeletalComponent_0090a320::sub_0090a320(const float * NewScale)
     RelativeScale3D[2] = NewScale[2];
 }
 
-/* FName::operator== (UnName.h); the kit's FName has no operators. */
-/* Classes.h has this as void* FindBodyInstanceNamed(FName). */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-    URB_BodyInstance* FindBodyInstanceNamed(FName BoneName);
-};
-
 // @baa 0x0091f3f0
-URB_BodyInstance* USkeletalMeshComponent_::FindBodyInstanceNamed(FName BoneName)
+URB_BodyInstance* USkeletalMeshComponent::FindBodyInstanceNamed(FName BoneName)
 {
     if (!PhysicsAsset || !PhysicsAssetInstance)
     {

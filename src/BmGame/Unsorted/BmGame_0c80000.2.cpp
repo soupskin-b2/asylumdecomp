@@ -11,14 +11,8 @@ void AActor::execPlayerCanSeeMe( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = PlayerCanSeeMe();
 }
 
-struct AActor__00c834a0 : public AActor
-{
-	UBOOL IsInPersistentLevel();
-	void execIsInPersistentLevel(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c834a0
-void AActor__00c834a0::execIsInPersistentLevel( FFrame& Stack, RESULT_DECL )
+void AActor::execIsInPersistentLevel( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsInPersistentLevel();

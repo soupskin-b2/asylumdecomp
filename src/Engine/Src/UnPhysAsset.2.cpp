@@ -18,14 +18,8 @@ void URB_BodyInstance::execIsValidBodyInstance( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = IsValidBodyInstance();
 }
 
-struct URB_BodyInstance__00c95440 : public URB_BodyInstance
-{
-	void SetPhysMaterialOverride(UPhysicalMaterial* NewPhysMaterial); /* 00a207c0 */
-	void execSetPhysMaterialOverride(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c95440
-void URB_BodyInstance__00c95440::execSetPhysMaterialOverride(FFrame& Stack, RESULT_DECL)
+void URB_BodyInstance::execSetPhysMaterialOverride(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(UPhysicalMaterial, NewPhysMaterial);
 	P_FINISH;

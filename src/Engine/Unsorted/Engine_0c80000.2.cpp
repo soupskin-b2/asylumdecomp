@@ -11,14 +11,8 @@ void UAudioComponent::execResetToDefaults( FFrame& Stack, RESULT_DECL )
 	ResetToDefaults();
 }
 
-struct AController_ : public AController
-{
-	void FinishRotation();
-	void execFinishRotation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c84af0
-void AController_::execFinishRotation( FFrame& Stack, RESULT_DECL )
+void AController::execFinishRotation( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	FinishRotation();
@@ -45,14 +39,8 @@ void ADroppedPickup::execAddToNavigation( FFrame& Stack, RESULT_DECL )
 	AddToNavigation();
 }
 
-struct ADroppedPickup__00c87880 : public ADroppedPickup
-{
-	void RemoveFromNavigation();
-	void execRemoveFromNavigation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c87880
-void ADroppedPickup__00c87880::execRemoveFromNavigation( FFrame& Stack, RESULT_DECL )
+void ADroppedPickup::execRemoveFromNavigation( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RemoveFromNavigation();
@@ -93,27 +81,15 @@ void AFileWriter::execCloseFile( FFrame& Stack, RESULT_DECL )
 	CloseFile();
 }
 
-struct AGameInfo_ : public AGameInfo
-{
-	void DoNavFearCostFallOff();
-	void execDoNavFearCostFallOff(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c890d0
-void AGameInfo_::execDoNavFearCostFallOff( FFrame& Stack, RESULT_DECL )
+void AGameInfo::execDoNavFearCostFallOff( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	DoNavFearCostFallOff();
 }
 
-struct ULightEnvironmentComponent_ : public ULightEnvironmentComponent
-{
-	UBOOL IsEnabled();
-	void execIsEnabled(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8b6d0
-void ULightEnvironmentComponent_::execIsEnabled( FFrame& Stack, RESULT_DECL )
+void ULightEnvironmentComponent::execIsEnabled( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsEnabled();
@@ -134,14 +110,8 @@ void UTexture2DComposite::execSourceTexturesFullyStreamedIn( FFrame& Stack, RESU
 	*(UBOOL*)Result = SourceTexturesFullyStreamedIn();
 }
 
-struct UTexture2DComposite__00c8f5c0 : public UTexture2DComposite
-{
-	void ResetSourceRegions();
-	void execResetSourceRegions(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c8f5c0
-void UTexture2DComposite__00c8f5c0::execResetSourceRegions( FFrame& Stack, RESULT_DECL )
+void UTexture2DComposite::execResetSourceRegions( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResetSourceRegions();

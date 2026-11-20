@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URRopeComponentBase_ : public URRopeComponentBase
-{
-	void RequestUpdateRope();
-	void execRequestUpdateRope(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ffe00
-void URRopeComponentBase_::execRequestUpdateRope( FFrame& Stack, RESULT_DECL )
+void URRopeComponentBase::execRequestUpdateRope( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	RequestUpdateRope();

@@ -46,14 +46,8 @@ void UUIScreenObject::execGetAspectRatio( FFrame& Stack, RESULT_DECL )
 	*(FLOAT*)Result = GetAspectRatio();
 }
 
-struct UUIScreenObject__00ca3f60 : public UUIScreenObject
-{
-	UBOOL IsNeverFocused();
-	void execIsNeverFocused(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca3f60
-void UUIScreenObject__00ca3f60::execIsNeverFocused( FFrame& Stack, RESULT_DECL )
+void UUIScreenObject::execIsNeverFocused( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsNeverFocused();
@@ -87,14 +81,8 @@ void UUIObject::execUpdateRotationMatrix( FFrame& Stack, RESULT_DECL )
 	UpdateRotationMatrix();
 }
 
-struct UUIObject__00ca5e50 : public UUIObject
-{
-	UBOOL NeedsActiveCursorUpdates();
-	void execNeedsActiveCursorUpdates(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca5e50
-void UUIObject__00ca5e50::execNeedsActiveCursorUpdates( FFrame& Stack, RESULT_DECL )
+void UUIObject::execNeedsActiveCursorUpdates( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = NeedsActiveCursorUpdates();
@@ -128,14 +116,8 @@ void UUIScene::execUnbindSubscribers( FFrame& Stack, RESULT_DECL )
 	UnbindSubscribers();
 }
 
-struct UUIScene__00ca6860 : public UUIScene
-{
-	UBOOL ShouldRenderParentScenes();
-	void execShouldRenderParentScenes(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca6860
-void UUIScene__00ca6860::execShouldRenderParentScenes( FFrame& Stack, RESULT_DECL )
+void UUIScene::execShouldRenderParentScenes( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = ShouldRenderParentScenes();
@@ -452,14 +434,8 @@ void UUIScene::execResolveDataStore(FFrame& Stack, RESULT_DECL)
 	*(UUIDataStore**)Result = ResolveDataStore(DataStoreTag, InPlayerOwner);
 }
 
-struct UUIObject__00ca5220 : public UUIObject
-{
-	void RotateWidget(FRotator NewRotationAmount, UBOOL bAccumulateRotation);
-	void execRotateWidget(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00ca5220
-void UUIObject__00ca5220::execRotateWidget(FFrame& Stack, RESULT_DECL)
+void UUIObject::execRotateWidget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FRotator, NewRotationAmount);
 	P_GET_UBOOL_OPTX(bAccumulateRotation, FALSE);

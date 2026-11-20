@@ -444,14 +444,9 @@ FLOAT UAnimTree::GetGroupRelativePosition(FName GroupName)
 }
 
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-struct UAnimTree__00c61420 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
-	UAnimNodeSequence* GetGroupSynchMaster(FName GroupName);
-};
 
 // @baa 0x00c61420
-UAnimNodeSequence* UAnimTree__00c61420::GetGroupSynchMaster(FName GroupName)
+UAnimNodeSequence* UAnimTree::GetGroupSynchMaster(FName GroupName)
 {
 	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)
@@ -463,14 +458,9 @@ UAnimNodeSequence* UAnimTree__00c61420::GetGroupSynchMaster(FName GroupName)
 }
 
 /* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-struct UAnimTree__00c61490 : public UAnimTree
-{
-	INT GetGroupIndex(FName GroupName);		/* GetGroupIndex */
-	UAnimNodeSequence* GetGroupNotifyMaster(FName GroupName);
-};
 
 // @baa 0x00c61490
-UAnimNodeSequence* UAnimTree__00c61490::GetGroupNotifyMaster(FName GroupName)
+UAnimNodeSequence* UAnimTree::GetGroupNotifyMaster(FName GroupName)
 {
 	const INT GroupIndex = GetGroupIndex(GroupName);
 	if (GroupIndex != INDEX_NONE)

@@ -33,14 +33,8 @@ void URCapeRenderingComponent::execHandleDebugLineDrawing( FFrame& Stack, RESULT
 	HandleDebugLineDrawing();
 }
 
-struct ARBMWeaponStunStickBase_ : public ARBMWeaponStunStickBase
-{
-	UBOOL IsOn();
-	void execIsOn(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01703d10
-void ARBMWeaponStunStickBase_::execIsOn( FFrame& Stack, RESULT_DECL )
+void ARBMWeaponStunStickBase::execIsOn( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsOn();

@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct AKActor_ : public AKActor
-{
-	void ResolveRBState();
-	void execResolveRBState(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00c93730
-void AKActor_::execResolveRBState( FFrame& Stack, RESULT_DECL )
+void AKActor::execResolveRBState( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResolveRBState();

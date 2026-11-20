@@ -89,14 +89,8 @@ void ARPlayerController::execReloadGame( FFrame& Stack, RESULT_DECL )
 	ReloadGame();
 }
 
-struct ARPlayerController__016f8e40 : public ARPlayerController
-{
-	UBOOL IsInExternalCamera();
-	void execIsInExternalCamera(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f8e40
-void ARPlayerController__016f8e40::execIsInExternalCamera( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execIsInExternalCamera( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = IsInExternalCamera();
@@ -116,14 +110,8 @@ void ARPlayerController::execTurnOnInteractDebugging( FFrame& Stack, RESULT_DECL
 	TurnOnInteractDebugging();
 }
 
-struct ARPlayerController__016f9110 : public ARPlayerController
-{
-	void PlayerWtfNative();
-	void execPlayerWtfNative(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016f9110
-void ARPlayerController__016f9110::execPlayerWtfNative( FFrame& Stack, RESULT_DECL )
+void ARPlayerController::execPlayerWtfNative( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	PlayerWtfNative();

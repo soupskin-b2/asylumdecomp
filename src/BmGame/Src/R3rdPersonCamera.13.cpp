@@ -11,14 +11,8 @@ void AR3rdPersonCamera::execResetSmoother( FFrame& Stack, RESULT_DECL )
 	ResetSmoother();
 }
 
-struct AR3rdPersonCamera__01709240 : public AR3rdPersonCamera
-{
-	UBOOL FollowCameraRotation();
-	void execFollowCameraRotation(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01709240
-void AR3rdPersonCamera__01709240::execFollowCameraRotation( FFrame& Stack, RESULT_DECL )
+void AR3rdPersonCamera::execFollowCameraRotation( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = FollowCameraRotation();

@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URCapeComponent_ : public URCapeComponent
-{
-	UBOOL GetIsInitialised();
-	void execGetIsInitialised(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701ec0
-void URCapeComponent_::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsInitialised();
@@ -38,27 +32,15 @@ void URCapeComponent::execGetIsInCinematicsState( FFrame& Stack, RESULT_DECL )
 	*(UBOOL*)Result = GetIsInCinematicsState();
 }
 
-struct URCapeComponent__01702a80 : public URCapeComponent
-{
-	void PauseCape();
-	void execPauseCape(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702a80
-void URCapeComponent__01702a80::execPauseCape( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execPauseCape( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	PauseCape();
 }
 
-struct URCapeComponent__01702ab0 : public URCapeComponent
-{
-	void ResumeCape();
-	void execResumeCape(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01702ab0
-void URCapeComponent__01702ab0::execResumeCape( FFrame& Stack, RESULT_DECL )
+void URCapeComponent::execResumeCape( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResumeCape();

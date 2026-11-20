@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct ARSmashableProp_ : public ARSmashableProp
-{
-	UBOOL GetHasSubMeshes();
-	void execGetHasSubMeshes(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ff450
-void ARSmashableProp_::execGetHasSubMeshes( FFrame& Stack, RESULT_DECL )
+void ARSmashableProp::execGetHasSubMeshes( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetHasSubMeshes();
@@ -25,14 +19,8 @@ void ARSmashableProp::execSetBreakableType(FFrame& Stack, RESULT_DECL)
     SetBreakableType(breakableType);
 }
 
-struct ARSmashableProp__016ff670 : public ARSmashableProp
-{
-	UBOOL GetHasSubParts();
-	void execGetHasSubParts(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x016ff670
-void ARSmashableProp__016ff670::execGetHasSubParts( FFrame& Stack, RESULT_DECL )
+void ARSmashableProp::execGetHasSubParts( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetHasSubParts();

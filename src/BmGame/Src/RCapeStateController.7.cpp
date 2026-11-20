@@ -4,14 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-struct URCapeStateController_ : public URCapeStateController
-{
-	UBOOL GetIsInitialised();
-	void execGetIsInitialised(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701640
-void URCapeStateController_::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execGetIsInitialised( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	*(UBOOL*)Result = GetIsInitialised();
@@ -40,27 +34,15 @@ void URCapeStateController::execGetIsPausedOrPendingPaused( FFrame& Stack, RESUL
 	*(UBOOL*)Result = GetIsPausedOrPendingPaused();
 }
 
-struct URCapeStateController__01701d80 : public URCapeStateController
-{
-	void PauseCape();
-	void execPauseCape(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701d80
-void URCapeStateController__01701d80::execPauseCape( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execPauseCape( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	PauseCape();
 }
 
-struct URCapeStateController__01701db0 : public URCapeStateController
-{
-	void ResumeCape();
-	void execResumeCape(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x01701db0
-void URCapeStateController__01701db0::execResumeCape( FFrame& Stack, RESULT_DECL )
+void URCapeStateController::execResumeCape( FFrame& Stack, RESULT_DECL )
 {
 	P_FINISH;
 	ResumeCape();
