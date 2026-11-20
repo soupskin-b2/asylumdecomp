@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: the natives behind execSetDepthBias (0091f940) and execSetDisableColourWrites (0091fa30) aren't declared. */
-
 // @baa 0x009145b0
 /* Pushes the depth bias and colour-write settings to the scene proxy, once they've left their defaults. */
 void USkeletalMeshComponent::UpdateSceneProxy()

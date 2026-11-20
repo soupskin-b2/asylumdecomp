@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: the DOF manager's post-process update (0x01686a40) isn't declared. */
-
 // @baa 0x01689860
 /* Slot 0x360: the camera's post-process overrides (DOF, motion blur, bloom). */
 void AR3rdPersonCamera::ModifyPostProcessSettings(FPostProcessSettings& PPSettings) const

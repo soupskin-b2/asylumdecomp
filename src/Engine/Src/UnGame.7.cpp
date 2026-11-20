@@ -197,9 +197,6 @@ void APlayerController::eventServerNotifyLoadedWorld(FName WorldPackageName)
 }
 
 	/* ENGINE_Init */
-/* Kit gap: the generated glue for GameViewportClient's script event Init (EngineClasses.h) isn't declared; this
- * build keeps it out of line (UGameEngine::Init calls it). */
-
 // @baa 0x007e14f0
 UBOOL UGameViewportClient::eventInit(FString& OutError)
 {
@@ -217,9 +214,6 @@ UBOOL UGameViewportClient::eventInit(FString& OutError)
 
 extern FName g_026c3d88;
 	/* ENGINE_GetSeamlessTravelActorList */
-/* Kit gap: the generated glue for PlayerController's script event GetSeamlessTravelActorList (EngineClasses.h) isn't
- * declared; this build keeps it out of line (FSeamlessTravelHandler::Tick calls it). */
-
 // @baa 0x009bd9b0
 void APlayerController::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList)
 {
@@ -235,9 +229,6 @@ void APlayerController::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<A
 }
 
 	/* ENGINE_GetSeamlessTravelActorList */
-/* Kit gap: the generated glue for GameInfo's script event GetSeamlessTravelActorList (EngineClasses.h) isn't
- * declared; this build keeps it out of line (FSeamlessTravelHandler::Tick calls it). */
-
 // @baa 0x009bda70
 void AGameInfo::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>& ActorList)
 {
@@ -254,10 +245,6 @@ void AGameInfo::eventGetSeamlessTravelActorList(UBOOL bToEntry, TArray<AActor*>&
 
 extern FName g_026c3d24;
 	/* ENGINE_GetDefaultGameClassPath */
-/* Kit gap: the generated glue for GameInfo's static script event GetDefaultGameClassPath (EngineClasses.h) isn't
- * declared; this build keeps it out of line (UGameEngine's map loading calls it on the GameInfo class default
- * object). */
-
 // @baa 0x007e1320
 FString AGameInfo::eventGetDefaultGameClassPath(const FString& MapName, const FString& Options, const FString& Portal)
 {

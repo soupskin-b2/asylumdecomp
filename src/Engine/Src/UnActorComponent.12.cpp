@@ -37,8 +37,6 @@ public:
     }
 };
 
-/* Kit gap: UActorComponent::IsAttached() (an inline accessor of bAttached in UnActorComponent.h) isn't declared. */
-#define IsAttached() bAttached
 // @baa 0x0076d150
 /* Detaching removes the component from its owner's component list. */
 void UActorComponent::Detach(UBOOL bWillReattach)

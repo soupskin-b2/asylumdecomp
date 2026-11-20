@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-/* Kit gap: FName has no comparison operators (UnName.h, inline). */
-
 // @baa 0x0091de90
 void USkeletalMeshComponent::execIsComponentAttached(FFrame& Stack, RESULT_DECL)
 {

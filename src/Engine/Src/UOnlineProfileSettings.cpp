@@ -387,9 +387,6 @@ INT UOnlineProfileSettings::GetProfileSettingMappingType(INT ProfileSettingId, B
 	return FALSE;
 }
 
-/* Kit gap: the script natives FindProfileSettingIndex / FindProfileMappingIndex (execs 00c8db10 / 00c8db80) aren't
- * declared. */
-
 // @baa 0x00d72590
 /* The index of a profile setting in ProfileSettings; INDEX_NONE when there's none. */
 INT UOnlineProfileSettings::FindProfileSettingIndex(INT ProfileSettingId) const
@@ -455,7 +452,6 @@ INT UOnlineProfileSettings::GetVersionNumber()
 	return Version;
 }
 
-/* Kit gap: FName has no operator== (UnName.h). */
 // @baa 0x00d723d0
 /* The id of the profile setting with this name; FALSE when there's none. */
 INT UOnlineProfileSettings::GetProfileSettingId(FName ProfileSettingName, INT& ProfileSettingId)

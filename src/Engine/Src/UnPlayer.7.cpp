@@ -102,9 +102,6 @@ void UGameViewportClient__00892430::Tick(FLOAT DeltaTime)
 
 extern FName g_026c4a1c;
 	/* ENGINE_HandleInputChar */
-/* Kit gap: the generated delegate glue for GameViewportClient.HandleInputChar (EngineClasses.h) isn't declared;
- * this build keeps it out of line (UGameViewportClient::InputChar calls it). */
-
 // @baa 0x00895da0
 UBOOL UGameViewportClient::delegateHandleInputChar(INT ControllerId, const FString& Unicode)
 {
@@ -123,9 +120,6 @@ UBOOL UGameViewportClient::delegateHandleInputChar(INT ControllerId, const FStri
 
 extern FName g_026c50c8;
 	/* ENGINE_OnReceivedNativeInputChar */
-/* Kit gap: the generated delegate glue for Interaction.OnReceivedNativeInputChar (EngineClasses.h) isn't declared;
- * this build keeps it out of line (the viewport client's InputChar calls it on each interaction). */
-
 // @baa 0x00895e80
 UBOOL UInteraction::delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode)
 {

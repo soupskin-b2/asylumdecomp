@@ -60,9 +60,6 @@ void AActor::eventPostTouch(AActor* Other)
 
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
-/* Kit gap: the generated glue for Actor's script event Tick (EngineClasses.h) isn't declared; this build keeps it
- * out of line (AActor::Tick calls it). Tick is a probe function. */
-
 // @baa 0x00802950
 void AActor::eventTick(FLOAT DeltaTime)
 {
@@ -79,9 +76,6 @@ void AActor::eventTick(FLOAT DeltaTime)
 
 extern FName g_026c5204;
 	/* ENGINE_PlayerTick */
-/* Kit gap: the generated glue for PlayerController's script event PlayerTick (EngineClasses.h) isn't declared;
- * this build keeps it out of line. PlayerTick is a probe function. */
-
 // @baa 0x00802c10
 void APlayerController::eventPlayerTick(FLOAT DeltaTime)
 {

@@ -90,8 +90,6 @@ void UMaterialInterface::execGetScalarCurveParameterValue(FFrame& Stack, RESULT_
 	*(UBOOL*)Result = GetScalarCurveParameterValue(ParameterName, OutValue);
 }
 
-/* Kit gaps: SetDataStoreFieldValue (00d9ca20) isn't declared (names from the exe's native table). */
-
 // @baa 0x00cc7090
 void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 {
@@ -107,8 +105,6 @@ void UUIRoot::execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UBOOL*)Result = this->SetDataStoreFieldValue(InDataStoreMarkup, InFieldValue, OwnerScene, OwnerPlayer);
 }
-
-/* Kit gaps: GetDataStoreFieldValue (00d9cb70) isn't declared (names from the exe's native table). */
 
 // @baa 0x00cc7210
 void UUIRoot::execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL)
@@ -134,8 +130,6 @@ void UFracturedStaticMeshComponent::execSetVisibleFragments(FFrame& Stack, RESUL
 	P_FINISH;
 	SetVisibleFragments(VisibilityFactors);
 }
-
-/* Kit gap: FInterpCurveVector's destructor (out of line, 0x006f17f0) isn't declared. */
 
 // @baa 0x00cc87b0
 /* GetVectorCurveParameterValue(name ParameterName, out InterpCurveVector OutValue) */

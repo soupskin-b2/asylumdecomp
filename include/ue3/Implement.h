@@ -10,7 +10,7 @@
  *     IMPLEMENT_CLASS_AT(UParticleModule, "e:\\Projects\\...\\UnParticleModules.cpp", 52)
  * (the original's assembly shows both: the pushed file string and line).
  *
- * The global operator new/delete are UE3's (appMalloc/appFree, here the exe's out-of-line copies:
+ * The global operator new/delete (and new[]/delete[]) are UE3's (appMalloc/appFree, here the exe's out-of-line copies:
  * 0053df40 appMalloc, 0053dfa0 appFree); they are in this header rather than Core.h, so a
  * source that doesn't include it can declare its own.
  */
@@ -24,6 +24,8 @@ void* sub_0053df40(DWORD Count, DWORD Alignment);
 void  sub_0053dfa0(void* Original);
 inline void* __cdecl operator new(unsigned int Size) { return sub_0053df40(Size, DEFAULT_ALIGNMENT); }
 inline void __cdecl operator delete(void* Ptr) { sub_0053dfa0(Ptr); }
+inline void* __cdecl operator new[](unsigned int Size) { return sub_0053df40(Size, DEFAULT_ALIGNMENT); }
+inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
 
 /* RF_Public | RF_Standalone | RF_Transient | RF_Native | RF_RootSet ... as the exe passes them */
 #define BAA_NATIVE_CLASS_FLAGS 0x0408408400004000ui64

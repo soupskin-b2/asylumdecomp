@@ -46,7 +46,6 @@ void URSeqAct_PrepareMapChangeFromURL::DeActivated()
     X->F &= ~0x4004;
 }
 
-/* Kit gap: FName has no operator== (UnName.h compares Index and Number). */
 // @baa 0x0155a3a0
 /* A transition connects the levels on either side of it. */
 UBOOL ARLevelTransition::IsConnectedToLevel(FName Level)

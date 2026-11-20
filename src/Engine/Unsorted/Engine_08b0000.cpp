@@ -420,8 +420,6 @@ int sub_008b4610(void)
   return g_026b5a84;
 }
 
-/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-
 // @baa 0x008b7da0
 /* Stops every matching timer (a zero rate is removed on the next tick). */
 void AActor::ClearTimer(FName inTimerFunc, UObject* inObj)
@@ -445,8 +443,6 @@ static FORCEINLINE UBOOL NamesEqual(const FName& A, const FName& B)
     return A.Index == B.Index && A.Number == B.Number;
 }
 
-/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-
 // @baa 0x008b7ec0
 /* Pauses or resumes every matching timer. */
 void AActor::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
@@ -463,8 +459,6 @@ void AActor::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
         }
     }
 }
-
-/* Kit gap: AActor's timer queries (UnActor.cpp) aren't declared. */
 
 // @baa 0x008b7ff0
 /* A timer is active while its rate is positive. */
@@ -486,8 +480,6 @@ UBOOL AActor::IsTimerActive(FName inTimerFunc, UObject* inObj)
     return bActive;
 }
 
-/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
-
 // @baa 0x008b8130
 /* How long the matching timer has been counting, or -1 when there is none. */
 FLOAT AActor::GetTimerCount(FName inTimerFunc, UObject* inObj)
@@ -507,8 +499,6 @@ FLOAT AActor::GetTimerCount(FName inTimerFunc, UObject* inObj)
     }
     return Count;
 }
-
-/* Kit gap: AActor's timer functions (UnActor.cpp) aren't declared. */
 
 // @baa 0x008b8270
 /* The matching timer's rate, or -1 when there is none. */

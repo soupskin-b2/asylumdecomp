@@ -32,9 +32,6 @@ void UAudioComponent::execIsPlaying(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = bPlaying;
 }
 
-/* Kit gap: the generated delegate glue for AudioComponent.OnAudioFinished (EngineClasses.h) isn't declared; this
- * build keeps it out of line (UAudioComponent::Stop calls it) and builds the name from its string. */
-
 // @baa 0x007850d0
 void UAudioComponent::delegateOnAudioFinished(UAudioComponent* AC)
 {

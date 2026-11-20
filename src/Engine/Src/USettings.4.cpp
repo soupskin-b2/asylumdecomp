@@ -3,12 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* Kit gaps: UE3's global operator new[] / delete[] (appMalloc/appFree, the exe's out-of-line copies 0053df40 /
- * 0053dfa0) aren't declared next to Implement.h's new/delete, nor is FSettingsData's structcpptext (CleanUp and
- * the SetData overloads). */
-inline void* __cdecl operator new[](unsigned int Size) { return sub_0053df40(Size, DEFAULT_ALIGNMENT); }
+/* Kit gap: FSettingsData's structcpptext (CleanUp and the SetData overloads) isn't declared. */
 
-inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
 
 struct FSettingsData_ : public FSettingsData
 {

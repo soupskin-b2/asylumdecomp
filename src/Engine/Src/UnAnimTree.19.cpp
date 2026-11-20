@@ -3,9 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap, with UE3's definition (UnName.h): FName has no comparison operators. */
-inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
-
 // @baa 0x00c7ca70
 void UAnimNodePlayCustomAnim::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
 {

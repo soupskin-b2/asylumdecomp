@@ -346,10 +346,6 @@ FString USettings::GetSettingsDataString(FSettingsData& Data)
 	return Result;
 }
 
-/* Kit gap: UE3's global operator delete[] (appFree, the exe's out-of-line copy 0053dfa0) isn't declared next to
- * Implement.h's operator delete. */
-inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
-
 // @baa 0x00d67f60
 /* Frees what a settings value holds and empties it. */
 void USettings::EmptySettingsData(FSettingsData& Data)
@@ -425,10 +421,7 @@ void USettings::GetSettingsDataDateTime(FSettingsData& Data, INT& OutPart1, INT&
 	}
 }
 
-/* Kit gaps: UE3's global operator new[] / delete[] (appMalloc/appFree, the exe's out-of-line copies 0053df40 /
- * 0053dfa0) aren't declared next to Implement.h's new/delete, nor is FSettingsData's structcpptext (CleanUp and
- * the SetData overloads). */
-inline void* __cdecl operator new[](unsigned int Size) { return sub_0053df40(Size, DEFAULT_ALIGNMENT); }
+/* Kit gap: FSettingsData's structcpptext (CleanUp and the SetData overloads) isn't declared. */
 
 struct FSettingsData_ : public FSettingsData
 {
@@ -613,7 +606,6 @@ FName USettings::GetStringSettingName(INT StringSettingId)
 	return NAME_None;
 }
 
-/* Kit gap: FName has no operator== (UnName.h). */
 // @baa 0x00d748e0
 /* The id of the string setting with this name; FALSE when there's none. */
 UBOOL USettings::GetStringSettingId(FName StringSettingName, INT& StringSettingId)

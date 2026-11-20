@@ -106,9 +106,6 @@ void AWorldInfo::execGetWorldFractureSettings(FFrame& Stack, RESULT_DECL)
     *(FWorldFractureSettings*)Result = this->GetWorldFractureSettings();
 }
 
-/* Kit gaps: AWorldInfo::GetDemoFrameInfo (0x00bf99c0) and the optional out INT parameter macro. */
-
-#define P_GET_INT_OPTX_REF(v, d) INT v##T = d; GPropAddr = 0; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v##T); INT* p##v = (INT*)GPropAddr; INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;
 // @baa 0x00c8a0f0
 /* GetDemoFrameInfo(optional out int CurrentFrame, optional out int TotalFrames) */
 void AWorldInfo::execGetDemoFrameInfo(FFrame& Stack, RESULT_DECL)

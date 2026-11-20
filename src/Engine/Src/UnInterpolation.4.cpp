@@ -65,7 +65,6 @@ AActor* USeqAct_Interp::sub_00d14410()
     return NULL;
 }
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 /* Unnamed in the kit: UE3's UInterpData::FindGroupByName(FName GroupName): the index of the group named GroupName,
  * INDEX_NONE if none (or for NAME_None). */
 

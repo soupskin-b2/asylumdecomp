@@ -106,9 +106,6 @@ void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4164;
 	/* ENGINE_ClientSpawnCameraLensEffect */
-/* Kit gap: the generated glue for PlayerController's script event ClientSpawnCameraLensEffect (EngineClasses.h)
- * isn't declared; this build keeps it out of line (UAnimNotify_CameraEffect::Notify calls it). */
-
 // @baa 0x0090af60
 void APlayerController::eventClientSpawnCameraLensEffect(UClass* LensEffectEmitterClass)
 {

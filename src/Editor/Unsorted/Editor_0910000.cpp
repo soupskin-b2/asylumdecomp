@@ -30,9 +30,6 @@ UBOOL UAnimNotify_Scripted::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gap: FName has no comparison operators (UnName.h compares Index and Number). */
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 // @baa 0x00918870
 /* The set's sequence named SequenceName, or NULL. (The original reads the array through its const accessor.) */
 UAnimSequence* UAnimSet::FindAnimSequence(FName SequenceName)

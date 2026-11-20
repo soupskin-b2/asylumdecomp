@@ -29,10 +29,6 @@ void USkeletalMeshComponent::execSetPhysicsAsset(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c552c;
 	/* AnimationTriggerCallback */
-/* Kit gap: the generated glue for the AnimationTriggerCallback script event isn't declared; this build keeps it out
- * of line (USkeletalMeshComponent calls it on its Owner when an FAnimTriggerFaceFXTag fires, passing the tag's
- * fields; the parameter names follow that struct). */
-
 // @baa 0x00938ac0
 void AActor::eventAnimationTriggerCallback(FName TagName, const TArray<FString>& TagParams, UAnimSet* TagAnimSet, FLOAT AtTime)
 {

@@ -23,7 +23,6 @@ void UAudioComponent::SetParentToWorld(const FMatrix& ParentToWorld)
     ComponentLocation = Origin;
 }
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 /* Unnamed in the kit: UE3's UAudioComponent::GetFloatParameter(FName InName, FLOAT& OutValue): the FloatParam of the instance
  * parameter named InName. */
 

@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-/* Kit gap: USettings' blob helpers (USettings.h) aren't declared. */
-
 // @baa 0x00cbf990
 void USettings::execSetSettingsDataBlob(FFrame& Stack, RESULT_DECL)
 {

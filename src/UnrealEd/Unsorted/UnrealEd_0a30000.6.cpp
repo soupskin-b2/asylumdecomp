@@ -25,9 +25,6 @@ FLOAT UObject_::eventScriptCall()
 
 extern FName g_026c3df4;
 	/* ENGINE_FillByCylinder */
-/* Kit gap: the generated glue for ForceFieldShape's script event FillByCylinder (EngineClasses.h) isn't declared;
- * this build keeps it out of line (the tornado force fields call it). */
-
 // @baa 0x00a33cd0
 void UForceFieldShape::eventFillByCylinder(FLOAT BottomRadius, FLOAT TopRadius, FLOAT Height, FLOAT HeightOffset)
 {

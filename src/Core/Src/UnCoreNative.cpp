@@ -813,8 +813,6 @@ void sub_005adfd0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   return;
 }
 
-/* Kit gap: UObject::GetOuter() (inline, returns Outer) isn't declared; the check text needs the call spelled out. */
-#define GetOuter() Outer
 // @baa 0x0059cb30
 /* A component is pending kill along with its owner. */
 UBOOL UComponent::IsPendingKill()

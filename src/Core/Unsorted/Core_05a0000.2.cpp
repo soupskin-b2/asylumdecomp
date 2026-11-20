@@ -279,18 +279,12 @@ void UObject::execPathName(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = CheckObject ? CheckObject->GetPathName() : FString(TEXT("None"));
 }
 
-/* Kit gap: UObject's cast natives (UnScript.cpp, registered in GCasts at 02688ca0, e.g. CST_StringToName) aren't
- * declared. Casts read their one operand and don't P_FINISH. */
-
 // @baa 0x005a34f0
 void UObject::execStringToName(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(Str);
 	*(FName*)Result = FName(*Str);
 }
-
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp, registered in GNatives by EX_ code) aren't declared, nor
- * FFrame's inline readers ReadFloat/ReadName/ReadObject (UnScript.h). */
 
 // @baa 0x005ab3e0
 void UObject::execFinalFunction(FFrame& Stack, RESULT_DECL)

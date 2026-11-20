@@ -3,10 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* Kit gaps: UE3's global operator delete[] (appFree, the exe's out-of-line copy
-  * 0053dfa0) isn't declared next to Implement.h's delete, nor is FSettingsData's structcpptext (CleanUp and
- * the SetData overloads). */
-inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
+/* Kit gap: FSettingsData's structcpptext (CleanUp and the SetData overloads) isn't declared. */
 
 struct FSettingsData_ : public FSettingsData
 {
@@ -46,7 +43,6 @@ void FSettingsData_::SetData(FLOAT InData)
 	Value1 = *(INT*)&InData;
 }
 
-/* Kit gap: FName has no operator== (UE3's compares Index and Number). */
 // @baa 0x00d88830
 /* Drop the named session from the subsystem's list. */
 void UOnlineSubsystem::RemoveNamedSession(FName SessionName)

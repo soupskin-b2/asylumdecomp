@@ -66,10 +66,6 @@ FIntPoint UAnimNode::GetConnectionLocation(INT ConnType, INT ConnIndex)
 
 #line 91 "candidate.cpp"
 
-/* Kit gap, with UE3's definition (UnMath.h): PI isn't defined. */
-#define PI (3.1415926535897932)
-/* UAnimNodeBlendDirectional's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
-
 // @baa 0x00c92b80
 void UAnimNodeBlendDirectional::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
 {
@@ -81,10 +77,6 @@ void UAnimNodeBlendDirectional::HandleSliderMove(INT SliderIndex, INT ValueIndex
 }
 
 #line 111 "candidate.cpp"
-
-/* Kit gap, with UE3's definition (UnMath.h): PI and INV_PI aren't defined. */
-#define INV_PI (0.31830988618f)
-/* UAnimNodeBlendDirectional's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
 
 // @baa 0x00c92b30
 FLOAT UAnimNodeBlendDirectional::GetSliderPosition(INT SliderIndex, INT ValueIndex)

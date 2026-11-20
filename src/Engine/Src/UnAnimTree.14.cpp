@@ -30,8 +30,6 @@ void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLO
 	}
 }
 
-/* Kit gap, with UE3's definition (UnMath.h): PI isn't defined. */
-#define PI (3.1415926535897932)
 // @baa 0x00c49770
 /* UnMath.h's UnwindHeading (missing from the kit), out of line here: the angle brought back to [-PI, PI]. */
 FLOAT UnwindHeading(FLOAT A)

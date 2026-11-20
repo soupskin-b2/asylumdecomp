@@ -68,8 +68,6 @@ void UPrimitiveComponent::execAddImpulse(FFrame& Stack, RESULT_DECL)
 	AddImpulse(Impulse, Position, BoneName, bVelChange);
 }
 
-/* Kit gaps: AddForce (009ff110) isn't declared (names from the exe's native table). */
-
 // @baa 0x009ff200
 void UPrimitiveComponent::execAddForce(FFrame& Stack, RESULT_DECL)
 {

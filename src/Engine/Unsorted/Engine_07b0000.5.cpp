@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include <wchar.h>
 
-/* Kit gap: appStricmp (UnVcWin32.h), inline as UE3 has it. */
-
 // @baa 0x007b5540
 /* PlayerReplicationInfo: the alias when one is set, else the player's name. */
 FString APlayerReplicationInfo::GetPlayerAlias()

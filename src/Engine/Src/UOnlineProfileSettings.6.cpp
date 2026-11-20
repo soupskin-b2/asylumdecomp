@@ -6,10 +6,8 @@
 #include "ue3/Implement.h"
 #include "ue3/Enums.h"
 
-/* Kit gaps: UE3's global operator delete[] (appFree, out of line at 0053dfa0), FSettingsData's structcpptext
- * (CleanUp, SetData), FScriptDelegate::IsCallable and the delegateNotifySettingValueUpdated glue (inlined here;
- * out of line at 00d67120) aren't declared. */
-inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
+/* Kit gap: FSettingsData's structcpptext (CleanUp, SetData), FScriptDelegate::IsCallable and the
+ * delegateNotifySettingValueUpdated glue (inlined here; out of line at 00d67120) aren't declared. */
 
 /* FName's comparison (UnName.h); the kit's FName has none. */
 extern FName g_026c438c;

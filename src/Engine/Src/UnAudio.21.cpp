@@ -4,9 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gaps: FScriptDelegate::IsCallable (00784f80), UAudioComponent::Cleanup (00799ca0) and the delegateOnAudioFinished
- * glue (out of line, 007850d0) aren't declared. */
-
 // @baa 0x00799e00
 /* Stops the sound: cleans up its wave instances, tells the OnAudioFinished delegate (once) if it was playing, and
  * marks an auto-destroying component for deletion after detaching it from its last owner. */

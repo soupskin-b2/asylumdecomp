@@ -7,10 +7,8 @@
 #include <wchar.h>
 #include <string.h>
 
-/* Kit gaps: UE3's global operator delete[] (appFree, out of line at 0053dfa0) isn't declared next to Implement.h's
- * delete, FString has no operator* (UnString.h), and FSettingsData's structcpptext (SetData/GetData overloads and
+/* Kit gap: FString has no operator* (UnString.h), and FSettingsData's structcpptext (SetData/GetData overloads and
  * the comparison operators) isn't declared. */
-inline void __cdecl operator delete[](void* Ptr) { sub_0053dfa0(Ptr); }
 
 struct FSettingsData_ : public FSettingsData
 {

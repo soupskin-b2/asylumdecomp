@@ -298,9 +298,6 @@ void AActor::execSetHardAttach(FFrame& Stack, RESULT_DECL)
 	SetHardAttach(bNewHardAttach);
 }
 
-/* Kit gap: FStateFrame stops at ProbeMask; UE3's next member is the latent action (WORD LatentAction at 0x34). */
-#pragma pack(push, 4)
-#pragma pack(pop)
 // @baa 0x008a7810
 /* The native half of latent Sleep(Seconds): poll EPOLL_Sleep until LatentFloat runs out. */
 void AActor::Sleep(FLOAT Seconds)

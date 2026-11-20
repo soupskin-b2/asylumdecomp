@@ -839,7 +839,6 @@ void ARHarpoonDragTrack::Spawned()
     CurrentLocation = Location;
 }
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 // @baa 0x0171f3d0
 /* Hitting one of the instant-kill bones knocks the helmet off. */
 INT ARJokerGunGadgetBase::GetShouldKnockHelmetOff(FName BoneName)

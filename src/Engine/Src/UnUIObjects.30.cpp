@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 // @baa 0x00daf3e0
 /* UE3's UUIScreenObject::FindChild(FName WidgetName, UBOOL bRecurse): the child tagged WidgetName (FindChildIndex inlined), else, with bRecurse, the first match among the descendants. */
 UUIObject* UUIScreenObject::FindChild(FName WidgetName, UBOOL bRecurse) const

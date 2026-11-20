@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 // @baa 0x00b5ead0
 /* UE3's UParticleSystemComponent::GetColorParameter(FName InName, FColor& OutColor): the color of the instance
  * parameter of that name. */

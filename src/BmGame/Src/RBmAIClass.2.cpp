@@ -230,8 +230,6 @@ void URBMBehaviourAutoStringUp::PostEditChange(class UProperty* PropertyThatChan
 	((URBMBehaviourAutoStringUp_*)this)->eventUpdateLinks();
 }
 
-/* Kit gaps: FName has no operator== (UnName.h), and BmGame's hardcoded names (0x514, 0x515: the silent-predator
- * meta poses) have no EName identifiers. */
 // @baa 0x015dc2d0
 /* Resolves the silent-predator meta poses to this AI's current stance; any other pose is itself. */
 FName ARBMAIController::ResolveMovementMetaPose(FName InPose)

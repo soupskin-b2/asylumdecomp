@@ -7,10 +7,6 @@
 
 extern FName g_026c41cc;
 	/* ENGINE_BreakOffIsolatedIslands */
-/* Kit gap: the generated glue for FracturedStaticMeshActor's script event BreakOffIsolatedIslands
- * (EngineClasses.h) isn't declared; this build keeps it out of line (UFracturedStaticMeshComponent calls it).
- * Batman's version has a sixth parameter, a bool whose script name isn't known (bArg6). */
-
 // @baa 0x007c5680
 void AFracturedStaticMeshActor::eventBreakOffIsolatedIslands(TArray<BYTE>& FragmentVis, const TArray<INT>& IgnoreFrags, FVector ChunkDir, const TArray<AFracturedStaticMeshPart*>& DisableCollWithPart, UBOOL bWantPhysChunks, UBOOL bArg6)
 {

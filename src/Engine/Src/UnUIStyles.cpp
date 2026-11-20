@@ -3387,9 +3387,6 @@ UBOOL UUIStyle_Combo::IsDirty()
   return 1;
 }
 
-/* Kit gaps: FUIStyleReference has no methods; UUIStyle::GetStyleForState is declared,
- * GetStyleForStateByClass is sub_00ddac00. */
-
 // @baa 0x00ddb4e0
 /* The resolved style's data for StateObject. */
 UUIStyle_Data* FUIStyleReference::GetStyleDataByState(UUIState* StateObject) const

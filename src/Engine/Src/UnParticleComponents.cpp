@@ -2124,7 +2124,6 @@ int sub_00b71390(void)
   return g_026bf5b4;
 }
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 // @baa 0x00b5eb70
 /* Looks up the instance parameter InName of actor type (PSPT_Actor). */
 UBOOL UParticleSystemComponent::GetActorParameter(FName InName, AActor*& OutActor)

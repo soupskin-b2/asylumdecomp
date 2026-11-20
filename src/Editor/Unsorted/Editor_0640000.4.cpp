@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: FBoxSphereBounds' box constructor (UnMath.h) */
-
 // @baa 0x006497a0
 /* The bounds of a box: its center and half-extent, and the sphere around it. */
 FBoxSphereBounds::FBoxSphereBounds(const FBox& Box)

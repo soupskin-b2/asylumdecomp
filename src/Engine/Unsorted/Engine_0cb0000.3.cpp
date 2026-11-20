@@ -96,8 +96,6 @@ void AActor::execChartData(FFrame& Stack, RESULT_DECL)
 	this->ChartData(DataName, DataValue);
 }
 
-/* Kit gaps: UpdateURL (007bf4b0) isn't declared (names from the exe's native table). */
-
 // @baa 0x00cb7020
 void APlayerController::execUpdateURL(FFrame& Stack, RESULT_DECL)
 {

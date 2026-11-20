@@ -16,10 +16,6 @@ struct FVector_ : public FVector
 	FLOAT Size() const { return appSqrt(X * X + (Y * Y + Z * Z)); }
 };
 
-/* Kit gap: this grapple-pull helper isn't declared. */
-static FORCEINLINE FVector_ operator*(FLOAT Scale, const FVector_& V) { return FVector_(V.X * Scale, V.Y * Scale, V.Z * Scale); }
-
-
 // @baa 0x01614010
 /* Turns GrapplePullDirection towards NewDirection at up to 2 units/s and builds up GrapplePullStrength
  * (10/s per unit of change, capped at 1). */

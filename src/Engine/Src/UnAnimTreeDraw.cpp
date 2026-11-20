@@ -70,8 +70,7 @@ struct FString__00cc07f0 : public FString
 	static FString Printf(const TCHAR* Fmt, FLOAT Value, TCHAR Char);
 };
 
-#define PI (3.1415926535897932)	/* UnMath.h; not in the kit */
-/* UAnimNodeBlendDirectional's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+#define PI (3.1415926535897932)	/* UAnimNodeBlendDirectional's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
 // @baa 0x00cc07f0
 FString UAnimNodeBlendDirectional::GetSliderDrawValue(INT SliderIndex)
 {
@@ -83,12 +82,6 @@ FString UAnimNodeBlendDirectional::GetSliderDrawValue(INT SliderIndex)
 }
 
 #line 102 "candidate.cpp"
-
-/* Kit gaps, with UE3's definitions (UnName.h): FName has no comparison operators. */
-inline UBOOL operator!=(const FName& A, EName N) { return A.Index != N || A.Number != 0; }
-
-/* UClass::GetDescription isn't declared in Classes.h. */
-
 
 // @baa 0x00cb91a0
 FString UAnimNodeBlendBase::GetNodeTitle()

@@ -30,10 +30,6 @@ INT BlendRot(FLOAT DeltaTime, INT BlendC, INT NewC)
 	return (BlendC & 65535);
 }
 
-/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0) and the UnMath.h inlines
- * FVector::IsNearlyZero / FMatrix::InverseTransformFVector aren't declared. */
-#define KINDA_SMALL_NUMBER	(1.e-4f)
-
 // @baa 0x007ab4e0
 /* UnActor.cpp: stores InPosition relative to InBase (static bases count as none). */
 void FBasedPosition::Set(AActor* InBase, const FVector& InPosition)

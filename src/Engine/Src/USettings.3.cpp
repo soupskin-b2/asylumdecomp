@@ -287,8 +287,6 @@ void USettings::execGetRangedPropertyValue(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = GetRangedPropertyValue(PropertyId, OutValue);
 }
 
-/* Kit gap: USettings' FSettingsData helpers below (USettings.h) aren't declared. */
-
 // @baa 0x00c85400
 void USettings::execSetSettingsDataDateTime(FFrame& Stack, RESULT_DECL)
 {

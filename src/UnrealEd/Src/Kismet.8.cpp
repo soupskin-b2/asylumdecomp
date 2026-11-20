@@ -6,9 +6,6 @@
 
 extern FName g_026c3f0c;
 	/* ENGINE_IsValidLevelSequenceObject */
-/* Kit gap: the generated glue for SequenceObject's script event IsValidLevelSequenceObject (EngineClasses.h) isn't
- * declared; this build keeps it out of line (Kismet.cpp calls it on a class default object). */
-
 // @baa 0x01191f80
 UBOOL USequenceObject::eventIsValidLevelSequenceObject()
 {

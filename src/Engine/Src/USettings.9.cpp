@@ -5,8 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gap: FSettingsData's structcpptext (GetData) isn't declared. */
-
 // @baa 0x00d79720
 /* Copies out the blob this holds, or empties OutData when it isn't a blob. */
 void FSettingsData::GetData(TArray<BYTE>& OutData) const

@@ -75,9 +75,6 @@ void FStyleDataReference::EnableCustomStyleData(UBOOL bEnabled)
 	}
 }
 
-/* Kit gap: UUIStyle::GetArchetypeStyleForState isn't declared. CastChecked<T> is out of line here (00dd9c10). */
-template<class T> T* CastChecked(UObject* Src);
-
 // @baa 0x00ddb7a0
 /* The archetype style's data for StateObject, unless the archetype is the class default. */
 UUIStyle_Data* UUIStyle::GetArchetypeStyleForState(UUIState* StateObject) const

@@ -9,9 +9,6 @@ INT UUIDataStore_Strings::vf_124(INT A, INT B)
     return vf_118(A, B, -1);
 }
 
-/* Kit gap: FindPlayerDataStoreIndex is const in this build (the const operator() is used); Classes.h declares
- * it as non-const sub_00d92fb0. */
-
 // @baa 0x00d92fb0
 /* The index of PlayerOwner's group in PlayerDataStores, or INDEX_NONE. */
 INT UDataStoreClient::FindPlayerDataStoreIndex(ULocalPlayer* PlayerOwner) const

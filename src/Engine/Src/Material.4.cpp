@@ -5,7 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: FName has no comparison operator (UnName.h compares Index and Number). */
 // @baa 0x006bb2e0
 /* The default value of the material's scalar parameter ParameterName. */
 UBOOL UMaterial::GetScalarParameterValue(FName ParameterName, FLOAT& OutValue)

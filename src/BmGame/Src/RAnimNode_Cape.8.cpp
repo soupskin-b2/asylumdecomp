@@ -11,7 +11,6 @@ void URPoseConfigFactoryNew::InitializeIntrinsicPropertyValues()
 	Description = TEXT("Animation Pose Config");
 }
 
-/* Kit gap: FName has no operator== (UnName.h). */
 // @baa 0x0155cfa0
 void URAnimNode_Cape::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {
