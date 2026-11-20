@@ -58123,12 +58123,30 @@ struct UBoolProperty : public UProperty {
     /* registered size 0x74 */
 };
 
-struct FNativeDtor_01386550_24 { ~FNativeDtor_01386550_24(); /* 0x01386550 */ DWORD _data[9]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UnrealEdClasses.h's pane record; this build's is 0x28 bytes (the destructor strides 40 and frees the strings at 4 and 0x10),
+ * one DWORD more than UE3's, so the tail stays unnamed */
+struct FBrowserPaneInfo {
+    INT PaneID; /* 0x0 */
+    FStringNoInit WxWindowClassName; /* 0x4 */
+    FStringNoInit FriendlyName; /* 0x10 */
+    BYTE _native_1c[0xc]; /* bInitiallyHidden, CloneOfPaneID, CloneNumber, WxBrowserPtr in UE3, plus one more DWORD; order not confirmed */
+};
+/* UBrowserManager::BrowserPanes, with its out-of-line destructor (the name keeps the old size so its symbol stays) */
+struct FNativeDtor_01386550_24 : public TArrayNoInit<FBrowserPaneInfo> { ~FNativeDtor_01386550_24(); /* 0x01386550 */ };
 struct UBrowserManager : public UObject {
     /* UnrealEd.BrowserManager (native only: no script package describes it) */
     DECLARE_CLASS(UBrowserManager, UObject, 0x4, 0x0, UnrealEd)
     static const TCHAR* StaticConfigName() { return TEXT("Editor"); }
-    FNativeDtor_01386550_24 Native_30; /* 0x30: C++ only (destroyed by its destructor) */
+    /* UnrealEdClasses.h's members (Initialize tests and sets bHasCreatedPanes, reads LastSelectedPaneID) */
+    FNativeDtor_01386550_24 BrowserPanes; /* 0x30 */
+    BITFIELD bHasCreatedPanes : 1; /* 0x3c */
+    BITFIELD bHasStateBeenRestored : 1;
+    BITFIELD bIsBrowserLayoutChanging : 1;
+    INT LastSelectedPaneID; /* 0x40 */
+    FPointer CreatedPanesPtr; /* 0x44 */
+    FPointer DockingContainerPtr; /* 0x48 */
+    FPointer FloatingWindowsArrayPtr; /* 0x4c */
+    FPointer BrowserMenuPtr; /* 0x50 */
     /* virtual functions this class introduces (vtable 0x02263488) */
     virtual void Initialize(void); /* 0x10c */
     /* overrides */
@@ -59631,8 +59649,14 @@ struct UEditorPlayer : public ULocalPlayer {
 struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice {
     /* UnrealEd.EditorUISceneClient (native only: no script package describes it) */
     DECLARE_CLASS(UEditorUISceneClient, UUISceneClient, 0x8, 0x0, UnrealEd)
-    UEditorUISceneClient() { *(DWORD*)((BYTE*)this + 0xf8) = 0; }
-    BYTE _native[0x14]; /* C++-only members, to the registered size 0x100 */
+    UEditorUISceneClient() { CanvasScene = NULL; }
+    /* (0xe8 is FCallbackEventDevice's vtable.) Names from use: ChangeActiveSkin forwards to SceneManager, the UIEditor window is
+     * Close()d when the scene closes; CanvasScene and the flag's names are not attested */
+    class UUIScene* Scene; /* 0xec */
+    class UUISceneManager* SceneManager; /* 0xf0 */
+    class WxUIEditorBase* UIEditor; /* 0xf4 */
+    class FCanvasScene* CanvasScene; /* 0xf8: InitializePrimitives' scene, released (vtable 0x80, 0x54) by vf_198 */
+    BITFIELD bPrimitivesInitialized : 1; /* 0xfc: set by InitializePrimitives */
     /* virtual functions this class introduces (vtable 0x022b1de0) */
     virtual void vf_18c(INT); /* 0x18c */
     virtual void vf_190(); /* 0x190 */
@@ -61459,10 +61483,12 @@ struct UTransBuffer : public UTransactor {
     /* Editor.TransBuffer (native only: no script package describes it) */
     DECLARE_CLASS(UTransBuffer, UTransactor, 0x8, 0x0, Editor)
     UTransBuffer() { *(DWORD*)((BYTE*)this + 0x40) = 0; *(DWORD*)((BYTE*)this + 0x44) = 0; *(DWORD*)((BYTE*)this + 0x48) = 0; }
-    TArray<FNativeElem_00f9c4f0> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x4];
-    FStringNoInit Native_40; /* 0x40: C++ only (destroyed by its destructor) */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x54 */
+    /* UnEdTran.h's members (this build has no DisallowObjectSerialization) */
+    TArray<FNativeElem_00f9c4f0> UndoBuffer; /* 0x30: TArray<FTransaction> (element not recovered) */
+    INT UndoCount; /* 0x3c */
+    FStringNoInit ResetReason; /* 0x40 */
+    INT ActiveCount; /* 0x4c */
+    DWORD MaxMemory; /* 0x50: SIZE_T */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64756,10 +64782,15 @@ struct UTexAligner : public UObject {
     /* UnrealEd.TexAligner (native only: no script package describes it) */
     DECLARE_CLASS(UTexAligner, UObject, 0x1, 0x0, UnrealEd)
     UTexAligner(); /* 0x012ab890 */
-    BYTE _native0[0x14];
-    FStringNoInit Native_44; /* 0x44: C++ only (destroyed by its destructor) */
+    /* UnTexAlignTools.h's members (the constructor's stores and InitFields' registered offsets) */
+    ETexAlign DefTexAlign; /* 0x30 */
+    class UEnum* TAxisEnum; /* 0x34 */
+    BYTE TAxis; /* 0x38: ETAxis, 4 (TAXIS_AUTO) by default */
+    FLOAT UTile; /* 0x3c */
+    FLOAT VTile; /* 0x40 */
+    FStringNoInit Desc; /* 0x44 */
     /* virtual functions this class introduces (vtable 0x02224820) */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void InitFields(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -64775,7 +64806,7 @@ struct UTexAlignerBox : public UTexAligner {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void InitFields(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
     /* registered size 0x50 */
@@ -64788,7 +64819,7 @@ struct UTexAlignerDefault : public UTexAligner {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void InitFields(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
     /* registered size 0x50 */
@@ -64801,7 +64832,7 @@ struct UTexAlignerFit : public UTexAligner {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void InitFields(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
     /* registered size 0x50 */
@@ -64814,7 +64845,7 @@ struct UTexAlignerPlanar : public UTexAligner {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(); /* 0x10c */
+    virtual void InitFields(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* registered size 0x50 */
 };
