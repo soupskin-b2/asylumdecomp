@@ -4,18 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* Kit gap: FMICReentranceGuard (MaterialInstance.h; its constructor is out of line, 006ae920) isn't declared. */
-class FMICReentranceGuard
-{
-	UMaterialInstance* Material;
-public:
-	FMICReentranceGuard(UMaterialInstance* InMaterial);
-	~FMICReentranceGuard()
-	{
-		Material->ReentrantFlag = 0;
-	}
-};
-
 // @baa 0x006aed50
 /* This instance's physical material, else its parent's; a material that loops back on itself gets the default
  * material's. */

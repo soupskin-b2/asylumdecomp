@@ -3,20 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: FMICReentranceGuard (MaterialInstance.h; its constructor is out of line, 006ae920) and the
- * TMaterialInstanceTimeVaryingParameterMapping statics (FindParameterByName for textures, 006e91b0) aren't
- * declared. */
-class FMICReentranceGuard
-{
-	UMaterialInstance* Material;
-public:
-	FMICReentranceGuard(UMaterialInstance* InMaterial);
-	~FMICReentranceGuard()
-	{
-		Material->ReentrantFlag = 0;
-	}
-};
-
 struct MITVTextureParameterMapping
 {
 	static FTextureParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);

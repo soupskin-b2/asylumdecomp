@@ -5,29 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: TArray::AddItem / AddUniqueItem, FString::operator* and
- * ConstructObject<T> (UnClass.h; out of line for this T at 00da4530) aren't declared. */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-	FORCEINLINE INT AddItem(const T& Item)
-	{
-		const INT Index = this->Add(1);
-		new(this->GetTypedData() + Index) T(Item);
-		return Index;
-	}
-	INT AddUniqueItem(const T& Item)
-	{
-		for (INT Index = 0; Index < this->Num(); Index++)
-		{
-			if ((*this)(Index) == Item)
-			{
-				return Index;
-			}
-		}
-		return AddItem(Item);
-	}
-};
-
 // @baa 0x00da51b0
 /* Loads the session settings provider classes named in the ini and creates a provider for each. */
 void UUIDataStore_SessionSettings::InitializeDataStore()
@@ -38,7 +15,7 @@ void UUIDataStore_SessionSettings::InitializeDataStore()
 		UClass* ProviderClass = LoadClass<USessionSettingsProvider>(NULL, *ClassName, NULL, LOAD_None, NULL);
 		if (ProviderClass != NULL)
 		{
-			((TArrayAddUnique_<UClass*>&)SessionSettingsProviderClasses).AddUniqueItem(ProviderClass);
+			SessionSettingsProviderClasses.AddUniqueItem(ProviderClass);
 		}
 	}
 
@@ -51,7 +28,7 @@ void UUIDataStore_SessionSettings::InitializeDataStore()
 		USessionSettingsProvider* Provider = ConstructObject<USessionSettingsProvider>((UClass*)ProviderClass, this);
 		if (Provider != NULL)
 		{
-			((TArrayAddUnique_<USessionSettingsProvider*>&)SessionSettings).AddItem(Provider);
+			SessionSettings.AddItem(Provider);
 		}
 	}
 }

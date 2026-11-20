@@ -400,8 +400,6 @@ void APlayerController::execGetPlayerControllerFromNetId(FFrame& Stack, RESULT_D
 	*(class APlayerController**)Result = GetPlayerControllerFromNetId(PlayerNetId);
 }
 
-/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
-#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 // @baa 0x00c82c40
 void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)
 {

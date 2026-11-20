@@ -3,37 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FBoneAtom's constructor and memberwise operator= (UnSkeletalMesh.h), not in the kit. */
-struct FBoneAtom_
-{
-	FQuat Rotation;
-	FVector Translation;
-	FLOAT Scale;
-
-	FBoneAtom_(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale)
-	:	Rotation(InRotation)
-	,	Translation(InTranslation)
-	,	Scale(InScale)
-	{}
-
-	FBoneAtom_& operator=(const FBoneAtom_& Other)
-	{
-		Rotation = Other.Rotation;
-		Translation = Other.Translation;
-		Scale = Other.Scale;
-		return *this;
-	}
-};
-
 /* Callees Classes.h doesn't declare. */
 
 /* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
-class FAnimationUtils
-{
-public:
-	static void BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSequence* AnimSeq, const TArray<BYTE>& RequiredBones, USkeletalMesh* SkelMesh, FLOAT Time, UBOOL bLooping);
-};
-
 // @baa 0x00bfddb0
 /* The local pose of the required bones at Time, from the sequence's raw (uncompressed) keys; bones
  * without a track keep the mesh's reference pose. */
@@ -58,7 +30,7 @@ void FAnimationUtils::BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, UAnimSeq
 		if (TrackIndex == INDEX_NONE)
 		{
 			// no track: the reference pose
-			(FBoneAtom_&)OutAtoms(BoneIndex) = FBoneAtom_(RefSkel(BoneIndex).BonePos.Orientation, RefSkel(BoneIndex).BonePos.Position, 1.f);
+			(FBoneAtom&)OutAtoms(BoneIndex) = FBoneAtom(RefSkel(BoneIndex).BonePos.Orientation, RefSkel(BoneIndex).BonePos.Position, 1.f);
 		}
 		else
 		{

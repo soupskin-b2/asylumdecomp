@@ -87,8 +87,6 @@ void UAnimNotify_Scripted::eventNotify(class AActor* Owner, class USkeletalMeshC
 	ProcessEvent(FindFunctionChecked(g_026c53a8), &Parms);
 }
 
-/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
-#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 // @baa 0x0093fea0
 void USkeletalMeshComponent::execAttachComponent(FFrame& Stack, RESULT_DECL)
 {

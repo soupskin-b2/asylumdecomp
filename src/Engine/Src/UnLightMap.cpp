@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
+#include "ue3/Native.h"
 
 struct C {
     void sub_00d1f560(undefined4);
@@ -275,23 +276,7 @@ undefined4 C_00d31470::sub_00d31470(byte param_2)
   return param_1;
 }
 
-/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
- * for these argument types, 0x00766b80) aren't declared. */
-struct FPixelFormatInfo
-{
-	const TCHAR* Name;
-	INT BlockSizeX;
-	INT BlockSizeY;
-	INT BlockSizeZ;
-	INT BlockBytes;
-	INT NumComponents;
-	DWORD PlatformFormat;
-	DWORD Flags;
-	UBOOL Supported;
-};
-
-extern FPixelFormatInfo g_025da760[];
-#define GPixelFormats g_025da760
+/* FString::Printf here is the linker's copy specialised for these argument types (0x00766b80). */
 // @baa 0x00d31340
 FString ULightMapTexture2D::GetDesc()
 {

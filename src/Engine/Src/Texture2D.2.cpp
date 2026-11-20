@@ -3,9 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
+#include "ue3/Native.h"
 
-/* Kit gap: UnTex.h's GMaxTextureMipCount (the RHI's mip count limit). */
-extern INT GMaxTextureMipCount;
 /* Unnamed in the kit: UE3's UTexture2D::IsFullyStreamedIn() (Mips.Num() is the mirror's ArrayNum, GetCachedLODBias() is
  * CachedCombinedLODBias). */
 

@@ -3570,9 +3570,10 @@ struct FGuidImplementation {
 };
 
 struct FGuid {
-    /* Core.Guid */
-    INT A; /* 0x0 */
-    void Invalidate() { A = 0; }
+    /* Core.Guid: in this build a pointer to its four INTs (NULL is the zero GUID), not the INTs themselves */
+    FGuidImplementation* Impl; /* 0x0 */
+    void Invalidate() { Impl = NULL; }
+    UBOOL IsValid() const { return Impl ? ((Impl->A | Impl->B | Impl->C | Impl->D) != 0) : FALSE; }
 };
 
 struct FVector {
@@ -11969,7 +11970,7 @@ struct FIndirectArray_Mirror_0072b900 : FIndirectArray_Mirror { ~FIndirectArray_
 struct UTexture2D : public UTexture {
     /* Engine.Texture2D */
     DECLARE_CLASS(UTexture2D, UTexture, 0x0, 0x0, Engine)
-    UTexture2D() { Mips.Data.Dummy = 0; Mips.ArrayNum = 0; Mips.ArrayMax = 0; TextureFileCacheGuid.A = 0; PendingMipChangeRequestStatus.Value = 0; StreamableTexturesLink.Next.Dummy = 0; StreamableTexturesLink.PrevLink.Dummy = 0; }
+    UTexture2D() { Mips.Data.Dummy = 0; Mips.ArrayNum = 0; Mips.ArrayMax = 0; TextureFileCacheGuid.Impl = NULL; PendingMipChangeRequestStatus.Value = 0; StreamableTexturesLink.Next.Dummy = 0; StreamableTexturesLink.PrevLink.Dummy = 0; }
     void InitializeIntrinsicPropertyValues(); /* 0x00719a00 */
     FIndirectArray_Mirror_0072b900 Mips; /* 0xb0 */
     INT SizeX; /* 0xbc */
@@ -12996,7 +12997,7 @@ struct AAdmin : public APlayerController {
 struct UReachSpec : public UObject {
     /* Engine.ReachSpec */
     DECLARE_CLASS(UReachSpec, UObject, 0x0, 0x0, Engine)
-    UReachSpec() { End.Guid.A = 0; End.Actor = 0; }
+    UReachSpec() { End.Guid.Impl = NULL; End.Actor = 0; }
     FPointer NavOctreeObject; /* 0x30 */
     INT Distance; /* 0x34 */
     FVector Direction; /* 0x38 */
@@ -13106,7 +13107,7 @@ struct UPathRenderingComponent : public UPrimitiveComponent {
 struct ANavigationPoint : public AActor {
     /* Engine.NavigationPoint */
     DECLARE_CLASS(ANavigationPoint, AActor, 0x0, 0x0, Engine)
-    ANavigationPoint() { NavOctreeObject.OctreeNode.Dummy = 0; NavOctreeObject.Owner = 0; NavOctreeObject.OwnerType = 0; NavGuid.A = 0; }
+    ANavigationPoint() { NavOctreeObject.OctreeNode.Dummy = 0; NavOctreeObject.Owner = 0; NavOctreeObject.OwnerType = 0; NavGuid.Impl = NULL; }
     BITFIELD bEndPoint : 1; /* 0x1a8 */
     BITFIELD bTransientEndPoint : 1; /* 0x1a8 */
     BITFIELD bHideEditorPaths : 1; /* 0x1a8 */
@@ -13767,6 +13768,14 @@ struct UAnimationCompressionAlgorithm : public UObject {
     /* registered size 0x44 */
     /* other member functions */
     static void FilterTrivialPositionKeys(TArray<FTranslationTrack>& InputTracks, FLOAT MaxPosDelta); /* 0x00c01c00 */
+};
+
+/* AnimationUtils.h (only what code here calls) */
+class FAnimationUtils {
+public:
+    static void BuildPoseFromRawData(TArray<FBoneAtom>& OutAtoms, class UAnimSequence* AnimSeq, const TArray<BYTE>& RequiredBones,
+        class USkeletalMesh* SkelMesh, FLOAT Time, UBOOL bLooping); /* 0x00bfddb0 */
+    static UAnimationCompressionAlgorithm* GetDefaultAnimationCompressionAlgorithm(); /* 0x00c14730 */
 };
 
 struct UAnimationCompressionAlgorithm_AutoRemoveLinearKeys : public UAnimationCompressionAlgorithm {
@@ -18080,7 +18089,7 @@ struct FNativeElem_00693980 { FPointer Value; FNativeElem_00693980() {} FNativeE
 struct ULightComponent : public UActorComponent {
     /* Engine.LightComponent */
     DECLARE_CLASS(ULightComponent, UActorComponent, 0x101, 0x0, Engine)
-    ULightComponent() { LightGuid.A = 0; LightmapGuid.A = 0; }
+    ULightComponent() { LightGuid.Impl = NULL; LightmapGuid.Impl = NULL; }
     FPointer SceneInfo; /* 0x4c */
     FMatrix WorldToLight; /* 0x50 */
     FMatrix LightToWorld; /* 0x90 */
@@ -23305,7 +23314,7 @@ struct UMaterialExpressionFontSample : public UMaterialExpression {
 struct UMaterialExpressionFontSampleParameter : public UMaterialExpressionFontSample {
     /* Engine.MaterialExpressionFontSampleParameter */
     DECLARE_CLASS(UMaterialExpressionFontSampleParameter, UMaterialExpressionFontSample, 0x0, 0x0, Engine)
-    UMaterialExpressionFontSampleParameter() { ExpressionGUID.A = 0; }
+    UMaterialExpressionFontSampleParameter() { ExpressionGUID.Impl = NULL; }
     FName ParameterName; /* 0x68 */
     FGuid ExpressionGUID; /* 0x70 */
     /* virtual functions this class introduces (vtable 0x02047160) */
@@ -23676,7 +23685,7 @@ struct UMaterialExpressionPanner : public UMaterialExpression {
 struct UMaterialExpressionParameter : public UMaterialExpression {
     /* Engine.MaterialExpressionParameter */
     DECLARE_CLASS(UMaterialExpressionParameter, UMaterialExpression, 0x0, 0x0, Engine)
-    UMaterialExpressionParameter() { ExpressionGUID.A = 0; }
+    UMaterialExpressionParameter() { ExpressionGUID.Impl = NULL; }
     FName ParameterName; /* 0x60 */
     FGuid ExpressionGUID; /* 0x68 */
     /* overrides */
@@ -23908,7 +23917,7 @@ struct UMaterialExpressionTextureCoordinate : public UMaterialExpression {
 struct UMaterialExpressionTextureSampleParameter : public UMaterialExpressionTextureSample {
     /* Engine.MaterialExpressionTextureSampleParameter */
     DECLARE_CLASS(UMaterialExpressionTextureSampleParameter, UMaterialExpressionTextureSample, 0x1, 0x0, Engine)
-    UMaterialExpressionTextureSampleParameter() { ExpressionGUID.A = 0; }
+    UMaterialExpressionTextureSampleParameter() { ExpressionGUID.Impl = NULL; }
     FName ParameterName; /* 0x80 */
     FGuid ExpressionGUID; /* 0x88 */
     /* virtual functions this class introduces (vtable 0x0204a720) */
@@ -24141,6 +24150,14 @@ struct UMaterialInstance : public UMaterialInterface {
     void UpdateStaticPermutation(); /* 0x006bbfd0 */
     void sub_006c47c0(const TCHAR* Caller); /* 0x006c47c0 */
     /* registered size 0x70 */
+};
+
+/* MaterialInstance.h: sets UMaterialInstance::ReentrantFlag for its lifetime (the constructor is out of line) */
+class FMICReentranceGuard {
+    UMaterialInstance* Material;
+public:
+    FMICReentranceGuard(UMaterialInstance* InMaterial); /* 0x006ae920 */
+    ~FMICReentranceGuard() { Material->ReentrantFlag = 0; }
 };
 
 struct AMaterialInstanceActor : public AActor {
@@ -24973,7 +24990,7 @@ struct UOnlineGameInterface : public UInterface {
 struct UOnlineGameplayEvents : public UObject {
     /* Engine.OnlineGameplayEvents */
     DECLARE_CLASS(UOnlineGameplayEvents, UObject, 0x0, 0x0, Engine)
-    UOnlineGameplayEvents() { GameplaySessionID.A = 0; }
+    UOnlineGameplayEvents() { GameplaySessionID.Impl = NULL; }
     TArrayNoInit<FPlayerInformation> PlayerList; /* 0x30 */
     TArrayNoInit<FString> EventDescList; /* 0x3c */
     TArrayNoInit<FName> EventNames; /* 0x48 */
@@ -32027,7 +32044,7 @@ struct USessionSettingsProvider_GameInfo : public USessionSettingsProvider {
 struct UShadowMap2D : public UObject {
     /* Engine.ShadowMap2D */
     DECLARE_CLASS(UShadowMap2D, UObject, 0x100, 0x0, Engine)
-    UShadowMap2D() { LightGuid.A = 0; }
+    UShadowMap2D() { LightGuid.Impl = NULL; }
     class UShadowMapTexture2D* Texture; /* 0x30 */
     FVector2D CoordinateScale; /* 0x34 */
     FVector2D CoordinateBias; /* 0x3c */

@@ -2,6 +2,7 @@
 // Placed here by: callers 1, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Native.h"
 
 // @baa 0x00767160
 IMPLEMENT_CLASS_AT(UScriptedTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\TextureRenderTarget2D.cpp", 382);
@@ -196,23 +197,7 @@ void UScriptedTexture::BeginDestroy()
 	Super::BeginDestroy();
 }
 
-/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
- * for these argument types, 0x00766b80) aren't declared. */
-struct FPixelFormatInfo
-{
-	const TCHAR* Name;
-	INT BlockSizeX;
-	INT BlockSizeY;
-	INT BlockSizeZ;
-	INT BlockBytes;
-	INT NumComponents;
-	DWORD PlatformFormat;
-	DWORD Flags;
-	UBOOL Supported;
-};
-
-extern FPixelFormatInfo g_025da760[];
-#define GPixelFormats g_025da760
+/* FString::Printf here is the linker's copy specialised for these argument types (0x00766b80). */
 // @baa 0x00768090
 FString UTextureRenderTarget2D::GetDesc()
 {

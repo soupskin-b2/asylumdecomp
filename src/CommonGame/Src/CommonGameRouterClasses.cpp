@@ -51,33 +51,11 @@ undefined4 * C_015434d0::sub_015434d0(void)
   return param_1;
 }
 
-/* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new(this->GetTypedData() + Index) T(Item);
-        return Index;
-    }
-    INT AddUniqueItem(const T& Item)
-    {
-        for (INT Index = 0; Index < this->Num(); Index++)
-        {
-            if ((*this)(Index) == Item)
-            {
-                return Index;
-            }
-        }
-        return AddItem(Item);
-    }
-};
-
 // @baa 0x0153ff10
 /* Blocking a reach spec records the blocker and marks the path blocked (reachFlags 0x20). */
 void URReachSpec::AddBlocker(UObject* NewBlocker)
 {
-    ((TArrayAddUnique_<UObject*>&)PathBlockers).AddUniqueItem(NewBlocker);
+    PathBlockers.AddUniqueItem(NewBlocker);
     if (PathBlockers.Num() > 0)
     {
         reachFlags |= 0x20;

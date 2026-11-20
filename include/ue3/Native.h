@@ -42,6 +42,9 @@ struct FPixelFormatInfo {
 };
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
+/* UnTex.h: the RHI's mip count limit */
+extern INT g_025d7e34;
+#define GMaxTextureMipCount g_025d7e34
 
 /* Recovered from 01189a90 and the iterator constructor/increment functions. */
 class FObjectIterator {

@@ -15,28 +15,6 @@ inline UBOOL operator==(const FVisiblePortalInfo& A, const FVisiblePortalInfo& B
 /* the out-of-line TArray<FVisiblePortalInfo>::RemoveItem instantiation (AController::VisiblePortals) */
 template INT TArray<FVisiblePortalInfo>::RemoveItem(const FVisiblePortalInfo& Item);
 
-/* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new(this->GetTypedData() + Index) T(Item);
-        return Index;
-    }
-    INT AddUniqueItem(const T& Item)
-    {
-        for (INT Index = 0; Index < this->Num(); Index++)
-        {
-            if ((*this)(Index) == Item)
-            {
-                return Index;
-            }
-        }
-        return AddItem(Item);
-    }
-};
-
 // @baa 0x008b1c90
 /* the out-of-line TArray<USequenceEvent*>::AddUniqueItem instantiation (AActor::GeneratedEvents) */
-template INT TArrayAddUnique_<USequenceEvent*>::AddUniqueItem(USequenceEvent* const& Item);
+template INT TArray<USequenceEvent*>::AddUniqueItem(USequenceEvent* const& Item);

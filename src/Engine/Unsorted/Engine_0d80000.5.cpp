@@ -5,7 +5,6 @@
 #include "ue3/AppMath.h"
 
 /* Kit gaps: DELTA (UnMath.h), the script structs' operator== and FGuid's operator== aren't declared. */
-#define DELTA (0.00001f)
 struct FTextureCoordinates_ : public FTextureCoordinates
 {
 	UBOOL operator==(const FTextureCoordinates& Other) const;

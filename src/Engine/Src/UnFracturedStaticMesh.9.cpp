@@ -32,14 +32,6 @@ void FMatrixArray::Copy(const TArray<FMatrix>& Source)
     }
 }
 
-/* TArray::AddZeroed (UE3 Array.h; not in the kit's TArray). */
-template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
-{
-    const INT Index = Array.Add(Count);
-    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
-    return Index;
-}
-
 // @baa 0x007c3280
 /* UE3's UFracturedSkinnedMeshComponent::SetFragmentTransform: size the transform array to the fragment count,
  * store the fragment's transform and queue a transform update. */
@@ -48,7 +40,7 @@ void UFracturedSkinnedMeshComponent::sub_007c3280(INT FragmentIndex, const FMatr
     if (VisibleFragments.Num() != FragmentTransforms.Num())
     {
         FragmentTransforms.Empty();
-        AddZeroed_(FragmentTransforms, VisibleFragments.Num());
+        FragmentTransforms.AddZeroed(VisibleFragments.Num());
     }
 #line 1890 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedStaticMesh.cpp"
     check(FragmentIndex >= 0 && FragmentIndex < VisibleFragments.Num());

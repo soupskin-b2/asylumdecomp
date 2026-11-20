@@ -106,13 +106,6 @@ void ARBMPathNode_VariablePositionTraverse::vf_340(TArray<AActor*>& Actors)
 	}
 }
 
-/* Kit gap: TArray::AddUniqueItem isn't declared; this build calls it out of line
- * (TArray<AActor*>::AddUniqueItem, 0x008b1a70). */
-template<class T> struct TArray__015edba0 : public TArray<T>
-{
-	INT AddUniqueItem(const T& Item);
-};
-
 // @baa 0x015edba0
 /* The corner point's related actors: its wall markers (those that are set). */
 void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
@@ -121,7 +114,7 @@ void ARCornerPointBase::vf_340(TArray<AActor*>& Actors)
 	{
 		if (WallPoint[i])
 		{
-			((TArray__015edba0<AActor*>&)Actors).AddUniqueItem((AActor*)WallPoint[i]);
+			Actors.AddUniqueItem((AActor*)WallPoint[i]);
 		}
 	}
 }

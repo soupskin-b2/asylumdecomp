@@ -2,6 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Native.h"
 
 // @baa 0x009827d0
 UBOOL ATerrain::IsReadyForFinishDestroy()
@@ -15,23 +16,7 @@ UBOOL ATerrain::IsReadyForFinishDestroy()
 	return Super::IsReadyForFinishDestroy() && bResourcesReleased;
 }
 
-/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) and FString::Printf (as the linker specialised it
- * for these argument types, 0x00766b80) aren't declared. */
-struct FPixelFormatInfo
-{
-	const TCHAR* Name;
-	INT BlockSizeX;
-	INT BlockSizeY;
-	INT BlockSizeZ;
-	INT BlockBytes;
-	INT NumComponents;
-	DWORD PlatformFormat;
-	DWORD Flags;
-	UBOOL Supported;
-};
-
-extern FPixelFormatInfo g_025da760[];
-#define GPixelFormats g_025da760
+/* FString::Printf here is the linker's copy specialised for these argument types (0x00766b80). */
 // @baa 0x009917d0
 FString UTerrainWeightMapTexture::GetDesc()
 {

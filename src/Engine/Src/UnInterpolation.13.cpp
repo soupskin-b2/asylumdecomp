@@ -39,17 +39,6 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
 /* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
 
 /* UnObjBas.h RF_Transactional (64-bit object flags). */
-/* TArray::AddItem (Array.h), which the kit's TArray lacks; inline here. */
-template<typename T> struct TArrayAddItem_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new((EInternal*)(this->GetTypedData() + Index)) T(Item);
-        return Index;
-    }
-};
-
 /* EngineClasses.h's script-event glue, out of line in this build. */
 
 // @baa 0x00d03640
@@ -65,7 +54,7 @@ void UInterpGroupInst::InitGroupInst(UInterpGroup* InGroup, AActor* InGroupActor
     {
         UInterpTrackInst* TrInst = ConstructObject<UInterpTrackInst>((UClass*)InGroup->InterpTracks(i)->TrackInstClass, this,
             NAME_None, RF_Transactional, NULL, NULL, NULL);
-        ((TArrayAddItem_<UInterpTrackInst*>&)TrackInst).AddItem(TrInst);
+        TrackInst.AddItem(TrInst);
         TrInst->InitTrackInst(InGroup->InterpTracks(i));
     }
     if (Group->HasAnimControlTrack() && GroupActor != NULL)

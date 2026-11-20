@@ -4,11 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Kit gaps, with UE3's definitions (UnName.h): FName has no comparison operators and no EName. */
-enum EName_ { NAME_None_ = 0 };
-
-inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
-
 /* Out-of-line code Classes.h doesn't declare. */
 struct FAnimNodeArray : public TArray<UAnimNode*>
 {
@@ -47,13 +42,13 @@ void UAnimNodeSlot::AddToSynchGroup(FName GroupName)
 	if (SynchNode)
 	{
 		// leave the old group
-		if (SeqNode->SynchGroupName != NAME_None_)
+		if (SeqNode->SynchGroupName != NAME_None)
 		{
 			((UAnimNodeSynch*)SynchNode)->RemoveNodeFromGroup(SeqNode, SeqNode->SynchGroupName);
 		}
 
 		// and join the new one
-		if (GroupName != NAME_None_)
+		if (GroupName != NAME_None)
 		{
 			((UAnimNodeSynch*)SynchNode)->AddNodeToGroup(SeqNode, GroupName);
 		}

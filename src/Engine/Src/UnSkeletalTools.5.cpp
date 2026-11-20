@@ -25,20 +25,9 @@ struct FSoftSkinVertex
     BYTE InfluenceWeights[4];
 };
 
-/* TArray::AddItem (Array.h); not in the kit's TArray. */
-template<typename T> struct TArrayAddItem_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new((EInternal*)(this->GetTypedData() + Index)) T(Item);
-        return Index;
-    }
-};
-
 // @baa 0x00d48160
 /* the out-of-line TArray<FSoftSkinVertex>::AddItem instantiation (FSkelMeshChunk::SoftVertices) */
-template INT TArrayAddItem_<FSoftSkinVertex>::AddItem(const FSoftSkinVertex& Item);
+template INT TArray<FSoftSkinVertex>::AddItem(const FSoftSkinVertex& Item);
 
 /* TArray<WORD>(INT InNum) (Array.h): InNum uninitialised elements; out of line here (vertex index
  * remap in UnSkeletalTools.cpp). The kit's TArray has no such constructor. */
@@ -81,7 +70,7 @@ struct FRigidSkinVertex
 
 // @baa 0x00d480f0
 /* the out-of-line TArray<FRigidSkinVertex>::AddItem instantiation (FSkelMeshChunk::RigidVertices) */
-template INT TArrayAddItem_<FRigidSkinVertex>::AddItem(const FRigidSkinVertex& Item);
+template INT TArray<FRigidSkinVertex>::AddItem(const FRigidSkinVertex& Item);
 
 /* TArray<FBoneMirrorInfo> with its out-of-line Add (0x00d46560) and the inline AddZeroed (Array.h) */
 struct FBoneMirrorInfoArray : public TArray<FBoneMirrorInfo>
@@ -296,7 +285,8 @@ struct FClothTornTriSet
 };
 
 // @baa 0x0097d2c0
-/* ~TSet; TMap<QWORD,INT> (USkeletalMesh::ClothTornTriMap, the kit's FMap_Mirror_0097d2c0) has nothing more to destroy */
+/* ~TSet; TMap<QWORD,INT> (USkeletalMesh::ClothTornTriMap, the kit's FMap_Mirror_0097d2c0) has nothing more to
+ * destroy */
 FClothTornTriSet::~FClothTornTriSet()
 {
     HashSize = 0;

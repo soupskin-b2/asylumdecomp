@@ -71,14 +71,6 @@ template<> __declspec(noinline) INT TArray<FOnlineProfileSetting>::Add(INT Count
 }
 
 #line 100 "UOnlineProfileSettings.cpp"
-/* TArray::AddZeroed (UE3 Array.h). */
-template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
-{
-    const INT Index = Array.Add(Count);
-    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
-    return Index;
-}
-
 struct UOnlineProfileSettings_ : public UOnlineProfileSettings
 {
 	FORCEINLINE void delegateNotifySettingValueUpdated(FName SettingName)
@@ -132,13 +124,14 @@ struct FOnlineProfileSetting_ : public FOnlineProfileSetting
 };
 
 // @baa 0x00d81460
-/* Replaces the settings with the defaults (plus the version setting), then tells the NotifySettingValueUpdated delegate. */
+/* Replaces the settings with the defaults (plus the version setting), then tells the NotifySettingValueUpdated
+ * delegate. */
 void UOnlineProfileSettings::SetToDefaults()
 {
     ProfileSettings.Empty();
     for (INT Index = 0; Index < DefaultSettings.Num(); Index++)
     {
-        INT AddIndex = AddZeroed_(ProfileSettings, 1);
+        INT AddIndex = ProfileSettings.AddZeroed(1);
         (FOnlineProfileSetting_&)ProfileSettings(AddIndex) = (const FOnlineProfileSetting_&)DefaultSettings(Index);
     }
     AppendVersionToSettings();

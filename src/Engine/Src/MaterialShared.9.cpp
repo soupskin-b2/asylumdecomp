@@ -5,20 +5,6 @@
 #include "ue3/AppMath.h"
 #include "ue3/Native.h"
 
-/* Kit gaps: FMICReentranceGuard (MaterialInstance.h; constructor out of line, 006ae920), the
- * TMaterialInstanceTimeVaryingParameterMapping statics (vector FindParameterByName, 006e90e0), UWorld::GetTimeSeconds
- * (009c8f80) and FInterpCurve<FLOAT>::Eval (out of line, 006eb030) aren't declared. */
-class FMICReentranceGuard
-{
-	UMaterialInstance* Material;
-public:
-	FMICReentranceGuard(UMaterialInstance* InMaterial);
-	~FMICReentranceGuard()
-	{
-		Material->ReentrantFlag = 0;
-	}
-};
-
 struct MITVVectorParameterMapping
 {
 	static FVectorParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);

@@ -1813,15 +1813,10 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 	UObject::PostEditChange(PropertyThatChanged);
 }
 
-/* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
-enum EName_ { NAME_None_ = 0 };
-
-inline UBOOL operator!=(const FName& A, EName_ N) { return A.Index != N || A.Number != 0; }
-
 // @baa 0x00c556d0
 INT UAnimTree::GetGroupIndex(FName GroupName)
 {
-	if (GroupName != NAME_None_)
+	if (GroupName != NAME_None)
 	{
 		for (INT GroupIdx = 0; GroupIdx < AnimGroups.Num(); GroupIdx++)
 		{

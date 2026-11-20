@@ -4,9 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
+#include "ue3/Native.h"
 
-/* Kit gap: UnTex.h's GMaxTextureMipCount (the RHI's mip count limit). */
-extern INT GMaxTextureMipCount;
 /* UE3's UTexture2D::IsFullyStreamedIn() (0x0071d2d0), inlined here. */
 struct UTexture2D_ : public UTexture2D
 {

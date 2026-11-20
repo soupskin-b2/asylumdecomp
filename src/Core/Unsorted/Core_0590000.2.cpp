@@ -1774,10 +1774,6 @@ void UObject::execRotatorToVector(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = R.Vector();
 }
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor FFrame's inline ReadWord (UnScript.h)
- * or the EX_EndParmValue opcode (Script.h's enum has only EX_DebugInfo). */
-enum { EX_EndParmValue = 0x15 };
-
 // @baa 0x00590090
 void UObject::execDefaultParmValue(FFrame& Stack, RESULT_DECL)
 {

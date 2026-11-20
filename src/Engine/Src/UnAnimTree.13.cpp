@@ -3,15 +3,10 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-/* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
-enum EName_ { NAME_None_ = 0 };
-
-inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
-
 // @baa 0x00c55810
 USkelControlBase* UAnimTree::FindSkelControl(FName InControlName)
 {
-	if (InControlName == NAME_None_)
+	if (InControlName == NAME_None)
 	{
 		return NULL;
 	}

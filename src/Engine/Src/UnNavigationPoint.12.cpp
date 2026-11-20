@@ -3,17 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (flagged): this build's FGuid is a pointer to its four INTs (FGuidImplementation, NULL = the zero GUID);
- * the kit's FGuid is { INT A }. Same-layout stand-in with UE3's inline IsValid. */
-struct FGuid_
-{
-    FGuidImplementation* Impl;
-    UBOOL IsValid() const
-    {
-        return Impl ? ((Impl->A | Impl->B | Impl->C | Impl->D) != 0) : FALSE;
-    }
-};
-
 /* TArray::AddItem (Array.h), out of line in this build for TArray<FActorReference*> (0x0083cc20). */
 template<typename T> struct TArrayAddItem_ : public TArray<T>
 {
@@ -29,7 +18,7 @@ void ACoverGroup::GetActorReferences(TArray<FActorReference*>& ActorRefs, UBOOL 
     for (INT Idx = 0; Idx < CoverLinkRefs.Num(); Idx++)
     {
         FActorReference& ActorRef = CoverLinkRefs(Idx);
-        if (((FGuid_&)ActorRef.Guid).IsValid())
+        if (ActorRef.Guid.IsValid())
         {
             if ((bIsRemovingLevel && ActorRef.Actor != NULL) || (!bIsRemovingLevel && ActorRef.Actor == NULL))
             {

@@ -80,7 +80,8 @@ void USequenceEvent::DebugActivateEvent(AActor * InOriginator, AActor * InInstig
 }
 
 // @baa 0x008c0980
-/* USequence slot 0x154 (kit vf_154, UE3 USequenceObject::CleanUp-style pass): run it on every object in the sequence. */
+/* USequence slot 0x154 (kit vf_154, UE3 USequenceObject::CleanUp-style pass): run it on every object in the
+ * sequence. */
 void USequence::vf_154()
 {
     for (INT Idx = 0; Idx < SequenceObjects.Num(); Idx++)
@@ -190,12 +191,6 @@ void USeqCond_IsLoggedIn::Activated()
 
 extern FName g_026c530c;
  /* ENGINE_RegisterEvent */
-/* TArray::AddUniqueItem (Array.h), which the kit's TArray lacks; out of line in this build (0x008b1c90). */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-    INT AddUniqueItem(const T& Item);
-};
-
 /* EngineSequenceClasses.h's inline script-event glue (not in the kit). */
 struct USequenceEvent_ : public USequenceEvent
 {
@@ -212,7 +207,7 @@ UBOOL USequenceEvent::RegisterEvent()
 {
     if (Originator != NULL && !Originator->IsPendingKill())
     {
-        ((TArrayAddUnique_<USequenceEvent*>&)Originator->GeneratedEvents).AddUniqueItem(this);
+        Originator->GeneratedEvents.AddUniqueItem(this);
     }
     ((USequenceEvent_*)this)->eventRegisterEvent();
     bRegistered = TRUE;

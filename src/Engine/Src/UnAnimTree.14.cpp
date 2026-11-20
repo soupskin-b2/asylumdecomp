@@ -3,15 +3,10 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps, with UE3's definitions (UnName.h): FName has no EName and no comparison operators. */
-enum EName_ { NAME_None_ = 0 };
-
-inline UBOOL operator==(const FName& A, EName_ N) { return A.Index == N && A.Number == 0; }
-
 // @baa 0x00c7f120
 void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLOAT BlendInTime, FLOAT BlendOutTime, UBOOL bLooping, UBOOL bOverride)
 {
-	if (AnimName == NAME_None_ || Duration <= 0.f)
+	if (AnimName == NAME_None || Duration <= 0.f)
 	{
 		return;
 	}

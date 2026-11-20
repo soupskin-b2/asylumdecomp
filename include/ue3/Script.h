@@ -19,7 +19,7 @@ extern Native GNatives[];
 
 #define RESULT_DECL void* const Result
 
-enum { EX_DebugInfo = 0x41 };
+enum { EX_EndParmValue = 0x15, EX_DebugInfo = 0x41 };
 
 /* FOutputDevice and GError: Core.h */
 
@@ -167,6 +167,7 @@ enum { RUC_SkippedOptionalParm = 0x02 };
 // its {Index, 0} (EName is in Core.h): P_GET_NAME_OPTX(BoneName, NAME_None). The game stores both zeros as immediates.
 #define P_GET_NAME_OPTX(v, d)   FName v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
 #define P_GET_STR_OPTX(v, d)    FString v(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v);
+#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 #define P_GET_TARRAY_OPTX(t, v, d) TArray<t> v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 // optional out parameters: the default lands in a local, the reference is the caller's variable when it passed one
 // (pVar is that variable's address, or NULL when the caller left the parameter out)

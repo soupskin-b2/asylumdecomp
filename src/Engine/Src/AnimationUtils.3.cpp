@@ -4,12 +4,6 @@
 #include "ue3/Classes.h"
 
 /* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
-class FAnimationUtils
-{
-public:
-	static UAnimationCompressionAlgorithm* GetDefaultAnimationCompressionAlgorithm();
-};
-
 /* Builds the algorithm named in the ini (00c144e0). */
 UAnimationCompressionAlgorithm* ConstructDefaultCompressionAlgorithm();
 // @baa 0x00c14730

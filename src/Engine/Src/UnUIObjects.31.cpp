@@ -10,7 +10,8 @@ inline UBOOL operator==(const FGuidImplementation& X, const FGuidImplementation&
 }
 
 // @baa 0x00daf4f0
-/* UE3's UUIScreenObject::FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse): the child tagged WidgetName (FindChildIndex inlined), else, with bRecurse, the first match among the descendants. */
+/* UE3's UUIScreenObject::FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse): the child tagged WidgetName
+ * (FindChildIndex inlined), else, with bRecurse, the first match among the descendants. */
 UUIObject* UUIScreenObject::FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse) const
 {
     UUIObject* Result = NULL;
@@ -94,12 +95,6 @@ UBOOL UUIObject::IsContainedBy(UUIObject* Container)
     return bResult;
 }
 
-/* TArray::AddUniqueItem (Array.h; not in the kit's TArray), out of line as the project binds it (0x00d91ae0). */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-    INT AddUniqueItem(const T& Item);
-};
-
 /* Unnamed in the kit: UE3's UUIObject::GetBoundDataStores(TArray<UUIDataStore*>& out_BoundDataStores)
  * (UIDataStoreSubscriber): the data stores the tooltip and context menu bindings resolved to. */
 struct UUIObject_ : public UUIObject
@@ -112,11 +107,11 @@ void UUIObject_::GetDefaultDataStores(TArray<UUIDataStore*>& out_BoundDataStores
 {
     if (ToolTip.ResolvedDataStore != NULL)
     {
-        ((TArrayAddUnique_<UUIDataStore*>&)out_BoundDataStores).AddUniqueItem(ToolTip.ResolvedDataStore);
+        out_BoundDataStores.AddUniqueItem(ToolTip.ResolvedDataStore);
     }
     if (ContextMenuData.ResolvedDataStore != NULL)
     {
-        ((TArrayAddUnique_<UUIDataStore*>&)out_BoundDataStores).AddUniqueItem(ContextMenuData.ResolvedDataStore);
+        out_BoundDataStores.AddUniqueItem(ContextMenuData.ResolvedDataStore);
     }
 }
 

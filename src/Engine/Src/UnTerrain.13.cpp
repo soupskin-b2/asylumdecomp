@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
+#include "ue3/Native.h"
 
 
 // @baa 0x00986e90
@@ -13,22 +14,6 @@ void ATerrain::ClampVertex(INT& X, INT& Y) const
     Y = Clamp(Y, 0, NumVerticesY - 1);
 }
 
-/* Kit gaps: FPixelFormatInfo / GPixelFormats (0x025da760, UnRHI) aren't declared (as in work/009221b0.cpp). */
-struct FPixelFormatInfo
-{
-    const TCHAR* Name;
-    INT BlockSizeX;
-    INT BlockSizeY;
-    INT BlockSizeZ;
-    INT BlockBytes;
-    INT NumComponents;
-    DWORD PlatformFormat;
-    DWORD Flags;
-    UBOOL Supported;
-};
-
-extern FPixelFormatInfo g_025da760[];
-#define GPixelFormats g_025da760
 #define PF_DXT1 5
 #define TERRAIN_PATCH_EXPAND_SCALAR 2
 /* The project's existing binding for the component's terrain lookup (0x009a54b0, a varargs placeholder; it

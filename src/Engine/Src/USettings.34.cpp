@@ -49,14 +49,6 @@ template<> __declspec(noinline) INT TArray<FSettingsProperty>::Add(INT Count)
 }
 
 #line 50 "USettings.cpp"
-/* TArray::AddZeroed (UE3 Array.h). */
-template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
-{
-    const INT Index = Array.Add(Count);
-    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
-    return Index;
-}
-
 struct USettings_ : public USettings
 {
     FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
@@ -101,7 +93,7 @@ void USettings::UpdateProperties(const TArray<FSettingsProperty>& NewProperties,
         }
         else if (bShouldAddIfMissing)
         {
-            INT AddIndex = AddZeroed_(Properties, 1);
+            INT AddIndex = Properties.AddZeroed(1);
             (FSettingsProperty_&)Properties(AddIndex) = (const FSettingsProperty_&)NewProp;
             if (((FScriptDelegate_&)__NotifyPropertyValueUpdated__Delegate).IsCallable(this))
             {

@@ -3,31 +3,17 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FBoneAtom's constructor (UnSkeletalMesh.h), not in the kit. */
-struct FBoneAtom_
-{
-	FQuat Rotation;
-	FVector Translation;
-	FLOAT Scale;
-
-	FBoneAtom_(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale)
-	:	Rotation(InRotation)
-	,	Translation(InTranslation)
-	,	Scale(InScale)
-	{}
-};
-
 // @baa 0x00bf8550
 /* AnimationCompressionAlgorithm_RemoveLinearKeys.h: a bone atom with its rotation replaced by a
  * (reduced) key; the tracks store the conjugate for every bone but the root. */
-FBoneAtom_ UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FQuat& Component)
+FBoneAtom UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FQuat& Component)
 {
 	FQuat Rot = Component;
 	if (BoneIndex > 0)
 	{
 		Rot.W *= -1.0f;
 	}
-	return FBoneAtom_(Rot, Atom.Translation, 1.0f);
+	return FBoneAtom(Rot, Atom.Translation, 1.0f);
 }
 
 inline FQuat LerpQuat(const FQuat& A, const FQuat& B, const FLOAT Alpha)

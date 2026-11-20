@@ -20,26 +20,12 @@ UBOOL UAnimationCompressionAlgorithm_AutoRemoveLinearKeys::HasParentClassChanged
 // @baa 0x00c14fd0
 // @baa 0x00c14ff0
 
-/* FBoneAtom's constructor (UnSkeletalMesh.h), not in the kit. */
-struct FBoneAtom_
-{
-	FQuat Rotation;
-	FVector Translation;
-	FLOAT Scale;
-
-	FBoneAtom_(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale)
-	:	Rotation(InRotation)
-	,	Translation(InTranslation)
-	,	Scale(InScale)
-	{}
-};
-
 // @baa 0x00bf8500
 /* AnimationCompressionAlgorithm_RemoveLinearKeys.h: a bone atom with its translation replaced by a
  * (reduced) key. */
-FBoneAtom_ UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FVector& Component)
+FBoneAtom UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FVector& Component)
 {
-	return FBoneAtom_(Atom.Rotation, Component, 1.0f);
+	return FBoneAtom(Atom.Rotation, Component, 1.0f);
 }
 
 inline FLOAT appFloatSelect(FLOAT Comparand, FLOAT ValueGEZero, FLOAT ValueLTZero) { return Comparand >= 0.f ? ValueGEZero : ValueLTZero; }

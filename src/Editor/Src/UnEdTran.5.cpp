@@ -4,30 +4,7 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 
-/* Kit gap: TArray::AddItem/AddUniqueItem aren't declared. This is TArray<APrefabInstance*>::AddUniqueItem's
- * out-of-line copy (collecting the owning prefab instances of actors, caller 00f7ec20). */
-template<class T> struct TArray_ : public TArray<T>
-{
-	INT AddItem(const T& Item)
-	{
-		const INT Index = this->Add(1);
-		new((EInternal*)(this->GetTypedData() + Index)) T(Item);
-		return Index;
-	}
-	INT AddUniqueItem(const T& Item);
-};
-
-template<class T> INT TArray_<T>::AddUniqueItem(const T& Item)
-{
-	for (INT Index = 0; Index < this->Num(); Index++)
-	{
-		if ((*this)(Index) == Item)
-		{
-			return Index;
-		}
-	}
-	return AddItem(Item);
-}
-
+/* This is TArray<APrefabInstance*>::AddUniqueItem's out-of-line copy (collecting the owning prefab instances of
+ * actors, caller 00f7ec20). */
 // @baa 0x00f789f0
-template INT TArray_<APrefabInstance*>::AddUniqueItem(APrefabInstance* const& Item);
+template INT TArray<APrefabInstance*>::AddUniqueItem(APrefabInstance* const& Item);

@@ -20,14 +20,6 @@ template<> __declspec(noinline) INT TArray<FNamedInterface>::Add(INT Count)
 }
 
 #line 50 "USettings.cpp"
-/* TArray::AddZeroed (UE3 Array.h; not in the kit's TArray). */
-template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
-{
-    const INT Index = Array.Add(Count);
-    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
-    return Index;
-}
-
 // @baa 0x00d74070
 /* UOnlineSubsystem slot 0x10c (UE3's Init): create each named interface from its configured class. */
 UBOOL UOnlineSubsystem::Init()
@@ -38,7 +30,7 @@ UBOOL UOnlineSubsystem::Init()
         UClass* Class = LoadClass<UObject>(NULL, STR(Def.InterfaceClassName), NULL, LOAD_None, NULL);
         if (Class)
         {
-            INT AddIndex = AddZeroed_(NamedInterfaces, 1);
+            INT AddIndex = NamedInterfaces.AddZeroed(1);
             FNamedInterface& Interface = NamedInterfaces(AddIndex);
             Interface.InterfaceName = Def.InterfaceName;
             Interface.InterfaceObject = ConstructObject<UObject>((UClass*)Class);

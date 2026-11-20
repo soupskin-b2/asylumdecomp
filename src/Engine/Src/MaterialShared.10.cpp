@@ -16,7 +16,7 @@ struct FScalarParameterValueOverTime_ : public FScalarParameterValueOverTime
 {
 	FScalarParameterValueOverTime_()
 	{
-		ExpressionGUID.A = 0;
+		ExpressionGUID.Impl = NULL;
 	}
 };
 

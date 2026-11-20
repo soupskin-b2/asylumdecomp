@@ -5,24 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gap (flagged): this build's FGuid is a pointer to its four INTs (FGuidImplementation, NULL = the zero GUID);
- * the kit's FGuid is { INT A }. Same-layout stand-in with UE3's inline IsValid. */
-struct FGuid_
-{
-    FGuidImplementation* Impl;
-    UBOOL IsValid() const
-    {
-        return Impl ? ((Impl->A | Impl->B | Impl->C | Impl->D) != 0) : FALSE;
-    }
-};
-
-/* TArray::AddItem (Array.h). The compiler kept the first call here out of line (TArray<FActorReference*>'s,
- * 0x0083cc20) and inlined the second. */
-template<typename T> struct TArrayAddItem_ : public TArray<T>
-{
-    INT AddItem(const T& Item);
-};
-
 template<typename T> struct TArrayAddItemInline_ : public TArray<T>
 {
     FORCEINLINE INT AddItem(const T& Item)
@@ -44,18 +26,18 @@ void ANavigationPoint::GetActorReferences(TArray<FActorReference*>& ActorRefs, U
         for (INT PathIdx = 0; PathIdx < PathList.Num(); PathIdx++)
         {
             UReachSpec* Spec = PathList(PathIdx);
-            if (((FGuid_&)Spec->End.Guid).IsValid())
+            if (Spec->End.Guid.IsValid())
             {
                 if ((bIsRemovingLevel && Spec->End.Actor != NULL) || (!bIsRemovingLevel && Spec->End.Actor == NULL))
                 {
-                    ((TArrayAddItem_<FActorReference*>&)ActorRefs).AddItem(&Spec->End);
+                    ActorRefs.AddItem(&Spec->End);
                 }
             }
         }
         for (INT VolumeIdx = 0; VolumeIdx < Volumes.Num(); VolumeIdx++)
         {
             FActorReference& ActorRef = Volumes(VolumeIdx);
-            if (((FGuid_&)ActorRef.Guid).IsValid())
+            if (ActorRef.Guid.IsValid())
             {
                 if ((bIsRemovingLevel && ActorRef.Actor != NULL) || (!bIsRemovingLevel && ActorRef.Actor == NULL))
                 {

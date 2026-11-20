@@ -8,17 +8,6 @@
 
 extern FName g_026c4cb0;
  /* ENGINE_ClientSetCameraFade */
-/* TArray::AddItem (Array.h), which the kit's TArray lacks; inline here. */
-template<typename T> struct TArrayAddItem_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new((EInternal*)(this->GetTypedData() + Index)) T(Item);
-        return Index;
-    }
-};
-
 /* EngineClasses.h's inline script-event glue (not in the kit). */
 struct APlayerController_ : public APlayerController
 {
@@ -52,7 +41,7 @@ void USeqAct_CameraFade::Activated()
         if (PC != NULL)
         {
             ((APlayerController_*)PC)->eventClientSetCameraFade(TRUE, FadeColor, FadeAlpha, FadeTime);
-            ((TArrayAddItem_<APlayerController*>&)CachedPCs).AddItem(PC);
+            CachedPCs.AddItem(PC);
         }
     }
     FSeqOpOutputLink& Link = OutputLinks(0);

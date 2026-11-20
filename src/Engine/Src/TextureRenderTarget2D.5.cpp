@@ -3,20 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
-
-/* Kit gap: GPixelFormats (UnRenderUtils.h, 0x025da760) isn't declared. */
-struct FPixelFormatInfo
-{
-    const TCHAR* Name;
-    INT BlockSizeX;
-    INT BlockSizeY;
-    INT BlockSizeZ;
-    INT BlockBytes;
-    INT NumComponents;
-    DWORD PlatformFormat;
-    DWORD Flags;
-    UBOOL Supported;
-};
+#include "ue3/Native.h"
 
 extern FPixelFormatInfo GPixelFormats[];
 // @baa 0x0075c5b0

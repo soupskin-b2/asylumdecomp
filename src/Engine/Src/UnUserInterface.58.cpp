@@ -5,7 +5,6 @@
 #include "ue3/AppMath.h"
 
 /* Kit gaps: DELTA (UnMath.h), the script structs' operator== and FGuid's operator== aren't declared. */
-#define DELTA (0.00001f)
 struct FUIScreenValue_Extent_ : public FUIScreenValue_Extent
 {
 	FORCEINLINE UBOOL operator==(const FUIScreenValue_Extent& Other) const

@@ -1326,7 +1326,7 @@
     {
      "va": "00f7d850",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUAnimSequence@@@@QAEHABQAUUAnimSequence@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUAnimSequence@@@@QAEHABQAUUAnimSequence@@@Z"
     }
    ]
   },
@@ -135886,7 +135886,7 @@
     {
      "va": "00f59410",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUPrefab@@@@QAEHABQAUUPrefab@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUPrefab@@@@QAEHABQAUUPrefab@@@Z"
     }
    ]
   },
@@ -136088,7 +136088,7 @@
     {
      "va": "00f789f0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUAPrefabInstance@@@@QAEHABQAUAPrefabInstance@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUAPrefabInstance@@@@QAEHABQAUAPrefabInstance@@@Z"
     }
    ]
   },
@@ -168709,7 +168709,7 @@
     {
      "va": "00bf8550",
      "size": 112,
-     "symbol": "?UpdateBoneAtom@@YA?AUFBoneAtom_@@HABUFBoneAtom@@ABUFQuat@@@Z"
+     "symbol": "?UpdateBoneAtom@@YA?AUFBoneAtom@@HABU1@ABUFQuat@@@Z"
     }
    ]
   },
@@ -168731,7 +168731,7 @@
     {
      "va": "00bf8500",
      "size": 65,
-     "symbol": "?UpdateBoneAtom@@YA?AUFBoneAtom_@@HABUFBoneAtom@@ABUFVector@@@Z"
+     "symbol": "?UpdateBoneAtom@@YA?AUFBoneAtom@@HABU1@ABUFVector@@@Z"
     },
     {
      "va": "00c0adf0",
@@ -203030,7 +203030,7 @@
     {
      "va": "0078ffb0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUUAudioComponent@@@@QAEHABQAUUAudioComponent@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUAudioComponent@@@@QAEHABQAUUAudioComponent@@@Z"
     }
    ]
   },
@@ -203130,7 +203130,7 @@
     {
      "va": "00cbeec0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUSoundNodeAttenuation@@@@QAEHABQAUUSoundNodeAttenuation@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUSoundNodeAttenuation@@@@QAEHABQAUUSoundNodeAttenuation@@@Z"
     }
    ]
   },
@@ -211760,7 +211760,7 @@
     {
      "va": "00d78760",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAM@@QAEHABQAM@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAM@@QAEHABQAM@Z"
     }
    ]
   },
@@ -214158,7 +214158,7 @@
     {
      "va": "007df070",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUAPortalTeleporter@@@@QAEHABQAUAPortalTeleporter@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUAPortalTeleporter@@@@QAEHABQAUAPortalTeleporter@@@Z"
     }
    ]
   },
@@ -229647,7 +229647,7 @@
     {
      "va": "008b1c90",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUUSequenceEvent@@@@QAEHABQAUUSequenceEvent@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUSequenceEvent@@@@QAEHABQAUUSequenceEvent@@@Z"
     },
     {
      "va": "008b1da0",
@@ -242388,12 +242388,12 @@
     {
      "va": "00d480f0",
      "size": 98,
-     "symbol": "?AddItem@?$TArrayAddItem_@UFRigidSkinVertex@@@@QAEHABUFRigidSkinVertex@@@Z"
+     "symbol": "?AddItem@?$TArray@UFRigidSkinVertex@@@@QAEHABUFRigidSkinVertex@@@Z"
     },
     {
      "va": "00d48160",
      "size": 100,
-     "symbol": "?AddItem@?$TArrayAddItem_@UFSoftSkinVertex@@@@QAEHABUFSoftSkinVertex@@@Z"
+     "symbol": "?AddItem@?$TArray@UFSoftSkinVertex@@@@QAEHABUFSoftSkinVertex@@@Z"
     },
     {
      "va": "00d4d750",
@@ -246189,7 +246189,7 @@
     {
      "va": "00d91ae0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUUUIDataStore@@@@QAEHABQAUUUIDataStore@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUUIDataStore@@@@QAEHABQAUUUIDataStore@@@Z"
     },
     {
      "va": "00d95840",
@@ -251721,7 +251721,7 @@
     {
      "va": "00db1440",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUUIScreenObject@@@@QAEHABQAUUUIScreenObject@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUUIScreenObject@@@@QAEHABQAUUUIScreenObject@@@Z"
     },
     {
      "va": "00db7e80",
@@ -251762,7 +251762,7 @@
     {
      "va": "00dad440",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUUUIObject@@@@QAEHABQAUUUIObject@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUUIObject@@@@QAEHABQAUUUIObject@@@Z"
     }
    ]
   },
@@ -277836,7 +277836,7 @@
     {
      "va": "006bce50",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@PAUUWorld@@@@QAEHABQAUUWorld@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUWorld@@@@QAEHABQAUUWorld@@@Z"
     }
    ]
   },
@@ -302301,7 +302301,7 @@
     {
      "va": "00808540",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArrayAddUnique_@H@@QAEHABH@Z"
+     "symbol": "?AddUniqueItem@?$TArray@H@@QAEHABH@Z"
     }
    ]
   },
@@ -354452,7 +354452,7 @@
     {
      "va": "00cbef70",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUSoundNodeWave@@@@QAEHABQAUUSoundNodeWave@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUSoundNodeWave@@@@QAEHABQAUUSoundNodeWave@@@Z"
     }
    ]
   },
@@ -480201,7 +480201,7 @@
     {
      "va": "0112f6a0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUSeqVar_Object@@@@QAEHABQAUUSeqVar_Object@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUSeqVar_Object@@@@QAEHABQAUUSeqVar_Object@@@Z"
     }
    ]
   },
@@ -489371,17 +489371,17 @@
     {
      "va": "01429f60",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUMaterialExpression@@@@QAEHABQAUUMaterialExpression@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUMaterialExpression@@@@QAEHABQAUUMaterialExpression@@@Z"
     },
     {
      "va": "0142a060",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUMaterialExpressionComment@@@@QAEHABQAUUMaterialExpressionComment@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUMaterialExpressionComment@@@@QAEHABQAUUMaterialExpressionComment@@@Z"
     },
     {
      "va": "0142a1c0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUMaterialExpressionCompound@@@@QAEHABQAUUMaterialExpressionCompound@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUMaterialExpressionCompound@@@@QAEHABQAUUMaterialExpressionCompound@@@Z"
     }
    ]
   },
@@ -529152,7 +529152,7 @@
     {
      "va": "01284230",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUSpeedTree@@@@QAEHABQAUUSpeedTree@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUUSpeedTree@@@@QAEHABQAUUSpeedTree@@@Z"
     }
    ]
   },
@@ -533851,7 +533851,7 @@
     {
      "va": "01374090",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUUPackage@@@@QAEHABQAUUPackage@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVUPackage@@@@QAEHABQAUUPackage@@@Z"
     }
    ]
   },
@@ -534506,12 +534506,12 @@
     {
      "va": "013a73d0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUALevelStreamingVolume@@@@QAEHABQAUALevelStreamingVolume@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAVALevelStreamingVolume@@@@QAEHABQAUALevelStreamingVolume@@@Z"
     },
     {
      "va": "013a74b0",
      "size": 163,
-     "symbol": "?AddUniqueItem@?$TArray_@PAUULevelStreaming@@@@QAEHABQAUULevelStreaming@@@Z"
+     "symbol": "?AddUniqueItem@?$TArray@PAUULevelStreaming@@@@QAEHABQAUULevelStreaming@@@Z"
     }
    ]
   },

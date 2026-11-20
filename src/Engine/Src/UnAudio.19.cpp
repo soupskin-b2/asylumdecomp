@@ -5,28 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-    INT AddItem(const T& Item)
-    {
-        const INT Index = this->Add(1);
-        new(this->GetTypedData() + Index) T(Item);
-        return Index;
-    }
-    INT AddUniqueItem(const T& Item)
-    {
-        for (INT Index = 0; Index < this->Num(); Index++)
-        {
-            if ((*this)(Index) == Item)
-            {
-                return Index;
-            }
-        }
-        return AddItem(Item);
-    }
-};
-
 // @baa 0x0078ffb0
 /* the out-of-line TArray<UAudioComponent*>::AddUniqueItem instantiation (UAudioDevice::AudioComponents) */
-template INT TArrayAddUnique_<UAudioComponent*>::AddUniqueItem(UAudioComponent* const& Item);
+template INT TArray<UAudioComponent*>::AddUniqueItem(UAudioComponent* const& Item);

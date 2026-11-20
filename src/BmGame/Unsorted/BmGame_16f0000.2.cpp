@@ -1900,8 +1900,6 @@ void ARPawnPlayer::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
     sub_0168d8b0();
 }
 
-/* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
-#define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
 // @baa 0x016f6ab0
 void ARPawnPlayerCombat::execFindFacingActorForStrike(FFrame& Stack, RESULT_DECL)
 {

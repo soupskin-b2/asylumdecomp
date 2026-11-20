@@ -13,7 +13,7 @@ struct FTextureParameterValueOverTime_ : public FTextureParameterValueOverTime
 {
 	FTextureParameterValueOverTime_()
 	{
-		ExpressionGUID.A = 0;
+		ExpressionGUID.Impl = NULL;
 	}
 };
 
@@ -61,7 +61,7 @@ struct FFontParameterValueOverTime_ : public FFontParameterValueOverTime
 {
 	FFontParameterValueOverTime_()
 	{
-		ExpressionGUID.A = 0;
+		ExpressionGUID.Impl = NULL;
 	}
 };
 
@@ -110,7 +110,7 @@ struct FScalarParameterValueOverTime_ : public FScalarParameterValueOverTime
 {
 	FScalarParameterValueOverTime_()
 	{
-		ExpressionGUID.A = 0;
+		ExpressionGUID.Impl = NULL;
 	}
 };
 
@@ -159,7 +159,7 @@ struct FVectorParameterValueOverTime_ : public FVectorParameterValueOverTime
 {
 	FVectorParameterValueOverTime_()
 	{
-		ExpressionGUID.A = 0;
+		ExpressionGUID.Impl = NULL;
 	}
 };
 

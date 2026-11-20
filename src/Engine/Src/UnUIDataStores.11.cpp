@@ -5,35 +5,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
-template<typename T> struct TArrayAddUnique_ : public TArray<T>
-{
-	FORCEINLINE INT AddItem(const T& Item)
-	{
-		const INT Index = this->Add(1);
-		new(this->GetTypedData() + Index) T(Item);
-		return Index;
-	}
-	INT AddUniqueItem(const T& Item)
-	{
-		for (INT Index = 0; Index < this->Num(); Index++)
-		{
-			if ((*this)(Index) == Item)
-			{
-				return Index;
-			}
-		}
-		return AddItem(Item);
-	}
-};
-
-
 // @baa 0x00d95840
 /* Collects the data stores available to CurrentScene: the global ones, the scene owner's player data stores,
  * and the scene's own data store. */
 void UDataStoreClient::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUIDataStore*>& out_DataStores) const
 {
-	TArrayAddUnique_<UUIDataStore*>& DataStores = (TArrayAddUnique_<UUIDataStore*>&)out_DataStores;
+	TArray<UUIDataStore*>& DataStores = (TArray<UUIDataStore*>&)out_DataStores;
 	DataStores.Empty();
 
 	for (INT StoreIndex = 0; StoreIndex < GlobalDataStores.Num(); StoreIndex++)

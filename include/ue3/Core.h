@@ -143,6 +143,7 @@ inline void* appMemmove(void* Dest, const void* Src, INT Count) { return memmove
 #define appToLower  towlower
 DWORD appStrihash(const TCHAR* Data); /* 0x0053e7c0 */
 extern DWORD GCRCTable[256]; /* 0x0269d7d0 */
+#define FIRST_BITFIELD 1 /* UnBuild.h: bitfields start at bit 0 on this platform */
 DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0); /* 0x00627f70 */
 #ifndef MAXINT
 #define MAXINT 0x7fffffff

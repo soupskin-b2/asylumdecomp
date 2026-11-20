@@ -197,9 +197,6 @@ void ARSmashableProp::execHandleCollision(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026e2c1c;
 	/* BMGAME_SetInXrayMode */
-/* Kit gap: FIRST_BITFIELD (UnBuild.h; bitfields start at bit 0 on this platform). */
-#define FIRST_BITFIELD 1
-
 // @baa 0x01668b30
 void ARSmashableProp::eventSetInXrayMode(UBOOL On)
 {

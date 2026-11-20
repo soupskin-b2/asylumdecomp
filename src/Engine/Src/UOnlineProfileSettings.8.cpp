@@ -77,14 +77,6 @@ template<> __declspec(noinline) INT TArray<FOnlineProfileSetting>::Add(INT Count
 }
 
 #line 100 "UOnlineProfileSettings.cpp"
-/* TArray::AddZeroed (UE3 Array.h). */
-template<class T> FORCEINLINE INT AddZeroed_(TArray<T>& Array, INT Count)
-{
-    const INT Index = Array.Add(Count);
-    appMemzero((BYTE*)Array.GetData() + Index * sizeof(T), Count * sizeof(T));
-    return Index;
-}
-
 struct UOnlineProfileSettings_ : public UOnlineProfileSettings
 {
 	FORCEINLINE void delegateNotifySettingValueUpdated(FName SettingName)
@@ -117,7 +109,7 @@ void UOnlineProfileSettings::AppendVersionToSettings()
             return;
         }
     }
-    INT AddIndex = AddZeroed_(ProfileSettings, 1);
+    INT AddIndex = ProfileSettings.AddZeroed(1);
     FOnlineProfileSetting& Setting = ProfileSettings(AddIndex);
     Setting.Owner = OPPO_Game;
     Setting.ProfileSetting.PropertyId = PSI_ProfileVersionNum;
