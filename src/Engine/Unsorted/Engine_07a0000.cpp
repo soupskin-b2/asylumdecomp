@@ -1816,85 +1816,25 @@ FVector AController::GetBasedPosition(FBasedPosition BP)
 	return BP.Position;
 }
 
-struct FBasedPosition__007ad7e0 : public FBasedPosition
-{
-	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
-	FORCEINLINE FVector operator*()
-	{
-		AActor* const BaseActor = Base;
-		if (BaseActor != NULL)
-		{
-			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
-			{
-				CachedBaseLocation = BaseActor->Location;
-				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
-			}
-			return CachedTransPosition;
-		}
-		return Position;
-	}
-};
-
 // @baa 0x007ad7e0
 /* UnController.cpp: the world location the controller is looking at. */
 FVector AController::GetFocalPoint()
 {
-	return *(FBasedPosition__007ad7e0&)FocalPosition;
+	return *FocalPosition;
 }
-
-struct FBasedPosition__007ada10 : public FBasedPosition
-{
-	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
-	FORCEINLINE FVector operator*()
-	{
-		AActor* const BaseActor = Base;
-		if (BaseActor != NULL)
-		{
-			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
-			{
-				CachedBaseLocation = BaseActor->Location;
-				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
-			}
-			return CachedTransPosition;
-		}
-		return Position;
-	}
-};
 
 // @baa 0x007ada10
 /* UnController.cpp: the world location the controller is moving to. */
 FVector AController::GetDestinationPosition()
 {
-	return *(FBasedPosition__007ada10&)DestinationPosition;
+	return *DestinationPosition;
 }
-
-struct FBasedPosition__007adc50 : public FBasedPosition
-{
-	/* FBasedPosition::operator* (out of line at 0x007ab350), inlined here. */
-	FORCEINLINE FVector operator*()
-	{
-		AActor* const BaseActor = Base;
-		if (BaseActor != NULL)
-		{
-			if (VectorsDiffer(CachedBaseLocation, BaseActor->Location) || RotatorsDiffer(CachedBaseRotation, BaseActor->Rotation))
-			{
-				CachedBaseLocation = BaseActor->Location;
-				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
-			}
-			return CachedTransPosition;
-		}
-		return Position;
-	}
-};
 
 // @baa 0x007adc50
 /* UnController.cpp: the adjusted world location the controller is moving to. */
 FVector AController::GetAdjustLocation()
 {
-	return *(FBasedPosition__007adc50&)AdjustPosition;
+	return *AdjustPosition;
 }
 
 // @baa 0x007a1f60

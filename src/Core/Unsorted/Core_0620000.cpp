@@ -96,21 +96,14 @@ void sub_00621b70();
 // @baa 0x00625ff0
 void sub_00625ff0(void) { sub_00621b70(); }
 
-extern undefined4 g_0269d7d0;
 // @baa 0x00627f70
-uint sub_00627f70(int param_1, int param_2, uint param_3)
+DWORD appMemCrc(const void* InData, INT Length, DWORD CRC)
 {
-  int iVar1;
-  
-  iVar1 = 0;
-  param_3 = ~param_3;
-  if (0 < param_2) {
-    do {
-      param_3 = param_3 << 8 ^ (&g_0269d7d0)[(uint)*(byte *)(iVar1 + param_1) ^ param_3 >> 0x18];
-      iVar1 = iVar1 + 1;
-    } while (iVar1 < param_2);
-  }
-  return ~param_3;
+	BYTE* Data = (BYTE*)InData;
+	CRC = ~CRC;
+	for (INT i = 0; i < Length; i++)
+		CRC = (CRC << 8) ^ GCRCTable[(CRC >> 24) ^ Data[i]];
+	return ~CRC;
 }
 
 // @baa 0x006280a0

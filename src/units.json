@@ -84924,7 +84924,7 @@
     {
      "va": "00627f70",
      "size": 57,
-     "symbol": "?sub_00627f70@@YAIHHI@Z"
+     "symbol": "?appMemCrc@@YAKPBXHK@Z"
     },
     {
      "va": "006280a0",
@@ -206315,7 +206315,7 @@
     {
      "va": "00a81b60",
      "size": 25,
-     "symbol": "?sub_00a81b60@C_00a81b60@@QAEXXZ"
+     "symbol": "?PopTransform@FCanvas@@QAEXXZ"
     },
     {
      "va": "00a976e0",

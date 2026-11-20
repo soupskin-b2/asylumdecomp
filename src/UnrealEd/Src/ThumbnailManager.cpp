@@ -650,11 +650,6 @@ UBOOL UUISceneThumbnailRenderer::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-class FTexture;
-/* Unnamed in the kit: UE3's free DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V,
- * FLOAT SizeU, FLOAT SizeV, const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend) (UnCanvas.cpp). */
-void sub_00aa7a60(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
-    const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend);
 /* FLinearColor::White */
 extern FLinearColor g_025d574c;
 /* Kit gap: UIconThumbnailRenderer's icon accessor isn't declared (it loads the icon named by
@@ -665,6 +660,6 @@ extern FLinearColor g_025d574c;
 void UIconThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas,
 	EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped)
 {
-	sub_00aa7a60(Canvas, X, Y, Width, Height, 0.f, 0.f, 1.f, 1.f, g_025d574c,
+	DrawTile(Canvas, X, Y, Width, Height, 0.f, 0.f, 1.f, 1.f, g_025d574c,
 		(const FTexture*)this->sub_01250960()->Resource.Dummy, FALSE);
 }

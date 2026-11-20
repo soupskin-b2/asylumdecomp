@@ -478,8 +478,6 @@ void ANxCylindricalForceFieldCapsule::TermRBPhys(FRBPhysScene* Scene)
 	Kernel.Dummy = 0;
 }
 
-/* Kit gap: appMemCrc (0x00627f70). */
-DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0);
 
 
 // @baa 0x00d67980

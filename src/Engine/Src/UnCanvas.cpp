@@ -534,28 +534,12 @@ void C_00a58630::sub_00a58630(float A, float B)
     *(float*)((char*)this + 0x48) = B;
 }
 
-struct ArrayStruct {
-    void sub_00a7b870(unsigned char* Dest);
-};
-
-struct C_00a81b60 {
-    char pad[0x24];
-    ArrayStruct Data;
-    void sub_00a81b60();
-};
-
 // @baa 0x00a81b60
-void C_00a81b60::sub_00a81b60()
+void FCanvas::PopTransform()
 {
-    __declspec(align(16)) double a[10];
-    Data.sub_00a7b870((unsigned char*)a);
+    TransformStack.Pop();
 }
 
-class FMaterialRenderProxy;
-/* Unnamed in the kit: UE3's free DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V,
- * FLOAT SizeU, FLOAT SizeV, const FMaterialRenderProxy* MaterialRenderProxy) (UnCanvas.cpp). */
-void sub_00a9edc0(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
-    const FMaterialRenderProxy* MaterialRenderProxy);
 // @baa 0x00a9ee30
 /* UE3's UCanvas::DrawMaterialTile: draw Material's render proxy (UMaterialInterface slot 0x138, UE3 GetRenderProxy(UBOOL
  * Selected), which the kit types as UINT) as a tile. */
@@ -565,7 +549,7 @@ void UCanvas::DrawMaterialTile(UMaterialInterface* Material, FLOAT X, FLOAT Y, F
     {
         return;
     }
-    sub_00a9edc0(Canvas, X, Y, XL, YL, U, V, UL, VL, (const FMaterialRenderProxy*)Material->GetRenderProxy(0));
+    ::DrawTile(Canvas, X, Y, XL, YL, U, V, UL, VL, (const FMaterialRenderProxy*)Material->GetRenderProxy(0));
 }
 
 /* UE3's FString::operator*() const: the text, or "" when empty. */
@@ -584,11 +568,6 @@ void UCanvas::sub_00aa9b90(const FString& Text)
     WrappedPrint(TRUE, XL, YL, Font, 1.f, 1.f, bCenter, GetText_(Text));
 }
 
-class FTexture;
-/* Unnamed in the kit: UE3's free DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V,
- * FLOAT SizeU, FLOAT SizeV, const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend) (UnCanvas.cpp). */
-void sub_00aa7a60(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
-    const FLinearColor& Color, const FTexture* Texture, UBOOL AlphaBlend);
 // @baa 0x00aa9030
 /* UE3's UCanvas::DrawTile: draw part of Tex, clipped to the canvas's clip region. UTexture slot 0x10c is UE3's
  * GetSurfaceWidth(); UTexture::Resource (UE3 FTextureResource*) is an FPointer in the kit. */
@@ -606,7 +585,7 @@ void UCanvas::DrawTile(UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOA
     {
         FLOAT SurfaceWidth = Tex->GetSurfaceWidth();
         FLOAT SurfaceHeight = Tex->GetSurfaceHeight();
-        sub_00aa7a60(Canvas, X, Y, w, h, U / SurfaceWidth, V / SurfaceHeight, UL / SurfaceWidth * w / XL, VL / SurfaceHeight * h / YL, Color,
+        ::DrawTile(Canvas, X, Y, w, h, U / SurfaceWidth, V / SurfaceHeight, UL / SurfaceWidth * w / XL, VL / SurfaceHeight * h / YL, Color,
             (const FTexture*)Tex->Resource.Dummy, TRUE);
     }
 }

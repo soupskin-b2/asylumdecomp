@@ -5,8 +5,6 @@
 #include "ue3/Script.h"
 #include "ue3/AppMath.h"
 
-INT DrawString(FCanvas* Canvas, FLOAT StartX, FLOAT StartY, const TCHAR* Text, UFont* Font, const FLinearColor& Color,
-	FLOAT XScale = 1.0f, FLOAT YScale = 1.0f, FLOAT HorizSpacingAdjust = 0.0f, const FLOAT* ForcedViewportHeight = NULL);
 // @baa 0x00aa9e30
 void UCanvas::execDrawTextClipped(FFrame& Stack, RESULT_DECL)
 {

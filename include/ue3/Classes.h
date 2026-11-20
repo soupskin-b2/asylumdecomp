@@ -3934,11 +3934,55 @@ struct FTranslationMatrix : public FMatrix {
         : FMatrix(FPlane(1.0f, 0.0f, 0.0f, 0.0f), FPlane(0.0f, 1.0f, 0.0f, 0.0f), FPlane(0.0f, 0.0f, 1.0f, 0.0f), FPlane(Delta.X, Delta.Y, Delta.Z, 1.0f)) {}
 };
 
-/* UnCanvas.h: the render-thread canvas UCanvas draws through (only what code here calls) */
+/* UnCanvas.h: the render-thread canvas UCanvas draws through. The transform and mask stacks are placed by
+ * SetBaseTransform (0x00a73c30), PushAbsoluteTransform (0x00a73e20) and GetCurrentMaskRegion (0x00a73f50); the
+ * first 0x24 bytes (render target, depth test, hit proxies ...) aren't placed yet. */
+/* FCanvas::FTransformEntry: one entry of the transform stack */
+struct FCanvasTransformEntry {
+    FCanvasTransformEntry(const FMatrix& InMatrix) : Matrix(InMatrix) { MatrixCRC = appMemCrc(&Matrix, sizeof(FMatrix)); }
+    void SetMatrix(const FMatrix& InMatrix) { Matrix = InMatrix; MatrixCRC = appMemCrc(&Matrix, sizeof(FMatrix)); }
+    const FMatrix& GetMatrix() const { return Matrix; }
+    DWORD GetMatrixCRC() const { return MatrixCRC; }
+    FMatrix Matrix; /* 0x0 */
+    DWORD MatrixCRC; /* 0x40: appMemCrc of Matrix */
+}; /* 0x50 (16-byte aligned) */
+
+/* FCanvas::FMaskRegion: one entry of the mask stack */
+struct FCanvasMaskRegion {
+    FLOAT X; /* 0x0: X, Y, SizeX and SizeY are all -1 when there is no mask */
+    FLOAT Y; /* 0x4 */
+    FLOAT SizeX; /* 0x8 */
+    FLOAT SizeY; /* 0xc */
+    FMatrix Transform; /* 0x10 */
+}; /* 0x50 */
+
 class FCanvas {
 public:
+    typedef FCanvasTransformEntry FTransformEntry;
+    typedef FCanvasMaskRegion FMaskRegion;
+    BYTE _native_00[0x24];
+    TArray<FTransformEntry> TransformStack; /* 0x24 */
+    DWORD _native_30; /* UE3's AllowedModes sits here */
+    TArray<FMaskRegion> MaskRegionStack; /* 0x34 */
+
     void PushRelativeTransform(const FMatrix& Transform); /* 0x00a73d80 */
+    void PushAbsoluteTransform(const FMatrix& Transform); /* 0x00a73e20 */
+    void PopTransform(); /* 0x00a81b60: TransformStack.Pop() (inlined into UCanvas::execPopTransform) */
+    void SetBaseTransform(const FMatrix& Transform); /* 0x00a73c30 */
+    FMaskRegion GetCurrentMaskRegion() const; /* 0x00a73f50 */
+    const FMatrix& GetFullTransform() const { return TransformStack.Last().GetMatrix(); }
+    const FMatrix& GetBottomTransform() const { return TransformStack(0).GetMatrix(); }
 };
+
+/* UnCanvas.h's free drawing functions */
+class FTexture;
+class FMaterialRenderProxy;
+void DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
+    const FLinearColor& Color, const FTexture* Texture = NULL, UBOOL AlphaBlend = TRUE); /* 0x00aa7a60 */
+void DrawTile(FCanvas* Canvas, FLOAT X, FLOAT Y, FLOAT SizeX, FLOAT SizeY, FLOAT U, FLOAT V, FLOAT SizeU, FLOAT SizeV,
+    const FMaterialRenderProxy* MaterialRenderProxy); /* 0x00a9edc0 */
+INT DrawString(FCanvas* Canvas, FLOAT StartX, FLOAT StartY, const TCHAR* Text, class UFont* Font, const FLinearColor& Color,
+    FLOAT XScale = 1.0f, FLOAT YScale = 1.0f, FLOAT HorizSpacingAdjust = 0.0f, const FLOAT* ForcedViewportHeight = NULL); /* 0x00aa7ed0 */
 
 struct FCylinder {
     /* Core.Cylinder */
@@ -4615,6 +4659,7 @@ struct FBasedPosition {
     FBasedPosition() : Base(NULL) { Position = FVector(0.f); }
     /* other member functions */
     void Set(AActor* InBase, const FVector& InPosition); /* 0x007ab4e0 */
+    FVector operator*(); /* the world position: Position, moved with Base (recached when Base has moved). Defined after AActor; also out of line at 0x007ab350 */
 };
 
 struct FVisiblePortalInfo {
@@ -11508,6 +11553,25 @@ struct AActor : public UObject {
     void SetCollision(UBOOL bNewCollideActors, UBOOL bNewBlockActors, UBOOL bNewIgnoreEncroachers); /* 0x00784170 */
     UBOOL ActorIsPendingKill() const { return bDeleteMe || HasAnyFlags(RF_PendingKill); } /* out-of-line copy: 0x00753b30 */
 };
+
+/* FBasedPosition::operator* (UnActor.h), here because it reads AActor */
+FORCEINLINE FVector FBasedPosition::operator*()
+{
+    AActor* const BaseActor = Base;
+    if (BaseActor != NULL)
+    {
+        if (CachedBaseLocation.X != BaseActor->Location.X || CachedBaseLocation.Y != BaseActor->Location.Y || CachedBaseLocation.Z != BaseActor->Location.Z
+            || CachedBaseRotation.Pitch != BaseActor->Rotation.Pitch || CachedBaseRotation.Yaw != BaseActor->Rotation.Yaw || CachedBaseRotation.Roll != BaseActor->Rotation.Roll)
+        {
+            CachedBaseLocation = BaseActor->Location;
+            CachedBaseRotation = BaseActor->Rotation;
+            const FVector4 Delta = ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position);
+            CachedTransPosition = FVector(BaseActor->Location.X + Delta.X, BaseActor->Location.Y + Delta.Y, BaseActor->Location.Z + Delta.Z);
+        }
+        return CachedTransPosition;
+    }
+    return Position;
+}
 
 struct UActorComponent : public UComponent {
     AActor* GetOwner() const { return Owner; }
