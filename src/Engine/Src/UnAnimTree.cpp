@@ -1953,9 +1953,6 @@ UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRoo
 
 #line 2132 "candidate.cpp"
 
-/* Kit gap: the static FillWithRefPose. */
-void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
-	/* FillWithRefPose */
 
 // @baa 0x00c5ecc0
 void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
@@ -1970,7 +1967,7 @@ void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& Desir
 	const INT NumAtoms = SkelComponent->SkeletalMesh->RefSkeleton.Num();
 #line 269 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
 	check(NumAtoms == Atoms.Num());
-	sub_00c5eb80(Atoms, DesiredBones, SkelComponent->SkeletalMesh->RefSkeleton);
+	::FillWithRefPose(Atoms, DesiredBones, SkelComponent->SkeletalMesh->RefSkeleton);
 }
 
 #line 2164 "candidate.cpp"

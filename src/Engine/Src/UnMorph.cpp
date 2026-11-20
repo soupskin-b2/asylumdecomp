@@ -240,10 +240,6 @@ undefined4 * C_008591b0::sub_008591b0(void)
 
 // @baa 0x00852b50
 
-/* Kit gap: UnMorph.h's connector constants aren't declared. */
-#define LOC_INPUT			0
-#define LOC_OUTPUT			1
-#define LO_CONNECTOR_LENGTH	10
 // @baa 0x0083dae0
 /* Where the node's input (left) or ConnIndex'th output (right) connector is drawn in the anim tree editor. */
 FIntPoint UMorphNodeWeightBase::GetConnectionLocation(INT ConnType, INT ConnIndex)

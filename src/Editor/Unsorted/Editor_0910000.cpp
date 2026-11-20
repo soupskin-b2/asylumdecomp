@@ -48,22 +48,13 @@ UAnimSequence* UAnimSet::FindAnimSequence(FName SequenceName)
     return NULL;
 }
 
-/* Kit gaps: PKG_ContainsMap and UPackage's flags (opaque in the kit). */
-#define PKG_ContainsMap	0x00020000
-struct UPackage_ : public UObject
-{
-	BYTE OpaquePackageState[0x74 - sizeof(UObject)];
-	DWORD PackageFlags; /* 0x74 */
-	FORCEINLINE UBOOL ContainsMap() const { return (PackageFlags & PKG_ContainsMap) ? TRUE : FALSE; }
-};
-
 // @baa 0x00918680
 /* AnimSets (and their sequences) inside level packages must not be standalone. */
 void UAnimSet::PostLoad()
 {
 	Super::PostLoad();
 
-	if (((UPackage_*)GetOutermost())->ContainsMap() && HasAnyFlags(RF_Standalone))
+	if (((UPackage*)GetOutermost())->ContainsMap() && HasAnyFlags(RF_Standalone))
 	{
 		ClearFlags(RF_Standalone);
 

@@ -1675,9 +1675,6 @@ extern D_01e22f30 g_026a1e04;
 // @baa 0x01e22f30
 void sub_01e22f30() { g_026a1e04.sub_005cbb00(); }
 
-/* Kit gaps: the CLASS_ flags and UObject::LoadConfig/LoadLocalized (UnObj.cpp) aren't declared. */
-#define CLASS_Config 0x00000400
-
 // @baa 0x005e59b0
 void UObject::PostLoad()
 {

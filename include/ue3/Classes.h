@@ -3924,6 +3924,38 @@ class FSceneViewStateInterface* AllocateViewState(); /* 0x00af25a0: a new FScene
 struct FRotationMatrix : public FMatrix {
     FRotationMatrix(const FRotator& Rot); /* 0x004029a0 */
 };
+/* UnMath.h: a rotation followed by a translation (the constructor is out of line) */
+struct FRotationTranslationMatrix : public FMatrix {
+    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
+};
+/* UnMath.h: the global sine table (GMath; only the table is used here) */
+class FGlobalMath {
+public:
+    enum { ANGLE_SHIFT = 2 };
+    enum { ANGLE_BITS = 14 };
+    enum { NUM_ANGLES = 16384 };
+    FGlobalMath(); /* 0x005c3500: fills the table */
+    FORCEINLINE FLOAT SinTab(int i) const { return TrigFLOAT[((i >> ANGLE_SHIFT) & (NUM_ANGLES - 1))]; }
+    FORCEINLINE FLOAT CosTab(int i) const { return TrigFLOAT[(((i + 16384) >> ANGLE_SHIFT) & (NUM_ANGLES - 1))]; }
+private:
+    FLOAT TrigFLOAT[NUM_ANGLES];
+};
+extern FGlobalMath g_026761a8;
+#define GMath g_026761a8
+/* Engine.h */
+#define WORLD_MAX           524288.0
+#define HALF_WORLD_MAX      262144.0
+/* UnLinkedObjDrawUtils.h: connector kinds and the connector stub length */
+enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
+#define LO_CONNECTOR_LENGTH (10)
+/* RenderingThread.h */
+void FlushRenderingCommands(); /* 0x00729290 */
+UBOOL IsInGameThread(); /* 0x00715880 */
+/* UnVcWin32.cpp: the Windows clipboard */
+FString appClipboardPaste(); /* 0x005f0700 */
+void appClipboardCopy(const TCHAR* Str); /* 0x005ec7c0 */
+/* UnPath.cpp: the navigation list debug check */
+void VerifyNavList(const TCHAR* DebugTxt, UBOOL bArg); /* 0x009cb9d0 */
 /* UnMath.h: a rotation (from a unit quaternion) followed by a translation (the constructor is out of line) */
 struct FQuatRotationTranslationMatrix : public FMatrix {
     FQuatRotationTranslationMatrix(const FQuat& Q, const FVector& Origin); /* 0x0059d4a0 */
@@ -14026,6 +14058,7 @@ struct UAnimNode : public UAnimObject {
     void sub_00c4b530(TArray<UAnimNode*>& Nodes); /* 0x00c4b530 */
     UAnimNode* FindAnimNode(FName InNodeName); /* 0x00c5ef30 */
     static void sub_00c52e80(TArray<BYTE>& BoneIndices, USkeletalMesh* SkelMesh); /* 0x00c52e80 */
+    static void FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<struct FMeshBone>& RefSkel); /* 0x00c52d40 */
     /* registered size 0xb4 */
     /* generated script-event glue (inline in the exe; no out-of-line copy) */
     FORCEINLINE void eventOnInit()
@@ -14034,6 +14067,9 @@ struct UAnimNode : public UAnimObject {
         ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
     }
 };
+/* UnAnimTree.cpp's file-level copy of UAnimNode::FillWithRefPose (UAnimNode::GetBoneAtoms calls this one; call
+ * it as ::FillWithRefPose inside UAnimNode members) */
+void FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<struct FMeshBone>& RefSkel); /* 0x00c5eb80 */
 
 struct UAnimNodeBlendBase : public UAnimNode {
     /* Engine.AnimNodeBlendBase */
@@ -63623,6 +63659,7 @@ struct UPackage : public UObject {
     TArray<INT> Native_60; /* 0x60: its count is FPackageInfo::NetObjectCount (UE3's GenerationNetObjectCount is the likely one) */
     BYTE _native_6c[0x8];
     DWORD PackageFlags; /* 0x74 */
+    UBOOL ContainsMap() const { return (PackageFlags & PKG_ContainsMap) ? TRUE : FALSE; }
     class UMetaData* MetaData; /* 0x78: created by GetMetaData (0x005c1010), serialized for reference collectors */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */

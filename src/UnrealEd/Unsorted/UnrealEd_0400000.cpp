@@ -1477,31 +1477,6 @@ INT __stdcall sub_0040c600(UObject* Object)
     return sub_0047e520(Object);
 }
 
-/* Kit gaps: UnMath.h's FGlobalMath (GMath, its sine table the only member) and FRotationMatrix aren't declared;
- * this build has FRotationMatrix's constructor out of line. */
-class FGlobalMath
-{
-public:
-	enum { ANGLE_SHIFT = 2 };
-	enum { ANGLE_BITS = 14 };
-	enum { NUM_ANGLES = 16384 };
-
-	FORCEINLINE FLOAT SinTab(int i) const
-	{
-		return TrigFLOAT[((i >> ANGLE_SHIFT) & (NUM_ANGLES - 1))];
-	}
-	FORCEINLINE FLOAT CosTab(int i) const
-	{
-		return TrigFLOAT[(((i + 16384) >> ANGLE_SHIFT) & (NUM_ANGLES - 1))];
-	}
-
-private:
-	FLOAT TrigFLOAT[NUM_ANGLES];
-};
-
-extern FGlobalMath g_026761a8;
-#define GMath g_026761a8
-
 // @baa 0x004029a0
 /* UnMath.h: the rotation matrix for a rotator (roll, then pitch, then yaw). */
 FRotationMatrix::FRotationMatrix(const FRotator& Rot)

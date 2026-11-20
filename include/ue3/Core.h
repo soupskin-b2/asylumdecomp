@@ -143,6 +143,15 @@ inline void* appMemmove(void* Dest, const void* Src, INT Count) { return memmove
 #define appToLower  towlower
 DWORD appStrihash(const TCHAR* Data); /* 0x0053e7c0 */
 extern DWORD GCRCTable[256]; /* 0x0269d7d0 */
+/* UnObjBas.h: the class and package flags code here tests */
+#define CLASS_Config        0x00000400
+#define PKG_Cooked          0x00000008
+#define PKG_ContainsMap     0x00020000
+#define MAXWORD             0xffffU
+extern UBOOL GIsGarbageCollecting; /* 0x0266e820 */
+/* UnVcWin32.cpp: seconds per appCycles() tick */
+extern DOUBLE g_0266e7f8;
+#define GSecondsPerCycle g_0266e7f8
 #define FIRST_BITFIELD 1 /* UnBuild.h: bitfields start at bit 0 on this platform */
 DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0); /* 0x00627f70 */
 #ifndef MAXINT

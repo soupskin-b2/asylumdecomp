@@ -6,18 +6,6 @@
 
 /* Kit gaps: UObject::GetOutermost (005d7350) isn't declared, UPackage is only forward-declared
  * (PackageFlags at 0x74), and the TArray::Remove instances are out of line here. */
-#define PKG_Cooked	0x00000008
-struct UPackage_ : public UObject
-{
-	BYTE Pad[0x74 - sizeof(UObject)];
-	DWORD PackageFlags;	/* 0x74 */
-};
-
-struct UObject_ : public UObject
-{
-	UPackage_* sub_005d7350();	/* GetOutermost */
-};
-
 struct FVectorArray : public TArray<FVector>	{ void sub_00667a40(INT Index, INT Count); };
 
 	/* Remove */
@@ -35,7 +23,7 @@ template< class T > inline T Max3( const T A, const T B, const T C ) { return Ma
 UBOOL UAnimSequence::CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart)
 {
 	// Can't crop cooked animations.
-	const UPackage_* Package = ((UObject_*)this)->sub_005d7350();
+	const UPackage* Package = this->GetOutermost();
 	if (Package->PackageFlags & PKG_Cooked)
 	{
 		return FALSE;

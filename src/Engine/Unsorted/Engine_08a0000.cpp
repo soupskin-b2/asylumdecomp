@@ -1314,9 +1314,6 @@ void UParticleSystemComponent::delegateOnSystemFinished(class UParticleSystemCom
 	ProcessDelegate(g_026c48d4, &__OnSystemFinished__Delegate, &Parms, NULL);
 }
 
-/* GSecondsPerCycle (UnVcWin32.cpp), not in the kit. */
-extern DOUBLE g_0266e7f8;
-#define GSecondsPerCycle g_0266e7f8
 // @baa 0x008aa040
 /* Converts a cycle count to milliseconds in place. */
 void AActor::UnClock(FLOAT& Value)

@@ -854,11 +854,9 @@ void sub_01dd9800(void)
   return;
 }
 
-struct D_01dd9830 { void sub_005c3500(); };
-
-extern D_01dd9830 g_026761a8;
 // @baa 0x01dd9830
-void sub_01dd9830() { g_026761a8.sub_005c3500(); }
+/* GMath's dynamic initializer */
+void sub_01dd9830() { GMath.FGlobalMath::FGlobalMath(); }
 
 int sub_01e22da0(...);
 // @baa 0x01dd9840

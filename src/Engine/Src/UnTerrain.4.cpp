@@ -134,12 +134,6 @@ int C_00989d80::sub_00989d80(unsigned x) {
  return 1;
 }
 
-UBOOL sub_00715880();
-                   /* IsInGameThread */
-void sub_00729290();
-                    /* FlushRenderingCommands */
-#define IsInGameThread sub_00715880
-#define FlushRenderingCommands sub_00729290
 struct UTerrainComponent_ : public UTerrainComponent
 {
     void sub_00759640(UBOOL);

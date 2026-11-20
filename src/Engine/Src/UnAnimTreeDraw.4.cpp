@@ -46,11 +46,6 @@ void UAnimNodeBlendBySpeed::HandleSliderMove(INT SliderIndex, INT ValueIndex, FL
 
 #line 60 "candidate.cpp"
 
-/* Kit gap (UnLinkedObjEditor.h): the linked-object editor's connector types and layout constant aren't defined. */
-enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
-
-#define LO_CONNECTOR_LENGTH (10)
-
 // @baa 0x00c92a90
 FIntPoint UAnimNode::GetConnectionLocation(INT ConnType, INT ConnIndex)
 {

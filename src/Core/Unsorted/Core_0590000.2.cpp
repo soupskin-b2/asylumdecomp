@@ -71,11 +71,6 @@ void UObject::execSubtract_RotatorRotator(FFrame& Stack, RESULT_DECL)
     *(FRotator*)Result = Difference;
 }
 
-struct FRotationTranslationMatrix : FMatrix
-{
-    FRotationTranslationMatrix(const FRotator& Rotation, const FVector& Origin);
-};
-
 // @baa 0x0059eb20
 void UObject::execMakeRotationTranslationMatrix(FFrame& Stack, RESULT_DECL)
 {

@@ -167,8 +167,6 @@ void C_SingletonClient::sub_008136d0()
     }
 }
 
-/* Kit gap: the navigation list check (UnPath.cpp, 009cb9d0) isn't declared. */
-void VerifyNavList(const TCHAR* DebugTxt, UBOOL bArg);
 // @baa 0x00815340
 	/* 0x009cb9d0 */
 void AWorldInfo::VerifyNavList()

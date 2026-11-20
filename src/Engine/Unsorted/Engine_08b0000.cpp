@@ -518,17 +518,12 @@ FLOAT AActor::GetTimerRate(FName TimerFuncName, UObject* inObj)
     return -1.f;
 }
 
-/* Kit gap: UnVcWin32.cpp's appClipboardPaste() isn't declared (005f0700: OpenClipboard, GetClipboardData). */
-FString appClipboardPaste();
 // @baa 0x008b6f60
 /* UE3's APlayerController::PasteFromClipboard(). */
 FString APlayerController::PasteFromClipboard()
 {
     return appClipboardPaste();
 }
-
-/* Kit gaps: appClipboardCopy (UnVcWin32.cpp, 005ec7c0) and FString::operator* aren't declared. */
-void appClipboardCopy(const TCHAR* Str);
 
 // @baa 0x008b0a30
 void APlayerController::CopyToClipboard(const FString& Text)

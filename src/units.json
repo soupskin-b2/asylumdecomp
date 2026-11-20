@@ -78696,7 +78696,7 @@
     {
      "va": "005c3fc0",
      "size": 284,
-     "symbol": "?Rotator@FMatrix_@@QBE?AUFRotator@@XZ"
+     "symbol": "?Rotator@FMatrix@@QBE?AUFRotator@@XZ"
     },
     {
      "va": "005c5f20",
@@ -200900,7 +200900,7 @@
     {
      "va": "00c52d40",
      "size": 312,
-     "symbol": "?FillWithRefPose@UAnimNode_@@SAXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@ABV?$TArray@UFMeshBone@@@@@Z"
+     "symbol": "?FillWithRefPose@UAnimNode@@SAXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@E@@ABV?$TArray@UFMeshBone@@@@@Z"
     },
     {
      "va": "00c5eb80",

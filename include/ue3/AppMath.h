@@ -26,6 +26,9 @@ extern "C" _CRTIMP int __cdecl rand(void);
 #ifndef INV_PI
 #define INV_PI              (0.31830988618f)
 #endif
+#ifndef INV_TWO_PI
+#define INV_TWO_PI          (0.15915494309189533577)
+#endif
 #ifndef HALF_PI
 #define HALF_PI             (1.57079632679)
 #endif

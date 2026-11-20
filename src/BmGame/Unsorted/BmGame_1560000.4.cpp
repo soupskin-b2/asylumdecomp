@@ -68,17 +68,11 @@ void URAnimNode_AnimCapture::Capture(USkeletalMeshComponent* SkelComp)
 
 #line 100 "candidate.cpp"
 
-/* Kit gap: UAnimNode::FillWithRefPose (UnAnimTree.cpp, 0x00c5eb80) isn't declared. */
-struct UAnimNode_ : public UAnimNode
-{
-	static void FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
-};
-
 // @baa 0x0156d880
 /* The reference pose, overlaid with the captured atoms while the mesh has an owner. */
 void URAnimNode_AnimCapture::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
 {
-	UAnimNode_::FillWithRefPose(Atoms, DesiredBones, SkelComponent->SkeletalMesh->RefSkeleton);
+	::FillWithRefPose(Atoms, DesiredBones, SkelComponent->SkeletalMesh->RefSkeleton);
 	if (SkelComponent->Owner)
 	{
 		for (INT i = 0; i < SavedAtoms.Num() && i < Atoms.Num(); i++)

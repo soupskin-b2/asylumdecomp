@@ -3,11 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap (UnLinkedObjEditor.h): the linked-object editor's connector types and layout constant aren't defined. */
-enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
-
-#define LO_CONNECTOR_LENGTH (10)
-
 // @baa 0x00cb9260
 FIntPoint UAnimNodeBlendBase::GetConnectionLocation(INT ConnType, INT ConnIndex)
 {

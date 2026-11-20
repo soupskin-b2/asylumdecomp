@@ -4,29 +4,29 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::GetAxis, FMatrix::Rotator and FVector's
- * dot product (operator|) aren't declared (UnMath.h). */
-/* UnMath.h */
+/* UnMath.h: this file uses the double INV_PI (AppMath.h has the float) */
+#undef INV_PI
 #define INV_PI (0.31830988618379067154)
 
+/* UnMath.h's GetAxis as UE3 writes it (through FLOAT M[4][4]); Classes.h's FMatrix::GetAxis indexes the planes,
+ * which compiles differently here. */
 struct FMatrix_ : public FMatrix
 {
 	FORCEINLINE FVector GetAxis(INT i) const
 	{
-		const FLOAT (*M)[4] = (const FLOAT (*)[4])&XPlane;	/* UnMath.h's FLOAT M[4][4] */
+		const FLOAT (*M)[4] = (const FLOAT (*)[4])&XPlane;
 		return FVector(M[i][0], M[i][1], M[i][2]);
 	}
-	FRotator Rotator() const; /* 0x005c3fc0 */
 };
 
 // @baa 0x005c3fc0
 /* UnMath.cpp: the rotator for this matrix's rotation. The game's appAtan2 returns FLOAT (the kit's returns DOUBLE),
  * hence the casts: the products are rounded to float before the double INV_PI multiply. */
-FRotator FMatrix_::Rotator() const
+FRotator FMatrix::Rotator() const
 {
-	const FVector XAxis = GetAxis(0);
-	const FVector YAxis = GetAxis(1);
-	const FVector ZAxis = GetAxis(2);
+	const FVector XAxis = ((const FMatrix_*)this)->GetAxis(0);
+	const FVector YAxis = ((const FMatrix_*)this)->GetAxis(1);
+	const FVector ZAxis = ((const FMatrix_*)this)->GetAxis(2);
 
 	FRotator Rotator = FRotator(
 		appRound((FLOAT)appAtan2(XAxis.Z, appSqrt(Square(XAxis.X) + Square(XAxis.Y))) * 32768.f * INV_PI),
@@ -37,10 +37,6 @@ FRotator FMatrix_::Rotator() const
 	Rotator.Roll = appRound((FLOAT)appAtan2(ZAxis | SYAxis, YAxis | SYAxis) * 32768.f * INV_PI);
 	return Rotator;
 }
-
-/* Kit gap: FVector::Rotation (UnMath.cpp) isn't declared. */
-#define MAXWORD		0xffffU
-#define INV_TWO_PI	(0.15915494309189533577)	/* 1 / (2 * PI) */
 
 // @baa 0x005c3540
 /* UnMath.cpp: the rotator pointing along this vector (no roll). The game's appAtan2 returns FLOAT (the kit's

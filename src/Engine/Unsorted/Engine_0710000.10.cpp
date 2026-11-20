@@ -7,8 +7,6 @@
 /* UE3's timing globals (UnFile.h / Core.cpp) */
 extern QWORD g_026760d8;
 	/* GNumTimingCodeCalls */
-extern DOUBLE g_0266e7f8;
-	/* GSecondsPerCycle */
 extern DOUBLE g_02666798;
 	/* GStartTime */
 /* appSeconds (UnVcWin32.h), as this build has it */
@@ -17,7 +15,7 @@ inline DOUBLE appSeconds()
 	g_026760d8++;
 	LARGE_INTEGER Cycles;
 	QueryPerformanceCounter(&Cycles);
-	return Cycles.QuadPart * g_0266e7f8 + 16777216.0;
+	return Cycles.QuadPart * GSecondsPerCycle + 16777216.0;
 }
 
 // @baa 0x00717d50

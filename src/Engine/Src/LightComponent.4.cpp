@@ -149,8 +149,6 @@ UBOOL ULightComponent::IsLACDynamicAndStaticAffecting()
 	return bResult;
 }
 
-/* Engine.h (not in the kit headers) */
-#define HALF_WORLD_MAX	262144.0f
 // @baa 0x00697460
 FBox ULightComponent::GetBoundingBox() const
 {

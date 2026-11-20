@@ -634,8 +634,6 @@ void C_006aff20::sub_006aff20()
         Object->sub_007361a0();
 }
 
-/* RenderingThread.h; not in the kit. */
-void FlushRenderingCommands();
 // @baa 0x006ae420
  /* 0x00729290 */
 /* Material.cpp: the material's resources are in use on the rendering thread. */

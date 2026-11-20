@@ -42,14 +42,8 @@ FLOAT UnwindHeading(FLOAT A)
 	return A;
 }
 
-/* UAnimNode::FillWithRefPose (static) isn't declared in Classes.h. */
-struct UAnimNode_ : public UAnimNode
-{
-	static void FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
-};
-
 // @baa 0x00c52d40
-void UAnimNode_::FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel)
+void UAnimNode::FillWithRefPose(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel)
 {
 #line 174 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
 	check(OutAtoms.Num() == RefSkel.Num());
