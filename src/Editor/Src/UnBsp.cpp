@@ -893,8 +893,8 @@ int sub_00662520(...);
 // @baa 0x00ec9d70
 INT UBrushBuilder::Vertexv(FVector V)
 {
-    INT Result = Native_48.Num();  // Vertices
-    FVector* Vertex = (FVector*)sub_00662520(sizeof(FVector), &Native_48);  // new(Vertices) FVector(V)
+    INT Result = Vertices.Num();
+    FVector* Vertex = (FVector*)sub_00662520(sizeof(FVector), &Vertices);  // new(Vertices) FVector(V)
     if (Vertex != NULL)
     {
         *Vertex = V;
@@ -940,10 +940,10 @@ undefined4 C_00eca500::sub_00eca500(byte param_2)
 }
 
 // @baa 0x00ec9cf0
-/* Vertex i of the built brush, or the origin when i is out of range (Native_48 is UE3's Vertices). */
+/* Vertex i of the built brush, or the origin when i is out of range. */
 FVector UBrushBuilder::GetVertex(INT i)
 {
-	return (i >= 0 && i < Native_48.Num()) ? Native_48(i) : FVector(0, 0, 0);
+	return (i >= 0 && i < Vertices.Num()) ? Vertices(i) : FVector(0, 0, 0);
 }
 
 #line 963 "candidate.cpp"

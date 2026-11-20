@@ -376,6 +376,7 @@ python asylum.pyz identity [on|off]             contribution identity: you as co
 python asylum.pyz model-credit [on|off]         record the model's name with matches and give-ups
 python asylum.pyz key NAME [--delete]           a key for a second agent in a folder (ASYLUM_KEY)
 python asylum.pyz list [filters] [--named]      open functions you may claim
+python asylum.pyz list [filters] --ready        only those the headers don't block (--blocked: the rest, and why)
 python asylum.pyz list --matched [filters]      matched functions (to improve)
 python asylum.pyz get [VA] [filters]            claim one; packet in work/VA.md
 python asylum.pyz get VA --revise               claim a matched one to improve; its file in work/VA.cpp

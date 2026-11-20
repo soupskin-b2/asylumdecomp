@@ -58122,14 +58122,23 @@ struct UBrowserManager : public UObject {
     /* registered size 0x54 */
 };
 
-struct FNativeDtor_00ed7ff0_18 { ~FNativeDtor_00ed7ff0_18(); /* 0x00ed7ff0 */ DWORD _data[6]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* Editor.h: a polygon a brush builder emits (~TArray of it at 0x00ed7ff0) */
+struct FBuilderPoly {
+    TArray<INT> VertexIndices; /* 0x0 */
+    INT Direction; /* 0xc */
+    FName ItemName; /* 0x10 */
+    INT PolyFlags; /* 0x18 */
+};
 struct UBrushBuilder : public UObject {
     /* Editor.BrushBuilder (native only: no script package describes it) */
     DECLARE_CLASS(UBrushBuilder, UObject, 0x1, 0x0, Editor)
-    FStringNoInit Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FVector> Native_48; /* 0x48: C++ only (destroyed by its destructor) */
-    FNativeDtor_00ed7ff0_18 Native_54; /* 0x54: C++ only (destroyed by its destructor) */
+    /* EditorClasses.h's members (this build cooks no script class for it) */
+    FStringNoInit BitmapFilename; /* 0x30 */
+    FStringNoInit ToolTip; /* 0x3c */
+    TArrayNoInit<FVector> Vertices; /* 0x48 */
+    TArrayNoInit<FBuilderPoly> Polys; /* 0x54 */
+    FName Group; /* 0x60 */
+    BITFIELD MergeCoplanars : 1; /* 0x68 */
     /* virtual functions this class introduces (vtable 0x02132968) */
     virtual void BeginBrush(UBOOL bMerge, FName BrushName); /* 0x10c */
     virtual void EndBrush(); /* 0x110 */
@@ -59547,7 +59556,7 @@ struct UEnum : public UField {
     DECLARE_CLASS(UEnum, UField, 0x10000000, 0x4, Core)
     UEnum() {  }
     DECLARE_WITHIN(UStruct)
-    TArray<FName> Native_38; /* 0x38: C++ only (destroyed by its destructor) */
+    TArray<FName> Names; /* 0x38 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62405,8 +62414,8 @@ struct UOptionsDupObject : public UOptionsProxy {
     DECLARE_CLASS(UOptionsDupObject, UOptionsProxy, 0x0, 0x0, UnrealEd)
     UOptionsDupObject() {  }
     void InitializeIntrinsicPropertyValues(); /* 0x01161ee0 */
-    FString Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FString Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
+    FString Package; /* 0x30 */
+    FString Name; /* 0x3c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -62420,8 +62429,8 @@ struct UOptionsNewClassFromSel : public UOptionsProxy {
     DECLARE_CLASS(UOptionsNewClassFromSel, UOptionsProxy, 0x0, 0x0, UnrealEd)
     UOptionsNewClassFromSel() {  }
     void InitializeIntrinsicPropertyValues(); /* 0x01161f00 */
-    FString Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FString Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
+    FString Package; /* 0x30 */
+    FString Name; /* 0x3c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64598,8 +64607,9 @@ struct UTextBuffer : public UObject, public FOutputDevice {
     /* Core.TextBuffer (native only: no script package describes it) */
     DECLARE_CLASS(UTextBuffer, UObject, 0x10000000, 0x0, Core)
     UTextBuffer(const TCHAR* InText = TEXT("")); /* 0x005aa160 */
-    BYTE _native0[0x8];
-    FStringNoInit Native_48; /* 0x48: C++ only (destroyed by its destructor) */
+    INT Pos; /* 0x40 */
+    INT Top; /* 0x44 */
+    FStringNoInit Text; /* 0x48 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */

@@ -17,7 +17,7 @@ void C_005aa1e0::sub_005aa270() {}
 // @baa 0x005aa270
 UTextBuffer::UTextBuffer(const TCHAR* InText)
 {
-    new(&Native_48) FString(InText);
+    new(&Text) FString(InText);
 }
 
 struct C {

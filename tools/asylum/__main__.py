@@ -212,8 +212,16 @@ def cmd_list(a):
     if a.matched:
         return _list_matched(a)
     limit = min(a.limit, LIST_MAX)
-    r = api.call("GET", "/list", query={**_filters(a), "limit": limit})
+    screen = getattr(a, "ready", False) or getattr(a, "blocked", False)
+    r = api.call("GET", "/list", query={**_filters(a), "limit": LIST_MAX if screen else limit})
     fs = r["functions"]
+    why = {}
+    if screen:
+        fs, why = _screen(fs, keep_blocked=a.blocked)
+        fs = fs[:limit]
+        r = {"functions": fs}
+        print("%s: %d of the first %d open functions (headers checked with `blockers.py`)"
+              % ("blocked" if a.blocked else "ready", len(fs), LIST_MAX))
     if not fs:
         print("no open functions fit these filters")
     else:
@@ -223,6 +231,27 @@ def cmd_list(a):
     for f in r["functions"]:
         tries = " (given up %dx)" % f["tries"] if f.get("tries") else ""
         print("%s %5d  %s%s" % (f["va"], f["size"], "  ".join(x for x in (f.get("unit"), f.get("class"), f.get("name")) if x), tries))
+        for w in why.get(f["va"], ()):
+            print("               blocked: %s" % w)
+
+
+def _screen(fs, keep_blocked=False):
+    """split the service's list by what the kit's headers leave unnamed (see blockers.py)"""
+    import blockers
+    import listing
+    L, img, funcs, nm = blockers.layout(ROOT), image(), data.functions(), names()
+    keep, why = [], {}
+    for f in fs:
+        va = int(f["va"], 16)
+        rec = funcs.get(va)
+        reasons = []
+        if rec:
+            reasons = blockers.blockers(L, f.get("class"), va, listing.listing(img, va, rec["size"], nm))
+        if reasons:
+            why[f["va"]] = reasons
+        if bool(reasons) == keep_blocked:
+            keep.append(f)
+    return keep, why
 
 
 def _list_matched(a):
@@ -564,6 +593,9 @@ def main(argv=None):
     filters(s)
     s.add_argument("--limit", type=int, default=30)
     s.add_argument("--matched", action="store_true", help="matched functions instead (to improve with get VA --revise)")
+    s.add_argument("--ready", action="store_true", help="hide functions the headers block (unnamed C++-only bytes of "
+                   "their class, unnamed vtable slots they call or are)")
+    s.add_argument("--blocked", action="store_true", help="only the functions the headers block, with what blocks each")
     s = sub.add_parser("get")
     s.add_argument("va", type=va_arg, nargs="?")
     filters(s)

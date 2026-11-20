@@ -151,11 +151,11 @@ void UObject::execCapitalise(FFrame& Stack, RESULT_DECL)
 	*(FString*)Result = ((const FString__005ac4e0&)S).sub_005aa650();
 }
 
-/* Kit gaps: UEnum's Names (Native_38) accessors, and IsA/Cast through ClassCastFlags (the form this build uses for
+/* Kit gaps: UEnum's Names accessors, and IsA/Cast through ClassCastFlags (the form this build uses for
  * classes with a cast flag; ue3/Cast.h only has the SuperField walk). */
 struct UEnum_ : public UEnum
 {
-	INT NumEnums() const { return Native_38.Num(); }
+	INT NumEnums() const { return Names.Num(); }
 };
 
 template<class T> FORCEINLINE UBOOL IsACast(const UObject* Object)

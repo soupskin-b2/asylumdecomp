@@ -120,19 +120,17 @@ undefined4 * C_0115bef0::sub_0115bef0(void)
 int sub_0115bf10(int a0, int a1) { return a1; }
 
 // @baa 0x01161f00
-/* Default package and class names for the "new class from selection" dialog (the kit's Native_30/Native_3c
- * are UE3's Package and Name strings). */
+/* Default package and class names for the "new class from selection" dialog. */
 void UOptionsNewClassFromSel::InitializeIntrinsicPropertyValues()
 {
-	Native_30 = TEXT("MyLevel");
-	Native_3c = TEXT("MyClass");
+	Package = TEXT("MyLevel");
+	Name = TEXT("MyClass");
 }
 
 // @baa 0x01161ee0
-/* Default package and object names for the duplicate-object dialog (the kit's Native_30/Native_3c
- * are UE3's Package and Name strings). */
+/* Default package and object names for the duplicate-object dialog. */
 void UOptionsDupObject::InitializeIntrinsicPropertyValues()
 {
-	Native_30 = TEXT("MyLevel");
-	Native_3c = TEXT("NewObject");
+	Package = TEXT("MyLevel");
+	Name = TEXT("NewObject");
 }
