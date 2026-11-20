@@ -34,30 +34,12 @@ UBOOL ARLevelTransition::IsConnectedToLevel(FName Level)
     return Level == LevelInFront || Level == LevelBehind;
 }
 
-/* TArray::FindItem(Item, Index) (Array.h); the kit's TArray only has FindItemIndex. */
-template<typename T> struct TArrayFindItem_ : public TArray<T>
-{
-    UBOOL FindItem(const T& Item, INT& Index) const
-    {
-        const T* const DataEnd = this->GetTypedData() + this->ArrayNum;
-        for (const T* Data = this->GetTypedData(); Data < DataEnd; Data++)
-        {
-            if (*Data == Item)
-            {
-                Index = (INT)(Data - this->GetTypedData());
-                return TRUE;
-            }
-        }
-        return FALSE;
-    }
-};
-
 // @baa 0x0156d0a0
 /* Drops Originator's request for the next level (the level name itself isn't checked). */
 void ARGameRI::RemoveNextLevelRequest(FName Level, AActor* Originator)
 {
     INT Index;
-    if (((TArrayFindItem_<AActor*>&)NextLevelOriginators).FindItem(Originator, Index))
+    if (NextLevelOriginators.FindItem(Originator, Index))
     {
         NextLevelOriginators.Remove(Index);
     }

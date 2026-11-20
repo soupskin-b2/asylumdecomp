@@ -6,7 +6,7 @@
  * pushed __LINE__ and __FILE__ are the original's:
  *   560 operator()(i)        566 operator()(i) const    572 Pop()
  *   592/593 Last(c)          599 Last(c) const          779 Add(Count)
- *   794-798 Insert(Index, Count)                        829-831 Remove(Index, Count)
+ *   794-798 Insert(Index, Count)                        829-831 Remove(Index, Count)   860-862 RemoveSwap
  *   1001 RemoveItem(Item)    1055/1056 SwapItems(A, B)  1275 operator new(Size, TArray&)
  *   FindItemIndex/ContainsItem: checked against the game's out-of-line copy (006bc8e0)
  *   1705/1711 TIndirectArray<T>::operator()(i) (and its const form)
@@ -215,6 +215,28 @@ public:
             AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
         }
     }
+    /* Remove, filling the hole from the end of the array (order not kept) */
+    void RemoveSwap(INT Index, INT Count = 1) {
+#line 860 BAA_ARRAY_FILE
+        check(Index>=0);
+        check(Index<=ArrayNum);
+        check(Index+Count<=ArrayNum);
+        DestructItems(Index, Count);
+        const INT NumElementsInHole = Count;
+        const INT NumElementsAfterHole = ArrayNum - (Index + Count);
+        const INT NumElementsToMoveIntoHole = (NumElementsInHole <= NumElementsAfterHole) ? NumElementsInHole : NumElementsAfterHole; /* Min() */
+        if (NumElementsToMoveIntoHole) {
+            appMemcpy((BYTE*)AllocatorInstance.GetAllocation() + (Index) * sizeof(T),
+                      (BYTE*)AllocatorInstance.GetAllocation() + (ArrayNum - NumElementsToMoveIntoHole) * sizeof(T),
+                      NumElementsToMoveIntoHole * sizeof(T));
+        }
+        ArrayNum -= Count;
+        const INT NewArrayMax = AllocatorInstance.CalculateSlack(ArrayNum, ArrayMax, sizeof(T));
+        if (NewArrayMax != ArrayMax) {
+            ArrayMax = NewArrayMax;
+            AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
+        }
+    }
     void Shrink() {
         if (ArrayMax != ArrayNum) {
             ArrayMax = ArrayNum;
@@ -278,6 +300,16 @@ public:
         return INDEX_NONE;
     }
     UBOOL ContainsItem(const T& Item) const { return FindItemIndex(Item) != INDEX_NONE; }
+    UBOOL FindItem(const T& Item, INT& Index) const {
+        const T* const DataEnd = GetTypedData() + ArrayNum;
+        for (const T* Data = GetTypedData(); Data < DataEnd; Data++) {
+            if (*Data == Item) {
+                Index = (INT)(Data - GetTypedData());
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
     UBOOL operator==(const TArray& Other) const {
         if (Num() != Other.Num()) {
             return FALSE;

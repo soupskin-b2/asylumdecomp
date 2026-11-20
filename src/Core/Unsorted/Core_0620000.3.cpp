@@ -5,33 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-/* UnMisc.cpp: FSHA1, the SHA-1 hash (after Dominik Reichl's public-domain CSHA1). The class is
- * not in the headers; it is declared here (UnMisc.h). */
-class FSHA1
-{
-public:
-	typedef union
-	{
-		BYTE  c[64];
-		DWORD l[16];
-	} SHA1_WORKSPACE_BLOCK;
-
-	DWORD m_state[5];
-	DWORD m_count[2];
-	DWORD __reserved1[1];
-	BYTE  m_buffer[64];
-	BYTE  m_digest[20];
-	DWORD __reserved2[3];
-
-private:
-	// Private SHA-1 transformation
-	void Transform(DWORD* state, BYTE* buffer);
-
-	// Member variables
-	BYTE m_workspace[64];
-	SHA1_WORKSPACE_BLOCK* m_block; // SHA1 pointer to the byte array above
-};
-
+/* UnMisc.cpp: FSHA1, the SHA-1 hash (after Dominik Reichl's public-domain CSHA1); the class is in Core.h. */
 // Rotate x bits to the left
 #define ROL32(_val32, _nBits) _rotl(_val32, _nBits)
 #define SHABLK0(i) (m_block->l[i] = (ROL32(m_block->l[i],24) & 0xFF00FF00) | (ROL32(m_block->l[i],8) & 0x00FF00FF))

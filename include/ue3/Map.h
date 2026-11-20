@@ -1754,6 +1754,21 @@ public:
 	INT Num() const { return Super::Num(); }
 };
 
+/* FConfigCacheIni.h: a config section (key name -> values; a key can repeat) and a config file (section name ->
+ * section). FConfigFile::Dump (0061ac60, its log string names it) walks the sections and each one's keys
+ * (GetKeys into a TLookupMap<FName>, then MultiFind). Dirty/NoSave/Quotes follow UE3; their offsets aren't checked
+ * against this build yet. */
+typedef TMultiMap<FName,FString> FConfigSectionMap;
+class FConfigSection : public FConfigSectionMap
+{
+};
+class FConfigFile : public TMap<FString,FConfigSection>
+{
+public:
+    UBOOL Dirty, NoSave, Quotes;
+    void Dump(FOutputDevice& Ar); /* 0x0061ac60 */
+};
+
 /* The real container behind a script mirror (FMap_Mirror, FMultiMap_Mirror, FSet_Mirror ... in
  * Classes.h), checked to have the mirror's size:
  *     TMap<FName, UFunction*>& FuncMap = MirrorAs< TMap<FName, UFunction*> >(Obj->SomeMap_Mirror); */

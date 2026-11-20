@@ -197175,7 +197175,7 @@
     {
      "va": "00766450",
      "size": 226,
-     "symbol": "?RemoveSwap@?$TArraySwap@PAUUActorComponent@@@@QAEXHH@Z"
+     "symbol": "?RemoveSwap@?$TArray@PAVUActorComponent@@@@QAEXHH@Z"
     }
    ]
   },
@@ -262426,7 +262426,7 @@
     {
      "va": "009b6cc0",
      "size": 226,
-     "symbol": "?RemoveSwap@?$TArraySwap@PAUUObject@@@@QAEXHH@Z"
+     "symbol": "?RemoveSwap@?$TArray@PAVUObject@@@@QAEXHH@Z"
     }
    ]
   },
@@ -299151,7 +299151,7 @@
     {
      "va": "007da4b0",
      "size": 163,
-     "symbol": "?AddUniqueItem@FWordArray@@QAEHABG@Z"
+     "symbol": "?AddUniqueItem@?$TArray@G@@QAEHABG@Z"
     }
    ]
   },

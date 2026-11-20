@@ -16521,11 +16521,11 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_1ac(); /* 0x1ac */
     virtual INT vf_1b0(); /* 0x1b0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
-    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
+    virtual void NotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize); /* 0x1b8 */
     virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual void vf_1c4(); /* 0x1c4 */
-    virtual INT vf_1c8(); /* 0x1c8 */
+    virtual void InitialSceneUpdate(); /* 0x1c8 */
     virtual void vf_1cc(); /* 0x1cc */
     virtual void InitializePrimitives(class FCanvasScene* CanvasScene); /* 0x1d0 */
     virtual void vf_1d4(INT, INT); /* 0x1d4 */
@@ -16780,7 +16780,7 @@ struct UUIObject : public UUIScreenObject {
     virtual void SetInputMask(BYTE NewInputMask, UBOOL bRecurse = FALSE, UBOOL bForcedOverride = FALSE); /* 0x194 */
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
-    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
+    virtual void NotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize); /* 0x1b8 */
     virtual UBOOL ContainsPoint(const FVector2D& Coordinates); /* 0x1bc */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
@@ -35214,8 +35214,8 @@ struct UUIScene : public UUIScreenObject {
     virtual class UPostProcessChain* vf_1fc(EUIPostProcessGroup Group); /* 0x1fc: UIPostProcessBackground for Background, UIPostProcessForeground for Foreground, when GetScenePostProcessGroup includes it; else NULL */
     virtual void vf_200(); /* 0x200 */
     virtual void vf_204(); /* 0x204 */
-    virtual INT vf_208(INT); /* 0x208 */
-    virtual INT vf_20c(INT); /* 0x20c */
+    virtual void Tick(FLOAT DeltaTime); /* 0x208 */
+    virtual UBOOL ShouldModulateBackgroundAlpha(FLOAT& AlphaModulationPercent); /* 0x20c */
     virtual INT vf_210(INT, INT); /* 0x210 */
     virtual void vf_214(INT, INT); /* 0x214 */
     virtual void UpdateScenePrimitives(class FCanvasScene* CanvasScene); /* 0x218 */
@@ -35251,9 +35251,9 @@ struct UUIScene : public UUIScreenObject {
     virtual UINT GetNumResolvedFaces(); /* 0x19c */
     virtual INT HasPositionBeenResolved(BYTE Face); /* 0x1a0 */
     virtual void vf_1b4(INT); /* 0x1b4 */
-    virtual void vf_1b8(FLOAT, INT); /* 0x1b8 */
+    virtual void NotifyResolutionChanged(const FVector2D& OldViewportsize, const FVector2D& NewViewportSize); /* 0x1b8 */
     virtual void InvalidatePositionDependencies(BYTE Face); /* 0x1c0 */
-    virtual INT vf_1c8(); /* 0x1c8 */
+    virtual void InitialSceneUpdate(); /* 0x1c8 */
     virtual INT vf_1e0(INT); /* 0x1e0 */
     /* UnrealScript natives */
     void execRebuildDockingStack(FFrame& Stack, RESULT_DECL); /* 0x00ca64b0 */
@@ -61807,14 +61807,35 @@ struct UGFxEditor : public UObject {
     /* registered size 0x30 */
 };
 
-struct UGFxMovieFactory : public UFactory {
+/* UnEdFact.h: a factory that can reimport its assets is also an FReimportHandler (second base, right after the
+ * UFactory part: its vtable 0214c4a8 is { scalar deleting destructor, Reimport }); FReimportManager is the editor's
+ * list of them (a function-local static, Instance 00f630b0). */
+class FReimportHandler
+{
+public:
+    FReimportHandler(); /* 0x00f21c80: FReimportManager::Instance()->Handlers.AddItem(this) */
+    virtual ~FReimportHandler(); /* 0x00f27400: if (GIsEditor) Handlers.RemoveItem(this) */
+    virtual UBOOL Reimport(UObject* Obj) = 0;
+};
+class FReimportManager
+{
+public:
+    virtual ~FReimportManager();
+    TArray<FReimportHandler*> Handlers; /* 0x04 */
+    FReimportManager(); /* 0x00f5b870: makes sure each reimport factory class is registered */
+    static FReimportManager* Instance(); /* 0x00f630b0 */
+};
+
+struct UGFxMovieFactory : public UFactory, public FReimportHandler {
     /* GFxUIEditor.GFxMovieFactory (native only: no script package describes it) */
     DECLARE_CLASS(UGFxMovieFactory, UFactory, 0x2000, 0x0, GFxUIEditor)
     UGFxMovieFactory(); /* 0x014fd0f0 */
     void StaticConstructor(); /* 0x014fb150 */
     void InitializeIntrinsicPropertyValues(); /* 0x014fb290 */
-    BYTE _native0[0x8];
+    BYTE _native0[0x4]; /* 0x68 (0x64 is the FReimportHandler base) */
     FStringNoInit Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x014fce40 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65196,13 +65217,15 @@ struct URPoseConfigFactoryNew : public UFactory {
     /* registered size 0x64 */
 };
 
-struct URReimportFMODSoundFactory : public URFMODSoundFactory {
+struct URReimportFMODSoundFactory : public URFMODSoundFactory, public FReimportHandler {
     /* Editor.RReimportFMODSoundFactory (native only: no script package describes it) */
     DECLARE_CLASS(URReimportFMODSoundFactory, URFMODSoundFactory, 0x2000, 0x0, Editor)
     URReimportFMODSoundFactory(); /* 0x0110ec90 */
     void StaticConstructor(); /* 0x01104d90 */
     void InitializeIntrinsicPropertyValues(); /* 0x01104dc0 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x6c */
+    BYTE _native[0x4]; /* C++-only members after the FReimportHandler base, to the registered size 0x6c */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x01104e10 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65312,13 +65335,15 @@ struct USkeletalMeshFactory : public UFactory {
     /* registered size 0x70 */
 };
 
-struct UReimportSkeletalMeshFactory : public USkeletalMeshFactory {
+struct UReimportSkeletalMeshFactory : public USkeletalMeshFactory, public FReimportHandler {
     /* Editor.ReimportSkeletalMeshFactory (native only: no script package describes it) */
     DECLARE_CLASS(UReimportSkeletalMeshFactory, USkeletalMeshFactory, 0x2000, 0x0, Editor)
     UReimportSkeletalMeshFactory(); /* 0x00f33650 */
     void StaticConstructor(); /* 0x00f24cb0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f24e00 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x78 */
+    BYTE _native[0x4]; /* C++-only members after the FReimportHandler base, to the registered size 0x78 */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x00f2cc00 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65343,13 +65368,15 @@ struct USoundFactory : public UFactory {
     /* registered size 0x70 */
 };
 
-struct UReimportSoundFactory : public USoundFactory {
+struct UReimportSoundFactory : public USoundFactory, public FReimportHandler {
     /* Editor.ReimportSoundFactory (native only: no script package describes it) */
     DECLARE_CLASS(UReimportSoundFactory, USoundFactory, 0x2000, 0x0, Editor)
     UReimportSoundFactory(); /* 0x00f337b0 */
     void StaticConstructor(); /* 0x00f24e50 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f25020 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x78 */
+    BYTE _native[0x4]; /* C++-only members after the FReimportHandler base, to the registered size 0x78 */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x00f2cf70 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65374,13 +65401,15 @@ struct UStaticMeshFactory : public UFactory {
     /* registered size 0x74 */
 };
 
-struct UReimportStaticMeshFactory : public UStaticMeshFactory {
+struct UReimportStaticMeshFactory : public UStaticMeshFactory, public FReimportHandler {
     /* Editor.ReimportStaticMeshFactory (native only: no script package describes it) */
     DECLARE_CLASS(UReimportStaticMeshFactory, UStaticMeshFactory, 0x2000, 0x0, Editor)
     UReimportStaticMeshFactory(); /* 0x00f33500 */
     void StaticConstructor(); /* 0x00f1efa0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f24c30 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x7c */
+    BYTE _native[0x4]; /* C++-only members after the FReimportHandler base, to the registered size 0x7c */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x00f2c890 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65388,13 +65417,15 @@ struct UReimportStaticMeshFactory : public UStaticMeshFactory {
     /* registered size 0x7c */
 };
 
-struct UReimportTextureFactory : public UTextureFactory {
+struct UReimportTextureFactory : public UTextureFactory, public FReimportHandler {
     /* Editor.ReimportTextureFactory (native only: no script package describes it) */
     DECLARE_CLASS(UReimportTextureFactory, UTextureFactory, 0x2000, 0x0, Editor)
     UReimportTextureFactory(); /* 0x00f33380 */
     void StaticConstructor(); /* 0x00f2b8c0 */
     void InitializeIntrinsicPropertyValues(); /* 0x00f24b70 */
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0xb8 */
+    BYTE _native[0x4]; /* C++-only members after the FReimportHandler base, to the registered size 0xb8 */
+    /* FReimportHandler */
+    virtual UBOOL Reimport(UObject* Obj); /* 0x00f2c460 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */

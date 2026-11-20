@@ -518,4 +518,45 @@ extern FOutputDevice* GError;
 // The log: GLog->Logf(TEXT(...)), and Exec's default output device (FOutputDevice& Ar = *GLog). 0x025d53e8.
 extern FOutputDevice* GLog;
 
+/* UnMisc.h: MD5 (after the RFC's reference code) */
+struct FMD5Context
+{
+    DWORD state[4];
+    DWORD count[2];
+    BYTE buffer[64];
+};
+void appMD5Init(FMD5Context* context); /* 0x006280a0 */
+void appMD5Update(FMD5Context* context, BYTE* input, INT inputLen); /* 0x0062fd80 */
+void appMD5Final(BYTE* digest, FMD5Context* context); /* 0x0062fe30 */
+void appMD5Transform(DWORD* state, BYTE* block); /* 0x0062c790 */
+
+/* UnMisc.h: SHA-1 (after Dominik Reichl's public-domain CSHA1). The constructor and Reset are inline (they set
+ * m_block = (SHA1_WORKSPACE_BLOCK*)m_workspace and the standard initial state, as HashBuffer 0062cee0 shows). */
+class FSHA1
+{
+public:
+    typedef union
+    {
+        BYTE  c[64];
+        DWORD l[16];
+    } SHA1_WORKSPACE_BLOCK;
+
+    DWORD m_state[5];
+    DWORD m_count[2];
+    DWORD __reserved1[1];
+    BYTE  m_buffer[64];
+    BYTE  m_digest[20];
+    DWORD __reserved2[3];
+
+    void Update(BYTE* data, DWORD len); /* 0x006296f0 */
+    void Final(); /* 0x006297a0 */
+    static void HashBuffer(void* Data, DWORD DataSize, BYTE* OutHash); /* 0x0062cee0 */
+
+private:
+    void Transform(DWORD* state, BYTE* buffer); /* 0x006281a0 */
+
+    BYTE m_workspace[64];
+    SHA1_WORKSPACE_BLOCK* m_block; /* points at m_workspace */
+};
+
 #endif

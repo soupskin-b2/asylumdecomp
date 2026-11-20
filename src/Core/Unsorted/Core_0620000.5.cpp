@@ -5,14 +5,6 @@
 #include <string.h>
 
 /* UnMisc.cpp: the MD5 functions (adapted from the MD5 RFC by Brandon Reinhart). */
-/* MD5 context. */
-struct FMD5Context
-{
-	DWORD state[4];
-	DWORD count[2];
-	BYTE buffer[64];
-};
-
 enum {S11=7};
 enum {S12=12};
 enum {S13=17};
@@ -58,7 +50,6 @@ enum {S44=21};
 	(a) = ROTLEFT ((a), (s)); \
 	(a) += (b); \
 }
-void appMD5Transform( DWORD* state, BYTE* block );
 //
 // MD5 Decode.
 //
