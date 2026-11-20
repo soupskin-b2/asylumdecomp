@@ -16,21 +16,6 @@ FString sub_005495f0(const TCHAR* Fmt, ...);
 UClass* sub_00781c50();
 					/* APlayerController::StaticClass */
 
-/* The kit's FName has no constructors and no EName: UE3's FName(EName) (UnName.h:
- * "FName( EName N ) : Index( N ), Number( NAME_NO_NUMBER_INTERNAL ) {}") builds the
- * by-value argument in place, which a brace/aggregate FName doesn't. */
-enum EName_ { NAME_None_ = 0 };
-
-struct FNameArg : public FName
-{
-	FNameArg(EName_ N) { Index = N; Number = 0; }
-};
-
-struct APlayerController_ : public APlayerController
-{
-	void sub_008c3830(const FString& S, FNameArg Type, FLOAT MsgLifeTime);	/* eventClientMessage */
-};
-
 /* USeqAct_Delay::UpdateOp (vtable 0x170). */
 
 // @baa 0x008cbe40
@@ -65,7 +50,7 @@ UBOOL USeqAct_Delay::UpdateOp(FLOAT DeltaTime)
 				{
 					if (Controller->sub_00402b40(sub_00781c50()))
 					{
-						((APlayerController_*)Controller)->sub_008c3830(sub_005495f0(TEXT("END DELAY: %s"), ((FString_&)ObjComment).sub_00439b40()), NAME_None_, 0.f);
+						((APlayerController*)Controller)->eventClientMessage(sub_005495f0(TEXT("END DELAY: %s"), ((FString_&)ObjComment).sub_00439b40()), NAME_None, 0.f);
 					}
 				}
 			}

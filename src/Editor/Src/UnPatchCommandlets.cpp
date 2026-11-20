@@ -49,12 +49,8 @@ int * C::sub_010bf040(int param_2)
   return param_1;
 }
 
-struct C_010bfa60 {
-    void sub_010bfa60();
-};
-
 // @baa 0x010bfa60
-void C_010bfa60::sub_010bfa60(void)
+void UPatchScriptCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

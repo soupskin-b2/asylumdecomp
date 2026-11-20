@@ -284,7 +284,6 @@ INT UOnlineProfileSettings::SetProfileSettingValueFloat(INT ProfileSettingId, FL
 	return FALSE;
 }
 
-/* FName's comparison (UnName.h); the kit's FName has none. */
 struct FSettingsData__00d72a10 : public FSettingsData
 {
 	FORCEINLINE void CleanUp()

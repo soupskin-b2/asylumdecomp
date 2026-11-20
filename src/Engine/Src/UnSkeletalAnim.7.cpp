@@ -13,8 +13,7 @@ struct FIntArray : public TArray<INT>
 
 
 // @baa 0x0092bd20
-/* (The kit's FName is a plain aggregate, so the FName(EName) temporaries are written as { Index, 0 }.)
- * The bones a child mesh copying its parent's pose (ParentAnimComponentMode 1) has to fix up itself. */
+/* The bones a child mesh copying its parent's pose (ParentAnimComponentMode 1) has to fix up itself. */
 void FParentTwistBoneFixers::Init(USkeletalMeshComponent* SkelComp)
 {
 	BoneIndices.Empty();

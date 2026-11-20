@@ -3,12 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-struct C {
-    void sub_0115b4f0();
-};
-
 // @baa 0x0115b4f0
-void C::sub_0115b4f0(void)
+void UOptions2DShaper::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -19,22 +15,16 @@ void C::sub_0115b4f0(void)
 // @baa 0x0115b500
 void sub_0115b500(void) {  }
 
-struct C_0115b510 { void sub_0115b510(void); };
-
 // @baa 0x0115b510
-void C_0115b510::sub_0115b510(void) { *(int*)((char*)this + 56) = 256; }
-
-struct C_0115b520 { void sub_0115b520(void); };
+void UOptions2DShaperExtrude::InitializeIntrinsicPropertyValues()
+{ *(int*)((char*)this + 56) = 256; }
 
 // @baa 0x0115b520
-void C_0115b520::sub_0115b520(void) { *(int*)((char*)this + 56) = 256; }
-
-struct C_0115b530 {
-    void sub_0115b530();
-};
+void UOptions2DShaperExtrudeToPoint::InitializeIntrinsicPropertyValues()
+{ *(int*)((char*)this + 56) = 256; }
 
 // @baa 0x0115b530
-void C_0115b530::sub_0115b530(void)
+void UOptions2DShaperExtrudeToBevel::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -43,12 +33,8 @@ void C_0115b530::sub_0115b530(void)
   return;
 }
 
-struct C_0115b540 {
-    void sub_0115b540();
-};
-
 // @baa 0x0115b540
-void C_0115b540::sub_0115b540(void)
+void UOptions2DShaperRevolve::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -57,10 +43,9 @@ void C_0115b540::sub_0115b540(void)
   return;
 }
 
-struct C_0115b550 { void sub_0115b550(void); };
-
 // @baa 0x0115b550
-void C_0115b550::sub_0115b550(void) { *(int*)((char*)this + 48) = 10; }
+void UOptions2DShaperBezierDetail::InitializeIntrinsicPropertyValues()
+{ *(int*)((char*)this + 48) = 10; }
 
 // @baa 0x01160520
 IMPLEMENT_CLASS_AT(UOptionsProxy, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\GenericDlgOptions.cpp", 15);

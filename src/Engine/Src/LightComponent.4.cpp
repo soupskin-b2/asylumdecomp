@@ -43,7 +43,6 @@ undefined4 C_006ad0d0::sub_006ad0d0(void)
   return 0;
 }
 
-int sub_00765d00(void);
 struct C_006ad1f0 { void sub_006ad1f0(uint param_2); };
 // @baa 0x006ad1f0
 void C_006ad1f0::sub_006ad1f0(uint param_2)
@@ -55,7 +54,7 @@ void C_006ad1f0::sub_006ad1f0(uint param_2)
   uVar1 = *(uint *)(param_1 + 0xec);
   if ((uVar1 & 1) != param_2) {
     *(uint *)(param_1 + 0xec) = (uVar1 ^ param_2) & 1 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }

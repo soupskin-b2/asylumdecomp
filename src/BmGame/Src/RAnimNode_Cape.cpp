@@ -15,9 +15,8 @@ UBOOL URAnimNode_Cape::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_0155cf50 { uint sub_0155cf50(void); };
 // @baa 0x0155cf50
-uint C_0155cf50::sub_0155cf50(void)
+UBOOL URAnimNode_Cape::GetHasCurrentAnimEnded()
 {
     int param_1 = (int)this;
 
@@ -103,9 +102,8 @@ struct C_0155d160 { int sub_0155d160(void); };
 // @baa 0x0155d160
 int C_0155d160::sub_0155d160(void) { return *(int*)((char*)this + 4); }
 
-struct C_01562420 { undefined4 sub_01562420(void); };
 // @baa 0x01562420
-undefined4 C_01562420::sub_01562420(void)
+INT URAnimNode_Cape::GetNumBonesInCape()
 {
     int param_1 = (int)this;
   return *(undefined4 *)(*(int *)(*(int *)(param_1 + 0x50) + 0x1b0) + 0x84);
@@ -466,12 +464,10 @@ UBOOL URSeqAct_VoiceOfArkham::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-void sub_0158c5b0();
 // @baa 0x01590b70
-void sub_01590b70(void) { sub_0158c5b0(); }
+void sub_01590b70(void) { ARLevelTransition::RebuildTransitionLinks(); }
 
 // @baa 0x01590eb0
-
 
 // @baa 0x0155cff0
 FName URAnimNode_Cape::GetNewCapeAnimName()

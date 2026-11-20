@@ -14,7 +14,7 @@ void AActor::sub_00753900(AActor* Other)
     {
         struct { AActor* Other; } Parms;
         Parms.Other = Other;
-        ProcessEvent(sub_005d7d10(g_026c3f6c, 0), &Parms, 0);
+        ProcessEvent(FindFunctionChecked(g_026c3f6c, 0), &Parms, 0);
     }
 }
 

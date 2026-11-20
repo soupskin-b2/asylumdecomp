@@ -75,8 +75,6 @@ void ARBMPawnAI::vf_494(INT A)
     Super::vf_494(A);
 }
 
-/* Script event glue, matched out of line (015d8a70, 015d8cd0). */
-
 // @baa 0x01604a40
 /* ARBMAIController slot 0x458: whether a silent-predator AI can respond to alerts right now (not stunned, pawn slot
  * 0x48c clear, and the behaviour allows it). */

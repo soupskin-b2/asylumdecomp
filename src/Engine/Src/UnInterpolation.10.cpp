@@ -5,9 +5,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Classes.h"
 
-/* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
-
-/* UnObjBas.h RF_Transactional (64-bit object flags). */
 /* out of line in the exe */
 extern template INT TArray<UInterpGroupInst*>::AddItem(UInterpGroupInst* const& Item);
 

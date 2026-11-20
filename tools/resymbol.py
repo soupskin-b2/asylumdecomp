@@ -75,6 +75,9 @@ def one(u: dict):
         return path, {}, ["compile: " + "; ".join(r["compile_errors"][:3])]
     bad = {va: f for va, f in r["functions"].items() if f["status"] != "match"}
     listed = {f["va"] for f in u["functions"]}
+    # matched only through the sub_VA fallback name: the recorded symbol is stale, record the real one
+    stale = {va: f["symbol"] for va, f in r["functions"].items() if f["status"] == "match" and f.get("symbol")
+             and f["symbol"] != next((x.get("symbol") for x in u["functions"] if x["va"] == va), f["symbol"])}
     new = []
     if NEW:
         for m in re.finditer(r"//\s*@baa\s+0x([0-9a-fA-F]{8})\b", src):
@@ -84,13 +87,14 @@ def one(u: dict):
                 new.append(va)
                 bad[va] = {"status": "new", "problems": ["not verified"]}
     if not bad:
-        return path, {}, []
+        return path, stale, []
     whole = False
-    c = cl.compile(src, cl.profile(u["profile"]), check=not lib)
+    # an explicit instantiation of a template the headers already instantiate is only in a whole compile
+    c = cl.compile(src, cl.profile(u["profile"]), check=not lib, whole=cl.instantiates(src))
     obj = Coff(c.obj)
     k = check.known(obj)
     claimed = {f["symbol"] for f in r["functions"].values() if f["status"] == "match" and f.get("symbol")}
-    found, still = {}, []
+    found, still = dict(stale), []
     for va, f in bad.items():
         old = next((x["symbol"] for x in u["functions"] if x["va"] == va), None)
         cls = _norm(_cls(old)) if va not in new else (_row(int(va, 16)) or {}).get("class")

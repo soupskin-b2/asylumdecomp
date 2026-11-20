@@ -170,6 +170,12 @@ extern DWORD GCRCTable[256]; /* 0x0269d7d0 */
 #define MAXWORD             0xffffU
 #define MAX_FLT 3.402823466e+38F /* UnTemplate.h */
 extern UBOOL GIsGarbageCollecting; /* 0x0266e820 */
+extern UBOOL GIsAsyncLoading; /* 0x026760a4: set and cleared around async package ticks (00566dd0/00566df0); FObjectIterator skips RF_AsyncLoading objects unless set */
+extern UBOOL GForceLogFlush; /* 0x0266e870: -FORCELOGFLUSH */
+extern UBOOL GForceSoundRecook; /* 0x0266e874: -FORCESOUNDRECOOK (LaunchEngineLoop.cpp sets it) */
+/* UnObjVer.h: the package version this build saves (and the newest it loads) */
+extern INT GPackageFileVersion; /* 0x025d6824 */
+extern INT GPackageFileLicenseeVersion; /* 0x025d682c */
 /* UnVcWin32.cpp: seconds per appCycles() tick */
 extern DOUBLE g_0266e7f8;
 #define GSecondsPerCycle g_0266e7f8

@@ -39,9 +39,8 @@ UBOOL URSmashablePropConfigFactoryNew::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_01672810 { undefined4 sub_01672810(void); };
 // @baa 0x01672810
-undefined4 C_01672810::sub_01672810(void)
+UBOOL ARSmashableProp::GetHasSubMeshes()
 {
     int param_1 = (int)this;
 
@@ -51,9 +50,8 @@ undefined4 C_01672810::sub_01672810(void)
   return 0;
 }
 
-struct C_01672830 { undefined4 sub_01672830(void); };
 // @baa 0x01672830
-undefined4 C_01672830::sub_01672830(void)
+UBOOL ARSmashableProp::GetHasSubParts()
 {
     int param_1 = (int)this;
 

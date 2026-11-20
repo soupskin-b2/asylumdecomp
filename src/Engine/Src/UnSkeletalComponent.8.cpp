@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
-
 // @baa 0x0091d930
 /* search the morph target sets newest first */
 UMorphTarget* USkeletalMeshComponent::FindMorphTarget(FName MorphTargetName)
@@ -67,8 +65,6 @@ void USkeletalMeshComponent::SetPhysicsAssetInstanceCached(UBOOL bCache)
 }
 
 #line 90 "candidate.cpp"
-
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 // @baa 0x0091da00
 UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation)

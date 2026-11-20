@@ -63,7 +63,6 @@ UBOOL UFogVolumeDensityComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-int sub_00765d00(void);
 // @baa 0x006ab520
 void UFogVolumeDensityComponent::SetEnabled(uint param_2)
 {
@@ -74,7 +73,7 @@ void UFogVolumeDensityComponent::SetEnabled(uint param_2)
   uVar1 = *(uint *)(param_1 + 0x54);
   if ((uVar1 & 1) != param_2) {
     *(uint *)(param_1 + 0x54) = (uVar1 ^ param_2) & 1 ^ uVar1;
-    sub_00765d00();
+    BeginDeferredReattach();
   }
   return;
 }
@@ -261,7 +260,7 @@ UINT UActorComponent::vf_12c() {
 
 extern undefined4 g_01efb7d0;
 // @baa 0x00759560
-void UActorComponent::vf_118(void)
+void UActorComponent::UpdateTransform()
 {
     int param_1 = (int)this;
 
@@ -275,7 +274,7 @@ void UActorComponent::vf_118(void)
 
 extern undefined4 g_01efb990;
 // @baa 0x00759590
-void UActorComponent::UpdateTransform()
+void UActorComponent::BeginPlay()
 {
     int param_1 = (int)this;
 
@@ -377,7 +376,6 @@ struct C_00759a60 {
     undefined4 * sub_00759a60(undefined4, undefined4);
 };
 
-int sub_00715880(void);
 // @baa 0x00759a60
 undefined4 * C_00759a60::sub_00759a60(undefined4 param_2, undefined4 param_3)
 {
@@ -388,7 +386,7 @@ undefined4 * C_00759a60::sub_00759a60(undefined4 param_2, undefined4 param_3)
   param_1[2] = 0;
   param_1[3] = 0;
   param_1[4] = 0;
-  iVar1 = sub_00715880();
+  iVar1 = IsInGameThread();
   if (iVar1 == 0) {
     sub_006311e0("IsInGameThread()",
                  "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\Engine.h"

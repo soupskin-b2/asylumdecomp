@@ -11,7 +11,7 @@
 void USkeletalMeshComponent::UpdateAnimations()
 {
     const INT OldTickTag = TickTag;
-    this->UpdateSkelPose(FALSE);
+    InitAnimTree(FALSE);
 
     if (OldTickTag == TickTag && Animations)
     {

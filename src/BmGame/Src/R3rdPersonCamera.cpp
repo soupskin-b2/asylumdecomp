@@ -87,7 +87,7 @@ void AR3rdPersonCamera_::sub_01686c60(FCameraState_& OutState, FLOAT DeltaTime)
     struct { FCameraState_ OutState; FLOAT DeltaTime; } Parms;
     Parms.OutState = OutState;
     Parms.DeltaTime = DeltaTime;
-    ProcessEvent(sub_005d7d10(g_026e2634, 0), &Parms, 0);
+    ProcessEvent(FindFunctionChecked(g_026e2634, 0), &Parms, 0);
     OutState = Parms.OutState;
 }
 
@@ -404,9 +404,8 @@ struct C_016895e0 { C_016895e0* sub_016895e0(void); };
 // @baa 0x016895e0
 C_016895e0* C_016895e0::sub_016895e0(void) { return this; }
 
-struct C_0168a610 { undefined4 sub_0168a610(void); };
 // @baa 0x0168a610
-undefined4 C_0168a610::sub_0168a610(void)
+UBOOL AR3rdPersonCamera::FollowCameraRotation()
 {
     int param_1 = (int)this;
 

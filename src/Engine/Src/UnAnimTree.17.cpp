@@ -4,12 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps, with UE3's definitions (UnMath.h, UnInterpolation): PI and HALF_PI, CubicInterp (out of line here,
- * instantiated for FLOAT) and FInterpEaseInOut (out of line) (EAlphaBlendType is in the kit). */
-template<class T, class U> T CubicInterp(const T& P0, const T& T0, const T& P1, const T& T1, const U& A);
-	/* <FLOAT, FLOAT>: 0059bb10 */
-FLOAT FInterpEaseInOut(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
-						/* 005c7370 */
+/* CubicInterp<FLOAT, FLOAT> is out of line in the exe (0059bb10) */
 extern template FLOAT CubicInterp<FLOAT, FLOAT>(const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&, const FLOAT&);
 
 // @baa 0x00c50080

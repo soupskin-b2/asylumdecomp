@@ -7,7 +7,6 @@ extern int g_02604330;
 extern unsigned short g_01e3f3dc;
 extern int g_026b2194;
 extern char g_026b24c0[];
-int sub_00715880();
 int sub_006311e0(...);
 struct RC { virtual void v0(); virtual void v1(); };
 
@@ -38,7 +37,7 @@ struct Cmd : RC {
 void sub_00702330(int arg1, int *arg2)
 {
   int e = arg2[2];
-  if (!sub_00715880()) sub_006311e0("IsInGameThread()", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstanceConstant.cpp", 0x2b, &g_01e3f3dc);
+  if (!IsInGameThread()) sub_006311e0("IsInGameThread()", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialInstanceConstant.cpp", 0x2b, &g_01e3f3dc);
   if (g_026b2194) {
     Ctx c(g_026b24c0, 0x14);
     unsigned s = c.end - c.ptr;

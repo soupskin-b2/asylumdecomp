@@ -15,9 +15,8 @@ UBOOL URRopeComponentBase::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_0163f390 { void sub_0163f390(void); };
 // @baa 0x0163f390
-void C_0163f390::sub_0163f390(void)
+void URRopeComponentBase::RequestUpdateRope()
 {
     int param_1 = (int)this;
 

@@ -638,9 +638,8 @@ void C_00725b40::sub_00725b40(void)
   return;
 }
 
-struct C_00725ba0 { void sub_00725ba0(void); };
 // @baa 0x00725ba0
-void C_00725ba0::sub_00725ba0(void)
+void UTexture2DComposite::ResetSourceRegions()
 {
     int param_1 = (int)this;
 

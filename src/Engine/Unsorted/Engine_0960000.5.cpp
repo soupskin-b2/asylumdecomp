@@ -4,9 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/SkeletalMesh.h"
 
-/* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
-extern INT GPackageFileVersion;
-extern INT GPackageFileLicenseeVersion;
 
 FArchive& operator<<(FArchive& Ar, TArray<FkDOPCollisionTriangle>& A);
  /* 0x009599c0 */

@@ -54,14 +54,13 @@ UPhysicsAssetInstance* URB_BodyInstance::GetPhysicsAssetInstance()
 	return NULL;
 }
 
-int sub_00a0ab90(void);
 // @baa 0x00a0acb0
 void URB_BodyInstance::SetDampingRampupProportion(float param_2)
 {
     int param_1 = (int)this;
   if (*(float *)(param_1 + 0x98) != param_2) {
     *(float *)(param_1 + 0x98) = param_2;
-    sub_00a0ab90();
+    UpdateDampingProperties();
   }
   return;
 }
@@ -222,7 +221,6 @@ void UPhysicsAssetInstance::SetFullAnimWeightBonesFixed(UBOOL bNewFixed, USkelet
     }
 }
 
-/* FName::operator== (UnName.h); the kit's FName has no operators. */
 // @baa 0x00a0b500
 void UPhysicsAssetInstance::SetGroupBodiesFixed(UBOOL bNewFixed, FName GroupName, USkeletalMeshComponent* SkelMesh, UBOOL bSetOtherBodiesToComplement)
 {

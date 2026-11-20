@@ -4,15 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: the 48-bit compressed rotation (AnimationEncodingFormat.h) */
-#define Quant16BitDiv (32767.f)
-#define Quant16BitOffs (32767)
-struct FQuatFixed48NoW
-{
-	WORD Data[3];
-	void ToQuat(FQuat& Out) const; /* 0x0064c090 */
-};
-
 // @baa 0x0064c090
 /* Decodes the three 16-bit components; W is rebuilt from the unit length. */
 void FQuatFixed48NoW::ToQuat(FQuat& Out) const
@@ -27,17 +18,6 @@ void FQuatFixed48NoW::ToQuat(FQuat& Out) const
 	Out.Z = FZ;
 	Out.W = WSquared > 0.f ? appSqrt(WSquared) : 0.f;
 }
-
-/* Kit gap: the 32-bit compressed rotation (AnimationEncodingFormat.h): 11/11/10 bits */
-#define Quant10BitDiv (511.f)
-#define Quant10BitOffs (511)
-#define Quant11BitDiv (1023.f)
-#define Quant11BitOffs (1023)
-struct FQuatFixed32NoW
-{
-	DWORD Packed;
-	void ToQuat(FQuat& Out) const; /* 0x0064c340 */
-};
 
 // @baa 0x0064c340
 /* Decodes the packed components; W is rebuilt from the unit length. */
@@ -63,12 +43,6 @@ void FQuatFixed32NoW::ToQuat(FQuat& Out) const
 	Out.Z = Z;
 	Out.W = WSquared > 0.f ? appSqrt(WSquared) : 0.f;
 }
-
-struct FQuatIntervalFixed32NoW
-{
-	DWORD Packed;
-	void ToQuat(FQuat& Out, const FLOAT* Mins, const FLOAT* Ranges) const; /* 0x0064c470 */
-};
 
 // @baa 0x0064c470
 /* Decodes the packed components into the [Mins, Mins + Ranges] box; W is rebuilt from the unit length. */

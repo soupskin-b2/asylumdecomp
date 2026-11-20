@@ -193,20 +193,19 @@ struct FCapePhysics_ {
 struct URCapeComponent_ : public URCapeComponent {
     UBOOL sub_016ae4d0();
     void sub_016b93f0();
-    void sub_016b8cd0();
 };
 
 // @baa 0x016d3660
 void URCapeRenderingComponent::Tick(FLOAT DeltaTime)
 {
-    if (CapeComponent && ((URCapeComponent_*)CapeComponent)->sub_016ae4d0())
+    if (CapeComponent && ((URCapeComponent*)CapeComponent)->GetIsInitialised())
     {
         if (CapeComponent->IsPhysicsPostProcessEnabled && CapeComponent->CapeStateController->IsInitialised)
         {
             ((FCapePhysics_*)CapeComponent->CapeStateController->CapePhysicsRef.Dummy)->sub_016bcf30(DeltaTime);
         }
         ((URCapeComponent_*)CapeComponent)->sub_016b93f0();
-        ((URCapeComponent_*)CapeComponent)->sub_016b8cd0();
+        ((URCapeComponent*)CapeComponent)->UpdateSkeletalMeshDepthBias();
         HandleDebugLineDrawing();
     }
 }
@@ -694,11 +693,11 @@ void ARWindVolume::Tick(FLOAT dt)
             AActor* a = Touching(i);
             R* r = sub_015e32f0(a);
             if (r) { Comp* c = r->c;
-              if (c && c->sub_016ae4d0())
+              if (c && ((URCapeComponent*)c)->GetIsInitialised())
                 c->sub_016c6430(GeneratedWindConfig, &st); }
             S_016d6d50* s = sub_016d3440(a);
             if (s) { Comp* c = s->c;
-              if (c && c->sub_016ae4d0())
+              if (c && ((URCapeComponent*)c)->GetIsInitialised())
                 c->sub_016c6430(GeneratedWindConfig, &st); }
         }
     }
@@ -1074,7 +1073,6 @@ void sub_016df860(void) { sub_016dda10(); }
 
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
-
 
 struct FSparseArrayConstIt_016df8e0 : public TSparseArray<INT>::TConstIterator
 {

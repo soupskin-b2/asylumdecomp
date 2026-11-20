@@ -41,9 +41,8 @@ UBOOL APlayerController::StopAtLedge() { return 0; }
 // @baa 0x007a06e0
 int sub_007a06e0(void) { return 0; }
 
-struct C_007a06f0 { void sub_007a06f0(void); };
 // @baa 0x007a06f0
-void C_007a06f0::sub_007a06f0(void)
+void ADroppedPickup::RemoveFromNavigation()
 {
     int param_1 = (int)this;
 
@@ -65,9 +64,8 @@ UBOOL AController::InLatentExecution(INT LatentActionNumber)
 	return StateFrame->LatentAction == LatentActionNumber;
 }
 
-struct C_007a0ec0 { void sub_007a0ec0(void); };
 // @baa 0x007a0ec0
-void C_007a0ec0::sub_007a0ec0(void)
+void AController::FinishRotation()
 {
     int param_1 = (int)this;
 

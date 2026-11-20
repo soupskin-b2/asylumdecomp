@@ -345,7 +345,6 @@ C_006b0ed0::C_006b0ed0() {}
 // @baa 0x006b0ed0
 void C_006b0ed0::sub_006b1d30() {}
 
-int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined * g_01ece5d8;
 struct C_006b0ee0 { undefined4 * sub_006b0ee0(int param_2); };
@@ -355,7 +354,7 @@ undefined4 * C_006b0ee0::sub_006b0ee0(int param_2)
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   param_1[0x1f] = param_2;
   *param_1 = (undefined4)(&g_01ece5d8);
   param_1[1] = *(undefined4 *)(param_2 + 4);

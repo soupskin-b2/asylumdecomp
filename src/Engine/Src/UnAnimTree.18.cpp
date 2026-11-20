@@ -4,9 +4,6 @@
 #define BAA_OUTLINE_ALLOC	/* appFree out of line, so the local array's destructor inlines */
 #include "ue3/Classes.h"
 
-/* The kit's FName has no comparison operators (UnName.h). */
-inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
-
 // @baa 0x00c61880
 UMorphNodeBase* UAnimTree::FindMorphNode(FName InNodeName)
 {

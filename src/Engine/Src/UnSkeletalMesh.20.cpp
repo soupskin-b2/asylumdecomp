@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/SkeletalRender.h"
 
-/* the GPU-skin vertex formats (UnSkeletalMesh.h); only the UVs' precision differs. Not in the kit. */
 // @baa 0x0094b690
 /* a vertex's UVs, whichever precision they are stored at */
 FVector2D FSkeletalMeshVertexBuffer::GetVertexUV(UINT VertexIndex, UINT UVIndex) const

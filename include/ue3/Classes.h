@@ -39,6 +39,9 @@ struct FMatrix;
 #ifndef RF_PerObjectConfig
 #define RF_PerObjectConfig      ((QWORD)0x0000010000000000)
 #endif
+#ifndef RF_AsyncLoading
+#define RF_AsyncLoading         ((QWORD)0x0000040000000000) /* FObjectIterator's exclusion (004153a0) */
+#endif
 #ifndef RF_Transient
 #define RF_Transient            ((QWORD)0x0000400000000000)
 #endif
@@ -927,6 +930,18 @@ class APawn;
 /* engine and middleware types the virtuals take by pointer or reference (UE3 keywords: they mangle) */
 class FInternetIpAddr;      /* UnSocket.h */
 class FSocket;              /* UnSocket.h */
+/* UnSocket.h: the platform socket layer, GSocketSubsystem (0x026cad04). Slots 0x00-0x10 as UPartyBeacon's
+ * DestroyBeacon (00e2cb90, 00e377b0) call them; the rest aren't recovered yet. */
+class FSocketSubsystem
+{
+public:
+    virtual UBOOL Initialize(FString& Error) = 0; /* 0x00 */
+    virtual void Destroy() = 0; /* 0x04 */
+    virtual FSocket* CreateStreamSocket(const FString& SocketDescription) = 0; /* 0x08 */
+    virtual FSocket* CreateDGramSocket(const FString& SocketDescription, UBOOL bForceUDP = FALSE) = 0; /* 0x0c */
+    virtual void DestroySocket(FSocket* Socket) = 0; /* 0x10 */
+};
+extern FSocketSubsystem* GSocketSubsystem; /* 0x026cad04 */
 class FPrimitiveSceneProxy; /* PrimitiveComponent.h */
 struct FRigidBodyCollisionInfo; /* UnPhysPublic.h */
 struct FUntypedBulkData;    /* UnBulkData.h */
@@ -4387,7 +4402,8 @@ struct FBoneAtom {
     FLOAT Scale; /* 0x1c */
     FBoneAtom() {}
     FORCEINLINE FBoneAtom(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale = 1.f) { Rotation = InRotation; Translation = InTranslation; Scale = InScale; }
-    FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }    static const FBoneAtom Identity; /* 0x025df358: identity rotation, zero translation, scale 1 */
+    FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }
+    static const FBoneAtom Identity; /* 0x025df358: identity rotation, zero translation, scale 1 */
 };
 
 /* AnimationEncodingFormat.h (this build's interface): the base of the animation codecs. Every slot is a
@@ -4410,6 +4426,35 @@ public:
     virtual void ByteSwapRotationOut(class UAnimSequence& Seq, FMemoryWriter& MemoryWriter, BYTE*& Stream, INT NumKeys); /* 0x006637b0 */
     virtual void ByteSwapTranslationOut(class UAnimSequence& Seq, FMemoryWriter& MemoryWriter, BYTE*& Stream, INT NumKeys); /* 0x006637d0 */
 };
+
+/* AnimationCompression.h: the packed rotation formats and their quantisation constants. Their codecs are out of
+ * line in this build (defined in Engine_0640000.4.cpp and AnimationCompressionAlgorithm.cpp). */
+#define Quant16BitDiv   (32767.f)
+#define Quant16BitOffs  (32767)
+#define Quant10BitDiv   (511.f)
+#define Quant10BitOffs  (511)
+#define Quant11BitDiv   (1023.f)
+#define Quant11BitOffs  (1023)
+/* three 16-bit components, W rebuilt from the unit length */
+struct FQuatFixed48NoW {
+    WORD Data[3];
+    void ToQuat(FQuat& Out) const; /* 0x0064c090 */
+};
+/* 11:11:10 bits packed in a DWORD, W rebuilt from the unit length */
+struct FQuatFixed32NoW {
+    DWORD Packed;
+    void ToQuat(FQuat& Out) const; /* 0x0064c340 */
+};
+/* 11:11:10 bits relative to the track's range (Mins, Ranges), W rebuilt from the unit length */
+struct FQuatIntervalFixed32NoW {
+    DWORD Packed;
+    FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges); /* 0x00bfa9e0 (inline in UE3) */
+    void FromQuat(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges); /* 0x00bf7f40 */
+    void ToQuat(FQuat& Out, const FLOAT* Mins, const FLOAT* Ranges) const; /* 0x0064c470 */
+};
+/* AnimationCompressionAlgorithm.cpp: the angle between two rotations, in units of PI. Out of line here (CalcDelta
+ * 00bf8460 and the linear key reducers call it); FilterTrivialRotationKeys (00c01df0) inlines its own copy. */
+FLOAT FQuatError(const FQuat& Q1, const FQuat& Q2); /* 0x00bf7af0 */
 
 struct FMaterialViewRelevance {
     /* Engine.MaterialViewRelevance */
@@ -10674,6 +10719,18 @@ struct UObject {
     UClass* GetClass() const { return Class; }
     FORCEINLINE FName GetFName() const { return ObjectInternalInteger != INDEX_NONE ? Name : FName(TEXT("<uninitialized>")); }
     UObject* GetOuter() const { return Outer; }
+    /* UnObjBas.h: the nearest outer that IsA T (inline in this build: 0075e910 tests T::StaticClass() on each outer in turn) */
+    template<class T> FORCEINLINE T* GetTypedOuter() const
+    {
+        for (UObject* NextOuter = GetOuter(); NextOuter != NULL; NextOuter = NextOuter->GetOuter())
+        {
+            if (NextOuter->IsA(T::StaticClass()))
+            {
+                return (T*)NextOuter;
+            }
+        }
+        return NULL;
+    }
     FORCEINLINE UObject* GetArchetype() const { return ObjectArchetype; }
     template<class T> FORCEINLINE T* GetArchetype() const { return CastChecked<T>(GetArchetype()); }
     FORCEINLINE UBOOL HasAnyFlags(QWORD FlagsToCheck) const { return (ObjectFlags & FlagsToCheck) != 0; }
@@ -11723,7 +11780,7 @@ struct AActor : public UObject {
     void eventGainedChild(AActor* Other); /* 0x00753ad0 */
     void UpdateRelativeRotation(); /* 0x00758050 */
     ULevel* sub_00769d90() const; /* 0x00769d90 */
-    void sub_0076cc90(); /* 0x0076cc90 */
+    void UnTouchActors(); /* 0x0076cc90: EndTouch on each Touching actor no longer overlapping */
     void eventEndViewTarget(class APlayerController* PC); /* 0x00785150 */
     void eventBecomeViewTarget(class APlayerController* PC); /* 0x00785190 */
     AActor* eventSpecialHandling(APawn* Other); /* 0x0079f220 */
@@ -11879,9 +11936,9 @@ struct UActorComponent : public UComponent {
     /* virtual functions this class introduces (vtable 0x01ebb7f8) */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
-    virtual void UpdateTransform(); /* 0x120 */
+    virtual void BeginPlay(); /* 0x120 */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void UpdateChildComponents(); /* 0x128 */
     virtual UINT vf_12c(); /* 0x12c */
@@ -11910,10 +11967,10 @@ struct UActorComponent : public UComponent {
     void execDetachFromAny(FFrame& Stack, RESULT_DECL); /* 0x00c809e0 */
     /* other member functions */
     void ConditionalAttach(FSceneInterface* InScene,AActor* InOwner,const FMatrix& ParentToWorld); /* 0x0076a230 */
-    void sub_00759620(); /* 0x00759620 */
-    void sub_0075e910(); /* 0x0075e910: a primitive or light with static shadowing outside PIE marks its world's lighting as needing a full rebuild (called by the InvalidateLightingCache overrides) */
+    void ConditionalUpdateTransform(); /* 0x00759620: UpdateTransform() (slot 0x118) if attached */
+    void MarkLightingRequiringRebuild(); /* 0x0075e910: a primitive or light with static shadowing outside PIE marks its world's lighting as needing a full rebuild (the InvalidateLightingCache overrides call it) */
     void ConditionalDetach(UBOOL bWillReattach = FALSE); /* 0x00759640 */
-    void ConditionalUpdateTransform(); /* 0x00759670: UpdateTransform() if attached */
+    void ConditionalBeginPlay(); /* 0x00759670: BeginPlay() (slot 0x120) if attached */
     void ConditionalUpdateTransform(const FMatrix& ParentToWorld); /* 0x007595f0: SetParentToWorld, then UpdateTransform() if attached */
     void UpdateComponent(FSceneInterface* InScene, AActor* InOwner, const FMatrix& InLocalToWorld, UBOOL bCollisionUpdate = FALSE); /* 0x0076a330 */
     void BeginDeferredUpdateTransform(); /* 0x007596c0 */
@@ -12103,7 +12160,7 @@ struct UPrimitiveComponent : public UActorComponent {
     virtual UBOOL NeedsLoadForServer() const; /* 0x08c */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void InitComponentRBPhys(UBOOL bFixed); /* 0x134 */
     virtual void SetComponentRBFixed(UBOOL bFixed); /* 0x138 */
@@ -14240,7 +14297,7 @@ struct UAnimNode : public UAnimObject {
     virtual void BuildTickArray(TArray<class UAnimNode*>& OutTickArray); /* 0x140 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x148 */ /* 0x00c6c770 */
-    virtual bool ShouldSaveCachedResults(); /* 0x14c */
+    virtual UBOOL ShouldSaveCachedResults(); /* 0x14c */
     virtual void OnBecomeRelevant(); /* 0x150 */
     virtual void OnCeaseRelevant(); /* 0x154 */
     virtual UAnimTree* GetAnimTree(); /* 0x158 */
@@ -14328,7 +14385,6 @@ struct UAnimNodeBlendBase : public UAnimNode {
     /* other member functions */
     FLOAT GetBlendWeight(FLOAT ChildWeight); /* 0x00c50080 */
     FLOAT GetChildWeightTotal(); /* 0x00c53c40 */
-    void sub_00c535b0(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x00c535b0 */
     /* registered size 0xc8 */
 };
 
@@ -14708,7 +14764,7 @@ struct UAnimNodeSequence : public UAnimNode {
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x148 */
-    virtual bool ShouldSaveCachedResults(); /* 0x14c */
+    virtual UBOOL ShouldSaveCachedResults(); /* 0x14c */
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
     virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
@@ -14732,7 +14788,7 @@ struct UAnimNodeSequence : public UAnimNode {
     void StopCameraAnim(); /* 0x00c4af30 */
     void ClearCachedResult(); /* 0x00c5e220 */
     void IssueNotifies(FLOAT DeltaTime); /* 0x00c52860 */
-    UBOOL sub_00c4fe50(); /* 0x00c4fe50 */
+    class AAnimatedCamera* GetPlayerCamera(); /* 0x00c4fe50: Cast<AAnimatedCamera>(the owning PC's PlayerCamera) */
     void sub_00c4fee0(); /* 0x00c4fee0 */
     void AdvanceBy(FLOAT MoveDelta, FLOAT DeltaSeconds, UBOOL bFireNotifies); /* 0x00c5e2f0 */
     /* registered size 0x100 */
@@ -14787,7 +14843,6 @@ struct UAnimNodeSequenceBlendByAim : public UAnimNodeSequenceBlendBase {
     virtual void CheckAnimsUpToDate(); /* 0x1a0 */
     /* UnrealScript natives */
     void execCheckAnimsUpToDate(FFrame& Stack, RESULT_DECL); /* 0x00c909d0 */
-    FVector2D sub_00c4b080(); /* 0x00c4b080 */
     /* registered size 0x17c */
 };
 
@@ -15257,8 +15312,8 @@ struct UAnimTree : public UAnimNodeBlendBase {
     virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
     /* UnrealScript natives */
-    void execFindSkelControl(FFrame& Stack, RESULT_DECL); /* 0x00c91a10 */ class USkelControlBase* FindSkelControl(FName InControlName); /* 0x00c55810 */
-    void execFindMorphNode(FFrame& Stack, RESULT_DECL); /* 0x00c91a90 */ class UMorphNodeBase* FindMorphNode(FName InNodeName); /* 0x00c61880 */
+    void execFindSkelControl(FFrame& Stack, RESULT_DECL); /* 0x00c91a10 */
+    void execFindMorphNode(FFrame& Stack, RESULT_DECL); /* 0x00c91a90 */
     void execSetUseSavedPose(FFrame& Stack, RESULT_DECL); /* 0x00c91b10 */
     void execSetAnimGroupForNode(FFrame& Stack, RESULT_DECL); /* 0x00c91b80 */
     void execGetGroupSynchMaster(FFrame& Stack, RESULT_DECL); /* 0x00c91c60 */
@@ -15275,7 +15330,9 @@ struct UAnimTree : public UAnimNodeBlendBase {
     void SetGroupRateScale(FName GroupName, FLOAT NewRateScale); /* 0x00c61500 */
     void sub_00c61690(TArray<UMorphNodeBase*>& OutNodes); /* 0x00c61690 */
     void InitTreeSynchGroups(); /* 0x00c7afd0 */
-    UAnimNode* sub_00c7fc80(USkeletalMeshComponent* SkelComp); /* 0x00c7fc80 */
+    class USkelControlBase* FindSkelControl(FName InControlName); /* 0x00c55810 */
+    class UMorphNodeBase* FindMorphNode(FName InNodeName); /* 0x00c61880 */
+    UAnimNode* CopyAnimTree(USkeletalMeshComponent* SkelComp); /* 0x00c7fc80: a copy of this template for SkelComp */
     INT GetGroupIndex(FName GroupName); /* 0x00c556d0 */
     FLOAT GetGroupRelativePosition(FName); /* 0x00c613b0 */
     UAnimNodeSequence* GetGroupSynchMaster(FName GroupName); /* 0x00c61420 */
@@ -15348,7 +15405,7 @@ struct UApexComponentBase : public UMeshComponent {
     virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void InitComponentRBPhys(UBOOL bFixed); /* 0x134 */
@@ -15428,7 +15485,7 @@ struct UDynamicLightEnvironmentComponent : public ULightEnvironmentComponent {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void UpdateLight(const ULightComponent* Light); /* 0x14c */
@@ -16132,6 +16189,7 @@ struct UFont : public UObject {
     void execGetMaxCharHeight(FFrame& Stack, RESULT_DECL); /* 0x00c8cb50 */
     void execStrWidth(FFrame& Stack, RESULT_DECL); /* 0x00cb8360 */
     /* other member functions */
+    TCHAR RemapChar(TCHAR CharCode) const; /* 0x006bd290: CharRemap lookup (a FORCEINLINE in UE3) */
     /* registered size 0x124 */
 };
 
@@ -17244,9 +17302,9 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
-    virtual void UpdateTransform(); /* 0x120 */
+    virtual void BeginPlay(); /* 0x120 */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void UpdateChildComponents(); /* 0x128 */ /* 0x0091c910 */
     virtual UINT vf_12c(); /* 0x12c */
@@ -17474,13 +17532,13 @@ struct USkeletalMeshComponent : public UMeshComponent {
     FQuat GetBoneQuaternion(FName BoneName, INT Space); /* 0x0091e2a0 */
     FVector GetBoneLocation(FName BoneName, INT Space = 0); /* 0x0091e3a0 */
     FVector GetBoneAxis(FName BoneName, BYTE Axis); /* 0x0091e4f0 */
-    void sub_0092b860(); /* 0x0092b860 */
-    void sub_0092be40(); /* 0x0092be40 */
+    void DeleteAnimTree(); /* 0x0092b860 */
+    void UpdateLODStatus(); /* 0x0092be40 */
     void sub_0092c310(TArray<BYTE>& PriorityList); /* 0x0092c310 */
     FLOAT GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence); /* 0x0092d740 */
     void AddInstanceVertexWeightBoneParented(FName BoneName, UBOOL bPairWithParent); /* 0x0092e720 */
-    void UpdateSkelPose(UBOOL bForceUpdate); /* 0x009357b0 */
-    void sub_0093b170(FLOAT DeltaTime, UBOOL bTellChildren, UBOOL Unknown); /* 0x0093b170 */
+    void InitAnimTree(UBOOL bForceReInit = TRUE); /* 0x009357b0 */
+    void UpdateSkelPose(FLOAT DeltaTime, UBOOL bTellChildren, UBOOL Unknown); /* 0x0093b170 (UE3 has the first two) */
     void SetPhysicsAsset(class UPhysicsAsset* NewPhysicsAsset, UBOOL bForceReInit); /* 0x0093c640 */
     void AttachComponent(class UActorComponent* Component, FName BoneName, FVector RelativeLocation, FRotator RelativeRotation, FVector RelativeScale); /* 0x0093fba0 */
     void UpdateRBBonesFromSpaceBases(const FMatrix& CompLocalToWorld, UBOOL bMoveUnfixedBodies, UBOOL bTeleport); /* 0x00a15b80 */
@@ -18086,9 +18144,9 @@ struct UDecalComponent : public UPrimitiveComponent {
     virtual INT GetResourceSize(); /* 0x0d4 */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
-    virtual void UpdateTransform(); /* 0x120 */
+    virtual void BeginPlay(); /* 0x120 */
     virtual UINT vf_12c(); /* 0x12c */
     virtual void CheckForErrors(); /* 0x140 */
     virtual void UpdateBounds(); /* 0x160 */
@@ -18511,7 +18569,7 @@ struct ULightComponent : public UActorComponent {
     virtual void PostEditImport(); /* 0x09c */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void InvalidateLightingCache(); /* 0x130 */
     /* UnrealScript natives */
@@ -18522,6 +18580,7 @@ struct ULightComponent : public UActorComponent {
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x006b4b20 */
     /* other member functions */
     UBOOL HasStaticShadowing() const; /* 0x006b4650 */
+    UBOOL sub_006baa40(class UPackage* LevelPackage); /* 0x006baa40: whether the light belongs with LevelPackage (check(LevelPackage), LightComponent.cpp:111) */
     void sub_006bab80(); /* 0x006bab80 */
     /* EngineLightClasses.h (inline): the light's direction, WorldToLight's third column (FMatrix is stored as planes) */
     FORCEINLINE FVector GetDirection() const
@@ -19308,7 +19367,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual FString GetDetailedInfoInternal(); /* 0x094 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual void CheckForErrors(); /* 0x140 */
@@ -20026,7 +20085,7 @@ struct UFogVolumeDensityComponent : public UActorComponent {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(FEditPropertyChain& PropertyThatChanged); /* 0x048 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void CheckForErrors(); /* 0x140 */
     /* UnrealScript natives */
@@ -20378,7 +20437,7 @@ struct UFracturedSkinnedMeshComponent : public UFracturedBaseComponent {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void UpdateBounds(); /* 0x160 */
     virtual FPrimitiveSceneProxy* CreateSceneProxy(); /* 0x1fc */
     virtual INT vf_200(); /* 0x200 */
@@ -20420,7 +20479,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void CheckForErrors(); /* 0x140 */
     virtual INT vf_150(INT); /* 0x150 */
@@ -21310,7 +21369,7 @@ struct UHeightFogComponent : public UActorComponent {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     /* UnrealScript natives */
     void execSetEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c8b550 */
@@ -24639,6 +24698,41 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     void execSetVectorCurveParameterValue(FFrame& Stack, RESULT_DECL); /* 0x00cd1300 */
     /* other member functions */
     /* registered size 0xa8 */
+};
+
+/* MaterialInstanceConstant.cpp / MaterialInstanceTimeVarying.cpp: each parameter type's lookup in an instance's
+ * override array and its update of the rendering thread's copy (UE3's DEFINE_MI*_PARAMETER_MAPPING statics) */
+struct MICScalarParameterMapping
+{
+    static FScalarParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name); /* 0x006e8960 */
+};
+struct MICVectorParameterMapping
+{
+    static FVectorParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name); /* 0x006e8a20 */
+};
+struct MICTextureParameterMapping
+{
+    static FTextureParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name); /* 0x006e8af0 */
+};
+struct MITVScalarParameterMapping
+{
+    static FScalarParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name); /* 0x006e9010 */
+    static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FScalarParameterValueOverTime& Parameter); /* 0x00708a80 */
+};
+struct MITVVectorParameterMapping
+{
+    static FVectorParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name); /* 0x006e90e0 */
+    static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FVectorParameterValueOverTime& Parameter); /* 0x00708cb0 */
+};
+struct MITVTextureParameterMapping
+{
+    static FTextureParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name); /* 0x006e91b0 */
+    static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FTextureParameterValueOverTime& Parameter); /* 0x00702990 */
+};
+struct MITVFontParameterMapping
+{
+    static FFontParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name); /* 0x006e9270 */
+    static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FFontParameterValueOverTime& Parameter); /* 0x00702b30 */
 };
 
 struct AMatineeActor : public AActor {
@@ -28615,7 +28709,7 @@ struct UPointLightComponent : public ULightComponent {
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual UINT CreateSceneInfo(); /* 0x14c */
     virtual INT vf_154(INT); /* 0x154 */
     virtual FBox GetBoundingBox() const; /* 0x158 */
@@ -28998,7 +29092,7 @@ struct USequenceOp : public USequenceObject {
     void sub_008d6cf0(TArray<BYTE*>& outBytes, const TCHAR* inDesc = NULL) const; /* 0x008d6cf0 GetByteRef of each linked USeqVar_Byte */
     void GetVectorVars(TArray<FVector*>& outVectors, const TCHAR* inDesc = NULL) const; /* 0x008d7140 */
     void sub_008d7430(TArray<FLinearColor*>& outColours, const TCHAR* inDesc = NULL) const; /* 0x008d7430 GetColourRef of each linked USeqVar_Colour */
-    void sub_008d7720(TArray<FName*>& outNames, const TCHAR* inDesc = NULL) const; /* 0x008d7720 GetNameRef of each linked USeqVar_Name */
+    void GetNameVars(TArray<FName*>& outNames, const TCHAR* inDesc = NULL) const; /* 0x008d7720 */
     void GetStringVars(TArray<FString*>& outStrings, const TCHAR* inDesc = NULL) const; /* 0x008d7a10 */
     /* registered size 0xbc */
 };
@@ -33328,6 +33422,87 @@ struct USoundNodeRandom : public USoundNode {
     /* registered size 0x68 */
 };
 
+/* UnAudio.h: the RIFF wave chunks and FWaveModInfo, which points into a wave file in memory (ReadWaveInfo) */
+struct FRiffWaveHeader
+{
+	DWORD rID;			// 'RIFF'
+	DWORD ChunkLen;
+	DWORD wID;			// 'WAVE'
+};
+
+struct FRiffChunkOld
+{
+	DWORD ChunkID;
+	DWORD ChunkLen;
+};
+
+struct FFormatChunk
+{
+	WORD wFormatTag;
+	WORD nChannels;
+	DWORD nSamplesPerSec;
+	DWORD nAvgBytesPerSec;
+	WORD nBlockAlign;
+	WORD wBitsPerSample;
+	WORD cbSize;
+};
+
+struct FSampleChunk
+{
+	DWORD dwManufacturer;
+	DWORD dwProduct;
+	DWORD dwSamplePeriod;
+	DWORD dwMIDIUnityNote;
+	DWORD dwMIDIPitchFraction;
+	DWORD dwSMPTEFormat;
+	DWORD dwSMPTEOffset;
+	DWORD cSampleLoops;
+	DWORD cbSamplerData;
+};
+
+struct FSampleLoop
+{
+	DWORD dwIdentifier;
+	DWORD dwType;
+	DWORD dwStart;
+	DWORD dwEnd;
+	DWORD dwFraction;
+	DWORD dwPlayCount;
+};
+
+#define UE_mmioFOURCC(ch0, ch1, ch2, ch3) \
+	((DWORD)(BYTE)(ch0) | ((DWORD)(BYTE)(ch1) << 8) | ((DWORD)(BYTE)(ch2) << 16) | ((DWORD)(BYTE)(ch3) << 24))
+/* Chunk lengths are padded to an even size. */
+inline DWORD Pad16Bit(DWORD InDW)
+{
+	return (InDW + 1) & ~1;
+}
+
+struct FWaveModInfo
+{
+	DWORD* pSamplesPerSec;
+	DWORD* pAvgBytesPerSec;
+	WORD* pBlockAlign;
+	WORD* pBitsPerSample;
+	WORD* pChannels;
+
+	DWORD OldBitsPerSample;
+
+	DWORD* pWaveDataSize;
+	DWORD* pMasterSize;
+	BYTE* SampleDataStart;
+	BYTE* SampleDataEnd;
+	DWORD SampleDataSize;
+	BYTE* WaveDataEnd;
+
+	INT SampleLoopsNum;
+	FSampleLoop* pSampleLoop;
+
+	DWORD NewDataSize;
+
+	UBOOL ReadWaveInfo(BYTE* WaveData, INT WaveDataSize); /* 0x00786680 */
+};
+
 struct USoundNodeWave : public USoundNode {
     /* Engine.SoundNodeWave */
     DECLARE_CLASS(USoundNodeWave, USoundNode, 0x0, 0x0, Engine)
@@ -33969,7 +34144,7 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     virtual void SetParentToWorld(const FMatrix& ParentToWorld); /* 0x110 */
     virtual void Attach(); /* 0x114 */
-    virtual void vf_118(); /* 0x118 */
+    virtual void UpdateTransform(); /* 0x118 */
     virtual void Detach(UBOOL bWillReattach); /* 0x11c */
     virtual void InvalidateLightingCache(); /* 0x130 */
     virtual void InitComponentRBPhys(UBOOL bFixed); /* 0x134 */
@@ -35119,7 +35294,7 @@ struct UUIScene : public UUIScreenObject {
     UBOOL IsSceneActive(UBOOL bTopmostScene); /* 0x00da9be0 */
     void SetSceneInputMode(BYTE); /* 0x00da9df0 */
     BYTE GetSceneInputMode(UBOOL bMemberValueOnly); /* 0x00da9e20 */
-    BYTE GetSceneRenderMode(INT); /* 0x00da9eb0 */
+    ESplitscreenRenderMode GetSceneRenderMode(UBOOL bMemberValueOnly = FALSE); /* 0x00da9eb0: returned in a full register */
     INT FindTickableObjectIndex(const TScriptInterface<IUITickableObject>& SearchObj) const; /* 0x00db0a90 */
     UUIDataStore* ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPlayerOwner); /* 0x00db0c60 */
     UBOOL RegisterTickableObject(const TScriptInterface<IUITickableObject>& ObjectToRegister, INT InsertIndex = INDEX_NONE); /* 0x00db4230 */
@@ -50665,7 +50840,6 @@ struct ARLevelVolume : public APostProcessVolume {
     virtual void Spawned(); /* 0x180 */
     /* UnrealScript natives */
     void execIsOnPersistentMap(FFrame& Stack, RESULT_DECL); /* 0x01708820 */
-    INT sub_007771e0(INT A); /* 0x007771e0 */
     /* registered size 0x2ec */
 };
 
@@ -55665,7 +55839,6 @@ struct URSeqAct_PrepareMapChangeFromURL : public USeqAct_Latent {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
-    void sub_008bea90(); /* 0x008bea90 */
     /* registered size 0xf4 */
 };
 
@@ -66952,6 +67125,17 @@ struct UXnaForceFeedbackManager : public UForceFeedbackManager {
 
 /* UnMath.h: an angle brought back to [-PI, PI] (out of line in Engine at 00c49770) */
 FLOAT UnwindHeading(FLOAT A);
+/* UnMath.h's out-of-line helpers (the script natives of the same names call them) */
+FVector VRandRange(const FVector& MinRange, const FVector& MaxRange); /* 0x005c3600 (licensee) */
+FLOAT PointDistAlongLine(const FVector& Point, const FVector& Line, const FVector& Origin); /* 0x005c5ce0 (licensee) */
+FLOAT PointDistAlongLineSegment(const FVector& Point, const FVector& Line, const FVector& Origin); /* 0x005c5d90 (licensee) */
+FLOAT PointDistSquaredToLineSegment(const FVector& Point, const FVector& Line, const FVector& Origin); /* 0x005c5e70 (licensee) */
+void GetAngularFromDotDist(FVector2D& OutAngDist, const FVector2D& DotDist); /* 0x005c6c40 */
+UBOOL GetAngularDistance(FVector2D& OutAngularDist, const FVector& Direction, const FVector& AxisX, const FVector& AxisY, const FVector& AxisZ); /* 0x005cabf0 */
+FVector VInterpTo(const FVector& Current, const FVector& Target, FLOAT& DeltaTime, FLOAT InterpSpeed); /* 0x005c6d10 */
+FRotator RInterpTo(const FRotator& Current, const FRotator& Target, FLOAT& DeltaTime, FLOAT InterpSpeed); /* 0x005c6e00 (no bConstantInterpSpeed in this build) */
+FLOAT FInterpTo(FLOAT Current, FLOAT Target, FLOAT DeltaTime, FLOAT InterpSpeed); /* 0x005c6f80 */
+FLOAT FInterpEaseInOut(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp); /* 0x005c7370: eases from A to B with the curve Alpha^Exp */
 
 /* UnObjBas.h / UnClass.h inlines that need UClass and USkeletalMesh complete */
 template<class T> FORCEINLINE T* GetDefault() { return (T*)T::StaticClass()->GetDefaultObject(); }

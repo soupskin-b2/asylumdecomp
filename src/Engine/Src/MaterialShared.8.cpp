@@ -6,21 +6,14 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: the default constructor of the parameter structs (it zeroes ExpressionGUID: FGuid's default
- * constructor, presumably) and the TMaterialInstanceTimeVaryingParameterMapping statics (MaterialInstanceTimeVarying
- * .cpp: FindParameterByName 006e91b0, GameThread_UpdateParameter 00702990) aren't declared. */
+/* Kit gap: the default constructor of the parameter struct (it zeroes ExpressionGUID: FGuid's default
+ * constructor, presumably) isn't declared. */
 struct FTextureParameterValueOverTime_ : public FTextureParameterValueOverTime
 {
 	FTextureParameterValueOverTime_()
 	{
 		ExpressionGUID.Impl = NULL;
 	}
-};
-
-struct MITVTextureParameterMapping
-{
-	static FTextureParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FTextureParameterValueOverTime& Parameter);
 };
 
 // @baa 0x00702d20
@@ -54,9 +47,8 @@ void UMaterialInstanceTimeVarying::SetTextureParameterValue(FName ParameterName,
 	MITVTextureParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);
 }
 
-/* Kit gaps: the default constructor of the parameter structs (it zeroes ExpressionGUID: FGuid's default
- * constructor, presumably) and the TMaterialInstanceTimeVaryingParameterMapping statics (MaterialInstanceTimeVarying
- * .cpp: FindParameterByName 006e9270, GameThread_UpdateParameter 00702b30) aren't declared. */
+/* Kit gap: the default constructor of the parameter struct (it zeroes ExpressionGUID: FGuid's default
+ * constructor, presumably) isn't declared. */
 struct FFontParameterValueOverTime_ : public FFontParameterValueOverTime
 {
 	FFontParameterValueOverTime_()
@@ -65,12 +57,6 @@ struct FFontParameterValueOverTime_ : public FFontParameterValueOverTime
 	}
 };
 
-
-struct MITVFontParameterMapping
-{
-	static FFontParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FFontParameterValueOverTime& Parameter);
-};
 
 // @baa 0x00702dc0
 /* Sets the named font parameter, adding it (with default timing) if it isn't overridden yet, and passes it to
@@ -103,21 +89,14 @@ void UMaterialInstanceTimeVarying::SetFontParameterValue(FName ParameterName, UF
 	MITVFontParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);
 }
 
-/* Kit gaps: the default constructor of the parameter structs (it zeroes ExpressionGUID: FGuid's default
- * constructor, presumably) and the TMaterialInstanceTimeVaryingParameterMapping statics (MaterialInstanceTimeVarying
- * .cpp: FindParameterByName 006e9010, GameThread_UpdateParameter 00708a80) aren't declared. */
+/* Kit gap: the default constructor of the parameter struct (it zeroes ExpressionGUID: FGuid's default
+ * constructor, presumably) isn't declared. */
 struct FScalarParameterValueOverTime_ : public FScalarParameterValueOverTime
 {
 	FScalarParameterValueOverTime_()
 	{
 		ExpressionGUID.Impl = NULL;
 	}
-};
-
-struct MITVScalarParameterMapping
-{
-	static FScalarParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FScalarParameterValueOverTime& Parameter);
 };
 
 // @baa 0x00708ef0
@@ -152,21 +131,14 @@ void UMaterialInstanceTimeVarying::SetScalarParameterValue(FName ParameterName, 
 	MITVScalarParameterMapping::GameThread_UpdateParameter(this, *ParameterValue);
 }
 
-/* Kit gaps: the default constructor of the parameter structs (it zeroes ExpressionGUID: FGuid's default
- * constructor, presumably) and the TMaterialInstanceTimeVaryingParameterMapping statics (MaterialInstanceTimeVarying
- * .cpp: FindParameterByName 006e90e0, GameThread_UpdateParameter 00708cb0) aren't declared. */
+/* Kit gap: the default constructor of the parameter struct (it zeroes ExpressionGUID: FGuid's default
+ * constructor, presumably) isn't declared. */
 struct FVectorParameterValueOverTime_ : public FVectorParameterValueOverTime
 {
 	FVectorParameterValueOverTime_()
 	{
 		ExpressionGUID.Impl = NULL;
 	}
-};
-
-struct MITVVectorParameterMapping
-{
-	static FVectorParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FVectorParameterValueOverTime& Parameter);
 };
 
 // @baa 0x007090b0

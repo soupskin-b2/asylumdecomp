@@ -4,9 +4,6 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 
-/* FName != NAME_None (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 /* TArray<FName>::AddItem is out of line in the exe (005cb920) */
 extern template INT TArray<FName>::AddItem(const FName& Item);
 

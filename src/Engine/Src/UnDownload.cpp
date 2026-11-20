@@ -20,14 +20,13 @@ int A::sub_00df4400()
 }
 
 struct C_00df9b60 {
-    void sub_00df9b60();
     int sub_00544ab0(int);
     int sub_005f2bf0(int);
 };
 
 extern undefined4 g_020df4f8;
 // @baa 0x00df9b60
-void C_00df9b60::sub_00df9b60(void)
+void UDownload::StaticConstructor()
 {
     int param_1 = (int)this;
   ((C_00df9b60 *)(((char *)this + 0x3c)))->sub_00544ab0((int)(&g_020df4f8));

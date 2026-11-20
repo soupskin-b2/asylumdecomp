@@ -412,7 +412,6 @@ struct C_00f73050 {
 };
 
 int sub_006311e0(...);
-int sub_00715880(void);
 extern undefined2 g_01e3f3dc;
 // @baa 0x00f73050
 undefined4 * C_00f73050::sub_00f73050(undefined4 param_2, undefined4 param_3)
@@ -426,7 +425,7 @@ undefined4 * C_00f73050::sub_00f73050(undefined4 param_2, undefined4 param_3)
   param_1[2] = 0;
   param_1[3] = 0;
   param_1[4] = 0;
-  iVar1 = sub_00715880();
+  iVar1 = IsInGameThread();
   if (iVar1 == 0) {
     sub_006311e0("IsInGameThread()","Engine/Inc\\Engine.h",0x246,&g_01e3f3dc);
   }
@@ -832,7 +831,6 @@ struct C_00f76270 { int sub_00f76270(void); };
 // @baa 0x00f76270
 int C_00f76270::sub_00f76270(void) { return *(int*)((char*)this + 20); }
 
-int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined * g_021623d8;
 struct C_00f76b90 { undefined4 * sub_00f76b90(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
@@ -842,7 +840,7 @@ undefined4 * C_00f76b90::sub_00f76b90(undefined4 param_2, undefined4 param_3, un
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   param_1[0x1f] = param_2;
   param_1[7] = 1;
   param_1[6] = 1;

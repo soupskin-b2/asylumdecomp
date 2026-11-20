@@ -105,18 +105,16 @@ UBOOL URCapeCollisionShapeConfigFactoryNew::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_016cebf0 { uint sub_016cebf0(void); };
 // @baa 0x016cebf0
-uint C_016cebf0::sub_016cebf0(void)
+UBOOL URCapeStateController::GetIsInitialised()
 {
     int param_1 = (int)this;
 
   return *(uint *)(param_1 + 0x34) & 1;
 }
 
-struct C_016cec10 { void sub_016cec10(void); };
 // @baa 0x016cec10
-void C_016cec10::sub_016cec10(void)
+void URCapeStateController::PauseCape()
 {
     int param_1 = (int)this;
 
@@ -126,9 +124,8 @@ void C_016cec10::sub_016cec10(void)
   return;
 }
 
-struct C_016cec20 { void sub_016cec20(void); };
 // @baa 0x016cec20
-void C_016cec20::sub_016cec20(void)
+void URCapeStateController::ResumeCape()
 {
     int param_1 = (int)this;
 

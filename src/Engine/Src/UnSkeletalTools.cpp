@@ -463,14 +463,13 @@ void C_00944980::sub_00944980(void)
 
 struct S_0094bd70 {
     void sub_005d7270();
-    void sub_0094bca0();
     void sub_0094bd70();
 };
 
 // @baa 0x0094bd70
 void S_0094bd70::sub_0094bd70() {
     sub_005d7270();
-    sub_0094bca0();
+    ((USkeletalMesh*)this)->ReleaseResources();
 }
 
 typedef uint size_t;
@@ -871,8 +870,6 @@ void FNameIntPairSet::Empty(INT ExpectedNumElements)
     }
 }
 
-/* FRenderCommandFence::BeginFence (RenderingThread.cpp, 0x00719c60); the kit has USkeletalMesh::ReleaseResourcesFence as a bare INT */
-
 // @baa 0x0094bca0
 /* the LOD's index and GPU-skin vertex buffers */
 inline void FStaticLODModel::ReleaseResources()
@@ -889,7 +886,7 @@ void USkeletalMesh::ReleaseResources()
         ((TIndirectArray<FStaticLODModel>&)LODModels)(LODIndex).ReleaseResources();
     }
 
-    ((FRenderCommandFence&)ReleaseResourcesFence).BeginFence();
+    ReleaseResourcesFence.BeginFence();
 }
 
 #line 1048 "candidate.cpp"

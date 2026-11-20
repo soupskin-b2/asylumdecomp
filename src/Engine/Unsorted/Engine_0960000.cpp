@@ -1979,9 +1979,6 @@ S009652b0* sub_009652b0_probe()
 	return S.sub_009652b0();
 }
 
-/* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
-extern INT GPackageFileVersion;
-extern INT GPackageFileLicenseeVersion;
 
 FArchive& operator<<(FArchive& Ar, TArray<FkDOPNode>& A);
  /* 0x00959800 */

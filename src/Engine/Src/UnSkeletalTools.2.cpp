@@ -49,8 +49,6 @@ FArchive& operator<<(FArchive& Ar, VJointPos& V)
     return Ar << V.Orientation << V.Position;
 }
 
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 /* FSetElementId (UnSet.h): index of an element in a TSet, INDEX_NONE if none. */
 class FSetElementId
 {

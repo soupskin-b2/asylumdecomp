@@ -2052,12 +2052,8 @@ struct C_014dc190 { void sub_014dc190(int a0); };
 // @baa 0x014dc190
 void C_014dc190::sub_014dc190(int a0) { *(int*)((char*)this + 104) = a0; }
 
-struct C_014dc1a0 {
-    void sub_014dc1a0();
-};
-
 // @baa 0x014dc1a0
-void C_014dc1a0::sub_014dc1a0(void)
+void UUISceneFactoryNew::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

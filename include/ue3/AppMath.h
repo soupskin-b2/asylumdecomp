@@ -53,6 +53,8 @@ inline DOUBLE appAtan( DOUBLE Value )            { return atan(Value); }
 inline FLOAT  appAtan2( FLOAT Y, FLOAT X )       { return atan2f(Y, X); }
 inline DOUBLE appPow( DOUBLE A, DOUBLE B )       { return pow(A, B); }
 inline FLOAT  appSqrt( FLOAT Value )             { return sqrtf(Value); }
+/* UnVcWin32.h: Comparand >= 0 ? ValueGEZero : ValueLTZero (EnforceShortestArc, 00bf8460) */
+inline FLOAT  appFloatSelect( FLOAT Comparand, FLOAT ValueGEZero, FLOAT ValueLTZero ) { return Comparand >= 0.f ? ValueGEZero : ValueLTZero; }
 /* UnVcWin32.h's SSE appInvSqrt: rsqrtss and one Newton-Raphson step (matched in UnPawn.14.cpp and
  * BmGame_15d0000.4.cpp); the constants are function-local statics, as the engine's are */
 FORCEINLINE FLOAT appInvSqrt( FLOAT F )
@@ -139,3 +141,8 @@ template< class T > inline T Min3( const T A, const T B, const T C ) { return Mi
 template< class T > inline T Square( const T A )                       { return A * A; }
 template< class T > inline T Clamp( const T X, const T Min, const T Max ) { return X < Min ? Min : X < Max ? X : Max; }
 template< class T, class U > inline T Lerp( const T& A, const T& B, const U& Alpha ) { return (T)(A + Alpha * (B - A)); }
+
+// UnMath.h interpolation helpers; out of line in this build, so declared only
+/* the cubic Hermite spline through P0 and P1 with tangents T0 and T1 (<FLOAT, FLOAT>: 0x0059bb10) */
+template< class T, class U > T CubicInterp( const T& P0, const T& T0, const T& P1, const T& T1, const U& A );
+/* FInterpEaseInOut is in Classes.h, with the other UnMath.h helpers */

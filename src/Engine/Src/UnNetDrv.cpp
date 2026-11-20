@@ -80,12 +80,8 @@ struct C_00df4610 { C_00df4610* sub_00df4610(void); };
 // @baa 0x00df4610
 C_00df4610* C_00df4610::sub_00df4610(void) { *(int*)((char*)this + 0) = (int)g_01e8bd3c; return this; }
 
-struct C_00df4e20 {
-    void sub_00df4e20();
-};
-
 // @baa 0x00df4e20
-void C_00df4e20::sub_00df4e20(void)
+void UNetDriver::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
   *(undefined4 *)(param_1 + 0x6c) = 15000;

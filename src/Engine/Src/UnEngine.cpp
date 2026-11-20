@@ -22,12 +22,8 @@ void C::sub_00c8f990(void)
   return;
 }
 
-struct C_00c8f9a0 {
-    void sub_00c8f9a0();
-};
-
 // @baa 0x00c8f9a0
-void C_00c8f9a0::sub_00c8f9a0(void)
+void UServerCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -51,12 +47,8 @@ void C_00c8f9c0::sub_00c8f9c0(void)
   return;
 }
 
-struct C_00c8f9d0 {
-    void sub_00c8f9d0();
-};
-
 // @baa 0x00c8f9d0
-void C_00c8f9d0::sub_00c8f9d0(void)
+void USmokeTestCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

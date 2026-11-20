@@ -1706,7 +1706,6 @@ void C_006db630::sub_006db630(void)
   return;
 }
 
-int sub_00765d00(void);
 // @baa 0x006dbad0
 void UPrimitiveComponent::SetOnlyOwnerSee(UBOOL param_2)
 {
@@ -1717,7 +1716,7 @@ void UPrimitiveComponent::SetOnlyOwnerSee(UBOOL param_2)
   uVar1 = *(uint *)(param_1 + 0x194);
   if ((uVar1 >> 4 & 1) != param_2) {
     *(uint *)(param_1 + 0x194) = (param_2 << 4 ^ uVar1) & 0x10 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1732,7 +1731,7 @@ void UPrimitiveComponent::SetXrayNoSee(UBOOL param_2)
   uVar1 = *(uint *)(param_1 + 0x194);
   if (param_2 != (uVar1 >> 5 & 1)) {
     *(uint *)(param_1 + 0x194) = (param_2 << 5 ^ uVar1) & 0x20 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1747,7 +1746,7 @@ void UPrimitiveComponent::SetOnlyXraySee(UBOOL param_2)
   uVar1 = *(uint *)(param_1 + 0x194);
   if (param_2 != (uVar1 >> 6 & 1)) {
     *(uint *)(param_1 + 0x194) = (param_2 << 6 ^ uVar1) & 0x40 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1762,7 +1761,7 @@ void UPrimitiveComponent::SetDontDrawThisFrame(UBOOL param_2)
   uVar1 = *(uint *)(param_1 + 0x194);
   if ((uVar1 >> 7 & 1) != param_2) {
     *(uint *)(param_1 + 0x194) = (param_2 << 7 ^ uVar1) & 0x80 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1778,7 +1777,7 @@ void C_006dbe90::sub_006dbe90(uint param_2)
   uVar1 = *(uint *)(param_1 + 0x194);
   if ((uVar1 >> 9 & 1) != param_2) {
     *(uint *)(param_1 + 0x194) = (param_2 << 9 ^ uVar1) & 0x200 ^ uVar1;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1787,7 +1786,7 @@ void C_006dbe90::sub_006dbe90(uint param_2)
 void UPrimitiveComponent::SetShadowParent(UPrimitiveComponent* NewShadowParent)
 {
     ShadowParent = NewShadowParent;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
 }
 
 // @baa 0x006dbfd0
@@ -1799,7 +1798,7 @@ void UPrimitiveComponent::SetLightEnvironment(class ULightEnvironmentComponent* 
     PreviousLightEnvironment = LightEnvironment;
   }
   LightEnvironment = param_2;
-  sub_00765d00();
+  ((UActorComponent*)this)->BeginDeferredReattach();
   return;
 }
 
@@ -1809,7 +1808,7 @@ void UPrimitiveComponent::SetCullDistance(FLOAT param_2)
     int param_1 = (int)this;
   if (*(float *)(param_1 + 300) != param_2) {
     *(float *)(param_1 + 300) = param_2;
-    sub_00765d00();
+    ((UActorComponent*)this)->BeginDeferredReattach();
   }
   return;
 }
@@ -1820,7 +1819,7 @@ void UPrimitiveComponent::SetLightingChannels(FLightingChannelContainer param_2)
     int param_1 = (int)this;
 
   *(FLightingChannelContainer*)(param_1 + 0x18c) = param_2;
-  sub_00765d00();
+  ((UActorComponent*)this)->BeginDeferredReattach();
   return;
 }
 
@@ -1830,7 +1829,7 @@ void UPrimitiveComponent::SetDepthPriorityGroup(ESceneDepthPriorityGroup param_2
     int param_1 = (int)this;
 
   *(undefined1 *)(param_1 + 0x19d) = param_2;
-  sub_00765d00();
+  ((UActorComponent*)this)->BeginDeferredReattach();
   return;
 }
 
@@ -2456,7 +2455,6 @@ void UMaterialInstanceTimeVarying::PostEditChange(UProperty* PropertyThatChanged
 
 	this->UpdateStaticPermutation();
 }
-
 
 // @baa 0x006d72b0
 /* Material.cpp, UE3's SetMaterialUsage as built for the game (no flag setting at runtime): the fallback

@@ -2,6 +2,7 @@
 // Placed here by: neighbours 3, class 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/Native.h"
 
 struct wxMenu {
     __declspec(dllimport) virtual ~wxMenu();
@@ -37,47 +38,8 @@ void C_01169a60::sub_01169a60()
     wxMenu::~wxMenu();
 }
 
-extern TArray<UObject*> g_026a1ca4;
- /* UObject::GObjObjects */
-extern UClass* g_026d0ed8;
-          /* PrivateStaticClass of the iterated UnrealEd class */
-UClass* sub_01181690(const TCHAR* Package);
-void sub_0115cef0();
-inline UClass* StaticClass_026d0ed8()
-{
-    if (!g_026d0ed8)
-    {
-        g_026d0ed8 = sub_01181690(TEXT("UnrealEd"));
-        sub_0115cef0();
-    }
-    return g_026d0ed8;
-}
-
-class FObjectIterator {
-public:
-    UClass* Class;
-    INT Index;
-    QWORD ExclusionFlags;
-
-    FObjectIterator(UClass* InClass, UBOOL bOnlyGCedObjects); /* 0x004153a0 */
-    void sub_00410de0();                                       /* operator++ */
-};
-
-class TObjectIterator_026d0ed8 : public FObjectIterator {
-public:
-    TObjectIterator_026d0ed8(UBOOL bOnlyGCedObjects);
-};
-
 // @baa 0x01189a90
-TObjectIterator_026d0ed8::TObjectIterator_026d0ed8(UBOOL bOnlyGCedObjects)
-    : FObjectIterator(StaticClass_026d0ed8(), bOnlyGCedObjects)
-{
-    ExclusionFlags |= 0x200;
-    if (g_026a1ca4.IsValidIndex(Index) && (g_026a1ca4(Index)->ObjectFlags & 0x200))
-    {
-        sub_00410de0();
-    }
-}
+template TObjectIterator<UGenericBrowserType>::TObjectIterator(UBOOL bOnlyGCedObjects);
 
 enum wxKeyCode { };
 

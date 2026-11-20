@@ -2,24 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
-/* Kit gap (Array.h, issue #39): this build inlines TArray::operator() where the kit's plain-inline one is
- * called out of line; TArray's layout and operator() with the same body, forced inline. */
-template<class T> class TArrayFI
-{
-public:
-    FHeapAllocation AllocatorInstance;
-    INT ArrayNum;
-    INT ArrayMax;
-
-    INT Num() const { return ArrayNum; }
-    __forceinline T& operator()(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return ((T*)AllocatorInstance.GetAllocation())[i];
-    }
-};
+#include "ue3/Array.h"
 
 /* FSetElementId (UnSet.h): index of an element in a TSet, INDEX_NONE if none. */
 class FSetElementId
@@ -56,7 +39,6 @@ struct FNameIndexMap
 // @baa 0x00a2c950
 void UPhysicsAsset::UpdateBodySetupIndexMap()
 {
-    TArrayFI<URB_BodySetup*>& BodySetup = (TArrayFI<URB_BodySetup*>&)this->BodySetup;
     FNameIndexMap& BodySetupIndexMap = (FNameIndexMap&)this->BodySetupIndexMap;
 
     // update BodySetupIndexMap

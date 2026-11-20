@@ -5,15 +5,11 @@
 #include "ue3/Script.h"
 
 // UAudioComponent's audio play implementation (00791770): int __thiscall, no stack args.
-struct C {
-    INT sub_00791770();
-};
-
 // @baa 0x007918c0
 void UAudioComponent::execPlay(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    ((C*)this)->sub_00791770();
+    ((UAudioComponent*)this)->Play();
 }
 
 // @baa 0x00786530

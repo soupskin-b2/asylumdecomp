@@ -7,7 +7,6 @@
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_006a00a0 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_006a00a0(const TSparseArray<INT>& InArray, INT StartIndex);
@@ -1658,7 +1657,6 @@ struct C_006ac900 { void sub_006ac900(void); };
 // @baa 0x006ac900
 void C_006ac900::sub_006ac900(void) { *(int*)((char*)this + 0) = (int)g_01ecdfc8; }
 
-int sub_00765d00(void);
 // @baa 0x006acc00
 void UHeightFogComponent::SetEnabled(uint param_2)
 {
@@ -1669,7 +1667,7 @@ void UHeightFogComponent::SetEnabled(uint param_2)
   uVar1 = *(uint *)(param_1 + 0x4c);
   if ((uVar1 & 1) != param_2) {
     *(uint *)(param_1 + 0x4c) = (uVar1 ^ param_2) & 1 ^ uVar1;
-    sub_00765d00();
+    BeginDeferredReattach();
   }
   return;
 }
@@ -1695,9 +1693,8 @@ UBOOL ULightEnvironmentComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_006ad770 { uint sub_006ad770(void); };
 // @baa 0x006ad770
-uint C_006ad770::sub_006ad770(void)
+UBOOL ULightEnvironmentComponent::IsEnabled()
 {
     int param_1 = (int)this;
 
@@ -1812,7 +1809,6 @@ struct C_006ae920 {
     int * sub_006ae920(int);
 };
 
-int sub_00715880(void);
 extern undefined2 g_01e3f3dc;
 // @baa 0x006ae920
 int * C_006ae920::sub_006ae920(int param_2)
@@ -1825,7 +1821,7 @@ int * C_006ae920::sub_006ae920(int param_2)
   if ((*(byte *)(param_2 + 0x48) & 4) != 0) {
     sub_006311e0("!Material->ReentrantFlag","Engine/Inc\\MaterialInstance.h",0x1a,&g_01e3f3dc);
   }
-  iVar1 = sub_00715880();
+  iVar1 = IsInGameThread();
   if (iVar1 == 0) {
     sub_006311e0("IsInGameThread() && \"GetMaterial() is probably being called from the RenderThread.  You need to cache the value you need on the Proxy object\""
                  ,"Engine/Inc\\MaterialInstance.h",0x1c,&g_01e3f3dc);

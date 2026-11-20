@@ -14,8 +14,6 @@ void UCylinderComponent::SetCylinderSize(FLOAT NewRadius, FLOAT NewHeight)
 	BeginDeferredReattach();
 }
 
-/* out of line in the exe (006dfb00) */
-
 // @baa 0x006ea640
 /* UMeshComponent::SetMaterial: overrides the element's material (growing the override list as needed) and
  * reattaches the component when it changed. */

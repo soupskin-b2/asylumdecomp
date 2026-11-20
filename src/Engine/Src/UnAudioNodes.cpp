@@ -1260,8 +1260,6 @@ void USoundNode::PostEditChange(UProperty* PropertyThatChanged)
     this->MarkPackageDirty();
 }
 
-/* Kit gap: an engine flag (0x0266e874) under which loading drops the cooked payloads. */
-extern UBOOL g_0266e874;
 // @baa 0x00c93100
 void USoundNodeWave::Serialize(FArchive& Ar)
 {
@@ -1276,7 +1274,7 @@ void USoundNodeWave::Serialize(FArchive& Ar)
 		CompressedPS3Data.RemoveBulkData();
 	}
 
-	if (Ar.IsLoading() && g_0266e874)
+	if (Ar.IsLoading() && GForceSoundRecook)
 	{
 		CompressedPCData.RemoveBulkData();
 		CompressedPS3Data.RemoveBulkData();

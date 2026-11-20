@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* FName has no comparison operator in Classes.h; this is UE3's FName::operator== body. */
-/* Classes.h declares this as 'virtual INT GetStaticComponentMaskParameterValue(INT, INT, INT, INT, INT, INT, INT)'
- * (placeholder types); this helper carries the real signature. */
-
 // @baa 0x006bb680
 UBOOL UMaterial::GetStaticComponentMaskParameterValue( FName ParameterName, UBOOL& OutR, UBOOL& OutG, UBOOL& OutB, UBOOL& OutA, FGuid& OutExpressionGuid )
 {

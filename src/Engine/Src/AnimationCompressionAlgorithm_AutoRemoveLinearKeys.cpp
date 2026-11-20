@@ -28,10 +28,6 @@ FBoneAtom UpdateBoneAtom(INT BoneIndex, const FBoneAtom& Atom, const FVector& Co
 	return FBoneAtom(Atom.Rotation, Component, 1.0f);
 }
 
-inline FLOAT appFloatSelect(FLOAT Comparand, FLOAT ValueGEZero, FLOAT ValueLTZero) { return Comparand >= 0.f ? ValueGEZero : ValueLTZero; }
-
-FLOAT FQuatError(const FQuat& Q1, const FQuat& Q2);
-	/* 00bf7af0 */
 /* AnimationCompressionAlgorithm_RemoveLinearKeys.h: B, flipped if needed so that A to B is the
  * shortest rotation. */
 static inline FQuat EnforceShortestArc(const FQuat& A, const FQuat& B)

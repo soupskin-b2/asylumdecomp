@@ -234,9 +234,6 @@ void USeqAct_Latent::DeActivated()
     bAborted = FALSE;
 }
 
-/* FName comparisons (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 /* UnSequence.cpp's static level lookup (0x008cc3b0): finds the streaming level for LevelName. */
 UBOOL FindLevel(ULevelStreaming*& Level, FName LevelName);
 // @baa 0x008cc4a0
@@ -436,9 +433,6 @@ FString USeqVar_Player::GetValueStr()
     }
     return FString(TEXT("All Players"));
 }
-
-/* FName == NAME_None (UnName.h); the kit's FName has no operators. */
-inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
 // @baa 0x008bec90
 FString USeqVar_Group::GetValueStr()

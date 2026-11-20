@@ -53,14 +53,13 @@ UBOOL URB_BodySetup::HasParentClassChanged() const
 }
 
 struct S {
-    void sub_00a2c3b0();
     void sub_005db340();
     void sub_00a2c820();
 };
 
 // @baa 0x00a2c820
 void S::sub_00a2c820() {
-    sub_00a2c3b0();
+    ((URB_BodySetup*)this)->ClearShapeCache();
     sub_005db340();
 }
 

@@ -187,8 +187,6 @@ UBOOL USkeletalMesh::BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) cons
 
 #line 271 "candidate.cpp"
 
-inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
-
 // @baa 0x00951be0
 /* the socket with the given name, NULL if there is none */
 USkeletalMeshSocket* USkeletalMesh::FindSocket(FName InSocketName)
@@ -208,8 +206,6 @@ USkeletalMeshSocket* USkeletalMesh::FindSocket(FName InSocketName)
     }
     return NULL;
 }
-
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 /* FSetElementId_0097eb90 (UnSet.h): index of an element in a TSet, INDEX_NONE if none. */
 class FSetElementId_0097eb90

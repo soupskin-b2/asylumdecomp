@@ -12,7 +12,6 @@ FName UClient::GetVirtualKey(INT KeyCode) PURE_VIRTUAL(UClient::GetVirtualKey, r
 
 extern void* g_026667a8;
 extern TCHAR g_01e3f3dc[];
-int sub_00630f20(void*, const TCHAR*, ...);
 
 // @baa 0x00cbd5c0
 void UUISkin::execIsInheritedGroupName(FFrame& Stack, RESULT_DECL)

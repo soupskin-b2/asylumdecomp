@@ -97,7 +97,6 @@ public:
 };
 
 struct G {
-    int sub_009c84b0(void);
 };
 
 extern G *g_026b62b8;
@@ -128,7 +127,7 @@ void C_011f2850::sub_011f2850()
 {
     int edi = 0;
     wxTreeItemId item;
-    if (g_026b62b8 == 0 || g_026b62b8->sub_009c84b0() == 0) {
+    if (g_026b62b8 == 0 || ((UWorld*)g_026b62b8)->GetNetMode() == 0) {
         VA *a = *(VA **)((char *)this + 0x158);
         a->s204(&item);
         if (item.IsOk()) {

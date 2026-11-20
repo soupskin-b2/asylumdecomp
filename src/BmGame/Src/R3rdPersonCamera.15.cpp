@@ -20,11 +20,10 @@ FVector AR3rdPersonCamera::sub_01689920(const FVector& Target, FLOAT DeltaTime)
 
 struct AR3rdPersonCamera__01689170 : AR3rdPersonCamera
 {
-    void sub_01689170(); /* 0x01689170 */
 };
 
 // @baa 0x01689170
-void AR3rdPersonCamera__01689170::sub_01689170()
+void AR3rdPersonCamera::UpdateCameraSettings()
 {
     const FLOAT DegreesToRadians = 3.14159265358979323846f / 180.0f;
     const FLOAT InvSqrtTwo = 0.70710678118654752440f;

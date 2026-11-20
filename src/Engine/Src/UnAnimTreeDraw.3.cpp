@@ -52,5 +52,5 @@ void UAnimNodeBlend::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 	Children(0).Weight = 1.f - Child2Weight;
 	Children(1).Weight = Child2Weight;
 
-	((UAnimNodeBlendBase*)this)->sub_00c535b0(DeltaSeconds, TotalWeight);
+	UAnimNodeBlendBase::TickAnim(DeltaSeconds, TotalWeight);
 }

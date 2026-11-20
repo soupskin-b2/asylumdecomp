@@ -901,9 +901,8 @@ void sub_00767040(void) { sub_00766040(); }
 
 int sub_00766bb0(...);
 extern undefined4 g_026b62b8;
-struct C_00769da0 { undefined4 sub_00769da0(void); };
 // @baa 0x00769da0
-undefined4 C_00769da0::sub_00769da0(void)
+UBOOL AActor::IsInPersistentLevel()
 {
     int param_1 = (int)this;
 

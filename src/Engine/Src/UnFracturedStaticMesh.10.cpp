@@ -3,13 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* The project's existing binding for UStaticMeshComponent's slot 0x250 override (0x00947280, bound as C::sub_00947280;
- * the kit doesn't declare the override on UStaticMeshComponent). */
-struct C
-{
-    UINT sub_00947280();
-};
-
 // @baa 0x007a6fe0
 /* UFracturedBaseComponent slot 0x250: BoxCollisionType forces the answer (1 = on, 2 = off); otherwise the static mesh
  * component's answer. */
@@ -22,16 +15,9 @@ UINT UFracturedBaseComponent::GetUseSimpleBoxCollision()
     case 2:
         return FALSE;
     default:
-        return ((C*)this)->sub_00947280();
+        return UStaticMeshComponent::GetUseSimpleBoxCollision();
     }
 }
-
-/* The project's existing binding for UStaticMeshComponent's slot 0x254 override (0x009472e0, bound as C_007a7000::sub_009472e0;
- * the kit doesn't declare the override on UStaticMeshComponent). */
-struct C_007a7000
-{
-    UINT sub_009472e0();
-};
 
 // @baa 0x007a7000
 /* UFracturedBaseComponent slot 0x254: LineCollisionType forces the answer (1 = on, 2 = off); otherwise the static mesh
@@ -45,7 +31,7 @@ UINT UFracturedBaseComponent::GetUseSimpleLineCollision()
     case 2:
         return FALSE;
     default:
-        return ((C_007a7000*)this)->sub_009472e0();
+        return UStaticMeshComponent::GetUseSimpleLineCollision();
     }
 }
 
@@ -99,20 +85,14 @@ UBOOL UFracturedBaseComponent::sub_007b8070()
     return bHidden;
 }
 
-/* The project's existing binding for UPrimitiveComponent's slot 0x118 (0x006db540, bound as C_007c5a40::sub_006db540). */
-struct C_007c5a40
-{
-    void sub_006db540();
-};
-
 /* Move one fragment of the skinned stand-in to the given transform. */
 
 // @baa 0x007c5a40
-/* UFracturedStaticMeshComponent slot 0x118 (kit vf_118, the transform update): after the primitive update, push
+/* After the primitive's transform update, push
  * each visible fragment's transform to the skinned component when skinned rendering is in use. */
-void UFracturedStaticMeshComponent::vf_118()
+void UFracturedStaticMeshComponent::UpdateTransform()
 {
-    ((C_007c5a40*)this)->sub_006db540();
+    Super::UpdateTransform();
     if (bUseSkinnedRendering && SkinnedComponent != NULL)
     {
         for (INT i = 0; i < VisibleFragments.Num(); i++)

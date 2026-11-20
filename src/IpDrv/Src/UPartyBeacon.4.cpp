@@ -150,21 +150,7 @@ S_00e2d540& S_00e2d540::sub_00e2d540(const S_00e2d540& S)
     return *this;
 }
 
-/* Kit gap: UE3's socket subsystem interface (UnSocket.h) isn't declared. Only the slots this uses are named. */
-class FSocket;
-class FSocketSubsystem
-{
-public:
-	virtual UBOOL Initialize(FString& Error) = 0;			/* 0x00 */
-	virtual void Destroy() = 0;					/* 0x04 */
-	virtual FSocket* CreateStreamSocket(const FString& SocketDescription) = 0;	/* 0x08 */
-	virtual FSocket* CreateDGramSocket(const FString& SocketDescription, UBOOL bForceUDP) = 0;	/* 0x0c */
-	virtual void DestroySocket(FSocket* Socket) = 0;		/* 0x10 */
-};
-
-extern FSocketSubsystem* g_026cad04;
 // @baa 0x00e2cb90
-	/* GSocketSubsystem */
 /* (FPointer Socket holds the FSocket*.) Closes the beacon's socket, or defers that until the tick that's running finishes. */
 void UPartyBeacon::DestroyBeacon()
 {
@@ -172,7 +158,7 @@ void UPartyBeacon::DestroyBeacon()
 	{
 		if (!bIsInTick)
 		{
-			g_026cad04->DestroySocket((FSocket*)Socket.Dummy);
+			GSocketSubsystem->DestroySocket((FSocket*)Socket.Dummy);
 			bWantsDeferredDestroy = FALSE;
 			Socket.Dummy = 0;
 		}

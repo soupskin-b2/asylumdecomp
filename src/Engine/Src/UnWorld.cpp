@@ -3551,7 +3551,6 @@ struct FBatch
 {
     char pad[0x1b0];
     TArray<INT> Items;      // Data 0x1b0, Num 0x1b4, Max 0x1b8
-    INT  sub_00759640(INT);
     INT  sub_0076a230(INT, INT, INT);
     void sub_007fbe90();
 };
@@ -3595,7 +3594,7 @@ void CWorld::sub_009b5990(INT param)
     }
     if (Batch1->Items.Num() > 0)
     {
-        Batch1->sub_00759640(0);
+        ((UActorComponent*)Batch1)->ConditionalDetach(0);
         Batch1->sub_0076a230(f34, 0, (INT)g_025d67c0);
     }
     if (Batch2 == 0)
@@ -3604,7 +3603,7 @@ void CWorld::sub_009b5990(INT param)
     }
     if (Batch2->Items.Num() > 0)
     {
-        Batch2->sub_00759640(0);
+        ((UActorComponent*)Batch2)->ConditionalDetach(0);
         Batch2->sub_0076a230(f34, 0, (INT)g_025d67c0);
     }
     if (param != 0)
@@ -3813,7 +3812,6 @@ void C_009c30a0::sub_009c30a0(void)
 
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
-
 
 struct FSparseArrayConstIt_009c30c0 : public TSparseArray<INT>::TConstIterator
 {

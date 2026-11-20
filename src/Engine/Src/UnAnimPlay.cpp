@@ -182,7 +182,7 @@ void UAnimNodeSequence::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 
     if (ActiveCameraAnimInstance)
     {
-        if (sub_00c4fe50() && bPlaying && bRelevant)
+        if (GetPlayerCamera() && bPlaying && bRelevant)
         {
             ((UCameraAnimInst*)ActiveCameraAnimInstance)->ApplyTransientScaling(NodeTotalWeight);
         }
@@ -227,7 +227,7 @@ UBOOL UAnimNodeSequenceBlendByAim::HasParentClassChanged() const
 }
 
 // @baa 0x00c4b080
-FVector2D UAnimNodeSequenceBlendByAim::sub_00c4b080()
+FVector2D UAnimNodeSequenceBlendByAim::GetAim()
 {
     return Aim;
 }

@@ -286,7 +286,7 @@ struct C_00c4c3b0 { int sub_00c4c3b0(void); };
 int C_00c4c3b0::sub_00c4c3b0(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00c50070
-bool UAnimNode::ShouldSaveCachedResults(void)
+UBOOL UAnimNode::ShouldSaveCachedResults(void)
 {
     int param_1 = (int)this;
 
@@ -1806,7 +1806,7 @@ void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
 			PropertyThatChanged->GetFName() == FName(TEXT("PreviewSkelMesh")) ||
 			PropertyThatChanged->GetFName() == FName(TEXT("PreviewAnimSets"))) && SkelComponent)
 		{
-			((USkeletalMeshComponent*)SkelComponent)->UpdateSkelPose(TRUE);
+			((USkeletalMeshComponent*)SkelComponent)->InitAnimTree(TRUE);
 		}
 	}
 
@@ -1856,8 +1856,6 @@ void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 		}
 	}
 }
-
-/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
 
 // @baa 0x00c7dfd0
 void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)

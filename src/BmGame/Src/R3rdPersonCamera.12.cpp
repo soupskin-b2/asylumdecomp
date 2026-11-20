@@ -26,14 +26,13 @@ void ARPawnPlayer::sub_01688660()
 
 struct S_0168de00 {
     void sub_007d7170();
-    void sub_01689170();
     void sub_0168de00();
 };
 
 // @baa 0x0168de00
 void S_0168de00::sub_0168de00() {
     sub_007d7170();
-    sub_01689170();
+    ((AR3rdPersonCamera*)this)->UpdateCameraSettings();
 }
 
 // @baa 0x016a0da0
@@ -64,11 +63,10 @@ UBOOL AR3rdPersonCamera::HasUniqueStaticConfigName() const
 
 struct AR3rdPersonCamera_ : AR3rdPersonCamera
 {
-    void sub_0168a730();
 };
 
 // @baa 0x0168a730
-void AR3rdPersonCamera_::sub_0168a730()
+void AR3rdPersonCamera::ResetSmoother()
 {
     Smoother.LastSmoothDistance = 1.0f;
     Smoother.DirectionDistance[0] = 10000.0f;
@@ -111,7 +109,6 @@ struct C_Vft19_4c
     virtual void vf4c(UINT A) = 0;
 };
 
-
 // @baa 0x01688930
 void URSeqAct_UpdateBatmanDamageLevel::PostLoad()
 {
@@ -120,7 +117,6 @@ void URSeqAct_UpdateBatmanDamageLevel::PostLoad()
     if (DamageState == NULL)
         reinterpret_cast<C_Vft19_4c*>(Self)->vf4c(0);
 }
-
 
 // @baa 0x01689560
 FVector* AR3rdPersonCamera::sub_01689560(INT CurrentZoomPointIndex)

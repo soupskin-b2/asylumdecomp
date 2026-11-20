@@ -7,7 +7,6 @@
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_0076de80 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_0076de80(const TSparseArray<INT>& InArray, INT StartIndex);
@@ -305,7 +304,7 @@ struct S_00786630 {
 // @baa 0x00786630
 void S_00786630::sub_00786630() {
     sub_007814b0();
-    sub_00786580();
+    ((AAmbientSoundSimple*)this)->SyncUpInstantiatedObjects();
 }
 
 struct C_view {
@@ -1338,14 +1337,13 @@ UBOOL AAmbientSoundNonLoop::HasParentClassChanged() const
 }
 
 struct S_0079c6b0 {
-    void sub_00799ca0();
     void sub_005db340();
     void sub_0079c6b0();
 };
 
 // @baa 0x0079c6b0
 void S_0079c6b0::sub_0079c6b0() {
-    sub_00799ca0();
+    ((UAudioComponent*)this)->Cleanup();
     sub_005db340();
 }
 

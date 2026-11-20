@@ -448,9 +448,8 @@ C_0053ec30::C_0053ec30(int x, int y) : a(x), b(y) {}
 extern undefined4 g_025d6820;
 extern undefined4 g_025d6824;
 extern undefined4 g_025d682c;
-struct C_0053ec70 { void sub_0053ec70(void); };
 // @baa 0x0053ec70
-void C_0053ec70::sub_0053ec70(void)
+void FArchive::Reset()
 {
     int param_1 = (int)this;
 

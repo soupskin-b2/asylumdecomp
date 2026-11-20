@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/SkeletalMesh.h"
 
-/* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
-extern INT GPackageFileVersion;
-extern INT GPackageFileLicenseeVersion;
-
 FArchive& operator<<(FArchive& Ar, TArray<FSoftSkinVertex>& A);
  /* 0x00675ef0 */
 /* TArray<FSoftSkinVertex> with the out-of-line members BulkSerialize calls: CountBytes (0x006521e0),

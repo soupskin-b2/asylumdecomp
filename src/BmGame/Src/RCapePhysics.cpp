@@ -16,7 +16,6 @@ UBOOL URCapeConfig::HasParentClassChanged() const
 }
 
 struct C {
-    undefined4 sub_01562420();
 };
 
 struct M {
@@ -33,7 +32,7 @@ struct S {
 // @baa 0x016af420
 undefined4 S::sub_016af420()
 {
-    return m->c->sub_01562420();
+    return ((URAnimNode_Cape*)m->c)->GetNumBonesInCape();
 }
 
 struct C_016af5b0 {

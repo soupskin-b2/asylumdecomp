@@ -3,11 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct MITVTextureParameterMapping
-{
-	static FTextureParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-};
-
 // @baa 0x006e9410
 /* The named texture parameter: this instance's override if it has one, else the parent's value. */
 UBOOL UMaterialInstanceTimeVarying::GetTextureParameterValue(FName ParameterName, UTexture*& OutValue)
@@ -33,11 +28,6 @@ UBOOL UMaterialInstanceTimeVarying::GetTextureParameterValue(FName ParameterName
 		return FALSE;
 	}
 }
-
-struct MICVectorParameterMapping
-{
-	static FVectorParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name);
-};
 
 // @baa 0x006e8c60
 /* The named vector parameter: this instance's override if it has one, else the parent's value. */
@@ -65,11 +55,6 @@ UBOOL UMaterialInstanceConstant::GetVectorParameterValue(FName ParameterName, FL
 	}
 }
 
-struct MICScalarParameterMapping
-{
-	static FScalarParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name);
-};
-
 // @baa 0x006e8d40
 /* The named scalar parameter: this instance's override if it has one, else the parent's value. */
 UBOOL UMaterialInstanceConstant::GetScalarParameterValue(FName ParameterName, FLOAT& OutValue)
@@ -95,11 +80,6 @@ UBOOL UMaterialInstanceConstant::GetScalarParameterValue(FName ParameterName, FL
 		return FALSE;
 	}
 }
-
-struct MICTextureParameterMapping
-{
-	static FTextureParameterValue* FindParameterByName(UMaterialInstanceConstant* Instance, FName Name);
-};
 
 // @baa 0x006e8e10
 /* The named texture parameter: this instance's override if it has one, else the parent's value. */

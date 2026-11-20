@@ -45,9 +45,8 @@ UBOOL UUIScreenObject::SetEnabled(UBOOL a0, INT a1) { return 0; }
 // @baa 0x00da9900
 int UUIScreenObject::vf_160(int a0, int a1, int a2) { return 0; }
 
-struct C_00da99d0 { uint sub_00da99d0(void); };
 // @baa 0x00da99d0
-uint C_00da99d0::sub_00da99d0(void)
+UBOOL UUIScreenObject::IsNeverFocused()
 {
     int param_1 = (int)this;
 

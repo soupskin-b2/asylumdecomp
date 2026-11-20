@@ -69,12 +69,11 @@ undefined4 * C_0064e060::sub_0064e060(byte param_2)
   return param_1;
 }
 
-int sub_00765d00(void);
 // @baa 0x0064e0c0
 void UDecalComponent::SetDecalMaterial(UMaterialInterface* NewDecalMaterial)
 {
 	DecalMaterial = NewDecalMaterial;
-	sub_00765d00();
+	BeginDeferredReattach();
 }
 
 // @baa 0x0064e0e0
@@ -309,9 +308,9 @@ extern INT g_026c0b3c;
 
 // @baa 0x006a78b0
 /* DecalComponent.cpp: static decals attach once their transform is known (computing receivers the first time). */
-void UDecalComponent::UpdateTransform()
+void UDecalComponent::BeginPlay()
 {
-	Super::UpdateTransform();
+	Super::BeginPlay();
 
 	if (bStaticDecal && DetailMode <= GSystemSettings_DetailMode)
 	{
@@ -326,8 +325,6 @@ void UDecalComponent::UpdateTransform()
 		bHasBeenAttached = TRUE;
 	}
 }
-
-
 
 // @baa 0x0069ba80
 /* DecalComponent.cpp: DetachFromReceivers. Detaches the decal from every receiver, then frees the receiver render data. */

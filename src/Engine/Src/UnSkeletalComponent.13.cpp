@@ -60,8 +60,6 @@ UMaterialInterface* USkeletalMeshComponent::GetMaterial(INT MaterialIndex) const
     }
 }
 
-inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
-
 // @baa 0x0091d860
 /* search the AnimSets from last to first, so later sets override earlier ones */
 UAnimSequence* USkeletalMeshComponent::FindAnimSequence(FName AnimSeqName)

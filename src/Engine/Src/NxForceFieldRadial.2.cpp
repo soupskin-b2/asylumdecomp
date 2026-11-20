@@ -9,7 +9,6 @@ extern FName g_026c3df4;
 /* out of line in the exe (0075eeb0) */
 extern template INT TArray<UActorComponent*>::AddItem(UActorComponent* const& Item);
 
-/* UForceFieldShape's script events (generated glue, EngineClasses.h) */
 // @baa 0x00a42830
 void ANxForceFieldRadial::PostLoad()
 {

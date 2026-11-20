@@ -185,17 +185,16 @@ void UParticleSystemComponent::SetEditorLODLevel(int param_2)
   return;
 }
 
-struct C_00b51bc0 { int sub_00b51bc0(void); };
 // @baa 0x00b51bc0
-int C_00b51bc0::sub_00b51bc0(void) { return *(int*)((char*)this + 516); }
+INT UParticleSystemComponent::GetLODLevel()
+{ return *(int*)((char*)this + 516); }
 
-struct C_00b51bd0 { int sub_00b51bd0(void); };
 // @baa 0x00b51bd0
-int C_00b51bd0::sub_00b51bd0(void) { return *(int*)((char*)this + 524); }
+INT UParticleSystemComponent::GetEditorLODLevel()
+{ return *(int*)((char*)this + 524); }
 
-struct C_00b51c00 { uint sub_00b51c00(void); };
 // @baa 0x00b51c00
-uint C_00b51c00::sub_00b51c00(void)
+UBOOL UParticleSystemComponent::GetSkipUpdateDynamicDataDuringTick()
 {
     int param_1 = (int)this;
 

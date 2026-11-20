@@ -3,17 +3,11 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct ARLevelVolume_ : public ARLevelVolume
-{
-    void sub_0158c5b0();
-    INT sub_007771e0(INT A);
-};
-
 // @baa 0x01591bb0
 void ARLevelVolume::PostEditMove(UBOOL A)
 {
     if (A != 0)
-        ((ARLevelVolume_*)this)->sub_0158c5b0();
+        ARLevelTransition::RebuildTransitionLinks();
     Super::PostEditMove(A);
 }
 
@@ -24,26 +18,13 @@ void __stdcall sub_01557f60(FLOAT F)
     g_025db4c4 = F;
 }
 
-struct C_X_290
-{
-    BYTE Pad[0x290];
-    DWORD F;
-};
-
-struct URSeqAct_PrepareMapChangeFromURL_ : public URSeqAct_PrepareMapChangeFromURL
-{
-    void sub_008bea90();
-    C_X_290* sub_008aba50();
-};
-
 // @baa 0x0155abb0
 void URSeqAct_PrepareMapChangeFromURL::DeActivated()
 {
-    URSeqAct_PrepareMapChangeFromURL_* Self = (URSeqAct_PrepareMapChangeFromURL_*)this;
-    C_X_290* X;
-    Self->sub_008bea90();
-    X = Self->sub_008aba50();
-    X->F &= ~0x4004;
+    Super::DeActivated();
+    AWorldInfo* WorldInfo = GetWorldInfo();
+    WorldInfo->bRequestedBlockOnAsyncLoading = FALSE;
+    WorldInfo->bHighPriorityLoading = FALSE;
 }
 
 // @baa 0x0155a3a0
@@ -146,7 +127,6 @@ void C_0155a8f0::sub_0155a8f0(FLOAT F)
 
 struct C_T1_5a090
 {
-    INT sub_00759640(INT A);
 };
 
 struct C_P1_5a090
@@ -161,7 +141,7 @@ void __stdcall PlayerUpdateTransform(C_P1_5a090* P)
 {
     if (P != NULL)
     {
-        P->T->sub_00759640(0);
+        ((UActorComponent*)P->T)->ConditionalDetach(0);
         P->sub_00759430(0);
     }
 }

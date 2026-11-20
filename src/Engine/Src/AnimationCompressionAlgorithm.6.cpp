@@ -11,8 +11,8 @@ template void TArray<FQuat>::Remove(INT Index, INT Count);
 
 template void TArray<FLOAT>::Remove(INT Index, INT Count);
 
-/* AnimationCompressionAlgorithm.cpp: the angle between two rotations, in units of PI. */
-static FORCEINLINE FLOAT FQuatError(const FQuat& Q1, const FQuat& Q2)
+/* FQuatError, inline here (the kit's FQuatError is the out-of-line copy at 00bf7af0). */
+static FORCEINLINE FLOAT FQuatErrorInline(const FQuat& Q1, const FQuat& Q2)
 {
 	const FLOAT cosom = Q1.X * Q2.X + Q1.Y * Q2.Y + Q1.Z * Q2.Z + Q1.W * Q2.W;
 	return (appAbs(cosom) < 0.9999999f) ? acos(Clamp(cosom, -1.f, 1.f)) * (1.f / PI) : 0.0f;
@@ -33,7 +33,7 @@ static FORCEINLINE void FilterTrivialRotationKeys(FRotationTrack& Track, FLOAT M
 		UBOOL bFramesIdentical = TRUE;
 		for (INT KeyIndex = 1; KeyIndex < KeyCount; ++KeyIndex)
 		{
-			if (FQuatError(Track.RotKeys(KeyIndex), FirstRot) > MaxRotDelta)
+			if (FQuatErrorInline(Track.RotKeys(KeyIndex), FirstRot) > MaxRotDelta)
 			{
 				bFramesIdentical = FALSE;
 				break;

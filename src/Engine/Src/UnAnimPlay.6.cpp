@@ -32,10 +32,6 @@ FLOAT UAnimNodeSequence::GetAnimPlaybackLength()
     return 0.f;
 }
 
-/* UE3's USkeletalMeshComponent::UpdateSkelPose(FLOAT DeltaTime,
- * UBOOL bTellChildren) (this build has a third flag), and UActorComponent's "if (bAttached) UpdateTransform()" through
- * slot 0x118. */
-
 // @baa 0x00c4aeb0
 /* UE3's UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged): pick up a changed AnimSeqName and refresh the
  * mesh's pose. */
@@ -44,8 +40,8 @@ void UAnimNodeSequence::PostEditChange(UProperty* PropertyThatChanged)
     SetAnim(AnimSeqName);
     if (SkelComponent && SkelComponent->bAttached)
     {
-        SkelComponent->sub_0093b170(0.f, TRUE, FALSE);
-        SkelComponent->sub_00759620();
+        SkelComponent->UpdateSkelPose(0.f, TRUE, FALSE);
+        SkelComponent->ConditionalUpdateTransform();
     }
     Super::PostEditChange(PropertyThatChanged);
 }

@@ -38,7 +38,6 @@ puVar1[2]=param_2[2];
 return iVar2;
 }
 
-int sub_00715880(void);
 int sub_006311e0(...);
 int sub_007c2df0(...);
 extern int g_026b2194;
@@ -71,7 +70,7 @@ struct C_007c7020 {
 void C_007c7020::sub_007c7020()
 {
     sub_006db540();
-    if (!sub_00715880()) sub_006311e0("IsInGameThread()", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedMeshRender.cpp", 0x306, g_01f22db4);
+    if (!IsInGameThread()) sub_006311e0("IsInGameThread()", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnFracturedMeshRender.cpp", 0x306, g_01f22db4);
     if (g_026b2194) {
         Ctx c(g_026b24c0, 0x14);
         UINT sz = c.End - c.Start;

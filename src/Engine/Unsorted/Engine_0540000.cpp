@@ -161,7 +161,6 @@ UBOOL UDistributionVector::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined * g_01e734e8;
 struct C_00546c80 { undefined4 * sub_00546c80(void); };
@@ -171,12 +170,11 @@ undefined4 * C_00546c80::sub_00546c80(void)
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   *param_1 = (undefined4)(&g_01e734e8);
   param_1[5] = 1;
   return param_1;
 }
-
 
 // @baa 0x005423f0
 FVector UDistributionVector::GetValue(FLOAT F, UObject* Data, INT LastExtreme)

@@ -25,11 +25,6 @@ void UInterpGroupInst::TermGroupInst(UBOOL bDeleteData)
     }
 }
 
-/* UnObjBas.h ConstructObject<T>, out of line in this build (UClass as the project's other callers spell it). */
-
-/* UnObjBas.h RF_Transactional (64-bit object flags). */
-/* EngineClasses.h's script-event glue, out of line in this build. */
-
 // @baa 0x00d03640
 /* UE3's UInterpGroupInst::InitGroupInst(UInterpGroup* InGroup, AActor* InGroupActor): make a track instance for every
  * track of the group, and start anim control on the actor when the group animates it. */

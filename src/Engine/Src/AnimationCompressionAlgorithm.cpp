@@ -8,18 +8,6 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00c00b40
 
-/* AnimationCompression.h's FQuatIntervalFixed32NoW (a quaternion packed 11:11:10 relative to the track's
- * range), not in the kit. */
-class FQuatIntervalFixed32NoW
-{
-public:
-	DWORD Packed;
-
-	FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges);
-
-	void FromQuat(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges);	/* 00bf7f40 */
-};
-
 // @baa 0x00bfa9e0
 /* Inline in the header; this build has it out of line. */
 FQuatIntervalFixed32NoW::FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges)
@@ -27,23 +15,8 @@ FQuatIntervalFixed32NoW::FQuatIntervalFixed32NoW(const FQuat& Quat, const FLOAT*
 	FromQuat(Quat, Mins, Ranges);
 }
 
-/* AnimationCompression.h's quantisation constants. */
-#define Quant10BitDiv		(511.f)
-#define Quant10BitOffs		(511)
-#define Quant11BitDiv		(1023.f)
-#define Quant11BitOffs		(1023)
-/* AnimationCompression.h's FQuatIntervalFixed32NoW_00bf7f40 (a quaternion packed 11:11:10 relative to the track's
- * range), not in the kit. */
-class FQuatIntervalFixed32NoW_00bf7f40
-{
-public:
-	DWORD Packed;
-
-	void FromQuat(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges);
-};
-
 // @baa 0x00bf7f40
-void FQuatIntervalFixed32NoW_00bf7f40::FromQuat(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges)
+void FQuatIntervalFixed32NoW::FromQuat(const FQuat& Quat, const FLOAT* Mins, const FLOAT* Ranges)
 {
 	FQuat Temp = Quat;
 

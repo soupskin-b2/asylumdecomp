@@ -26,7 +26,7 @@ void UAnimNodeSlot::PlayCustomAnimByDuration(FName AnimName, FLOAT Duration, FLO
 }
 
 // @baa 0x00c49770
-/* UnMath.h's UnwindHeading (missing from the kit), out of line here: the angle brought back to [-PI, PI]. */
+/* UnMath.h's UnwindHeading, out of line here: the angle brought back to [-PI, PI]. */
 FLOAT UnwindHeading(FLOAT A)
 {
 	while (A > PI)

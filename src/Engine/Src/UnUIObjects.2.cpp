@@ -13,8 +13,6 @@ void UUIObject::execSetWidgetStyleByName(FFrame& Stack, RESULT_DECL)
     *(UBOOL*)Result = SetWidgetStyleByName(StyleResolverTagToSet, StyleFriendlyName);
 }
 
-/* Engine.UIRoot.EUIWidgetFace (not in Classes.h) */
-
 // @baa 0x00cc7650
 void UUIScreenObject::execGetDockedWidgets(FFrame& Stack, RESULT_DECL)
 {

@@ -8,12 +8,8 @@ struct FNameArray : public TArray<FName> {};
 void* sub_0056fa40(unsigned int Size, FNameArray& Array);
 inline void* operator new(unsigned int Size, FNameArray& Array) { return sub_0056fa40(Size, Array); }
 
-struct UObject_0161d720 : public UObject {
-    void sub_0161d720();
-};
-
 // @baa 0x0161d720
-void UObject_0161d720::sub_0161d720()
+void URIdleTransitionConfigFactoryNew::StaticConstructor()
 {
     new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName(TEXT("Object"));
 }

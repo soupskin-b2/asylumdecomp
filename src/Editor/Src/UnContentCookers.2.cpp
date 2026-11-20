@@ -859,12 +859,8 @@ undefined4 C_0108ca40::sub_0108ca40(void)
 // @baa 0x0108ca60
 int sub_0108ca60(int a0, int a1) { return a1; }
 
-struct C_0108ca70 {
-    void sub_0108ca70();
-};
-
 // @baa 0x0108ca70
-void C_0108ca70::sub_0108ca70(void)
+void UCookPackagesCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -4654,7 +4650,6 @@ void C_01093a60::sub_01093a60() { m.sub_00549160(); }
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_01093ad0 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_01093ad0& operator++();
@@ -6778,7 +6773,7 @@ Ar0* sub_0109f220(Ar0* ar0, Con0* c)
   c->sub_0108d820(ar);
   int z = 0;
   if (ar->loading != z) {
-    ar->sub_0053ea70(&count, 4);
+    ((FArchive*)ar)->ByteOrderSerialize(&count, 4);
     c->sub_0109e2c0(count);
     for (int i = 0; i < count; i++) {
       T8 tmp;
@@ -6787,25 +6782,25 @@ Ar0* sub_0109f220(Ar0* ar0, Con0* c)
       if (p) { p->a=z; p->b=z; p->c=z; p->z=-1; } else p = 0;
       int *f = p->f;
       Ob0 *o = sub_00637c10(ar, p);
-      o->sub_0053ea70(f,4);
-      o->sub_0053ea70(f+1,4);
-      o->sub_0053ea70(f+2,4);
-      o->sub_0053ea70(f+3,4);
+      ((FArchive*)o)->ByteOrderSerialize(f,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+1,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+2,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+3,4);
       o->S(f+4);
     }
   } else {
     count = c->cnt - c->off;
-    ar->sub_0053ea70(&count, 4);
+    ((FArchive*)ar)->ByteOrderSerialize(&count, 4);
     It0 it;
     it.sub_010977e0(c, z);
     while (it.idx < it.owner->n) {
       E_0109f220 *p = (E_0109f220*)((char*)it.Data[0] + it.idx * 0x2c);
       int *f = p->f;
       Ob0 *o = sub_00637c10(ar, p);
-      o->sub_0053ea70(f,4);
-      o->sub_0053ea70(f+1,4);
-      o->sub_0053ea70(f+2,4);
-      o->sub_0053ea70(f+3,4);
+      ((FArchive*)o)->ByteOrderSerialize(f,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+1,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+2,4);
+      ((FArchive*)o)->ByteOrderSerialize(f+3,4);
       o->S(f+4);
       it.c &= ~it.mask;
       ((Msk*)&it.x)->sub_0054f600();

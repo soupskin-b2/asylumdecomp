@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
 /* Builds the algorithm named in the ini (00c144e0). */
 UAnimationCompressionAlgorithm* ConstructDefaultCompressionAlgorithm();
 // @baa 0x00c14730

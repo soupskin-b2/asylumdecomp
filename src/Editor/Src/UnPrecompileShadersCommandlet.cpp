@@ -7,12 +7,8 @@
 // @baa 0x007160a0
 void sub_007160a0(void) {  }
 
-struct C {
-    void sub_01103b50();
-};
-
 // @baa 0x01103b50
-void C::sub_01103b50(void)
+void UPrecompileShadersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -23,12 +19,8 @@ void C::sub_01103b50(void)
 // @baa 0x01103b60
 int sub_01103b60(int a0, int a1) { return a1; }
 
-struct C_01103b70 {
-    void sub_01103b70();
-};
-
 // @baa 0x01103b70
-void C_01103b70::sub_01103b70(void)
+void UDumpShadersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

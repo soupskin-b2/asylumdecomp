@@ -61,6 +61,6 @@ void UActorComponent::BeginDeferredUpdateTransform()
     }
     else if (bAttached)
     {
-        vf_118();
+        UpdateTransform();
     }
 }

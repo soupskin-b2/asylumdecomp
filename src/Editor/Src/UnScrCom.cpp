@@ -2838,7 +2838,6 @@ undefined4 C_00fa2780::sub_00fa2780(int param_2, int * param_3)
   return 1;
 }
 
-int sub_0053ec70(void);
 extern undefined * g_02177358;
 struct C_00fa27c0 { undefined4 * sub_00fa27c0(undefined4 param_2); };
 // @baa 0x00fa27c0
@@ -2847,7 +2846,7 @@ undefined4 * C_00fa27c0::sub_00fa27c0(undefined4 param_2)
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   param_1[0x1f] = param_2;
   *param_1 = (undefined4)(&g_02177358);
   return param_1;
@@ -3678,7 +3677,6 @@ void sub_00fb6cf0(void) { sub_00fb61b0(); }
 
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
-
 
 struct FSparseArrayConstIt_00fb6e30 : public TSparseArray<INT>::TConstIterator
 {

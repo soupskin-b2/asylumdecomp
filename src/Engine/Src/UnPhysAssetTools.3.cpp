@@ -5,7 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* placement new as UE3 declares it (UnTemplate.h) */
 // @baa 0x00a17a10
 void UPhysicsAsset::UpdateBoundsBodiesArray()
 {

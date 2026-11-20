@@ -1222,7 +1222,7 @@
     {
      "va": "00f731a0",
      "size": 27,
-     "symbol": "?Undo@UTransactor@@QAEIXZ"
+     "symbol": "?Undo@UTransactor@@UAEHXZ"
     }
    ]
   },
@@ -1234,7 +1234,7 @@
     {
      "va": "00f731c0",
      "size": 27,
-     "symbol": "?Redo@UTransactor@@QAEIXZ"
+     "symbol": "?Redo@UTransactor@@UAEHXZ"
     }
    ]
   },
@@ -1246,7 +1246,7 @@
     {
      "va": "00f731e0",
      "size": 27,
-     "symbol": "?CreateInternalTransaction@UTransactor@@QAEIXZ"
+     "symbol": "?CreateInternalTransaction@UTransactor@@UAEIXZ"
     }
    ]
   },
@@ -2060,7 +2060,7 @@
     {
      "va": "012abb70",
      "size": 32,
-     "symbol": "?sub_012abb70@UTexAligner@@QAEIE@Z"
+     "symbol": "?sub_012abb70@C_012abb70@@QAEIE@Z"
     },
     {
      "va": "012ae710",
@@ -2392,7 +2392,7 @@
     {
      "va": "016c95a0",
      "size": 34,
-     "symbol": "?sub_016c95a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c95a0@C_016c95a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -2404,7 +2404,7 @@
     {
      "va": "016c96c0",
      "size": 34,
-     "symbol": "?sub_016c96c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c96c0@C_016c96c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -3531,7 +3531,7 @@
     {
      "va": "0156c200",
      "size": 647,
-     "symbol": "?ReBuildScriptNames@URSeqAct_ConversationDialogue_@@QAEXXZ"
+     "symbol": "?ReBuildScriptNames@URSeqAct_ConversationDialogue_@@UAEXXZ"
     }
    ]
   },
@@ -3893,7 +3893,7 @@
     {
      "va": "01584b60",
      "size": 16,
-     "symbol": "?sub_01584b60@C_01584b60@@QAEHM@Z"
+     "symbol": "?UpdateOp@URSeqAct_PlayerDialogueOptions@@UAEHM@Z"
     },
     {
      "va": "0156c490",
@@ -3942,7 +3942,7 @@
     {
      "va": "01730c70",
      "size": 34,
-     "symbol": "?sub_01730c70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01730c70@C_01730c70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5622,7 +5622,7 @@
     {
      "va": "0169e9f0",
      "size": 34,
-     "symbol": "?sub_0169e9f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169e9f0@C_0169e9f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5634,7 +5634,7 @@
     {
      "va": "0169eab0",
      "size": 34,
-     "symbol": "?sub_0169eab0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169eab0@C_0169eab0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5681,7 +5681,7 @@
     {
      "va": "0168a730",
      "size": 71,
-     "symbol": "?sub_0168a730@AR3rdPersonCamera_@@QAEXXZ"
+     "symbol": "?ResetSmoother@AR3rdPersonCamera@@QAEXXZ"
     },
     {
      "va": "016895b0",
@@ -5696,7 +5696,7 @@
     {
      "va": "01689560",
      "size": 80,
-     "symbol": "?sub_01689560@AR3rdPersonCamera__01689560@@QAEPAUFVector@@H@Z"
+     "symbol": "?sub_01689560@AR3rdPersonCamera@@QAEPAUFVector@@H@Z"
     }
    ]
   },
@@ -5857,12 +5857,12 @@
     {
      "va": "01689920",
      "size": 274,
-     "symbol": "?sub_01689920@AR3rdPersonCamera_@@QAE?AUFVector@@ABU2@M@Z"
+     "symbol": "?sub_01689920@AR3rdPersonCamera@@QAE?AUFVector@@ABU2@M@Z"
     },
     {
      "va": "01689170",
      "size": 1003,
-     "symbol": "?sub_01689170@AR3rdPersonCamera__01689170@@QAEXXZ"
+     "symbol": "?UpdateCameraSettings@AR3rdPersonCamera@@QAEXXZ"
     }
    ]
   },
@@ -5944,7 +5944,7 @@
     {
      "va": "0169de50",
      "size": 34,
-     "symbol": "?sub_0169de50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169de50@C_0169de50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5956,7 +5956,7 @@
     {
      "va": "0169df60",
      "size": 34,
-     "symbol": "?sub_0169df60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169df60@C_0169df60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5968,7 +5968,7 @@
     {
      "va": "0169e680",
      "size": 34,
-     "symbol": "?sub_0169e680@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169e680@C_0169e680@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5980,7 +5980,7 @@
     {
      "va": "0169e810",
      "size": 34,
-     "symbol": "?sub_0169e810@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169e810@C_0169e810@@QAEPAU1@XZ"
     }
    ]
   },
@@ -5992,7 +5992,7 @@
     {
      "va": "0169e870",
      "size": 34,
-     "symbol": "?sub_0169e870@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169e870@C_0169e870@@QAEPAU1@XZ"
     }
    ]
   },
@@ -6004,7 +6004,7 @@
     {
      "va": "0169e990",
      "size": 34,
-     "symbol": "?sub_0169e990@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0169e990@C_0169e990@@QAEPAU1@XZ"
     }
    ]
   },
@@ -6386,7 +6386,7 @@
     {
      "va": "0168a610",
      "size": 57,
-     "symbol": "?sub_0168a610@C_0168a610@@QAEIXZ"
+     "symbol": "?FollowCameraRotation@AR3rdPersonCamera@@QAEHXZ"
     },
     {
      "va": "01696d40",
@@ -6985,37 +6985,37 @@
     {
      "va": "01569e10",
      "size": 137,
-     "symbol": "?sub_01569e10@URAnimNode_Cape_@@QAEHUFName@@@Z"
+     "symbol": "?sub_01569e10@URAnimNode_Cape@@QAEHUFName@@@Z"
     },
     {
      "va": "01569310",
      "size": 144,
-     "symbol": "?sub_01569310@URAnimNode_Cape__01569310@@QAEHHAAH0@Z"
+     "symbol": "?sub_01569310@URAnimNode_Cape@@QAEHHAAH0@Z"
     },
     {
      "va": "01569700",
      "size": 158,
-     "symbol": "?sub_01569700@URAnimNode_Cape__01569700@@QAEHH@Z"
+     "symbol": "?sub_01569700@URAnimNode_Cape@@QAEHH@Z"
     },
     {
      "va": "01569b90",
      "size": 174,
-     "symbol": "?sub_01569b90@URAnimNode_Cape__01569b90@@QAE?AUFMatrix@@XZ"
+     "symbol": "?sub_01569b90@URAnimNode_Cape@@QAE?AUFMatrix@@XZ"
     },
     {
      "va": "01569c40",
      "size": 194,
-     "symbol": "?sub_01569c40@URAnimNode_Cape__01569c40@@QAEHH@Z"
+     "symbol": "?sub_01569c40@URAnimNode_Cape@@QAEHH@Z"
     },
     {
      "va": "015697a0",
      "size": 199,
-     "symbol": "?sub_015697a0@URAnimNode_Cape__015697a0@@QAEHHH@Z"
+     "symbol": "?sub_015697a0@URAnimNode_Cape@@QAEHHH@Z"
     },
     {
      "va": "0156e6a0",
      "size": 148,
-     "symbol": "?sub_0156e6a0@URAnimNode_Cape__0156e6a0@@QAEXHAAUFMatrix@@@Z"
+     "symbol": "?sub_0156e6a0@URAnimNode_Cape@@QAEXHAAUFMatrix@@@Z"
     },
     {
      "va": "01591bd0",
@@ -7105,7 +7105,7 @@
     {
      "va": "0155cf50",
      "size": 13,
-     "symbol": "?sub_0155cf50@C_0155cf50@@QAEIXZ"
+     "symbol": "?GetHasCurrentAnimEnded@URAnimNode_Cape@@QAEHXZ"
     },
     {
      "va": "0155cf60",
@@ -7165,7 +7165,7 @@
     {
      "va": "01562420",
      "size": 16,
-     "symbol": "?sub_01562420@C_01562420@@QAEIXZ"
+     "symbol": "?GetNumBonesInCape@URAnimNode_Cape@@QAEHXZ"
     },
     {
      "va": "01562430",
@@ -7906,17 +7906,17 @@
     {
      "va": "015c2e90",
      "size": 44,
-     "symbol": "?sub_015c2e90@FPosePlayer__015c2e90@@QAEHUFTransitionId@@@Z"
+     "symbol": "?sub_015c2e90@FPosePlayer@@QAEHUFTransitionId@@@Z"
     },
     {
      "va": "015c2b50",
      "size": 59,
-     "symbol": "?sub_015c2b50@FPosePlayer__015c2b50@@QAEXXZ"
+     "symbol": "?sub_015c2b50@FPosePlayer@@QAEXXZ"
     },
     {
      "va": "015c2b90",
      "size": 66,
-     "symbol": "?sub_015c2b90@FPosePlayer__015c2b90@@QAEXHIM@Z"
+     "symbol": "?sub_015c2b90@FPosePlayer@@QAEXPAUUSkeletalMeshComponent@@IM@Z"
     }
    ]
   },
@@ -9209,7 +9209,7 @@
     {
      "va": "01592110",
      "size": 59,
-     "symbol": "?eventTriggerGadgetAnim@URAnimNotify_PlayGadgetAnim_@@QAEXPAUARPawnPlayer@@@Z"
+     "symbol": "?eventTriggerGadgetAnim@URAnimNotify_PlayGadgetAnim@@QAEXPAUARPawnPlayer@@@Z"
     }
    ]
   },
@@ -9443,7 +9443,7 @@
     {
      "va": "015922c0",
      "size": 121,
-     "symbol": "?eventSpawnParticleSystem@URAnimNotify_SpawnParticleFX_@@QAEXPAUAActor@@UFVector@@UFRotator@@PAUUSkeletalMeshComponent@@@Z"
+     "symbol": "?eventSpawnParticleSystem@URAnimNotify_SpawnParticleFX@@QAEXPAUAActor@@UFVector@@UFRotator@@PAUUSkeletalMeshComponent@@@Z"
     }
    ]
   },
@@ -9755,7 +9755,7 @@
     {
      "va": "015b1620",
      "size": 60,
-     "symbol": "?sub_015b1620@URAnimUtil_@@QAEXAAV?$TArray@PAVUClass@@@@@Z"
+     "symbol": "?SortCharacterClasses@URAnimUtil@@QAEXAAV?$TArray@PAVUClass@@@@@Z"
     },
     {
      "va": "01598e50",
@@ -11132,7 +11132,7 @@
     {
      "va": "01657a40",
      "size": 34,
-     "symbol": "?sub_01657a40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657a40@C_01657a40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11144,7 +11144,7 @@
     {
      "va": "01657b00",
      "size": 34,
-     "symbol": "?sub_01657b00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657b00@C_01657b00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11156,7 +11156,7 @@
     {
      "va": "01657b60",
      "size": 34,
-     "symbol": "?sub_01657b60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657b60@C_01657b60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11168,7 +11168,7 @@
     {
      "va": "01657c90",
      "size": 34,
-     "symbol": "?sub_01657c90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657c90@C_01657c90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11180,7 +11180,7 @@
     {
      "va": "01657cf0",
      "size": 34,
-     "symbol": "?sub_01657cf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657cf0@C_01657cf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11316,7 +11316,7 @@
     {
      "va": "01638a00",
      "size": 123,
-     "symbol": "?eventCheckOverrideTarget@ARBatarang_@@QAEHPAUAActor@@AAUFVector@@@Z"
+     "symbol": "?eventCheckOverrideTarget@ARBatarang@@QAEHPAUAActor@@AAUFVector@@@Z"
     }
    ]
   },
@@ -11965,7 +11965,7 @@
     {
      "va": "01657770",
      "size": 34,
-     "symbol": "?sub_01657770@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657770@C_01657770@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11977,7 +11977,7 @@
     {
      "va": "01657830",
      "size": 34,
-     "symbol": "?sub_01657830@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657830@C_01657830@@QAEPAU1@XZ"
     }
    ]
   },
@@ -11989,7 +11989,7 @@
     {
      "va": "01657900",
      "size": 34,
-     "symbol": "?sub_01657900@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657900@C_01657900@@QAEPAU1@XZ"
     }
    ]
   },
@@ -12180,7 +12180,7 @@
     {
      "va": "015f6030",
      "size": 34,
-     "symbol": "?sub_015f6030@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f6030@C_015f6030@@QAEPAU1@XZ"
     }
    ]
   },
@@ -12192,7 +12192,7 @@
     {
      "va": "015f6060",
      "size": 34,
-     "symbol": "?sub_015f6060@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f6060@C_015f6060@@QAEPAU1@XZ"
     }
    ]
   },
@@ -12204,7 +12204,7 @@
     {
      "va": "015f61b0",
      "size": 34,
-     "symbol": "?sub_015f61b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f61b0@C_015f61b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -12216,7 +12216,7 @@
     {
      "va": "015f61e0",
      "size": 34,
-     "symbol": "?sub_015f61e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f61e0@C_015f61e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -12228,7 +12228,7 @@
     {
      "va": "015f3bd0",
      "size": 34,
-     "symbol": "?sub_015f3bd0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f3bd0@C_015f3bd0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13142,7 +13142,7 @@
     {
      "va": "0162c6a0",
      "size": 34,
-     "symbol": "?sub_0162c6a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c6a0@C_0162c6a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13154,7 +13154,7 @@
     {
      "va": "0162baa0",
      "size": 34,
-     "symbol": "?sub_0162baa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162baa0@C_0162baa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13166,7 +13166,7 @@
     {
      "va": "0162bbc0",
      "size": 34,
-     "symbol": "?sub_0162bbc0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162bbc0@C_0162bbc0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13178,7 +13178,7 @@
     {
      "va": "0162bc20",
      "size": 34,
-     "symbol": "?sub_0162bc20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162bc20@C_0162bc20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13190,7 +13190,7 @@
     {
      "va": "0162bd00",
      "size": 34,
-     "symbol": "?sub_0162bd00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162bd00@C_0162bd00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13202,7 +13202,7 @@
     {
      "va": "0162be50",
      "size": 34,
-     "symbol": "?sub_0162be50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162be50@C_0162be50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13214,7 +13214,7 @@
     {
      "va": "0162be80",
      "size": 34,
-     "symbol": "?sub_0162be80@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162be80@C_0162be80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13226,7 +13226,7 @@
     {
      "va": "0162c000",
      "size": 34,
-     "symbol": "?sub_0162c000@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c000@C_0162c000@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13297,7 +13297,7 @@
     {
      "va": "0162c030",
      "size": 34,
-     "symbol": "?sub_0162c030@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c030@C_0162c030@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13374,7 +13374,7 @@
     {
      "va": "0162c0f0",
      "size": 34,
-     "symbol": "?sub_0162c0f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c0f0@C_0162c0f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13386,7 +13386,7 @@
     {
      "va": "0162c1b0",
      "size": 34,
-     "symbol": "?sub_0162c1b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c1b0@C_0162c1b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13398,7 +13398,7 @@
     {
      "va": "0162c280",
      "size": 34,
-     "symbol": "?sub_0162c280@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c280@C_0162c280@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13410,7 +13410,7 @@
     {
      "va": "0162c360",
      "size": 34,
-     "symbol": "?sub_0162c360@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c360@C_0162c360@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13422,7 +13422,7 @@
     {
      "va": "0162c420",
      "size": 34,
-     "symbol": "?sub_0162c420@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c420@C_0162c420@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13434,7 +13434,7 @@
     {
      "va": "0162c4f0",
      "size": 34,
-     "symbol": "?sub_0162c4f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c4f0@C_0162c4f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -13446,7 +13446,7 @@
     {
      "va": "0162c5d0",
      "size": 34,
-     "symbol": "?sub_0162c5d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162c5d0@C_0162c5d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -14209,7 +14209,7 @@
     {
      "va": "016ae9f0",
      "size": 24,
-     "symbol": "?sub_016ae9f0@URCapeComponent_@@QAEPAUUPhysicalMaterial@@XZ"
+     "symbol": "?sub_016ae9f0@URCapeComponent@@QAEPAUUPhysicalMaterial@@XZ"
     },
     {
      "va": "016b8c70",
@@ -14445,7 +14445,7 @@
     {
      "va": "016ae4d0",
      "size": 12,
-     "symbol": "?sub_016ae4d0@C_016ae4d0@@QAE_NXZ"
+     "symbol": "?GetIsInitialised@URCapeComponent@@QAEHXZ"
     },
     {
      "va": "016ae680",
@@ -14455,12 +14455,12 @@
     {
      "va": "016ae8c0",
      "size": 26,
-     "symbol": "?sub_016ae8c0@C_016ae8c0@@QAEXXZ"
+     "symbol": "?PauseCape@URCapeComponent@@QAEXXZ"
     },
     {
      "va": "016ae8e0",
      "size": 26,
-     "symbol": "?sub_016ae8e0@C_016ae8e0@@QAEXXZ"
+     "symbol": "?ResumeCape@URCapeComponent@@QAEXXZ"
     },
     {
      "va": "016ae940",
@@ -14640,7 +14640,7 @@
     {
      "va": "016ae990",
      "size": 87,
-     "symbol": "?sub_016ae990@URCapeComponent_@@QAEXXZ"
+     "symbol": "?sub_016ae990@URCapeComponent@@QAEXXZ"
     },
     {
      "va": "016adba0",
@@ -14715,7 +14715,7 @@
     {
      "va": "016d59d0",
      "size": 178,
-     "symbol": "?sub_016d59d0@URCapeSkeletalMeshComponent_@@QBEHXZ"
+     "symbol": "?sub_016d59d0@URCapeSkeletalMeshComponent@@QBEHXZ"
     },
     {
      "va": "016ae490",
@@ -15358,17 +15358,17 @@
     {
      "va": "016cebf0",
      "size": 7,
-     "symbol": "?sub_016cebf0@C_016cebf0@@QAEIXZ"
+     "symbol": "?GetIsInitialised@URCapeStateController@@QAEHXZ"
     },
     {
      "va": "016cec10",
      "size": 14,
-     "symbol": "?sub_016cec10@C_016cec10@@QAEXXZ"
+     "symbol": "?PauseCape@URCapeStateController@@QAEXXZ"
     },
     {
      "va": "016cec20",
      "size": 18,
-     "symbol": "?sub_016cec20@C_016cec20@@QAEXXZ"
+     "symbol": "?ResumeCape@URCapeStateController@@QAEXXZ"
     },
     {
      "va": "016cec40",
@@ -15843,7 +15843,7 @@
     {
      "va": "016cece0",
      "size": 25,
-     "symbol": "?sub_016cece0@URCapeStateController_@@QAEXM@Z"
+     "symbol": "?sub_016cece0@URCapeStateController@@QAEXM@Z"
     },
     {
      "va": "016dc330",
@@ -15868,7 +15868,7 @@
     {
      "va": "016ceca0",
      "size": 46,
-     "symbol": "?sub_016ceca0@URCapeStateController__016ceca0@@QAEIXZ"
+     "symbol": "?sub_016ceca0@URCapeStateController@@QAEIXZ"
     },
     {
      "va": "016d6050",
@@ -16003,12 +16003,12 @@
     {
      "va": "016d4840",
      "size": 21,
-     "symbol": "?sub_016d4840@C_016d4840@@QAEIXZ"
+     "symbol": "?GetIsSyncronised@URConstrainingComponent@@QAEHXZ"
     },
     {
      "va": "016d9e80",
      "size": 44,
-     "symbol": "?sub_016d9e80@C_016d9e80@@QAEXXZ"
+     "symbol": "?ClearRBConstraints@URConstrainingComponent@@QAEXXZ"
     },
     {
      "va": "016db500",
@@ -16089,7 +16089,7 @@
     {
      "va": "0171a4b0",
      "size": 309,
-     "symbol": "?sub_0171a4b0@ARControllableChatteringTeethBase_@@QAEXM@Z"
+     "symbol": "?sub_0171a4b0@ARControllableChatteringTeethBase@@QAEXM@Z"
     }
    ]
   },
@@ -16101,7 +16101,7 @@
     {
      "va": "0171f1a0",
      "size": 357,
-     "symbol": "?sub_0171f1a0@ARControllableChatteringTeethBase_@@QAEHXZ"
+     "symbol": "?sub_0171f1a0@ARControllableChatteringTeethBase@@QAEHXZ"
     }
    ]
   },
@@ -16153,7 +16153,7 @@
     {
      "va": "01714f10",
      "size": 135,
-     "symbol": "?sub_01714f10@ARControllableChatteringTeethBase_@@QAEXM@Z"
+     "symbol": "?sub_01714f10@ARControllableChatteringTeethBase@@QAEXM@Z"
     }
    ]
   },
@@ -16187,7 +16187,7 @@
     {
      "va": "016dfa60",
      "size": 34,
-     "symbol": "?sub_016dfa60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfa60@C_016dfa60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -16199,7 +16199,7 @@
     {
      "va": "016dfac0",
      "size": 34,
-     "symbol": "?sub_016dfac0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfac0@C_016dfac0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -16211,7 +16211,7 @@
     {
      "va": "016dfb80",
      "size": 34,
-     "symbol": "?sub_016dfb80@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfb80@C_016dfb80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -16223,7 +16223,7 @@
     {
      "va": "016dfc60",
      "size": 34,
-     "symbol": "?sub_016dfc60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfc60@C_016dfc60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -16304,7 +16304,7 @@
     {
      "va": "01732320",
      "size": 34,
-     "symbol": "?sub_01732320@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01732320@C_01732320@@QAEPAU1@XZ"
     }
    ]
   },
@@ -16405,7 +16405,7 @@
     {
      "va": "016757e0",
      "size": 41,
-     "symbol": "?sub_016757e0@UObject_016757e0@@QAEXXZ"
+     "symbol": "?StaticConstructor@URCrimeSceneAssetFactoryNew@@QAEXXZ"
     },
     {
      "va": "01677220",
@@ -16542,7 +16542,7 @@
     {
      "va": "01731260",
      "size": 34,
-     "symbol": "?sub_01731260@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731260@C_01731260@@QAEPAU1@XZ"
     }
    ]
   },
@@ -17315,7 +17315,7 @@
     {
      "va": "01656e30",
      "size": 34,
-     "symbol": "?sub_01656e30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656e30@C_01656e30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -17327,7 +17327,7 @@
     {
      "va": "01656e60",
      "size": 34,
-     "symbol": "?sub_01656e60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656e60@C_01656e60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -17528,7 +17528,7 @@
     {
      "va": "016571d0",
      "size": 34,
-     "symbol": "?sub_016571d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016571d0@C_016571d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -17661,7 +17661,7 @@
     {
      "va": "0161d720",
      "size": 41,
-     "symbol": "?sub_0161d720@UObject_0161d720@@QAEXXZ"
+     "symbol": "?StaticConstructor@URIdleTransitionConfigFactoryNew@@QAEXXZ"
     },
     {
      "va": "016249f0",
@@ -18012,7 +18012,7 @@
     {
      "va": "01655e30",
      "size": 34,
-     "symbol": "?sub_01655e30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655e30@C_01655e30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -18024,7 +18024,7 @@
     {
      "va": "01656670",
      "size": 34,
-     "symbol": "?sub_01656670@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656670@C_01656670@@QAEPAU1@XZ"
     }
    ]
   },
@@ -19021,7 +19021,7 @@
     {
      "va": "01618460",
      "size": 137,
-     "symbol": "?sub_01618460@ARPlayerController_@@QAEHHMPAUFVector@@@Z"
+     "symbol": "?sub_01618460@ARPlayerController@@QAEHHMPAUFVector@@@Z"
     },
     {
      "va": "01618d10",
@@ -19043,7 +19043,7 @@
     {
      "va": "016153e0",
      "size": 89,
-     "symbol": "?sub_016153e0@ARPlayerController_@@QAEXPAUARSpecialMoveInstance@@@Z"
+     "symbol": "?sub_016153e0@ARPlayerController@@QAEXPAUARSpecialMoveInstance@@@Z"
     }
    ]
   },
@@ -19055,7 +19055,7 @@
     {
      "va": "01614010",
      "size": 268,
-     "symbol": "?sub_01614010@ARPlayerController_@@QAEXABUFVector@@M@Z"
+     "symbol": "?sub_01614010@ARPlayerController@@QAEXABUFVector@@M@Z"
     }
    ]
   },
@@ -19336,7 +19336,7 @@
     {
      "va": "01612630",
      "size": 82,
-     "symbol": "?sub_01612630@UObject_@@QAEXEHH@Z"
+     "symbol": "?sub_01612630@UObject@@QAEXEHH@Z"
     },
     {
      "va": "016127c0",
@@ -19496,7 +19496,7 @@
     {
      "va": "01614f10",
      "size": 51,
-     "symbol": "?sub_01614f10@C_01614f10@@QAEIXZ"
+     "symbol": "?IsInExternalCamera@ARPlayerController@@QAEHXZ"
     },
     {
      "va": "01614f50",
@@ -20076,7 +20076,7 @@
     {
      "va": "01619e30",
      "size": 33,
-     "symbol": "?sub_01619e30@C_01619e30@@QAEXXZ"
+     "symbol": "?PlayerWtfNative@ARPlayerController@@QAEXXZ"
     },
     {
      "va": "01620e90",
@@ -22590,7 +22590,7 @@
     {
      "va": "0163f5c0",
      "size": 24,
-     "symbol": "?sub_0163f5c0@URRopeComponentBase_@@QAEPAUUPhysicalMaterial@@XZ"
+     "symbol": "?sub_0163f5c0@URRopeComponentBase@@QAEPAUUPhysicalMaterial@@XZ"
     }
    ]
   },
@@ -22617,7 +22617,7 @@
     {
      "va": "0163f390",
      "size": 8,
-     "symbol": "?sub_0163f390@C_0163f390@@QAEXXZ"
+     "symbol": "?RequestUpdateRope@URRopeComponentBase@@QAEXXZ"
     },
     {
      "va": "0163f480",
@@ -22712,12 +22712,12 @@
     {
      "va": "01644e00",
      "size": 159,
-     "symbol": "?sub_01644e00@URRopeComponentBase_@@QAEXPAUAActor@@UFVector@@UFName@@PAUUPrimitiveComponent@@M@Z"
+     "symbol": "?sub_01644e00@URRopeComponentBase@@QAEXPAUAActor@@UFVector@@UFName@@PAUUPrimitiveComponent@@M@Z"
     },
     {
      "va": "01644ea0",
      "size": 159,
-     "symbol": "?sub_01644ea0@URRopeComponentBase__01644ea0@@QAEXPAUAActor@@UFVector@@UFName@@PAUUPrimitiveComponent@@M@Z"
+     "symbol": "?sub_01644ea0@URRopeComponentBase@@QAEXPAUAActor@@UFVector@@UFName@@PAUUPrimitiveComponent@@M@Z"
     }
    ]
   },
@@ -23351,12 +23351,12 @@
     {
      "va": "01672810",
      "size": 25,
-     "symbol": "?sub_01672810@C_01672810@@QAEIXZ"
+     "symbol": "?GetHasSubMeshes@ARSmashableProp@@QAEHXZ"
     },
     {
      "va": "01672830",
      "size": 25,
-     "symbol": "?sub_01672830@C_01672830@@QAEIXZ"
+     "symbol": "?GetHasSubParts@ARSmashableProp@@QAEHXZ"
     },
     {
      "va": "01672850",
@@ -23522,7 +23522,7 @@
     {
      "va": "01658040",
      "size": 34,
-     "symbol": "?sub_01658040@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01658040@C_01658040@@QAEPAU1@XZ"
     }
    ]
   },
@@ -23534,7 +23534,7 @@
     {
      "va": "016580a0",
      "size": 34,
-     "symbol": "?sub_016580a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016580a0@C_016580a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -23546,7 +23546,7 @@
     {
      "va": "016581c0",
      "size": 34,
-     "symbol": "?sub_016581c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016581c0@C_016581c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -23558,7 +23558,7 @@
     {
      "va": "01658220",
      "size": 34,
-     "symbol": "?sub_01658220@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01658220@C_01658220@@QAEPAU1@XZ"
     }
    ]
   },
@@ -24166,7 +24166,7 @@
     {
      "va": "0090e6a0",
      "size": 51,
-     "symbol": "?sub_0090e6a0@USkeletalMeshComponent_@@QAEMH@Z"
+     "symbol": "?sub_0090e6a0@USkeletalMeshComponent@@QAEMH@Z"
     },
     {
      "va": "0090eaa0",
@@ -24181,7 +24181,7 @@
     {
      "va": "0090e8e0",
      "size": 41,
-     "symbol": "?sub_0090e8e0@USkeletalMeshComponent__0090e8e0@@QAEHUFName@@@Z"
+     "symbol": "?sub_0090e8e0@USkeletalMeshComponent@@QAEHUFName@@@Z"
     }
    ]
   },
@@ -28095,7 +28095,7 @@
     {
      "va": "01557dd0",
      "size": 10,
-     "symbol": "?sub_01557dd0@C_01557dd0@@QAEIXZ"
+     "symbol": "?IsOn@ARBMWeaponStunStickBase@@QAEHXZ"
     },
     {
      "va": "01557f50",
@@ -30309,7 +30309,7 @@
     {
      "va": "01576090",
      "size": 34,
-     "symbol": "?sub_01576090@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576090@C_01576090@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30333,7 +30333,7 @@
     {
      "va": "01576250",
      "size": 34,
-     "symbol": "?sub_01576250@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576250@C_01576250@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30345,7 +30345,7 @@
     {
      "va": "01576310",
      "size": 34,
-     "symbol": "?sub_01576310@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576310@C_01576310@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30357,7 +30357,7 @@
     {
      "va": "01576370",
      "size": 34,
-     "symbol": "?sub_01576370@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576370@C_01576370@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30369,7 +30369,7 @@
     {
      "va": "01576430",
      "size": 34,
-     "symbol": "?sub_01576430@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576430@C_01576430@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30381,7 +30381,7 @@
     {
      "va": "01576500",
      "size": 34,
-     "symbol": "?sub_01576500@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576500@C_01576500@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30393,7 +30393,7 @@
     {
      "va": "015765c0",
      "size": 34,
-     "symbol": "?sub_015765c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015765c0@C_015765c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30405,7 +30405,7 @@
     {
      "va": "015767b0",
      "size": 34,
-     "symbol": "?sub_015767b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015767b0@C_015767b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30429,7 +30429,7 @@
     {
      "va": "01576a90",
      "size": 34,
-     "symbol": "?sub_01576a90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576a90@C_01576a90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30441,7 +30441,7 @@
     {
      "va": "01576c30",
      "size": 34,
-     "symbol": "?sub_01576c30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576c30@C_01576c30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30453,7 +30453,7 @@
     {
      "va": "01576c60",
      "size": 34,
-     "symbol": "?sub_01576c60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576c60@C_01576c60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30465,7 +30465,7 @@
     {
      "va": "01576d30",
      "size": 34,
-     "symbol": "?sub_01576d30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576d30@C_01576d30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30477,7 +30477,7 @@
     {
      "va": "01576e70",
      "size": 34,
-     "symbol": "?sub_01576e70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01576e70@C_01576e70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30489,7 +30489,7 @@
     {
      "va": "01577060",
      "size": 34,
-     "symbol": "?sub_01577060@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01577060@C_01577060@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30501,7 +30501,7 @@
     {
      "va": "015771d0",
      "size": 34,
-     "symbol": "?sub_015771d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015771d0@C_015771d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30513,7 +30513,7 @@
     {
      "va": "01577230",
      "size": 34,
-     "symbol": "?sub_01577230@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01577230@C_01577230@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30525,7 +30525,7 @@
     {
      "va": "015773f0",
      "size": 34,
-     "symbol": "?sub_015773f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015773f0@C_015773f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30537,7 +30537,7 @@
     {
      "va": "01579070",
      "size": 34,
-     "symbol": "?sub_01579070@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01579070@C_01579070@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30549,7 +30549,7 @@
     {
      "va": "01575820",
      "size": 34,
-     "symbol": "?sub_01575820@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01575820@C_01575820@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30561,7 +30561,7 @@
     {
      "va": "01579240",
      "size": 34,
-     "symbol": "?sub_01579240@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01579240@C_01579240@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30573,7 +30573,7 @@
     {
      "va": "015793c0",
      "size": 34,
-     "symbol": "?sub_015793c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015793c0@C_015793c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30585,7 +30585,7 @@
     {
      "va": "015793f0",
      "size": 34,
-     "symbol": "?sub_015793f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015793f0@C_015793f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30597,7 +30597,7 @@
     {
      "va": "01579660",
      "size": 34,
-     "symbol": "?sub_01579660@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01579660@C_01579660@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30609,7 +30609,7 @@
     {
      "va": "01579690",
      "size": 34,
-     "symbol": "?sub_01579690@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01579690@C_01579690@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30621,7 +30621,7 @@
     {
      "va": "015799b0",
      "size": 34,
-     "symbol": "?sub_015799b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015799b0@AActorCtor_@@QAEPAU1@XZ"
     },
     {
      "va": "01570440",
@@ -30655,7 +30655,7 @@
     {
      "va": "015758e0",
      "size": 34,
-     "symbol": "?sub_015758e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015758e0@C_015758e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30667,7 +30667,7 @@
     {
      "va": "015759a0",
      "size": 34,
-     "symbol": "?sub_015759a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015759a0@C_015759a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30679,7 +30679,7 @@
     {
      "va": "01575a60",
      "size": 34,
-     "symbol": "?sub_01575a60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01575a60@C_01575a60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30691,7 +30691,7 @@
     {
      "va": "01575b20",
      "size": 34,
-     "symbol": "?sub_01575b20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01575b20@C_01575b20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30703,7 +30703,7 @@
     {
      "va": "01575cf0",
      "size": 34,
-     "symbol": "?sub_01575cf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01575cf0@C_01575cf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -30715,7 +30715,7 @@
     {
      "va": "01575e10",
      "size": 34,
-     "symbol": "?sub_01575e10@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01575e10@C_01575e10@@QAEPAU1@XZ"
     }
    ]
   },
@@ -31744,7 +31744,7 @@
     {
      "va": "01582f20",
      "size": 46,
-     "symbol": "?eventCopyInState@URSeqAct_RandomSwitchForGameOver_@@QAEXXZ"
+     "symbol": "?eventCopyInState@URSeqAct_RandomSwitchForGameOver@@QAEXXZ"
     }
    ]
   },
@@ -32786,7 +32786,7 @@
     {
      "va": "01582ef0",
      "size": 46,
-     "symbol": "?sub_01582ef0@UObject_@@QAEXXZ"
+     "symbol": "?sub_01582ef0@UObject@@QAEXXZ"
     },
     {
      "va": "01584a70",
@@ -38829,7 +38829,7 @@
     {
      "va": "015f4a50",
      "size": 34,
-     "symbol": "?sub_015f4a50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4a50@C_015f4a50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38841,7 +38841,7 @@
     {
      "va": "015f4b20",
      "size": 34,
-     "symbol": "?sub_015f4b20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4b20@C_015f4b20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38853,7 +38853,7 @@
     {
      "va": "015f4b80",
      "size": 34,
-     "symbol": "?sub_015f4b80@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4b80@C_015f4b80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38865,7 +38865,7 @@
     {
      "va": "015f4c90",
      "size": 34,
-     "symbol": "?sub_015f4c90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4c90@C_015f4c90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38877,7 +38877,7 @@
     {
      "va": "015f4da0",
      "size": 34,
-     "symbol": "?sub_015f4da0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4da0@C_015f4da0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38889,7 +38889,7 @@
     {
      "va": "015f4fa0",
      "size": 34,
-     "symbol": "?sub_015f4fa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4fa0@C_015f4fa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38954,7 +38954,7 @@
     {
      "va": "015f3c90",
      "size": 34,
-     "symbol": "?sub_015f3c90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f3c90@C_015f3c90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38966,7 +38966,7 @@
     {
      "va": "015f3df0",
      "size": 34,
-     "symbol": "?sub_015f3df0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f3df0@C_015f3df0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38978,7 +38978,7 @@
     {
      "va": "015f3eb0",
      "size": 34,
-     "symbol": "?sub_015f3eb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f3eb0@C_015f3eb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -38990,7 +38990,7 @@
     {
      "va": "015f4120",
      "size": 34,
-     "symbol": "?sub_015f4120@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4120@C_015f4120@@QAEPAU1@XZ"
     }
    ]
   },
@@ -39002,7 +39002,7 @@
     {
      "va": "015f4150",
      "size": 34,
-     "symbol": "?sub_015f4150@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4150@C_015f4150@@QAEPAU1@XZ"
     }
    ]
   },
@@ -39014,7 +39014,7 @@
     {
      "va": "015f4910",
      "size": 34,
-     "symbol": "?sub_015f4910@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015f4910@C_015f4910@@QAEPAU1@XZ"
     }
    ]
   },
@@ -41982,7 +41982,7 @@
     {
      "va": "0162b820",
      "size": 34,
-     "symbol": "?sub_0162b820@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0162b820@C_0162b820@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44543,7 +44543,7 @@
     {
      "va": "01656770",
      "size": 34,
-     "symbol": "?sub_01656770@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656770@C_01656770@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44555,7 +44555,7 @@
     {
      "va": "016567a0",
      "size": 34,
-     "symbol": "?sub_016567a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016567a0@C_016567a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44567,7 +44567,7 @@
     {
      "va": "01656b00",
      "size": 34,
-     "symbol": "?sub_01656b00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656b00@C_01656b00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44579,7 +44579,7 @@
     {
      "va": "01656bc0",
      "size": 34,
-     "symbol": "?sub_01656bc0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656bc0@C_01656bc0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44591,7 +44591,7 @@
     {
      "va": "01656f20",
      "size": 34,
-     "symbol": "?sub_01656f20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656f20@C_01656f20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44603,7 +44603,7 @@
     {
      "va": "01657070",
      "size": 34,
-     "symbol": "?sub_01657070@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657070@C_01657070@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44615,7 +44615,7 @@
     {
      "va": "01655700",
      "size": 34,
-     "symbol": "?sub_01655700@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655700@C_01655700@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44627,7 +44627,7 @@
     {
      "va": "016572d0",
      "size": 34,
-     "symbol": "?sub_016572d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016572d0@C_016572d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44639,7 +44639,7 @@
     {
      "va": "016574d0",
      "size": 34,
-     "symbol": "?sub_016574d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016574d0@C_016574d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44651,7 +44651,7 @@
     {
      "va": "016575a0",
      "size": 34,
-     "symbol": "?sub_016575a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016575a0@C_016575a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44663,7 +44663,7 @@
     {
      "va": "016575d0",
      "size": 34,
-     "symbol": "?sub_016575d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016575d0@C_016575d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44675,7 +44675,7 @@
     {
      "va": "01657690",
      "size": 34,
-     "symbol": "?sub_01657690@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01657690@C_01657690@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44687,7 +44687,7 @@
     {
      "va": "01655b60",
      "size": 34,
-     "symbol": "?sub_01655b60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655b60@C_01655b60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44699,7 +44699,7 @@
     {
      "va": "01655c20",
      "size": 34,
-     "symbol": "?sub_01655c20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655c20@C_01655c20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44711,7 +44711,7 @@
     {
      "va": "01655ce0",
      "size": 34,
-     "symbol": "?sub_01655ce0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655ce0@C_01655ce0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44723,7 +44723,7 @@
     {
      "va": "01655ff0",
      "size": 34,
-     "symbol": "?sub_01655ff0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01655ff0@C_01655ff0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44735,7 +44735,7 @@
     {
      "va": "016560b0",
      "size": 34,
-     "symbol": "?sub_016560b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016560b0@C_016560b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44747,7 +44747,7 @@
     {
      "va": "016561b0",
      "size": 34,
-     "symbol": "?sub_016561b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016561b0@C_016561b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -44759,7 +44759,7 @@
     {
      "va": "01656310",
      "size": 34,
-     "symbol": "?sub_01656310@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01656310@C_01656310@@QAEPAU1@XZ"
     }
    ]
   },
@@ -46043,7 +46043,7 @@
     {
      "va": "0166d710",
      "size": 13,
-     "symbol": "?sub_0166d710@C_0166d710@@QAEIXZ"
+     "symbol": "?IsTargetted@ARPawnCombat@@QAEHXZ"
     },
     {
      "va": "0166d740",
@@ -46461,7 +46461,7 @@
     {
      "va": "01673060",
      "size": 75,
-     "symbol": "?eventAddItemToEvidenceDimArray@ARForensicsDevice_@@QAEXABUFScriptInterface@@@Z"
+     "symbol": "?eventAddItemToEvidenceDimArray@ARForensicsDevice@@QAEXABUFScriptInterface@@@Z"
     }
    ]
   },
@@ -46977,7 +46977,7 @@
     {
      "va": "01682d30",
      "size": 34,
-     "symbol": "?sub_01682d30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01682d30@C_01682d30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -46989,7 +46989,7 @@
     {
      "va": "01682e40",
      "size": 34,
-     "symbol": "?sub_01682e40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01682e40@C_01682e40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -47001,7 +47001,7 @@
     {
      "va": "01682f00",
      "size": 34,
-     "symbol": "?sub_01682f00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01682f00@C_01682f00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49760,7 +49760,7 @@
     {
      "va": "016c9350",
      "size": 34,
-     "symbol": "?sub_016c9350@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9350@C_016c9350@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49772,7 +49772,7 @@
     {
      "va": "016c9410",
      "size": 34,
-     "symbol": "?sub_016c9410@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9410@C_016c9410@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49784,7 +49784,7 @@
     {
      "va": "016c94e0",
      "size": 34,
-     "symbol": "?sub_016c94e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c94e0@C_016c94e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49850,7 +49850,7 @@
     {
      "va": "016c9810",
      "size": 34,
-     "symbol": "?sub_016c9810@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9810@C_016c9810@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49862,7 +49862,7 @@
     {
      "va": "016c9920",
      "size": 34,
-     "symbol": "?sub_016c9920@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9920@C_016c9920@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49874,7 +49874,7 @@
     {
      "va": "016c99f0",
      "size": 34,
-     "symbol": "?sub_016c99f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c99f0@C_016c99f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49886,7 +49886,7 @@
     {
      "va": "016c9ab0",
      "size": 34,
-     "symbol": "?sub_016c9ab0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9ab0@C_016c9ab0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49898,7 +49898,7 @@
     {
      "va": "016c9b80",
      "size": 34,
-     "symbol": "?sub_016c9b80@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9b80@C_016c9b80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49927,7 +49927,7 @@
     {
      "va": "016c9c80",
      "size": 34,
-     "symbol": "?sub_016c9c80@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9c80@C_016c9c80@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49939,7 +49939,7 @@
     {
      "va": "016c9e20",
      "size": 34,
-     "symbol": "?sub_016c9e20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9e20@C_016c9e20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49951,7 +49951,7 @@
     {
      "va": "016c8de0",
      "size": 34,
-     "symbol": "?sub_016c8de0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c8de0@C_016c8de0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49963,7 +49963,7 @@
     {
      "va": "016c8eb0",
      "size": 34,
-     "symbol": "?sub_016c8eb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c8eb0@C_016c8eb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49975,7 +49975,7 @@
     {
      "va": "016c8f70",
      "size": 34,
-     "symbol": "?sub_016c8f70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c8f70@C_016c8f70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49987,7 +49987,7 @@
     {
      "va": "016c9030",
      "size": 34,
-     "symbol": "?sub_016c9030@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9030@C_016c9030@@QAEPAU1@XZ"
     }
    ]
   },
@@ -49999,7 +49999,7 @@
     {
      "va": "016c90f0",
      "size": 34,
-     "symbol": "?sub_016c90f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c90f0@C_016c90f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -50011,7 +50011,7 @@
     {
      "va": "016c91c0",
      "size": 34,
-     "symbol": "?sub_016c91c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c91c0@C_016c91c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -50023,7 +50023,7 @@
     {
      "va": "016c9280",
      "size": 34,
-     "symbol": "?sub_016c9280@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016c9280@C_016c9280@@QAEPAU1@XZ"
     }
    ]
   },
@@ -50782,7 +50782,7 @@
     {
      "va": "016d0c10",
      "size": 29,
-     "symbol": "?sub_016d0c10@C_016d0c10@@QAEXI@Z"
+     "symbol": "?PostEditMove@ARWindVolume@@UAEXH@Z"
     },
     {
      "va": "016d15e0",
@@ -50826,7 +50826,7 @@
     {
      "va": "016df940",
      "size": 34,
-     "symbol": "?sub_016df940@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016df940@C_016df940@@QAEPAU1@XZ"
     }
    ]
   },
@@ -50855,7 +50855,7 @@
     {
      "va": "016dfd20",
      "size": 34,
-     "symbol": "?sub_016dfd20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfd20@C_016dfd20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -50867,7 +50867,7 @@
     {
      "va": "016dfde0",
      "size": 34,
-     "symbol": "?sub_016dfde0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_016dfde0@C_016dfde0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56848,7 +56848,7 @@
     {
      "va": "01731740",
      "size": 34,
-     "symbol": "?sub_01731740@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731740@C_01731740@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56860,7 +56860,7 @@
     {
      "va": "01731aa0",
      "size": 34,
-     "symbol": "?sub_01731aa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731aa0@C_01731aa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56872,7 +56872,7 @@
     {
      "va": "01731b60",
      "size": 34,
-     "symbol": "?sub_01731b60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731b60@C_01731b60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56884,7 +56884,7 @@
     {
      "va": "01731c20",
      "size": 34,
-     "symbol": "?sub_01731c20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731c20@C_01731c20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56896,7 +56896,7 @@
     {
      "va": "01731cf0",
      "size": 34,
-     "symbol": "?sub_01731cf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731cf0@C_01731cf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56908,7 +56908,7 @@
     {
      "va": "01731db0",
      "size": 34,
-     "symbol": "?sub_01731db0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731db0@C_01731db0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56920,7 +56920,7 @@
     {
      "va": "01731fb0",
      "size": 34,
-     "symbol": "?sub_01731fb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731fb0@C_01731fb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56932,7 +56932,7 @@
     {
      "va": "01732070",
      "size": 34,
-     "symbol": "?sub_01732070@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01732070@C_01732070@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56944,7 +56944,7 @@
     {
      "va": "01732130",
      "size": 34,
-     "symbol": "?sub_01732130@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01732130@C_01732130@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56956,7 +56956,7 @@
     {
      "va": "01732710",
      "size": 34,
-     "symbol": "?sub_01732710@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01732710@C_01732710@@QAEPAU1@XZ"
     }
    ]
   },
@@ -56992,7 +56992,7 @@
     {
      "va": "01730cd0",
      "size": 34,
-     "symbol": "?sub_01730cd0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01730cd0@C_01730cd0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57004,7 +57004,7 @@
     {
      "va": "01730d90",
      "size": 34,
-     "symbol": "?sub_01730d90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01730d90@C_01730d90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57016,7 +57016,7 @@
     {
      "va": "01730e50",
      "size": 34,
-     "symbol": "?sub_01730e50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01730e50@C_01730e50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57028,7 +57028,7 @@
     {
      "va": "01730f10",
      "size": 34,
-     "symbol": "?sub_01730f10@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01730f10@C_01730f10@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57040,7 +57040,7 @@
     {
      "va": "01731440",
      "size": 34,
-     "symbol": "?sub_01731440@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731440@C_01731440@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57052,7 +57052,7 @@
     {
      "va": "01731710",
      "size": 34,
-     "symbol": "?sub_01731710@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01731710@C_01731710@@QAEPAU1@XZ"
     }
    ]
   },
@@ -57655,7 +57655,7 @@
     {
      "va": "0173a490",
      "size": 13,
-     "symbol": "?sub_0173a490@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UThumbnailsCommandlet@@QAEXXZ"
     },
     {
      "va": "0173dca0",
@@ -57722,7 +57722,7 @@
     {
      "va": "0173a470",
      "size": 13,
-     "symbol": "?sub_0173a470@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UVerifySourceControlCommandlet@@QAEXXZ"
     },
     {
      "va": "0173df10",
@@ -59252,7 +59252,7 @@
     {
      "va": "01530660",
      "size": 34,
-     "symbol": "?sub_01530660@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01530660@C_01530660@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59462,7 +59462,7 @@
     {
      "va": "01530010",
      "size": 34,
-     "symbol": "?sub_01530010@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01530010@C_01530010@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59486,7 +59486,7 @@
     {
      "va": "01530260",
      "size": 34,
-     "symbol": "?sub_01530260@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01530260@C_01530260@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59510,7 +59510,7 @@
     {
      "va": "01530320",
      "size": 34,
-     "symbol": "?sub_01530320@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01530320@C_01530320@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59522,7 +59522,7 @@
     {
      "va": "01530460",
      "size": 34,
-     "symbol": "?sub_01530460@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01530460@C_01530460@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59534,7 +59534,7 @@
     {
      "va": "015304c0",
      "size": 34,
-     "symbol": "?sub_015304c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015304c0@C_015304c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -59546,7 +59546,7 @@
     {
      "va": "015305a0",
      "size": 34,
-     "symbol": "?sub_015305a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015305a0@C_015305a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60130,7 +60130,7 @@
     {
      "va": "015461c0",
      "size": 34,
-     "symbol": "?sub_015461c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015461c0@C_015461c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60338,7 +60338,7 @@
     {
      "va": "01545960",
      "size": 34,
-     "symbol": "?sub_01545960@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01545960@C_01545960@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60350,7 +60350,7 @@
     {
      "va": "015459d0",
      "size": 34,
-     "symbol": "?sub_015459d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_015459d0@C_015459d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60362,7 +60362,7 @@
     {
      "va": "01545af0",
      "size": 34,
-     "symbol": "?sub_01545af0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01545af0@C_01545af0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60374,7 +60374,7 @@
     {
      "va": "01545b50",
      "size": 34,
-     "symbol": "?sub_01545b50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01545b50@C_01545b50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -60386,7 +60386,7 @@
     {
      "va": "01545e70",
      "size": 34,
-     "symbol": "?sub_01545e70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_01545e70@C_01545e70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -66943,7 +66943,7 @@
     {
      "va": "00572a50",
      "size": 46,
-     "symbol": "?vf_02c@UStruct@@UAEXXZ"
+     "symbol": "?FinishDestroy@UStruct@@UAEXXZ"
     }
    ]
   },
@@ -69473,7 +69473,7 @@
     {
      "va": "005c4800",
      "size": 152,
-     "symbol": "?Exp@FQuat@@QBE?AUFQuat@@XZ"
+     "symbol": "?Exp@FQuat@@QBE?AU1@XZ"
     }
    ]
   },
@@ -75054,7 +75054,7 @@
     {
      "va": "00567ca0",
      "size": 26,
-     "symbol": "?sub_00567ca0@USkeletalMeshSocket_@@QAEHHHH@Z"
+     "symbol": "?sub_00567ca0@C_00567ca0@@QAEHHHH@Z"
     }
    ]
   },
@@ -75432,7 +75432,7 @@
     {
      "va": "0058f750",
      "size": 64,
-     "symbol": "?IsProbing@AController_@@QAEHUFName_@@@Z"
+     "symbol": "?IsProbing@AController_@@QAEHUFName@@@Z"
     }
    ]
   },
@@ -75871,7 +75871,7 @@
     {
      "va": "005996a0",
      "size": 42,
-     "symbol": "?sub_005996a0@UObject_@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005996a0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599e30",
@@ -76476,77 +76476,77 @@
     {
      "va": "00599670",
      "size": 42,
-     "symbol": "?sub_00599670@UObject__00599670@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599670@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005996d0",
      "size": 42,
-     "symbol": "?sub_005996d0@UObject__005996d0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005996d0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599700",
      "size": 42,
-     "symbol": "?sub_00599700@UObject__00599700@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599700@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599730",
      "size": 42,
-     "symbol": "?sub_00599730@UObject__00599730@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599730@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599760",
      "size": 42,
-     "symbol": "?sub_00599760@UObject__00599760@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599760@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599790",
      "size": 42,
-     "symbol": "?sub_00599790@UObject__00599790@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599790@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005997c0",
      "size": 42,
-     "symbol": "?sub_005997c0@UObject__005997c0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005997c0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005997f0",
      "size": 42,
-     "symbol": "?sub_005997f0@UObject__005997f0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005997f0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599820",
      "size": 42,
-     "symbol": "?sub_00599820@UObject__00599820@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599820@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599850",
      "size": 42,
-     "symbol": "?sub_00599850@UObject__00599850@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599850@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599880",
      "size": 42,
-     "symbol": "?sub_00599880@UObject__00599880@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599880@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005998b0",
      "size": 42,
-     "symbol": "?sub_005998b0@UObject__005998b0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005998b0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005998e0",
      "size": 42,
-     "symbol": "?sub_005998e0@UObject__005998e0@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_005998e0@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599910",
      "size": 42,
-     "symbol": "?sub_00599910@UObject__00599910@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599910@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00599940",
      "size": 42,
-     "symbol": "?sub_00599940@UObject__00599940@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?sub_00599940@UObject@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "005989d0",
@@ -77035,7 +77035,7 @@
     {
      "va": "00590150",
      "size": 85,
-     "symbol": "?execDynArrayLength@UObject_@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execDynArrayLength@UObject@@QAEXAAUFFrame@@QAX@Z"
     }
    ]
   },
@@ -78718,7 +78718,7 @@
     {
      "va": "005c1840",
      "size": 26,
-     "symbol": "?sub_005c1840@C@@QAEHXZ"
+     "symbol": "?GetUnusedByteCount@FMemStack@@QBEHXZ"
     },
     {
      "va": "005c18f0",
@@ -78923,7 +78923,7 @@
     {
      "va": "005c2140",
      "size": 25,
-     "symbol": "?sub_005c2140@UObject_@@QAEKXZ"
+     "symbol": "?sub_005c2140@UObject@@QAEKXZ"
     },
     {
      "va": "005c2160",
@@ -80434,7 +80434,7 @@
     {
      "va": "005ff380",
      "size": 12,
-     "symbol": "?sub_005ff380@UPackageMap__005ff380@@QAEPAUFPointer@@PAU2@@Z"
+     "symbol": "?sub_005ff380@UPackageMap@@QAEPAUFPointer@@PAU2@@Z"
     }
    ]
   },
@@ -116749,7 +116749,7 @@
     {
      "va": "01014970",
      "size": 13,
-     "symbol": "?sub_01014970@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeCookedContentCommandlet@@QAEXXZ"
     },
     {
      "va": "0104cfa0",
@@ -117495,7 +117495,7 @@
     {
      "va": "010148d0",
      "size": 13,
-     "symbol": "?sub_010148d0@C_010148d0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeReferencedContentCommandlet@@QAEXXZ"
     },
     {
      "va": "010148e0",
@@ -118134,7 +118134,7 @@
     {
      "va": "010149e0",
      "size": 13,
-     "symbol": "?sub_010149e0@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UDiffPackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "01015c90",
@@ -118995,7 +118995,7 @@
     {
      "va": "01014990",
      "size": 13,
-     "symbol": "?sub_01014990@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UExportLocCommandlet@@QAEXXZ"
     },
     {
      "va": "010149c0",
@@ -119275,7 +119275,7 @@
     {
      "va": "010148f0",
      "size": 13,
-     "symbol": "?sub_010148f0@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeScriptCommandlet@@QAEXXZ"
     },
     {
      "va": "010160f0",
@@ -120382,7 +120382,7 @@
     {
      "va": "01059d50",
      "size": 13,
-     "symbol": "?sub_01059d50@C_01059d50@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UBatchExportCommandlet@@QAEXXZ"
     },
     {
      "va": "01059d60",
@@ -120392,7 +120392,7 @@
     {
      "va": "01059d70",
      "size": 13,
-     "symbol": "?sub_01059d70@C_01059d70@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UConformCommandlet@@QAEXXZ"
     },
     {
      "va": "01059d80",
@@ -120402,7 +120402,7 @@
     {
      "va": "01059d90",
      "size": 13,
-     "symbol": "?sub_01059d90@C_01059d90@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UDumpEmittersCommandlet@@QAEXXZ"
     },
     {
      "va": "01059da0",
@@ -120412,7 +120412,7 @@
     {
      "va": "01059db0",
      "size": 13,
-     "symbol": "?sub_01059db0@C_01059db0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFixupEmittersCommandlet@@QAEXXZ"
     },
     {
      "va": "01059dc0",
@@ -120422,7 +120422,7 @@
     {
      "va": "01059dd0",
      "size": 13,
-     "symbol": "?sub_01059dd0@C_01059dd0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindEmitterMismatchedLODsCommandlet@@QAEXXZ"
     },
     {
      "va": "01059de0",
@@ -120432,7 +120432,7 @@
     {
      "va": "01059df0",
      "size": 13,
-     "symbol": "?sub_01059df0@C_01059df0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindEmitterModifiedLODsCommandlet@@QAEXXZ"
     },
     {
      "va": "01059e00",
@@ -120442,7 +120442,7 @@
     {
      "va": "01059e10",
      "size": 13,
-     "symbol": "?sub_01059e10@C_01059e10@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindEmitterModuleLODErrorsCommandlet@@QAEXXZ"
     },
     {
      "va": "01059e20",
@@ -120452,7 +120452,7 @@
     {
      "va": "01059e30",
      "size": 13,
-     "symbol": "?sub_01059e30@C_01059e30@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFixupSourceUVsCommandlet@@QAEXXZ"
     },
     {
      "va": "01059e40",
@@ -120462,7 +120462,7 @@
     {
      "va": "01059e50",
      "size": 13,
-     "symbol": "?sub_01059e50@C_01059e50@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UResavePackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "01059e60",
@@ -120472,7 +120472,7 @@
     {
      "va": "01059e70",
      "size": 13,
-     "symbol": "?sub_01059e70@C_01059e70@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UChangePrefabSequenceClassCommandlet@@QAEXXZ"
     },
     {
      "va": "01059e80",
@@ -120482,7 +120482,7 @@
     {
      "va": "01059e90",
      "size": 13,
-     "symbol": "?sub_01059e90@C_01059e90@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UCutDownContentCommandlet@@QAEXXZ"
     },
     {
      "va": "01059ea0",
@@ -120492,7 +120492,7 @@
     {
      "va": "01059eb0",
      "size": 13,
-     "symbol": "?sub_01059eb0@C_01059eb0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UScaleAudioVolumeCommandlet@@QAEXXZ"
     },
     {
      "va": "01059ec0",
@@ -120502,7 +120502,7 @@
     {
      "va": "01059ed0",
      "size": 13,
-     "symbol": "?sub_01059ed0@C_01059ed0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@URebuildMapCommandlet@@QAEXXZ"
     },
     {
      "va": "01059ee0",
@@ -120512,7 +120512,7 @@
     {
      "va": "01059ef0",
      "size": 13,
-     "symbol": "?sub_01059ef0@C_01059ef0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UTestCompressionCommandlet@@QAEXXZ"
     },
     {
      "va": "01059f00",
@@ -120522,7 +120522,7 @@
     {
      "va": "01059f10",
      "size": 13,
-     "symbol": "?sub_01059f10@C_01059f10@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UMergePackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "01059f20",
@@ -120532,7 +120532,7 @@
     {
      "va": "01059f30",
      "size": 13,
-     "symbol": "?sub_01059f30@C_01059f30@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UMakeCommandlet@@QAEXXZ"
     },
     {
      "va": "01059f40",
@@ -120542,7 +120542,7 @@
     {
      "va": "01059f50",
      "size": 13,
-     "symbol": "?sub_01059f50@C_01059f50@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UCreateDefaultStyleCommandlet@@QAEXXZ"
     },
     {
      "va": "01059f60",
@@ -120552,7 +120552,7 @@
     {
      "va": "01059f70",
      "size": 13,
-     "symbol": "?sub_01059f70@C_01059f70@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UExamineOutersCommandlet@@QAEXXZ"
     },
     {
      "va": "01059f80",
@@ -120562,7 +120562,7 @@
     {
      "va": "01059f90",
      "size": 13,
-     "symbol": "?sub_01059f90@C_01059f90@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindDuplicateKismetObjectsCommandlet@@QAEXXZ"
     },
     {
      "va": "01059fa0",
@@ -120572,7 +120572,7 @@
     {
      "va": "01059fb0",
      "size": 13,
-     "symbol": "?sub_01059fb0@C_01059fb0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UWrangleContentCommandlet@@QAEXXZ"
     },
     {
      "va": "01059fc0",
@@ -120582,7 +120582,7 @@
     {
      "va": "01059fd0",
      "size": 13,
-     "symbol": "?sub_01059fd0@C_01059fd0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFixAmbiguousMaterialParametersCommandlet@@QAEXXZ"
     },
     {
      "va": "01059fe0",
@@ -120592,7 +120592,7 @@
     {
      "va": "01059ff0",
      "size": 13,
-     "symbol": "?sub_01059ff0@C_01059ff0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPIEToNormalCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a000",
@@ -120602,7 +120602,7 @@
     {
      "va": "0105a010",
      "size": 13,
-     "symbol": "?sub_0105a010@C_0105a010@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UUT3MapStatsCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a020",
@@ -120612,7 +120612,7 @@
     {
      "va": "0105a030",
      "size": 13,
-     "symbol": "?sub_0105a030@C_0105a030@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListLoopingEmittersCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a040",
@@ -120622,7 +120622,7 @@
     {
      "va": "0105a050",
      "size": 13,
-     "symbol": "?sub_0105a050@C_0105a050@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@USoundGroupInfoCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a060",
@@ -120632,7 +120632,7 @@
     {
      "va": "0105a070",
      "size": 13,
-     "symbol": "?sub_0105a070@C_0105a070@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListDistanceCrossFadeNodesCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a080",
@@ -120642,7 +120642,7 @@
     {
      "va": "0105a090",
      "size": 13,
-     "symbol": "?sub_0105a090@C_0105a090@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@ULocSoundInfoCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a0a0",
@@ -120652,7 +120652,7 @@
     {
      "va": "0105a0b0",
      "size": 13,
-     "symbol": "?sub_0105a0b0@C_0105a0b0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UBuildContentTagIndexCommandlet@@QAEXXZ"
     },
     {
      "va": "0105a0c0",
@@ -121822,7 +121822,7 @@
     {
      "va": "0107a100",
      "size": 35,
-     "symbol": "?sub_0107a100@UResavePackagesCommandlet@@QAEIE@Z"
+     "symbol": "?sub_0107a100@C_0107a100@@QAEIE@Z"
     },
     {
      "va": "0107ebe0",
@@ -122158,7 +122158,7 @@
     {
      "va": "01103bb0",
      "size": 13,
-     "symbol": "?sub_01103bb0@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@USetMaterialUsageCommandlet@@QAEXXZ"
     },
     {
      "va": "011100e0",
@@ -122175,7 +122175,7 @@
     {
      "va": "01103b90",
      "size": 13,
-     "symbol": "?sub_01103b90@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UStripSourceCommandlet@@QAEXXZ"
     },
     {
      "va": "011101a0",
@@ -123467,7 +123467,7 @@
     {
      "va": "0108ca70",
      "size": 13,
-     "symbol": "?sub_0108ca70@C_0108ca70@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UCookPackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "0108ca80",
@@ -129624,7 +129624,7 @@
     {
      "va": "00f1e1f0",
      "size": 6,
-     "symbol": "?vf_000@UTextureFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureFactory@@UBEHXZ"
     }
    ]
   },
@@ -129636,7 +129636,7 @@
     {
      "va": "00f1e200",
      "size": 52,
-     "symbol": "?vf_004@UTextureFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureFactory@@UBEHXZ"
     }
    ]
   },
@@ -129660,7 +129660,7 @@
     {
      "va": "00f1e350",
      "size": 6,
-     "symbol": "?vf_000@UTextureExporterPCX@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureExporterPCX@@UBEHXZ"
     }
    ]
   },
@@ -129672,7 +129672,7 @@
     {
      "va": "00f1e360",
      "size": 52,
-     "symbol": "?vf_004@UTextureExporterPCX@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureExporterPCX@@UBEHXZ"
     }
    ]
   },
@@ -129696,7 +129696,7 @@
     {
      "va": "00f1ec30",
      "size": 6,
-     "symbol": "?vf_000@URenderTargetCubeExporterTGA@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@URenderTargetCubeExporterTGA@@UBEHXZ"
     }
    ]
   },
@@ -129708,7 +129708,7 @@
     {
      "va": "00f1ec40",
      "size": 52,
-     "symbol": "?vf_004@URenderTargetCubeExporterTGA@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@URenderTargetCubeExporterTGA@@UBEHXZ"
     }
    ]
   },
@@ -129732,7 +129732,7 @@
     {
      "va": "00f1b590",
      "size": 6,
-     "symbol": "?vf_000@UMaterialInstanceConstantFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMaterialInstanceConstantFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -129744,7 +129744,7 @@
     {
      "va": "00f1f250",
      "size": 6,
-     "symbol": "?vf_000@UReimportStaticMeshFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UReimportStaticMeshFactory@@UBEHXZ"
     }
    ]
   },
@@ -129756,7 +129756,7 @@
     {
      "va": "00f1f260",
      "size": 52,
-     "symbol": "?vf_004@UReimportStaticMeshFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UReimportStaticMeshFactory@@UBEHXZ"
     }
    ]
   },
@@ -129780,7 +129780,7 @@
     {
      "va": "00f1f3b0",
      "size": 6,
-     "symbol": "?vf_000@UReimportSkeletalMeshFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UReimportSkeletalMeshFactory@@UBEHXZ"
     }
    ]
   },
@@ -129792,7 +129792,7 @@
     {
      "va": "00f1f3c0",
      "size": 52,
-     "symbol": "?vf_004@UReimportSkeletalMeshFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UReimportSkeletalMeshFactory@@UBEHXZ"
     }
    ]
   },
@@ -129804,7 +129804,7 @@
     {
      "va": "00f1f400",
      "size": 6,
-     "symbol": "?vf_000@UReimportSoundFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UReimportSoundFactory@@UBEHXZ"
     }
    ]
   },
@@ -129816,7 +129816,7 @@
     {
      "va": "00f1f410",
      "size": 82,
-     "symbol": "?vf_10c@UColladaFactory@@UAEHXZ"
+     "symbol": "?ResolveSupportedClass@UColladaFactory@@UAEPAUUClass@@XZ"
     }
    ]
   },
@@ -129840,7 +129840,7 @@
     {
      "va": "00f1f580",
      "size": 6,
-     "symbol": "?vf_000@UColladaFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UColladaFactory@@UBEHXZ"
     }
    ]
   },
@@ -129852,7 +129852,7 @@
     {
      "va": "00f1f590",
      "size": 52,
-     "symbol": "?vf_004@UColladaFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UColladaFactory@@UBEHXZ"
     }
    ]
   },
@@ -129864,7 +129864,7 @@
     {
      "va": "00f1b5a0",
      "size": 52,
-     "symbol": "?vf_004@UMaterialInstanceConstantFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMaterialInstanceConstantFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -129888,7 +129888,7 @@
     {
      "va": "00f1f6e0",
      "size": 6,
-     "symbol": "?vf_000@UCurveEdPresetCurveFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UCurveEdPresetCurveFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -129900,7 +129900,7 @@
     {
      "va": "00f1f6f0",
      "size": 52,
-     "symbol": "?vf_004@UCurveEdPresetCurveFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UCurveEdPresetCurveFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -129924,7 +129924,7 @@
     {
      "va": "00f1f840",
      "size": 6,
-     "symbol": "?vf_000@UCameraAnimFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UCameraAnimFactory@@UBEHXZ"
     }
    ]
   },
@@ -129936,7 +129936,7 @@
     {
      "va": "00f1f850",
      "size": 52,
-     "symbol": "?vf_004@UCameraAnimFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UCameraAnimFactory@@UBEHXZ"
     }
    ]
   },
@@ -129960,7 +129960,7 @@
     {
      "va": "00f1f9a0",
      "size": 6,
-     "symbol": "?vf_000@USpeedTreeFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USpeedTreeFactory@@UBEHXZ"
     }
    ]
   },
@@ -129972,7 +129972,7 @@
     {
      "va": "00f1f9b0",
      "size": 52,
-     "symbol": "?vf_004@USpeedTreeFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USpeedTreeFactory@@UBEHXZ"
     }
    ]
   },
@@ -130128,7 +130128,7 @@
     {
      "va": "00f1b6f0",
      "size": 6,
-     "symbol": "?vf_000@UMaterialInstanceTimeVaryingFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMaterialInstanceTimeVaryingFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -130260,7 +130260,7 @@
     {
      "va": "00f1b700",
      "size": 52,
-     "symbol": "?vf_004@UMaterialInstanceTimeVaryingFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMaterialInstanceTimeVaryingFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -130524,7 +130524,7 @@
     {
      "va": "00f1b850",
      "size": 6,
-     "symbol": "?vf_000@UMaterialFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMaterialFactory@@UBEHXZ"
     }
    ]
   },
@@ -130656,7 +130656,7 @@
     {
      "va": "00f1b860",
      "size": 52,
-     "symbol": "?vf_004@UMaterialFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMaterialFactory@@UBEHXZ"
     }
    ]
   },
@@ -130932,7 +130932,7 @@
     {
      "va": "00f1b9b0",
      "size": 6,
-     "symbol": "?vf_000@UMaterialFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131424,7 +131424,7 @@
     {
      "va": "00f1b9c0",
      "size": 52,
-     "symbol": "?vf_004@UMaterialFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131448,7 +131448,7 @@
     {
      "va": "00f1bb10",
      "size": 6,
-     "symbol": "?vf_000@UDecalMaterialFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UDecalMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131460,7 +131460,7 @@
     {
      "va": "00f1bb20",
      "size": 52,
-     "symbol": "?vf_004@UDecalMaterialFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UDecalMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131484,7 +131484,7 @@
     {
      "va": "00f1bc70",
      "size": 6,
-     "symbol": "?vf_000@UClassFactoryUC@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UClassFactoryUC@@UBEHXZ"
     }
    ]
   },
@@ -131496,7 +131496,7 @@
     {
      "va": "00f1bc80",
      "size": 52,
-     "symbol": "?vf_004@UClassFactoryUC@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UClassFactoryUC@@UBEHXZ"
     }
    ]
   },
@@ -131520,7 +131520,7 @@
     {
      "va": "00f1bdd0",
      "size": 6,
-     "symbol": "?vf_000@ULevelFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ULevelFactory@@UBEHXZ"
     }
    ]
   },
@@ -131544,7 +131544,7 @@
     {
      "va": "00f1bde0",
      "size": 52,
-     "symbol": "?vf_004@ULevelFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ULevelFactory@@UBEHXZ"
     }
    ]
   },
@@ -131568,7 +131568,7 @@
     {
      "va": "00f1bf30",
      "size": 6,
-     "symbol": "?vf_000@UPackageFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPackageFactory@@UBEHXZ"
     }
    ]
   },
@@ -131580,7 +131580,7 @@
     {
      "va": "00f1bf40",
      "size": 52,
-     "symbol": "?vf_004@UPackageFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPackageFactory@@UBEHXZ"
     }
    ]
   },
@@ -131604,7 +131604,7 @@
     {
      "va": "00f1c090",
      "size": 6,
-     "symbol": "?vf_000@UPolysFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPolysFactory@@UBEHXZ"
     }
    ]
   },
@@ -131616,7 +131616,7 @@
     {
      "va": "00f1c0a0",
      "size": 52,
-     "symbol": "?vf_004@UPolysFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPolysFactory@@UBEHXZ"
     }
    ]
   },
@@ -131640,7 +131640,7 @@
     {
      "va": "00f1c1f0",
      "size": 6,
-     "symbol": "?vf_000@UModelFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UModelFactory@@UBEHXZ"
     }
    ]
   },
@@ -131652,7 +131652,7 @@
     {
      "va": "00f1c200",
      "size": 52,
-     "symbol": "?vf_004@UModelFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UModelFactory@@UBEHXZ"
     }
    ]
   },
@@ -131698,7 +131698,7 @@
     {
      "va": "00f1c350",
      "size": 6,
-     "symbol": "?vf_000@USoundTTSFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USoundTTSFactory@@UBEHXZ"
     }
    ]
   },
@@ -131710,7 +131710,7 @@
     {
      "va": "00f1c360",
      "size": 52,
-     "symbol": "?vf_004@USoundTTSFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USoundTTSFactory@@UBEHXZ"
     }
    ]
   },
@@ -131734,7 +131734,7 @@
     {
      "va": "00f1c4b0",
      "size": 6,
-     "symbol": "?vf_000@USoundFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USoundFactory@@UBEHXZ"
     }
    ]
   },
@@ -131746,7 +131746,7 @@
     {
      "va": "00f1c4c0",
      "size": 52,
-     "symbol": "?vf_004@USoundFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USoundFactory@@UBEHXZ"
     }
    ]
   },
@@ -131770,7 +131770,7 @@
     {
      "va": "00f1c610",
      "size": 6,
-     "symbol": "?vf_000@USoundSurroundFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USoundSurroundFactory@@UBEHXZ"
     }
    ]
   },
@@ -131782,7 +131782,7 @@
     {
      "va": "00f1c620",
      "size": 52,
-     "symbol": "?vf_004@USoundSurroundFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USoundSurroundFactory@@UBEHXZ"
     }
    ]
   },
@@ -131823,7 +131823,7 @@
     {
      "va": "00f1c770",
      "size": 6,
-     "symbol": "?vf_000@USoundCueFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USoundCueFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131835,7 +131835,7 @@
     {
      "va": "00f1c780",
      "size": 52,
-     "symbol": "?vf_004@USoundCueFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USoundCueFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131859,7 +131859,7 @@
     {
      "va": "00f1c8d0",
      "size": 6,
-     "symbol": "?vf_000@USoundModeFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USoundModeFactory@@UBEHXZ"
     }
    ]
   },
@@ -131871,7 +131871,7 @@
     {
      "va": "00f1c8e0",
      "size": 52,
-     "symbol": "?vf_004@USoundModeFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USoundModeFactory@@UBEHXZ"
     }
    ]
   },
@@ -131895,7 +131895,7 @@
     {
      "va": "00f1ca30",
      "size": 6,
-     "symbol": "?vf_000@UFonixFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UFonixFactory@@UBEHXZ"
     }
    ]
   },
@@ -131907,7 +131907,7 @@
     {
      "va": "00f1ca40",
      "size": 52,
-     "symbol": "?vf_004@UFonixFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UFonixFactory@@UBEHXZ"
     }
    ]
   },
@@ -131931,7 +131931,7 @@
     {
      "va": "00f1cb90",
      "size": 6,
-     "symbol": "?vf_000@ULensFlareFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ULensFlareFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131943,7 +131943,7 @@
     {
      "va": "00f19cf0",
      "size": 5,
-     "symbol": "?vf_118@URenderTargetCubeExporterTGA@@UAEHHHHHHH@Z"
+     "symbol": "?ExportBinary@URenderTargetCubeExporterTGA@@UAEHPAUUObject@@PB_WAAVFArchive@@PAUFFeedbackContext@@HK@Z"
     }
    ]
   },
@@ -131955,7 +131955,7 @@
     {
      "va": "00f1cba0",
      "size": 52,
-     "symbol": "?vf_004@ULensFlareFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ULensFlareFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131979,7 +131979,7 @@
     {
      "va": "00f1ccf0",
      "size": 6,
-     "symbol": "?vf_000@UParticleSystemFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UParticleSystemFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -131991,7 +131991,7 @@
     {
      "va": "00f1cd00",
      "size": 52,
-     "symbol": "?vf_004@UParticleSystemFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UParticleSystemFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132015,7 +132015,7 @@
     {
      "va": "00f1ce50",
      "size": 6,
-     "symbol": "?vf_000@UApexDestructibleAssetFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UApexDestructibleAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132027,7 +132027,7 @@
     {
      "va": "00f1ce60",
      "size": 52,
-     "symbol": "?vf_004@UApexDestructibleAssetFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UApexDestructibleAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132051,7 +132051,7 @@
     {
      "va": "00f1cfb0",
      "size": 6,
-     "symbol": "?vf_000@UApexRenderMeshAssetFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UApexRenderMeshAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132063,7 +132063,7 @@
     {
      "va": "00f1cfc0",
      "size": 52,
-     "symbol": "?vf_004@UApexRenderMeshAssetFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UApexRenderMeshAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132099,7 +132099,7 @@
     {
      "va": "00f1d110",
      "size": 6,
-     "symbol": "?vf_000@UApexParticleSystemAssetFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UApexParticleSystemAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132111,7 +132111,7 @@
     {
      "va": "00f1d120",
      "size": 52,
-     "symbol": "?vf_004@UApexParticleSystemAssetFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UApexParticleSystemAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132135,7 +132135,7 @@
     {
      "va": "00f1d270",
      "size": 6,
-     "symbol": "?vf_000@UApexMeshParticleFactoryAssetFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UApexMeshParticleFactoryAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132147,7 +132147,7 @@
     {
      "va": "00f1d280",
      "size": 52,
-     "symbol": "?vf_004@UApexMeshParticleFactoryAssetFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UApexMeshParticleFactoryAssetFactory@@UBEHXZ"
     }
    ]
   },
@@ -132171,7 +132171,7 @@
     {
      "va": "00f1d3d0",
      "size": 6,
-     "symbol": "?vf_000@UDestructibleDamageParametersFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UDestructibleDamageParametersFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132183,7 +132183,7 @@
     {
      "va": "00f1d3e0",
      "size": 52,
-     "symbol": "?vf_004@UDestructibleDamageParametersFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UDestructibleDamageParametersFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132207,7 +132207,7 @@
     {
      "va": "00f1b430",
      "size": 6,
-     "symbol": "?vf_000@UTextureCubeFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureCubeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132219,7 +132219,7 @@
     {
      "va": "00f1d530",
      "size": 6,
-     "symbol": "?vf_000@UPhysXParticleSystemFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPhysXParticleSystemFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132231,7 +132231,7 @@
     {
      "va": "00f1d540",
      "size": 52,
-     "symbol": "?vf_004@UPhysXParticleSystemFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPhysXParticleSystemFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132255,7 +132255,7 @@
     {
      "va": "00f1d7f0",
      "size": 6,
-     "symbol": "?vf_000@UAnimTreeFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UAnimTreeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132267,7 +132267,7 @@
     {
      "va": "00f1d800",
      "size": 52,
-     "symbol": "?vf_004@UAnimTreeFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UAnimTreeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132291,7 +132291,7 @@
     {
      "va": "00f1d950",
      "size": 6,
-     "symbol": "?vf_000@UPostProcessFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPostProcessFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132303,7 +132303,7 @@
     {
      "va": "00f1d960",
      "size": 52,
-     "symbol": "?vf_004@UPostProcessFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPostProcessFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132327,7 +132327,7 @@
     {
      "va": "00f1dab0",
      "size": 6,
-     "symbol": "?vf_000@UPhysicalMaterialFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPhysicalMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132339,7 +132339,7 @@
     {
      "va": "00f1b440",
      "size": 52,
-     "symbol": "?vf_004@UTextureCubeFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureCubeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132351,7 +132351,7 @@
     {
      "va": "00f1dac0",
      "size": 52,
-     "symbol": "?vf_004@UPhysicalMaterialFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPhysicalMaterialFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132375,7 +132375,7 @@
     {
      "va": "00f1dc10",
      "size": 6,
-     "symbol": "?vf_000@UTextureMovieFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureMovieFactory@@UBEHXZ"
     }
    ]
   },
@@ -132387,7 +132387,7 @@
     {
      "va": "00f1dc20",
      "size": 52,
-     "symbol": "?vf_004@UTextureMovieFactory@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureMovieFactory@@UBEHXZ"
     }
    ]
   },
@@ -132411,7 +132411,7 @@
     {
      "va": "00f1dd70",
      "size": 6,
-     "symbol": "?vf_000@UTextureRenderTargetFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureRenderTargetFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132423,7 +132423,7 @@
     {
      "va": "00f1dd80",
      "size": 52,
-     "symbol": "?vf_004@UTextureRenderTargetFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureRenderTargetFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132447,7 +132447,7 @@
     {
      "va": "00f1ded0",
      "size": 6,
-     "symbol": "?vf_000@UTextureRenderTargetCubeFactoryNew@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTextureRenderTargetCubeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -132459,7 +132459,7 @@
     {
      "va": "00f1dee0",
      "size": 52,
-     "symbol": "?vf_004@UTextureRenderTargetCubeFactoryNew@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureRenderTargetCubeFactoryNew@@UBEHXZ"
     }
    ]
   },
@@ -134445,7 +134445,7 @@
     {
      "va": "00f4dcd0",
      "size": 64,
-     "symbol": "?eventScriptCall@UObject_@@QAEHXZ"
+     "symbol": "?eventScriptCall@UObject@@QAEHXZ"
     }
    ]
   },
@@ -136064,7 +136064,7 @@
     {
      "va": "00f730e0",
      "size": 27,
-     "symbol": "?End@UTransactor@@QAEIXZ"
+     "symbol": "?End@UTransactor@@UAEHXZ"
     }
    ]
   },
@@ -136076,7 +136076,7 @@
     {
      "va": "00f73140",
      "size": 27,
-     "symbol": "?IsActive@UTransactor@@QAEIXZ"
+     "symbol": "?IsActive@UTransactor@@UAEHXZ"
     }
    ]
   },
@@ -137019,7 +137019,7 @@
     {
      "va": "010bf7e0",
      "size": 13,
-     "symbol": "?sub_010bf7e0@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFixupRedirectsCommandlet@@QAEXXZ"
     },
     {
      "va": "010ecf80",
@@ -137815,7 +137815,7 @@
     {
      "va": "010bf740",
      "size": 13,
-     "symbol": "?sub_010bf740@C_010bf740@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeContentCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf750",
@@ -137825,7 +137825,7 @@
     {
      "va": "010bf760",
      "size": 13,
-     "symbol": "?sub_010bf760@C_010bf760@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeCookedPackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf770",
@@ -137835,7 +137835,7 @@
     {
      "va": "010bf780",
      "size": 13,
-     "symbol": "?sub_010bf780@C_010bf780@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UMineCookedPackagesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf790",
@@ -137845,7 +137845,7 @@
     {
      "va": "010bf7a0",
      "size": 13,
-     "symbol": "?sub_010bf7a0@C_010bf7a0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UAnalyzeFallbackMaterialsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf7b0",
@@ -137855,12 +137855,12 @@
     {
      "va": "010bf7c0",
      "size": 13,
-     "symbol": "?sub_010bf7c0@C_010bf7c0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@ULoadPackageCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf800",
      "size": 13,
-     "symbol": "?sub_010bf800@C_010bf800@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListPackagesReferencingCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf810",
@@ -137870,7 +137870,7 @@
     {
      "va": "010bf820",
      "size": 13,
-     "symbol": "?sub_010bf820@C_010bf820@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPkgInfoCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf830",
@@ -137880,7 +137880,7 @@
     {
      "va": "010bf840",
      "size": 13,
-     "symbol": "?sub_010bf840@C_010bf840@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UShowTaggedPropsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf850",
@@ -137890,7 +137890,7 @@
     {
      "va": "010bf860",
      "size": 13,
-     "symbol": "?sub_010bf860@C_010bf860@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UShowObjectCountCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf870",
@@ -137900,7 +137900,7 @@
     {
      "va": "010bf880",
      "size": 13,
-     "symbol": "?sub_010bf880@C_010bf880@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UShowStylesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf890",
@@ -137910,7 +137910,7 @@
     {
      "va": "010bf8a0",
      "size": 13,
-     "symbol": "?sub_010bf8a0@C_010bf8a0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListCorruptedComponentsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf8b0",
@@ -137920,7 +137920,7 @@
     {
      "va": "010bf8c0",
      "size": 13,
-     "symbol": "?sub_010bf8c0@C_010bf8c0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindTexturesWithMissingPhysicalMaterialsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf8d0",
@@ -137930,7 +137930,7 @@
     {
      "va": "010bf8e0",
      "size": 13,
-     "symbol": "?sub_010bf8e0@C_010bf8e0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindQuestionableTexturesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf8f0",
@@ -137940,7 +137940,7 @@
     {
      "va": "010bf900",
      "size": 13,
-     "symbol": "?sub_010bf900@C_010bf900@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@USetTextureLODGroupCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf910",
@@ -137950,7 +137950,7 @@
     {
      "va": "010bf920",
      "size": 13,
-     "symbol": "?sub_010bf920@C_010bf920@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UCompressAnimationsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf930",
@@ -137960,7 +137960,7 @@
     {
      "va": "010bf940",
      "size": 13,
-     "symbol": "?sub_010bf940@C_010bf940@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UDoWithAnimationsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf950",
@@ -137970,7 +137970,7 @@
     {
      "va": "010bf960",
      "size": 13,
-     "symbol": "?sub_010bf960@C_010bf960@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListScriptReferencedContentCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf970",
@@ -137980,7 +137980,7 @@
     {
      "va": "010bf980",
      "size": 13,
-     "symbol": "?sub_010bf980@C_010bf980@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UTestWordWrapCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf990",
@@ -137990,7 +137990,7 @@
     {
      "va": "010bf9a0",
      "size": 13,
-     "symbol": "?sub_010bf9a0@C_010bf9a0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@USetPackageFlagsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf9b0",
@@ -138000,7 +138000,7 @@
     {
      "va": "010bf9c0",
      "size": 13,
-     "symbol": "?sub_010bf9c0@C_010bf9c0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPerformMapCheckCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf9d0",
@@ -138010,7 +138010,7 @@
     {
      "va": "010bf9e0",
      "size": 13,
-     "symbol": "?sub_010bf9e0@C_010bf9e0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindStaticActorsRefsCommandlet@@QAEXXZ"
     },
     {
      "va": "010bf9f0",
@@ -138020,7 +138020,7 @@
     {
      "va": "010bfa00",
      "size": 13,
-     "symbol": "?sub_010bfa00@C_010bfa00@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFindRenamedPrefabSequencesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfa10",
@@ -138030,7 +138030,7 @@
     {
      "va": "010bfa20",
      "size": 13,
-     "symbol": "?sub_010bfa20@C_010bfa20@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UDumpLightmapInfoCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfa30",
@@ -138040,12 +138040,12 @@
     {
      "va": "010bfa40",
      "size": 13,
-     "symbol": "?sub_010bfa40@C_010bfa40@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPerformTerrainMaterialDumpCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfa90",
      "size": 13,
-     "symbol": "?sub_010bfa90@C_010bfa90@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListPSysFixedBoundSettingCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfaa0",
@@ -138055,7 +138055,7 @@
     {
      "va": "010bfab0",
      "size": 13,
-     "symbol": "?sub_010bfab0@C_010bfab0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListEmittersUsingModuleCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfac0",
@@ -138065,7 +138065,7 @@
     {
      "va": "010bfad0",
      "size": 13,
-     "symbol": "?sub_010bfad0@C_010bfad0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UReplaceActorCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfae0",
@@ -138075,7 +138075,7 @@
     {
      "va": "010bfaf0",
      "size": 13,
-     "symbol": "?sub_010bfaf0@C_010bfaf0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UListSoundNodeWavesCommandlet@@QAEXXZ"
     },
     {
      "va": "010bfb00",
@@ -141542,7 +141542,7 @@
     {
      "va": "010bfa60",
      "size": 20,
-     "symbol": "?sub_010bfa60@C_010bfa60@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPatchScriptCommandlet@@QAEXXZ"
     },
     {
      "va": "010dd380",
@@ -141680,7 +141680,7 @@
     {
      "va": "01103b50",
      "size": 13,
-     "symbol": "?sub_01103b50@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UPrecompileShadersCommandlet@@QAEXXZ"
     },
     {
      "va": "01103b60",
@@ -141690,7 +141690,7 @@
     {
      "va": "01103b70",
      "size": 13,
-     "symbol": "?sub_01103b70@C_01103b70@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UDumpShadersCommandlet@@QAEXXZ"
     },
     {
      "va": "01103bf0",
@@ -142045,7 +142045,7 @@
     {
      "va": "0110f570",
      "size": 35,
-     "symbol": "?sub_0110f570@URFMODSoundFactory@@QAEIE@Z"
+     "symbol": "?sub_0110f570@C_0110f570@@QAEIE@Z"
     },
     {
      "va": "0110f680",
@@ -148123,7 +148123,7 @@
     {
      "va": "0079f220",
      "size": 97,
-     "symbol": "?eventSpecialHandling@AActor_@@QAEPAUAActor@@PAUAPawn@@@Z"
+     "symbol": "?eventSpecialHandling@AActor@@QAEPAU1@PAUAPawn@@@Z"
     }
    ]
   },
@@ -148264,7 +148264,7 @@
     {
      "va": "007d60f0",
      "size": 121,
-     "symbol": "?eventNotifyBump@AController_@@QAEHPAUAActor@@UFVector@@@Z"
+     "symbol": "?eventNotifyBump@AController@@QAEHPAUAActor@@UFVector@@@Z"
     }
    ]
   },
@@ -148746,7 +148746,7 @@
     {
      "va": "00852c60",
      "size": 52,
-     "symbol": "?vf_004@UMorphNodePose@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMorphNodePose@@UBEHXZ"
     }
    ]
   },
@@ -168536,7 +168536,7 @@
     {
      "va": "0068f6d0",
      "size": 34,
-     "symbol": "?sub_0068f6d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0068f6d0@C_0068f6d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -168548,7 +168548,7 @@
     {
      "va": "0068f700",
      "size": 34,
-     "symbol": "?sub_0068f700@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0068f700@C_0068f700@@QAEPAU1@XZ"
     }
    ]
   },
@@ -168641,7 +168641,7 @@
     {
      "va": "00c01c00",
      "size": 495,
-     "symbol": "?FilterTrivialPositionKeys@UAnimationCompressionAlgorithm_@@SAXAAV?$TArray@UFTranslationTrack@@@@M@Z"
+     "symbol": "?FilterTrivialPositionKeys@UAnimationCompressionAlgorithm@@SAXAAV?$TArray@UFTranslationTrack@@@@M@Z"
     }
    ]
   },
@@ -168677,7 +168677,7 @@
     {
      "va": "00bf7f40",
      "size": 327,
-     "symbol": "?FromQuat@FQuatIntervalFixed32NoW_00bf7f40@@QAEXABUFQuat@@PBM1@Z"
+     "symbol": "?FromQuat@FQuatIntervalFixed32NoW@@QAEXABUFQuat@@PBM1@Z"
     },
     {
      "va": "00bfa9e0",
@@ -169721,7 +169721,7 @@
     {
      "va": "009d4790",
      "size": 89,
-     "symbol": "?eventSpawnFractureEmitter@AApexDestructibleActor_@@QAEXPAUUParticleSystem@@UFVector@@@Z"
+     "symbol": "?eventSpawnFractureEmitter@AApexDestructibleActor@@QAEXPAUUParticleSystem@@UFVector@@@Z"
     }
    ]
   },
@@ -170745,7 +170745,7 @@
     {
      "va": "006918f0",
      "size": 34,
-     "symbol": "?sub_006918f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006918f0@C_006918f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -170757,7 +170757,7 @@
     {
      "va": "00691920",
      "size": 34,
-     "symbol": "?sub_00691920@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00691920@C_00691920@@QAEPAU1@XZ"
     }
    ]
   },
@@ -170769,7 +170769,7 @@
     {
      "va": "006919e0",
      "size": 34,
-     "symbol": "?sub_006919e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006919e0@C_006919e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -170910,7 +170910,7 @@
     {
      "va": "006986e0",
      "size": 200,
-     "symbol": "?vf_02c@UDecalComponent@@UAEXXZ"
+     "symbol": "?FinishDestroy@UDecalComponent@@UAEXXZ"
     }
    ]
   },
@@ -171087,7 +171087,7 @@
     {
      "va": "006a78b0",
      "size": 77,
-     "symbol": "?UpdateTransform@UDecalComponent@@UAEXXZ"
+     "symbol": "?BeginPlay@UDecalComponent@@UAEXXZ"
     }
    ]
   },
@@ -172253,7 +172253,7 @@
     {
      "va": "00be9180",
      "size": 34,
-     "symbol": "?sub_00be9180@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00be9180@C_00be9180@@QAEPAU1@XZ"
     }
    ]
   },
@@ -172265,7 +172265,7 @@
     {
      "va": "00be91b0",
      "size": 34,
-     "symbol": "?sub_00be91b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00be91b0@C_00be91b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174060,7 +174060,7 @@
     {
      "va": "00be48d0",
      "size": 61,
-     "symbol": "?sub_00be48d0@UFluidSurfaceComponent_@@QAEXH@Z"
+     "symbol": "?sub_00be48d0@UFluidSurfaceComponent@@QAEXH@Z"
     },
     {
      "va": "00be73e0",
@@ -174355,7 +174355,7 @@
     {
      "va": "006cf090",
      "size": 34,
-     "symbol": "?sub_006cf090@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006cf090@C_006cf090@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174367,7 +174367,7 @@
     {
      "va": "006cf0c0",
      "size": 34,
-     "symbol": "?sub_006cf0c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006cf0c0@C_006cf0c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174379,7 +174379,7 @@
     {
      "va": "006cf180",
      "size": 34,
-     "symbol": "?sub_006cf180@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006cf180@C_006cf180@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174391,7 +174391,7 @@
     {
      "va": "006cf240",
      "size": 34,
-     "symbol": "?sub_006cf240@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006cf240@C_006cf240@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174403,7 +174403,7 @@
     {
      "va": "006cf300",
      "size": 34,
-     "symbol": "?sub_006cf300@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006cf300@C_006cf300@@QAEPAU1@XZ"
     }
    ]
   },
@@ -174851,7 +174851,7 @@
     {
      "va": "00bace80",
      "size": 40,
-     "symbol": "?vf_02c@ULensFlareComponent@@UAEXXZ"
+     "symbol": "?FinishDestroy@ULensFlareComponent@@UAEXXZ"
     }
    ]
   },
@@ -175196,7 +175196,7 @@
     {
      "va": "006974d0",
      "size": 27,
-     "symbol": "?CreateSceneInfo@ULightComponent@@QAEIXZ"
+     "symbol": "?CreateSceneInfo@ULightComponent@@UAEIXZ"
     }
    ]
   },
@@ -175208,7 +175208,7 @@
     {
      "va": "00697530",
      "size": 30,
-     "symbol": "?GetLightType@ULightComponent@@QAEIXZ"
+     "symbol": "?GetLightType@ULightComponent@@UAEHXZ"
     }
    ]
   },
@@ -175270,7 +175270,7 @@
     {
      "va": "006bab80",
      "size": 274,
-     "symbol": "?sub_006bab80@ULightComponent_@@QAEXXZ"
+     "symbol": "?sub_006bab80@ULightComponent@@QAEXXZ"
     },
     {
      "va": "006d5570",
@@ -180727,7 +180727,7 @@
     {
      "va": "006edf70",
      "size": 201,
-     "symbol": "?ClearParameterValues@UMaterialInstanceConstant@@QAEXXZ"
+     "symbol": "?ClearParameterValues@UMaterialInstanceConstant@@UAEXXZ"
     }
    ]
   },
@@ -180751,7 +180751,7 @@
     {
      "va": "00663650",
      "size": 27,
-     "symbol": "?AllocateResource@UMaterialInterface@@UAEIXZ"
+     "symbol": "?AllocateResource@UMaterialInterface@@UAEPAVFMaterialResource@@XZ"
     }
    ]
   },
@@ -180778,7 +180778,7 @@
     {
      "va": "00703760",
      "size": 26,
-     "symbol": "?sub_00703760@UMaterialInterface_@@QAEPAXH@Z"
+     "symbol": "?sub_00703760@UMaterialInterface@@QAEPAXH@Z"
     }
    ]
   },
@@ -183625,7 +183625,7 @@
     {
      "va": "006dadb0",
      "size": 6,
-     "symbol": "?vf_000@UMeshComponent@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMeshComponent@@UBEHXZ"
     }
    ]
   },
@@ -183745,7 +183745,7 @@
     {
      "va": "006fc170",
      "size": 34,
-     "symbol": "?sub_006fc170@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006fc170@C_006fc170@@QAEPAU1@XZ"
     }
    ]
   },
@@ -183877,7 +183877,7 @@
     {
      "va": "006fc250",
      "size": 34,
-     "symbol": "?sub_006fc250@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006fc250@C_006fc250@@QAEPAU1@XZ"
     }
    ]
   },
@@ -184009,7 +184009,7 @@
     {
      "va": "006fc280",
      "size": 34,
-     "symbol": "?sub_006fc280@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006fc280@C_006fc280@@QAEPAU1@XZ"
     }
    ]
   },
@@ -184137,7 +184137,7 @@
     {
      "va": "006fc350",
      "size": 34,
-     "symbol": "?sub_006fc350@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_006fc350@C_006fc350@@QAEPAU1@XZ"
     }
    ]
   },
@@ -184198,7 +184198,7 @@
     {
      "va": "006dad60",
      "size": 6,
-     "symbol": "?vf_000@UPrimitiveComponent@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UPrimitiveComponent@@UBEHXZ"
     }
    ]
   },
@@ -184210,7 +184210,7 @@
     {
      "va": "006dad70",
      "size": 52,
-     "symbol": "?vf_004@UPrimitiveComponent@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UPrimitiveComponent@@UBEHXZ"
     }
    ]
   },
@@ -189709,7 +189709,7 @@
     {
      "va": "0071efa0",
      "size": 30,
-     "symbol": "?GetMaterialType@UTexture@@QAEIXZ"
+     "symbol": "?GetMaterialType@UTexture@@UAEHXZ"
     }
    ]
   },
@@ -189894,7 +189894,7 @@
     {
      "va": "0071d2d0",
      "size": 62,
-     "symbol": "?sub_0071d2d0@UTexture2D_@@QAEHXZ"
+     "symbol": "?IsFullyStreamedIn@UTexture2D@@QAEHXZ"
     }
    ]
   },
@@ -191525,7 +191525,7 @@
     {
      "va": "00d6e4a0",
      "size": 180,
-     "symbol": "?FromString@FSettingsData_@@QAEHABVFString@@@Z"
+     "symbol": "?FromString@FSettingsData@@QAEHABVFString@@@Z"
     }
    ]
   },
@@ -191549,7 +191549,7 @@
     {
      "va": "00d67d30",
      "size": 20,
-     "symbol": "??9FSettingsData_@@QBEHABU0@@Z"
+     "symbol": "??9FSettingsData@@QBEHABU0@@Z"
     }
    ]
   },
@@ -192027,7 +192027,7 @@
     {
      "va": "00d6e390",
      "size": 86,
-     "symbol": "?SetData@FSettingsData_@@QAEXKPBE@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXKPBE@Z"
     }
    ]
   },
@@ -192039,7 +192039,7 @@
     {
      "va": "00d6e2e0",
      "size": 52,
-     "symbol": "?SetData@FSettingsData_@@QAEXH@Z"
+     "symbol": "?SetData@FSettingsData@@QAEXH@Z"
     }
    ]
   },
@@ -192592,7 +192592,7 @@
     {
      "va": "007577b0",
      "size": 6,
-     "symbol": "?vf_000@AVolumePathNode@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AVolumePathNode@@UBEHXZ"
     }
    ]
   },
@@ -192604,7 +192604,7 @@
     {
      "va": "007577c0",
      "size": 6,
-     "symbol": "?vf_000@ADoorMarker@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADoorMarker@@UBEHXZ"
     }
    ]
   },
@@ -192616,7 +192616,7 @@
     {
      "va": "007577d0",
      "size": 6,
-     "symbol": "?vf_000@ADynamicBlockingVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADynamicBlockingVolume@@UBEHXZ"
     }
    ]
   },
@@ -192628,7 +192628,7 @@
     {
      "va": "007577e0",
      "size": 6,
-     "symbol": "?vf_000@APortalMarker@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APortalMarker@@UBEHXZ"
     }
    ]
   },
@@ -192640,7 +192640,7 @@
     {
      "va": "007577f0",
      "size": 6,
-     "symbol": "?vf_000@UTeleportReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UTeleportReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -192652,7 +192652,7 @@
     {
      "va": "00757800",
      "size": 6,
-     "symbol": "?vf_000@ALevelStreamingVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALevelStreamingVolume@@UBEHXZ"
     }
    ]
   },
@@ -192664,7 +192664,7 @@
     {
      "va": "00757970",
      "size": 6,
-     "symbol": "?vf_000@ACullDistanceVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ACullDistanceVolume@@UBEHXZ"
     }
    ]
   },
@@ -192676,7 +192676,7 @@
     {
      "va": "007579a0",
      "size": 6,
-     "symbol": "?vf_000@ASkyLight@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ASkyLight@@UBEHXZ"
     }
    ]
   },
@@ -192688,7 +192688,7 @@
     {
      "va": "007579b0",
      "size": 6,
-     "symbol": "?vf_000@ASkyLightToggleable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ASkyLightToggleable@@UBEHXZ"
     }
    ]
   },
@@ -192700,7 +192700,7 @@
     {
      "va": "00757b20",
      "size": 6,
-     "symbol": "?vf_000@AAirNode@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AAirNode@@UBEHXZ"
     }
    ]
   },
@@ -192724,7 +192724,7 @@
     {
      "va": "00757c90",
      "size": 6,
-     "symbol": "?vf_000@AMacroReachSpecInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AMacroReachSpecInfo@@UBEHXZ"
     }
    ]
   },
@@ -192928,7 +192928,7 @@
     {
      "va": "00773430",
      "size": 34,
-     "symbol": "?sub_00773430@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00773430@C_00773430@@QAEPAU1@XZ"
     }
    ]
   },
@@ -192940,7 +192940,7 @@
     {
      "va": "007734f0",
      "size": 34,
-     "symbol": "?sub_007734f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007734f0@C_007734f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -192952,7 +192952,7 @@
     {
      "va": "007735b0",
      "size": 34,
-     "symbol": "?sub_007735b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007735b0@C_007735b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -192964,7 +192964,7 @@
     {
      "va": "00773900",
      "size": 34,
-     "symbol": "?sub_00773900@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00773900@C_00773900@@QAEPAU1@XZ"
     }
    ]
   },
@@ -192988,7 +192988,7 @@
     {
      "va": "007739c0",
      "size": 34,
-     "symbol": "?sub_007739c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007739c0@C_007739c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193012,7 +193012,7 @@
     {
      "va": "00774aa0",
      "size": 34,
-     "symbol": "?sub_00774aa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774aa0@C_00774aa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193036,7 +193036,7 @@
     {
      "va": "00774b60",
      "size": 34,
-     "symbol": "?sub_00774b60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774b60@C_00774b60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193060,7 +193060,7 @@
     {
      "va": "00774c20",
      "size": 34,
-     "symbol": "?sub_00774c20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774c20@C_00774c20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193084,7 +193084,7 @@
     {
      "va": "00774cf0",
      "size": 34,
-     "symbol": "?sub_00774cf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774cf0@C_00774cf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193132,7 +193132,7 @@
     {
      "va": "00774e40",
      "size": 34,
-     "symbol": "?sub_00774e40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774e40@C_00774e40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193144,7 +193144,7 @@
     {
      "va": "00774e70",
      "size": 34,
-     "symbol": "?sub_00774e70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774e70@C_00774e70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193168,7 +193168,7 @@
     {
      "va": "00774fb0",
      "size": 34,
-     "symbol": "?sub_00774fb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00774fb0@C_00774fb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193192,7 +193192,7 @@
     {
      "va": "007750e0",
      "size": 34,
-     "symbol": "?sub_007750e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007750e0@C_007750e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193204,7 +193204,7 @@
     {
      "va": "00772f30",
      "size": 34,
-     "symbol": "?sub_00772f30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00772f30@C_00772f30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193252,7 +193252,7 @@
     {
      "va": "00775210",
      "size": 34,
-     "symbol": "?sub_00775210@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775210@C_00775210@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193264,7 +193264,7 @@
     {
      "va": "00775330",
      "size": 34,
-     "symbol": "?sub_00775330@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775330@C_00775330@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193276,7 +193276,7 @@
     {
      "va": "00775360",
      "size": 34,
-     "symbol": "?sub_00775360@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775360@C_00775360@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193288,7 +193288,7 @@
     {
      "va": "007754b0",
      "size": 34,
-     "symbol": "?sub_007754b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007754b0@C_007754b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193300,7 +193300,7 @@
     {
      "va": "007755e0",
      "size": 34,
-     "symbol": "?sub_007755e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007755e0@C_007755e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193312,7 +193312,7 @@
     {
      "va": "00775640",
      "size": 34,
-     "symbol": "?sub_00775640@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775640@C_00775640@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193324,7 +193324,7 @@
     {
      "va": "00775700",
      "size": 34,
-     "symbol": "?sub_00775700@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775700@C_00775700@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193336,7 +193336,7 @@
     {
      "va": "00775860",
      "size": 34,
-     "symbol": "?sub_00775860@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775860@C_00775860@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193348,7 +193348,7 @@
     {
      "va": "00775920",
      "size": 34,
-     "symbol": "?sub_00775920@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775920@C_00775920@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193360,7 +193360,7 @@
     {
      "va": "00772f60",
      "size": 34,
-     "symbol": "?sub_00772f60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00772f60@C_00772f60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193384,7 +193384,7 @@
     {
      "va": "00775950",
      "size": 34,
-     "symbol": "?sub_00775950@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775950@C_00775950@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193396,7 +193396,7 @@
     {
      "va": "00775ab0",
      "size": 34,
-     "symbol": "?sub_00775ab0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775ab0@C_00775ab0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193408,7 +193408,7 @@
     {
      "va": "00775ae0",
      "size": 34,
-     "symbol": "?sub_00775ae0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775ae0@C_00775ae0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193420,7 +193420,7 @@
     {
      "va": "00775bb0",
      "size": 34,
-     "symbol": "?sub_00775bb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775bb0@C_00775bb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193432,7 +193432,7 @@
     {
      "va": "00775ce0",
      "size": 34,
-     "symbol": "?sub_00775ce0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775ce0@C_00775ce0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193444,7 +193444,7 @@
     {
      "va": "00775d40",
      "size": 34,
-     "symbol": "?sub_00775d40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775d40@C_00775d40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193456,7 +193456,7 @@
     {
      "va": "00775ea0",
      "size": 34,
-     "symbol": "?sub_00775ea0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775ea0@C_00775ea0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193468,7 +193468,7 @@
     {
      "va": "00775ed0",
      "size": 34,
-     "symbol": "?sub_00775ed0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775ed0@C_00775ed0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193480,7 +193480,7 @@
     {
      "va": "00775f90",
      "size": 34,
-     "symbol": "?sub_00775f90@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00775f90@C_00775f90@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193492,7 +193492,7 @@
     {
      "va": "00776060",
      "size": 34,
-     "symbol": "?sub_00776060@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00776060@C_00776060@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193516,7 +193516,7 @@
     {
      "va": "00773020",
      "size": 34,
-     "symbol": "?sub_00773020@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00773020@C_00773020@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193528,7 +193528,7 @@
     {
      "va": "007766c0",
      "size": 34,
-     "symbol": "?sub_007766c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007766c0@C_007766c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193540,7 +193540,7 @@
     {
      "va": "00776780",
      "size": 34,
-     "symbol": "?sub_00776780@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00776780@C_00776780@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193552,7 +193552,7 @@
     {
      "va": "00776860",
      "size": 34,
-     "symbol": "?sub_00776860@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00776860@C_00776860@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193576,7 +193576,7 @@
     {
      "va": "007730f0",
      "size": 34,
-     "symbol": "?sub_007730f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007730f0@C_007730f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193588,7 +193588,7 @@
     {
      "va": "00773270",
      "size": 34,
-     "symbol": "?sub_00773270@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00773270@C_00773270@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193600,7 +193600,7 @@
     {
      "va": "007732a0",
      "size": 34,
-     "symbol": "?sub_007732a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007732a0@C_007732a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193612,7 +193612,7 @@
     {
      "va": "00773360",
      "size": 34,
-     "symbol": "?sub_00773360@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00773360@C_00773360@@QAEPAU1@XZ"
     }
    ]
   },
@@ -193648,7 +193648,7 @@
     {
      "va": "007717e0",
      "size": 52,
-     "symbol": "?vf_004@UForcedReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UForcedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193672,7 +193672,7 @@
     {
      "va": "00771930",
      "size": 52,
-     "symbol": "?vf_004@UAdvancedReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UAdvancedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193696,7 +193696,7 @@
     {
      "va": "00771a80",
      "size": 52,
-     "symbol": "?vf_004@ULadderReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ULadderReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193720,7 +193720,7 @@
     {
      "va": "00771bd0",
      "size": 52,
-     "symbol": "?vf_004@UProscribedReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UProscribedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193744,7 +193744,7 @@
     {
      "va": "00771d20",
      "size": 52,
-     "symbol": "?vf_004@UCeilingReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UCeilingReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193780,7 +193780,7 @@
     {
      "va": "00771e70",
      "size": 52,
-     "symbol": "?vf_004@UTeleportReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTeleportReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -193792,7 +193792,7 @@
     {
      "va": "00773700",
      "size": 10,
-     "symbol": "?vf_374@AController@@UAEIXZ"
+     "symbol": "?IsPlayerOwner@AController@@UAEHXZ"
     }
    ]
   },
@@ -193804,7 +193804,7 @@
     {
      "va": "00773710",
      "size": 3,
-     "symbol": "?vf_2e4@AController@@UAEPAXXZ"
+     "symbol": "?GetAController@AController@@UAEPAU1@XZ"
     }
    ]
   },
@@ -193816,7 +193816,7 @@
     {
      "va": "00773720",
      "size": 5,
-     "symbol": "?vf_3a0@AController@@UAEHHHHHH@Z"
+     "symbol": "?OverridePathTo@AController@@UAEHPAUANavigationPoint@@PAUAActor@@ABUFVector@@HAAM@Z"
     }
    ]
   },
@@ -193852,7 +193852,7 @@
     {
      "va": "00773750",
      "size": 3,
-     "symbol": "?vf_3bc@AController@@UAEXH@Z"
+     "symbol": "?UpdateEnemyInfo@AController@@UAEXPAUAPawn@@@Z"
     }
    ]
   },
@@ -193864,7 +193864,7 @@
     {
      "va": "00773760",
      "size": 3,
-     "symbol": "?vf_3d8@AController@@UAEXH@Z"
+     "symbol": "?PreAirSteering@AController@@UAEXM@Z"
     }
    ]
   },
@@ -193876,7 +193876,7 @@
     {
      "va": "00773770",
      "size": 3,
-     "symbol": "?vf_3dc@AController@@UAEXH@Z"
+     "symbol": "?PostAirSteering@AController@@UAEXM@Z"
     }
    ]
   },
@@ -193888,7 +193888,7 @@
     {
      "va": "00773780",
      "size": 3,
-     "symbol": "?vf_3e0@AController@@UAEXH@Z"
+     "symbol": "?PostPhysFalling@AController@@UAEXM@Z"
     }
    ]
   },
@@ -193912,7 +193912,7 @@
     {
      "va": "007567e0",
      "size": 6,
-     "symbol": "?vf_000@AActor@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AActor@@UBEHXZ"
     }
    ]
   },
@@ -193924,7 +193924,7 @@
     {
      "va": "00773790",
      "size": 3,
-     "symbol": "?vf_3e4@AController@@UAEXH@Z"
+     "symbol": "?PostPhysWalking@AController@@UAEXM@Z"
     }
    ]
   },
@@ -193936,7 +193936,7 @@
     {
      "va": "007737a0",
      "size": 3,
-     "symbol": "?vf_3e8@AController@@UAEXH@Z"
+     "symbol": "?PostPhysSpider@AController@@UAEXM@Z"
     }
    ]
   },
@@ -193948,7 +193948,7 @@
     {
      "va": "007737b0",
      "size": 5,
-     "symbol": "?vf_3ec@AController@@UAEHHH@Z"
+     "symbol": "?AirControlFromWall@AController@@UAEHMAAUFVector@@@Z"
     }
    ]
   },
@@ -193960,7 +193960,7 @@
     {
      "va": "007737c0",
      "size": 6,
-     "symbol": "?vf_3fc@AController@@UAEHXZ"
+     "symbol": "?ShouldOffsetCorners@AController@@UAEHXZ"
     }
    ]
   },
@@ -193972,7 +193972,7 @@
     {
      "va": "007737d0",
      "size": 6,
-     "symbol": "?vf_400@AController@@UAEHXZ"
+     "symbol": "?ShouldUsePathLanes@AController@@UAEHXZ"
     }
    ]
   },
@@ -194044,7 +194044,7 @@
     {
      "va": "007567f0",
      "size": 52,
-     "symbol": "?vf_004@AActor@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AActor@@UBEHXZ"
     }
    ]
   },
@@ -194140,7 +194140,7 @@
     {
      "va": "00776b10",
      "size": 52,
-     "symbol": "?vf_004@USlotToSlotReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USlotToSlotReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194164,7 +194164,7 @@
     {
      "va": "00776c60",
      "size": 52,
-     "symbol": "?vf_004@UMantleReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UMantleReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194176,7 +194176,7 @@
     {
      "va": "00756830",
      "size": 6,
-     "symbol": "?vf_000@ALight@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALight@@UBEHXZ"
     }
    ]
   },
@@ -194200,7 +194200,7 @@
     {
      "va": "00776db0",
      "size": 52,
-     "symbol": "?vf_004@USwatTurnReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@USwatTurnReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194224,7 +194224,7 @@
     {
      "va": "00776f00",
      "size": 52,
-     "symbol": "?vf_004@UCoverSlipReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UCoverSlipReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194248,7 +194248,7 @@
     {
      "va": "00777050",
      "size": 52,
-     "symbol": "?vf_004@UWallTransReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UWallTransReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194272,7 +194272,7 @@
     {
      "va": "007771a0",
      "size": 52,
-     "symbol": "?vf_004@UFloorToCeilingReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UFloorToCeilingReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -194308,7 +194308,7 @@
     {
      "va": "00756840",
      "size": 6,
-     "symbol": "?vf_000@ADirectionalLight@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADirectionalLight@@UBEHXZ"
     }
    ]
   },
@@ -194332,7 +194332,7 @@
     {
      "va": "0077d9f0",
      "size": 52,
-     "symbol": "?vf_004@AHUD@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AHUD@@UBEHXZ"
     }
    ]
   },
@@ -194344,7 +194344,7 @@
     {
      "va": "0077db40",
      "size": 52,
-     "symbol": "?vf_004@AInfo@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AInfo@@UBEHXZ"
     }
    ]
   },
@@ -194368,7 +194368,7 @@
     {
      "va": "0077dde0",
      "size": 52,
-     "symbol": "?vf_004@AController@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AController@@UBEHXZ"
     }
    ]
   },
@@ -194392,7 +194392,7 @@
     {
      "va": "0077df30",
      "size": 52,
-     "symbol": "?vf_004@ABrush@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ABrush@@UBEHXZ"
     }
    ]
   },
@@ -194440,7 +194440,7 @@
     {
      "va": "00756850",
      "size": 6,
-     "symbol": "?vf_000@ADirectionalLightToggleable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADirectionalLightToggleable@@UBEHXZ"
     }
    ]
   },
@@ -194464,7 +194464,7 @@
     {
      "va": "00782870",
      "size": 52,
-     "symbol": "?vf_004@AWorldInfo@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AWorldInfo@@UBEHXZ"
     }
    ]
   },
@@ -194488,7 +194488,7 @@
     {
      "va": "007829c0",
      "size": 52,
-     "symbol": "?vf_004@APlayerReplicationInfo@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@APlayerReplicationInfo@@UBEHXZ"
     }
    ]
   },
@@ -194512,7 +194512,7 @@
     {
      "va": "00782b10",
      "size": 52,
-     "symbol": "?vf_004@AGameReplicationInfo@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AGameReplicationInfo@@UBEHXZ"
     }
    ]
   },
@@ -194536,7 +194536,7 @@
     {
      "va": "00782c60",
      "size": 52,
-     "symbol": "?vf_004@ADebugCameraController@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ADebugCameraController@@UBEHXZ"
     }
    ]
   },
@@ -194560,7 +194560,7 @@
     {
      "va": "00782db0",
      "size": 52,
-     "symbol": "?vf_004@APhysicsVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@APhysicsVolume@@UBEHXZ"
     }
    ]
   },
@@ -194572,7 +194572,7 @@
     {
      "va": "00756860",
      "size": 6,
-     "symbol": "?vf_000@APointLight@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APointLight@@UBEHXZ"
     }
    ]
   },
@@ -194596,7 +194596,7 @@
     {
      "va": "00782f00",
      "size": 52,
-     "symbol": "?vf_004@ABlockingVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ABlockingVolume@@UBEHXZ"
     }
    ]
   },
@@ -194620,7 +194620,7 @@
     {
      "va": "00783050",
      "size": 52,
-     "symbol": "?vf_004@AAutoLadder@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AAutoLadder@@UBEHXZ"
     }
    ]
   },
@@ -194644,7 +194644,7 @@
     {
      "va": "007831a0",
      "size": 52,
-     "symbol": "?vf_004@ATeamInfo@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ATeamInfo@@UBEHXZ"
     }
    ]
   },
@@ -194668,7 +194668,7 @@
     {
      "va": "007832f0",
      "size": 52,
-     "symbol": "?vf_004@ATriggerVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ATriggerVolume@@UBEHXZ"
     }
    ]
   },
@@ -194692,7 +194692,7 @@
     {
      "va": "00783440",
      "size": 52,
-     "symbol": "?vf_004@AVolumePathNode@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AVolumePathNode@@UBEHXZ"
     }
    ]
   },
@@ -194704,7 +194704,7 @@
     {
      "va": "00756870",
      "size": 6,
-     "symbol": "?vf_000@APointLightMovable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APointLightMovable@@UBEHXZ"
     }
    ]
   },
@@ -194728,7 +194728,7 @@
     {
      "va": "00783590",
      "size": 52,
-     "symbol": "?vf_004@ALevelStreamingVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ALevelStreamingVolume@@UBEHXZ"
     }
    ]
   },
@@ -194752,7 +194752,7 @@
     {
      "va": "007836e0",
      "size": 52,
-     "symbol": "?vf_004@ACullDistanceVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ACullDistanceVolume@@UBEHXZ"
     }
    ]
   },
@@ -194776,7 +194776,7 @@
     {
      "va": "00783830",
      "size": 52,
-     "symbol": "?vf_004@ASkyLightToggleable@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ASkyLightToggleable@@UBEHXZ"
     }
    ]
   },
@@ -194800,7 +194800,7 @@
     {
      "va": "00783980",
      "size": 52,
-     "symbol": "?vf_004@AAirNode@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AAirNode@@UBEHXZ"
     }
    ]
   },
@@ -194824,7 +194824,7 @@
     {
      "va": "00784920",
      "size": 52,
-     "symbol": "?vf_004@AWaterVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AWaterVolume@@UBEHXZ"
     }
    ]
   },
@@ -194836,7 +194836,7 @@
     {
      "va": "00756880",
      "size": 6,
-     "symbol": "?vf_000@APointLightToggleable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APointLightToggleable@@UBEHXZ"
     }
    ]
   },
@@ -194860,7 +194860,7 @@
     {
      "va": "00784a70",
      "size": 52,
-     "symbol": "?vf_004@AGravityVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AGravityVolume@@UBEHXZ"
     }
    ]
   },
@@ -194884,7 +194884,7 @@
     {
      "va": "00784bc0",
      "size": 52,
-     "symbol": "?vf_004@ADefaultPhysicsVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ADefaultPhysicsVolume@@UBEHXZ"
     }
    ]
   },
@@ -194908,7 +194908,7 @@
     {
      "va": "00784d10",
      "size": 52,
-     "symbol": "?vf_004@ALadderVolume@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@ALadderVolume@@UBEHXZ"
     }
    ]
   },
@@ -194942,7 +194942,7 @@
     {
      "va": "0068f1e0",
      "size": 29,
-     "symbol": "?sub_0068f1e0@AActor_@@QAEPAUAActor@@XZ"
+     "symbol": "?sub_0068f1e0@AActor@@QAEPAU1@XZ"
     },
     {
      "va": "0068f440",
@@ -195038,7 +195038,7 @@
     {
      "va": "00756890",
      "size": 6,
-     "symbol": "?vf_000@ASpotLight@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ASpotLight@@UBEHXZ"
     }
    ]
   },
@@ -195062,7 +195062,7 @@
     {
      "va": "007568a0",
      "size": 6,
-     "symbol": "?vf_000@ASpotLightMovable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ASpotLightMovable@@UBEHXZ"
     }
    ]
   },
@@ -195116,7 +195116,7 @@
     {
      "va": "007568b0",
      "size": 6,
-     "symbol": "?vf_000@ASpotLightToggleable@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ASpotLightToggleable@@UBEHXZ"
     }
    ]
   },
@@ -195128,7 +195128,7 @@
     {
      "va": "007568c0",
      "size": 6,
-     "symbol": "?vf_000@AClipMarker@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AClipMarker@@UBEHXZ"
     }
    ]
   },
@@ -195140,7 +195140,7 @@
     {
      "va": "007568d0",
      "size": 6,
-     "symbol": "?vf_000@APolyMarker@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APolyMarker@@UBEHXZ"
     }
    ]
   },
@@ -195152,7 +195152,7 @@
     {
      "va": "00756900",
      "size": 6,
-     "symbol": "?vf_000@ANote@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ANote@@UBEHXZ"
     }
    ]
   },
@@ -195164,7 +195164,7 @@
     {
      "va": "00756950",
      "size": 6,
-     "symbol": "?vf_000@AZoneInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AZoneInfo@@UBEHXZ"
     }
    ]
   },
@@ -195188,7 +195188,7 @@
     {
      "va": "00756a70",
      "size": 6,
-     "symbol": "?vf_000@UReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195200,7 +195200,7 @@
     {
      "va": "00756a80",
      "size": 52,
-     "symbol": "?vf_004@UReachSpec@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195212,7 +195212,7 @@
     {
      "va": "00756ac0",
      "size": 6,
-     "symbol": "?vf_000@UForcedReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UForcedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195224,7 +195224,7 @@
     {
      "va": "00756ad0",
      "size": 6,
-     "symbol": "?vf_000@UAdvancedReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UAdvancedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195248,7 +195248,7 @@
     {
      "va": "00756ae0",
      "size": 6,
-     "symbol": "?vf_000@ULadderReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ULadderReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195260,7 +195260,7 @@
     {
      "va": "00756af0",
      "size": 6,
-     "symbol": "?vf_000@UProscribedReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UProscribedReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195272,7 +195272,7 @@
     {
      "va": "00756b00",
      "size": 6,
-     "symbol": "?vf_000@USlotToSlotReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USlotToSlotReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195284,7 +195284,7 @@
     {
      "va": "00756b10",
      "size": 6,
-     "symbol": "?vf_000@UMantleReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UMantleReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195296,7 +195296,7 @@
     {
      "va": "00756b20",
      "size": 6,
-     "symbol": "?vf_000@USwatTurnReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@USwatTurnReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195308,7 +195308,7 @@
     {
      "va": "00756b30",
      "size": 6,
-     "symbol": "?vf_000@UCoverSlipReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UCoverSlipReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195320,7 +195320,7 @@
     {
      "va": "00756b40",
      "size": 6,
-     "symbol": "?vf_000@UWallTransReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UWallTransReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195332,7 +195332,7 @@
     {
      "va": "00756b50",
      "size": 6,
-     "symbol": "?vf_000@UFloorToCeilingReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UFloorToCeilingReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195344,7 +195344,7 @@
     {
      "va": "00756b60",
      "size": 6,
-     "symbol": "?vf_000@UCeilingReachSpec@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UCeilingReachSpec@@UBEHXZ"
     }
    ]
   },
@@ -195356,7 +195356,7 @@
     {
      "va": "00756b70",
      "size": 6,
-     "symbol": "?vf_000@APathNode@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APathNode@@UBEHXZ"
     }
    ]
   },
@@ -195380,7 +195380,7 @@
     {
      "va": "00756b80",
      "size": 6,
-     "symbol": "?vf_000@ANavigationPoint@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ANavigationPoint@@UBEHXZ"
     }
    ]
   },
@@ -195404,7 +195404,7 @@
     {
      "va": "00756ca0",
      "size": 6,
-     "symbol": "?vf_000@AScout@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AScout@@UBEHXZ"
     }
    ]
   },
@@ -195416,7 +195416,7 @@
     {
      "va": "00756cb0",
      "size": 52,
-     "symbol": "?vf_004@AScout@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AScout@@UBEHXZ"
     }
    ]
   },
@@ -195428,7 +195428,7 @@
     {
      "va": "00756cf0",
      "size": 6,
-     "symbol": "?vf_000@AProjectile@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AProjectile@@UBEHXZ"
     }
    ]
   },
@@ -195440,7 +195440,7 @@
     {
      "va": "00756d00",
      "size": 6,
-     "symbol": "?vf_000@ATeleporter@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ATeleporter@@UBEHXZ"
     }
    ]
   },
@@ -195452,7 +195452,7 @@
     {
      "va": "00756d10",
      "size": 6,
-     "symbol": "?vf_000@APlayerStart@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APlayerStart@@UBEHXZ"
     }
    ]
   },
@@ -195464,7 +195464,7 @@
     {
      "va": "00756d20",
      "size": 6,
-     "symbol": "?vf_000@AKeypoint@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AKeypoint@@UBEHXZ"
     }
    ]
   },
@@ -195476,7 +195476,7 @@
     {
      "va": "00756d30",
      "size": 6,
-     "symbol": "?vf_000@AInventory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AInventory@@UBEHXZ"
     }
    ]
   },
@@ -195488,7 +195488,7 @@
     {
      "va": "00756d40",
      "size": 6,
-     "symbol": "?vf_000@AInventoryManager@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AInventoryManager@@UBEHXZ"
     }
    ]
   },
@@ -195512,7 +195512,7 @@
     {
      "va": "00756d50",
      "size": 6,
-     "symbol": "?vf_000@APickupFactory@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APickupFactory@@UBEHXZ"
     }
    ]
   },
@@ -195524,7 +195524,7 @@
     {
      "va": "00756d60",
      "size": 6,
-     "symbol": "?vf_000@ATrigger@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ATrigger@@UBEHXZ"
     }
    ]
   },
@@ -195536,7 +195536,7 @@
     {
      "va": "00756ef0",
      "size": 6,
-     "symbol": "?vf_000@AInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AInfo@@UBEHXZ"
     }
    ]
   },
@@ -195548,7 +195548,7 @@
     {
      "va": "00756f00",
      "size": 6,
-     "symbol": "?vf_000@AReplicationInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AReplicationInfo@@UBEHXZ"
     }
    ]
   },
@@ -195560,7 +195560,7 @@
     {
      "va": "00756f10",
      "size": 6,
-     "symbol": "?vf_000@APlayerReplicationInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APlayerReplicationInfo@@UBEHXZ"
     }
    ]
   },
@@ -195572,7 +195572,7 @@
     {
      "va": "00756f20",
      "size": 6,
-     "symbol": "?vf_000@AInternetInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AInternetInfo@@UBEHXZ"
     }
    ]
   },
@@ -195584,7 +195584,7 @@
     {
      "va": "00756f50",
      "size": 6,
-     "symbol": "?vf_000@ADroppedPickup@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADroppedPickup@@UBEHXZ"
     }
    ]
   },
@@ -195596,7 +195596,7 @@
     {
      "va": "00756f60",
      "size": 6,
-     "symbol": "?vf_000@AController@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AController@@UBEHXZ"
     }
    ]
   },
@@ -195608,7 +195608,7 @@
     {
      "va": "00756f70",
      "size": 6,
-     "symbol": "?vf_000@AAIController@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AAIController@@UBEHXZ"
     }
    ]
   },
@@ -195620,7 +195620,7 @@
     {
      "va": "00756fa0",
      "size": 6,
-     "symbol": "?vf_000@ADebugCameraController@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADebugCameraController@@UBEHXZ"
     }
    ]
   },
@@ -195644,7 +195644,7 @@
     {
      "va": "00756fb0",
      "size": 6,
-     "symbol": "?vf_000@AMutator@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AMutator@@UBEHXZ"
     }
    ]
   },
@@ -195668,7 +195668,7 @@
     {
      "va": "007570d0",
      "size": 6,
-     "symbol": "?vf_000@AVehicle@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AVehicle@@UBEHXZ"
     }
    ]
   },
@@ -195680,7 +195680,7 @@
     {
      "va": "007570e0",
      "size": 52,
-     "symbol": "?vf_004@AVehicle@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@AVehicle@@UBEHXZ"
     }
    ]
   },
@@ -195692,7 +195692,7 @@
     {
      "va": "00757120",
      "size": 6,
-     "symbol": "?vf_000@ALadder@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALadder@@UBEHXZ"
     }
    ]
   },
@@ -195716,7 +195716,7 @@
     {
      "va": "00757240",
      "size": 6,
-     "symbol": "?vf_000@UDamageType@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UDamageType@@UBEHXZ"
     }
    ]
   },
@@ -195728,7 +195728,7 @@
     {
      "va": "00757250",
      "size": 52,
-     "symbol": "?vf_004@UDamageType@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UDamageType@@UBEHXZ"
     }
    ]
   },
@@ -195740,7 +195740,7 @@
     {
      "va": "00757290",
      "size": 6,
-     "symbol": "?vf_000@UKillZDamageType@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UKillZDamageType@@UBEHXZ"
     }
    ]
   },
@@ -195752,7 +195752,7 @@
     {
      "va": "007572a0",
      "size": 6,
-     "symbol": "?vf_000@ABrush@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ABrush@@UBEHXZ"
     }
    ]
   },
@@ -195776,7 +195776,7 @@
     {
      "va": "007572b0",
      "size": 6,
-     "symbol": "?vf_000@AVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AVolume@@UBEHXZ"
     }
    ]
   },
@@ -195788,7 +195788,7 @@
     {
      "va": "007572c0",
      "size": 6,
-     "symbol": "?vf_000@APhysicsVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APhysicsVolume@@UBEHXZ"
     }
    ]
   },
@@ -195800,7 +195800,7 @@
     {
      "va": "007572d0",
      "size": 6,
-     "symbol": "?vf_000@AWaterVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AWaterVolume@@UBEHXZ"
     }
    ]
   },
@@ -195812,7 +195812,7 @@
     {
      "va": "007572e0",
      "size": 6,
-     "symbol": "?vf_000@AGravityVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AGravityVolume@@UBEHXZ"
     }
    ]
   },
@@ -195824,7 +195824,7 @@
     {
      "va": "007572f0",
      "size": 6,
-     "symbol": "?vf_000@ADefaultPhysicsVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ADefaultPhysicsVolume@@UBEHXZ"
     }
    ]
   },
@@ -195836,7 +195836,7 @@
     {
      "va": "00757300",
      "size": 6,
-     "symbol": "?vf_000@ALadderVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALadderVolume@@UBEHXZ"
     }
    ]
   },
@@ -195848,7 +195848,7 @@
     {
      "va": "00757310",
      "size": 6,
-     "symbol": "?vf_000@APotentialClimbWatcher@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@APotentialClimbWatcher@@UBEHXZ"
     }
    ]
   },
@@ -195860,7 +195860,7 @@
     {
      "va": "00757320",
      "size": 6,
-     "symbol": "?vf_000@ABlockingVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ABlockingVolume@@UBEHXZ"
     }
    ]
   },
@@ -195872,7 +195872,7 @@
     {
      "va": "00757330",
      "size": 6,
-     "symbol": "?vf_000@AAutoLadder@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AAutoLadder@@UBEHXZ"
     }
    ]
   },
@@ -195884,7 +195884,7 @@
     {
      "va": "00757340",
      "size": 6,
-     "symbol": "?vf_000@ATeamInfo@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ATeamInfo@@UBEHXZ"
     }
    ]
   },
@@ -195908,7 +195908,7 @@
     {
      "va": "00757350",
      "size": 6,
-     "symbol": "?vf_000@AObjective@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@AObjective@@UBEHXZ"
     }
    ]
   },
@@ -195932,7 +195932,7 @@
     {
      "va": "00757470",
      "size": 6,
-     "symbol": "?vf_000@UEdCoordSystem@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UEdCoordSystem@@UBEHXZ"
     }
    ]
   },
@@ -195944,7 +195944,7 @@
     {
      "va": "00757480",
      "size": 52,
-     "symbol": "?vf_004@UEdCoordSystem@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UEdCoordSystem@@UBEHXZ"
     }
    ]
   },
@@ -195956,7 +195956,7 @@
     {
      "va": "007574c0",
      "size": 6,
-     "symbol": "?vf_000@ALiftCenter@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALiftCenter@@UBEHXZ"
     }
    ]
   },
@@ -195968,7 +195968,7 @@
     {
      "va": "007574d0",
      "size": 6,
-     "symbol": "?vf_000@ALiftExit@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ALiftExit@@UBEHXZ"
     }
    ]
   },
@@ -195992,7 +195992,7 @@
     {
      "va": "00757750",
      "size": 6,
-     "symbol": "?vf_000@UClipPadEntry@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UClipPadEntry@@UBEHXZ"
     }
    ]
   },
@@ -196004,7 +196004,7 @@
     {
      "va": "00757760",
      "size": 52,
-     "symbol": "?vf_004@UClipPadEntry@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UClipPadEntry@@UBEHXZ"
     }
    ]
   },
@@ -196016,7 +196016,7 @@
     {
      "va": "007577a0",
      "size": 6,
-     "symbol": "?vf_000@ATriggerVolume@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@ATriggerVolume@@UBEHXZ"
     }
    ]
   },
@@ -196028,7 +196028,7 @@
     {
      "va": "00753900",
      "size": 80,
-     "symbol": "?sub_00753900@AActor_@@QAEXPAUAActor@@@Z"
+     "symbol": "?sub_00753900@AActor@@QAEXPAU1@@Z"
     },
     {
      "va": "00758370",
@@ -197243,7 +197243,7 @@
     {
      "va": "00759620",
      "size": 17,
-     "symbol": "?sub_00759620@UActorComponent@@QAEXXZ"
+     "symbol": "?ConditionalUpdateTransform@UActorComponent@@QAEXXZ"
     },
     {
      "va": "00765060",
@@ -197743,12 +197743,12 @@
     {
      "va": "00759560",
      "size": 35,
-     "symbol": "?vf_118@UActorComponent@@UAEXXZ"
+     "symbol": "?UpdateTransform@UActorComponent@@UAEXXZ"
     },
     {
      "va": "00759590",
      "size": 35,
-     "symbol": "?UpdateTransform@UActorComponent@@UAEXXZ"
+     "symbol": "?BeginPlay@UActorComponent@@UAEXXZ"
     },
     {
      "va": "007595c0",
@@ -200395,7 +200395,7 @@
     {
      "va": "00c4b080",
      "size": 24,
-     "symbol": "?sub_00c4b080@UAnimNodeSequenceBlendByAim2@@QAE?AUFVector2D@@XZ"
+     "symbol": "?GetAim@UAnimNodeSequenceBlendByAim@@UAE?AUFVector2D@@XZ"
     },
     {
      "va": "00c4b120",
@@ -200557,7 +200557,7 @@
     {
      "va": "00c7c810",
      "size": 291,
-     "symbol": "?TickAnim@UAnimNodePlayCustomAnim_@@QAEXMM@Z"
+     "symbol": "?TickAnim@UAnimNodePlayCustomAnim@@UAEXMM@Z"
     }
    ]
   },
@@ -200569,7 +200569,7 @@
     {
      "va": "00c803f0",
      "size": 342,
-     "symbol": "?AddToSynchGroup@UAnimNodeSlot_@@QAEXUFName@@@Z"
+     "symbol": "?AddToSynchGroup@UAnimNodeSlot@@QAEXUFName@@@Z"
     }
    ]
   },
@@ -201081,7 +201081,7 @@
     {
      "va": "00c7ccb0",
      "size": 94,
-     "symbol": "?GetCustomAnimNodeSeq@UAnimNodeSlot_@@QAEPAUUAnimNodeSequence@@XZ"
+     "symbol": "?GetCustomAnimNodeSeq@UAnimNodeSlot@@QAEPAUUAnimNodeSequence@@XZ"
     }
    ]
   },
@@ -201093,7 +201093,7 @@
     {
      "va": "00c56ca0",
      "size": 790,
-     "symbol": "?SetActiveChild@UAnimNodeSlot_@@QAEXHM@Z"
+     "symbol": "?SetActiveChild@UAnimNodeSlot@@QAEXHM@Z"
     }
    ]
   },
@@ -201212,7 +201212,7 @@
     {
      "va": "00c49e80",
      "size": 89,
-     "symbol": "?eventOnAnimEnd@AActor_@@QAEXPAUUAnimNodeSequence@@MM@Z"
+     "symbol": "?eventOnAnimEnd@AActor@@QAEXPAUUAnimNodeSequence@@MM@Z"
     }
    ]
   },
@@ -201382,7 +201382,7 @@
     {
      "va": "00c4b5c0",
      "size": 13,
-     "symbol": "?vf_190@UAnimNodeBlendBase@@UAEHH@Z"
+     "symbol": "?OnAddChild@UAnimNodeBlendBase@@UAEXH@Z"
     }
    ]
   },
@@ -201394,7 +201394,7 @@
     {
      "va": "00c4b5d0",
      "size": 13,
-     "symbol": "?vf_194@UAnimNodeBlendBase@@UAEHH@Z"
+     "symbol": "?OnRemoveChild@UAnimNodeBlendBase@@UAEXH@Z"
     }
    ]
   },
@@ -201406,7 +201406,7 @@
     {
      "va": "00c7cbb0",
      "size": 243,
-     "symbol": "?SetActorAnimEndNotification@UAnimNodeSlot_@@QAEXH@Z"
+     "symbol": "?SetActorAnimEndNotification@UAnimNodeSlot@@QAEXH@Z"
     }
    ]
   },
@@ -201418,7 +201418,7 @@
     {
      "va": "00c7a590",
      "size": 263,
-     "symbol": "?GetActiveChild@UAnimNodeCrossfader_@@QAEPAUUAnimNodeSequence@@XZ"
+     "symbol": "?GetActiveChild@UAnimNodeCrossfader@@QAEPAUUAnimNodeSequence@@XZ"
     }
    ]
   },
@@ -201575,7 +201575,7 @@
     {
      "va": "00c50070",
      "size": 10,
-     "symbol": "?ShouldSaveCachedResults@UAnimNode@@UAE_NXZ"
+     "symbol": "?ShouldSaveCachedResults@UAnimNode@@UAEHXZ"
     },
     {
      "va": "00c50450",
@@ -202842,7 +202842,7 @@
     {
      "va": "00798240",
      "size": 34,
-     "symbol": "?sub_00798240@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00798240@C_00798240@@QAEPAU1@XZ"
     }
    ]
   },
@@ -202854,7 +202854,7 @@
     {
      "va": "00798270",
      "size": 34,
-     "symbol": "?sub_00798270@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00798270@C_00798270@@QAEPAU1@XZ"
     }
    ]
   },
@@ -202866,7 +202866,7 @@
     {
      "va": "007983c0",
      "size": 34,
-     "symbol": "?sub_007983c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007983c0@C_007983c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -202878,7 +202878,7 @@
     {
      "va": "007983f0",
      "size": 34,
-     "symbol": "?sub_007983f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007983f0@C_007983f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -202917,7 +202917,7 @@
     {
      "va": "00785f10",
      "size": 25,
-     "symbol": "?sub_00785f10@UAudioDevice_@@QAEXHH@Z"
+     "symbol": "?sub_00785f10@UAudioDevice@@QAEXHH@Z"
     },
     {
      "va": "00786580",
@@ -203103,7 +203103,7 @@
     {
      "va": "00786260",
      "size": 21,
-     "symbol": "?sub_00786260@UAudioComponent_@@QAEXH@Z"
+     "symbol": "?sub_00786260@UAudioComponent@@QAEXH@Z"
     },
     {
      "va": "0078a830",
@@ -203118,12 +203118,12 @@
     {
      "va": "0078e310",
      "size": 142,
-     "symbol": "?sub_0078e310@UAudioComponent__0078e310@@QAEHUFName@@AAM@Z"
+     "symbol": "?sub_0078e310@UAudioComponent@@QAEHUFName@@AAM@Z"
     },
     {
      "va": "0078e3a0",
      "size": 142,
-     "symbol": "?sub_0078e3a0@UAudioComponent__0078e3a0@@QAEHUFName@@AAM@Z"
+     "symbol": "?sub_0078e3a0@UAudioComponent@@QAEHUFName@@AAM@Z"
     }
    ]
   },
@@ -203198,7 +203198,7 @@
     {
      "va": "00797f20",
      "size": 34,
-     "symbol": "?sub_00797f20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00797f20@C_00797f20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -203210,7 +203210,7 @@
     {
      "va": "00797f50",
      "size": 34,
-     "symbol": "?sub_00797f50@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00797f50@C_00797f50@@QAEPAU1@XZ"
     }
    ]
   },
@@ -203222,7 +203222,7 @@
     {
      "va": "007980c0",
      "size": 34,
-     "symbol": "?sub_007980c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007980c0@C_007980c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -203234,7 +203234,7 @@
     {
      "va": "007980f0",
      "size": 34,
-     "symbol": "?sub_007980f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007980f0@C_007980f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -204499,7 +204499,7 @@
     {
      "va": "00cbad20",
      "size": 307,
-     "symbol": "?PickNewSlot@USoundNodeAmbientNonLoop_@@QAEHXZ"
+     "symbol": "?PickNewSlot@USoundNodeAmbientNonLoop@@QAEHXZ"
     }
    ]
   },
@@ -205689,7 +205689,7 @@
     {
      "va": "00cdbd90",
      "size": 35,
-     "symbol": "?sub_00cdbd90@USoundCue@@QAEIE@Z"
+     "symbol": "?sub_00cdbd90@C_00cdbd90@@QAEIE@Z"
     },
     {
      "va": "00cdbdc0",
@@ -205768,7 +205768,7 @@
     {
      "va": "00785280",
      "size": 97,
-     "symbol": "?eventClientSetViewTarget@APlayerController_@@QAEXPAUAActor@@UFViewTargetTransitionParams@@@Z"
+     "symbol": "?eventClientSetViewTarget@APlayerController@@QAEXPAUAActor@@UFViewTargetTransitionParams@@@Z"
     }
    ]
   },
@@ -206360,7 +206360,7 @@
     {
      "va": "00aa9b90",
      "size": 104,
-     "symbol": "?sub_00aa9b90@UCanvas_@@QAEXABVFString@@@Z"
+     "symbol": "?sub_00aa9b90@UCanvas@@QAEXABVFString@@@Z"
     }
    ]
   },
@@ -206456,7 +206456,7 @@
     {
      "va": "00df30d0",
      "size": 16,
-     "symbol": "?sub_00df30d0@C_00df30d0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UControlChannel@@QAEXXZ"
     },
     {
      "va": "00df30e0",
@@ -206471,7 +206471,7 @@
     {
      "va": "00df3110",
      "size": 23,
-     "symbol": "?sub_00df3110@C_00df3110@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UActorChannel@@QAEXXZ"
     },
     {
      "va": "00df3130",
@@ -206491,7 +206491,7 @@
     {
      "va": "00df3170",
      "size": 16,
-     "symbol": "?sub_00df3170@C_00df3170@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UFileChannel@@QAEXXZ"
     },
     {
      "va": "00df3180",
@@ -206501,7 +206501,7 @@
     {
      "va": "00df3190",
      "size": 16,
-     "symbol": "?sub_00df3190@C_00df3190@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UVoiceChannel@@QAEXXZ"
     },
     {
      "va": "00df32a0",
@@ -207631,7 +207631,7 @@
     {
      "va": "007a1eb0",
      "size": 132,
-     "symbol": "?GetPlayerControllerFromNetId@APlayerController_@@QAEPAUAPlayerController@@UFUniqueNetId@@@Z"
+     "symbol": "?GetPlayerControllerFromNetId@APlayerController@@QAEPAU1@UFUniqueNetId@@@Z"
     }
    ]
   },
@@ -207643,7 +207643,7 @@
     {
      "va": "007a1d70",
      "size": 28,
-     "symbol": "?vf_1d8@AController@@UAEXXZ"
+     "symbol": "?PostBeginPlay@AController@@UAEXXZ"
     }
    ]
   },
@@ -207724,7 +207724,7 @@
     {
      "va": "00cd00f0",
      "size": 34,
-     "symbol": "?sub_00cd00f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00cd00f0@C_00cd00f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -208845,7 +208845,7 @@
     {
      "va": "00df9b60",
      "size": 35,
-     "symbol": "?sub_00df9b60@C_00df9b60@@QAEXXZ"
+     "symbol": "?StaticConstructor@UDownload@@QAEXXZ"
     },
     {
      "va": "00df9bb0",
@@ -208987,7 +208987,7 @@
     {
      "va": "00c8f9a0",
      "size": 13,
-     "symbol": "?sub_00c8f9a0@C_00c8f9a0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UServerCommandlet@@QAEXXZ"
     },
     {
      "va": "00c8f9b0",
@@ -209002,7 +209002,7 @@
     {
      "va": "00c8f9d0",
      "size": 13,
-     "symbol": "?sub_00c8f9d0@C_00c8f9d0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@USmokeTestCommandlet@@QAEXXZ"
     },
     {
      "va": "00cafcb0",
@@ -209948,7 +209948,7 @@
     {
      "va": "007b8070",
      "size": 104,
-     "symbol": "?sub_007b8070@UFracturedBaseComponent_@@QAEHXZ"
+     "symbol": "?sub_007b8070@UFracturedBaseComponent@@QAEHXZ"
     },
     {
      "va": "007b8ac0",
@@ -209963,7 +209963,7 @@
     {
      "va": "007c5a40",
      "size": 129,
-     "symbol": "?vf_118@UFracturedStaticMeshComponent@@UAEXXZ"
+     "symbol": "?UpdateTransform@UFracturedStaticMeshComponent@@UAEXXZ"
     }
    ]
   },
@@ -209975,7 +209975,7 @@
     {
      "va": "007b1890",
      "size": 200,
-     "symbol": "?sub_007b1890@UFracturedStaticMeshComponent_@@QAEXXZ"
+     "symbol": "?sub_007b1890@UFracturedStaticMeshComponent@@QAEXXZ"
     }
    ]
   },
@@ -210048,7 +210048,7 @@
     {
      "va": "007c5680",
      "size": 266,
-     "symbol": "?eventBreakOffIsolatedIslands@AFracturedStaticMeshActor_@@QAEXAAV?$TArray@E@@ABV?$TArray@H@@UFVector@@ABV?$TArray@PAUAFracturedStaticMeshPart@@@@HH@Z"
+     "symbol": "?eventBreakOffIsolatedIslands@AFracturedStaticMeshActor@@QAEXAAV?$TArray@E@@ABV?$TArray@H@@UFVector@@ABV?$TArray@PAUAFracturedStaticMeshPart@@@@HH@Z"
     }
    ]
   },
@@ -210082,7 +210082,7 @@
     {
      "va": "007c8c40",
      "size": 34,
-     "symbol": "?sub_007c8c40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007c8c40@C_007c8c40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -210094,7 +210094,7 @@
     {
      "va": "007c8c70",
      "size": 34,
-     "symbol": "?sub_007c8c70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007c8c70@C_007c8c70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -210111,7 +210111,7 @@
     {
      "va": "007c8d30",
      "size": 34,
-     "symbol": "?sub_007c8d30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007c8d30@AActorCtor_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -211729,7 +211729,7 @@
     {
      "va": "00888f20",
      "size": 83,
-     "symbol": "?eventTick@UInteraction_@@QAEXM@Z"
+     "symbol": "?eventTick@UInteraction@@QAEXM@Z"
     },
     {
      "va": "00d8e5a0",
@@ -212166,7 +212166,7 @@
     {
      "va": "00d14240",
      "size": 463,
-     "symbol": "?sub_00d14240@USeqAct_Interp@@QAEXPAUAPlayerController@@@Z"
+     "symbol": "?AddPlayerToDirectorTracks@USeqAct_Interp@@QAEXPAUAPlayerController@@@Z"
     }
    ]
   },
@@ -212470,7 +212470,7 @@
     {
      "va": "00ceb4f0",
      "size": 28,
-     "symbol": "?sub_00ceb4f0@USeqAct_Interp_@@QAEXXZ"
+     "symbol": "?sub_00ceb4f0@USeqAct_Interp@@QAEXXZ"
     },
     {
      "va": "00cf0440",
@@ -212569,7 +212569,7 @@
     {
      "va": "00d141c0",
      "size": 127,
-     "symbol": "?sub_00d141c0@USeqAct_Interp_@@QAEPAUUInterpGroupDirector@@XZ"
+     "symbol": "?sub_00d141c0@USeqAct_Interp@@QAEPAUUInterpGroupDirector@@XZ"
     },
     {
      "va": "00d1c8c0",
@@ -212699,7 +212699,7 @@
     {
      "va": "00cfbd70",
      "size": 93,
-     "symbol": "?GetFadeAmountAtTime@UInterpTrackFade_@@QAEMM@Z"
+     "symbol": "?GetFadeAmountAtTime@UInterpTrackFade@@QAEMM@Z"
     }
    ]
   },
@@ -212761,7 +212761,7 @@
     {
      "va": "00cfc680",
      "size": 67,
-     "symbol": "?sub_00cfc680@UInterpTrackColorScale_@@QAE?AUFVector@@M@Z"
+     "symbol": "?sub_00cfc680@UInterpTrackColorScale@@QAE?AUFVector@@M@Z"
     },
     {
      "va": "00cfcca0",
@@ -212778,12 +212778,12 @@
     {
      "va": "00cfbe50",
      "size": 93,
-     "symbol": "?sub_00cfbe50@UInterpTrackSoundFade_@@QAEMM@Z"
+     "symbol": "?sub_00cfbe50@UInterpTrackSoundFade@@QAEMM@Z"
     },
     {
      "va": "00cfbf30",
      "size": 71,
-     "symbol": "?sub_00cfbf30@UInterpTrackSlomo_@@QAEMM@Z"
+     "symbol": "?sub_00cfbf30@UInterpTrackSlomo@@QAEMM@Z"
     }
    ]
   },
@@ -214001,7 +214001,7 @@
     {
      "va": "0076cc90",
      "size": 250,
-     "symbol": "?sub_0076cc90@AActor__0076cc90@@QAEXXZ"
+     "symbol": "?UnTouchActors@AActor@@QAEXXZ"
     },
     {
      "va": "007e2d90",
@@ -214023,7 +214023,7 @@
     {
      "va": "007ed180",
      "size": 209,
-     "symbol": "?sub_007ed180@UWorld_@@QAEHPAUAActor@@H@Z"
+     "symbol": "?EditorDestroyActor@UWorld@@QAEHPAUAActor@@H@Z"
     }
    ]
   },
@@ -214356,7 +214356,7 @@
     {
      "va": "00d3ef90",
      "size": 194,
-     "symbol": "??1?$TArrayDtor_@UFOnlineStatsRow_@@@@QAE@XZ"
+     "symbol": "??1?$TArray@UFOnlineStatsRow_@@@@QAE@XZ"
     }
    ]
   },
@@ -214584,7 +214584,7 @@
     {
      "va": "00824fd0",
      "size": 34,
-     "symbol": "?sub_00824fd0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00824fd0@C_00824fd0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -214596,7 +214596,7 @@
     {
      "va": "00825090",
      "size": 34,
-     "symbol": "?sub_00825090@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00825090@C_00825090@@QAEPAU1@XZ"
     }
    ]
   },
@@ -215423,7 +215423,7 @@
     {
      "va": "008417e0",
      "size": 117,
-     "symbol": "?GetSlotHeight@ACoverLink_@@QAEMH@Z"
+     "symbol": "?GetSlotHeight@ACoverLink@@QAEMH@Z"
     }
    ]
   },
@@ -215574,7 +215574,7 @@
     {
      "va": "00857800",
      "size": 34,
-     "symbol": "?sub_00857800@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00857800@AActorCtor_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -215700,12 +215700,12 @@
     {
      "va": "00859ce0",
      "size": 197,
-     "symbol": "??1?$TArrayDtor_@UFCoverSlot@@@@QAE@XZ"
+     "symbol": "??1?$TArray@UFCoverSlot@@@@QAE@XZ"
     },
     {
      "va": "00859e20",
      "size": 140,
-     "symbol": "?Empty@?$TArrayEmpty_@UFCoverSlot@@@@QAEXH@Z"
+     "symbol": "?Empty@?$TArray@UFCoverSlot@@@@QAEXH@Z"
     },
     {
      "va": "00859eb0",
@@ -215831,7 +215831,7 @@
     {
      "va": "0084e9a0",
      "size": 134,
-     "symbol": "?sub_0084e9a0@ACoverLink_@@QAEXXZ"
+     "symbol": "?sub_0084e9a0@ACoverLink@@QAEXXZ"
     }
    ]
   },
@@ -216201,7 +216201,7 @@
     {
      "va": "00e149f0",
      "size": 25,
-     "symbol": "?vf_134@UPackageMapSeekFree@@UAEHH@Z"
+     "symbol": "?ObjectToIndex@UPackageMapSeekFree@@UAEHPAUUObject@@@Z"
     }
    ]
   },
@@ -216263,7 +216263,7 @@
     {
      "va": "00df4e20",
      "size": 15,
-     "symbol": "?sub_00df4e20@C_00df4e20@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UNetDriver@@QAEXXZ"
     },
     {
      "va": "00dfaa60",
@@ -217317,7 +217317,7 @@
     {
      "va": "00b6b2c0",
      "size": 34,
-     "symbol": "?sub_00b6b2c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00b6b2c0@C_00b6b2c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -217436,7 +217436,7 @@
     {
      "va": "00b6fc10",
      "size": 193,
-     "symbol": "??1?$TArrayDtor_@UFParticleSystemReplayFrame_@@@@QAE@XZ"
+     "symbol": "??1?$TArray@UFParticleSystemReplayFrame_@@@@QAE@XZ"
     }
    ]
   },
@@ -217495,7 +217495,7 @@
     {
      "va": "00b5ecb0",
      "size": 144,
-     "symbol": "?sub_00b5ecb0@UParticleSystemComponent_@@QAEHUFName@@@Z"
+     "symbol": "?sub_00b5ecb0@UParticleSystemComponent@@QAEHUFName@@@Z"
     },
     {
      "va": "00f209e0",
@@ -217698,7 +217698,7 @@
     {
      "va": "00b5f140",
      "size": 106,
-     "symbol": "?sub_00b5f140@UParticleSystemComponent__00b5f140@@QAEPAUUParticleSystemReplay@@H@Z"
+     "symbol": "?sub_00b5f140@UParticleSystemComponent@@QAEPAUUParticleSystemReplay@@H@Z"
     },
     {
      "va": "00b5f210",
@@ -218205,17 +218205,17 @@
     {
      "va": "00b51bc0",
      "size": 7,
-     "symbol": "?sub_00b51bc0@C_00b51bc0@@QAEHXZ"
+     "symbol": "?GetLODLevel@UParticleSystemComponent@@QAEHXZ"
     },
     {
      "va": "00b51bd0",
      "size": 7,
-     "symbol": "?sub_00b51bd0@C_00b51bd0@@QAEHXZ"
+     "symbol": "?GetEditorLODLevel@UParticleSystemComponent@@QAEHXZ"
     },
     {
      "va": "00b51c00",
      "size": 13,
-     "symbol": "?sub_00b51c00@C_00b51c00@@QAEIXZ"
+     "symbol": "?GetSkipUpdateDynamicDataDuringTick@UParticleSystemComponent@@QAEHXZ"
     },
     {
      "va": "00b57ac0",
@@ -223129,7 +223129,7 @@
     {
      "va": "00887280",
      "size": 34,
-     "symbol": "?sub_00887280@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00887280@C_00887280@@QAEPAU1@XZ"
     }
    ]
   },
@@ -223185,7 +223185,7 @@
     {
      "va": "008650a0",
      "size": 75,
-     "symbol": "?sub_008650a0@APawn_@@QAEHXZ"
+     "symbol": "?IsLocallyControlled@APawn@@QAEHXZ"
     }
    ]
   },
@@ -223231,7 +223231,7 @@
     {
      "va": "0086c1e0",
      "size": 549,
-     "symbol": "?vf_1e8@AProjectile@@UAEXXZ"
+     "symbol": "?BoundProjectileVelocity@AProjectile@@UAEXXZ"
     }
    ]
   },
@@ -223521,7 +223521,7 @@
     {
      "va": "008660b0",
      "size": 87,
-     "symbol": "?sub_008660b0@APawn_@@QAE?AW4ETestMoveResult@@PAUAActor@@@Z"
+     "symbol": "?sub_008660b0@C_008660b0@@QAE?AW4ETestMoveResult@@PAUAActor@@@Z"
     },
     {
      "va": "00871450",
@@ -223971,7 +223971,7 @@
     {
      "va": "00865610",
      "size": 28,
-     "symbol": "?sub_00865610@APawn__00865610@@QAEXXZ"
+     "symbol": "?sub_00865610@APawn@@QAEXXZ"
     },
     {
      "va": "00865630",
@@ -223996,7 +223996,7 @@
     {
      "va": "00866050",
      "size": 96,
-     "symbol": "?sub_00866050@APawn__00866050@@QAE?AUFVector@@XZ"
+     "symbol": "?sub_00866050@APawn@@QAE?AUFVector@@XZ"
     },
     {
      "va": "00867a20",
@@ -224264,7 +224264,7 @@
     {
      "va": "009f04b0",
      "size": 34,
-     "symbol": "?sub_009f04b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f04b0@C_009f04b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224276,7 +224276,7 @@
     {
      "va": "009f0570",
      "size": 34,
-     "symbol": "?sub_009f0570@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0570@C_009f0570@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224288,7 +224288,7 @@
     {
      "va": "009f0c30",
      "size": 34,
-     "symbol": "?sub_009f0c30@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0c30@C_009f0c30@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224339,7 +224339,7 @@
     {
      "va": "009f0240",
      "size": 34,
-     "symbol": "?sub_009f0240@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0240@C_009f0240@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224351,7 +224351,7 @@
     {
      "va": "009f0270",
      "size": 34,
-     "symbol": "?sub_009f0270@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0270@C_009f0270@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224363,7 +224363,7 @@
     {
      "va": "009f0330",
      "size": 34,
-     "symbol": "?sub_009f0330@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0330@C_009f0330@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224375,7 +224375,7 @@
     {
      "va": "009f03f0",
      "size": 34,
-     "symbol": "?sub_009f03f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f03f0@C_009f03f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -224421,7 +224421,7 @@
     {
      "va": "009d88e0",
      "size": 6,
-     "symbol": "?vf_000@UKMeshProps@@UAEHXZ"
+     "symbol": "?HasUniqueStaticConfigName@UKMeshProps@@UBEHXZ"
     }
    ]
   },
@@ -224433,7 +224433,7 @@
     {
      "va": "009d88f0",
      "size": 52,
-     "symbol": "?vf_004@UKMeshProps@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UKMeshProps@@UBEHXZ"
     }
    ]
   },
@@ -224555,7 +224555,7 @@
     {
      "va": "009d99e0",
      "size": 51,
-     "symbol": "?sub_009d99e0@C_009d99e0@@QAEXXZ"
+     "symbol": "?ResolveRBState@AKActor@@QAEXXZ"
     },
     {
      "va": "009f01b0",
@@ -224968,7 +224968,7 @@
     {
      "va": "009f9a40",
      "size": 249,
-     "symbol": "?sub_009f9a40@URB_BodyInstance_@@QAEXPBUURB_BodyInstance@@@Z"
+     "symbol": "?sub_009f9a40@URB_BodyInstance@@QAEXPBU1@@Z"
     },
     {
      "va": "00a0b380",
@@ -225207,7 +225207,7 @@
     {
      "va": "00a0ace0",
      "size": 631,
-     "symbol": "?TermInstance@UPhysicsAssetInstance_@@QAEHPAUFRBPhysScene@@@Z"
+     "symbol": "?TermInstance@UPhysicsAssetInstance@@QAEHPAUFRBPhysScene@@@Z"
     }
    ]
   },
@@ -225260,7 +225260,7 @@
     {
      "va": "00a09a70",
      "size": 230,
-     "symbol": "?GetBodyIndicesBelow@UPhysicsAsset_@@QAEXAAV?$TArray@H@@UFName@@PAUUSkeletalMesh@@@Z"
+     "symbol": "?GetBodyIndicesBelow@UPhysicsAsset@@QAEXAAV?$TArray@H@@UFName@@PAUUSkeletalMesh@@@Z"
     }
    ]
   },
@@ -225707,7 +225707,7 @@
     {
      "va": "009ff950",
      "size": 23,
-     "symbol": "?sub_009ff950@UPrimitiveComponent_@@QAEXE@Z"
+     "symbol": "?sub_009ff950@UPrimitiveComponent@@QAEXE@Z"
     },
     {
      "va": "009ff970",
@@ -225756,7 +225756,7 @@
     {
      "va": "009ff6f0",
      "size": 21,
-     "symbol": "?vf_1f0@UPrimitiveComponent@@UAEHHH@Z"
+     "symbol": "?GetNxActor@UPrimitiveComponent@@UAEPAVNxActor@@UFName@@@Z"
     }
    ]
   },
@@ -227192,7 +227192,7 @@
     {
      "va": "0089e0b0",
      "size": 193,
-     "symbol": "??1?$TArrayDtor_@UFSplitscreenData_@@@@QAE@XZ"
+     "symbol": "??1?$TArray@UFSplitscreenData_@@@@QAE@XZ"
     }
    ]
   },
@@ -227246,7 +227246,7 @@
     {
      "va": "008886a0",
      "size": 62,
-     "symbol": "?sub_008886a0@UObject_@@QAEMXZ"
+     "symbol": "?sub_008886a0@UObject@@QAEMXZ"
     },
     {
      "va": "00888720",
@@ -227736,7 +227736,7 @@
     {
      "va": "0089f930",
      "size": 35,
-     "symbol": "?sub_0089f930@UGameViewportClient@@QAEIE@Z"
+     "symbol": "?sub_0089f930@C_0089f930@@QAEIE@Z"
     },
     {
      "va": "0089f960",
@@ -228723,7 +228723,7 @@
     {
      "va": "008dd300",
      "size": 34,
-     "symbol": "?sub_008dd300@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd300@AActorCtor_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -228735,7 +228735,7 @@
     {
      "va": "008dd330",
      "size": 34,
-     "symbol": "?sub_008dd330@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd330@C_008dd330@@QAEPAU1@XZ"
     }
    ]
   },
@@ -228747,7 +228747,7 @@
     {
      "va": "008dd3f0",
      "size": 34,
-     "symbol": "?sub_008dd3f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd3f0@C_008dd3f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -228759,7 +228759,7 @@
     {
      "va": "008dd540",
      "size": 34,
-     "symbol": "?sub_008dd540@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd540@C_008dd540@@QAEPAU1@XZ"
     }
    ]
   },
@@ -228771,7 +228771,7 @@
     {
      "va": "008dd600",
      "size": 34,
-     "symbol": "?sub_008dd600@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd600@C_008dd600@@QAEPAU1@XZ"
     }
    ]
   },
@@ -228783,7 +228783,7 @@
     {
      "va": "008dd630",
      "size": 34,
-     "symbol": "?sub_008dd630@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008dd630@C_008dd630@@QAEPAU1@XZ"
     }
    ]
   },
@@ -229484,7 +229484,7 @@
     {
      "va": "008cbe40",
      "size": 564,
-     "symbol": "?UpdateOp@USeqAct_Delay@@QAEHM@Z"
+     "symbol": "?UpdateOp@USeqAct_Delay@@UAEHM@Z"
     }
    ]
   },
@@ -229508,7 +229508,7 @@
     {
      "va": "008be740",
      "size": 345,
-     "symbol": "?CheckActivate@USeqEvent_Touch_@@QAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
+     "symbol": "?CheckActivate@USeqEvent_Touch@@UAEHPAUAActor@@0HPAV?$TArray@H@@H@Z"
     }
    ]
   },
@@ -229520,7 +229520,7 @@
     {
      "va": "008e2de0",
      "size": 418,
-     "symbol": "?Activated@USeqAct_Gate@@QAEXXZ"
+     "symbol": "?Activated@USeqAct_Gate@@UAEXXZ"
     }
    ]
   },
@@ -229532,7 +229532,7 @@
     {
      "va": "008fe500",
      "size": 368,
-     "symbol": "?FindLinksToSeqOp@USequence_@@QAEXPAUUSequenceOp@@AAV?$TArray@PAUFSeqOpOutputLink@@@@@Z"
+     "symbol": "?FindLinksToSeqOp@USequence@@QAEXPAUUSequenceOp@@AAV?$TArray@PAUFSeqOpOutputLink@@@@@Z"
     }
    ]
   },
@@ -229586,7 +229586,7 @@
     {
      "va": "008c0e70",
      "size": 247,
-     "symbol": "?Activated@USeqAct_SetClothParam@@QAEXXZ"
+     "symbol": "?Activated@USeqAct_SetClothParam@@UAEXXZ"
     },
     {
      "va": "008febf0",
@@ -229660,7 +229660,7 @@
     {
      "va": "008c0480",
      "size": 262,
-     "symbol": "?ActivateLevel@USeqAct_LevelStreamingBase_@@QAEXPAUULevelStreaming@@@Z"
+     "symbol": "?ActivateLevel@USeqAct_LevelStreamingBase@@QAEXPAUULevelStreaming@@@Z"
     }
    ]
   },
@@ -229689,7 +229689,7 @@
     {
      "va": "008ea4d0",
      "size": 149,
-     "symbol": "?Activated@USeqAct_Possess@@QAEXXZ"
+     "symbol": "?Activated@USeqAct_Possess@@UAEXXZ"
     }
    ]
   },
@@ -230076,7 +230076,7 @@
     {
      "va": "008ac050",
      "size": 131,
-     "symbol": "?sub_008ac050@USequenceEvent_@@QAEHH@Z"
+     "symbol": "?sub_008ac050@USequenceEvent@@QAEHH@Z"
     },
     {
      "va": "008ac490",
@@ -239091,7 +239091,7 @@
     {
      "va": "0092a830",
      "size": 753,
-     "symbol": "?CropRawAnimData@UAnimSequence_@@QAEHMH@Z"
+     "symbol": "?CropRawAnimData@UAnimSequence@@QAEHMH@Z"
     }
    ]
   },
@@ -239282,7 +239282,7 @@
     {
      "va": "0092bd20",
      "size": 278,
-     "symbol": "?Init@FParentTwistBoneFixers_@@QAEXPAUUSkeletalMeshComponent@@@Z"
+     "symbol": "?Init@FParentTwistBoneFixers@@QAEXPAUUSkeletalMeshComponent@@@Z"
     }
    ]
   },
@@ -239294,7 +239294,7 @@
     {
      "va": "0092ba00",
      "size": 789,
-     "symbol": "?Init@FTwistBoneFixers_@@QAEXPAUUSkeletalMeshComponent@@@Z"
+     "symbol": "?Init@FTwistBoneFixers@@QAEXPAUUSkeletalMeshComponent@@@Z"
     }
    ]
   },
@@ -240208,7 +240208,7 @@
     {
      "va": "0093dd00",
      "size": 159,
-     "symbol": "?UpdateTransform@USkeletalMeshComponent@@UAEXXZ"
+     "symbol": "?BeginPlay@USkeletalMeshComponent@@UAEXXZ"
     },
     {
      "va": "0093df30",
@@ -240539,7 +240539,7 @@
     {
      "va": "0090f4e0",
      "size": 29,
-     "symbol": "?sub_0090f4e0@USkeletalMeshComponent__0090f4e0@@QAEXXZ"
+     "symbol": "?sub_0090f4e0@USkeletalMeshComponent@@QAEXXZ"
     },
     {
      "va": "00935c60",
@@ -240861,7 +240861,7 @@
     {
      "va": "00934a30",
      "size": 84,
-     "symbol": "?UpdateActiveMorphs@USkeletalMeshComponent_@@QAEXXZ"
+     "symbol": "?UpdateActiveMorphs@USkeletalMeshComponent@@QAEXXZ"
     }
    ]
   },
@@ -241756,7 +241756,7 @@
     {
      "va": "0097b130",
      "size": 34,
-     "symbol": "?sub_0097b130@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097b130@C_0097b130@@QAEPAU1@XZ"
     }
    ]
   },
@@ -241768,7 +241768,7 @@
     {
      "va": "0097b160",
      "size": 34,
-     "symbol": "?sub_0097b160@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097b160@C_0097b160@@QAEPAU1@XZ"
     }
    ]
   },
@@ -241780,7 +241780,7 @@
     {
      "va": "0097b240",
      "size": 34,
-     "symbol": "?sub_0097b240@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097b240@C_0097b240@@QAEPAU1@XZ"
     }
    ]
   },
@@ -242204,7 +242204,7 @@
     {
      "va": "0095bc50",
      "size": 118,
-     "symbol": "?InitResources@USkeletalMesh_@@QAEXXZ"
+     "symbol": "?InitResources@USkeletalMesh@@QAEXXZ"
     }
    ]
   },
@@ -242638,12 +242638,12 @@
     {
      "va": "00943db0",
      "size": 20,
-     "symbol": "?sub_00943db0@FBone@@QAEPAUFMatrix44@@PAU2@@Z"
+     "symbol": "?sub_00943db0@FMatrixOwner_00943db0@@QBE?AUFMatrix@@XZ"
     },
     {
      "va": "00943dd0",
      "size": 8,
-     "symbol": "?sub_00943dd0@C_00943dd0@@QAEXXZ"
+     "symbol": "?sub_00943dd0@FMatrixOwner_00943db0@@QBEMXZ"
     },
     {
      "va": "00943de0",
@@ -243268,7 +243268,7 @@
     {
      "va": "0098b9f0",
      "size": 127,
-     "symbol": "?Height@ATerrain_@@QAEAAGHH@Z"
+     "symbol": "?Height@ATerrain@@QAEAAGHH@Z"
     }
    ]
   },
@@ -243280,7 +243280,7 @@
     {
      "va": "00986dc0",
      "size": 199,
-     "symbol": "?sub_00986dc0@ATerrain__00986dc0@@QAEXXZ"
+     "symbol": "?sub_00986dc0@ATerrain@@QAEXXZ"
     },
     {
      "va": "00986e90",
@@ -243302,7 +243302,7 @@
     {
      "va": "00990b90",
      "size": 118,
-     "symbol": "?vf_02c@ATerrain@@UAEXXZ"
+     "symbol": "?FinishDestroy@ATerrain@@UAEXXZ"
     }
    ]
   },
@@ -243495,7 +243495,7 @@
     {
      "va": "009a98d0",
      "size": 253,
-     "symbol": "?sub_009a98d0@ATerrain__009a98d0@@QAEXXZ"
+     "symbol": "?sub_009a98d0@ATerrain@@QAEXXZ"
     }
    ]
   },
@@ -244657,7 +244657,7 @@
     {
      "va": "0098f710",
      "size": 56,
-     "symbol": "?sub_0098f710@UTerrainLayerSetup@@QAEIIH@Z"
+     "symbol": "?sub_0098f710@C_0098f710@@QAEIIH@Z"
     },
     {
      "va": "0098fe30",
@@ -246332,7 +246332,7 @@
     {
      "va": "00d8f8a0",
      "size": 59,
-     "symbol": "?eventOnRegister@UUIDataProvider_OnlinePlayerDataBase_@@QAEXPAUULocalPlayer@@@Z"
+     "symbol": "?eventOnRegister@UUIDataProvider_OnlinePlayerDataBase@@QAEXPAUULocalPlayer@@@Z"
     }
    ]
   },
@@ -250275,7 +250275,7 @@
     {
      "va": "00da32c0",
      "size": 163,
-     "symbol": "?BindProviderClient@USessionSettingsProvider_@@QAEHPAUUClass@@@Z"
+     "symbol": "?sub_00da32c0@USessionSettingsProvider_@@QAEHPAUUClass@@@Z"
     },
     {
      "va": "00da33b0",
@@ -250518,7 +250518,7 @@
     {
      "va": "00d99110",
      "size": 27,
-     "symbol": "?GetNumResolvedFaces@UUIScreenObject@@QAEIXZ"
+     "symbol": "?GetNumResolvedFaces@UUIScreenObject@@UAEIXZ"
     }
    ]
   },
@@ -250660,7 +250660,7 @@
     {
      "va": "00da99d0",
      "size": 10,
-     "symbol": "?sub_00da99d0@C_00da99d0@@QAEIXZ"
+     "symbol": "?IsNeverFocused@UUIScreenObject@@QAEHXZ"
     },
     {
      "va": "00da99e0",
@@ -250846,7 +250846,7 @@
     {
      "va": "00daa410",
      "size": 25,
-     "symbol": "?sub_00daa410@UUIObject_@@QAEXXZ"
+     "symbol": "?sub_00daa410@UUIObject@@QAEXXZ"
     },
     {
      "va": "00daa430",
@@ -251739,7 +251739,7 @@
     {
      "va": "00daf880",
      "size": 203,
-     "symbol": "?sub_00daf880@UUIScreenObject_@@QBEXAAV?$TArray@PAVUUIObject@@@@@Z"
+     "symbol": "?sub_00daf880@UUIScreenObject@@QBEXAAV?$TArray@PAVUUIObject@@@@@Z"
     }
    ]
   },
@@ -251882,12 +251882,12 @@
     {
      "va": "00da9d70",
      "size": 18,
-     "symbol": "?sub_00da9d70@UUIScene_@@QAEHXZ"
+     "symbol": "?sub_00da9d70@UUIScene@@QAEHXZ"
     },
     {
      "va": "00da9d90",
      "size": 40,
-     "symbol": "?sub_00da9d90@UUIScene__00da9d90@@QAEXM@Z"
+     "symbol": "?sub_00da9d90@UUIScene@@QAEXM@Z"
     },
     {
      "va": "00da9df0",
@@ -251922,7 +251922,7 @@
     {
      "va": "00daab70",
      "size": 29,
-     "symbol": "?sub_00daab70@UUIObject__00daab70@@QAEHHH@Z"
+     "symbol": "?sub_00daab70@UUIObject@@QAEHHH@Z"
     },
     {
      "va": "00dacf60",
@@ -252168,7 +252168,7 @@
     {
      "va": "00d98fa0",
      "size": 27,
-     "symbol": "?GetOwner@UUIScreenObject@@QAEIXZ"
+     "symbol": "?GetOwner@UUIScreenObject@@UAEPAUUUIObject@@XZ"
     }
    ]
   },
@@ -253064,7 +253064,7 @@
     {
      "va": "00da9dc0",
      "size": 13,
-     "symbol": "?sub_00da9dc0@C_00da9dc0@@QAEIXZ"
+     "symbol": "?ShouldRenderParentScenes@UUIScene@@QAEHXZ"
     },
     {
      "va": "00da9dd0",
@@ -253124,7 +253124,7 @@
     {
      "va": "00daabf0",
      "size": 10,
-     "symbol": "?sub_00daabf0@C_00daabf0@@QAEIXZ"
+     "symbol": "?NeedsActiveCursorUpdates@UUIObject@@QAEHXZ"
     },
     {
      "va": "00daac70",
@@ -254998,7 +254998,7 @@
     {
      "va": "00dcb670",
      "size": 75,
-     "symbol": "?eventSubscriberAttached@UUIDataStore_@@QAEXABUFScriptInterface@@@Z"
+     "symbol": "?eventSubscriberAttached@UUIDataStore@@QAEXABUFScriptInterface@@@Z"
     }
    ]
   },
@@ -257102,7 +257102,7 @@
     {
      "va": "00d860f0",
      "size": 34,
-     "symbol": "?sub_00d860f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d860f0@C_00d860f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -257114,7 +257114,7 @@
     {
      "va": "00d861b0",
      "size": 34,
-     "symbol": "?sub_00d861b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d861b0@C_00d861b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -261803,7 +261803,7 @@
     {
      "va": "00d85d00",
      "size": 34,
-     "symbol": "?sub_00d85d00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d85d00@C_00d85d00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -262001,7 +262001,7 @@
     {
      "va": "00ddef70",
      "size": 101,
-     "symbol": "??8FUIImageAdjustmentData_@@QBEHABUFUIImageAdjustmentData@@@Z"
+     "symbol": "??8FUIImageAdjustmentData@@QBEHABU0@@Z"
     }
    ]
   },
@@ -262013,7 +262013,7 @@
     {
      "va": "00d85df0",
      "size": 34,
-     "symbol": "?sub_00d85df0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d85df0@C_00d85df0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -262025,7 +262025,7 @@
     {
      "va": "00d85f40",
      "size": 34,
-     "symbol": "?sub_00d85f40@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d85f40@C_00d85f40@@QAEPAU1@XZ"
     }
    ]
   },
@@ -262037,7 +262037,7 @@
     {
      "va": "00d85f70",
      "size": 34,
-     "symbol": "?sub_00d85f70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d85f70@C_00d85f70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -262049,7 +262049,7 @@
     {
      "va": "00d860c0",
      "size": 34,
-     "symbol": "?sub_00d860c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d860c0@C_00d860c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -267112,7 +267112,7 @@
     {
      "va": "0064bbf0",
      "size": 14,
-     "symbol": "?sub_0064bbf0@USurface_@@QAEXXZ"
+     "symbol": "?sub_0064bbf0@USurface@@QAEXXZ"
     },
     {
      "va": "0064bc60",
@@ -267234,7 +267234,7 @@
     {
      "va": "0064db90",
      "size": 59,
-     "symbol": "?eventDecalFinished@ADecalManager_@@QAEXPAUUDecalComponent@@@Z"
+     "symbol": "?eventDecalFinished@ADecalManager@@QAEXPAUUDecalComponent@@@Z"
     }
    ]
   },
@@ -272560,7 +272560,7 @@
     {
      "va": "00663730",
      "size": 27,
-     "symbol": "?GetPoseRotations@AnimationEncodingFormat_@@QAEHHHHHH@Z"
+     "symbol": "?GetPoseRotations@AnimationEncodingFormat@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@UBoneTrackPair@@@@ABUUAnimSequence@@MH@Z"
     }
    ]
   },
@@ -272599,7 +272599,7 @@
     {
      "va": "00663710",
      "size": 27,
-     "symbol": "?sub_00663710@AnimationEncodingFormat@@UAEXHHHHHHH@Z"
+     "symbol": "?GetBoneAtomTranslation@AnimationEncodingFormat@@UAEXAAUFBoneAtom@@ABUUAnimSequence@@PBEHMMH@Z"
     }
    ]
   },
@@ -272623,7 +272623,7 @@
     {
      "va": "00663770",
      "size": 27,
-     "symbol": "?sub_00663770@AnimationEncodingFormat@@UAEHHHHH@Z"
+     "symbol": "?ByteSwapRotationIn@AnimationEncodingFormat@@UAEXAAUUAnimSequence@@AAVFMemoryReader@@AAPAEH@Z"
     }
    ]
   },
@@ -272635,7 +272635,7 @@
     {
      "va": "00663790",
      "size": 27,
-     "symbol": "?ByteSwapTranslationIn@AnimationEncodingFormat@@UAEHHHHH@Z"
+     "symbol": "?ByteSwapTranslationIn@AnimationEncodingFormat@@UAEXAAUUAnimSequence@@AAVFMemoryReader@@AAPAEH@Z"
     }
    ]
   },
@@ -272647,7 +272647,7 @@
     {
      "va": "006637b0",
      "size": 27,
-     "symbol": "?ByteSwapRotationOut@AnimationEncodingFormat@@UAEHHHHH@Z"
+     "symbol": "?ByteSwapRotationOut@AnimationEncodingFormat@@UAEXAAUUAnimSequence@@AAVFMemoryWriter@@AAPAEH@Z"
     }
    ]
   },
@@ -274023,7 +274023,7 @@
     {
      "va": "0068f5d0",
      "size": 34,
-     "symbol": "?sub_0068f5d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0068f5d0@C_0068f5d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -275492,7 +275492,7 @@
     {
      "va": "00691aa0",
      "size": 34,
-     "symbol": "?sub_00691aa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00691aa0@C_00691aa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -277663,7 +277663,7 @@
     {
      "va": "006ad770",
      "size": 7,
-     "symbol": "?sub_006ad770@C_006ad770@@QAEIXZ"
+     "symbol": "?IsEnabled@ULightEnvironmentComponent@@QAEHXZ"
     },
     {
      "va": "006ad7c0",
@@ -288010,7 +288010,7 @@
     {
      "va": "00725ba0",
      "size": 55,
-     "symbol": "?sub_00725ba0@C_00725ba0@@QAEXXZ"
+     "symbol": "?ResetSourceRegions@UTexture2DComposite@@QAEXXZ"
     },
     {
      "va": "00725d50",
@@ -288802,7 +288802,7 @@
     {
      "va": "00736070",
      "size": 34,
-     "symbol": "?sub_00736070@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00736070@AActorCtor_@@QAEPAU1@XZ"
     },
     {
      "va": "007378a0",
@@ -289060,7 +289060,7 @@
     {
      "va": "00733310",
      "size": 20,
-     "symbol": "?sub_00733310@UTexture2D_@@QAEXAAVFArchive@@@Z"
+     "symbol": "?sub_00733310@UTexture2D@@QAEXAAVFArchive@@@Z"
     },
     {
      "va": "00733b90",
@@ -292299,7 +292299,7 @@
     {
      "va": "00769d90",
      "size": 13,
-     "symbol": "?sub_00769d90@AActor_@@QBEPAUULevel@@XZ"
+     "symbol": "?sub_00769d90@AActor@@QBEPAUULevel@@XZ"
     }
    ]
   },
@@ -292907,7 +292907,7 @@
     {
      "va": "00769da0",
      "size": 41,
-     "symbol": "?sub_00769da0@C_00769da0@@QAEIXZ"
+     "symbol": "?IsInPersistentLevel@AActor@@QAEHXZ"
     },
     {
      "va": "00769e70",
@@ -293658,7 +293658,7 @@
     {
      "va": "007762a0",
      "size": 34,
-     "symbol": "?sub_007762a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007762a0@C_007762a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -293670,7 +293670,7 @@
     {
      "va": "007762d0",
      "size": 34,
-     "symbol": "?sub_007762d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_007762d0@C_007762d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -297150,7 +297150,7 @@
     {
      "va": "007a06f0",
      "size": 29,
-     "symbol": "?sub_007a06f0@C_007a06f0@@QAEXXZ"
+     "symbol": "?RemoveFromNavigation@ADroppedPickup@@QAEXXZ"
     },
     {
      "va": "007a0710",
@@ -297180,7 +297180,7 @@
     {
      "va": "007a0ec0",
      "size": 10,
-     "symbol": "?sub_007a0ec0@C_007a0ec0@@QAEXXZ"
+     "symbol": "?FinishRotation@AController@@QAEXXZ"
     },
     {
      "va": "007a0f00",
@@ -297200,7 +297200,7 @@
     {
      "va": "007a1500",
      "size": 7,
-     "symbol": "?sub_007a1500@C_007a1500@@QAEHXZ"
+     "symbol": "?sub_007a1500@C_007a1500@@QAEPAUUInterpTrackInstDirector@@XZ"
     },
     {
      "va": "007a1f40",
@@ -305332,7 +305332,7 @@
     {
      "va": "00833c90",
      "size": 64,
-     "symbol": "?eventSetDisabled@ACoverLink_@@QAEXH@Z"
+     "symbol": "?eventSetDisabled@ACoverLink@@QAEXH@Z"
     },
     {
      "va": "0083d400",
@@ -305388,7 +305388,7 @@
     {
      "va": "0083f3a0",
      "size": 479,
-     "symbol": "?sub_0083f3a0@ANavigationPoint_@@QAEXXZ"
+     "symbol": "?sub_0083f3a0@ANavigationPoint@@QAEXXZ"
     }
    ]
   },
@@ -305400,7 +305400,7 @@
     {
      "va": "0083fc20",
      "size": 300,
-     "symbol": "?sub_0083fc20@ANavigationPoint_@@QAEXXZ"
+     "symbol": "?sub_0083fc20@ANavigationPoint@@QAEXXZ"
     }
    ]
   },
@@ -307835,7 +307835,7 @@
     {
      "va": "008871c0",
      "size": 34,
-     "symbol": "?sub_008871c0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_008871c0@C_008871c0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -307847,7 +307847,7 @@
     {
      "va": "0088aa40",
      "size": 53,
-     "symbol": "?vf_138@UMantleReachSpec@@UAEIH@Z"
+     "symbol": "?CanBeSkipped@UMantleReachSpec@@UAEHPAUAPawn@@@Z"
     }
    ]
   },
@@ -308403,7 +308403,7 @@
     {
      "va": "0089dcb0",
      "size": 34,
-     "symbol": "?sub_0089dcb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0089dcb0@AActorCtor_@@QAEPAU1@XZ"
     }
    ]
   },
@@ -309506,7 +309506,7 @@
     {
      "va": "008a9420",
      "size": 11,
-     "symbol": "?sub_008a9420@C_008a9420@@QAEXXZ"
+     "symbol": "?DoNavFearCostFallOff@AGameInfo@@QAEXXZ"
     },
     {
      "va": "008aa010",
@@ -310052,7 +310052,7 @@
     {
      "va": "008b6e50",
      "size": 153,
-     "symbol": "?sub_008b6e50@APlayerController_@@QAE?AVFString@@XZ"
+     "symbol": "?GetPlayerNetworkAddress@APlayerController@@QAE?AVFString@@XZ"
     }
    ]
   },
@@ -316933,7 +316933,7 @@
     {
      "va": "0097aca0",
      "size": 34,
-     "symbol": "?sub_0097aca0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097aca0@C_0097aca0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -316945,7 +316945,7 @@
     {
      "va": "0097adf0",
      "size": 34,
-     "symbol": "?sub_0097adf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097adf0@C_0097adf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -316957,7 +316957,7 @@
     {
      "va": "0097ae20",
      "size": 34,
-     "symbol": "?sub_0097ae20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097ae20@C_0097ae20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -316969,7 +316969,7 @@
     {
      "va": "0097aee0",
      "size": 34,
-     "symbol": "?sub_0097aee0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097aee0@C_0097aee0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -316981,7 +316981,7 @@
     {
      "va": "0097afb0",
      "size": 34,
-     "symbol": "?sub_0097afb0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_0097afb0@C_0097afb0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -318141,7 +318141,7 @@
     {
      "va": "009aec40",
      "size": 87,
-     "symbol": "?eventServerUpdateLevelVisibility@APlayerController_@@QAEXUFName@@H@Z"
+     "symbol": "?eventServerUpdateLevelVisibility@APlayerController@@QAEXUFName@@H@Z"
     }
    ]
   },
@@ -318610,7 +318610,7 @@
     {
      "va": "009c9b20",
      "size": 36,
-     "symbol": "?sub_009c9b20@AWorldInfo_@@QAEHXZ"
+     "symbol": "?sub_009c9b20@AWorldInfo@@QAEHXZ"
     },
     {
      "va": "009c9c10",
@@ -319772,7 +319772,7 @@
     {
      "va": "009eff70",
      "size": 34,
-     "symbol": "?sub_009eff70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009eff70@C_009eff70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -319971,7 +319971,7 @@
     {
      "va": "009f0630",
      "size": 34,
-     "symbol": "?sub_009f0630@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0630@C_009f0630@@QAEPAU1@XZ"
     }
    ]
   },
@@ -319983,7 +319983,7 @@
     {
      "va": "009f0b70",
      "size": 34,
-     "symbol": "?sub_009f0b70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_009f0b70@C_009f0b70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -321751,7 +321751,7 @@
     {
      "va": "00a355a0",
      "size": 25,
-     "symbol": "?sub_00a355a0@FQuat@@QAEXM@Z"
+     "symbol": "?sub_00a355a0@FCountedValue_00a355a0@@QAEXM@Z"
     },
     {
      "va": "00a3f040",
@@ -322855,7 +322855,7 @@
     {
      "va": "00a4ee20",
      "size": 34,
-     "symbol": "?sub_00a4ee20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4ee20@C_00a4ee20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322867,7 +322867,7 @@
     {
      "va": "00a4ef70",
      "size": 34,
-     "symbol": "?sub_00a4ef70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4ef70@C_00a4ef70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322879,7 +322879,7 @@
     {
      "va": "00a4efa0",
      "size": 34,
-     "symbol": "?sub_00a4efa0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4efa0@C_00a4efa0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322903,7 +322903,7 @@
     {
      "va": "00a4e2e0",
      "size": 34,
-     "symbol": "?sub_00a4e2e0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4e2e0@C_00a4e2e0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322915,7 +322915,7 @@
     {
      "va": "00a4e970",
      "size": 34,
-     "symbol": "?sub_00a4e970@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4e970@C_00a4e970@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322927,7 +322927,7 @@
     {
      "va": "00a4e9a0",
      "size": 34,
-     "symbol": "?sub_00a4e9a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4e9a0@C_00a4e9a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322939,7 +322939,7 @@
     {
      "va": "00a4ea60",
      "size": 34,
-     "symbol": "?sub_00a4ea60@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4ea60@C_00a4ea60@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322951,7 +322951,7 @@
     {
      "va": "00a4eb20",
      "size": 34,
-     "symbol": "?sub_00a4eb20@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4eb20@C_00a4eb20@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322963,7 +322963,7 @@
     {
      "va": "00a4ec70",
      "size": 34,
-     "symbol": "?sub_00a4ec70@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4ec70@C_00a4ec70@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322975,7 +322975,7 @@
     {
      "va": "00a4eca0",
      "size": 34,
-     "symbol": "?sub_00a4eca0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4eca0@C_00a4eca0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -322987,7 +322987,7 @@
     {
      "va": "00a4edf0",
      "size": 34,
-     "symbol": "?sub_00a4edf0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00a4edf0@C_00a4edf0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -345557,7 +345557,7 @@
     {
      "va": "00bd3850",
      "size": 34,
-     "symbol": "?sub_00bd3850@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00bd3850@AActorCtor_@@QAEPAU1@XZ"
     },
     {
      "va": "00bde2f0",
@@ -345574,7 +345574,7 @@
     {
      "va": "00bd3910",
      "size": 34,
-     "symbol": "?sub_00bd3910@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00bd3910@C_00bd3910@@QAEPAU1@XZ"
     }
    ]
   },
@@ -345586,7 +345586,7 @@
     {
      "va": "00bd3a00",
      "size": 34,
-     "symbol": "?sub_00bd3a00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00bd3a00@C_00bd3a00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -347506,7 +347506,7 @@
     {
      "va": "00c14930",
      "size": 27,
-     "symbol": "?GetDriver@UPendingLevel@@QAEIXZ"
+     "symbol": "?GetDriver@UPendingLevel@@UAEHXZ"
     }
    ]
   },
@@ -347530,7 +347530,7 @@
     {
      "va": "00c14970",
      "size": 27,
-     "symbol": "?TrySkipFile@UPendingLevel@@QAEIXZ"
+     "symbol": "?TrySkipFile@UPendingLevel@@UAEHXZ"
     }
    ]
   },
@@ -356173,7 +356173,7 @@
     {
      "va": "00cd01d0",
      "size": 34,
-     "symbol": "?sub_00cd01d0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00cd01d0@C_00cd01d0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -356491,7 +356491,7 @@
     {
      "va": "00cf8b60",
      "size": 170,
-     "symbol": "?eventSetFaceFXRegister@AActor_@@QAEXABVFString@@ME@Z"
+     "symbol": "?eventSetFaceFXRegister@AActor@@QAEXABVFString@@ME@Z"
     }
    ]
   },
@@ -357049,7 +357049,7 @@
     {
      "va": "00d0d3b0",
      "size": 34,
-     "symbol": "?sub_00d0d3b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d0d3b0@C_00d0d3b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -357061,7 +357061,7 @@
     {
      "va": "00d0d470",
      "size": 34,
-     "symbol": "?sub_00d0d470@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00d0d470@C_00d0d470@@QAEPAU1@XZ"
     }
    ]
   },
@@ -362281,7 +362281,7 @@
     {
      "va": "00d8f260",
      "size": 85,
-     "symbol": "??8FTextureCoordinates_@@QBEHABUFTextureCoordinates@@@Z"
+     "symbol": "??8FTextureCoordinates@@QBEHABU0@@Z"
     }
    ]
   },
@@ -362801,7 +362801,7 @@
     {
      "va": "00dac770",
      "size": 75,
-     "symbol": "?eventSubscriberDetached@UUIDataStore_@@QAEXABUFScriptInterface@@@Z"
+     "symbol": "?eventSubscriberDetached@UUIDataStore@@QAEXABUFScriptInterface@@@Z"
     }
    ]
   },
@@ -365518,7 +365518,7 @@
     {
      "va": "00e117a0",
      "size": 34,
-     "symbol": "?sub_00e117a0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00e117a0@C_00e117a0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -423381,7 +423381,7 @@
     {
      "va": "0196ec00",
      "size": 25,
-     "symbol": "?sub_0196ec00@UGFxDataStoreSubscriber_@@QAEHXZ"
+     "symbol": "?sub_0196ec00@UGFxDataStoreSubscriber@@QAEHXZ"
     },
     {
      "va": "0196eda0",
@@ -423994,12 +423994,12 @@
     {
      "va": "01978450",
      "size": 24,
-     "symbol": "?sub_01978450@UGFxDataStoreSubscriber_@@QAEIXZ"
+     "symbol": "?sub_01978450@UGFxDataStoreSubscriber@@QAEIXZ"
     },
     {
      "va": "01979710",
      "size": 25,
-     "symbol": "?sub_01979710@UGFxDataStoreSubscriber__01979710@@QAEXXZ"
+     "symbol": "?sub_01979710@C_01979710@@QAEXXZ"
     },
     {
      "va": "019799c0",
@@ -424039,7 +424039,7 @@
     {
      "va": "0197ed10",
      "size": 25,
-     "symbol": "?sub_0197ed10@UGFxDataStoreSubscriber__0197ed10@@QAEXI@Z"
+     "symbol": "?sub_0197ed10@UGFxDataStoreSubscriber@@QAEXI@Z"
     }
    ]
   },
@@ -443899,7 +443899,7 @@
     {
      "va": "00544cf0",
      "size": 75,
-     "symbol": "??8FString_@@QBEHPB_W@Z"
+     "symbol": "??8FString@@QBEHPB_W@Z"
     }
    ]
   },
@@ -443911,7 +443911,7 @@
     {
      "va": "00544d40",
      "size": 123,
-     "symbol": "??8FString_@@QBEHABU0@@Z"
+     "symbol": "??8FString@@QBEHABV0@@Z"
     }
    ]
   },
@@ -443923,7 +443923,7 @@
     {
      "va": "0054dc90",
      "size": 127,
-     "symbol": "?Right@FString_@@QBE?AVFString@@H@Z"
+     "symbol": "?Right@FString@@QBE?AV1@H@Z"
     }
    ]
   },
@@ -445987,7 +445987,7 @@
     {
      "va": "00e5fce0",
      "size": 20,
-     "symbol": "?InputChar@UGFxInteraction@@QAEHH_W@Z"
+     "symbol": "?InputChar@UGFxInteraction@@UAEHH_W@Z"
     }
    ]
   },
@@ -447166,7 +447166,7 @@
     {
      "va": "00e44fe0",
      "size": 88,
-     "symbol": "?SetTimingMode@UGFxMovie_@@QAEXE@Z"
+     "symbol": "?SetTimingMode@UGFxMovie@@UAEXE@Z"
     }
    ]
   },
@@ -451949,7 +451949,7 @@
     {
      "va": "00e53890",
      "size": 26,
-     "symbol": "?Tick@UGFxInteraction@@QAEXM@Z"
+     "symbol": "?Tick@UGFxInteraction@@UAEXM@Z"
     }
    ]
   },
@@ -453635,7 +453635,7 @@
     {
      "va": "00f19cc0",
      "size": 5,
-     "symbol": "?vf_118@URenderTargetExporterTGA@@UAEHHHHHHH@Z"
+     "symbol": "?ExportBinary@URenderTargetExporterTGA@@UAEHPAUUObject@@PB_WAAVFArchive@@PAUFFeedbackContext@@HK@Z"
     }
    ]
   },
@@ -454084,7 +454084,7 @@
     {
      "va": "00e276f0",
      "size": 34,
-     "symbol": "?sub_00e276f0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00e276f0@C_00e276f0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -454096,7 +454096,7 @@
     {
      "va": "00e277b0",
      "size": 34,
-     "symbol": "?sub_00e277b0@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00e277b0@C_00e277b0@@QAEPAU1@XZ"
     }
    ]
   },
@@ -454108,7 +454108,7 @@
     {
      "va": "00e27940",
      "size": 34,
-     "symbol": "?sub_00e27940@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00e27940@C_00e27940@@QAEPAU1@XZ"
     }
    ]
   },
@@ -454120,7 +454120,7 @@
     {
      "va": "00e27a00",
      "size": 34,
-     "symbol": "?sub_00e27a00@AInfo@@QAEPAU1@XZ"
+     "symbol": "?sub_00e27a00@C_00e27a00@@QAEPAU1@XZ"
     }
    ]
   },
@@ -454822,7 +454822,7 @@
     {
      "va": "00e2be70",
      "size": 24,
-     "symbol": "?sub_00e2be70@UTcpipConnection_@@QAE_NH@Z"
+     "symbol": "?sub_00e2be70@C_00e2be70@@QAE_NH@Z"
     },
     {
      "va": "00e2c240",
@@ -454894,7 +454894,7 @@
     {
      "va": "00e2c7f0",
      "size": 25,
-     "symbol": "?sub_00e2c7f0@UOnlineEventsInterfaceMcp_@@QAEXHH@Z"
+     "symbol": "?sub_00e2c7f0@UOnlineEventsInterfaceMcp@@QAEXHH@Z"
     },
     {
      "va": "00e2e640",
@@ -464115,7 +464115,7 @@
     {
      "va": "00e88be0",
      "size": 5,
-     "symbol": "?sub_00e88be0@D@@QAEEH@Z"
+     "symbol": "?CanCommunicate@UOnlineSubsystemSteamworks@@UAEEE@Z"
     },
     {
      "va": "00e88bf0",
@@ -466008,7 +466008,7 @@
     {
      "va": "00e85bf0",
      "size": 77,
-     "symbol": "?eventSetStatsInterface@UOnlineSubsystem_@@QAEHPAUUObject@@@Z"
+     "symbol": "?eventSetStatsInterface@UOnlineSubsystem@@QAEHPAUUObject@@@Z"
     }
    ]
   },
@@ -475713,7 +475713,7 @@
     {
      "va": "00e14c00",
      "size": 3,
-     "symbol": "?sub_00e14c00@UChildConnection_@@QAEXHH@Z"
+     "symbol": "?SendAck@UChildConnection@@UAEXHH@Z"
     }
    ]
   },
@@ -481324,7 +481324,7 @@
     {
      "va": "01189a90",
      "size": 164,
-     "symbol": "??0TObjectIterator_026d0ed8@@QAE@H@Z"
+     "symbol": "??0?$TObjectIterator@UUGenericBrowserType@@@@QAE@H@Z"
     },
     {
      "va": "0130d540",
@@ -484661,7 +484661,7 @@
     {
      "va": "0115b4f0",
      "size": 5,
-     "symbol": "?sub_0115b4f0@C@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaper@@QAEXXZ"
     },
     {
      "va": "0115b500",
@@ -484671,27 +484671,27 @@
     {
      "va": "0115b510",
      "size": 8,
-     "symbol": "?sub_0115b510@C_0115b510@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaperExtrude@@QAEXXZ"
     },
     {
      "va": "0115b520",
      "size": 8,
-     "symbol": "?sub_0115b520@C_0115b520@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaperExtrudeToPoint@@QAEXXZ"
     },
     {
      "va": "0115b530",
      "size": 15,
-     "symbol": "?sub_0115b530@C_0115b530@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaperExtrudeToBevel@@QAEXXZ"
     },
     {
      "va": "0115b540",
      "size": 15,
-     "symbol": "?sub_0115b540@C_0115b540@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaperRevolve@@QAEXXZ"
     },
     {
      "va": "0115b550",
      "size": 8,
-     "symbol": "?sub_0115b550@C_0115b550@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UOptions2DShaperBezierDetail@@QAEXXZ"
     },
     {
      "va": "0115bef0",
@@ -486910,7 +486910,7 @@
     {
      "va": "01194d40",
      "size": 27,
-     "symbol": "?sub_01194d40@UKismetBindings@@QAEXXZ"
+     "symbol": "?sub_01194d40@C_01194d40@@QAEXXZ"
     },
     {
      "va": "01196500",
@@ -499876,7 +499876,7 @@
     {
      "va": "014dc1a0",
      "size": 5,
-     "symbol": "?sub_014dc1a0@C_014dc1a0@@QAEXXZ"
+     "symbol": "?InitializeIntrinsicPropertyValues@UUISceneFactoryNew@@QAEXXZ"
     }
    ]
   },
@@ -500514,7 +500514,7 @@
     {
      "va": "014c7200",
      "size": 77,
-     "symbol": "?eventScriptCall@UObject_@@QAEHH@Z"
+     "symbol": "?eventScriptCall@UObject@@QAEHH@Z"
     }
    ]
   },
@@ -512754,7 +512754,7 @@
     {
      "va": "0053ec70",
      "size": 114,
-     "symbol": "?sub_0053ec70@C_0053ec70@@QAEXXZ"
+     "symbol": "?Reset@FArchive@@QAEXXZ"
     }
    ]
   },
@@ -513092,7 +513092,7 @@
     {
      "va": "00623550",
      "size": 26,
-     "symbol": "?sub_00623550@UPackageMap_@@QAEPAXPAX@Z"
+     "symbol": "?sub_00623550@UPackageMap@@QAEPAXPAX@Z"
     },
     {
      "va": "00624ac0",
@@ -514217,7 +514217,7 @@
     {
      "va": "0079f5e0",
      "size": 77,
-     "symbol": "?eventScriptCall@UObject_@@QAEHH@Z"
+     "symbol": "?eventScriptCall@UObject@@QAEHH@Z"
     }
    ]
   },
@@ -515081,7 +515081,7 @@
     {
      "va": "00834940",
      "size": 55,
-     "symbol": "?vf_124@UMorphNodePose@@UAEXH@Z"
+     "symbol": "?InitMorphNode@UMorphNodePose@@UAEXPAUUSkeletalMeshComponent@@@Z"
     }
    ]
   },
@@ -515748,7 +515748,7 @@
     {
      "va": "00a33da0",
      "size": 64,
-     "symbol": "?eventScriptCall@UObject_@@QAEXM@Z"
+     "symbol": "?eventScriptCall@UObject@@QAEXM@Z"
     }
    ]
   },
@@ -518277,7 +518277,7 @@
     {
      "va": "00f149a0",
      "size": 52,
-     "symbol": "?vf_004@UTextureExporterT3D@@UAE_NXZ"
+     "symbol": "?HasParentClassChanged@UTextureExporterT3D@@UBEHXZ"
     }
    ]
   },
@@ -518935,7 +518935,7 @@
     {
      "va": "011194b0",
      "size": 82,
-     "symbol": "?eventScriptCall@UObject_@@QAEHH@Z"
+     "symbol": "?eventScriptCall@UObject@@QAEHH@Z"
     }
    ]
   },
@@ -522767,7 +522767,7 @@
     {
      "va": "01191e40",
      "size": 34,
-     "symbol": "?Size@FIntPoint_@@QBEHXZ"
+     "symbol": "?Size@FIntPoint@@QBEHXZ"
     }
    ]
   },
@@ -530488,7 +530488,7 @@
     {
      "va": "012c0300",
      "size": 25,
-     "symbol": "?sub_012c0300@UUnrealEdEngine_@@QAEPAUFLinearColor@@PAU2@@Z"
+     "symbol": "?sub_012c0300@UUnrealEdEngine@@QAEPAUFLinearColor@@PAU2@@Z"
     },
     {
      "va": "012c0320",
@@ -532311,7 +532311,7 @@
     {
      "va": "013377b0",
      "size": 25,
-     "symbol": "?sub_013377b0@UAnimNodeEditInfo_@@QAEPAXPAX@Z"
+     "symbol": "?GetWidgetTM@UAnimNodeEditInfo@@UAE?AUFMatrix@@XZ"
     }
    ]
   },
@@ -545580,7 +545580,7 @@
     {
      "va": "014d79d0",
      "size": 24,
-     "symbol": "?sub_014d79d0@UTexture2D_@@QAEPAXXZ"
+     "symbol": "?sub_014d79d0@C_014d79d0@@QAEPAXXZ"
     },
     {
      "va": "014dbb40",
@@ -554612,7 +554612,7 @@
     {
      "va": "00eb4600",
      "size": 24,
-     "symbol": "?sub_00eb4600@sub_00eb4600_@?A0xf9059518@@QAEXH@Z"
+     "symbol": "?sub_00eb4600@sub_00eb4600_@?A0xf0926c29@@QAEXH@Z"
     }
    ]
   },

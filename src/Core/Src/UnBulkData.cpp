@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined4 g_01e73460;
 struct C_00545d80 { undefined4 * sub_00545d80(undefined4 param_2, undefined4 param_3); };
@@ -13,7 +12,7 @@ undefined4 * C_00545d80::sub_00545d80(undefined4 param_2, undefined4 param_3)
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   param_1[0x20] = param_2;
   param_1[0x1f] = 0;
   *param_1 = (undefined4)(&g_01e73460);
@@ -85,7 +84,7 @@ undefined4 * C_0056a670::sub_0056a670(undefined4 param_2, undefined4 param_3)
     undefined4 * param_1 = (undefined4 *)this;
 
   *param_1 = (undefined4)(&g_01e72a60);
-  sub_0053ec70();
+  ((FArchive*)this)->Reset();
   param_1[0x20] = param_2;
   param_1[0x1f] = 0;
   *param_1 = (undefined4)(&g_01e7d168);

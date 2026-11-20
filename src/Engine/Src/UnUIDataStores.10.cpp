@@ -133,8 +133,6 @@ FName UUIDataStore::GetDataStoreID()
 	return Tag;
 }
 
-static inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 // @baa 0x00d9da60
 UBOOL UUIDataStore_InputAlias::HasAliasMappingForPlatform(FName DesiredAlias, BYTE DesiredPlatform)
 {

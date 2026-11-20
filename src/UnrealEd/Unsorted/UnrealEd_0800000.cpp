@@ -150,7 +150,6 @@ struct C_00805490 { int sub_00805490(void); };
 int C_00805490::sub_00805490(void) { return *(int*)((char*)this + 4); }
 
 int sub_006311e0(...);
-int sub_00715880(void);
 extern undefined2 g_01e3f3dc;
 struct C_008054f0 { undefined4 * sub_008054f0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x008054f0
@@ -163,7 +162,7 @@ undefined4 * C_008054f0::sub_008054f0(undefined4 param_2, undefined4 param_3)
   param_1[2] = 0;
   param_1[3] = 0;
   param_1[4] = 0;
-  iVar1 = sub_00715880();
+  iVar1 = IsInGameThread();
   if (iVar1 == 0) {
     sub_006311e0("IsInGameThread()",
                  "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\Engine.h"

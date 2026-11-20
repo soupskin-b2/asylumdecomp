@@ -34,23 +34,6 @@ template UBOOL FActorComponentArray::FindItemByClass<UStaticMeshComponent>(UStat
 
 /* Cast<T> is out of line for this T in the exe (006b0420) */
 extern template USkeletalMeshComponent* Cast<USkeletalMeshComponent>(UObject* Src);
-/* Kit gap (Array.h, issue #39): forceinline operator() stand-in */
-template<class T> class TArrayFI
-{
-public:
-    FHeapAllocation AllocatorInstance;
-    INT ArrayNum;
-    INT ArrayMax;
-
-    INT Num() const { return ArrayNum; }
-    __forceinline T& operator()(INT i)
-    {
-#line 560 BAA_ARRAY_FILE
-        check(i>=0 && (i<ArrayNum||(i==0 && ArrayNum==0)));
-        return ((T*)AllocatorInstance.GetAllocation())[i];
-    }
-};
-
 // @baa 0x00765b90
 /* UActorComponent::DetachFromAny helper (name not in the exe: a file-static in UnActorComponent.cpp).
  * Detaches Component from SkelComp, or recursively from any skeletal mesh attached to it.
@@ -65,7 +48,7 @@ UBOOL DetachComponentFromSkelComp(UActorComponent* Component, USkeletalMeshCompo
 
     for (INT i = 0; i < SkelComp->Attachments.Num(); i++)
     {
-        USkeletalMeshComponent* AttachedSkelComp = Cast<USkeletalMeshComponent>(((TArrayFI<FAttachment>&)SkelComp->Attachments)(i).Component);
+        USkeletalMeshComponent* AttachedSkelComp = Cast<USkeletalMeshComponent>(SkelComp->Attachments(i).Component);
         if (AttachedSkelComp && DetachComponentFromSkelComp(Component, AttachedSkelComp))
         {
             return TRUE;

@@ -3,7 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Array.h"
 
-struct FQuat
+/* not UE3's FQuat: an unidentified struct (no callers in the exe); a count at 0x0 and the last value set at 0x10 */
+struct FCountedValue_00a355a0
 {
 	/* 0x0 */ INT Count;
 	/* 0x4 */ FLOAT X;
@@ -14,7 +15,7 @@ struct FQuat
 };
 
 // @baa 0x00a355a0
-void FQuat::sub_00a355a0(FLOAT Value)
+void FCountedValue_00a355a0::sub_00a355a0(FLOAT Value)
 {
 	FLOAT L = Value;
 	Count++;

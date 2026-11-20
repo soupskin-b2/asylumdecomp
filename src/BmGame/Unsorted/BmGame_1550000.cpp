@@ -1467,9 +1467,8 @@ void V_01557590::sub_01557590(int a0) { g(a0); }
 // @baa 0x01557da0
 void ARPontoonBase::EditorInitPontoonMeshes() {  }
 
-struct C_01557dd0 { uint sub_01557dd0(void); };
 // @baa 0x01557dd0
-uint C_01557dd0::sub_01557dd0(void)
+UBOOL ARBMWeaponStunStickBase::IsOn()
 {
     int param_1 = (int)this;
 
@@ -3116,7 +3115,7 @@ C_0155e3c0* C_0155e3c0::sub_0155e3c0(const INT* P1, const INT* P2)
 // @baa 0x0155cad0
 void URAnimNode_AnimCapture::TickAnim(FLOAT A, FLOAT B)
 {
-    ((URAnimNode_AnimCapture*)this)->sub_00c535b0(A, B);
+    Super::TickAnim(A, B);
 }
 
 void sub_0155c5d0(const FVector& OriginA, const FVector& DirectionA,

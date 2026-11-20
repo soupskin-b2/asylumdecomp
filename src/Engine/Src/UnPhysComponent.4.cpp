@@ -56,7 +56,7 @@ void UPrimitiveComponent::sub_009feb00(UBOOL bInDisableAllRigidBody)
 }
 
 // @baa 0x00a01dd0
-/* URB_RadialImpulseComponent slot 0x114 (UE3's UpdateTransform()): keep the editor preview sphere's radius in step
+/* URB_RadialImpulseComponent::Attach: keep the editor preview sphere's radius in step
  * with the impulse radius. */
 void URB_RadialImpulseComponent::Attach()
 {

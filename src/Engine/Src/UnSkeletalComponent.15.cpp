@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
 {
     const INT BoneIndex = MatchRefBone(BoneName);
@@ -71,8 +69,6 @@ void USkeletalMeshComponent::execGetClosestCollidingBoneLocation(FFrame& Stack, 
 }
 
 #line 121 "candidate.cpp"
-
-inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
 
 // @baa 0x0091dd40
 void USkeletalMeshComponent::execFindComponentAttachedToBone(FFrame& Stack, RESULT_DECL)

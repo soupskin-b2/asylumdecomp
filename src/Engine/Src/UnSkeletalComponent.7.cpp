@@ -5,8 +5,7 @@
 #include "ue3/Array.h"
 #include "ue3/Cast.h"
 
-/* FName::operator== (UnName.h); the kit's FName has no operators. */
-/* Native behind execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0); not in Classes.h. */
+/* Native behind execGetTimeOfScriptNotifyInAnimSequence (0x0092d9b0). */
 
 // @baa 0x0092d740
 FLOAT USkeletalMeshComponent::GetTimeOfScriptNotifyInAnimSequence(UAnimSequence* AnimSeq, FName NotifyName, INT NthOccurrence)

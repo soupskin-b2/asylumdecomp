@@ -5,7 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* placement new as UE3 declares it (UnTemplate.h) */
 // @baa 0x00a09a70
 void UPhysicsAsset::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh)
 {

@@ -108,14 +108,13 @@ void UObject::execAdd_RotatorRotator(FFrame& Stack, RESULT_DECL)
     *(FRotator*)Result = Sum;
 }
 
-FVector __cdecl sub_005c3600(const FVector& MinRange, const FVector& MaxRange);
 // @baa 0x00596800
 void UObject::execVRandRange(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, MinRange);
     P_GET_STRUCT(FVector, MaxRange);
     P_FINISH;
-    *(FVector*)Result = sub_005c3600(MinRange, MaxRange);
+    *(FVector*)Result = VRandRange(MinRange, MaxRange);
 }
 
 // @baa 0x005952e0
@@ -545,7 +544,6 @@ void UObject::execLessLess_IntInt(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = A << B;
 }
 
-FLOAT sub_005c5ce0(const FVector& Point, const FVector& Line, const FVector& Origin);
 // @baa 0x00594980
 void UObject::execPointDistAlongLine(FFrame& Stack, RESULT_DECL)
 {
@@ -555,10 +553,9 @@ void UObject::execPointDistAlongLine(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &Line);
 	Stack.Step(Stack.Object, &Origin);
 	P_FINISH;
-	*(FLOAT*)Result = sub_005c5ce0(Point, Line, Origin);
+	*(FLOAT*)Result = PointDistAlongLine(Point, Line, Origin);
 }
 
-FLOAT sub_005c5d90(const FVector& Point, const FVector& Line, const FVector& Origin);
 // @baa 0x00594a30
 void UObject::execPointDistAlongLineSegment(FFrame& Stack, RESULT_DECL)
 {
@@ -568,10 +565,9 @@ void UObject::execPointDistAlongLineSegment(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &Line);
 	Stack.Step(Stack.Object, &Origin);
 	P_FINISH;
-	*(FLOAT*)Result = sub_005c5d90(Point, Line, Origin);
+	*(FLOAT*)Result = PointDistAlongLineSegment(Point, Line, Origin);
 }
 
-FLOAT sub_005c5e70(const FVector& Point, const FVector& Line, const FVector& Origin);
 // @baa 0x00594ae0
 void UObject::execPointDistSquaredToLineSegment(FFrame& Stack, RESULT_DECL)
 {
@@ -581,17 +577,16 @@ void UObject::execPointDistSquaredToLineSegment(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &Line);
 	Stack.Step(Stack.Object, &Origin);
 	P_FINISH;
-	*(FLOAT*)Result = sub_005c5e70(Point, Line, Origin);
+	*(FLOAT*)Result = PointDistSquaredToLineSegment(Point, Line, Origin);
 }
 
-void sub_005c6c40(FVector2D& OutAngDist, const FVector2D& DotDist);
 // @baa 0x00595060
 void UObject::execGetAngularFromDotDist(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT_REF(FVector2D, OutAngDist);
 	P_GET_STRUCT(FVector2D, DotDist);
 	P_FINISH;
-	sub_005c6c40(OutAngDist, DotDist);
+	GetAngularFromDotDist(OutAngDist, DotDist);
 }
 
 // @baa 0x00593830
@@ -661,7 +656,6 @@ void UObject::execGreater_IntInt(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = A > B;
 }
 
-UBOOL sub_005cabf0(FVector2D& OutAngularDist, const FVector& Direction, const FVector& AxisX, const FVector& AxisY, const FVector& AxisZ);
 // @baa 0x00594f50
 void UObject::execGetAngularDistance(FFrame& Stack, RESULT_DECL)
 {
@@ -675,7 +669,7 @@ void UObject::execGetAngularDistance(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &Vectors[1]);
 	Stack.Step(Stack.Object, &Vectors[0]);
 	P_FINISH;
-	*(UBOOL*)Result = sub_005cabf0(OutAngularDist, Vectors[3], Vectors[2], Vectors[1], Vectors[0]);
+	*(UBOOL*)Result = GetAngularDistance(OutAngularDist, Vectors[3], Vectors[2], Vectors[1], Vectors[0]);
 }
 
 // @baa 0x00598920
@@ -1119,7 +1113,6 @@ void UObject::execQuatFromRotator(FFrame& Stack, RESULT_DECL)
     *(FQuat*)Result = FQuat(FRotationMatrix(A));
 }
 
-FLOAT sub_005c6f80(FLOAT Current, FLOAT Target, FLOAT DeltaTime, FLOAT InterpSpeed);
 // @baa 0x005946f0
 void UObject::execFInterpTo(FFrame& Stack, RESULT_DECL)
 {
@@ -1129,10 +1122,9 @@ void UObject::execFInterpTo(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(InterpSpeed);
 	P_FINISH;
 
-	*(FLOAT*)Result = sub_005c6f80(Current, Target, DeltaTime, InterpSpeed);
+	*(FLOAT*)Result = FInterpTo(Current, Target, DeltaTime, InterpSpeed);
 }
 
-FLOAT sub_005c7370(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
 // @baa 0x005945f0
 void UObject::execFInterpEaseInOut(FFrame& Stack, RESULT_DECL)
 {
@@ -1142,10 +1134,9 @@ void UObject::execFInterpEaseInOut(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(Exp);
 	P_FINISH;
 
-	*(FLOAT*)Result = sub_005c7370(A, B, Alpha, Exp);
+	*(FLOAT*)Result = FInterpEaseInOut(A, B, Alpha, Exp);
 }
 
-FRotator* sub_005c6e00(FRotator* Out, const FRotator* Current, const FRotator* Target, const FLOAT* DeltaTime, FLOAT InterpSpeed);
 // @baa 0x00597fd0
 void UObject::execRInterpTo(FFrame& Stack, RESULT_DECL)
 {
@@ -1155,11 +1146,9 @@ void UObject::execRInterpTo(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(InterpSpeed);
 	P_FINISH;
 
-	FRotator Out;
-	*(FRotator*)Result = *sub_005c6e00(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
+	*(FRotator*)Result = RInterpTo(Current, Target, DeltaTime, InterpSpeed);
 }
 
-FVector* sub_005c6d10(FVector* Out, const FVector* Current, const FVector* Target, const FLOAT* DeltaTime, FLOAT InterpSpeed);
 // @baa 0x005968a0
 void UObject::execVInterpTo(FFrame& Stack, RESULT_DECL)
 {
@@ -1169,8 +1158,7 @@ void UObject::execVInterpTo(FFrame& Stack, RESULT_DECL)
 	P_GET_FLOAT(InterpSpeed);
 	P_FINISH;
 
-	FVector Out;
-	*(FVector*)Result = *sub_005c6d10(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
+	*(FVector*)Result = VInterpTo(Current, Target, DeltaTime, InterpSpeed);
 }
 
 // @baa 0x005986a0

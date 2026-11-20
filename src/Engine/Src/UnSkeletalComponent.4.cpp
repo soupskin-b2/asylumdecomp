@@ -254,8 +254,6 @@ void USkeletalMeshComponent::execFindClosestBone(FFrame& Stack, RESULT_DECL)
     *(FName*)Result = FindClosestBone(TestLocation, pBoneLocation, IgnoreScale);
 }
 
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 // @baa 0x0091e8d0
 /* transform a location and rotation from a bone's space to world space */
 void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DECL)

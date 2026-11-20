@@ -135,7 +135,6 @@ void UAnimNodeSlot::UpdateWeightsForAdditiveAnimations()
 	Children(0).Weight = 1.f - Clamp<FLOAT>(AccumulatedWeight, 0.f, 1.f);
 }
 
-/* The kit's FName has no comparison operators (UnName.h). */
 /* UnAnimTree.cpp's static helper: a node's relative position on its time line, 0 without a positive length. */
 static inline FLOAT GetNodeRelativePosition(UAnimNodeSequence* SeqNode)
 {

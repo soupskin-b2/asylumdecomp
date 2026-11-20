@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FVector *= (UnMath.h); the kit's FVector has no operators */
-
 // @baa 0x0090c710
 /* the unit vector along a SkelControl axis, negated if bInvert */
 FVector GetAxisVector(BYTE InAxis, UBOOL bInvert)

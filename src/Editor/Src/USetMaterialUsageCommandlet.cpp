@@ -3,12 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-struct C {
-    void sub_01103bb0();
-};
-
 // @baa 0x01103bb0
-void C::sub_01103bb0(void)
+void USetMaterialUsageCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

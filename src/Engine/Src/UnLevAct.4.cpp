@@ -76,7 +76,7 @@ void APawn::SetZone(UBOOL bTest, UBOOL bForceRefresh)
 
 
 // @baa 0x0076cc90
-void AActor::sub_0076cc90()
+void AActor::UnTouchActors()
 {
     for (INT i = 0; i < Touching.Num(); )
     {

@@ -1488,7 +1488,6 @@ struct C_00754ca0 {
 };
 
 int sub_006311e0(...);
-int sub_00715880(void);
 extern undefined2 g_01e3f3dc;
 // @baa 0x00754ca0
 undefined4 * C_00754ca0::sub_00754ca0(void)
@@ -1500,7 +1499,7 @@ undefined4 * C_00754ca0::sub_00754ca0(void)
   param_1[2] = 0;
   param_1[3] = 0;
   param_1[4] = 0;
-  iVar1 = sub_00715880();
+  iVar1 = IsInGameThread();
   if (iVar1 == 0) {
     sub_006311e0("IsInGameThread()",
                  "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\engine\\inc\\Engine.h"

@@ -231,12 +231,11 @@ void UUIScreenObject::execGetZDepth(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = ZDepth;
 }
 
-UObject* sub_005c1d70();
 // @baa 0x00cb3cd0
 void UUIScreenObject::execIsRuntimeInstance(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UBOOL*)Result = this->GetOutermost() == sub_005c1d70();
+	*(UBOOL*)Result = this->GetOutermost() == UObject::GetTransientPackage();
 }
 
 // @baa 0x00ca44e0

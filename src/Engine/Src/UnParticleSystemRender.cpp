@@ -161,7 +161,6 @@ extern char g_0200995c[];
 extern char g_02009960[];
 extern char g_02009a7c[];
 extern char g_02009a80[];
-int sub_00715880(void);
 int sub_006311e0(...);
 struct C_00b91c10 {
     void sub_00542ad0(void);
@@ -229,7 +228,7 @@ struct CFunc { void sub_00b91c10(void* arg1); };
 // @baa 0x00b91c10
 void CFunc::sub_00b91c10(void* arg1)
 {
-    if (!sub_00715880())
+    if (!IsInGameThread())
         sub_006311e0("IsInGameThread()", g_02009960, 0x1742, g_0200995c);
 
     if (g_026b2194 != 0) {

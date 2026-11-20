@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Classes.h has FIntPoint as a plain script mirror without its methods. */
-
 // @baa 0x01191e40
 INT FIntPoint::Size() const
 {

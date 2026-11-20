@@ -70,13 +70,9 @@ undefined4 sub_00df30c0(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-struct C_00df30d0 {
-    void sub_00df30d0();
-};
-
 extern undefined4 g_026c5e8c;
 // @baa 0x00df30d0
-void C_00df30d0::sub_00df30d0(void)
+void UControlChannel::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
   g_026c5e8c = *(undefined4 *)(param_1 + 0x28);
@@ -92,13 +88,9 @@ C_00df30e0::C_00df30e0(int x, int y) : a(x), b(y) {}
 // @baa 0x00df3100
 int sub_00df3100(int a0, int a1) { return a1; }
 
-struct C_00df3110 {
-    void sub_00df3110();
-};
-
 extern undefined4 g_026c5e90;
 // @baa 0x00df3110
-void C_00df3110::sub_00df3110(void)
+void UActorChannel::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -122,13 +114,9 @@ void sub_00df3150(S* p, INT Value)
     p->vf_18(Value);
 }
 
-struct C_00df3170 {
-    void sub_00df3170();
-};
-
 extern undefined4 g_026c5e94;
 // @baa 0x00df3170
-void C_00df3170::sub_00df3170(void)
+void UFileChannel::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
   g_026c5e94 = *(undefined4 *)(param_1 + 0x28);
@@ -142,13 +130,9 @@ undefined4 sub_00df3180(undefined4 param_1, undefined4 param_2)
   return param_2;
 }
 
-struct C_00df3190 {
-    void sub_00df3190();
-};
-
 extern undefined4 g_026c5e98;
 // @baa 0x00df3190
-void C_00df3190::sub_00df3190(void)
+void UVoiceChannel::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

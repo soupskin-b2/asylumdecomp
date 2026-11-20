@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* FName::operator== (UnName.h); the kit's FName has no operators. */
 // @baa 0x006bb4a0
 /* A font parameter's value is the font (and texture page) on the material's font-sample parameter expression of
  * that name. */

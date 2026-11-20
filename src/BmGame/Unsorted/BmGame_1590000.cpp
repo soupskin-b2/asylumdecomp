@@ -1284,17 +1284,13 @@ UBOOL URAnimNotify_Emote::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct UPhysicsAssetInstance_ {
-    void sub_00a0b500(UBOOL bNewFixed, FName GroupName, USkeletalMeshComponent* SkelComp, UBOOL bSetOtherBodiesToComplement);
-};
-
 // @baa 0x01597c00
 void URAnimNotify_BeginFixGroup::Notify(class UAnimNodeSequence* Context)
 {
     USkeletalMeshComponent* SkelComp = *(USkeletalMeshComponent**)Context;
     if (SkelComp && SkelComp->PhysicsAssetInstance)
     {
-        ((UPhysicsAssetInstance_*)SkelComp->PhysicsAssetInstance)->sub_00a0b500(1, GroupName, SkelComp, 0);
+        ((UPhysicsAssetInstance*)SkelComp->PhysicsAssetInstance)->SetGroupBodiesFixed(1, GroupName, SkelComp, 0);
     }
 }
 

@@ -260,11 +260,10 @@ FCycleTime sub_01598f00(const FCycleTime& CycleTime)
 void sub_015afa50(UClass** CharacterClasses, INT Count);
 struct URAnimUtil_ : URAnimUtil
 {
-    void sub_015b1620(TArray<UClass*>& CharacterClasses);
 };
 
 // @baa 0x015b1620
-void URAnimUtil_::sub_015b1620(TArray<UClass*>& CharacterClasses)
+void URAnimUtil::SortCharacterClasses(TArray<UClass*>& CharacterClasses)
 {
     const INT Count = CharacterClasses.Num();
     sub_015afa50(&CharacterClasses(0), Count);

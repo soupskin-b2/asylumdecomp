@@ -4,11 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-struct MITVScalarParameterMapping
-{
-	static FScalarParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-};
-
 // @baa 0x00713c80
 /* The named scalar parameter's curve: this instance's if it has one, else a time-varying parent's. */
 UBOOL UMaterialInstanceTimeVarying::GetScalarCurveParameterValue(FName ParameterName, FInterpCurveFloat& OutValue)

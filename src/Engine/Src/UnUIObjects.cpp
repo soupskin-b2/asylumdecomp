@@ -1313,9 +1313,8 @@ int sub_00da9910(int param_1, int param_2)
 // @baa 0x00da9d20
 void UUIScene::vf_1f4(int a0) {  }
 
-struct C_00da9dc0 { uint sub_00da9dc0(void); };
 // @baa 0x00da9dc0
-uint C_00da9dc0::sub_00da9dc0(void)
+UBOOL UUIScene::ShouldRenderParentScenes()
 {
     int param_1 = (int)this;
 
@@ -1500,9 +1499,8 @@ void UUIObject::SetActiveCursorUpdate(UBOOL param_2)
   return;
 }
 
-struct C_00daabf0 { uint sub_00daabf0(void); };
 // @baa 0x00daabf0
-uint C_00daabf0::sub_00daabf0(void)
+UBOOL UUIObject::NeedsActiveCursorUpdates()
 {
     int param_1 = (int)this;
 
@@ -3265,7 +3263,6 @@ undefined4 C_00db6970::sub_00db6970(byte param_2)
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_00db69a0 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_00db69a0& operator++();
@@ -4899,7 +4896,6 @@ UBOOL UUIAction_OpenScene::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-int sub_00dc7170(void);
 struct C_00dc8f90 { void sub_00dc8f90(int param_2, int param_3, int param_4, int param_5); };
 // @baa 0x00dc8f90
 void C_00dc8f90::sub_00dc8f90(int param_2, int param_3, int param_4, int param_5)
@@ -4910,13 +4906,13 @@ void C_00dc8f90::sub_00dc8f90(int param_2, int param_3, int param_4, int param_5
     *(int *)(param_1 + 0x200) = *(int *)(param_1 + 0x200) + param_2;
     *(int *)(param_1 + 0x204) = *(int *)(param_1 + 0x204) + param_3;
     *(int *)(param_1 + 0x208) = *(int *)(param_1 + 0x208) + param_4;
-    sub_00dc7170();
+    ((UUIObject*)this)->UpdateRotationMatrix();
     return;
   }
   *(int *)(param_1 + 0x200) = param_2;
   *(int *)(param_1 + 0x204) = param_3;
   *(int *)(param_1 + 0x208) = param_4;
-  sub_00dc7170();
+  ((UUIObject*)this)->UpdateRotationMatrix();
   return;
 }
 

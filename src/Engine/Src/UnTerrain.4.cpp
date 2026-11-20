@@ -18,7 +18,6 @@ undefined4 C_009927e0::sub_009927e0(byte param_2)
   return param_1;
 }
 
-
 // @baa 0x00982810
 UBOOL ATerrain::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
@@ -136,9 +135,7 @@ int C_00989d80::sub_00989d80(unsigned x) {
 
 struct UTerrainComponent_ : public UTerrainComponent
 {
-    void sub_00759640(UBOOL);
 };
-
 
 // @baa 0x009a98d0
 void ATerrain::sub_009a98d0()
@@ -162,7 +159,7 @@ void ATerrain::sub_009a98d0()
         UTerrainComponent_* Comp = (UTerrainComponent_*)TerrainComponents(ComponentIndex);
         if (Comp)
         {
-            Comp->sub_00759640(FALSE);
+            Comp->ConditionalDetach(FALSE);
         }
     }
 

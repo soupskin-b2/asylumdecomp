@@ -18,7 +18,6 @@ undefined4 * C_01686730::sub_01686730(void)
 
 struct URSimpleRopeComponent_ : public URSimpleRopeComponent
 {
-    INT sub_0163f500();
     void sub_01685860();
 };
 
@@ -27,20 +26,19 @@ void URSimpleRopeComponent::UpdateRope()
 {
     URSimpleRopeComponent_* Self = (URSimpleRopeComponent_*)this;
     Self->URRopeComponentBase::UpdateRope();
-    if (Self->sub_0163f500() != 0)
+    if (Self->GetIsRopeInitialised() != 0)
         Self->sub_01685860();
 }
 
 struct URSimpleRopeComponent_2 : public URSimpleRopeComponent
 {
-    INT sub_0163f500();
 };
 
 // @baa 0x01685d70
 void URSimpleRopeComponent::FinaliseRope()
 {
     URSimpleRopeComponent_2* Self = (URSimpleRopeComponent_2*)this;
-    if (Self->sub_0163f500() != 0)
+    if (Self->GetIsRopeInitialised() != 0)
     {
         Self->sub_016857b0();
         Self->URRopeComponentBase::FinaliseRope();
@@ -49,7 +47,6 @@ void URSimpleRopeComponent::FinaliseRope()
 
 struct URSimpleRopeComponent__01685d40 : public URSimpleRopeComponent
 {
-    INT sub_0163f500();
     INT sub_01685860();
 };
 
@@ -57,7 +54,7 @@ struct URSimpleRopeComponent__01685d40 : public URSimpleRopeComponent
 INT URSimpleRopeComponent::InitialiseRope()
 {
     URSimpleRopeComponent__01685d40* Self = (URSimpleRopeComponent__01685d40*)this;
-    INT R = Self->sub_0163f500();
+    INT R = Self->GetIsRopeInitialised();
     if (R == 0)
     {
         Self->PreviousSpoolArraySize = 0;

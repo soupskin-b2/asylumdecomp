@@ -1005,17 +1005,12 @@ void URBMScreenShakeModifier::UpdateFast(FLOAT DeltaTime, FVector& Loc, FRotator
 	}
 }
 
-struct C_Body_7760
-{
-    INT sub_016d9eb0(INT A);
-};
-
 // @baa 0x01557760
 void ARCinematicActor::TermRBPhys(FRBPhysScene* A)
 {
     ARCinematicActor* Self = (ARCinematicActor*)this;
     if (BodyConstrainingComponent != NULL)
-        ((C_Body_7760*)BodyConstrainingComponent)->sub_016d9eb0(0);
+        ((URConstrainingComponent*)BodyConstrainingComponent)->UpdateRBConstraints(0);
     Super::TermRBPhys(A);
 }
 
@@ -1371,8 +1366,6 @@ UBOOL URSeqAct_SmoothCameraTransition::UpdateOp(FLOAT DeltaTime)
 	}
 	return FALSE;
 }
-
-/* The action's script events (generated glue, BmGameClasses.h) */
 
 // @baa 0x01565140
 /* Input 0 shows the text, input 1 cancels it (output 1); script's TickHUD reports when it's done (output 0). */

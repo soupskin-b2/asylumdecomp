@@ -1019,12 +1019,8 @@ int sub_010148b0(int a0, int a1) { return a1; }
 // @baa 0x010148c0
 int sub_010148c0(void) { return 0; }
 
-struct C_010148d0 {
-    void sub_010148d0();
-};
-
 // @baa 0x010148d0
-void C_010148d0::sub_010148d0(void)
+void UAnalyzeReferencedContentCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

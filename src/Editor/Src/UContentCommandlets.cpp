@@ -888,12 +888,8 @@ int sub_01059d30(void) { return (int)g_02019ce8; }
 // @baa 0x01059d40
 int sub_01059d40(int a0, int a1) { return a1; }
 
-struct C_01059d50 {
-    void sub_01059d50();
-};
-
 // @baa 0x01059d50
-void C_01059d50::sub_01059d50(void)
+void UBatchExportCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -904,12 +900,8 @@ void C_01059d50::sub_01059d50(void)
 // @baa 0x01059d60
 int sub_01059d60(int a0, int a1) { return a1; }
 
-struct C_01059d70 {
-    void sub_01059d70();
-};
-
 // @baa 0x01059d70
-void C_01059d70::sub_01059d70(void)
+void UConformCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -920,12 +912,8 @@ void C_01059d70::sub_01059d70(void)
 // @baa 0x01059d80
 int sub_01059d80(int a0, int a1) { return a1; }
 
-struct C_01059d90 {
-    void sub_01059d90();
-};
-
 // @baa 0x01059d90
-void C_01059d90::sub_01059d90(void)
+void UDumpEmittersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -936,12 +924,8 @@ void C_01059d90::sub_01059d90(void)
 // @baa 0x01059da0
 int sub_01059da0(int a0, int a1) { return a1; }
 
-struct C_01059db0 {
-    void sub_01059db0();
-};
-
 // @baa 0x01059db0
-void C_01059db0::sub_01059db0(void)
+void UFixupEmittersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -952,12 +936,8 @@ void C_01059db0::sub_01059db0(void)
 // @baa 0x01059dc0
 int sub_01059dc0(int a0, int a1) { return a1; }
 
-struct C_01059dd0 {
-    void sub_01059dd0();
-};
-
 // @baa 0x01059dd0
-void C_01059dd0::sub_01059dd0(void)
+void UFindEmitterMismatchedLODsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -968,12 +948,8 @@ void C_01059dd0::sub_01059dd0(void)
 // @baa 0x01059de0
 int sub_01059de0(int a0, int a1) { return a1; }
 
-struct C_01059df0 {
-    void sub_01059df0();
-};
-
 // @baa 0x01059df0
-void C_01059df0::sub_01059df0(void)
+void UFindEmitterModifiedLODsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -984,12 +960,8 @@ void C_01059df0::sub_01059df0(void)
 // @baa 0x01059e00
 int sub_01059e00(int a0, int a1) { return a1; }
 
-struct C_01059e10 {
-    void sub_01059e10();
-};
-
 // @baa 0x01059e10
-void C_01059e10::sub_01059e10(void)
+void UFindEmitterModuleLODErrorsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1000,12 +972,8 @@ void C_01059e10::sub_01059e10(void)
 // @baa 0x01059e20
 int sub_01059e20(int a0, int a1) { return a1; }
 
-struct C_01059e30 {
-    void sub_01059e30();
-};
-
 // @baa 0x01059e30
-void C_01059e30::sub_01059e30(void)
+void UFixupSourceUVsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1016,12 +984,8 @@ void C_01059e30::sub_01059e30(void)
 // @baa 0x01059e40
 int sub_01059e40(int a0, int a1) { return a1; }
 
-struct C_01059e50 {
-    void sub_01059e50();
-};
-
 // @baa 0x01059e50
-void C_01059e50::sub_01059e50(void)
+void UResavePackagesCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1032,12 +996,8 @@ void C_01059e50::sub_01059e50(void)
 // @baa 0x01059e60
 int sub_01059e60(int a0, int a1) { return a1; }
 
-struct C_01059e70 {
-    void sub_01059e70();
-};
-
 // @baa 0x01059e70
-void C_01059e70::sub_01059e70(void)
+void UChangePrefabSequenceClassCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1048,12 +1008,8 @@ void C_01059e70::sub_01059e70(void)
 // @baa 0x01059e80
 int sub_01059e80(int a0, int a1) { return a1; }
 
-struct C_01059e90 {
-    void sub_01059e90();
-};
-
 // @baa 0x01059e90
-void C_01059e90::sub_01059e90(void)
+void UCutDownContentCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1064,12 +1020,8 @@ void C_01059e90::sub_01059e90(void)
 // @baa 0x01059ea0
 int sub_01059ea0(int a0, int a1) { return a1; }
 
-struct C_01059eb0 {
-    void sub_01059eb0();
-};
-
 // @baa 0x01059eb0
-void C_01059eb0::sub_01059eb0(void)
+void UScaleAudioVolumeCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1080,12 +1032,8 @@ void C_01059eb0::sub_01059eb0(void)
 // @baa 0x01059ec0
 int sub_01059ec0(int a0, int a1) { return a1; }
 
-struct C_01059ed0 {
-    void sub_01059ed0();
-};
-
 // @baa 0x01059ed0
-void C_01059ed0::sub_01059ed0(void)
+void URebuildMapCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1096,12 +1044,8 @@ void C_01059ed0::sub_01059ed0(void)
 // @baa 0x01059ee0
 int sub_01059ee0(int a0, int a1) { return a1; }
 
-struct C_01059ef0 {
-    void sub_01059ef0();
-};
-
 // @baa 0x01059ef0
-void C_01059ef0::sub_01059ef0(void)
+void UTestCompressionCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1112,12 +1056,8 @@ void C_01059ef0::sub_01059ef0(void)
 // @baa 0x01059f00
 int sub_01059f00(int a0, int a1) { return a1; }
 
-struct C_01059f10 {
-    void sub_01059f10();
-};
-
 // @baa 0x01059f10
-void C_01059f10::sub_01059f10(void)
+void UMergePackagesCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1128,12 +1068,8 @@ void C_01059f10::sub_01059f10(void)
 // @baa 0x01059f20
 int sub_01059f20(int a0, int a1) { return a1; }
 
-struct C_01059f30 {
-    void sub_01059f30();
-};
-
 // @baa 0x01059f30
-void C_01059f30::sub_01059f30(void)
+void UMakeCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1144,12 +1080,8 @@ void C_01059f30::sub_01059f30(void)
 // @baa 0x01059f40
 int sub_01059f40(int a0, int a1) { return a1; }
 
-struct C_01059f50 {
-    void sub_01059f50();
-};
-
 // @baa 0x01059f50
-void C_01059f50::sub_01059f50(void)
+void UCreateDefaultStyleCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1160,12 +1092,8 @@ void C_01059f50::sub_01059f50(void)
 // @baa 0x01059f60
 int sub_01059f60(int a0, int a1) { return a1; }
 
-struct C_01059f70 {
-    void sub_01059f70();
-};
-
 // @baa 0x01059f70
-void C_01059f70::sub_01059f70(void)
+void UExamineOutersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1176,12 +1104,8 @@ void C_01059f70::sub_01059f70(void)
 // @baa 0x01059f80
 int sub_01059f80(int a0, int a1) { return a1; }
 
-struct C_01059f90 {
-    void sub_01059f90();
-};
-
 // @baa 0x01059f90
-void C_01059f90::sub_01059f90(void)
+void UFindDuplicateKismetObjectsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1192,12 +1116,8 @@ void C_01059f90::sub_01059f90(void)
 // @baa 0x01059fa0
 int sub_01059fa0(int a0, int a1) { return a1; }
 
-struct C_01059fb0 {
-    void sub_01059fb0();
-};
-
 // @baa 0x01059fb0
-void C_01059fb0::sub_01059fb0(void)
+void UWrangleContentCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1208,12 +1128,8 @@ void C_01059fb0::sub_01059fb0(void)
 // @baa 0x01059fc0
 int sub_01059fc0(int a0, int a1) { return a1; }
 
-struct C_01059fd0 {
-    void sub_01059fd0();
-};
-
 // @baa 0x01059fd0
-void C_01059fd0::sub_01059fd0(void)
+void UFixAmbiguousMaterialParametersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1224,12 +1140,8 @@ void C_01059fd0::sub_01059fd0(void)
 // @baa 0x01059fe0
 int sub_01059fe0(int a0, int a1) { return a1; }
 
-struct C_01059ff0 {
-    void sub_01059ff0();
-};
-
 // @baa 0x01059ff0
-void C_01059ff0::sub_01059ff0(void)
+void UPIEToNormalCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1240,12 +1152,8 @@ void C_01059ff0::sub_01059ff0(void)
 // @baa 0x0105a000
 int sub_0105a000(int a0, int a1) { return a1; }
 
-struct C_0105a010 {
-    void sub_0105a010();
-};
-
 // @baa 0x0105a010
-void C_0105a010::sub_0105a010(void)
+void UUT3MapStatsCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1256,12 +1164,8 @@ void C_0105a010::sub_0105a010(void)
 // @baa 0x0105a020
 int sub_0105a020(int a0, int a1) { return a1; }
 
-struct C_0105a030 {
-    void sub_0105a030();
-};
-
 // @baa 0x0105a030
-void C_0105a030::sub_0105a030(void)
+void UListLoopingEmittersCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1272,12 +1176,8 @@ void C_0105a030::sub_0105a030(void)
 // @baa 0x0105a040
 int sub_0105a040(int a0, int a1) { return a1; }
 
-struct C_0105a050 {
-    void sub_0105a050();
-};
-
 // @baa 0x0105a050
-void C_0105a050::sub_0105a050(void)
+void USoundGroupInfoCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1288,12 +1188,8 @@ void C_0105a050::sub_0105a050(void)
 // @baa 0x0105a060
 int sub_0105a060(int a0, int a1) { return a1; }
 
-struct C_0105a070 {
-    void sub_0105a070();
-};
-
 // @baa 0x0105a070
-void C_0105a070::sub_0105a070(void)
+void UListDistanceCrossFadeNodesCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1304,12 +1200,8 @@ void C_0105a070::sub_0105a070(void)
 // @baa 0x0105a080
 int sub_0105a080(int a0, int a1) { return a1; }
 
-struct C_0105a090 {
-    void sub_0105a090();
-};
-
 // @baa 0x0105a090
-void C_0105a090::sub_0105a090(void)
+void ULocSoundInfoCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 
@@ -1320,12 +1212,8 @@ void C_0105a090::sub_0105a090(void)
 // @baa 0x0105a0a0
 int sub_0105a0a0(int a0, int a1) { return a1; }
 
-struct C_0105a0b0 {
-    void sub_0105a0b0();
-};
-
 // @baa 0x0105a0b0
-void C_0105a0b0::sub_0105a0b0(void)
+void UBuildContentTagIndexCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

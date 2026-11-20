@@ -379,7 +379,6 @@ int C_013479f0::sub_013479f0(void)
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_013576f0 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_013576f0(const TSparseArray<INT>& InArray, INT StartIndex);
@@ -535,7 +534,6 @@ INT sub_013577a0(INT bShow)
     return sub_013566f0(TRUE);
 }
 
-/* FName::operator!= (UnName.h); the kit's FName has no comparison operators. */
 // @baa 0x00834900
 /* UE3's UMorphNodePose::SetMorphTarget (named sub_00834900 in the kit): remembers the name and looks the target up
  * on the skeletal mesh component, when there is one. */

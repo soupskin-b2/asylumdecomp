@@ -20,7 +20,6 @@ void URCapeComponent::SetMaterialSpeedVariableOverride(FLOAT F)
 
 struct C_Z_1562420
 {
-    DWORD sub_01562420();
 };
 
 struct C_Y_60
@@ -46,7 +45,7 @@ struct C_016b2120
 DWORD C_016b2120::sub_016b2120()
 {
     C_X_08* XX = X;
-    return XX->Y->Z->sub_01562420();
+    return ((URAnimNode_Cape*)XX->Y->Z)->GetNumBonesInCape();
 }
 
 struct C_Phys_15f0
@@ -132,7 +131,6 @@ UBOOL URCapeComponent::GetIsInCinematicsState()
 	return FALSE;
 }
 
-
 // @baa 0x016aea50
 /* The cape config's chain width. */
 FLOAT URCapeComponent::GetCapeChainWidth()
@@ -143,7 +141,6 @@ FLOAT URCapeComponent::GetCapeChainWidth()
 }
 
 #line 172 "candidate.cpp"
-
 
 // @baa 0x016aecd0
 /* The cape config's horizontal damping. */
@@ -156,7 +153,6 @@ FLOAT URCapeComponent::GetHorizontalDamping()
 
 #line 188 "candidate.cpp"
 
-
 // @baa 0x016b2140
 /* How many support connector index pairs the cape config has. */
 INT URCapeComponent::GetNumSupportConnectorIndexPairs()
@@ -167,7 +163,6 @@ INT URCapeComponent::GetNumSupportConnectorIndexPairs()
 }
 
 #line 204 "candidate.cpp"
-
 
 // @baa 0x016aea10
 /* How many chains the cape has. */
@@ -210,7 +205,6 @@ void* URCapeComponent::GetAnimStateTreeNode(FName Name)
     return NULL;
 }
 
-
 // @baa 0x016aed10
 /* The cape config's vertical damping. */
 FLOAT URCapeComponent::GetVerticalDamping()
@@ -231,7 +225,6 @@ void URCapeComponent::SetAutoCapeAnimBlendWeights(UBOOL bEnable, FLOAT RootWeigh
     CapeAnimNode->Child1BlendWeight = ChildWeight;
     CapeAnimNode->Child2BlendWeight = ChildWeight;
 }
-
 
 // @baa 0x016ba4a0
 /* Whether a cape bone collides with the world in a cape state (FALSE when either index is past the config's table). */

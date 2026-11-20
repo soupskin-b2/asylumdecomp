@@ -4,9 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* UE3's UpdateLODStatus(), UpdateSkelPose(FLOAT DeltaTime, UBOOL bTickFaceFX) (this build has a third flag) and
- * UActorComponent::ConditionalUpdateTransform(). */
-
 // @baa 0x0093c860
 /* UE3's USkeletalMeshComponent::ForceSkelUpdate(): tick the pose once as if just rendered. */
 void USkeletalMeshComponent::ForceSkelUpdate()
@@ -15,9 +12,9 @@ void USkeletalMeshComponent::ForceSkelUpdate()
     {
         const FLOAT OldLastRenderTime = LastRenderTime;
         LastRenderTime = GWorld->GetWorldInfo()->TimeSeconds;
-        this->sub_0092be40();
-        this->sub_0093b170(0.f, TRUE, FALSE);
-        this->sub_00759620();
+        UpdateLODStatus();
+        UpdateSkelPose(0.f, TRUE, FALSE);
+        ConditionalUpdateTransform();
         LastRenderTime = OldLastRenderTime;
     }
 }

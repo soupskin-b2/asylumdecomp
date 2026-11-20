@@ -4,12 +4,8 @@
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
 
-struct C {
-    void sub_0173a470();
-};
-
 // @baa 0x0173a470
-void C::sub_0173a470(void)
+void UVerifySourceControlCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

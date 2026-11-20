@@ -12,12 +12,8 @@ struct FNameArray : public TArray<FName> {};
 void* sub_0056fa40(unsigned int Size, FNameArray& Array);
 inline void* operator new(unsigned int Size, FNameArray& Array) { return sub_0056fa40(Size, Array); }
 
-struct UObject_016757e0 : public UObject {
-    void sub_016757e0();
-};
-
 // @baa 0x016757e0
-void UObject_016757e0::sub_016757e0()
+void URCrimeSceneAssetFactoryNew::StaticConstructor()
 {
     new(*(FNameArray*)((BYTE*)GetClass() + 0xf0)) FName(TEXT("Object"));
 }

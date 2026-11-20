@@ -5,14 +5,13 @@
 
 struct Sub
 {
-    void sub_009c6b40(INT Value);
 };
 
 extern Sub* g_026b62b8;
 // @baa 0x00cb02b0
 void sub_00cb02b0()
 {
-    g_026b62b8->sub_009c6b40(0);
+    ((UWorld*)g_026b62b8)->GetWorldInfo(0);
 }
 
 struct C

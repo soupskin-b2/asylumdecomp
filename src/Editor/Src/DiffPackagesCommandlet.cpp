@@ -4,12 +4,8 @@
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
 
-struct C {
-    void sub_010149e0();
-};
-
 // @baa 0x010149e0
-void C::sub_010149e0(void)
+void UDiffPackagesCommandlet::InitializeIntrinsicPropertyValues()
 {
     int param_1 = (int)this;
 

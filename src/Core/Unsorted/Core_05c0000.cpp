@@ -4,11 +4,10 @@
 #include "ue3/Classes.h"
 
 struct C {
-    int sub_005c1840();
 };
 
 // @baa 0x005c1840
-int C::sub_005c1840(void)
+INT FMemStack::GetUnusedByteCount() const
 {
     int param_1 = (int)this;
 

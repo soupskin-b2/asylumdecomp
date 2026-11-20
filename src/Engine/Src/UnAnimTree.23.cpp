@@ -65,7 +65,6 @@ void UAnimNodeBlendBase::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
     }
 }
 
-/* FName's comparison (UnName.h); the kit's FName has none. */
 // @baa 0x00c7df80
 /* Plays DefaultAnimSeqName when the active child has no animation yet. */
 void UAnimNodeCrossfader::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)

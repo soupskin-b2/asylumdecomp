@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* FName::operator== (UnName.h) */
 // @baa 0x00a09910
 INT UPhysicsAsset::FindConstraintIndex(FName ConstraintName)
 {
@@ -22,7 +21,6 @@ INT UPhysicsAsset::FindConstraintIndex(FName ConstraintName)
 }
 
 #line 31 "candidate.cpp"
-
 
 // @baa 0x00a20750
 void UPhysicsAsset::UpdateBodyIndices()

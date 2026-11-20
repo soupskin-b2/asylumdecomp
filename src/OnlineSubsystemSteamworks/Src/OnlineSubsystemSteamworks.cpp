@@ -209,15 +209,8 @@ UBOOL UOnlineSubsystemSteamworks::JoinFriendGame(BYTE LocalUserNum, FUniqueNetId
 // @baa 0x00e88bd0
 BYTE __stdcall sub_00e88bd0(int a) { return 2; }
 
-struct D {
-    unsigned char sub_00e88be0(int) { return 2; }
-};
-
 // @baa 0x00e88be0
-void force_ref() {
-    volatile unsigned char r = ((D*)0)->sub_00e88be0(0);
-    (void)r;
-}
+BYTE UOnlineSubsystemSteamworks::CanCommunicate(BYTE LocalUserNum) { return FPL_Enabled; }
 
 // @baa 0x00e88bf0
 int UOnlineSubsystemSteamworks::vf_1c0(int a0) { return 1; }

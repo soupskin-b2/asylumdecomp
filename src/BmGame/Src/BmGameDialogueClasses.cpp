@@ -345,20 +345,10 @@ void URSeqAct_PlaySpeechConversation::UpdateDynamicLinks()
     vf_1a4();
 }
 
-struct C_008caeb0
-{
-    INT sub_008caeb0(FLOAT F);
-};
-
-struct C_01584b60
-{
-    INT sub_01584b60(FLOAT F);
-};
-
 // @baa 0x01584b60
-INT C_01584b60::sub_01584b60(FLOAT F)
+UBOOL URSeqAct_PlayerDialogueOptions::UpdateOp(FLOAT DeltaTime)
 {
-    return ((C_008caeb0*)this)->sub_008caeb0(F);
+    return Super::UpdateOp(DeltaTime);
 }
 
 struct FName_ : FName

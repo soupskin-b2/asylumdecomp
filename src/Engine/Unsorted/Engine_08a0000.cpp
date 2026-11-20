@@ -707,9 +707,8 @@ void C_008a7830::sub_008a7830(undefined4 param_2, float * param_3)
   return;
 }
 
-struct C_008a9420 { void sub_008a9420(void); };
 // @baa 0x008a9420
-void C_008a9420::sub_008a9420(void)
+void AGameInfo::DoNavFearCostFallOff()
 {
     int param_1 = (int)this;
 

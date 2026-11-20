@@ -392,9 +392,6 @@ void USkelControlLookAt::SetTargetLocation(FVector NewTargetLocation)
     }
 }
 
-/* VInterpTo (UnMath.cpp, 0x005c6d10) */
-FVector VInterpTo(const FVector& Current, const FVector& Target, FLOAT& DeltaTime, FLOAT InterpSpeed);
-
 // @baa 0x0090d0a0
 void USkelControlLookAt::InterpolateTargetLocation(FLOAT DeltaTime)
 {

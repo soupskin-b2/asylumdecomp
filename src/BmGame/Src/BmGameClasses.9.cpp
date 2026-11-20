@@ -179,14 +179,13 @@ struct UObjectThunk_0154b750 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154b750();
 };
 
 // @baa 0x0154b750
 void UObjectThunk_0154b750::sub_0154b750()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2e10, g_026e2e14, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2e10, g_026e2e14, 0), 0, 0);
 }
 
 // @baa 0x0154b780
@@ -285,14 +284,13 @@ struct UObjectThunk_0154b830 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154b830();
 };
 
 // @baa 0x0154b830
 void UObjectThunk_0154b830::sub_0154b830()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e31c8, g_026e31cc, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e31c8, g_026e31cc, 0), 0, 0);
 }
 
 // @baa 0x0154b860
@@ -451,14 +449,13 @@ struct UObjectThunk_0154ba40 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154ba40();
 };
 
 // @baa 0x0154ba40
 void UObjectThunk_0154ba40::sub_0154ba40()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e292c, g_026e2930, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e292c, g_026e2930, 0), 0, 0);
 }
 
 extern "C" int g_026e2948;
@@ -524,14 +521,13 @@ struct UObjectThunk_0154ba70 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154ba70();
 };
 
 // @baa 0x0154ba70
 void UObjectThunk_0154ba70::sub_0154ba70()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2948, g_026e294c, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2948, g_026e294c, 0), 0, 0);
 }
 
 extern "C" int g_026e3450;
@@ -597,14 +593,13 @@ struct UObjectThunk_0154baa0 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154baa0();
 };
 
 // @baa 0x0154baa0
 void UObjectThunk_0154baa0::sub_0154baa0()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e3450, g_026e3454, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e3450, g_026e3454, 0), 0, 0);
 }
 
 extern "C" int g_026e2964;
@@ -670,14 +665,13 @@ struct UObjectThunk_0154bad0 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bad0();
 };
 
 // @baa 0x0154bad0
 void UObjectThunk_0154bad0::sub_0154bad0()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2964, g_026e2968, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2964, g_026e2968, 0), 0, 0);
 }
 
 extern "C" int g_026e2ad8;
@@ -743,14 +737,13 @@ struct UObjectThunk_0154bb00 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bb00();
 };
 
 // @baa 0x0154bb00
 void UObjectThunk_0154bb00::sub_0154bb00()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2ad8, g_026e2adc, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2ad8, g_026e2adc, 0), 0, 0);
 }
 
 // @baa 0x0154bb70
@@ -819,14 +812,13 @@ struct UObjectThunk_0154bb80 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bb80();
 };
 
 // @baa 0x0154bb80
 void UObjectThunk_0154bb80::sub_0154bb80()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2c00, g_026e2c04, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2c00, g_026e2c04, 0), 0, 0);
 }
 
 extern "C" int g_026e2644;
@@ -892,14 +884,13 @@ struct UObjectThunk_0154bbb0 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bbb0();
 };
 
 // @baa 0x0154bbb0
 void UObjectThunk_0154bbb0::sub_0154bbb0()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2644, g_026e2648, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2644, g_026e2648, 0), 0, 0);
 }
 
 // @baa 0x0154bbe0
@@ -1000,14 +991,13 @@ struct UObjectThunk_0154bd70 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bd70();
 };
 
 // @baa 0x0154bd70
 void UObjectThunk_0154bd70::sub_0154bd70()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e35e8, g_026e35ec, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e35e8, g_026e35ec, 0), 0, 0);
 }
 
 extern "C" int g_026e2898;
@@ -1073,14 +1063,13 @@ struct UObjectThunk_0154bda0 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bda0();
 };
 
 // @baa 0x0154bda0
 void UObjectThunk_0154bda0::sub_0154bda0()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2898, g_026e289c, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2898, g_026e289c, 0), 0, 0);
 }
 
 // @baa 0x0154bdd0
@@ -1152,14 +1141,13 @@ struct UObjectThunk_0154bdf0 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154bdf0();
 };
 
 // @baa 0x0154bdf0
 void UObjectThunk_0154bdf0::sub_0154bdf0()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2c00, g_026e2c04, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2c00, g_026e2c04, 0), 0, 0);
 }
 
 struct UObjectThunk_0154be80 {
@@ -1223,14 +1211,13 @@ struct UObjectThunk_0154be80 {
     virtual void VE4();
     virtual void VE8();
     virtual void ProcessEvent(int, int, int);
-    int __thiscall sub_005d7d10(int, int, int);
     void sub_0154be80();
 };
 
 // @baa 0x0154be80
 void UObjectThunk_0154be80::sub_0154be80()
 {
-    this->ProcessEvent(this->sub_005d7d10(g_026e2644, g_026e2648, 0), 0, 0);
+    this->ProcessEvent(this->FindFunctionChecked(g_026e2644, g_026e2648, 0), 0, 0);
 }
 
 // @baa 0x0154beb0

@@ -218,7 +218,7 @@ void UObject::sub_01612630(BYTE A, INT B, INT C)
     Parms.A = A;
     Parms.B = B;
     Parms.C = C;
-    ProcessEvent(sub_005d7d10(g_026e39e4, 0), &Parms, 0);
+    ProcessEvent(FindFunctionChecked(g_026e39e4, 0), &Parms, 0);
 }
 
 // @baa 0x016127c0
@@ -353,9 +353,8 @@ void ARPlayerController::RecordEidosMetricsLocationAchievement(const FString& Me
 // @baa 0x01614b60
 void sub_01614b60(void) {  }
 
-struct C_01614f10 { undefined4 sub_01614f10(void); };
 // @baa 0x01614f10
-undefined4 C_01614f10::sub_01614f10(void)
+UBOOL ARPlayerController::IsInExternalCamera()
 {
     int param_1 = (int)this;
 
@@ -1048,9 +1047,8 @@ void sub_016161f0(undefined4 param_1, undefined4 param_2, undefined4 param_3)
 }
 
 int sub_016162f0(...);
-struct C_01619e30 { void sub_01619e30(void); };
 // @baa 0x01619e30
-void C_01619e30::sub_01619e30(void)
+void ARPlayerController::PlayerWtfNative()
 {
     int param_1 = (int)this;
 

@@ -1811,7 +1811,7 @@ struct AActor_ : public AActor
 	{
 		struct { USkeletalMeshComponent* SkelComp; } Parms;
 		Parms.SkelComp = SkelComp;
-		ProcessEvent(sub_005d7d10(g_026c4f5c, 0), &Parms, 0);
+		ProcessEvent(FindFunctionChecked(g_026c4f5c, 0), &Parms, 0);
 	}
 };
 
@@ -1819,11 +1819,11 @@ struct AActor_ : public AActor
 /* SetAnimTreeTemplate: replaces the tree with a fresh copy of NewTemplate and tells the owner. */
 void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 {
-	this->sub_0092b860();
+	DeleteAnimTree();
 
-	if (NewTemplate && (Animations = NewTemplate->sub_00c7fc80(this)) != NULL)
+	if (NewTemplate && (Animations = NewTemplate->CopyAnimTree(this)) != NULL)
 	{
-		((USkeletalMeshComponent*)this)->UpdateSkelPose(TRUE);
+		InitAnimTree(TRUE);
 		AnimTreeTemplate = NewTemplate;
 	}
 	else
@@ -1838,16 +1838,16 @@ void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 }
 
 // @baa 0x0093dd00
-/* UpdateTransform also builds the anim tree if it hasn't been yet, and moves the attachments. */
-void USkeletalMeshComponent::UpdateTransform()
+/* BeginPlay also builds the anim tree if it hasn't been yet, and begins play on the attachments. */
+void USkeletalMeshComponent::BeginPlay()
 {
-	UActorComponent::UpdateTransform();
+	UActorComponent::BeginPlay();
 
 	if (!Animations && AnimTreeTemplate)
 	{
 		SetAnimTreeTemplate(AnimTreeTemplate);
-		this->sub_0093b170(0.f, TRUE, FALSE);
-		this->sub_00759620();
+		UpdateSkelPose(0.f, TRUE, FALSE);
+		ConditionalUpdateTransform();
 	}
 
 	for (UINT AttachmentIndex = 0; AttachmentIndex < (UINT)Attachments.Num(); AttachmentIndex++)
@@ -1855,7 +1855,7 @@ void USkeletalMeshComponent::UpdateTransform()
 		FAttachment& Attachment = Attachments(AttachmentIndex);
 		if (Attachment.Component)
 		{
-			Attachment.Component->ConditionalUpdateTransform();
+			Attachment.Component->ConditionalBeginPlay();
 		}
 	}
 }
@@ -1871,7 +1871,6 @@ inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 	}
 	return BoneIndex;
 }
-
 
 // @baa 0x00913d80
 /* Finds the three spine bones; the fixer works only if the mesh has all of them. */

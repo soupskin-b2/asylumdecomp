@@ -26,14 +26,12 @@ void AActor::MarkComponentsAsPendingKill(UBOOL bOnlyFiltered)
     }
 }
 
-/* Re-runs the transform update (slot 0x118, UE3 UpdateTransform) when attached. */
-
 // @baa 0x00759620
-void UActorComponent::sub_00759620()
+void UActorComponent::ConditionalUpdateTransform()
 {
     if (bAttached)
     {
-        vf_118();
+        UpdateTransform();
     }
 }
 

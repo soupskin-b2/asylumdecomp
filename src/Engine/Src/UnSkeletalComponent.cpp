@@ -447,7 +447,6 @@ INT USkeletalMeshComponent::GetNumElements()
   return 0;
 }
 
-int sub_0092db40(void);
 struct C_00935790 { void sub_00935790(undefined4 param_2); };
 // @baa 0x00935790
 void C_00935790::sub_00935790(undefined4 param_2)
@@ -455,7 +454,7 @@ void C_00935790::sub_00935790(undefined4 param_2)
     int param_1 = (int)this;
 
   *(undefined4 *)(param_1 + 0x27c) = param_2;
-  sub_0092db40();
+  ((USkeletalMeshComponent*)this)->UpdateParentBoneMap();
   return;
 }
 
@@ -642,8 +641,6 @@ public:
 };
 
 inline UBOOL IsZero(const FVector& V) { return V.X == 0.0f && V.Y == 0.0f && V.Z == 0.0f; }
-
-inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 // @baa 0x0091c910
 void USkeletalMeshComponent::UpdateChildComponents()

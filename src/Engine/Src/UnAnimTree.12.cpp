@@ -25,8 +25,6 @@ void UAnimNode::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 	}
 }
 
-inline UBOOL operator==(const FName& A, EName N) { return A.Index == N && A.Number == 0; }
-
 // @baa 0x00c7a3d0
 void UAnimNode::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynchGroupName)
 {

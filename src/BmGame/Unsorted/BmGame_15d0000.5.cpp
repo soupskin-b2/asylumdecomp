@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* UnMath.h's FVector::operator- (the kit's FVector doesn't declare it): data-free helper. */
-
 // @baa 0x015dd380
 FLOAT ARBMCombatManager::GetAngleFromPawnToPawn(ARPawnCombat* Pawn1, ARPawnCombat* Pawn2)
 {

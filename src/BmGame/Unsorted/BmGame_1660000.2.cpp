@@ -600,9 +600,8 @@ void ARPawn::TeleportPhysics()
   return;
 }
 
-struct C_0166d710 { uint sub_0166d710(void); };
 // @baa 0x0166d710
-uint C_0166d710::sub_0166d710(void)
+UBOOL ARPawnCombat::IsTargetted()
 {
     int param_1 = (int)this;
 

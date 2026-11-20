@@ -23,16 +23,13 @@ void URAnimNode_Cape::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime,
 	}
 }
 
-void sub_0158c5b0();
-void sub_0158c560();
 // @baa 0x01590a30
 void ARLevelTransition::PostEditMove(UBOOL A)
 {
-    ARLevelTransition* Self = (ARLevelTransition*)this;
     if (A != 0)
     {
-        sub_0158c5b0();
-        sub_0158c560();
+        ARLevelTransition::RebuildTransitionLinks();
+        ARLevelTransition::RebuildLevelTransitionList();
     }
     Super::PostEditMove(A);
 }

@@ -48,6 +48,9 @@ FORCEINLINE UGameUISceneClient* UUIRoot::GetSceneClient()
 
 extern TArray<UObject*> g_026a1ca4;
 #define GObjObjects g_026a1ca4
+extern INT g_026a1c50;
+#define GObjFirstGCIndex g_026a1c50 /* where FObjectIterator(Class, bOnlyGCedObjects=TRUE) starts */
+#define BAA_UNOBJBAS_FILE "e:\\projects\\amadeus\\aa\\game\\unrealengine3\\development\\src\\core\\inc\\UnObjBas.h"
 
 /* UnRHI's pixel format table (0x24 bytes an entry, indexed by EPixelFormat); matched in
  * TextureRenderTarget2D.3.cpp */
@@ -76,9 +79,25 @@ public:
     QWORD ExclusionFlags;
     void sub_004153a0(UClass* InClass, UBOOL bOnlyGCedObjects);
     void sub_00410de0();
+#ifdef BAA_INLINE_OBJECT_ITERATOR
+    /* UnObjBas.h's inline constructor, which some functions inline (00d19950) instead of calling 004153a0 */
+    FObjectIterator(UClass* InClass, UBOOL bOnlyGCedObjects = FALSE)
+        : Class(InClass), Index(bOnlyGCedObjects ? GObjFirstGCIndex : -1)
+    {
+        ExclusionFlags = RF_Unreachable;
+        if (!GIsAsyncLoading)
+        {
+            ExclusionFlags |= RF_AsyncLoading;
+        }
+        checkAt(Class, BAA_UNOBJBAS_FILE, 3998);
+        ++*this;
+    }
+#else
+    /* out of line (004153a0), as most callers have it; #define BAA_INLINE_OBJECT_ITERATOR for the inline body */
     FObjectIterator(UClass* InClass, UBOOL bOnlyGCedObjects = FALSE) {
         sub_004153a0(InClass, bOnlyGCedObjects);
     }
+#endif
     void operator++() { sub_00410de0(); }
     UObject* operator*() const { return GObjObjects.GetTypedData()[Index]; }
     operator UBOOL() const { return GObjObjects.IsValidIndex(Index); }

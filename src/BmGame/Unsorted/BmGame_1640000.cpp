@@ -299,7 +299,7 @@ extern FName g_026e35f8;
 // @baa 0x01641ef0
 void ARGrapplePointCatchmentArea::PostEditMove(UBOOL bFinished)
 {
-    sub_00757e00(sub_005d7d10(g_026e35f8, 0), NULL, NULL);
+    sub_00757e00(FindFunctionChecked(g_026e35f8, 0), NULL, NULL);
 }
 
 int sub_00839920(...);

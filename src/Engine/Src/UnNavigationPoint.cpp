@@ -499,9 +499,6 @@ struct USelection_ : public USelection {
 // @baa 0x011d4d00
 template ACoverLink* USelection_::GetTop<ACoverLink>();
 
-/* placement new as UE3 declares it (UnTemplate.h); the exe keeps the matching delete out of line (00401890) */
-/* FCoverSlot's (implicit) copy constructor, out of line in the exe (00859980) */
-
 struct FCoverSlotArray : public TArray<FCoverSlot> {
     void sub_00838e00(INT Index, INT Count);                 // Insert (void in this build)
     INT sub_00859db0(const FCoverSlot& Item, INT Index);     // InsertItem

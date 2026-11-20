@@ -132,7 +132,6 @@ undefined4 C_00663350::sub_00663350(byte param_2)
 // @baa 0x006634b0
 FLOAT USurface::GetSurfaceWidth() PURE_VIRTUAL(USurface::GetSurfaceWidth, return 0.f;)
 
-int sub_00627f70(...);
 int sub_00654ca0(...);
 int sub_00654d20(...);
 int sub_00654da0(...);
@@ -147,7 +146,7 @@ uint sub_00663cb0(undefined4 * param_1)
   uVar1 = sub_00654ca0(*param_1,0);
   uVar2 = sub_00654da0(param_1[1],0);
   uVar3 = sub_00654d20(param_1[2],0);
-  uVar4 = sub_00627f70(param_1 + 3,0x10,0);
+  uVar4 = appMemCrc(param_1 + 3,0x10,0);
   return uVar4 ^ uVar3 ^ uVar2 ^ uVar1;
 }
 
@@ -1469,7 +1468,7 @@ uint sub_00669a90(undefined4 * param_1)
   uVar1 = sub_00654ca0(*param_1,0);
   uVar2 = sub_00654da0(param_1[1],0);
   uVar3 = sub_00654d20(param_1[2],0);
-  uVar4 = sub_00627f70(param_1 + 3,0x10,0);
+  uVar4 = appMemCrc(param_1 + 3,0x10,0);
   return uVar4 ^ uVar3 ^ uVar2 ^ uVar1;
 }
 

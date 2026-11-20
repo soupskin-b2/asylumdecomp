@@ -18,10 +18,9 @@ UBOOL URConstrainingComponent::HasParentClassChanged() const
 // @baa 0x016d3580
 IMPLEMENT_CLASS_AT(URB_ActualDistanceConstraintSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RConstrainingComponent.cpp", 10);
 
-struct C_016d4840 { undefined4 sub_016d4840(void); };
 // @baa 0x016d4780
 // @baa 0x016d4840
-undefined4 C_016d4840::sub_016d4840(void)
+UBOOL URConstrainingComponent::GetIsSyncronised()
 {
     int param_1 = (int)this;
 
@@ -36,9 +35,8 @@ undefined4 C_016d4840::sub_016d4840(void)
 }
 
 int sub_0053df70(...);
-struct C_016d9e80 { void sub_016d9e80(void); };
 // @baa 0x016d9e80
-void C_016d9e80::sub_016d9e80(void)
+void URConstrainingComponent::ClearRBConstraints()
 {
     int param_1 = (int)this;
 

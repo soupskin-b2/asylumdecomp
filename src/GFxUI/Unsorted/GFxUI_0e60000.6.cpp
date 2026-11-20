@@ -6,7 +6,6 @@
 
 extern template UGFxFSCmdHandler_Kismet* Cast<UGFxFSCmdHandler_Kismet>(UObject* Src);
 /* UnObjBas.h ConstructObject<T>; the UGFxFSCmdHandler_Kismet instance is out of line (00e6fb00). */
-/* USequenceEvent::RegisterEvent (008be6c0) */
 
 /* UGFxFSCmdHandler_Kismet::RegisterFSCommand (00e68ac0): adds the event to Events under its
  * FSCommand name. */

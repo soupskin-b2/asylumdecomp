@@ -9,9 +9,8 @@
 #include "ue3/Native.h"
 
 /* Kit gaps: the default constructor of the parameter struct (it zeroes ExpressionGUID: FGuid's default constructor,
- * presumably), the TMaterialInstanceTimeVaryingParameterMapping statics (scalar FindParameterByName 006e9010,
- * GameThread_UpdateParameter 00708a80), UWorld::GetTimeSeconds (009c8f80), FInterpCurve<FLOAT>'s native constructor
- * and destructor (out of line, 006c4cf0), TArray's operator= for curve points (out of line, 006f3830) aren't declared. */
+ * presumably), FInterpCurve<FLOAT>'s native constructor and destructor (out of line, 006c4cf0) and TArray's
+ * operator= for curve points (out of line, 006f3830) aren't declared. */
 struct FScalarParameterValueOverTime_ : public FScalarParameterValueOverTime
 {
 	FScalarParameterValueOverTime_()
@@ -28,12 +27,6 @@ struct FInterpCurveFloat_ : public FInterpCurveFloat
 		InterpMethod = 0;
 	}
 	~FInterpCurveFloat_();
-};
-
-struct MITVScalarParameterMapping
-{
-	static FScalarParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
-	static void GameThread_UpdateParameter(UMaterialInstanceTimeVarying* Instance, const FScalarParameterValueOverTime& Parameter);
 };
 
 // @baa 0x007136d0

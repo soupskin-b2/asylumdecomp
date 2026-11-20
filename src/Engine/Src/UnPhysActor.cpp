@@ -94,9 +94,8 @@ struct C_view {
     int sub_009d9370(int);
 };
 
-struct C_009d99e0 { void sub_009d99e0(void); };
 // @baa 0x009d99e0
-void C_009d99e0::sub_009d99e0(void)
+void AKActor::ResolveRBState()
 {
     int param_1 = (int)this;
   int iVar1;

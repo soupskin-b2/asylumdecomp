@@ -123,9 +123,8 @@ UBOOL URCapeComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_016ae4d0 { bool sub_016ae4d0(void); };
 // @baa 0x016ae4d0
-bool C_016ae4d0::sub_016ae4d0(void)
+UBOOL URCapeComponent::GetIsInitialised()
 {
     int param_1 = (int)this;
 
@@ -149,9 +148,8 @@ struct C_view {
     int sub_016cec10();
 };
 
-struct C_016ae8c0 { void sub_016ae8c0(void); };
 // @baa 0x016ae8c0
-void C_016ae8c0::sub_016ae8c0(void)
+void URCapeComponent::PauseCape()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
@@ -165,9 +163,8 @@ struct C_view_016ae8e0 {
     int sub_016cec20();
 };
 
-struct C_016ae8e0 { void sub_016ae8e0(void); };
 // @baa 0x016ae8e0
-void C_016ae8e0::sub_016ae8e0(void)
+void URCapeComponent::ResumeCape()
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
