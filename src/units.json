@@ -57493,7 +57493,7 @@
     {
      "va": "0173f790",
      "size": 54,
-     "symbol": "?vf_10c@URGenericBrowserType@@UAEXXZ"
+     "symbol": "?Init@URGenericBrowserType@@UAEXXZ"
     }
    ]
   },
@@ -453838,7 +453838,7 @@
     {
      "va": "00e25eb0",
      "size": 24,
-     "symbol": "?vf_150@UGameSkelCtrl_Recoil_@@UAE?AURecoilRange@@H@Z"
+     "symbol": "?GetAim@UGameSkelCtrl_Recoil@@UAE?AUFVector2D@@PAUUSkeletalMeshComponent@@@Z"
     },
     {
      "va": "00e25ed0",
@@ -482874,7 +482874,7 @@
     {
      "va": "0117d3c0",
      "size": 1,
-     "symbol": "?vf_10c@UGenericBrowserType@@UAEXXZ"
+     "symbol": "?Init@UGenericBrowserType@@UAEXXZ"
     },
     {
      "va": "0117d3d0",

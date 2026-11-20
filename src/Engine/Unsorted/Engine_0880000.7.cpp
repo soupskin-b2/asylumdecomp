@@ -10,18 +10,12 @@ public:
 	void RemoveObject(FNavigationOctreeObject* Object);
 };
 
-/* UWorld::NavigationOctree (0x11c) is not declared: Classes.h covers it with _native2. */
-struct UWorld_ : public UWorld
-{
-	FNavigationOctree*& NavigationOctree() { return *(FNavigationOctree**)((BYTE*)this + 0x11c); }
-};
-
 // @baa 0x00880dc0
 FNavigationOctreeObject::~FNavigationOctreeObject()
 {
-	if (OctreeNode.Dummy != NULL && GWorld != NULL && ((UWorld_*)GWorld)->NavigationOctree() != NULL)
+	if (OctreeNode.Dummy != NULL && GWorld != NULL && GWorld->NavigationOctree != NULL)
 	{
-		((UWorld_*)GWorld)->NavigationOctree()->RemoveObject(this);
+		GWorld->NavigationOctree->RemoveObject(this);
 	}
 }
 

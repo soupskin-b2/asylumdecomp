@@ -64,20 +64,10 @@ void sub_00e275f0(void) { sub_00e27520(); }
 // @baa 0x00e27600
 // @baa 0x00e27620
 
-struct RecoilRange { INT Min; INT Max; };
-
-struct UGameSkelCtrl_Recoil_ : public UGameSkelCtrl_Recoil
-{
-    virtual RecoilRange vf_150(INT a);
-};
-
 // @baa 0x00e25eb0
-RecoilRange UGameSkelCtrl_Recoil_::vf_150(INT a)
+FVector2D UGameSkelCtrl_Recoil::GetAim(USkeletalMeshComponent* InSkelComponent)
 {
-    RecoilRange R;
-    R.Min = *(INT*)&_native[0x74];
-    R.Max = *(INT*)&_native[0x78];
-    return R;
+    return Aim;
 }
 
 /* TArray<INT>::AddItem, out of line here (0x00545f40); not in the kit TArray. */
@@ -86,23 +76,13 @@ struct FIntArray : public TArray<INT>
     INT AddItem(const INT& Item);
 };
 
-/* GameSkelCtrl_Recoil's script bools (bBoneSpaceRecoil, bPlayRecoil, bOldPlayRecoil, bApplyControl) sit at
- * the start of the kit's _native blob (0xa8); this stand-in names them. */
-struct FRecoilFlags
-{
-    BITFIELD bBoneSpaceRecoil : 1;
-    BITFIELD bPlayRecoil : 1;
-    BITFIELD bOldPlayRecoil : 1;
-    BITFIELD bApplyControl : 1;
-};
-
 // @baa 0x00e26c90
 /* Only the controlled bone is affected, and only while the recoil is being applied. */
 void UGameSkelCtrl_Recoil::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
 #line 117 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\GameFramework\\Src\\GameSkelControls.cpp"
     check(OutBoneIndices.Num() == 0);
-    if (((FRecoilFlags*)_native)->bApplyControl)
+    if (bApplyControl)
     {
         ((FIntArray&)OutBoneIndices).AddItem(BoneIndex);
     }

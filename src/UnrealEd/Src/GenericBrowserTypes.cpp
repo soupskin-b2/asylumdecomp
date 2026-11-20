@@ -2092,7 +2092,7 @@ void sub_0117d2d0(void) {  }
 
 // @baa 0x0117d340
 // @baa 0x0117d3c0
-void UGenericBrowserType::vf_10c(void) {  }
+void UGenericBrowserType::Init() {  }
 
 // @baa 0x0117d3d0
 void UGenericBrowserType::vf_120(int a0, int a1) {  }

@@ -60293,10 +60293,37 @@ struct AGameProjectile : public AProjectile {
     /* registered size 0x1e4 */
 };
 
+/* GameFrameworkAnimClasses.h (this build cooks no script package for the class, so these come from UE3's header;
+ * the sizes add up to the registered 0x124 and GetAim at 0x00e25eb0 returns the FVector2D at 0x11c) */
+struct FRecoilParams {
+    BYTE X; /* 0x0 */
+    BYTE Y; /* 0x1 */
+    BYTE Z; /* 0x2 */
+    BYTE Padding; /* 0x3 */
+};
+struct FRecoilDef {
+    FLOAT TimeToGo; /* 0x0 */
+    FLOAT TimeDuration; /* 0x4 */
+    FVector RotAmplitude; /* 0x8 */
+    FVector RotFrequency; /* 0x14 */
+    FVector RotSinOffset; /* 0x20 */
+    FRecoilParams RotParams; /* 0x2c */
+    FRotator RotOffset; /* 0x30 */
+    FVector LocAmplitude; /* 0x3c */
+    FVector LocFrequency; /* 0x48 */
+    FVector LocSinOffset; /* 0x54 */
+    FRecoilParams LocParams; /* 0x60 */
+    FVector LocOffset; /* 0x64 */
+};
 struct UGameSkelCtrl_Recoil : public USkelControlBase {
     /* GameFramework.GameSkelCtrl_Recoil (native only: no script package describes it) */
     DECLARE_CLASS(UGameSkelCtrl_Recoil, USkelControlBase, 0x0, 0x0, GameFramework)
-    BYTE _native[0x7c]; /* C++-only members, to the registered size 0x124 */
+    BITFIELD bBoneSpaceRecoil : 1; /* 0xa8 */
+    BITFIELD bPlayRecoil : 1; /* 0xa8 */
+    BITFIELD bOldPlayRecoil : 1; /* 0xa8 */
+    BITFIELD bApplyControl : 1; /* 0xa8 */
+    FRecoilDef Recoil; /* 0xac */
+    FVector2D Aim; /* 0x11c */
     /* virtual functions this class introduces (vtable 0x020ecda0) */
     virtual FVector2D GetAim(USkeletalMeshComponent* InSkelComponent); /* 0x150 */
     virtual UBOOL IsMirrored(USkeletalMeshComponent* InSkelComponent); /* 0x154 */
@@ -60327,14 +60354,28 @@ struct AGameWeapon : public AWeapon {
     /* registered size 0x298 */
 };
 
-struct FNativeDtor_01173630_10 { ~FNativeDtor_01173630_10(); /* 0x01173630 */ DWORD _data[4]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* GenericBrowserTypes.h, as this build has it: what a browser type supports (a class, its thumbnail border color, an
+ * optional context menu, required flags and support callback). 28 bytes; ~TArray of it at 0x01173630. */
+struct FGenericBrowserTypeInfo {
+    UClass* Class; /* 0x0 */
+    FColor BorderColor; /* 0x4 */
+    void* ContextMenu; /* 0x8 */
+    QWORD RequiredFlags; /* 0xc */
+    void* pfnIsSupported; /* 0x14 */
+    class UGenericBrowserType* BrowserType; /* 0x18 */
+    FGenericBrowserTypeInfo(UClass* InClass, const FColor& InBorderColor)
+        : Class(InClass), BorderColor(InBorderColor), ContextMenu(NULL), RequiredFlags(0), pfnIsSupported(NULL), BrowserType(NULL)
+    {
+    }
+};
 struct UGenericBrowserType : public UObject {
     /* UnrealEd.GenericBrowserType (native only: no script package describes it) */
     DECLARE_CLASS(UGenericBrowserType, UObject, 0x1, 0x0, UnrealEd)
-    FStringNoInit Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    FNativeDtor_01173630_10 Native_3c; /* 0x3c: C++ only (destroyed by its destructor) */
+    FStringNoInit Description; /* 0x30 */
+    TArrayNoInit<FGenericBrowserTypeInfo> SupportInfo; /* 0x3c */
+    FColor BorderColor; /* 0x48 */
     /* virtual functions this class introduces (vtable 0x021d1e78) */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
@@ -60374,7 +60415,7 @@ struct UGenericBrowserType_All : public UGenericBrowserType_Custom {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60384,7 +60425,7 @@ struct UGenericBrowserType_AnimTree : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60395,7 +60436,7 @@ struct UGenericBrowserType_Animation : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60406,7 +60447,7 @@ struct UGenericBrowserType_ApexDestructibleAsset : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60416,7 +60457,7 @@ struct UGenericBrowserType_ApexMeshParticleFactoryAsset : public UGenericBrowser
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60426,7 +60467,7 @@ struct UGenericBrowserType_ApexParticleSystemAsset : public UGenericBrowserType 
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60436,7 +60477,7 @@ struct UGenericBrowserType_ApexRenderMeshAsset : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60446,7 +60487,7 @@ struct UGenericBrowserType_Archetype : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60456,7 +60497,7 @@ struct UGenericBrowserType_CameraAnim : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60467,7 +60508,7 @@ struct UGenericBrowserType_CurveEdPresetCurve : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60477,7 +60518,7 @@ struct UGenericBrowserType_DecalMaterial : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60489,7 +60530,7 @@ struct UGenericBrowserType_DestructibleDamageParameters : public UGenericBrowser
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60500,7 +60541,7 @@ struct UGenericBrowserType_FaceFXAnimSet : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60512,7 +60553,7 @@ struct UGenericBrowserType_FaceFXAsset : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
@@ -60526,7 +60567,7 @@ struct UGenericBrowserType_Font : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60537,7 +60578,7 @@ struct UGenericBrowserType_StaticMesh : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60549,7 +60590,7 @@ struct UGenericBrowserType_FracturedStaticMesh : public UGenericBrowserType_Stat
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
 };
@@ -60560,7 +60601,7 @@ struct UGenericBrowserType_GFxMovie : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
@@ -60575,7 +60616,7 @@ struct UGenericBrowserType_GFxMovieInfo : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual INT vf_110(); /* 0x110 */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
@@ -60589,7 +60630,7 @@ struct UGenericBrowserType_LensFlare : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60600,7 +60641,7 @@ struct UGenericBrowserType_Material : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60612,7 +60653,7 @@ struct UGenericBrowserType_MaterialInstanceConstant : public UGenericBrowserType
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60624,7 +60665,7 @@ struct UGenericBrowserType_MaterialInstanceTimeVarying : public UGenericBrowserT
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60636,7 +60677,7 @@ struct UGenericBrowserType_MaterialLackingPhysMat : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60646,7 +60687,7 @@ struct UGenericBrowserType_MorphTargetSet : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60657,7 +60698,7 @@ struct UGenericBrowserType_MorphWeightSequence : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60668,7 +60709,7 @@ struct UGenericBrowserType_ParticleSystem : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60680,7 +60721,7 @@ struct UGenericBrowserType_PhysXParticleSystem : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60691,7 +60732,7 @@ struct UGenericBrowserType_PhysicalMaterial : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60702,7 +60743,7 @@ struct UGenericBrowserType_PhysicsAsset : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60713,7 +60754,7 @@ struct UGenericBrowserType_PostProcess : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60724,7 +60765,7 @@ struct UGenericBrowserType_Prefab : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60735,7 +60776,7 @@ struct UGenericBrowserType_Texture : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60747,7 +60788,7 @@ struct UGenericBrowserType_RenderTexture : public UGenericBrowserType_Texture {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
 };
@@ -60758,7 +60799,7 @@ struct UGenericBrowserType_Sequence : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60768,7 +60809,7 @@ struct UGenericBrowserType_SkeletalMesh : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -60780,7 +60821,7 @@ struct UGenericBrowserType_Sounds : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     virtual INT vf_128(INT); /* 0x128 */
@@ -60793,7 +60834,7 @@ struct UGenericBrowserType_SoundCue : public UGenericBrowserType_Sounds {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60803,7 +60844,7 @@ struct UGenericBrowserType_SoundMode : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60813,7 +60854,7 @@ struct UGenericBrowserType_SoundWave : public UGenericBrowserType_Sounds {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60823,7 +60864,7 @@ struct UGenericBrowserType_SpeechRecognition : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60833,7 +60874,7 @@ struct UGenericBrowserType_SpeedTree : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -60844,7 +60885,7 @@ struct UGenericBrowserType_TerrainLayer : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60854,7 +60895,7 @@ struct UGenericBrowserType_TerrainMaterial : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60864,7 +60905,7 @@ struct UGenericBrowserType_TextureWithAlpha : public UGenericBrowserType_Texture
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     /* registered size 0x4c */
 };
 
@@ -60875,7 +60916,7 @@ struct UGenericBrowserType_UIArchetype : public UGenericBrowserType_Archetype {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual UBOOL IsSavePackageAllowed( UPackage* PackageToSave, TArray<UObject*>& StandaloneObjects ); /* 0x130 */
     virtual UBOOL NotifyPreDeleteObject( UObject* ObjectToDelete ); /* 0x138 */
@@ -60889,7 +60930,7 @@ struct UGenericBrowserType_UIScene : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual UBOOL IsSavePackageAllowed( UPackage* PackageToSave, TArray<UObject*>& StandaloneObjects ); /* 0x130 */
     virtual UBOOL NotifyPreDeleteObject( UObject* ObjectToDelete ); /* 0x138 */
@@ -60903,7 +60944,7 @@ struct UGenericBrowserType_UISkin : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -63283,11 +63324,13 @@ struct URForceFieldConfigFactoryNew : public UFactory {
 struct URGenericBrowserType : public UGenericBrowserType {
     /* CommonEditor.RGenericBrowserType (native only: no script package describes it) */
     DECLARE_CLASS(URGenericBrowserType, UGenericBrowserType, 0x1, 0x0, CommonEditor)
-    BYTE _native[0x8]; /* C++-only members, to the registered size 0x54 */
+    /* C++-only (no script class describes them; the names are ours): Init adds them as its one SupportInfo entry */
+    UClass* SupportedClass; /* 0x4c */
+    FColor SupportedBorderColor; /* 0x50 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x54 */
 };
@@ -63298,7 +63341,7 @@ struct URGenericBrowserType_FMODReverb : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* other member functions */
     /* registered size 0x4c */
@@ -63310,7 +63353,7 @@ struct URGenericBrowserType_FMODSound : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     virtual void vf_120(INT, INT); /* 0x120 */
     /* registered size 0x4c */
@@ -63322,7 +63365,7 @@ struct URGenericBrowserType_MixBin : public UGenericBrowserType {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_10c(); /* 0x10c */
+    virtual void Init(); /* 0x10c */
     virtual UBOOL ShowObjectEditor( UObject* InObject ); /* 0x114 */
     /* registered size 0x4c */
 };
@@ -65143,21 +65186,42 @@ struct FCheckResult : public FIteratorActorList
     FCheckResult* GetNext() const { return (FCheckResult*)Next; }
 };
 
+/* UnWorld.h: an editor viewport's camera, saved with the world */
+struct FLevelViewportInfo {
+    FVector CamPosition; /* 0x0 */
+    FRotator CamRotation; /* 0xc */
+    FLOAT CamOrthoZoom; /* 0x18 */
+};
 struct UWorld : public UObject, public FNetworkNotify {
     /* Engine.World (native only: no script package describes it) */
     DECLARE_CLASS(UWorld, UObject, 0x10000000, 0x0, Engine)
     UWorld(); /* 0x009c67c0 */
     void StaticConstructor(); /* 0x009b0650 */
-    BYTE _native0[0x4];
-    TArrayNoInit<class ULevel*> Levels; /* 0x38 */
+    /* C++-only members from UE3's UnWorld.h, in its order; the ones this build doesn't have are left out where the known
+     * offsets (Levels, NetDriver, PersistentLineBatcher, the NavigationOctree a destructor reads at 0x11c) leave no room */
+    class FSceneInterface* Scene; /* 0x34 */
+    TArray<class ULevel*> Levels; /* 0x38: the constructor zeroes it */
     class ULevel* PersistentLevel; /* 0x44 */
-    BYTE _native_48[0x80];
+    class UFaceFXAnimSet* PersistentFaceFXAnimSet; /* 0x48 */
+    class ULevel* CurrentLevel; /* 0x4c */
+    class ULevel* CurrentLevelPendingVisibility; /* 0x50 */
+    FLevelViewportInfo EditorViews[4]; /* 0x54 */
+    class UObject* SaveGameSummary_DEPRECATED; /* 0xc4 */
     class UNetDriver* NetDriver; /* 0xc8 */
     FURL URL; /* 0xcc */
     class UDemoRecDriver* DemoRecDriver; /* 0x110 */
-    BYTE _native_114[0x10];
-    TArray<class AActor*> Native_124; /* 0x124: C++ only (destroyed by its destructor) */
-    BYTE _native3[0x1c];
+    class FPrimitiveHashBase* Hash; /* 0x114 */
+    class FPrimitiveHashBase* BackupHash; /* 0x118 */
+    class FNavigationOctree* NavigationOctree; /* 0x11c */
+    class FCrowdAttractorOctreeType* CrowdAttractorOctree; /* 0x120 */
+    TArray<class AActor*> NewlySpawned; /* 0x124 */
+    UBOOL InTick; /* 0x130 */
+    UBOOL Ticked; /* 0x134 */
+    INT TickGroup; /* 0x138: ETickingGroup */
+    UBOOL bPostTickComponentUpdate; /* 0x13c */
+    INT NetTag; /* 0x140 */
+    INT PlayerNum; /* 0x144 */
+    class ULineBatchComponent* LineBatcher; /* 0x148 */
     class ULineBatchComponent* PersistentLineBatcher; /* 0x14c */
     UBOOL bShowLineChecks; /* 0x150 */
     UBOOL bShowExtentLineChecks; /* 0x154 */
@@ -65167,7 +65231,8 @@ struct UWorld : public UObject, public FNetworkNotify {
     TArrayNoInit<class URB_BodyInstance*> BodyInstancePool; /* 0x164 */
     TArrayNoInit<class URB_ConstraintInstance*> ConstraintInstancePool; /* 0x170 */
     FLOAT TimeSinceLastPendingKillPurge; /* 0x17c */
-    BYTE _native_180[0x8];
+    UBOOL FullPurgeTriggered; /* 0x180 */
+    UBOOL bShouldDelayGarbageCollect; /* 0x184 */
     FNativeDtor_009c5ec0_10 Native_188; /* 0x188: C++ only (destroyed by its destructor) */
     FNativeDtor_009c5f90_30 Native_198; /* 0x198: C++ only (destroyed by its destructor) */
     FNativeDtor_009c5f90_30 Native_1c8; /* 0x1c8: C++ only (destroyed by its destructor) */
