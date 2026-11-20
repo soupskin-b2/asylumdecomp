@@ -478,17 +478,8 @@ void ANxCylindricalForceFieldCapsule::TermRBPhys(FRBPhysScene* Scene)
 	Kernel.Dummy = 0;
 }
 
+/* Kit gap: appMemCrc (0x00627f70). */
 DWORD appMemCrc(const void* Data, INT Length, DWORD CRC = 0);
-struct UPackage_ : public UObject
-{
-	BYTE OpaquePackageState[0x58 - sizeof(UObject)];
-	FGuid Guid; /* 0x58 */
-};
-
-struct UObject_ : public UObject
-{
-	UPackage_* GetOutermost() const;
-};
 
 
 // @baa 0x00d67980
@@ -499,9 +490,10 @@ INT UOnlineSubsystem::GetBuildUniqueId()
 	INT Crc = 0;
 	if (bUseBuildIdOverride == FALSE)
 	{
-		UPackage_* EnginePackage = ((UObject_*)UEngine::StaticClass())->GetOutermost();
+		UPackage* EnginePackage = UEngine::StaticClass()->GetOutermost();
 		if (EnginePackage)
 		{
+			/* CRCs the four bytes of UPackage::Guid, which in this build is a pointer */
 			Crc = appMemCrc(&EnginePackage->Guid, sizeof(INT), 0);
 		}
 	}
