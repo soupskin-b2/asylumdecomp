@@ -15,8 +15,9 @@ UBOOL UTcpipConnection::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00e2b890 { int sub_00e2b890(void); };
 // @baa 0x00e2b890
-int UTcpNetDriver::sub_00e2b890(void) { return *(int*)((char*)this + 68); }
+int C_00e2b890::sub_00e2b890(void) { return *(int*)((char*)this + 68); }
 
 // @baa 0x00e40f70
 // @baa 0x00e40fc0
@@ -74,8 +75,9 @@ int C_00e2bca0::sub_00e2bca0(void) { return *(int*)((char*)this + 280); }
 
 extern int __stdcall sub_018d354a(int First, int Second);
 
+struct C_00e2be70 { bool sub_00e2be70(int Second); };
 // @baa 0x00e2be70
-bool UTcpipConnection::sub_00e2be70(int Second)
+bool C_00e2be70::sub_00e2be70(int Second)
 {
     int First = *(int*)((char*)this + 8);
     return sub_018d354a(First, Second) == 0;

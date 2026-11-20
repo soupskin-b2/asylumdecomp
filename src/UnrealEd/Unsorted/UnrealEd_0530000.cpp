@@ -266,11 +266,13 @@ bool C_0053e4e0::sub_0053e4e0(void)
   return *param_1 != -1;
 }
 
+struct C_0053e500 { void sub_0053e500(int a0); };
 // @baa 0x0053e500
-void UObject::sub_0053e500(int a0) { *(int*)((char*)this + 4) = 1; }
+void C_0053e500::sub_0053e500(int a0) { *(int*)((char*)this + 4) = 1; }
 
+struct C_0053e510 { int sub_0053e510(void); };
 // @baa 0x0053e510
-int UObject::sub_0053e510(void) { return *(int*)((char*)this + 0); }
+int C_0053e510::sub_0053e510(void) { return *(int*)((char*)this + 0); }
 
 struct T_0053e520 { BYTE b[16]; };
 
@@ -364,8 +366,9 @@ struct C_0053ea40 { int a, b; C_0053ea40(int, int); };
 // @baa 0x0053ea40
 C_0053ea40::C_0053ea40(int x, int y) : a(x), b(y) {}
 
+struct C_0053ea60 { int sub_0053ea60(void); };
 // @baa 0x0053ea60
-int USubsystem::sub_0053ea60(void) { return *(int*)((char*)this + 52); }
+int C_0053ea60::sub_0053ea60(void) { return *(int*)((char*)this + 52); }
 
 struct C_0053eac0 { int a, b; C_0053eac0(int, int); };
 
@@ -383,8 +386,9 @@ struct C_0053eb00 { int a, b; C_0053eb00(int, int); };
 // @baa 0x0053eb00
 C_0053eb00::C_0053eb00(int x, int y) : a(x), b(y) {}
 
+struct C_0053eb20 { int sub_0053eb20(void); };
 // @baa 0x0053eb20
-int USubsystem::sub_0053eb20(void) { return *(int*)((char*)this + 16); }
+int C_0053eb20::sub_0053eb20(void) { return *(int*)((char*)this + 16); }
 
 struct C_0053eb30 { int sub_0053eb30(void); };
 

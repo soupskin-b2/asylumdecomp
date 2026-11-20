@@ -171,8 +171,9 @@ void FDataStoreSlot::Release(int InValue)
 
 extern void sub_018f3e30(float Value);
 
+struct C_01979710 { void sub_01979710(); };
 // @baa 0x01979710
-void UGFxDataStoreSubscriber::sub_01979710()
+void C_01979710::sub_01979710()
 {
 	// A 16-bit value stored at 0x26 is reinterpreted as a float and passed on.
 	sub_018f3e30((float)*(unsigned short*)((char*)this + 0x26));

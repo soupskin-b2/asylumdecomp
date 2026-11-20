@@ -136,14 +136,17 @@ void C_006021a0::sub_006021a0(int param_2)
   return;
 }
 
+struct C_006021e0 { int sub_006021e0(void); };
 // @baa 0x006021e0
-int UPackageMap::sub_006021e0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_006021e0::sub_006021e0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_006021f0 { int sub_006021f0(void); };
 // @baa 0x006021f0
-int UPackageMap::sub_006021f0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_006021f0::sub_006021f0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_00602200 { int sub_00602200(void); };
 // @baa 0x00602200
-int UPackageMap::sub_00602200(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00602200::sub_00602200(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_00602210 { void* Data; int Num; int Max; void sub_00602210(); };
 
@@ -186,8 +189,9 @@ int C_00602600::sub_00602600(int param_2)
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00602640 { int sub_00602640(void); };
 // @baa 0x00602640
-int UPackageMap::sub_00602640(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00602640::sub_00602640(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 // @baa 0x00602650
 void __stdcall sub_00602650(int a0, int a1) {  }
@@ -999,8 +1003,9 @@ void C_006042b0::sub_006042b0(int param_2)
   return;
 }
 
+struct C_006042f0 { int sub_006042f0(void); };
 // @baa 0x006042f0
-int UObject::sub_006042f0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_006042f0::sub_006042f0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_006049a0 {
     FString sub_006049a0();
@@ -1137,11 +1142,13 @@ void C_006074c0::sub_006074c0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00607610 { int sub_00607610(void); };
 // @baa 0x00607610
-int UPackageMap::sub_00607610(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00607610::sub_00607610(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_00607620 { int sub_00607620(void); };
 // @baa 0x00607620
-int UPackageMap::sub_00607620(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00607620::sub_00607620(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_00607660 { void* Data; int Num; int Max; void sub_00607660(); };
 

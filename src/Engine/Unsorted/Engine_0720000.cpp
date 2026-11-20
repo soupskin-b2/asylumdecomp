@@ -406,8 +406,9 @@ int C_00722fa0::sub_00722fa0(int param_2)
   return *param_1 + param_2 * 0x28;
 }
 
+struct C_00722fb0 { int sub_00722fb0(void); };
 // @baa 0x00722fb0
-int UObject::sub_00722fb0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00722fb0::sub_00722fb0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 int sub_0040fcc0(void);
 struct C_00723d20 { undefined4 sub_00723d20(byte param_2); };

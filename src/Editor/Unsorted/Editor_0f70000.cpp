@@ -895,8 +895,9 @@ int C_00f7dbe0::sub_00f7dbe0(int param_2)
   return *param_1 + param_2 * 0x24;
 }
 
+struct C_00f7dbf0 { int sub_00f7dbf0(void); };
 // @baa 0x00f7dbf0
-int UObject::sub_00f7dbf0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00f7dbf0::sub_00f7dbf0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_00f7dc00 { int sub_00f7dc00(int param_2); };
 // @baa 0x00f7dc00

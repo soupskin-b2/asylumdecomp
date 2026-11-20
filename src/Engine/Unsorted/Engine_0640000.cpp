@@ -791,8 +791,9 @@ int sub_0064bdb0(void)
 }
 
 extern char g_01ebbe1c[];
+struct C_0064bde0 { void sub_0064bde0(void); };
 // @baa 0x0064bde0
-void USurface::sub_0064bde0(void) { *(int*)((char*)this + 0) = (int)g_01ebbe1c; }
+void C_0064bde0::sub_0064bde0(void) { *(int*)((char*)this + 0) = (int)g_01ebbe1c; }
 
 // @baa 0x0064bdf0
 int __stdcall sub_0064bdf0(int a0, int a1, int a2, int a3, int a4) { return 0; }

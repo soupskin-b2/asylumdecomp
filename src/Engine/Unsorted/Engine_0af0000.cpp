@@ -707,8 +707,9 @@ int sub_00afb330(void) { return 0; }
 // @baa 0x00afb340
 void sub_00afb340(void) { sub_007249d0(); }
 
+struct C_00afb350 { int sub_00afb350(void); };
 // @baa 0x00afb350
-int UMorphWeightSequence::sub_00afb350(void) { return *(int*)((char*)this + 20); }
+int C_00afb350::sub_00afb350(void) { return *(int*)((char*)this + 20); }
 
 extern char g_01fe2850[];
 struct C_00afb360 { C_00afb360* sub_00afb360(void); };

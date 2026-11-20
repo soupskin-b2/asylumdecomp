@@ -33,14 +33,16 @@ int sub_01220250(void) { return (int)g_026d36bc; }
 // @baa 0x01220290
 int sub_01220290(void) { return 1; }
 
+struct C_012202f0 { void sub_012202f0(void); };
 // @baa 0x012202f0
-void UUnrealEdEngine::sub_012202f0(void) { *(int*)((char*)this + 24) = 1; }
+void C_012202f0::sub_012202f0(void) { *(int*)((char*)this + 24) = 1; }
 
 // @baa 0x01220300
 void sub_01220300(void) {  }
 
+struct C_01220310 { int sub_01220310(void); };
 // @baa 0x01220310
-int UUnrealEdEngine::sub_01220310(void) { return *(int*)((char*)this + 432); }
+int C_01220310::sub_01220310(void) { return *(int*)((char*)this + 432); }
 
 struct C_view {
     int sub_00c407b0(int);

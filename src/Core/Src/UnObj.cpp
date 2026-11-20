@@ -101,8 +101,9 @@ int sub_005c1c60(char * param_1)
   return (int)param_1 - (int)pcVar1;
 }
 
+struct C_005c1d10 { int sub_005c1d10(void); };
 // @baa 0x005c1d10
-int UObject::sub_005c1d10(void) { return *(int*)((char*)this + 12); }
+int C_005c1d10::sub_005c1d10(void) { return *(int*)((char*)this + 12); }
 
 struct C { void sub_005bfa70(void); };
 

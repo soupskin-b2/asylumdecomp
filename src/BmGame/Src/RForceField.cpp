@@ -26,8 +26,9 @@ struct C { C* sub_016d2950(void); };
 C* C::sub_016d2950(void) { *(int*)((char*)this + 0) = (int)g_023a2b4c; return this; }
 
 extern char g_01ebb554[];
+struct C_016d2960 { void sub_016d2960(void); };
 // @baa 0x016d2960
-void URForceField::sub_016d2960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_016d2960::sub_016d2960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_016d2970 { undefined4 * sub_016d2970(byte param_2); };

@@ -203,8 +203,9 @@ C_013d2760::C_013d2760() {}
 // @baa 0x013d2760
 void C_013d2760::sub_013d3930() {}
 
+struct C_013d2770 { void sub_013d2770(int a0); };
 // @baa 0x013d2770
-void UUnrealEdEngine::sub_013d2770(int a0) { *(int*)((char*)this + 120) = 1; }
+void C_013d2770::sub_013d2770(int a0) { *(int*)((char*)this + 120) = 1; }
 
 struct S {
     virtual void vf_00();

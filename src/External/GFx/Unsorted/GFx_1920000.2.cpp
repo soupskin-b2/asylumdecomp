@@ -186,11 +186,13 @@ uint C_01921d10::sub_01921d10(void)
   return *(uint *)(param_1 + 8) & 0x3fffffff;
 }
 
+struct C_01921d20 { unsigned sub_01921d20(void); };
 // @baa 0x01921d20
-unsigned UGFxDataStoreSubscriber::sub_01921d20(void) { return *(unsigned*)((char*)this + 8) >> 30; }
+unsigned C_01921d20::sub_01921d20(void) { return *(unsigned*)((char*)this + 8) >> 30; }
 
+struct C_01921d30 { unsigned sub_01921d30(void); };
 // @baa 0x01921d30
-unsigned UGFxDataStoreSubscriber::sub_01921d30(void) { return *(unsigned*)((char*)this + 8) >> 31; }
+unsigned C_01921d30::sub_01921d30(void) { return *(unsigned*)((char*)this + 8) >> 31; }
 
 struct C_01921d40 { uint sub_01921d40(void); };
 // @baa 0x01921d40
@@ -211,11 +213,13 @@ void C_01921d50::sub_01921d50(uint param_2)
   return;
 }
 
+struct C_01921d70 { unsigned sub_01921d70(void); };
 // @baa 0x01921d70
-unsigned UGFxDataStoreSubscriber::sub_01921d70(void) { return *(unsigned*)((char*)this + 8) >> 30; }
+unsigned C_01921d70::sub_01921d70(void) { return *(unsigned*)((char*)this + 8) >> 30; }
 
+struct C_01921d80 { unsigned sub_01921d80(void); };
 // @baa 0x01921d80
-unsigned UGFxDataStoreSubscriber::sub_01921d80(void) { return *(unsigned*)((char*)this + 8) >> 31; }
+unsigned C_01921d80::sub_01921d80(void) { return *(unsigned*)((char*)this + 8) >> 31; }
 
 struct C_01921d90 { uint sub_01921d90(void); };
 // @baa 0x01921d90
@@ -245,11 +249,13 @@ uint C_01921dc0::sub_01921dc0(void)
   return *(uint *)(param_1 + 8) & 0x3fffffff;
 }
 
+struct C_01921e10 { unsigned sub_01921e10(void); };
 // @baa 0x01921e10
-unsigned UGFxDataStoreSubscriber::sub_01921e10(void) { return *(unsigned*)((char*)this + 8) >> 30; }
+unsigned C_01921e10::sub_01921e10(void) { return *(unsigned*)((char*)this + 8) >> 30; }
 
+struct C_01921e20 { unsigned sub_01921e20(void); };
 // @baa 0x01921e20
-unsigned UGFxDataStoreSubscriber::sub_01921e20(void) { return *(unsigned*)((char*)this + 8) >> 31; }
+unsigned C_01921e20::sub_01921e20(void) { return *(unsigned*)((char*)this + 8) >> 31; }
 
 struct C_01921e30 { uint sub_01921e30(void); };
 // @baa 0x01921e30
@@ -276,14 +282,17 @@ undefined4 sub_01922020(undefined4 param_1)
   return param_1;
 }
 
+struct C_01922040 { int sub_01922040(void); };
 // @baa 0x01922040
-int UGFxDataStoreSubscriber::sub_01922040(void) { return *(int*)((char*)this + 4); }
+int C_01922040::sub_01922040(void) { return *(int*)((char*)this + 4); }
 
+struct C_019220e0 { int sub_019220e0(void); };
 // @baa 0x019220e0
-int UGFxDataStoreSubscriber::sub_019220e0(void) { return *(int*)((char*)this + 8); }
+int C_019220e0::sub_019220e0(void) { return *(int*)((char*)this + 8); }
 
+struct C_01922110 { int sub_01922110(void); };
 // @baa 0x01922110
-int UGFxDataStoreSubscriber::sub_01922110(void) { return *(int*)((char*)this + 0); }
+int C_01922110::sub_01922110(void) { return *(int*)((char*)this + 0); }
 
 struct C_01922140 { undefined4 sub_01922140(void); };
 // @baa 0x01922140
@@ -466,8 +475,9 @@ undefined4 * C_01929350::sub_01929350(void)
   return param_1;
 }
 
+struct C_01929370 { int sub_01929370(void); };
 // @baa 0x01929370
-int UGFxDataStoreSubscriber::sub_01929370(void) { return *(int*)((char*)this + 48); }
+int C_01929370::sub_01929370(void) { return *(int*)((char*)this + 48); }
 
 struct GFxConstShapeWithStyles {
     char pad[0x48];

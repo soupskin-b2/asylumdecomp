@@ -9,8 +9,9 @@ struct C { void sub_00dca870(int a0); };
 // @baa 0x00dca870
 void C::sub_00dca870(int a0) { *(int*)((char*)this + 24) = a0; }
 
+struct C_0149b250 { void sub_0149b250(int a0); };
 // @baa 0x0149b250
-void UUIPreviewString::sub_0149b250(int a0) { *(int*)((char*)this + 48) = a0; }
+void C_0149b250::sub_0149b250(int a0) { *(int*)((char*)this + 48) = a0; }
 
 extern char g_026de9a4[];
 // @baa 0x014dc760

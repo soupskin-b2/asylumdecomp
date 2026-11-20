@@ -1031,8 +1031,9 @@ struct C_00bdec00 { int sub_00bdec00(void); };
 // @baa 0x00bdec00
 int C_00bdec00::sub_00bdec00(void) { return *(int*)((char*)this + 488); }
 
+struct C_00bded00 { int sub_00bded00(void); };
 // @baa 0x00bded00
-int ULensFlare::sub_00bded00(void) { return *(int*)((char*)this + 448); }
+int C_00bded00::sub_00bded00(void) { return *(int*)((char*)this + 448); }
 
 extern undefined4 g_026c0578;
 // @baa 0x00bded10

@@ -763,8 +763,9 @@ undefined4 C_01116e70::sub_01116e70(void)
 // @baa 0x0115a410
 void __stdcall sub_0115a410(int a0) {  }
 
+struct C_0115a480 { int sub_0115a480(void); };
 // @baa 0x0115a480
-int UGenericBrowserType::sub_0115a480(void) { return *(int*)((char*)this + 52); }
+int C_0115a480::sub_0115a480(void) { return *(int*)((char*)this + 52); }
 
 // @baa 0x0115bb30
 int sub_0115bb30(int a0, int a1) { return a1; }

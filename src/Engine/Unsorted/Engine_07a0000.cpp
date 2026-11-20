@@ -93,11 +93,13 @@ AActor* AController::GetViewTarget()
   return (AActor*)iVar1;
 }
 
+struct C_007a14f0 { void sub_007a14f0(int a0); };
 // @baa 0x007a14f0
-void APlayerController::sub_007a14f0(int a0) { *(int*)((char*)this + 876) = a0; }
+void C_007a14f0::sub_007a14f0(int a0) { *(int*)((char*)this + 876) = a0; }
 
+struct C_007a1500 { UInterpTrackInstDirector* sub_007a1500(); };
 // @baa 0x007a1500
-UInterpTrackInstDirector* APlayerController::sub_007a1500() { return *(UInterpTrackInstDirector**)((char*)this + 876); }
+UInterpTrackInstDirector* C_007a1500::sub_007a1500() { return *(UInterpTrackInstDirector**)((char*)this + 876); }
 
 extern undefined4 g_026c3cdc;
 // @baa 0x007a1f40

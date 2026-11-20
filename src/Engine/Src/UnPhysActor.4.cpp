@@ -1,9 +1,58 @@
 // UnPhysActor.cpp (part 4 of 5): 1 function
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
-#include "ue3/Implement.h"
+
+extern char g_01ebe858[];
+extern char g_01fa63a8[];
+struct C { C* sub_005c7a20(void); };
+
+/* The exe's out-of-line copy of AKAsset::AKAsset() (UObject(), AActor's vtable and DetachFence, then its own vtable).
+ * Classes.h leaves the constructor implicit, since the exe inlines it where the class is created, so this is a stand-in. */
+struct C_009f0330 {
+    INT Unk00;  // 0x00 vtable ptr
+    INT Unk04;
+    INT Unk08;
+    INT Unk0C;
+    INT Unk10;
+    INT Unk14;
+    INT Unk18;
+    INT Unk1C;
+    INT Unk20;
+    INT Unk24;
+    INT Unk28;
+    INT Unk2C;
+    INT Unk30;
+    INT Unk34;
+    INT Unk38;
+    INT Unk3C;
+    INT Unk40;
+    INT Unk44;
+    INT Unk48;
+    INT Unk4C;
+    INT Unk50;
+    INT Unk54;
+    INT Unk58;
+    INT Unk5C;
+    INT Unk60;
+    INT Unk64;
+    INT Unk68;
+    INT Unk6C;
+    INT Unk70;
+    INT Unk74;
+    INT Unk78;
+    INT Unk7C;
+    INT Unk80;
+    INT Unk84;
+    INT DetachFence; // 0x88
+    C_009f0330* sub_009f0330(void);
+};
 
 // @baa 0x009f0330
-AKAsset::AKAsset()
+C_009f0330* C_009f0330::sub_009f0330(void)
 {
+    ((C*)this)->sub_005c7a20();
+    *(volatile INT*)this = (INT)g_01ebe858;
+    DetachFence = 0;
+    *(INT*)this = (INT)g_01fa63a8;
+    return this;
 }

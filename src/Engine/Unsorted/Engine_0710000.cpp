@@ -2962,11 +2962,13 @@ int C_0071d960::sub_0071d960(int param_2)
 // @baa 0x0071d970
 void __stdcall sub_0071d970(int a0, int a1) {  }
 
+struct C_0071d980 { int sub_0071d980(void); };
 // @baa 0x0071d980
-int UTexture2D::sub_0071d980(void) { return *(int*)((char*)this + 0); }
+int C_0071d980::sub_0071d980(void) { return *(int*)((char*)this + 0); }
 
+struct C_0071d990 { int sub_0071d990(void); };
 // @baa 0x0071d990
-int UTexture2D::sub_0071d990(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_0071d990::sub_0071d990(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 // @baa 0x0071d9d0
 void __stdcall sub_0071d9d0(int a0, int a1) {  }

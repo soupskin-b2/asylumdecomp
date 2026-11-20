@@ -56,8 +56,9 @@ void C_00567a80::sub_00567a80(uint param_2)
   return;
 }
 
+struct C_00567a90 { int sub_00567a90(void); };
 // @baa 0x00567a90
-int UTexture2D::sub_00567a90(void) { return *(int*)((char*)this + 4); }
+int C_00567a90::sub_00567a90(void) { return *(int*)((char*)this + 4); }
 
 struct C_00567aa0 { void sub_00567aa0(uint param_2); };
 // @baa 0x00567aa0
@@ -69,8 +70,9 @@ void C_00567aa0::sub_00567aa0(uint param_2)
   return;
 }
 
+struct C_00567ab0 { int sub_00567ab0(void); };
 // @baa 0x00567ab0
-int UTexture2D::sub_00567ab0(void) { return *(int*)((char*)this + 48); }
+int C_00567ab0::sub_00567ab0(void) { return *(int*)((char*)this + 48); }
 
 // @baa 0x00567ac0
 int __stdcall sub_00567ac0(int a0) { return 0; }

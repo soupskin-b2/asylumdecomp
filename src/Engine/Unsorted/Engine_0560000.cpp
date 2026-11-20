@@ -526,11 +526,13 @@ undefined4 C_00567830::sub_00567830(void)
   return 1;
 }
 
+struct C_00567850 { void sub_00567850(void); };
 // @baa 0x00567850
-void UTexture2D::sub_00567850(void) { *(int*)((char*)this + 52) = 1; }
+void C_00567850::sub_00567850(void) { *(int*)((char*)this + 52) = 1; }
 
+struct C_00567870 { int sub_00567870(void); };
 // @baa 0x00567870
-int UTexture2D::sub_00567870(void) { return *(int*)((char*)this + 136); }
+int C_00567870::sub_00567870(void) { return *(int*)((char*)this + 136); }
 
 struct C_00567890 { int a, b; C_00567890(int, int); };
 
@@ -543,8 +545,9 @@ int sub_005678b0(int param_1, int param_2)
   return *(int *)(param_2 + 4) - *(int *)(param_1 + 4);
 }
 
+struct C_005678c0 { int sub_005678c0(void); };
 // @baa 0x005678c0
-int UTexture2D::sub_005678c0(void) { return *(int*)((char*)this + 8); }
+int C_005678c0::sub_005678c0(void) { return *(int*)((char*)this + 8); }
 
 struct C_00567930 { uint sub_00567930(void); };
 // @baa 0x00567930

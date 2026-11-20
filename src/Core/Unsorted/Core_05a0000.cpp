@@ -85,8 +85,9 @@ undefined4 * C::sub_005a1710(byte param_2)
   return param_1;
 }
 
+struct C_005a1730 { FString sub_005a1730(); };
 // @baa 0x005a1730
-FString USubsystem::sub_005a1730()
+FString C_005a1730::sub_005a1730()
 {
     return TEXT("FBufferReader");
 }

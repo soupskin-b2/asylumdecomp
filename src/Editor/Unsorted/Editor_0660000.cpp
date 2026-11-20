@@ -55,8 +55,9 @@ void C_00662f30::sub_00662f30(undefined4 * param_2)
   return;
 }
 
+struct C_00663170 { FString sub_00663170(); };
 // @baa 0x00663170
-FString ULensFlare::sub_00663170()
+FString C_00663170::sub_00663170()
 {
     return TEXT("undefined");
 }

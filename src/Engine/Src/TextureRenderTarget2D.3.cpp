@@ -114,14 +114,17 @@ extern char g_01ef2e6c[];
 int sub_00755fa0(void) { return (int)g_01ef2e6c; }
 
 extern char g_01ebb554[];
+struct C_00755fb0 { void sub_00755fb0(void); };
 // @baa 0x00755fb0
-void UScriptedTexture::sub_00755fb0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755fb0::sub_00755fb0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755fc0 { void sub_00755fc0(void); };
 // @baa 0x00755fc0
-void UScriptedTexture::sub_00755fc0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755fc0::sub_00755fc0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755fd0 { void sub_00755fd0(void); };
 // @baa 0x00755fd0
-void UScriptedTexture::sub_00755fd0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755fd0::sub_00755fd0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_00755fe0 { undefined4 * sub_00755fe0(byte param_2); };

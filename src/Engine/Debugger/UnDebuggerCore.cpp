@@ -1134,38 +1134,49 @@ bool sub_00e17600(void)
   return g_0266e840 != 0;
 }
 
+struct C_00e17610 { int sub_00e17610(void); };
 // @baa 0x00e17610
-int UNetPendingLevel::sub_00e17610(void) { return *(int*)((char*)this + 28); }
+int C_00e17610::sub_00e17610(void) { return *(int*)((char*)this + 28); }
 
+struct C_00e17620 { int sub_00e17620(void); };
 // @baa 0x00e17620
-int UNetPendingLevel::sub_00e17620(void) { return *(int*)((char*)this + 44); }
+int C_00e17620::sub_00e17620(void) { return *(int*)((char*)this + 44); }
 
+struct C_00e17630 { int sub_00e17630(void); };
 // @baa 0x00e17630
-int UNetPendingLevel::sub_00e17630(void) { return *(int*)((char*)this + 48); }
+int C_00e17630::sub_00e17630(void) { return *(int*)((char*)this + 48); }
 
+struct C_00e17640 { int sub_00e17640(void); };
 // @baa 0x00e17640
-int UNetPendingLevel::sub_00e17640(void) { return *(int*)((char*)this + 24); }
+int C_00e17640::sub_00e17640(void) { return *(int*)((char*)this + 24); }
 
+struct C_00e17680 { int sub_00e17680(void); };
 // @baa 0x00e17680
-int UNetPendingLevel::sub_00e17680(void) { return *(int*)((char*)this + 32); }
+int C_00e17680::sub_00e17680(void) { return *(int*)((char*)this + 32); }
 
+struct C_00e17690 { void sub_00e17690(int a0); };
 // @baa 0x00e17690
-void UNetPendingLevel::sub_00e17690(int a0) { *(int*)((char*)this + 40) = a0; }
+void C_00e17690::sub_00e17690(int a0) { *(int*)((char*)this + 40) = a0; }
 
+struct C_00e176a0 { int sub_00e176a0(void); };
 // @baa 0x00e176a0
-int UNetPendingLevel::sub_00e176a0(void) { return *(int*)((char*)this + 40); }
+int C_00e176a0::sub_00e176a0(void) { return *(int*)((char*)this + 40); }
 
+struct C_00e176b0 { int sub_00e176b0(void); };
 // @baa 0x00e176b0
-int UNetPendingLevel::sub_00e176b0(void) { return *(int*)((char*)this + 100); }
+int C_00e176b0::sub_00e176b0(void) { return *(int*)((char*)this + 100); }
 
+struct C_00e176c0 { int sub_00e176c0(void); };
 // @baa 0x00e176c0
-int UNetPendingLevel::sub_00e176c0(void) { return *(int*)((char*)this + 88); }
+int C_00e176c0::sub_00e176c0(void) { return *(int*)((char*)this + 88); }
 
+struct C_00e176d0 { int sub_00e176d0(void); };
 // @baa 0x00e176d0
-int UNetPendingLevel::sub_00e176d0(void) { return *(int*)((char*)this + 92); }
+int C_00e176d0::sub_00e176d0(void) { return *(int*)((char*)this + 92); }
 
+struct C_00e176e0 { int sub_00e176e0(void); };
 // @baa 0x00e176e0
-int UNetPendingLevel::sub_00e176e0(void) { return *(int*)((char*)this + 96); }
+int C_00e176e0::sub_00e176e0(void) { return *(int*)((char*)this + 96); }
 
 struct C_00e176f0 { void sub_00e176f0(void); };
 // @baa 0x00e176f0
@@ -1177,14 +1188,17 @@ void C_00e176f0::sub_00e176f0(void)
   return;
 }
 
+struct C_00e17700 { int sub_00e17700(void); };
 // @baa 0x00e17700
-int UNetPendingLevel::sub_00e17700(void) { return *(int*)((char*)this + 4); }
+int C_00e17700::sub_00e17700(void) { return *(int*)((char*)this + 4); }
 
+struct C_00e17710 { int sub_00e17710(void); };
 // @baa 0x00e17710
-int UNetPendingLevel::sub_00e17710(void) { return *(int*)((char*)this + 0); }
+int C_00e17710::sub_00e17710(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e17720 { int sub_00e17720(void); };
 // @baa 0x00e17720
-int UNetPendingLevel::sub_00e17720(void) { return *(int*)((char*)this + 8); }
+int C_00e17720::sub_00e17720(void) { return *(int*)((char*)this + 8); }
 
 struct C_00e17730 {
     char pad[0x3c];
@@ -1198,19 +1212,22 @@ int C_00e17730::sub_00e17730(void)
     return b3c;
 }
 
+struct C_00e17810 { int sub_00e17810(void); };
 // @baa 0x00e17810
-int UNetPendingLevel::sub_00e17810(void) { return *(int*)((char*)this + 0); }
+int C_00e17810::sub_00e17810(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e17820 { int sub_00e17820(void); };
 // @baa 0x00e17820
-int UNetPendingLevel::sub_00e17820(void) { return *(int*)((char*)this + 4); }
+int C_00e17820::sub_00e17820(void) { return *(int*)((char*)this + 4); }
 
 struct C_00e17830 { C_00e17830* sub_00e17830(void); };
 
 // @baa 0x00e17830
 C_00e17830* C_00e17830::sub_00e17830(void) { return this; }
 
+struct C_00e17840 { void sub_00e17840(int a0); };
 // @baa 0x00e17840
-void UNetPendingLevel::sub_00e17840(int a0) { *(int*)((char*)this + 4) = a0; }
+void C_00e17840::sub_00e17840(int a0) { *(int*)((char*)this + 4) = a0; }
 
 // @baa 0x00e17870
 void sub_00e17870(void) {  }
@@ -1222,11 +1239,13 @@ struct C_00e17880 { C_00e17880* sub_00e17880(void); };
 C_00e17880* C_00e17880::sub_00e17880(void) { *(int*)((char*)this + 0) = (int)g_020e9df0; return this; }
 
 extern char g_01e729c0[];
+struct C_00e178b0 { void sub_00e178b0(void); };
 // @baa 0x00e178b0
-void UNetPendingLevel::sub_00e178b0(void) { *(int*)((char*)this + 0) = (int)g_01e729c0; }
+void C_00e178b0::sub_00e178b0(void) { *(int*)((char*)this + 0) = (int)g_01e729c0; }
 
+struct C_00e178c0 { void sub_00e178c0(void); };
 // @baa 0x00e178c0
-void UNetPendingLevel::sub_00e178c0(void) { *(int*)((char*)this + 28) = 1; }
+void C_00e178c0::sub_00e178c0(void) { *(int*)((char*)this + 28) = 1; }
 
 struct V_00e178d0 {
     virtual void v0();
@@ -1255,8 +1274,9 @@ void __stdcall sub_00e17a70(int a0, int a1) {  }
 int __stdcall sub_00e17a80(int a0, int a1, int a2) { return 0; }
 
 extern char g_020e9f34[];
+struct C_00e17b60 { void sub_00e17b60(void); };
 // @baa 0x00e17b60
-void UNetPendingLevel::sub_00e17b60(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e17b60::sub_00e17b60(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 // @baa 0x00e17b70
 void __stdcall sub_00e17b70(int a0) {  }
@@ -1270,8 +1290,9 @@ int __stdcall sub_00e17b90(int a0) { return 0; }
 // @baa 0x00e17ba0
 void sub_00e17ba0(void) {  }
 
+struct C_00e17bb0 { void sub_00e17bb0(void); };
 // @baa 0x00e17bb0
-void UNetPendingLevel::sub_00e17bb0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e17bb0::sub_00e17bb0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e17d70 { void sub_00e17d70(undefined4 param_2); };
 // @baa 0x00e17d70
@@ -1402,24 +1423,27 @@ struct C_00e182b0 {
 // @baa 0x00e182b0
 void C_00e182b0::sub_00e182b0(int a1) { v15(); }
 
+struct C_00e18380 { int sub_00e18380(void); };
 // @baa 0x00e18380
-int UNetPendingLevel::sub_00e18380(void) { return *(int*)((char*)this + 4); }
+int C_00e18380::sub_00e18380(void) { return *(int*)((char*)this + 4); }
 
 struct C_00e18390 { int a, b, c; C_00e18390(); };
 
 // @baa 0x00e18390
 C_00e18390::C_00e18390() : a(0), b(0), c(0) {}
 
+struct C_00e183a0 { int sub_00e183a0(void); };
 // @baa 0x00e183a0
-int UNetPendingLevel::sub_00e183a0(void) { return *(int*)((char*)this + 4); }
+int C_00e183a0::sub_00e183a0(void) { return *(int*)((char*)this + 4); }
 
 struct C_00e183b0 { int a, b, c; C_00e183b0(); };
 
 // @baa 0x00e183b0
 C_00e183b0::C_00e183b0() : a(0), b(0), c(0) {}
 
+struct C_00e183c0 { int sub_00e183c0(void); };
 // @baa 0x00e183c0
-int UNetPendingLevel::sub_00e183c0(void) { return *(int*)((char*)this + 4); }
+int C_00e183c0::sub_00e183c0(void) { return *(int*)((char*)this + 4); }
 
 struct C_00e183d0 { int a, b, c; C_00e183d0(); };
 
@@ -1441,28 +1465,34 @@ UBOOL C_00e183e0::sub_00e183e0(INT Index)
     return 0;
 }
 
+struct C_00e18400 { int sub_00e18400(void); };
 // @baa 0x00e18400
-int UNetPendingLevel::sub_00e18400(void) { return *(int*)((char*)this + 4); }
+int C_00e18400::sub_00e18400(void) { return *(int*)((char*)this + 4); }
 
 struct C_00e18410 { int a, b, c; C_00e18410(); };
 
 // @baa 0x00e18410
 C_00e18410::C_00e18410() : a(0), b(0), c(0) {}
 
+struct C_00e18420 { int sub_00e18420(void); };
 // @baa 0x00e18420
-int UNetPendingLevel::sub_00e18420(void) { return *(int*)((char*)this + 4); }
+int C_00e18420::sub_00e18420(void) { return *(int*)((char*)this + 4); }
 
+struct C_00e184a0 { int sub_00e184a0(void); };
 // @baa 0x00e184a0
-int UNetPendingLevel::sub_00e184a0(void) { return *(int*)((char*)this + 0); }
+int C_00e184a0::sub_00e184a0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e184b0 { int sub_00e184b0(void); };
 // @baa 0x00e184b0
-int UNetPendingLevel::sub_00e184b0(void) { return *(int*)((char*)this + 0); }
+int C_00e184b0::sub_00e184b0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e184c0 { int sub_00e184c0(void); };
 // @baa 0x00e184c0
-int UNetPendingLevel::sub_00e184c0(void) { return *(int*)((char*)this + 0); }
+int C_00e184c0::sub_00e184c0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e184d0 { int sub_00e184d0(void); };
 // @baa 0x00e184d0
-int UNetPendingLevel::sub_00e184d0(void) { return *(int*)((char*)this + 0); }
+int C_00e184d0::sub_00e184d0(void) { return *(int*)((char*)this + 0); }
 
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
@@ -1489,8 +1519,9 @@ int C_00e18520::sub_00e18520(int param_2)
   return param_2 * 0x40 + *param_1;
 }
 
+struct C_00e18530 { int sub_00e18530(void); };
 // @baa 0x00e18530
-int UNetPendingLevel::sub_00e18530(void) { return *(int*)((char*)this + 0); }
+int C_00e18530::sub_00e18530(void) { return *(int*)((char*)this + 0); }
 
 struct C_00e18540 { int sub_00e18540(void); };
 // @baa 0x00e18540
@@ -1515,14 +1546,17 @@ int C_00e18570::sub_00e18570(void)
   return (*(int *)(param_1 + 8) != -1) - 1;
 }
 
+struct C_00e18580 { int sub_00e18580(void); };
 // @baa 0x00e18580
-int UNetPendingLevel::sub_00e18580(void) { return *(int*)((char*)this + 0); }
+int C_00e18580::sub_00e18580(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e18590 { int sub_00e18590(void); };
 // @baa 0x00e18590
-int UNetPendingLevel::sub_00e18590(void) { return *(int*)((char*)this + 0); }
+int C_00e18590::sub_00e18590(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e185a0 { int sub_00e185a0(void); };
 // @baa 0x00e185a0
-int UNetPendingLevel::sub_00e185a0(void) { return *(int*)((char*)this + 0); }
+int C_00e185a0::sub_00e185a0(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00e185b0
 int sub_00e185b0(int a0) { return *(int*)a0; }
@@ -1547,11 +1581,13 @@ int C_00e18630::sub_00e18630(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e18640 { int sub_00e18640(void); };
 // @baa 0x00e18640
-int UNetPendingLevel::sub_00e18640(void) { return *(int*)((char*)this + 20); }
+int C_00e18640::sub_00e18640(void) { return *(int*)((char*)this + 20); }
 
+struct C_00e18650 { int sub_00e18650(void); };
 // @baa 0x00e18650
-int UNetPendingLevel::sub_00e18650(void) { return *(int*)((char*)this + 20); }
+int C_00e18650::sub_00e18650(void) { return *(int*)((char*)this + 20); }
 
 int sub_00627f00(...);
 // @baa 0x00e18660
@@ -2008,8 +2044,9 @@ undefined4 * C_00e1aac0::sub_00e1aac0(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1aaf0 { void sub_00e1aaf0(void); };
 // @baa 0x00e1aaf0
-void UNetPendingLevel::sub_00e1aaf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1aaf0::sub_00e1aaf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1ab00 { undefined4 * sub_00e1ab00(byte param_2); };
 // @baa 0x00e1ab00
@@ -2058,8 +2095,9 @@ undefined4 * C_00e1ab50::sub_00e1ab50(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1ab90 { void sub_00e1ab90(void); };
 // @baa 0x00e1ab90
-void UNetPendingLevel::sub_00e1ab90(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1ab90::sub_00e1ab90(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1aba0 { undefined4 * sub_00e1aba0(byte param_2); };
 // @baa 0x00e1aba0
@@ -2129,8 +2167,9 @@ undefined4 * C_00e1ac40::sub_00e1ac40(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1ac70 { void sub_00e1ac70(void); };
 // @baa 0x00e1ac70
-void UNetPendingLevel::sub_00e1ac70(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1ac70::sub_00e1ac70(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1ac80 { undefined4 * sub_00e1ac80(byte param_2); };
 // @baa 0x00e1ac80
@@ -2161,8 +2200,9 @@ undefined4 * C_00e1aca0::sub_00e1aca0(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1acd0 { void sub_00e1acd0(void); };
 // @baa 0x00e1acd0
-void UNetPendingLevel::sub_00e1acd0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1acd0::sub_00e1acd0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1ace0 { undefined4 * sub_00e1ace0(byte param_2); };
 // @baa 0x00e1ace0
@@ -2203,8 +2243,9 @@ undefined4 * C_00e1ad30::sub_00e1ad30(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1ad60 { void sub_00e1ad60(void); };
 // @baa 0x00e1ad60
-void UNetPendingLevel::sub_00e1ad60(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1ad60::sub_00e1ad60(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1ad70 { undefined4 * sub_00e1ad70(byte param_2); };
 // @baa 0x00e1ad70
@@ -2246,8 +2287,9 @@ undefined4 * C_00e1adc0::sub_00e1adc0(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00e1adf0 { void sub_00e1adf0(void); };
 // @baa 0x00e1adf0
-void UNetPendingLevel::sub_00e1adf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
+void C_00e1adf0::sub_00e1adf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
 struct C_00e1ae00 { undefined4 * sub_00e1ae00(byte param_2); };
 // @baa 0x00e1ae00
@@ -2744,8 +2786,9 @@ int C_00e21590::sub_00e21590(void)
   return param_1;
 }
 
+struct C_00e21970 { void sub_00e21970(void); };
 // @baa 0x00e21970
-void UNetPendingLevel::sub_00e21970(void) { *(int*)((char*)this + 40) = 1; }
+void C_00e21970::sub_00e21970(void) { *(int*)((char*)this + 40) = 1; }
 
 // @baa 0x00e21b30
 void sub_00e21b30(void) { sub_00e20d20(); }

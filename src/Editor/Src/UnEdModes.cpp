@@ -51,8 +51,9 @@ void C_00f4d0c0::sub_00f4d0c0(void)
   return;
 }
 
+struct C_00f4d190 { int sub_00f4d190(void); };
 // @baa 0x00f4d190
-int UTerrainFactory::sub_00f4d190(void) { return *(int*)((char*)this + 4); }
+int C_00f4d190::sub_00f4d190(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x00f4d1a0
 int sub_00f4d1a0(void) { return 0; }
@@ -722,11 +723,13 @@ undefined4 C_00f4dea0::sub_00f4dea0(void)
   return *(undefined4 *)(param_1 + 0x300);
 }
 
+struct C_00f4ded0 { char* sub_00f4ded0(void); };
 // @baa 0x00f4ded0
-char* ULightingChannelsObject::sub_00f4ded0(void) { return (char*)this + 24; }
+char* C_00f4ded0::sub_00f4ded0(void) { return (char*)this + 24; }
 
+struct C_00f4dee0 { int sub_00f4dee0(void); };
 // @baa 0x00f4dee0
-int ULightingChannelsObject::sub_00f4dee0(void) { return *(int*)((char*)this + 36); }
+int C_00f4dee0::sub_00f4dee0(void) { return *(int*)((char*)this + 36); }
 
 struct S_00f4def0 {
     virtual void vf_00();
@@ -745,8 +748,9 @@ void sub_00f4def0(S_00f4def0* p, INT Value)
 }
 
 extern char g_02158e54[];
+struct C_00f4df10 { void sub_00f4df10(void); };
 // @baa 0x00f4df10
-void ULightingChannelsObject::sub_00f4df10(void) { *(int*)((char*)this + 0) = (int)g_02158e54; }
+void C_00f4df10::sub_00f4df10(void) { *(int*)((char*)this + 0) = (int)g_02158e54; }
 
 int sub_0053dfa0(...);
 struct C_00f4df20 { undefined4 * sub_00f4df20(byte param_2); };

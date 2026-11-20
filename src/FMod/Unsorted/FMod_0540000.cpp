@@ -3,44 +3,52 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_00540bd0 { int sub_00540bd0(void); };
 // @baa 0x00540bd0
-int UObject::sub_00540bd0(void) { return *(int*)((char*)this + 4); }
+int C_00540bd0::sub_00540bd0(void) { return *(int*)((char*)this + 4); }
 
+struct C_00540be0 { int sub_00540be0(void); };
 // @baa 0x00540be0
-int UObject::sub_00540be0(void) { return *(int*)((char*)this + 4); }
+int C_00540be0::sub_00540be0(void) { return *(int*)((char*)this + 4); }
 
 struct C_00540bf0 { int a, b, c; C_00540bf0(); };
 
 // @baa 0x00540bf0
 C_00540bf0::C_00540bf0() : a(0), b(0), c(0) {}
 
+struct C_00540c00 { int sub_00540c00(void); };
 // @baa 0x00540c00
-int UObject::sub_00540c00(void) { return *(int*)((char*)this + 4); }
+int C_00540c00::sub_00540c00(void) { return *(int*)((char*)this + 4); }
 
 struct C_00540c10 { int a, b, c; C_00540c10(); };
 
 // @baa 0x00540c10
 C_00540c10::C_00540c10() : a(0), b(0), c(0) {}
 
+struct C_00540c20 { int sub_00540c20(void); };
 // @baa 0x00540c20
-int UObject::sub_00540c20(void) { return *(int*)((char*)this + 4); }
+int C_00540c20::sub_00540c20(void) { return *(int*)((char*)this + 4); }
 
+struct C_00540c30 { int sub_00540c30(void); };
 // @baa 0x00540c30
-int UObject::sub_00540c30(void) { return *(int*)((char*)this + 4); }
+int C_00540c30::sub_00540c30(void) { return *(int*)((char*)this + 4); }
 
 struct C_00540c40 { int a, b, c; C_00540c40(); };
 
 // @baa 0x00540c40
 C_00540c40::C_00540c40() : a(0), b(0), c(0) {}
 
+struct C_00540c50 { int sub_00540c50(void); };
 // @baa 0x00540c50
-int UObject::sub_00540c50(void) { return *(int*)((char*)this + 0); }
+int C_00540c50::sub_00540c50(void) { return *(int*)((char*)this + 0); }
 
+struct C_00540c60 { int sub_00540c60(void); };
 // @baa 0x00540c60
-int UObject::sub_00540c60(void) { return *(int*)((char*)this + 0); }
+int C_00540c60::sub_00540c60(void) { return *(int*)((char*)this + 0); }
 
+struct C_00540c70 { int sub_00540c70(void); };
 // @baa 0x00540c70
-int UObject::sub_00540c70(void) { return *(int*)((char*)this + 0); }
+int C_00540c70::sub_00540c70(void) { return *(int*)((char*)this + 0); }
 
 struct T_00540c80 { BYTE b[4]; };
 

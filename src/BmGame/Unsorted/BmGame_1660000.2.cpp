@@ -465,8 +465,9 @@ extern char g_0236e734[];
 int sub_0166a9c0(void) { return (int)g_0236e734; }
 
 extern char g_01ebb554[];
+struct C_0166a9d0 { void sub_0166a9d0(void); };
 // @baa 0x0166a9d0
-void URSimpleRopeComponent::sub_0166a9d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_0166a9d0::sub_0166a9d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_0166a9e0 { undefined4 * sub_0166a9e0(byte param_2); };
 // @baa 0x0166a9e0

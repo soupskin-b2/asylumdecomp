@@ -78,17 +78,21 @@ struct C_00e89710 { C_00e89710* sub_00e89710(void); };
 // @baa 0x00e89710
 C_00e89710* C_00e89710::sub_00e89710(void) { *(int*)((char*)this + 0) = (int)g_0211be40; return this; }
 
+struct C_00e89720 { int sub_00e89720(void); };
 // @baa 0x00e89720
-int UOnlineGameInterfaceSteamworks::sub_00e89720(void) { return *(int*)((char*)this + 12); }
+int C_00e89720::sub_00e89720(void) { return *(int*)((char*)this + 12); }
 
+struct C_00e89730 { char* sub_00e89730(void); };
 // @baa 0x00e89730
-char* UOnlineGameInterfaceSteamworks::sub_00e89730(void) { return (char*)this + 16; }
+char* C_00e89730::sub_00e89730(void) { return (char*)this + 16; }
 
+struct C_00e89740 { int sub_00e89740(void); };
 // @baa 0x00e89740
-int UOnlineGameInterfaceSteamworks::sub_00e89740(void) { return *(int*)((char*)this + 76); }
+int C_00e89740::sub_00e89740(void) { return *(int*)((char*)this + 76); }
 
+struct C_00e89750 { int sub_00e89750(void); };
 // @baa 0x00e89750
-int UOnlineGameInterfaceSteamworks::sub_00e89750(void) { return *(int*)((char*)this + 80); }
+int C_00e89750::sub_00e89750(void) { return *(int*)((char*)this + 80); }
 
 extern char g_0211be4c[];
 struct C_00e89760 { C_00e89760* sub_00e89760(void); };
@@ -96,8 +100,9 @@ struct C_00e89760 { C_00e89760* sub_00e89760(void); };
 // @baa 0x00e89760
 C_00e89760* C_00e89760::sub_00e89760(void) { *(int*)((char*)this + 0) = (int)g_0211be4c; return this; }
 
+struct C_00e89770 { int sub_00e89770(void); };
 // @baa 0x00e89770
-int UOnlineGameInterfaceSteamworks::sub_00e89770(void) { return *(int*)((char*)this + 12); }
+int C_00e89770::sub_00e89770(void) { return *(int*)((char*)this + 12); }
 
 // @baa 0x00e89860
 void __stdcall sub_00e89860(int a0) {  }

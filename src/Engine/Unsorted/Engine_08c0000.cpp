@@ -228,11 +228,13 @@ undefined4 * C_008c59e0::sub_008c59e0(void)
   return param_1;
 }
 
+struct C_008c5b70 { float sub_008c5b70(void); };
 // @baa 0x008c5b70
-float USeqVar_Union::sub_008c5b70(void) { return *(float*)((char*)this + 68); }
+float C_008c5b70::sub_008c5b70(void) { return *(float*)((char*)this + 68); }
 
+struct C_008c5b80 { float sub_008c5b80(void); };
 // @baa 0x008c5b80
-float USeqVar_Union::sub_008c5b80(void) { return *(float*)((char*)this + 72); }
+float C_008c5b80::sub_008c5b80(void) { return *(float*)((char*)this + 72); }
 
 struct C_008cd710 { void sub_008c30b0(int); C_008cd710 *sub_008cd710(int); };
 

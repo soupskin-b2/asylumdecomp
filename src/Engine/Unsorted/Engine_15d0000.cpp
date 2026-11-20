@@ -37,8 +37,9 @@ IMPLEMENT_CLASS_AT(URSpotableInterface, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x015d82e0
 extern char g_02330404[];
+struct C_015d8300 { void sub_015d8300(void); };
 // @baa 0x015d8300
-void URSpotableInterface::sub_015d8300(void) { *(int*)((char*)this + 0) = (int)g_02330404; }
+void C_015d8300::sub_015d8300(void) { *(int*)((char*)this + 0) = (int)g_02330404; }
 
 struct C_015d8310 { C_015d8310* sub_015d8310(void); };
 

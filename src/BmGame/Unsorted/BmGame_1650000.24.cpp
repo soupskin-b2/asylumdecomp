@@ -6,8 +6,8 @@ extern char g_01ebe858[];
 extern char g_02360e58[];
 struct C { C* sub_005c7a20(void); };
 
-/* ARBMCombatDangerZone::ARBMCombatDangerZone(): its base classes declare their constructors out of line in Classes.h, but here the
- * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+/* The exe's out-of-line copy of ARBMCombatDangerZone::ARBMCombatDangerZone() (UObject(), AActor's vtable and DetachFence, then its own vtable).
+ * Classes.h leaves the constructor implicit, since the exe inlines it where the class is created, so this is a stand-in. */
 struct C_01657690 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;

@@ -267,8 +267,9 @@ void C_01903940::sub_01903940()
     }
 }
 
+struct C_01903a10 { void *sub_01903a10(); };
 // @baa 0x01903a10
-void *UGFxDataStoreSubscriber::sub_01903a10()
+void *C_01903a10::sub_01903a10()
 {
     void *p = this;
     *(BYTE *)p = 0;
@@ -316,8 +317,9 @@ uint C_01903af0::sub_01903af0(void)
   return *(uint *)(param_1 + 0x1c) >> 1 & 1;
 }
 
+struct C_01903b10 { int sub_01903b10(void); };
 // @baa 0x01903b10
-int UGFxDataStoreSubscriber::sub_01903b10(void) { return *(int*)((char*)this + 24); }
+int C_01903b10::sub_01903b10(void) { return *(int*)((char*)this + 24); }
 
 struct C_01903bc0 { int sub_01903bc0(int param_2); };
 // @baa 0x01903bc0
@@ -401,8 +403,9 @@ int C_01903cc0::sub_01903cc0(void)
   return param_1[1] + -1 + *param_1;
 }
 
+struct C_01903cd0 { int sub_01903cd0(void); };
 // @baa 0x01903cd0
-int UGFxDataStoreSubscriber::sub_01903cd0(void) { return *(int*)((char*)this + 0); }
+int C_01903cd0::sub_01903cd0(void) { return *(int*)((char*)this + 0); }
 
 struct C_01903ce0 { bool sub_01903ce0(void); };
 // @baa 0x01903ce0
@@ -527,8 +530,9 @@ byte C_01903e90::sub_01903e90(void)
   return *(byte *)(param_1 + 0xc) >> 5 & 1;
 }
 
+struct C_01903ef0 { char* sub_01903ef0(void); };
 // @baa 0x01903ef0
-char* UGFxDataStoreSubscriber::sub_01903ef0(void) { return (char*)this + 20; }
+char* C_01903ef0::sub_01903ef0(void) { return (char*)this + 20; }
 
 struct C_01903f30 { void sub_01903f30(undefined4 param_2); };
 // @baa 0x01903f30
@@ -585,20 +589,25 @@ void C_01903fa0::sub_01903fa0(undefined2 param_2)
   return;
 }
 
+struct C_01903fd0 { int sub_01903fd0(void); };
 // @baa 0x01903fd0
-int UGFxDataStoreSubscriber::sub_01903fd0(void) { return *(int*)((char*)this + 0); }
+int C_01903fd0::sub_01903fd0(void) { return *(int*)((char*)this + 0); }
 
+struct C_01903fe0 { int sub_01903fe0(void); };
 // @baa 0x01903fe0
-int UGFxDataStoreSubscriber::sub_01903fe0(void) { return *(int*)((char*)this + 4); }
+int C_01903fe0::sub_01903fe0(void) { return *(int*)((char*)this + 4); }
 
+struct C_01904010 { int sub_01904010(void); };
 // @baa 0x01904010
-int UGFxDataStoreSubscriber::sub_01904010(void) { return *(int*)((char*)this + 28); }
+int C_01904010::sub_01904010(void) { return *(int*)((char*)this + 28); }
 
+struct C_01904020 { int sub_01904020(void); };
 // @baa 0x01904020
-int UGFxDataStoreSubscriber::sub_01904020(void) { return *(int*)((char*)this + 0); }
+int C_01904020::sub_01904020(void) { return *(int*)((char*)this + 0); }
 
+struct C_01904030 { int sub_01904030(void); };
 // @baa 0x01904030
-int UGFxDataStoreSubscriber::sub_01904030(void) { return *(int*)((char*)this + 0); }
+int C_01904030::sub_01904030(void) { return *(int*)((char*)this + 0); }
 
 struct C_01904070 { void sub_01904070(void); };
 // @baa 0x01904070
@@ -628,8 +637,9 @@ int C_01904150::sub_01904150(int param_2)
   return param_2 * 0x10 + param_1;
 }
 
+struct C_01904190 { int sub_01904190(void); };
 // @baa 0x01904190
-int UGFxDataStoreSubscriber::sub_01904190(void) { return *(int*)((char*)this + 28); }
+int C_01904190::sub_01904190(void) { return *(int*)((char*)this + 28); }
 
 struct M_019041b0 { void sub_01978450(); };
 

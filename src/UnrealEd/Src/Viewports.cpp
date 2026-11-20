@@ -24,8 +24,9 @@ extern char g_026d5760[];
 // @baa 0x0129d660
 int sub_0129d660(void) { return (int)g_026d5760; }
 
+struct C_0129d670 { void sub_0129d670(int a0); };
 // @baa 0x0129d670
-void USoundNodeWave::sub_0129d670(int a0) { *(int*)((char*)this + 336) = a0; }
+void C_0129d670::sub_0129d670(int a0) { *(int*)((char*)this + 336) = a0; }
 
 extern char g_025e8d44[];
 // @baa 0x0129d830

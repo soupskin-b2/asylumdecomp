@@ -37,8 +37,9 @@ extern char g_01ef1114[];
 int sub_007558d0(void) { return (int)g_01ef1114; }
 
 extern char g_01ebb554[];
+struct C_007558e0 { void sub_007558e0(void); };
 // @baa 0x007558e0
-void UTextureMovie::sub_007558e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_007558e0::sub_007558e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_007558f0 { undefined4 * sub_007558f0(byte param_2); };
@@ -75,8 +76,9 @@ extern char g_01ef1354[];
 // @baa 0x00755950
 int sub_00755950(void) { return (int)g_01ef1354; }
 
+struct C_00755960 { void sub_00755960(void); };
 // @baa 0x00755960
-void UTextureMovie::sub_00755960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755960::sub_00755960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00755970 { undefined4 * sub_00755970(byte param_2); };
 // @baa 0x00755970
@@ -95,8 +97,9 @@ extern char g_01ef18b4[];
 // @baa 0x00755a00
 int sub_00755a00(void) { return (int)g_01ef18b4; }
 
+struct C_00755a10 { void sub_00755a10(void); };
 // @baa 0x00755a10
-void UTextureMovie::sub_00755a10(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755a10::sub_00755a10(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00755a20 { undefined4 * sub_00755a20(byte param_2); };
 // @baa 0x00755a20
@@ -132,8 +135,9 @@ extern char g_01ef1af4[];
 // @baa 0x00755a80
 int sub_00755a80(void) { return (int)g_01ef1af4; }
 
+struct C_00755a90 { void sub_00755a90(void); };
 // @baa 0x00755a90
-void UTextureMovie::sub_00755a90(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755a90::sub_00755a90(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00755aa0 { undefined4 * sub_00755aa0(byte param_2); };
 // @baa 0x00755aa0
@@ -169,8 +173,9 @@ extern char g_01ef1d34[];
 // @baa 0x00755b10
 int sub_00755b10(void) { return (int)g_01ef1d34; }
 
+struct C_00755b20 { void sub_00755b20(void); };
 // @baa 0x00755b20
-void UTextureMovie::sub_00755b20(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00755b20::sub_00755b20(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00755b30 { undefined4 * sub_00755b30(byte param_2); };
 // @baa 0x00755b30

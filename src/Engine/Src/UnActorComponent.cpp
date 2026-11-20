@@ -39,11 +39,13 @@ void UActorComponent::TermComponentRBPhys(FRBPhysScene* a0) {  }
 // @baa 0x0064b600
 UBOOL UActorComponent::IsValidComponent() const { return 1; }
 
+struct C_0064b610 { int sub_0064b610(void); };
 // @baa 0x0064b610
-int UActorComponent::sub_0064b610(void) { return *(int*)((char*)this + 60); }
+int C_0064b610::sub_0064b610(void) { return *(int*)((char*)this + 60); }
 
+struct C_0064b620 { int sub_0064b620(void); };
 // @baa 0x0064b620
-int UActorComponent::sub_0064b620(void) { return *(int*)((char*)this + 64); }
+int C_0064b620::sub_0064b620(void) { return *(int*)((char*)this + 64); }
 
 // @baa 0x0064b640
 void UActorComponent::GetActorReferences(TArray<FActorReference*>& a0, UBOOL a1) {  }

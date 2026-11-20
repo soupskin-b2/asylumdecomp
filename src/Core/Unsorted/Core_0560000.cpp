@@ -1713,8 +1713,9 @@ struct C_0053ea70 {
 
 // Virtual method of USkeletalMeshSocket, vtable slot 77 (0x00567ca0)
 
+struct C_00567ca0 { INT sub_00567ca0(INT Object, INT Array, INT Index); };
 // @baa 0x00567ca0
-INT USkeletalMeshSocket::sub_00567ca0(INT Object, INT Array, INT Index)
+INT C_00567ca0::sub_00567ca0(INT Object, INT Array, INT Index)
 {
     return ((C_0053ea70*)Object)->sub_0053ea70(Array + Index * 2, 2);
 }

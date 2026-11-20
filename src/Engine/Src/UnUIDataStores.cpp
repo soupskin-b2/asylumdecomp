@@ -181,8 +181,9 @@ IMPLEMENT_CLASS_AT(UUIDataStorePublisher, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00d8f480
 extern char g_020bfbc4[];
+struct C_00d8f4a0 { void sub_00d8f4a0(void); };
 // @baa 0x00d8f4a0
-void UUIDataStorePublisher::sub_00d8f4a0(void) { *(int*)((char*)this + 0) = (int)g_020bfbc4; }
+void C_00d8f4a0::sub_00d8f4a0(void) { *(int*)((char*)this + 0) = (int)g_020bfbc4; }
 
 int sub_0053dfa0(...);
 struct C_00d8f4b0 { undefined4 * sub_00d8f4b0(byte param_2); };

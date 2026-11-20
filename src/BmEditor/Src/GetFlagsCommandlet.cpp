@@ -175,8 +175,9 @@ int C_00f794a0::sub_00f794a0(undefined4 param_2)
   return param_1;
 }
 
+struct C_00f7da30 { int sub_00f7da30(void); };
 // @baa 0x00f7da30
-int UObject::sub_00f7da30(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00f7da30::sub_00f7da30(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_00f7da40 { void* Data; int Num; int Max; void sub_00f7da40(); };
 

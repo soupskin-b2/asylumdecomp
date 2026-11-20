@@ -239,8 +239,9 @@ struct C_01638300 { C_01638300* sub_01638300(int a0); };
 // @baa 0x01638300
 C_01638300* C_01638300::sub_01638300(int a0) { return this; }
 
+struct C_01638350 { UINT sub_01638350(UINT arg1); };
 // @baa 0x01638350
-UINT UObject::sub_01638350(UINT arg1)
+UINT C_01638350::sub_01638350(UINT arg1)
 {
     return (UINT)this;
 }

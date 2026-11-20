@@ -40,8 +40,9 @@ Sub_006ae060* Sub_006ae060::sub_006ae060(int A, int B)
 }
 
 extern char g_01ecdfdc[];
+struct C_006ae080 { void sub_006ae080(void); };
 // @baa 0x006ae080
-void UMaterial::sub_006ae080(void) { *(int*)((char*)this + 0) = (int)g_01ecdfdc; }
+void C_006ae080::sub_006ae080(void) { *(int*)((char*)this + 0) = (int)g_01ecdfdc; }
 
 struct C_006ae090 { C_006ae090* sub_006ae090(void); };
 

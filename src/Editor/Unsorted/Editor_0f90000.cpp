@@ -368,8 +368,9 @@ undefined4 sub_00f9dcf0(undefined4 * param_1, undefined4 param_2)
   return 0;
 }
 
+struct C_00f9dd30 { int sub_00f9dd30(void); };
 // @baa 0x00f9dd30
-int UTexture2D::sub_00f9dd30(void) { return *(int*)((char*)this + 0); }
+int C_00f9dd30::sub_00f9dd30(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00f9f0b0
 undefined2 sub_00f9f0b0(void)

@@ -47,8 +47,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleEventBase, "e:\\Projects\\Amadeus\\AA\\Game\\U
 int sub_005c7a20(void);
 extern const unsigned char g_01fef1f0;
 
+struct C_00b40d20 { UINT* sub_00b40d20(void); };
 // @baa 0x00b40d20
-UINT* UObject::sub_00b40d20(void)
+UINT* C_00b40d20::sub_00b40d20(void)
 {
 	sub_005c7a20();
 	*(const void**)this = &g_01fef1f0;
@@ -91,8 +92,9 @@ UBOOL UParticleModuleEventBase::HasParentClassChanged() const
 
 extern const unsigned char g_01fef7a0;
 
+struct C_00b43870 { UINT* sub_00b43870(void); };
 // @baa 0x00b43870
-UINT* UObject::sub_00b43870(void)
+UINT* C_00b43870::sub_00b43870(void)
 {
 	sub_005c7a20();
 	*(const void**)this = &g_01fef7a0;

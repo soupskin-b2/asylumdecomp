@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Map.h"
 
+struct C_005d1cc0 { int sub_005d1cc0(void); };
 // @baa 0x005d1cc0
-int UObject::sub_005d1cc0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005d1cc0::sub_005d1cc0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct Inner {
     int* data;

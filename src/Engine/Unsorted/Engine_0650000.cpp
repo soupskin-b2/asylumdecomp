@@ -2484,8 +2484,9 @@ const DWORD* S_00655000::sub_00655000(INT Index) const
     return &Items(Index);
 }
 
+struct C_00655090 { int sub_00655090(void); };
 // @baa 0x00655090
-int UObject::sub_00655090(void) { return *(int*)((char*)this + 4); }
+int C_00655090::sub_00655090(void) { return *(int*)((char*)this + 4); }
 
 struct S_006550a0 {
     TArray<DWORD> Items; // 0x00

@@ -19,8 +19,9 @@ struct C_00543f20 { int a, b, c; C_00543f20(); };
 // @baa 0x00543f20
 C_00543f20::C_00543f20() : a(0), b(0), c(0) {}
 
+struct C_00543f30 { int sub_00543f30(void); };
 // @baa 0x00543f30
-int UObject::sub_00543f30(void) { return *(int*)((char*)this + 0); }
+int C_00543f30::sub_00543f30(void) { return *(int*)((char*)this + 0); }
 
 struct S {
     TArray<DWORD> Items; // 0x00
@@ -93,11 +94,13 @@ DWORD* S_005440e0::sub_005440e0(INT Index)
     return &Items(Index);
 }
 
+struct C_00544130 { int sub_00544130(void); };
 // @baa 0x00544130
-int UObject::sub_00544130(void) { return *(int*)((char*)this + 0); }
+int C_00544130::sub_00544130(void) { return *(int*)((char*)this + 0); }
 
+struct C_00544280 { int sub_00544280(void); };
 // @baa 0x00544280
-int UObject::sub_00544280(void) { return *(int*)((char*)this + 0); }
+int C_00544280::sub_00544280(void) { return *(int*)((char*)this + 0); }
 
 struct T_00544290 { BYTE b[4]; };
 

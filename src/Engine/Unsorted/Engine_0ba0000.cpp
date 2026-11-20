@@ -177,8 +177,9 @@ IMPLEMENT_CLASS_AT(USpeedTree, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 
 // @baa 0x00bab100
 extern char g_02019f1c[];
+struct C_00bab160 { void sub_00bab160(void); };
 // @baa 0x00bab160
-void USpeedTree::sub_00bab160(void) { *(int*)((char*)this + 0) = (int)g_02019f1c; }
+void C_00bab160::sub_00bab160(void) { *(int*)((char*)this + 0) = (int)g_02019f1c; }
 
 int sub_0053dfa0(...);
 struct C_00bab170 { undefined4 * sub_00bab170(byte param_2); };
@@ -205,8 +206,9 @@ UBOOL USpeedTree::HasParentClassChanged() const
 }
 
 extern char g_01ebb554[];
+struct C_00bab4d0 { void sub_00bab4d0(void); };
 // @baa 0x00bab4d0
-void USpeedTree::sub_00bab4d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00bab4d0::sub_00bab4d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00bab4e0 { undefined4 * sub_00bab4e0(byte param_2); };
 // @baa 0x00bab4e0
@@ -221,17 +223,21 @@ undefined4 * C_00bab4e0::sub_00bab4e0(byte param_2)
   return param_1;
 }
 
+struct C_00bab5c0 { void sub_00bab5c0(void); };
 // @baa 0x00bab5c0
-void USpeedTree::sub_00bab5c0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00bab5c0::sub_00bab5c0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00bab5d0 { void sub_00bab5d0(void); };
 // @baa 0x00bab5d0
-void USpeedTree::sub_00bab5d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00bab5d0::sub_00bab5d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00bab5e0 { void sub_00bab5e0(void); };
 // @baa 0x00bab5e0
-void USpeedTree::sub_00bab5e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00bab5e0::sub_00bab5e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00bab5f0 { void sub_00bab5f0(void); };
 // @baa 0x00bab5f0
-void USpeedTree::sub_00bab5f0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00bab5f0::sub_00bab5f0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00bab600 { undefined4 * sub_00bab600(byte param_2); };
 // @baa 0x00bab600

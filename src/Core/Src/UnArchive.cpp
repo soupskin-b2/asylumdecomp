@@ -24,11 +24,13 @@ undefined4 * C_005707b0::sub_005707b0(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00570840 { void sub_00570840(int a0); };
 // @baa 0x00570840
-void UTexture2D::sub_00570840(int a0) { *(int*)((char*)this + 132) = a0; }
+void C_00570840::sub_00570840(int a0) { *(int*)((char*)this + 132) = a0; }
 
+struct C_00570850 { int sub_00570850(void); };
 // @baa 0x00570850
-int UTexture2D::sub_00570850(void) { return *(int*)((char*)this + 132); }
+int C_00570850::sub_00570850(void) { return *(int*)((char*)this + 132); }
 
 struct C_00570870 { undefined4 sub_00570870(void); };
 // @baa 0x00570870

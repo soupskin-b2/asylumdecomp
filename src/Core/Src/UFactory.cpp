@@ -36,8 +36,9 @@ undefined4 * C_005b3730::sub_005b3730(void)
   return param_1;
 }
 
+struct C_005fbdd0 { int sub_005fbdd0(void); };
 // @baa 0x005fbdd0
-int UFactory::sub_005fbdd0(void) { return *(int*)((char*)this + 48); }
+int C_005fbdd0::sub_005fbdd0(void) { return *(int*)((char*)this + 48); }
 
 int sub_006311e0(...);
 extern undefined4 g_01ea43b0;

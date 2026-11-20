@@ -424,11 +424,13 @@ struct C_00804fd0 { C_00804fd0* sub_00804fd0(void); };
 // @baa 0x00804fd0
 C_00804fd0* C_00804fd0::sub_00804fd0(void) { return this; }
 
+struct C_00804fe0 { int sub_00804fe0(void); };
 // @baa 0x00804fe0
-int UModelComponent::sub_00804fe0(void) { return *(int*)((char*)this + 0); }
+int C_00804fe0::sub_00804fe0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00804ff0 { int sub_00804ff0(void); };
 // @baa 0x00804ff0
-int UModelComponent::sub_00804ff0(void) { return *(int*)((char*)this + 4); }
+int C_00804ff0::sub_00804ff0(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x00805040
 int sub_00805040(int param_1, int param_2)
@@ -437,8 +439,9 @@ int sub_00805040(int param_1, int param_2)
          *(int *)(param_1 + 0x18) * *(int *)(param_1 + 0x14);
 }
 
+struct C_008051a0 { int sub_008051a0(void); };
 // @baa 0x008051a0
-int UModelComponent::sub_008051a0(void) { return *(int*)((char*)this + 4); }
+int C_008051a0::sub_008051a0(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x008051b0
 int UModelComponent::vf_200(void) { return 1; }
@@ -542,17 +545,21 @@ struct C_008058e0 { C_008058e0* sub_008058e0(int a0); };
 // @baa 0x008058e0
 C_008058e0* C_008058e0::sub_008058e0(int a0) { return this; }
 
+struct C_008058f0 { int sub_008058f0(void); };
 // @baa 0x008058f0
-int UObject::sub_008058f0(void) { return *(int*)((char*)this + 0); }
+int C_008058f0::sub_008058f0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00805970 { int sub_00805970(void); };
 // @baa 0x00805970
-int UObject::sub_00805970(void) { return *(int*)((char*)this + 0); }
+int C_00805970::sub_00805970(void) { return *(int*)((char*)this + 0); }
 
+struct C_008059f0 { int sub_008059f0(void); };
 // @baa 0x008059f0
-int UObject::sub_008059f0(void) { return *(int*)((char*)this + 0); }
+int C_008059f0::sub_008059f0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00805a00 { int sub_00805a00(void); };
 // @baa 0x00805a00
-int UObject::sub_00805a00(void) { return *(int*)((char*)this + 0); }
+int C_00805a00::sub_00805a00(void) { return *(int*)((char*)this + 0); }
 
 struct S_00805a10 {
     TArray<DWORD> Items; // 0x00
@@ -570,11 +577,13 @@ struct T_00805a90 { int x; };
 // @baa 0x00805a90
 template T_00805a90& TIndirectArray<T_00805a90>::operator()(INT);
 
+struct C_00805ae0 { int sub_00805ae0(void); };
 // @baa 0x00805ae0
-int UObject::sub_00805ae0(void) { return *(int*)((char*)this + 0); }
+int C_00805ae0::sub_00805ae0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00805af0 { int sub_00805af0(void); };
 // @baa 0x00805af0
-int UObject::sub_00805af0(void) { return *(int*)((char*)this + 0); }
+int C_00805af0::sub_00805af0(void) { return *(int*)((char*)this + 0); }
 
 struct C_00805b70 { int sub_00805b70(int param_2); };
 // @baa 0x00805b70
@@ -585,11 +594,13 @@ int C_00805b70::sub_00805b70(int param_2)
   return *param_1 + param_2 * 8;
 }
 
+struct C_00805b80 { int sub_00805b80(void); };
 // @baa 0x00805b80
-int UObject::sub_00805b80(void) { return *(int*)((char*)this + 0); }
+int C_00805b80::sub_00805b80(void) { return *(int*)((char*)this + 0); }
 
+struct C_00805c30 { int sub_00805c30(void); };
 // @baa 0x00805c30
-int UObject::sub_00805c30(void) { return *(int*)((char*)this + 0); }
+int C_00805c30::sub_00805c30(void) { return *(int*)((char*)this + 0); }
 
 struct C_00805c60 { int sub_00805c60(int param_2); };
 // @baa 0x00805c60

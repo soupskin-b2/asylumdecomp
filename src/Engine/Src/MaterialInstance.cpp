@@ -31,8 +31,9 @@ extern char g_01ecb0e4[];
 int sub_006aeb20(void) { return (int)g_01ecb0e4; }
 
 extern char g_01ebb554[];
+struct C_006aeb30 { void sub_006aeb30(void); };
 // @baa 0x006aeb30
-void UMaterialInstance::sub_006aeb30(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006aeb30::sub_006aeb30(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_006aeb40 { undefined4 * sub_006aeb40(byte param_2); };

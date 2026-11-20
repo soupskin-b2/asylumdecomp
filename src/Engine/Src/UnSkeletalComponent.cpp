@@ -183,8 +183,9 @@ extern char g_01f753d4[];
 int sub_0090f250(void) { return (int)g_01f753d4; }
 
 extern char g_01ebb554[];
+struct C_0090f260 { void sub_0090f260(void); };
 // @baa 0x0090f260
-void USkeletalMeshComponent::sub_0090f260(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_0090f260::sub_0090f260(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_0090f270 { undefined4 * sub_0090f270(byte param_2); };
@@ -217,8 +218,9 @@ extern char g_01f75634[];
 // @baa 0x0090f2d0
 int sub_0090f2d0(void) { return (int)g_01f75634; }
 
+struct C_0090f2e0 { void sub_0090f2e0(void); };
 // @baa 0x0090f2e0
-void USkeletalMeshComponent::sub_0090f2e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_0090f2e0::sub_0090f2e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_0090f2f0 { undefined4 * sub_0090f2f0(byte param_2); };
 // @baa 0x0090f2f0

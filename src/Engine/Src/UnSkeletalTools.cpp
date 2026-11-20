@@ -26,11 +26,13 @@ void C::sub_00849240(int param_2)
   return;
 }
 
+struct C_00943b60 { int sub_00943b60(void); };
 // @baa 0x00943b60
-int USkeletalMeshSocket::sub_00943b60(void) { return *(int*)((char*)this + 40); }
+int C_00943b60::sub_00943b60(void) { return *(int*)((char*)this + 40); }
 
+struct C_00943b70 { int sub_00943b70(void); };
 // @baa 0x00943b70
-int USkeletalMeshSocket::sub_00943b70(void) { return *(int*)((char*)this + 44); }
+int C_00943b70::sub_00943b70(void) { return *(int*)((char*)this + 44); }
 
 struct C_00943b80 { int sub_00943b80(void); };
 // @baa 0x00943b80
@@ -41,8 +43,9 @@ int C_00943b80::sub_00943b80(void)
   return *(int *)(param_1 + 0x2c) + *(int *)(param_1 + 0x28);
 }
 
+struct C_00943b90 { int sub_00943b90(void); };
 // @baa 0x00943b90
-int USkeletalMeshSocket::sub_00943b90(void) { return *(int*)((char*)this + 0); }
+int C_00943b90::sub_00943b90(void) { return *(int*)((char*)this + 0); }
 
 struct C_00943ba0 { int sub_00943ba0(void); };
 // @baa 0x00943ba0
@@ -54,8 +57,9 @@ int C_00943ba0::sub_00943ba0(void)
 }
 
 extern char g_01f86aa4[];
+struct C_00943bf0 { void sub_00943bf0(void); };
 // @baa 0x00943bf0
-void USkeletalMeshSocket::sub_00943bf0(void) { *(int*)((char*)this + 0) = (int)g_01f86aa4; }
+void C_00943bf0::sub_00943bf0(void) { *(int*)((char*)this + 0) = (int)g_01f86aa4; }
 
 int sub_0053dfa0(...);
 struct C_00943c00 { undefined4 * sub_00943c00(byte param_2); };

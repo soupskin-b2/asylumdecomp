@@ -758,8 +758,9 @@ void sub_00e2fb40(undefined4 * param_1, undefined4 * param_2)
   return;
 }
 
+struct C_00e33440 { int sub_00e33440(void); };
 // @baa 0x00e33440
-int UPartyBeaconHost::sub_00e33440(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00e33440::sub_00e33440(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

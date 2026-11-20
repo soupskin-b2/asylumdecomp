@@ -238,8 +238,9 @@ IMPLEMENT_CLASS_AT(UREvidenceInterface, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x0154ae40
 extern char g_022fc4d4[];
+struct C_0154ae60 { void sub_0154ae60(void); };
 // @baa 0x0154ae60
-void UREvidenceInterface::sub_0154ae60(void) { *(int*)((char*)this + 0) = (int)g_022fc4d4; }
+void C_0154ae60::sub_0154ae60(void) { *(int*)((char*)this + 0) = (int)g_022fc4d4; }
 
 struct C_0154ae70 { C_0154ae70* sub_0154ae70(void); };
 

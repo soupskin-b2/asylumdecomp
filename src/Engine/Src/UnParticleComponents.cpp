@@ -140,8 +140,9 @@ void C_00b519d0::sub_00b519d0(undefined4 param_2, undefined4 param_3)
   return;
 }
 
+struct C_00b519f0 { char* sub_00b519f0(void); };
 // @baa 0x00b519f0
-char* UParticleEmitter::sub_00b519f0(void) { return (char*)this + 48; }
+char* C_00b519f0::sub_00b519f0(void) { return (char*)this + 48; }
 
 // @baa 0x00b51a00
 void UParticleEmitter::SetLODCount(INT a0) {  }
@@ -184,11 +185,13 @@ void UParticleSystemComponent::SetEditorLODLevel(int param_2)
   return;
 }
 
+struct C_00b51bc0 { int sub_00b51bc0(void); };
 // @baa 0x00b51bc0
-int UParticleSystemComponent::sub_00b51bc0(void) { return *(int*)((char*)this + 516); }
+int C_00b51bc0::sub_00b51bc0(void) { return *(int*)((char*)this + 516); }
 
+struct C_00b51bd0 { int sub_00b51bd0(void); };
 // @baa 0x00b51bd0
-int UParticleSystemComponent::sub_00b51bd0(void) { return *(int*)((char*)this + 524); }
+int C_00b51bd0::sub_00b51bd0(void) { return *(int*)((char*)this + 524); }
 
 struct C_00b51c00 { uint sub_00b51c00(void); };
 // @baa 0x00b51c00
@@ -1271,8 +1274,9 @@ undefined4 C_00b60940::sub_00b60940(byte param_2)
   return param_1;
 }
 
+struct C_00b60ab0 { int sub_00b60ab0(void); };
 // @baa 0x00b60ab0
-int UObject::sub_00b60ab0(void) { return *(int*)((char*)this + 4); }
+int C_00b60ab0::sub_00b60ab0(void) { return *(int*)((char*)this + 4); }
 
 struct C_view_00b63e50 {
     int sub_00b5d240();
@@ -1469,8 +1473,9 @@ undefined4 * C_00b651c0::sub_00b651c0(void)
   return param_1;
 }
 
+struct C_00b65220 { char* sub_00b65220(void); };
 // @baa 0x00b65220
-char* UObject::sub_00b65220(void) { return (char*)this + 20; }
+char* C_00b65220::sub_00b65220(void) { return (char*)this + 20; }
 
 // @baa 0x00b65230
 void sub_00b65230(void) {  }

@@ -132,8 +132,9 @@ struct C_00831830 { int a, b, c; C_00831830(); };
 // @baa 0x00831830
 C_00831830::C_00831830() : a(0), b(0), c(0) {}
 
+struct C_00831840 { int sub_00831840(void); };
 // @baa 0x00831840
-int UTexture2DComposite::sub_00831840(void) { return *(int*)((char*)this + 0); }
+int C_00831840::sub_00831840(void) { return *(int*)((char*)this + 0); }
 
 struct S {
     TArray<DWORD> Items; // 0x00

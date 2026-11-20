@@ -297,8 +297,9 @@ undefined4 * C_00d88550::sub_00d88550(void)
 // @baa 0x00d88650
 UBOOL UOnlineSubsystem::IsTickableWhenPaused() const { return TRUE; }
 
+struct C_00d88680 { int sub_00d88680(void); };
 // @baa 0x00d88680
-int USettings::sub_00d88680(void) { return *(int*)((char*)this + 4); }
+int C_00d88680::sub_00d88680(void) { return *(int*)((char*)this + 4); }
 
 struct A_00d88690 { virtual void sub_00d88980(); char pad[44]; };
 

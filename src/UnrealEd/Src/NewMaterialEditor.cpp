@@ -3439,8 +3439,9 @@ C_01444270::C_01444270() {}
 // @baa 0x01444270
 void C_01444270::sub_014443b0() {}
 
+struct C_014443f0 { FString sub_014443f0(); };
 // @baa 0x014443f0
-FString UMaterialEditorOptions::sub_014443f0()
+FString C_014443f0::sub_014443f0()
 {
     return TEXT("Expression preview");
 }

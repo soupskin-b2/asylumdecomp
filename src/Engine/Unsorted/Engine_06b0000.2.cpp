@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 extern char g_01ecdfc8[];
+struct C_006b42d0 { void sub_006b42d0(void); };
 // @baa 0x006b42d0
-void ULensFlare::sub_006b42d0(void) { *(int*)((char*)this + 0) = (int)g_01ecdfc8; }
+void C_006b42d0::sub_006b42d0(void) { *(int*)((char*)this + 0) = (int)g_01ecdfc8; }
 
 struct C { void sub_006b4c40(void); };
 

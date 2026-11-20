@@ -1154,8 +1154,9 @@ UBOOL AFogVolumeConeDensityInfo::HasUniqueStaticConfigName() const { return 1; }
 // @baa 0x006ab900
 UBOOL UFogVolumeConeDensityComponent::HasUniqueStaticConfigName() const { return 1; }
 
+struct C_006abaa0 { int sub_006abaa0(void); };
 // @baa 0x006abaa0
-int UFogVolumeConeDensityComponent::sub_006abaa0(void) { return *(int*)((char*)this + 8); }
+int C_006abaa0::sub_006abaa0(void) { return *(int*)((char*)this + 8); }
 
 struct C_006abab0 { C_006abab0* sub_006abab0(void); };
 
@@ -1222,11 +1223,13 @@ extern char g_01ec37f8[];
 int sub_006abb60(void) { return (int)g_01ec37f8; }
 
 extern char g_01ebb554[];
+struct C_006abb70 { void sub_006abb70(void); };
 // @baa 0x006abb70
-void UFogVolumeConeDensityComponent::sub_006abb70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abb70::sub_006abb70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abb80 { void sub_006abb80(void); };
 // @baa 0x006abb80
-void UFogVolumeConeDensityComponent::sub_006abb80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abb80::sub_006abb80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006abb90 { undefined4 * sub_006abb90(byte param_2); };
 // @baa 0x006abb90
@@ -1280,8 +1283,9 @@ extern char g_01ec3d64[];
 // @baa 0x006abc70
 int sub_006abc70(void) { return (int)g_01ec3d64; }
 
+struct C_006abc80 { void sub_006abc80(void); };
 // @baa 0x006abc80
-void UFogVolumeConeDensityComponent::sub_006abc80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abc80::sub_006abc80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006abc90 { undefined4 * sub_006abc90(byte param_2); };
 // @baa 0x006abc90
@@ -1321,11 +1325,13 @@ extern char g_01ec42c0[];
 // @baa 0x006abd20
 int sub_006abd20(void) { return (int)g_01ec42c0; }
 
+struct C_006abd30 { void sub_006abd30(void); };
 // @baa 0x006abd30
-void UFogVolumeConeDensityComponent::sub_006abd30(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abd30::sub_006abd30(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abd40 { void sub_006abd40(void); };
 // @baa 0x006abd40
-void UFogVolumeConeDensityComponent::sub_006abd40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abd40::sub_006abd40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006abd50 { undefined4 * sub_006abd50(byte param_2); };
 // @baa 0x006abd50
@@ -1353,11 +1359,13 @@ undefined4 * C_006abd70::sub_006abd70(byte param_2)
   return param_1;
 }
 
+struct C_006abe80 { int sub_006abe80(void); };
 // @baa 0x006abe80
-int UFogVolumeConeDensityComponent::sub_006abe80(void) { return *(int*)((char*)this + 60); }
+int C_006abe80::sub_006abe80(void) { return *(int*)((char*)this + 60); }
 
+struct C_006abe90 { int sub_006abe90(void); };
 // @baa 0x006abe90
-int UFogVolumeConeDensityComponent::sub_006abe90(void) { return *(int*)((char*)this + 64); }
+int C_006abe90::sub_006abe90(void) { return *(int*)((char*)this + 64); }
 
 struct C_006abec0 { undefined4 sub_006abec0(void); };
 // @baa 0x006abec0
@@ -1373,8 +1381,9 @@ extern char g_01ec45a4[];
 // @baa 0x006abed0
 int sub_006abed0(void) { return (int)g_01ec45a4; }
 
+struct C_006abee0 { void sub_006abee0(void); };
 // @baa 0x006abee0
-void UFogVolumeConeDensityComponent::sub_006abee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abee0::sub_006abee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006abef0 { undefined4 * sub_006abef0(byte param_2); };
 // @baa 0x006abef0
@@ -1397,18 +1406,21 @@ void sub_006abf10(void)
   return;
 }
 
+struct C_006abf20 { void sub_006abf20(int a0); };
 // @baa 0x006abf20
-void UFogVolumeConeDensityComponent::sub_006abf20(int a0) { *(int*)((char*)this + 84) = a0; }
+void C_006abf20::sub_006abf20(int a0) { *(int*)((char*)this + 84) = a0; }
 
+struct C_006abf30 { void sub_006abf30(int a0); };
 // @baa 0x006abf30
-void UFogVolumeConeDensityComponent::sub_006abf30(int a0) { *(int*)((char*)this + 88) = a0; }
+void C_006abf30::sub_006abf30(int a0) { *(int*)((char*)this + 88) = a0; }
 
 extern char g_01ec484c[];
 // @baa 0x006abf60
 int sub_006abf60(void) { return (int)g_01ec484c; }
 
+struct C_006abf70 { void sub_006abf70(void); };
 // @baa 0x006abf70
-void UFogVolumeConeDensityComponent::sub_006abf70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006abf70::sub_006abf70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006abf80 { undefined4 * sub_006abf80(byte param_2); };
 // @baa 0x006abf80
@@ -1428,15 +1440,17 @@ struct C_006abfa0 { int sub_006abfa0(void); };
 // @baa 0x006abfa0
 int C_006abfa0::sub_006abfa0(void) { return *(int*)((char*)this + 224); }
 
+struct C_006abfe0 { int sub_006abfe0(void); };
 // @baa 0x006abfe0
-int UFogVolumeConeDensityComponent::sub_006abfe0(void) { return *(int*)((char*)this + 132); }
+int C_006abfe0::sub_006abfe0(void) { return *(int*)((char*)this + 132); }
 
 extern char g_01ec4c0c[];
 // @baa 0x006ac020
 int sub_006ac020(void) { return (int)g_01ec4c0c; }
 
+struct C_006ac030 { void sub_006ac030(void); };
 // @baa 0x006ac030
-void UFogVolumeConeDensityComponent::sub_006ac030(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006ac030::sub_006ac030(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006ac040 { undefined4 * sub_006ac040(byte param_2); };
 // @baa 0x006ac040
@@ -1455,8 +1469,9 @@ extern char g_01ec4fc4[];
 // @baa 0x006ac080
 int sub_006ac080(void) { return (int)g_01ec4fc4; }
 
+struct C_006ac090 { void sub_006ac090(void); };
 // @baa 0x006ac090
-void UFogVolumeConeDensityComponent::sub_006ac090(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006ac090::sub_006ac090(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006ac0a0 { undefined4 * sub_006ac0a0(byte param_2); };
 // @baa 0x006ac0a0
@@ -1506,8 +1521,9 @@ extern char g_01ec5f84[];
 // @baa 0x006ac2a0
 int sub_006ac2a0(void) { return (int)g_01ec5f84; }
 
+struct C_006ac2b0 { void sub_006ac2b0(void); };
 // @baa 0x006ac2b0
-void UFogVolumeConeDensityComponent::sub_006ac2b0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006ac2b0::sub_006ac2b0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006ac2c0 { undefined4 * sub_006ac2c0(byte param_2); };
 // @baa 0x006ac2c0

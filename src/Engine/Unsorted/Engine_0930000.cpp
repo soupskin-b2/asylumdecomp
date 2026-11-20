@@ -7,8 +7,9 @@
 // @baa 0x00935ee0
 int sub_00935ee0(void) { return 0; }
 
+struct C_00935ef0 { int sub_00935ef0(void); };
 // @baa 0x00935ef0
-int USkeletalMeshComponent::sub_00935ef0(void) { return *(int*)((char*)this + 16); }
+int C_00935ef0::sub_00935ef0(void) { return *(int*)((char*)this + 16); }
 
 struct C_00935f00 { int sub_00935f00(void); };
 // @baa 0x00935f00

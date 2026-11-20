@@ -369,8 +369,9 @@ void UObject::OnAddToPrefab() {  }
 // @baa 0x00417d70
 INT UObject::GetResourceSize() { return 0; }
 
+struct C_00417e30 { int sub_00417e30(void); };
 // @baa 0x00417e30
-int UObject::sub_00417e30(void) { return *(int*)((char*)this + 0); }
+int C_00417e30::sub_00417e30(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00417f50
 FString UObject::GetDetailedInfoInternal()

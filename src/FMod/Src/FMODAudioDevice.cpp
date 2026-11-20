@@ -9,8 +9,9 @@ struct T_0053f500 { BYTE b[32]; };
 // @baa 0x0053f500
 template INT TArray<T_0053f500>::Add(INT);
 
+struct C_0053f590 { int sub_0053f590(void); };
 // @baa 0x0053f590
-int UPackageMap::sub_0053f590(void) { return *(int*)((char*)this + 4); }
+int C_0053f590::sub_0053f590(void) { return *(int*)((char*)this + 4); }
 
 struct T_0053f5a0 { BYTE b[24]; };
 
@@ -1749,8 +1750,9 @@ void UFMODAudioDevice::vf_1d0(void) {
   return;
 }
 
+struct C_00e70cf0 { void sub_00e70cf0(void); };
 // @baa 0x00e70cf0
-void UFMODAudioDevice::sub_00e70cf0(void) { *(int*)((char*)this + 16) = 1; }
+void C_00e70cf0::sub_00e70cf0(void) { *(int*)((char*)this + 16) = 1; }
 
 // @baa 0x00e70d00
 bool sub_00e70d00(undefined4 param_1, int param_2)
@@ -2917,8 +2919,9 @@ int C_00e749e0::sub_00e749e0(void)
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00e75420 { int sub_00e75420(void); };
 // @baa 0x00e75420
-int UFMODAudioDevice::sub_00e75420(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00e75420::sub_00e75420(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_00e75430 { void* Data; int Num; int Max; void sub_00e75430(); };
 

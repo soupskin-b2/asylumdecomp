@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 extern char g_01feddf8[];
+struct C_00b310d0 { void sub_00b310d0(void); };
 // @baa 0x00b310d0
-void UParticleModuleUberLTISIVCL::sub_00b310d0(void) { *(int*)((char*)this + 0) = (int)g_01feddf8; }
+void C_00b310d0::sub_00b310d0(void) { *(int*)((char*)this + 0) = (int)g_01feddf8; }
 
 struct C {
     undefined4 sub_00b7baf0(byte);

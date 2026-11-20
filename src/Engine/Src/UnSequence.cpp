@@ -4725,8 +4725,9 @@ undefined4 * C_008e4bf0::sub_008e4bf0(void)
 // @baa 0x008e4c10
 void USeqAct_RangeSwitch::DeActivated() {  }
 
+struct C_008e4c20 { int sub_008e4c20(void); };
 // @baa 0x008e4c20
-int USeqAct_RangeSwitch::sub_008e4c20(void) { return *(int*)((char*)this + 4); }
+int C_008e4c20::sub_008e4c20(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x008e5040
 IMPLEMENT_CLASS_AT(USeqAct_RangeSwitch, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSequence.cpp", 141);

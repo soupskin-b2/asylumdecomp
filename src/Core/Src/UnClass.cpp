@@ -243,8 +243,9 @@ void sub_00587260(void) { sub_00582a20(); }
 // @baa 0x005872f0
 UBOOL UState::MergeBools() { return 1; }
 
+struct C_00587300 { int sub_00587300(void); };
 // @baa 0x00587300
-int UState::sub_00587300(void) { return *(int*)((char*)this + 48); }
+int C_00587300::sub_00587300(void) { return *(int*)((char*)this + 48); }
 
 // @baa 0x00587310
 UStruct* UState::GetInheritanceSuper() const { return (UStruct*)SuperField; }
@@ -382,11 +383,13 @@ undefined4 C_005885c0::sub_005885c0(byte param_2)
   return param_1;
 }
 
+struct C_00588900 { void sub_00588900(int a0); };
 // @baa 0x00588900
-void UState::sub_00588900(int a0) { *(int*)((char*)this + 132) = a0; }
+void C_00588900::sub_00588900(int a0) { *(int*)((char*)this + 132) = a0; }
 
+struct C_00588910 { int sub_00588910(void); };
 // @baa 0x00588910
-int UState::sub_00588910(void) { return *(int*)((char*)this + 132); }
+int C_00588910::sub_00588910(void) { return *(int*)((char*)this + 132); }
 
 struct C_00588920 { undefined4 sub_00588920(void); };
 // @baa 0x00588920

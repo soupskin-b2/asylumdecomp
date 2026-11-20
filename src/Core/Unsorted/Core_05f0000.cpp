@@ -689,8 +689,9 @@ undefined2 sub_005faa90(void)
   return 0x73;
 }
 
+struct C_005faaa0 { int sub_005faaa0(void); };
 // @baa 0x005faaa0
-int UArrayProperty::sub_005faaa0(void) { return *(int*)((char*)this + 4); }
+int C_005faaa0::sub_005faaa0(void) { return *(int*)((char*)this + 4); }
 
 struct C_005facf0 { C_005facf0* sub_005facf0(void); };
 
@@ -719,14 +720,17 @@ undefined4 * sub_005fad00(void)
   return (undefined4 *)0x0;
 }
 
+struct C_005fb100 { void sub_005fb100(void); };
 // @baa 0x005fb100
-void UPackageMap::sub_005fb100(void) { *(int*)((char*)this + 64) = 1; }
+void C_005fb100::sub_005fb100(void) { *(int*)((char*)this + 64) = 1; }
 
+struct C_005fb110 { void sub_005fb110(void); };
 // @baa 0x005fb110
-void UPackageMap::sub_005fb110(void) { *(int*)((char*)this + 64) = 0; }
+void C_005fb110::sub_005fb110(void) { *(int*)((char*)this + 64) = 0; }
 
+struct C_005fb120 { int sub_005fb120(void); };
 // @baa 0x005fb120
-int UPackageMap::sub_005fb120(void) { return *(int*)((char*)this + 64); }
+int C_005fb120::sub_005fb120(void) { return *(int*)((char*)this + 64); }
 
 struct C_005fb130 { int sub_005fb130(void); };
 
@@ -935,14 +939,17 @@ struct C_005fc390 { int a, b, c; C_005fc390(); };
 // @baa 0x005fc390
 C_005fc390::C_005fc390() : a(0), b(0), c(0) {}
 
+struct C_005fc3a0 { int sub_005fc3a0(void); };
 // @baa 0x005fc3a0
-int UObject::sub_005fc3a0(void) { return *(int*)((char*)this + 4); }
+int C_005fc3a0::sub_005fc3a0(void) { return *(int*)((char*)this + 4); }
 
+struct C_005fc3b0 { int sub_005fc3b0(void); };
 // @baa 0x005fc3b0
-int UObject::sub_005fc3b0(void) { return *(int*)((char*)this + 4); }
+int C_005fc3b0::sub_005fc3b0(void) { return *(int*)((char*)this + 4); }
 
+struct C_005fc3c0 { int sub_005fc3c0(void); };
 // @baa 0x005fc3c0
-int UObject::sub_005fc3c0(void) { return *(int*)((char*)this + 0); }
+int C_005fc3c0::sub_005fc3c0(void) { return *(int*)((char*)this + 0); }
 
 struct C_005fc3d0 { int a, b, c; C_005fc3d0(); };
 
@@ -954,22 +961,26 @@ struct C_005fc3e0 { int a, b, c; C_005fc3e0(); };
 // @baa 0x005fc3e0
 C_005fc3e0::C_005fc3e0() : a(0), b(0), c(0) {}
 
+struct C_005fc3f0 { int sub_005fc3f0(void); };
 // @baa 0x005fc3f0
-int UObject::sub_005fc3f0(void) { return *(int*)((char*)this + 0); }
+int C_005fc3f0::sub_005fc3f0(void) { return *(int*)((char*)this + 0); }
 
+struct C_005fc400 { int sub_005fc400(void); };
 // @baa 0x005fc400
-int UObject::sub_005fc400(void) { return *(int*)((char*)this + 4); }
+int C_005fc400::sub_005fc400(void) { return *(int*)((char*)this + 4); }
 
 struct C_005fc410 { int a, b, c; C_005fc410(); };
 
 // @baa 0x005fc410
 C_005fc410::C_005fc410() : a(0), b(0), c(0) {}
 
+struct C_005fc420 { int sub_005fc420(void); };
 // @baa 0x005fc420
-int UObject::sub_005fc420(void) { return *(int*)((char*)this + 0); }
+int C_005fc420::sub_005fc420(void) { return *(int*)((char*)this + 0); }
 
+struct C_005fc430 { int sub_005fc430(void); };
 // @baa 0x005fc430
-int UObject::sub_005fc430(void) { return *(int*)((char*)this + 4); }
+int C_005fc430::sub_005fc430(void) { return *(int*)((char*)this + 4); }
 
 struct C_005fc4b0 {
     INT Unk00; // 0x00
@@ -2628,8 +2639,9 @@ int C_005fee30::sub_005fee30(int param_2)
 // @baa 0x005fee40
 void __stdcall sub_005fee40(int a0, int a1) {  }
 
+struct C_005fee50 { int sub_005fee50(void); };
 // @baa 0x005fee50
-int UPackageMap::sub_005fee50(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005fee50::sub_005fee50(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_005fee60 { int sub_005fee60(int param_2); };
 // @baa 0x005fee60
@@ -2640,8 +2652,9 @@ int C_005fee60::sub_005fee60(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_005fee70 { int sub_005fee70(void); };
 // @baa 0x005fee70
-int UPackageMap::sub_005fee70(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005fee70::sub_005fee70(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_005fee80 { int sub_005fee80(int param_2); };
 // @baa 0x005fee80
@@ -2805,8 +2818,9 @@ struct S_005ff1e0 { int sub_00544d40(int); };
 // @baa 0x005ff1e0
 int sub_005ff1e0(S_005ff1e0 *s, int a) { return s->sub_00544d40(a); }
 
+struct C_005ff2a0 { int sub_005ff2a0(void); };
 // @baa 0x005ff2a0
-int UPackageMap::sub_005ff2a0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005ff2a0::sub_005ff2a0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_005ff2b0 { int sub_005ff2b0(void); };
 // @baa 0x005ff2b0
@@ -2937,8 +2951,9 @@ struct S_005ff490 { int sub_00544d40(int); };
 // @baa 0x005ff490
 int sub_005ff490(S_005ff490 *s, int a) { return s->sub_00544d40(a); }
 
+struct C_005ff4a0 { int sub_005ff4a0(void); };
 // @baa 0x005ff4a0
-int UPackageMap::sub_005ff4a0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005ff4a0::sub_005ff4a0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_005ff4b0 { int sub_005ff4b0(void); };
 // @baa 0x005ff4b0

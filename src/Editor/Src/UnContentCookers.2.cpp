@@ -4,17 +4,21 @@
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
 
+struct C_00567960 { int sub_00567960(void); };
 // @baa 0x00567960
-int UTexture2D::sub_00567960(void) { return *(int*)((char*)this + 20); }
+int C_00567960::sub_00567960(void) { return *(int*)((char*)this + 20); }
 
+struct C_00567970 { int sub_00567970(void); };
 // @baa 0x00567970
-int UTexture2D::sub_00567970(void) { return *(int*)((char*)this + 24); }
+int C_00567970::sub_00567970(void) { return *(int*)((char*)this + 24); }
 
+struct C_00567980 { int sub_00567980(void); };
 // @baa 0x00567980
-int UTexture2D::sub_00567980(void) { return *(int*)((char*)this + 28); }
+int C_00567980::sub_00567980(void) { return *(int*)((char*)this + 28); }
 
+struct C_00567990 { int sub_00567990(void); };
 // @baa 0x00567990
-int UTexture2D::sub_00567990(void) { return *(int*)((char*)this + 32); }
+int C_00567990::sub_00567990(void) { return *(int*)((char*)this + 32); }
 
 #include <stdio.h>
 
@@ -3954,8 +3958,9 @@ undefined4 * C_01091a40::sub_01091a40(undefined4 * param_2)
   return param_1;
 }
 
+struct C_01091a80 { int sub_01091a80(void); };
 // @baa 0x01091a80
-int UTexture2D::sub_01091a80(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_01091a80::sub_01091a80(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_01091a90 { int sub_01091a90(int param_2); };
 // @baa 0x01091a90

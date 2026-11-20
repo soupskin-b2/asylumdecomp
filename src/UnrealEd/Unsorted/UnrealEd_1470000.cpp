@@ -74,8 +74,9 @@ undefined4 sub_01476c80(void)
   return g_026dd588;
 }
 
+struct C_01476cd0 { void sub_01476cd0(void); };
 // @baa 0x01476cd0
-void UFMODReverbLabelRenderer::sub_01476cd0(void) { *(int*)((char*)this + 60) = 1; }
+void C_01476cd0::sub_01476cd0(void) { *(int*)((char*)this + 60) = 1; }
 
 extern char g_022a6c00[];
 struct C_01476ce0 { C_01476ce0* sub_01476ce0(void); };

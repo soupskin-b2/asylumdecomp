@@ -62,8 +62,9 @@ int sub_00c996b0(void)
 // @baa 0x011167b0
 int __stdcall sub_011167b0(int a0, int a1, int a2, int a3) { return 0; }
 
+struct C_011167c0 { int sub_011167c0(void); };
 // @baa 0x011167c0
-int UKismetBindings::sub_011167c0(void) { return *(int*)((char*)this + 376); }
+int C_011167c0::sub_011167c0(void) { return *(int*)((char*)this + 376); }
 
 // @baa 0x011192d0
 void sub_011192d0(void) {  }
@@ -112,8 +113,9 @@ struct C { char* sub_0118ffc0(void); };
 // @baa 0x0118ffc0
 char* C::sub_0118ffc0(void) { return (char*)this + 432; }
 
+struct C_0118fff0 { int sub_0118fff0(void); };
 // @baa 0x0118fff0
-int UKismetBindings::sub_0118fff0(void) { return *(int*)((char*)this + 424); }
+int C_0118fff0::sub_0118fff0(void) { return *(int*)((char*)this + 424); }
 
 struct FOO {
   int __thiscall sub_00f71ab0(void);
@@ -380,8 +382,9 @@ void sub_01192540(S* p, INT Value)
     p->vf_18(Value);
 }
 
+struct C_011925c0 { int sub_011925c0(void); };
 // @baa 0x011925c0
-int UKismetBindings::sub_011925c0(void) { return *(int*)((char*)this + 412); }
+int C_011925c0::sub_011925c0(void) { return *(int*)((char*)this + 412); }
 
 struct C_01193e70 {
     int sub_01193e70(int);

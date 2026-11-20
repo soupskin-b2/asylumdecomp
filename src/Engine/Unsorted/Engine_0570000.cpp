@@ -324,8 +324,9 @@ undefined4 C_00574910::sub_00574910(byte param_2)
   return param_1;
 }
 
+struct C_005749e0 { FString sub_005749e0(); };
 // @baa 0x005749e0
-FString UTextBufferFactory::sub_005749e0()
+FString C_005749e0::sub_005749e0()
 {
     return TEXT("FArchive");
 }

@@ -92,11 +92,13 @@ if((int*)0x0!=piVar1){
 return param_1;
 }
 
+struct C_00e9d6f0 { int sub_00e9d6f0(void); };
 // @baa 0x00e9d6f0
-int ULensFlare::sub_00e9d6f0(void) { return *(int*)((char*)this + 0); }
+int C_00e9d6f0::sub_00e9d6f0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d770 { int sub_00e9d770(void); };
 // @baa 0x00e9d770
-int ULensFlare::sub_00e9d770(void) { return *(int*)((char*)this + 0); }
+int C_00e9d770::sub_00e9d770(void) { return *(int*)((char*)this + 0); }
 
 struct C_00e9d7f0 { int*sub_00e9d7f0(int*param_2); };
 // @baa 0x00e9d7f0
@@ -117,8 +119,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00e9d820 { int sub_00e9d820(void); };
 // @baa 0x00e9d820
-int ULensFlare::sub_00e9d820(void) { return *(int*)((char*)this + 0); }
+int C_00e9d820::sub_00e9d820(void) { return *(int*)((char*)this + 0); }
 
 struct C_00e9d8b0 { int*sub_00e9d8b0(int*param_2); };
 // @baa 0x00e9d8b0
@@ -139,11 +142,13 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00e9d8e0 { int sub_00e9d8e0(void); };
 // @baa 0x00e9d8e0
-int ULensFlare::sub_00e9d8e0(void) { return *(int*)((char*)this + 0); }
+int C_00e9d8e0::sub_00e9d8e0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d8f0 { int sub_00e9d8f0(void); };
 // @baa 0x00e9d8f0
-int ULensFlare::sub_00e9d8f0(void) { return *(int*)((char*)this + 0); }
+int C_00e9d8f0::sub_00e9d8f0(void) { return *(int*)((char*)this + 0); }
 
 struct C_00e9d970 { int sub_00e9d970(int param_2); };
 // @baa 0x00e9d970
@@ -173,8 +178,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00e9d9b0 { int sub_00e9d9b0(void); };
 // @baa 0x00e9d9b0
-int ULensFlare::sub_00e9d9b0(void) { return *(int*)((char*)this + 0); }
+int C_00e9d9b0::sub_00e9d9b0(void) { return *(int*)((char*)this + 0); }
 
 struct C_00e9da30 { int sub_00e9da30(void); };
 

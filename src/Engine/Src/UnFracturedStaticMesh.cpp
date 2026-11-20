@@ -173,8 +173,9 @@ UBOOL AFractureManager::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_007a6fa0 { char* sub_007a6fa0(void); };
 // @baa 0x007a6fa0
-char* UFracturedStaticMesh::sub_007a6fa0(void) { return (char*)this + 476; }
+char* C_007a6fa0::sub_007a6fa0(void) { return (char*)this + 476; }
 
 struct C_007a7090 {
     uint sub_007a7090();
@@ -282,8 +283,9 @@ undefined4 * C_007b14f0::sub_007b14f0(byte param_2)
   return param_1;
 }
 
+struct C_007b15c0 { int sub_007b15c0(void); };
 // @baa 0x007b15c0
-int UFracturedStaticMesh::sub_007b15c0(void) { return *(int*)((char*)this + 480); }
+int C_007b15c0::sub_007b15c0(void) { return *(int*)((char*)this + 480); }
 
 struct C_007b1860 {
     int sub_007b1860();

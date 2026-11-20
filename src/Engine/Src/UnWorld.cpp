@@ -105,8 +105,9 @@ int C_008089e0::sub_008089e0(int param_2)
   return iVar1;
 }
 
+struct C_00808a20 { int sub_00808a20(void); };
 // @baa 0x00808a20
-int UObject::sub_00808a20(void) { return *(int*)((char*)this + 0); }
+int C_00808a20::sub_00808a20(void) { return *(int*)((char*)this + 0); }
 
 struct S_00808ae0 {
     TArray<DWORD> Items; // 0x00

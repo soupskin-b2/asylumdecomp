@@ -1003,8 +1003,9 @@ undefined4 * C_015a6d80::sub_015a6d80(undefined4 * param_2)
   return param_1;
 }
 
+struct C_015a6f70 { int sub_015a6f70(void); };
 // @baa 0x015a6f70
-int UObject::sub_015a6f70(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_015a6f70::sub_015a6f70(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);

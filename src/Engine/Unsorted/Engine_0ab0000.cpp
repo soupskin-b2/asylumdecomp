@@ -5454,14 +5454,17 @@ struct C_00abd0a0 { int a, b, c; C_00abd0a0(); };
 // @baa 0x00abd0a0
 C_00abd0a0::C_00abd0a0() : a(0), b(0), c(0) {}
 
+struct C_00abd180 { int sub_00abd180(void); };
 // @baa 0x00abd180
-int ULensFlare::sub_00abd180(void) { return *(int*)((char*)this + 4); }
+int C_00abd180::sub_00abd180(void) { return *(int*)((char*)this + 4); }
 
+struct C_00abd1b0 { int sub_00abd1b0(void); };
 // @baa 0x00abd1b0
-int ULensFlare::sub_00abd1b0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00abd1b0::sub_00abd1b0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_00abd400 { int sub_00abd400(void); };
 // @baa 0x00abd400
-int ULensFlare::sub_00abd400(void) { return *(int*)((char*)this + 20); }
+int C_00abd400::sub_00abd400(void) { return *(int*)((char*)this + 20); }
 
 struct C_00abd410 { bool sub_00abd410(void); };
 // @baa 0x00abd410

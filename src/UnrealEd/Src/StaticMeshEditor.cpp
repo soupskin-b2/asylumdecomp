@@ -4,8 +4,9 @@
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
 
+struct C_007a6fb0 { int sub_007a6fb0(void); };
 // @baa 0x007a6fb0
-int UFracturedStaticMesh::sub_007a6fb0(void) { return *(int*)((char*)this + 488); }
+int C_007a6fb0::sub_007a6fb0(void) { return *(int*)((char*)this + 488); }
 
 struct C{
 void sub_00a751d0(int*);

@@ -2134,11 +2134,13 @@ int __stdcall sub_0075f660(int a0) { return 0; }
 int sub_0075f670(void) { return 1; }
 
 extern char g_01ebbe1c[];
+struct C_0075f680 { void sub_0075f680(void); };
 // @baa 0x0075f680
-void ULensFlare::sub_0075f680(void) { *(int*)((char*)this + 0) = (int)g_01ebbe1c; }
+void C_0075f680::sub_0075f680(void) { *(int*)((char*)this + 0) = (int)g_01ebbe1c; }
 
+struct C_0075f690 { int sub_0075f690(void); };
 // @baa 0x0075f690
-int ULensFlare::sub_0075f690(void) { return *(int*)((char*)this + 0); }
+int C_0075f690::sub_0075f690(void) { return *(int*)((char*)this + 0); }
 
 struct FFaceFXElement
 {

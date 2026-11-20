@@ -1579,14 +1579,17 @@ UBOOL UWrangleContentCommandlet::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_0105fe90 { int sub_0105fe90(void); };
 // @baa 0x0105fe90
-int UObject::sub_0105fe90(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_0105fe90::sub_0105fe90(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_0105fea0 { int sub_0105fea0(void); };
 // @baa 0x0105fea0
-int UObject::sub_0105fea0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_0105fea0::sub_0105fea0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_0105feb0 { int sub_0105feb0(void); };
 // @baa 0x0105feb0
-int UObject::sub_0105feb0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_0105feb0::sub_0105feb0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

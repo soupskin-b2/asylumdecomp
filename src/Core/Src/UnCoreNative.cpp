@@ -41,20 +41,23 @@ float __stdcall sub_00540120(int)
     return 0.0f;
 }
 
+struct C_00540130 { float sub_00540130(int a, int b); };
 // @baa 0x00540130
-float UComponent::sub_00540130(int a, int b)
+float C_00540130::sub_00540130(int a, int b)
 {
   return 0.0f;
 }
 
+struct C_00540150 { float sub_00540150(int a, int b); };
 // @baa 0x00540150
-float UComponent::sub_00540150(int a, int b) { return 0.0f; }
+float C_00540150::sub_00540150(int a, int b) { return 0.0f; }
 
 // @baa 0x00540160
 BYTE __stdcall sub_00540160(int a) { return 0; }
 
+struct C_00540250 { DWORD sub_00540250(DWORD param); };
 // @baa 0x00540250
-DWORD UComponent::sub_00540250(DWORD param) {
+DWORD C_00540250::sub_00540250(DWORD param) {
     return 0xFFFFFFFF;
 }
 

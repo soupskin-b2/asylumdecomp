@@ -289,8 +289,9 @@ undefined4 * C_012de850::sub_012de850(undefined4 param_2)
 // @baa 0x012de870
 void sub_012de870(void) { sub_00c38ac0(); }
 
+struct C_012de880 { int sub_012de880(void); };
 // @baa 0x012de880
-int UUnrealEdEngine::sub_012de880(void) { return *(int*)((char*)this + 964); }
+int C_012de880::sub_012de880(void) { return *(int*)((char*)this + 964); }
 
 struct C_012de920 { C_012de920* sub_012de920(int a0); };
 
@@ -302,14 +303,17 @@ struct C_012de930 { C_012de930* sub_012de930(int a0); };
 // @baa 0x012de930
 C_012de930* C_012de930::sub_012de930(int a0) { return this; }
 
+struct C_012de9f0 { int sub_012de9f0(void); };
 // @baa 0x012de9f0
-int UUnrealEdEngine::sub_012de9f0(void) { return *(int*)((char*)this + 4); }
+int C_012de9f0::sub_012de9f0(void) { return *(int*)((char*)this + 4); }
 
+struct C_012dea00 { void sub_012dea00(int a0); };
 // @baa 0x012dea00
-void UUnrealEdEngine::sub_012dea00(int a0) { *(int*)((char*)this + 12) = a0; }
+void C_012dea00::sub_012dea00(int a0) { *(int*)((char*)this + 12) = a0; }
 
+struct C_012dea10 { char* sub_012dea10(void); };
 // @baa 0x012dea10
-char* UUnrealEdEngine::sub_012dea10(void) { return (char*)this + 420; }
+char* C_012dea10::sub_012dea10(void) { return (char*)this + 420; }
 
 struct C_012dea60 { void sub_012c5570(); void sub_012dea60(int); };
 

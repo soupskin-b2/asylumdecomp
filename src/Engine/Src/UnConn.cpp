@@ -3,8 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
+struct C_00567880 { int sub_00567880(void); };
 // @baa 0x00567880
-int UTexture2D::sub_00567880(void) { return *(int*)((char*)this + 140); }
+int C_00567880::sub_00567880(void) { return *(int*)((char*)this + 140); }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

@@ -370,8 +370,9 @@ extern char g_01f11408[];
 int sub_00787600(void) { return (int)g_01f11408; }
 
 extern char g_01ebb554[];
+struct C_00787610 { void sub_00787610(void); };
 // @baa 0x00787610
-void UBrushComponent::sub_00787610(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00787610::sub_00787610(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00787620 { undefined4 * sub_00787620(byte param_2); };
 // @baa 0x00787620

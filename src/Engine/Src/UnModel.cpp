@@ -92,8 +92,9 @@ int C_00805db0::sub_00805db0(int param_2)
   return param_2 * 0x40 + *param_1;
 }
 
+struct C_00805dc0 { int sub_00805dc0(void); };
 // @baa 0x00805dc0
-int UFracturedStaticMeshComponent::sub_00805dc0(void) { return *(int*)((char*)this + 0); }
+int C_00805dc0::sub_00805dc0(void) { return *(int*)((char*)this + 0); }
 
 void sub_004025d0(void*);
 struct D { void* p; ~D(){ if(0) sub_004025d0(p);} };

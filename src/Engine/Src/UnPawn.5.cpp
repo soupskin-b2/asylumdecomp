@@ -6,8 +6,9 @@
 
 
 
+struct C_008660b0 { ETestMoveResult sub_008660b0(AActor* GoalActor); };
 // @baa 0x008660b0
-ETestMoveResult APawn::sub_008660b0(AActor* GoalActor)
+ETestMoveResult C_008660b0::sub_008660b0(AActor* GoalActor)
 {
     if (ObjectIsA(GoalActor, ANavigationPoint::StaticClass()) && !GoalActor->bBlockActors)
     {

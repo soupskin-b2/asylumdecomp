@@ -6,10 +6,12 @@
 // @baa 0x00807a50
 IMPLEMENT_CLASS_AT(UMaterialEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnMaterialEffect.cpp", 11);
 
+struct C_00807cb0 { int sub_00807cb0(void); };
 // @baa 0x00807cb0
-int UMaterialEffect::sub_00807cb0(void) { return *(int*)((char*)this + 4); }
+int C_00807cb0::sub_00807cb0(void) { return *(int*)((char*)this + 4); }
 
+struct C_00807cc0 { int sub_00807cc0(void); };
 // @baa 0x00807cc0
-int UMaterialEffect::sub_00807cc0(void) { return *(int*)((char*)this + 80); }
+int C_00807cc0::sub_00807cc0(void) { return *(int*)((char*)this + 80); }
 
 // @baa 0x00807cd0

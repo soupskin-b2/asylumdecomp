@@ -34,8 +34,9 @@ undefined4 * C_00b31090::sub_00b31090(byte param_2)
   return param_1;
 }
 
+struct C_00b310e0 { int sub_00b310e0(void); };
 // @baa 0x00b310e0
-int UParticleModuleUberLTISIVCL::sub_00b310e0(void) { return *(int*)((char*)this + 12); }
+int C_00b310e0::sub_00b310e0(void) { return *(int*)((char*)this + 12); }
 
 // @baa 0x00b3d580
 IMPLEMENT_CLASS_AT(UParticleModule, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 52);
@@ -1889,8 +1890,9 @@ UBOOL UParticleModuleRequired::HasParentClassChanged() const
 // @baa 0x00ba2840
 int sub_00ba2840(void) { return 0; }
 
+struct C_00ba2850 { char* sub_00ba2850(void); };
 // @baa 0x00ba2850
-char* UParticleModuleUberLTISIVCL::sub_00ba2850(void) { return (char*)this + 20; }
+char* C_00ba2850::sub_00ba2850(void) { return (char*)this + 20; }
 
 int sub_00b9d2c0(...);
 int sub_00b9ed20(void);

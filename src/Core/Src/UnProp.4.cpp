@@ -128,17 +128,21 @@ struct C_005faab0 { int a, b, c; C_005faab0(); };
 // @baa 0x005faab0
 C_005faab0::C_005faab0() : a(0), b(0), c(0) {}
 
+struct C_005faac0 { int sub_005faac0(void); };
 // @baa 0x005faac0
-int UArrayProperty::sub_005faac0(void) { return *(int*)((char*)this + 0); }
+int C_005faac0::sub_005faac0(void) { return *(int*)((char*)this + 0); }
 
+struct C_005faad0 { int sub_005faad0(void); };
 // @baa 0x005faad0
-int UArrayProperty::sub_005faad0(void) { return *(int*)((char*)this + 0); }
+int C_005faad0::sub_005faad0(void) { return *(int*)((char*)this + 0); }
 
+struct C_005faae0 { int sub_005faae0(void); };
 // @baa 0x005faae0
-int UArrayProperty::sub_005faae0(void) { return *(int*)((char*)this + 0); }
+int C_005faae0::sub_005faae0(void) { return *(int*)((char*)this + 0); }
 
+struct C_005faaf0 { int sub_005faaf0(void); };
 // @baa 0x005faaf0
-int UArrayProperty::sub_005faaf0(void) { return *(int*)((char*)this + 20); }
+int C_005faaf0::sub_005faaf0(void) { return *(int*)((char*)this + 20); }
 
 struct C_005fab00 { int sub_005fab00(int param_2); };
 // @baa 0x005fab00

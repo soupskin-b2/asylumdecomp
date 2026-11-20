@@ -170,8 +170,9 @@ void __stdcall sub_0062b320(int a0, int a1, int a2, int a3) {  }
 // @baa 0x0062b330
 UBOOL UMapProperty::NetSerializeItem(FArchive& a0, UPackageMap* a1, void* a2) const { return 1; }
 
+struct C_0062b340 { int sub_0062b340(void); };
 // @baa 0x0062b340
-int UMapProperty::sub_0062b340(void) { return *(int*)((char*)this + 32); }
+int C_0062b340::sub_0062b340(void) { return *(int*)((char*)this + 32); }
 
 // @baa 0x0062b350
 void UMapProperty::ExportTextItem(UINT a0, UINT a1, UINT a2, UINT a3, UINT a4) {  }

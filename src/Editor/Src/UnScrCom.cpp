@@ -615,11 +615,13 @@ void C_00f9ded0::sub_00f9ded0(uint param_2)
   return;
 }
 
+struct C_00f9dee0 { char* sub_00f9dee0(void); };
 // @baa 0x00f9dee0
-char* UTexture2D::sub_00f9dee0(void) { return (char*)this + 180; }
+char* C_00f9dee0::sub_00f9dee0(void) { return (char*)this + 180; }
 
+struct C_00f9def0 { int sub_00f9def0(void); };
 // @baa 0x00f9def0
-int UTexture2D::sub_00f9def0(void) { return *(int*)((char*)this + 192); }
+int C_00f9def0::sub_00f9def0(void) { return *(int*)((char*)this + 192); }
 
 struct C_00f9df20 { void sub_00f9df20(undefined4 param_2); };
 // @baa 0x00f9df20

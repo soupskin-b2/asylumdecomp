@@ -71,8 +71,9 @@ void C_013a2fe0::sub_013a2fe0(int param_2)
   return;
 }
 
+struct C_013a3160 { int sub_013a3160(void); };
 // @baa 0x013a3160
-int UUnrealEdEngine::sub_013a3160(void) { return *(int*)((char*)this + 328); }
+int C_013a3160::sub_013a3160(void) { return *(int*)((char*)this + 328); }
 
 // @baa 0x013a3200
 void __stdcall sub_013a3200(int a0) {  }
@@ -165,8 +166,9 @@ extern char g_026d93e0[];
 // @baa 0x013a34d0
 int sub_013a34d0(void) { return (int)g_026d93e0; }
 
+struct C_013a3740 { void sub_013a3740(void); };
 // @baa 0x013a3740
-void UUnrealEdEngine::sub_013a3740(void) { *(int*)((char*)this + 448) = 1; }
+void C_013a3740::sub_013a3740(void) { *(int*)((char*)this + 448) = 1; }
 
 class wxCommandEvent;
 class wxCommandEvent {

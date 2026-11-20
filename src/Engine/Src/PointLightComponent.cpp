@@ -27,8 +27,9 @@ extern char g_01ed493c[];
 int sub_006da8f0(void) { return (int)g_01ed493c; }
 
 extern char g_01ebb554[];
+struct C_006da900 { void sub_006da900(void); };
 // @baa 0x006da900
-void UPointLightComponent::sub_006da900(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006da900::sub_006da900(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_006da910 { undefined4 * sub_006da910(byte param_2); };

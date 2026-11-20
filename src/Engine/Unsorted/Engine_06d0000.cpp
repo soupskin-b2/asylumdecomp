@@ -518,8 +518,9 @@ extern char g_01ed14f4[];
 // @baa 0x006d8a50
 int sub_006d8a50(void) { return (int)g_01ed14f4; }
 
+struct C_006d8a60 { void sub_006d8a60(void); };
 // @baa 0x006d8a60
-void UMaterialInstanceConstant::sub_006d8a60(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006d8a60::sub_006d8a60(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006d8a70 { undefined4 * sub_006d8a70(byte param_2); };
 // @baa 0x006d8a70
@@ -544,8 +545,9 @@ extern char g_01ed1528[];
 // @baa 0x006d8ad0
 int sub_006d8ad0(void) { return (int)g_01ed1528; }
 
+struct C_006d8ae0 { void sub_006d8ae0(void); };
 // @baa 0x006d8ae0
-void UMaterialInstanceConstant::sub_006d8ae0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006d8ae0::sub_006d8ae0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006d8af0 { undefined4 * sub_006d8af0(byte param_2); };
 // @baa 0x006d8af0
@@ -570,8 +572,9 @@ extern char g_01ed155c[];
 // @baa 0x006d8b50
 int sub_006d8b50(void) { return (int)g_01ed155c; }
 
+struct C_006d8b60 { void sub_006d8b60(void); };
 // @baa 0x006d8b60
-void UMaterialInstanceConstant::sub_006d8b60(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006d8b60::sub_006d8b60(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006d8b70 { undefined4 * sub_006d8b70(byte param_2); };
 // @baa 0x006d8b70
@@ -625,8 +628,9 @@ extern char g_01ed1864[];
 // @baa 0x006d8e00
 int sub_006d8e00(void) { return (int)g_01ed1864; }
 
+struct C_006d8e10 { void sub_006d8e10(void); };
 // @baa 0x006d8e10
-void UMaterialInstanceTimeVarying::sub_006d8e10(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006d8e10::sub_006d8e10(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006d8e20 { undefined4 * sub_006d8e20(byte param_2); };
 // @baa 0x006d8e20
@@ -651,8 +655,9 @@ extern char g_01ed1898[];
 // @baa 0x006d8e80
 int sub_006d8e80(void) { return (int)g_01ed1898; }
 
+struct C_006d8e90 { void sub_006d8e90(void); };
 // @baa 0x006d8e90
-void UMaterialInstanceTimeVarying::sub_006d8e90(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_006d8e90::sub_006d8e90(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_006d8ea0 { undefined4 * sub_006d8ea0(byte param_2); };
 // @baa 0x006d8ea0

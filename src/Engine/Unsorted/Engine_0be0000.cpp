@@ -20,8 +20,9 @@ extern char g_026c02c0[];
 // @baa 0x00be23b0
 int sub_00be23b0(void) { return (int)g_026c02c0; }
 
+struct C_00be2500 { char* sub_00be2500(void); };
 // @baa 0x00be2500
-char* ULensFlare::sub_00be2500(void) { return (char*)this + 104; }
+char* C_00be2500::sub_00be2500(void) { return (char*)this + 104; }
 
 int sub_006efb40(void);
 extern undefined * g_020202f8;

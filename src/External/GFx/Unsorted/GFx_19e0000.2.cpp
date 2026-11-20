@@ -346,8 +346,9 @@ bool C_019e6030::sub_019e6030(int param_2)
   return *param_1 != param_2;
 }
 
+struct C_019e6040 { void sub_019e6040(int a0); };
 // @baa 0x019e6040
-void UGFxDataStoreSubscriber::sub_019e6040(int a0) { *(int*)((char*)this + 36) = a0; }
+void C_019e6040::sub_019e6040(int a0) { *(int*)((char*)this + 36) = a0; }
 
 struct C_019e6050 {
     char pad[0x20];
@@ -403,8 +404,9 @@ void C_019e60a0::sub_019e60a0(void)
   return;
 }
 
+struct C_019e60b0 { int sub_019e60b0(void); };
 // @baa 0x019e60b0
-int UGFxDataStoreSubscriber::sub_019e60b0(void) { return *(int*)((char*)this + 0); }
+int C_019e60b0::sub_019e60b0(void) { return *(int*)((char*)this + 0); }
 
 struct C_019e60e0 { undefined4 sub_019e60e0(void); };
 // @baa 0x019e60e0

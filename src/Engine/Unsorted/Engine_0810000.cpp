@@ -1666,8 +1666,9 @@ C_0081e7d0 *C_0081e7d0::sub_0081e7d0(int a) { sub_00814440(a); return this; }
 // @baa 0x0081e870
 int sub_0081e870(void) { return 0; }
 
+struct C_0081e880 { int sub_0081e880(void); };
 // @baa 0x0081e880
-int UFracturedStaticMeshComponent::sub_0081e880(void) { return *(int*)((char*)this + 16); }
+int C_0081e880::sub_0081e880(void) { return *(int*)((char*)this + 16); }
 
 struct C_0081e890 { int sub_0081e890(void); };
 // @baa 0x0081e890

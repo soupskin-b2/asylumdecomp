@@ -1252,12 +1252,14 @@ IMPLEMENT_CLASS_AT(USubsystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 // @baa 0x0059d710
 void USubsystem::Tick(FLOAT a0) {  }
 
+struct C_0059d820 { int sub_0059d820(void); };
 // @baa 0x0059d730
 // @baa 0x0059d820
-int USubsystem::sub_0059d820(void) { return *(int*)((char*)this + 128); }
+int C_0059d820::sub_0059d820(void) { return *(int*)((char*)this + 128); }
 
+struct C_0059d830 { int sub_0059d830(void); };
 // @baa 0x0059d830
-int USubsystem::sub_0059d830(void) { return *(int*)((char*)this + 132); }
+int C_0059d830::sub_0059d830(void) { return *(int*)((char*)this + 132); }
 
 int sub_0053dfa0(...);
 int sub_0059d8c0(void);

@@ -206,8 +206,9 @@ struct C_00543e30 { int a, b, c; C_00543e30(); };
 // @baa 0x00543e30
 C_00543e30::C_00543e30() : a(0), b(0), c(0) {}
 
+struct C_00543e40 { int sub_00543e40(void); };
 // @baa 0x00543e40
-int UObject::sub_00543e40(void) { return *(int*)((char*)this + 0); }
+int C_00543e40::sub_00543e40(void) { return *(int*)((char*)this + 0); }
 
 struct S {
     TArray<DWORD> Items; // 0x00
@@ -661,11 +662,13 @@ undefined4 * C_00545ce0::sub_00545ce0(undefined4 param_2)
   return param_1;
 }
 
+struct C_00545d10 { void sub_00545d10(int a0); };
 // @baa 0x00545d10
-void UTexture2D::sub_00545d10(int a0) { *(int*)((char*)this + 124) = a0; }
+void C_00545d10::sub_00545d10(int a0) { *(int*)((char*)this + 124) = a0; }
 
+struct C_00545d20 { int sub_00545d20(void); };
 // @baa 0x00545d20
-int UTexture2D::sub_00545d20(void) { return *(int*)((char*)this + 124); }
+int C_00545d20::sub_00545d20(void) { return *(int*)((char*)this + 124); }
 
 struct C_00545d30 { undefined4 sub_00545d30(void); };
 // @baa 0x00545d30

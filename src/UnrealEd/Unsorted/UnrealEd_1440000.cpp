@@ -654,20 +654,25 @@ extern char g_026dc4b8[];
 // @baa 0x0144ed40
 int sub_0144ed40(void) { return (int)g_026dc4b8; }
 
+struct C_0144efe0 { int sub_0144efe0(void); };
 // @baa 0x0144efe0
-int UUnrealEdEngine::sub_0144efe0(void) { return *(int*)((char*)this + 4); }
+int C_0144efe0::sub_0144efe0(void) { return *(int*)((char*)this + 4); }
 
+struct C_0144eff0 { int sub_0144eff0(void); };
 // @baa 0x0144eff0
-int UUnrealEdEngine::sub_0144eff0(void) { return *(int*)((char*)this + 4); }
+int C_0144eff0::sub_0144eff0(void) { return *(int*)((char*)this + 4); }
 
+struct C_0144f000 { int sub_0144f000(void); };
 // @baa 0x0144f000
-int UUnrealEdEngine::sub_0144f000(void) { return *(int*)((char*)this + 8); }
+int C_0144f000::sub_0144f000(void) { return *(int*)((char*)this + 8); }
 
+struct C_0144f010 { int sub_0144f010(void); };
 // @baa 0x0144f010
-int UUnrealEdEngine::sub_0144f010(void) { return *(int*)((char*)this + 4); }
+int C_0144f010::sub_0144f010(void) { return *(int*)((char*)this + 4); }
 
+struct C_0144f020 { int sub_0144f020(void); };
 // @baa 0x0144f020
-int UUnrealEdEngine::sub_0144f020(void) { return *(int*)((char*)this + 4); }
+int C_0144f020::sub_0144f020(void) { return *(int*)((char*)this + 4); }
 
 struct C_0144f030 {
     INT Unk00; // 0x0
@@ -684,8 +689,9 @@ UBOOL C_0144f030::sub_0144f030(INT Index)
     return 0;
 }
 
+struct C_0144f050 { int sub_0144f050(void); };
 // @baa 0x0144f050
-int UUnrealEdEngine::sub_0144f050(void) { return *(int*)((char*)this + 4); }
+int C_0144f050::sub_0144f050(void) { return *(int*)((char*)this + 4); }
 
 struct C_0144f060 {
     INT Unk00; // 0x00
@@ -739,8 +745,9 @@ C_0144f0b0& C_0144f0b0::sub_0144f0b0(void)
     return *this;
 }
 
+struct C_0144f0f0 { int sub_0144f0f0(void); };
 // @baa 0x0144f0f0
-int UUnrealEdEngine::sub_0144f0f0(void) { return *(int*)((char*)this + 4); }
+int C_0144f0f0::sub_0144f0f0(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x0144f100
 int sub_0144f100(int a0) { return *(int*)a0; }

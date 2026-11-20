@@ -5936,8 +5936,9 @@ IMPLEMENT_CLASS_AT(UUIState_Enabled, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00ddd430
 extern char g_020d5684[];
+struct C_00ddd450 { void sub_00ddd450(void); };
 // @baa 0x00ddd450
-void UUIState_Enabled::sub_00ddd450(void) { *(int*)((char*)this + 0) = (int)g_020d5684; }
+void C_00ddd450::sub_00ddd450(void) { *(int*)((char*)this + 0) = (int)g_020d5684; }
 
 struct C_00ddd460 { undefined4 * sub_00ddd460(byte param_2); };
 // @baa 0x00ddd460
@@ -5965,8 +5966,9 @@ C_00ddd4f0* C_00ddd4f0::sub_00ddd4f0(int a0) { return this; }
 // @baa 0x00ddd550
 int sub_00ddd550(int a0, int a1) { return a1; }
 
+struct C_00ddd560 { int sub_00ddd560(void); };
 // @baa 0x00ddd560
-int UObject::sub_00ddd560(void) { return *(int*)((char*)this + 28); }
+int C_00ddd560::sub_00ddd560(void) { return *(int*)((char*)this + 28); }
 
 extern char g_020b5210[];
 // @baa 0x00ddd570
@@ -6169,8 +6171,9 @@ void sub_00c38ac0();
 // @baa 0x00dddba0
 void sub_00dddba0(void) { sub_00c38ac0(); }
 
+struct C_00dddbb0 { char* sub_00dddbb0(void); };
 // @baa 0x00dddbb0
-char* UUIInputConfiguration::sub_00dddbb0(void) { return (char*)this + 48; }
+char* C_00dddbb0::sub_00dddbb0(void) { return (char*)this + 48; }
 
 // @baa 0x00dddc80
 UBOOL UUITickableObjectProxy::HasUniqueStaticConfigName() const { return 1; }
@@ -6223,8 +6226,9 @@ extern char g_020d1fdc[];
 int sub_00ddded0(void) { return (int)g_020d1fdc; }
 
 extern char g_01ebb554[];
+struct C_00dddee0 { void sub_00dddee0(void); };
 // @baa 0x00dddee0
-void UUISceneClient::sub_00dddee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_00dddee0::sub_00dddee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_00dddef0 { undefined4 * sub_00dddef0(byte param_2); };
 // @baa 0x00dddef0
@@ -7249,8 +7253,9 @@ struct C_00de6120 { C_00de6120* sub_00de6120(void); };
 // @baa 0x00de6120
 C_00de6120* C_00de6120::sub_00de6120(void) { return this; }
 
+struct C_00de6190 { int sub_00de6190(void); };
 // @baa 0x00de6190
-int UGameUISceneClient::sub_00de6190(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00de6190::sub_00de6190(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 extern TArray<int> g_026a1ca4;
 struct C_00de61a0 {

@@ -887,8 +887,9 @@ void C_014df090::sub_014df090(int param_2)
 }
 
 
+struct C_014d79d0 { void* sub_014d79d0(void); };
 // @baa 0x014d79d0
-void* UTexture2D::sub_014d79d0(void)
+void* C_014d79d0::sub_014d79d0(void)
 {
     DWORD z = 0;
     *(DWORD*)((char*)this + 0x4)  = z;

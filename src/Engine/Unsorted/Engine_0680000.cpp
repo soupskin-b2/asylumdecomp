@@ -2422,8 +2422,9 @@ int AActor::vf_348(int a0, int a1) { return 0; }
 // @baa 0x0068f190
 char* AActor::vf_34c(void) { return (char*)this + 412; }
 
+struct C_0068f200 { int sub_0068f200(void); };
 // @baa 0x0068f200
-int AActor::sub_0068f200(void) { return *(int*)((char*)this + 4); }
+int C_0068f200::sub_0068f200(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x0068f570
 IMPLEMENT_CLASS_AT(AInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 74);

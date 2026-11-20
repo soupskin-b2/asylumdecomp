@@ -80,8 +80,9 @@ void sub_00981ff0(S* p, INT Value)
     p->vf_18(Value);
 }
 
+struct C_00982070 { int sub_00982070(void); };
 // @baa 0x00982070
-int ATerrain::sub_00982070(void) { return *(int*)((char*)this + 640); }
+int C_00982070::sub_00982070(void) { return *(int*)((char*)this + 640); }
 
 int sub_0053dfa0(...);
 struct C_00982080 { void sub_00982080(void); };

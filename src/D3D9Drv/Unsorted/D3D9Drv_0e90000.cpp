@@ -1266,8 +1266,9 @@ if((int*)0x0!=piVar1){
 return param_1;
 }
 
+struct C_00e9d5a0 { int sub_00e9d5a0(void); };
 // @baa 0x00e9d5a0
-int ULensFlare::sub_00e9d5a0(void) { return *(int*)((char*)this + 0); }
+int C_00e9d5a0::sub_00e9d5a0(void) { return *(int*)((char*)this + 0); }
 
 // @baa 0x00e9db80
 int sub_00e9db80(int a0) { return *(int*)a0; }

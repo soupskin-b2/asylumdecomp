@@ -2350,9 +2350,10 @@ int C_00e9a020::sub_00e9a020(void)
   return param_1;
 }
 
+struct C_00e9a170 { void sub_00e9a170(void); };
 // @baa 0x00e9a040
 // @baa 0x00e9a170
-void UOnlineSubsystemSteamworks::sub_00e9a170(void) { *(int*)((char*)this + 4) = 1; }
+void C_00e9a170::sub_00e9a170(void) { *(int*)((char*)this + 4) = 1; }
 
 struct Inner {
     void sub_00e98910(int);

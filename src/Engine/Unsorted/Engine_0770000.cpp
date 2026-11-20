@@ -544,8 +544,9 @@ UClass* AScout::GetDefaultReachSpecClass() { return *(UClass**)((char*)this + 98
 // @baa 0x00776480
 INT AScout::SecondPassPrunePathsForNav(ANavigationPoint* a0) { return 0; }
 
+struct C_00776490 { int sub_00776490(void); };
 // @baa 0x00776490
-int AScout::sub_00776490(void) { return *(int*)((char*)this + 4); }
+int C_00776490::sub_00776490(void) { return *(int*)((char*)this + 4); }
 
 // @baa 0x00776620
 IMPLEMENT_CLASS_AT(AScout, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 63);

@@ -640,8 +640,9 @@ extern char g_01f50ca4[];
 int sub_008a7700(void) { return (int)g_01f50ca4; }
 
 extern char g_01ebb554[];
+struct C_008a7710 { void sub_008a7710(void); };
 // @baa 0x008a7710
-void UGoal_Null::sub_008a7710(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_008a7710::sub_008a7710(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_008a7720 { undefined4 * sub_008a7720(byte param_2); };
 // @baa 0x008a7720

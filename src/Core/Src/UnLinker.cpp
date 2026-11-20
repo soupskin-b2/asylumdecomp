@@ -18,8 +18,9 @@ void sub_0059a0e0(void)
   return;
 }
 
+struct C_0059a560 { void sub_0059a560(void); };
 // @baa 0x0059a560
-void ULinkerLoad::sub_0059a560(void) { *(int*)((char*)this + 1464) = 1; }
+void C_0059a560::sub_0059a560(void) { *(int*)((char*)this + 1464) = 1; }
 
 struct V_0059a590 {
     virtual void v0();
@@ -1336,8 +1337,9 @@ int C_005a9dc0::sub_005a9dc0(int param_2)
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_005a9dd0 { int sub_005a9dd0(void); };
 // @baa 0x005a9dd0
-int UObject::sub_005a9dd0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_005a9dd0::sub_005a9dd0(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_005a9de0 { int sub_005a9de0(int param_2); };
 // @baa 0x005a9de0

@@ -117,11 +117,13 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
+struct C_00abd240 { int sub_00abd240(void); };
 // @baa 0x00abd240
-int ULensFlare::sub_00abd240(void) { return *(int*)((char*)this + 4); }
+int C_00abd240::sub_00abd240(void) { return *(int*)((char*)this + 4); }
 
+struct C_00abd270 { int sub_00abd270(void); };
 // @baa 0x00abd270
-int ULensFlare::sub_00abd270(void) { return *(int*)((char*)this + 4); }
+int C_00abd270::sub_00abd270(void) { return *(int*)((char*)this + 4); }
 
 struct C_00abd280 { int sub_00abd280(undefined4*param_2); };
 // @baa 0x00abd280

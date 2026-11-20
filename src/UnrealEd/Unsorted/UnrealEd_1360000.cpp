@@ -49,20 +49,25 @@ struct C_01367820 { int a; C_01367820(int); };
 // @baa 0x01367820
 C_01367820::C_01367820(int x) : a(x) {}
 
+struct C_01367a80 { float sub_01367a80(void); };
 // @baa 0x01367a80
-float UUnrealEdEngine::sub_01367a80(void) { return *(float*)((char*)this + 8); }
+float C_01367a80::sub_01367a80(void) { return *(float*)((char*)this + 8); }
 
+struct C_01367a90 { void sub_01367a90(int a0); };
 // @baa 0x01367a90
-void UUnrealEdEngine::sub_01367a90(int a0) { *(int*)((char*)this + 12) = a0; }
+void C_01367a90::sub_01367a90(int a0) { *(int*)((char*)this + 12) = a0; }
 
+struct C_01367aa0 { int sub_01367aa0(void); };
 // @baa 0x01367aa0
-int UUnrealEdEngine::sub_01367aa0(void) { return *(int*)((char*)this + 12); }
+int C_01367aa0::sub_01367aa0(void) { return *(int*)((char*)this + 12); }
 
+struct C_01367ab0 { int sub_01367ab0(void); };
 // @baa 0x01367ab0
-int UUnrealEdEngine::sub_01367ab0(void) { return *(int*)((char*)this + 20); }
+int C_01367ab0::sub_01367ab0(void) { return *(int*)((char*)this + 20); }
 
+struct C_01367ac0 { void sub_01367ac0(int a0); };
 // @baa 0x01367ac0
-void UUnrealEdEngine::sub_01367ac0(int a0) { *(int*)((char*)this + 20) = a0; }
+void C_01367ac0::sub_01367ac0(int a0) { *(int*)((char*)this + 20) = a0; }
 
 extern undefined4 g_025e8f08;
 // @baa 0x01367ad0
@@ -108,11 +113,13 @@ void C_01367b10::sub_01367b10(void)
   return;
 }
 
+struct C_01367b40 { int sub_01367b40(void); };
 // @baa 0x01367b40
-int UUnrealEdEngine::sub_01367b40(void) { return *(int*)((char*)this + 528); }
+int C_01367b40::sub_01367b40(void) { return *(int*)((char*)this + 528); }
 
+struct C_01367b70 { int sub_01367b70(void); };
 // @baa 0x01367b70
-int UUnrealEdEngine::sub_01367b70(void) { return *(int*)((char*)this + 536); }
+int C_01367b70::sub_01367b70(void) { return *(int*)((char*)this + 536); }
 
 extern char g_026d82d0[];
 // @baa 0x01367b80
@@ -162,33 +169,41 @@ extern char g_026d83d8[];
 // @baa 0x01367c30
 int sub_01367c30(void) { return (int)g_026d83d8; }
 
+struct C_01367c40 { char* sub_01367c40(void); };
 // @baa 0x01367c40
-char* UUnrealEdEngine::sub_01367c40(void) { return (char*)this + 416; }
+char* C_01367c40::sub_01367c40(void) { return (char*)this + 416; }
 
+struct C_01367c50 { char* sub_01367c50(void); };
 // @baa 0x01367c50
-char* UUnrealEdEngine::sub_01367c50(void) { return (char*)this + 428; }
+char* C_01367c50::sub_01367c50(void) { return (char*)this + 428; }
 
+struct C_01367c60 { int sub_01367c60(void); };
 // @baa 0x01367c60
-int UUnrealEdEngine::sub_01367c60(void) { return *(int*)((char*)this + 452); }
+int C_01367c60::sub_01367c60(void) { return *(int*)((char*)this + 452); }
 
+struct C_01367c70 { int sub_01367c70(void); };
 // @baa 0x01367c70
-int UUnrealEdEngine::sub_01367c70(void) { return *(int*)((char*)this + 460); }
+int C_01367c70::sub_01367c70(void) { return *(int*)((char*)this + 460); }
 
+struct C_01367c80 { int sub_01367c80(void); };
 // @baa 0x01367c80
-int UUnrealEdEngine::sub_01367c80(void) { return *(int*)((char*)this + 464); }
+int C_01367c80::sub_01367c80(void) { return *(int*)((char*)this + 464); }
 
+struct C_01367c90 { int sub_01367c90(void); };
 // @baa 0x01367c90
-int UUnrealEdEngine::sub_01367c90(void) { return *(int*)((char*)this + 468); }
+int C_01367c90::sub_01367c90(void) { return *(int*)((char*)this + 468); }
 
 extern char g_026d8d94[];
 // @baa 0x01367ca0
 int sub_01367ca0(void) { return (int)g_026d8d94; }
 
+struct C_01367cb0 { char* sub_01367cb0(void); };
 // @baa 0x01367cb0
-char* UUnrealEdEngine::sub_01367cb0(void) { return (char*)this + 428; }
+char* C_01367cb0::sub_01367cb0(void) { return (char*)this + 428; }
 
+struct C_01367cc0 { char* sub_01367cc0(void); };
 // @baa 0x01367cc0
-char* UUnrealEdEngine::sub_01367cc0(void) { return (char*)this + 440; }
+char* C_01367cc0::sub_01367cc0(void) { return (char*)this + 440; }
 
 extern char g_025e8f14[];
 // @baa 0x01367d00

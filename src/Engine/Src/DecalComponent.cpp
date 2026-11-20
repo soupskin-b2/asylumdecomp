@@ -51,8 +51,9 @@ extern char g_01eb5094[];
 int sub_0064e040(void) { return (int)g_01eb5094; }
 
 extern char g_01ebb554[];
+struct C_0064e050 { void sub_0064e050(void); };
 // @baa 0x0064e050
-void UDecalComponent::sub_0064e050(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_0064e050::sub_0064e050(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
 struct C_0064e060 { undefined4 * sub_0064e060(byte param_2); };

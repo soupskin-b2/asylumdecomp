@@ -4,5 +4,6 @@
 #include "ue3/Classes.h"
 
 extern char g_01e72a60[];
+struct C_00570860 { void sub_00570860(void); };
 // @baa 0x00570860
-void UTexture2D::sub_00570860(void) { *(int*)((char*)this + 0) = (int)g_01e72a60; }
+void C_00570860::sub_00570860(void) { *(int*)((char*)this + 0) = (int)g_01e72a60; }

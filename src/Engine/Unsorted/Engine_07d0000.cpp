@@ -770,8 +770,9 @@ struct C_007d6e30 { C_007d6e30* sub_007d6e30(void); };
 C_007d6e30* C_007d6e30::sub_007d6e30(void) { *(int*)((char*)this + 0) = (int)g_01f36a7c; return this; }
 
 extern char g_01ebb554[];
+struct C_007d6e40 { void sub_007d6e40(void); };
 // @baa 0x007d6e40
-void UGameEngine::sub_007d6e40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_007d6e40::sub_007d6e40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_007d6e50 { undefined4 * sub_007d6e50(byte param_2); };
 // @baa 0x007d6e50
@@ -826,8 +827,9 @@ struct C_007d6f40 { C_007d6f40* sub_007d6f40(void); };
 // @baa 0x007d6f40
 C_007d6f40* C_007d6f40::sub_007d6f40(void) { *(int*)((char*)this + 0) = (int)g_01f36a94; return this; }
 
+struct C_007d6f50 { void sub_007d6f50(void); };
 // @baa 0x007d6f50
-void UGameEngine::sub_007d6f50(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_007d6f50::sub_007d6f50(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 extern char g_01f36aa0[];
 struct C_007d6f60 { C_007d6f60* sub_007d6f60(void); };
@@ -835,11 +837,13 @@ struct C_007d6f60 { C_007d6f60* sub_007d6f60(void); };
 // @baa 0x007d6f60
 C_007d6f60* C_007d6f60::sub_007d6f60(void) { *(int*)((char*)this + 0) = (int)g_01f36aa0; return this; }
 
+struct C_007d6f70 { void sub_007d6f70(void); };
 // @baa 0x007d6f70
-void UGameEngine::sub_007d6f70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_007d6f70::sub_007d6f70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_007d6f80 { void sub_007d6f80(void); };
 // @baa 0x007d6f80
-void UGameEngine::sub_007d6f80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
+void C_007d6f80::sub_007d6f80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 struct C_007d6f90 { undefined4 * sub_007d6f90(byte param_2); };
 // @baa 0x007d6f90

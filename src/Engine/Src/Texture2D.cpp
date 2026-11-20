@@ -3,11 +3,13 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
+struct C_005678e0 { int sub_005678e0(void); };
 // @baa 0x005678e0
-int UTexture2D::sub_005678e0(void) { return *(int*)((char*)this + 16); }
+int C_005678e0::sub_005678e0(void) { return *(int*)((char*)this + 16); }
 
+struct C_005678f0 { int sub_005678f0(void); };
 // @baa 0x005678f0
-int UTexture2D::sub_005678f0(void) { return *(int*)((char*)this + 12); }
+int C_005678f0::sub_005678f0(void) { return *(int*)((char*)this + 12); }
 
 struct C_00567900 { bool sub_00567900(void); };
 // @baa 0x00567900

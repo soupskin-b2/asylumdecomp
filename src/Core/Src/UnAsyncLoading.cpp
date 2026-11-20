@@ -4,11 +4,13 @@
 #include "ue3/Classes.h"
 #include "ue3/Map.h"
 
+struct C_00567190 { int sub_00567190(void); };
 // @baa 0x00567190
-int UTexture2D::sub_00567190(void) { return *(int*)((char*)this + 144); }
+int C_00567190::sub_00567190(void) { return *(int*)((char*)this + 144); }
 
+struct C_005671a0 { int sub_005671a0(void); };
 // @baa 0x005671a0
-int UTexture2D::sub_005671a0(void) { return *(int*)((char*)this + 140); }
+int C_005671a0::sub_005671a0(void) { return *(int*)((char*)this + 140); }
 
 extern int g_026a1cd8;
 // @baa 0x0056b000

@@ -7,11 +7,13 @@
 // @baa 0x00bda340
 void sub_00bda340(void) {  }
 
+struct C_00bda350 { int sub_00bda350(void); };
 // @baa 0x00bda350
-int ULensFlare::sub_00bda350(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00bda350::sub_00bda350(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
+struct C_00bda360 { int sub_00bda360(void); };
 // @baa 0x00bda360
-int ULensFlare::sub_00bda360(void) { return *(int*)((char*)this + 20); }
+int C_00bda360::sub_00bda360(void) { return *(int*)((char*)this + 20); }
 
 // @baa 0x00bda370
 int sub_00bda370(int a0) { return *(int*)a0; }

@@ -9,8 +9,8 @@ extern char g_01ebe858[];
 extern char g_02347548[];
 struct C { C* sub_005c7a20(void); };
 
-/* ARBMRouter_NoPawn::ARBMRouter_NoPawn(): its base classes declare their constructors out of line in Classes.h, but here the
- * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+/* The exe's out-of-line copy of ARBMRouter_NoPawn::ARBMRouter_NoPawn() (UObject(), AActor's vtable and DetachFence, then its own vtable).
+ * Classes.h leaves the constructor implicit, since the exe inlines it where the class is created, so this is a stand-in. */
 struct C_0162bd00 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;

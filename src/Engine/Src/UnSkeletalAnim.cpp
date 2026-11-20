@@ -933,8 +933,9 @@ int C_009216f0::sub_009216f0(void)
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00921700 { int sub_00921700(void); };
 // @baa 0x00921700
-int USkeletalMeshComponent::sub_00921700(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
+int C_00921700::sub_00921700(void) { return *(int*)((char*)this + 4) - *(int*)((char*)this + 44); }
 
 struct C_009217b0 { int sub_009217b0(int param_2); };
 // @baa 0x009217b0
