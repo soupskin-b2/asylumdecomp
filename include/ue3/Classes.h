@@ -58348,7 +58348,17 @@ struct UDownload : public UObject {
     INT PackageIndex; /* 0x34 */
     struct FPackageInfo* Info; /* 0x38 */
     FString DownloadParams; /* 0x3c */
-    BYTE _native[0xa1c]; /* C++-only members, to the registered size 0xa64 */
+    /* the rest as UE3's UnDownload.h has them (TempFilename is MAX_SPRINTF wide; UHTTPDownload's StaticConstructor registers
+     * UseCompression at 0x48) */
+    UBOOL UseCompression; /* 0x48 */
+    FArchive* RecvFileAr; /* 0x4c */
+    TCHAR TempFilename[1024]; /* 0x50 */
+    TCHAR Error[256]; /* 0x850 */
+    INT Transfered; /* 0xa50 */
+    INT FileSize; /* 0xa54 */
+    UBOOL SkippedFile; /* 0xa58 */
+    UBOOL IsCompressed; /* 0xa5c */
+    UBOOL bDownloadSendsFileSizeInData; /* 0xa60 */
     /* virtual functions this class introduces (vtable 0x020e30e0) */
     virtual UBOOL TrySkipFile(); /* 0x10c */
     virtual void ReceiveFile( UNetConnection* InConnection, INT PackageIndex, const TCHAR *Params=NULL, UBOOL InCompression=0 ); /* 0x110 */
@@ -58732,8 +58742,12 @@ struct UClient : public UObject, public FExec {
     DECLARE_CLASS(UClient, UObject, 0x10000005, 0x0, Engine)
     void StaticConstructor(); /* 0x00c97230 */
     void InitializeIntrinsicPropertyValues(); /* 0x00c975e0 */
-    BYTE _native_34[0x10];
-    FLOAT DisplayGamma; /* 0x44 */
+    /* the config properties StaticConstructor registers, at its offsets (0x30 is FExec's vtable) */
+    FLOAT MinDesiredFrameRate; /* 0x34 */
+    FLOAT DisplayGamma; /* 0x38 */
+    FLOAT DisplayGammaMin; /* 0x3c */
+    FLOAT DisplayGammaMax; /* 0x40 */
+    FLOAT DisplayGammaReferenceBrightness; /* 0x44 */
     FLOAT InitialButtonRepeatDelay; /* 0x48 */
     FLOAT ButtonRepeatDelay; /* 0x4c */
     /* virtual functions this class introduces (vtable 0x02085930) */
@@ -58758,8 +58772,19 @@ struct UClient : public UObject, public FExec {
 struct UCodecMovieBink : public UCodecMovie {
     /* Engine.CodecMovieBink (native only: no script package describes it) */
     DECLARE_CLASS(UCodecMovieBink, UCodecMovie, 0x10000008, 0x0, Engine)
-    UCodecMovieBink() { *(DWORD*)((BYTE*)this + 0x38) = 0; *(DWORD*)((BYTE*)this + 0x3c) = 0; *(DWORD*)((BYTE*)this + 0x40) = 0; *(DWORD*)((BYTE*)this + 0x44) = 0; *(DWORD*)((BYTE*)this + 0x48) = 0; *(DWORD*)((BYTE*)this + 0x4c) = 0; *(DWORD*)((BYTE*)this + 0x50) = 0; }
-    BYTE _native[0x24]; /* C++-only members, to the registered size 0x58 */
+    UCodecMovieBink() { bTextureSetInitialized = 0; Bink = NULL; *(DWORD*)_native_40 = 0; MemorySource = NULL; bOneFrameOnly = 0; bLooping = 0; ReleaseFence = NULL; }
+    /* UnCodecBink.inl's members; UE3's headers leave them out, so the names are from their use (MemorySource is
+     * named by an assert, the rest by what reads them: Close/ReleaseDynamicResources, BinkOpen, Play(bLooping, bOneFrameOnly),
+     * BeginDestroy/IsReadyForFinishDestroy) */
+    class FRenderResource* TextureSet; /* 0x34: released (vtable 0x18, ReleaseResource) and deleted when initialized */
+    UBOOL bTextureSetInitialized; /* 0x38 */
+    void* Bink; /* 0x3c: the HBINK BinkOpen returns */
+    BYTE _native_40[0x4]; /* zeroed by the constructor; no reader found */
+    void* MemorySource; /* 0x44 */
+    UBOOL bOneFrameOnly; /* 0x48 */
+    UBOOL bLooping; /* 0x4c */
+    class FRenderCommandFence* ReleaseFence; /* 0x50 */
+    BYTE _native[0x4]; /* C++-only members, to the registered size 0x58 */
     /* virtual functions this class introduces (vtable 0x02086078) */
     virtual UINT vf_148(); /* 0x148 */
     virtual INT vf_14c(INT); /* 0x14c */
@@ -59074,8 +59099,9 @@ struct UPropertyInputProxy : public UObject {
     /* UnrealEd.PropertyInputProxy (native only: no script package describes it) */
     DECLARE_CLASS(UPropertyInputProxy, UObject, 0x10000000, 0x0, UnrealEd)
     UPropertyInputProxy() { *(DWORD*)((BYTE*)this + 0x3c) = 0; }
-    TArray<FNativeElem_01200bc0> Native_30; /* 0x30: C++ only (destroyed by its destructor) */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x40 */
+    /* PropertyUtils.h's members (this build has no LastResizeRect) */
+    TArray<FNativeElem_01200bc0> Buttons; /* 0x30: WxPropertyItemButton* elements */
+    class wxComboBox* ComboBox; /* 0x3c */
     /* virtual functions this class introduces (vtable 0x021f75b8) */
     virtual INT GetProxyHeight() const; /* 0x10c */
     virtual UBOOL LetPropertyExpand() const; /* 0x110 */
@@ -59373,13 +59399,27 @@ struct UNetDriver : public USubsystem, public FNetObjectNotify {
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00dfe2b0 */
 };
 
-struct FNativeDtor_00c13850_20 { ~FNativeDtor_00c13850_20(); /* 0x00c13850 */ DWORD _data[8]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* DemoRecording.h's rewind point, and UDemoRecDriver::RewindPoints, a TArray of them with its out-of-line destructor (the name
+ * keeps the old size so the destructor's symbol stays) */
+struct FDemoRewindPoint {
+    INT FrameNum; /* 0x0 */
+    TArray<BYTE> Data; /* 0x4 */
+};
+struct FNativeDtor_00c13850_20 : public TArrayNoInit<FDemoRewindPoint> { ~FNativeDtor_00c13850_20(); /* 0x00c13850 */ };
 struct UDemoRecDriver : public UNetDriver {
     /* Engine.DemoRecDriver (native only: no script package describes it) */
     DECLARE_CLASS(UDemoRecDriver, UNetDriver, 0x1000000c, 0x0, Engine)
     UDemoRecDriver(); /* 0x00c1a630 */
     void StaticConstructor(); /* 0x00bf9600 */
-    BYTE _native0[0x1c];
+    /* DemoRecording.h's members (MaxRewindPoints, RewindPointInterval and NumRecentRewindPoints are offsets StaticConstructor
+     * registers) */
+    UBOOL bNoFrameCap; /* 0x150 */
+    UBOOL bHasDemoEnded; /* 0x154 */
+    UBOOL bNoRender; /* 0x158 */
+    UBOOL bShouldExitAfterPlaybackFinished; /* 0x15c */
+    INT PlayCount; /* 0x160 */
+    UBOOL bShouldSkipPackageChecking; /* 0x164 */
+    UBOOL bAllowInterpolation; /* 0x168 */
     FStringNoInit DemoFilename; /* 0x16c */
     FStringNoInit DemoSpectatorClass; /* 0x178 */
     FArchive* FileAr; /* 0x184 */
@@ -59388,8 +59428,15 @@ struct UDemoRecDriver : public UNetDriver {
     INT FrameNum; /* 0x198 */
     FLOAT LastDeltaTime; /* 0x19c */
     FURL LoopURL; /* 0x1a0 */
-    BYTE _native3[0x10];
-    FNativeDtor_00c13850_20 Native_1f4; /* 0x1f4: C++ only (destroyed by its destructor) */
+    DOUBLE LastClientRecordTime; /* 0x1e4 */
+    FLOAT DemoRecMultiFrameDeltaTime; /* 0x1ec */
+    INT PlaybackTotalFrames; /* 0x1f0 */
+    FNativeDtor_00c13850_20 RewindPoints; /* 0x1f4 */
+    INT MaxRewindPoints; /* 0x200 */
+    FLOAT LastRewindPointTime; /* 0x204 */
+    FLOAT RewindPointInterval; /* 0x208 */
+    INT NumRecentRewindPoints; /* 0x20c */
+    INT LastRewindPointCulled; /* 0x210 */
     /* virtual functions this class introduces (vtable 0x020320c8) */
     virtual UBOOL IsDemoDriver(); /* 0x144 */
     /* overrides */
@@ -61191,11 +61238,15 @@ struct UHTTPDownload : public UDownload {
     DECLARE_CLASS(UHTTPDownload, UDownload, 0x1000000c, 0x0, IpDrv)
     UHTTPDownload(); /* 0x00e3a000 */
     void StaticConstructor(); /* 0x00e2a6f0 */
-    FStringNoInit Native_a64; /* 0xa64: C++ only (destroyed by its destructor) */
-    BYTE _native1[0x14];
-    FURL Native_a84; /* 0xa84: C++ only (destroyed by its destructor) */
-    BYTE _native2[0x4];
-    FNativeDtor_006049d0_90 Native_acc; /* 0xacc: C++ only (destroyed by its destructor) */
+    /* HTTPDownload.h's members (ProxyServerHost .. ConnectionTimeout are the config properties StaticConstructor registers) */
+    FStringNoInit ProxyServerHost; /* 0xa64 */
+    INT ProxyServerPort; /* 0xa70 */
+    INT MaxRedirection; /* 0xa74 */
+    FLOAT ConnectionTimeout; /* 0xa78 */
+    DOUBLE LastTickTime; /* 0xa7c */
+    FURL DownloadURL; /* 0xa84 */
+    class FHttpDownload* Downloader; /* 0xac8 */
+    FNativeDtor_006049d0_90 MemoryBuffer; /* 0xacc: an FBufferArchive (only its destructor is known here) */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63032,7 +63083,7 @@ struct UPropertyInputColor : public UPropertyInputArrayItemBase {
 struct UPropertyInputCombo : public UPropertyInputArrayItemBase {
     /* UnrealEd.PropertyInputCombo (native only: no script package describes it) */
     DECLARE_CLASS(UPropertyInputCombo, UPropertyInputArrayItemBase, 0x0, 0x0, UnrealEd)
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x44 */
+    UBOOL bUsesAlternateDisplayValues; /* 0x40 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -63059,8 +63110,11 @@ struct UPropertyInputEditInline : public UPropertyInputArrayItemBase {
 struct UPropertyInputText : public UPropertyInputArrayItemBase {
     /* UnrealEd.PropertyInputText (native only: no script package describes it) */
     DECLARE_CLASS(UPropertyInputText, UPropertyInputArrayItemBase, 0x0, 0x0, UnrealEd)
-    UPropertyInputText() { *(DWORD*)((BYTE*)this + 0x40) = 0; }
-    BYTE _native[0xc]; /* C++-only members, to the registered size 0x4c */
+    UPropertyInputText() { TextCtrl = NULL; }
+    /* PropertyUtils.h's members (this build has no MaxRowCount) */
+    class WxPropertyItemTextCtrl* TextCtrl; /* 0x40 */
+    class wxPanel* PropertyPanel; /* 0x44 */
+    class wxSizer* PropertySizer; /* 0x48 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64283,21 +64337,26 @@ struct USystem : public USubsystem {
     DECLARE_CLASS(USystem, USubsystem, 0x10000004, 0x0, Core)
     USystem(); /* 0x00640fe0 */
     void StaticConstructor(); /* 0x006352e0 */
-    BYTE _native0[0x14];
-    FStringNoInit Native_48; /* 0x48: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_54; /* 0x54: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_60; /* 0x60: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_6c; /* 0x6c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_78; /* 0x78: C++ only (destroyed by its destructor) */
-    TArray<FString> Native_84; /* 0x84: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_90; /* 0x90: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_a8; /* 0xa8: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FName> Native_b4; /* 0xb4: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_c0; /* 0xc0: C++ only (destroyed by its destructor) */
-    TArray<FString> Native_cc; /* 0xcc: C++ only (destroyed by its destructor) */
-    TArrayNoInit<FString> Native_d8; /* 0xd8: C++ only (destroyed by its destructor) */
-    FStringNoInit Native_e4; /* 0xe4: C++ only (destroyed by its destructor) */
+    /* UnCorObj.h's members, at the offsets StaticConstructor registers them (0x30 is FExec's vtable) */
+    INT StaleCacheDays; /* 0x34 */
+    INT MaxStaleCacheSize; /* 0x38 */
+    INT MaxOverallCacheSize; /* 0x3c */
+    INT PackageSizeSoftLimit; /* 0x40 */
+    FLOAT AsyncIOBandwidthLimit; /* 0x44 */
+    FStringNoInit SavePath; /* 0x48 */
+    FStringNoInit CachePath; /* 0x54 */
+    FStringNoInit CacheExt; /* 0x60 */
+    FStringNoInit ScreenShotPath; /* 0x6c */
+    TArrayNoInit<FString> Paths; /* 0x78 */
+    TArray<FString> SeekFreePCPaths; /* 0x84 */
+    TArrayNoInit<FString> ScriptPaths; /* 0x90 */
+    TArrayNoInit<FString> FRScriptPaths; /* 0x9c */
+    TArrayNoInit<FString> CutdownPaths; /* 0xa8 */
+    TArrayNoInit<FName> Suppress; /* 0xb4 */
+    TArrayNoInit<FString> Extensions; /* 0xc0 */
+    TArray<FString> SeekFreePCExtensions; /* 0xcc */
+    TArrayNoInit<FString> LocalizationPaths; /* 0xd8 */
+    FStringNoInit TextureFileCacheExtension; /* 0xe4 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -64313,9 +64372,11 @@ struct UTcpNetDriver : public UNetDriver {
     DECLARE_CLASS(UTcpNetDriver, UNetDriver, 0xc, 0x0, IpDrv)
     UTcpNetDriver() {  }
     void StaticConstructor(); /* 0x00e2b8a0 */
-    BYTE _native0[0x8];
-    FNativeZeroed_TcpNetDriver_158 Native_158; /* 0x158: C++ only (zeroed by its constructor) */
-    BYTE _native[0x4]; /* C++-only members, to the registered size 0x16c */
+    /* UnTcpNetDriver.h's members (the two config flags are offsets StaticConstructor registers) */
+    UBOOL AllowPlayerPortUnreach; /* 0x150 */
+    UBOOL LogPortUnreach; /* 0x154 */
+    FNativeZeroed_TcpNetDriver_158 LocalAddr; /* 0x158: FInternetIpAddr, a sockaddr_in here (family AF_INET) */
+    class FSocket* Socket; /* 0x168 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -65175,18 +65236,37 @@ struct UVoiceChannel : public UChannel {
 };
 
 struct FNativeDtor_00eb78e0_c { ~FNativeDtor_00eb78e0_c(); /* 0x00eb78e0 */ DWORD _data[3]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00ebce60_128 { ~FNativeDtor_00ebce60_128(); /* 0x00ebce60 */ DWORD _data[74]; };  /* a C++-only member: only its destructor is known; size up to the next member */
-struct FNativeDtor_00ebcdf0_3c { ~FNativeDtor_00ebcdf0_3c(); /* 0x00ebcdf0 */ DWORD _data[15]; };  /* a C++-only member: only its destructor is known; size up to the next member */
+/* UWindowsClient's key maps, TMap<FName,BYTE> and TMap<BYTE,FName> (Map.h; cast to them), with their out-of-line destructors
+ * (the names keep the old sizes so the destructors' symbols stay) */
+struct FNativeDtor_00ebce60_128 : public FMap_Mirror { ~FNativeDtor_00ebce60_128(); /* 0x00ebce60 */ };
+struct FNativeDtor_00ebcdf0_3c : public FMap_Mirror { ~FNativeDtor_00ebcdf0_3c(); /* 0x00ebcdf0 */ };
 struct UWindowsClient : public UClient {
     /* WinDrv.WindowsClient (native only: no script package describes it) */
     DECLARE_CLASS(UWindowsClient, UClient, 0xc, 0x0, WinDrv)
     UWindowsClient(); /* 0x00ebec30 */
     void StaticConstructor(); /* 0x00eb3750 */
-    BYTE _native0[0x4];
-    FString Native_54; /* 0x54: C++ only (destroyed by its destructor) */
-    FNativeDtor_00ebcdf0_3c Native_60; /* 0x60: C++ only (destroyed by its destructor) */
-    FNativeDtor_00ebce60_128 Native_9c; /* 0x9c: C++ only (destroyed by its destructor) */
-    FNativeDtor_00eb78e0_c Native_1c4; /* 0x1c4: C++ only (destroyed by its destructor) */
+    /* WinDrv.h's members, as this build has them (no GameCaster mapping; AudioDeviceClass and AllowJoystickInput are the
+     * offsets StaticConstructor registers; the accessibility structs are the ones SystemParametersInfo fills) */
+    class UEngine* Engine; /* 0x50 */
+    FString WindowClassName; /* 0x54 */
+    FNativeDtor_00ebcdf0_3c KeyMapVirtualToName; /* 0x60: TMap<BYTE,FName> */
+    FNativeDtor_00ebce60_128 KeyMapNameToVirtual; /* 0x9c: TMap<FName,BYTE> */
+    BYTE PS2ToXboxControllerMapping[16]; /* 0xd8 */
+    BYTE X360ToXboxControllerMapping[16]; /* 0xe8 */
+    FName JoyNames[16]; /* 0xf8 */
+    DWORD LastMouseXEventTime; /* 0x178 */
+    DWORD LastMouseYEventTime; /* 0x17c */
+    UBOOL ProcessWindowsMessages; /* 0x180 */
+    FLOAT ControllerScanTime; /* 0x184 */
+    INT NextControllerToCheck; /* 0x188 */
+    class UClass* AudioDeviceClass; /* 0x18c */
+    class UAudioDevice* AudioDevice; /* 0x190 */
+    DWORD StartupStickyKeys[2]; /* 0x194: STICKYKEYS (cbSize, dwFlags) */
+    DWORD StartupToggleKeys[2]; /* 0x19c: TOGGLEKEYS */
+    DWORD StartupFilterKeys[6]; /* 0x1a4: FILTERKEYS */
+    UBOOL StartupScreenSaverActive; /* 0x1bc: SPI_GETSCREENSAVEACTIVE's value, put back at shutdown */
+    UBOOL bAllowJoystickInput; /* 0x1c0 */
+    FNativeDtor_00eb78e0_c DeferredMessages; /* 0x1c4: TArray<FDeferredMessage>, with its out-of-line destructor */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
