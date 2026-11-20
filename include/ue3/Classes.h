@@ -13884,8 +13884,8 @@ struct UAnimNodeBlendBase : public UAnimNode {
     /* virtual functions this class introduces (vtable 0x02059b60) */
     virtual void SetChildrenTotalWeightAccumulator(const INT Index); /* 0x188 */
     virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
-    virtual INT vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT); /* 0x194 */
+    virtual void OnAddChild(INT ChildNum); /* 0x190 */
+    virtual void OnRemoveChild(INT ChildNum); /* 0x194 */
     virtual void RenameChildConnectors(); /* 0x198 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -14008,8 +14008,8 @@ struct UAnimNodeBlendList : public UAnimNodeBlendBase {
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
     virtual FString GetSliderDrawValue(INT SliderIndex); /* 0x180 */
-    virtual INT vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT); /* 0x194 */
+    virtual void OnAddChild(INT ChildNum); /* 0x190 */
+    virtual void OnRemoveChild(INT ChildNum); /* 0x194 */
     /* UnrealScript natives */
     void execSetActiveChild(FFrame& Stack, RESULT_DECL); /* 0x00c90e30 */
     /* registered size 0xe4 */
@@ -14197,8 +14197,8 @@ struct UAnimNodeRandom : public UAnimNodeBlendList {
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
     virtual void vf_150(); /* 0x150 */
     virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
-    virtual INT vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT); /* 0x194 */
+    virtual void OnAddChild(INT ChildNum); /* 0x190 */
+    virtual void OnRemoveChild(INT ChildNum); /* 0x194 */
     /* other member functions */
     void sub_00c7c270(FLOAT BlendTime, FLOAT StartTime); /* 0x00c7c270 */
     /* registered size 0xf8 */
@@ -14388,8 +14388,8 @@ struct UAnimNodeSlot : public UAnimNodeBlendBase {
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual INT GetNumSliders() const; /* 0x170 */
-    virtual INT vf_190(INT); /* 0x190 */
-    virtual INT vf_194(INT); /* 0x194 */
+    virtual void OnAddChild(INT ChildNum); /* 0x190 */
+    virtual void OnRemoveChild(INT ChildNum); /* 0x194 */
     virtual void RenameChildConnectors(); /* 0x198 */
     /* UnrealScript natives */
     void execPlayCustomAnim(FFrame& Stack, RESULT_DECL); /* 0x00c91050 */
@@ -15475,7 +15475,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual UBOOL SetStaticMesh(class UStaticMesh* NewMesh, UBOOL bForce); /* 0x260 */
     virtual void SetForceStaticDecals(UBOOL bInForceStaticDecals); /* 0x264 */
     virtual class UMaterialInterface* GetMaterial(INT ElementIndex, INT LOD); /* 0x268 */
-    virtual INT vf_26c(INT, INT, INT, INT, INT, INT); /* 0x26c */
+    virtual void CookPhysConvexDataForScale(ULevel* Level, const FVector& TotalScale3D, INT& TriByteCount, INT& TriMeshCount, INT& HullByteCount, INT& HullCount); /* 0x26c */
     virtual INT vf_270(INT, INT); /* 0x270 */
     virtual void vf_274(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x274 */
     /* overrides */
@@ -17840,9 +17840,9 @@ struct UMaterial : public UMaterialInterface {
     virtual void PropagateExpressionParameterChanges(UMaterialExpression* Parameter); /* 0x188 */
     virtual void UpdateExpressionParameterName(UMaterialExpression* Expression); /* 0x18c */
     virtual void BuildEditorParameterList(); /* 0x190 */
-    virtual INT vf_194(INT); /* 0x194 */
-    virtual INT vf_198(INT); /* 0x198 */
-    virtual void vf_19c(INT); /* 0x19c */
+    virtual UBOOL HasDuplicateParameters(UMaterialExpression* Expression); /* 0x194 */
+    virtual UBOOL HasDuplicateDynamicParameters(UMaterialExpression* Expression); /* 0x198 */
+    virtual void UpdateExpressionDynamicParameterNames(UMaterialExpression* Expression); /* 0x19c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -20549,8 +20549,8 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT vf_198(); /* 0x198 */
     virtual UBOOL GetCursorSize(FLOAT& CursorX, FLOAT& CursorY); /* 0x19c */
     virtual INT vf_1a0(INT); /* 0x1a0 */
-    virtual INT vf_1a4(FLOAT); /* 0x1a4 */
-    virtual void vf_1a8(INT); /* 0x1a8 */
+    virtual void Tick(FLOAT DeltaTime); /* 0x1a4 */
+    virtual void UpdatePausedState( INT PlayerIndex ); /* 0x1a8 */
     virtual void vf_1ac(INT, INT, INT); /* 0x1ac */
     virtual INT vf_1b0(INT, INT, INT); /* 0x1b0 */
     virtual void vf_1b4(); /* 0x1b4 */
@@ -27463,10 +27463,10 @@ struct APawn : public AActor {
     virtual UBOOL IsValidAnchor( ANavigationPoint* AnchorCandidate ); /* 0x41c */
     virtual void PostProcessPhysics( FLOAT DeltaSeconds, const FVector& OldVelocity ); /* 0x420 */
     virtual FVector CheckForLedges(FVector AccelDir, FVector Delta, FVector GravDir, int &bCheckedFall, int &bMustJump ); /* 0x424 */
-    virtual void vf_428(FLOAT, INT); /* 0x428 */
-    virtual INT vf_42c(INT, INT); /* 0x42c */
-    virtual INT vf_430(INT, INT); /* 0x430 */
-    virtual INT vf_434(FLOAT, INT, INT, INT); /* 0x434 */
+    virtual void physFlying(FLOAT deltaTime, INT Iterations); /* 0x428 */
+    virtual void startNewPhysics(FLOAT deltaTime, INT Iterations); /* 0x42c */
+    virtual UBOOL ShouldCatchAir(const FVector& OldFloor, const FVector& Floor); /* 0x430 */
+    virtual void SetPostLandedPhysics(AActor *HitActor, FVector HitNormal); /* 0x434 */
     virtual INT vf_438(INT, INT, INT, INT); /* 0x438 */
     virtual void Crouch(INT bClientSimulation=0); /* 0x43c */
     virtual void UnCrouch(INT bClientSimulation=0); /* 0x440 */
@@ -36982,72 +36982,72 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     FScriptDelegate __OnNewInfocast__Delegate; /* 0x57c */
     /* virtual functions this class introduces (vtable 0x0211c1b8) */
     virtual INT vf_120(INT); /* 0x120 */
-    virtual void vf_124(INT, INT, INT, INT); /* 0x124 */
+    virtual UBOOL Login(BYTE LocalUserNum,const FString& LoginName,const FString& Password,UBOOL bWantsLocalOnly=FALSE); /* 0x124 */
     virtual INT vf_128(); /* 0x128 */
-    virtual INT vf_12c(INT); /* 0x12c */
-    virtual INT vf_130(BYTE); /* 0x130 */
-    virtual BYTE vf_134(INT); /* 0x134 */
+    virtual INT GetLoginStatus(BYTE LocalUserNum); /* 0x12c */
+    virtual BYTE CanPlayOnline(BYTE LocalUserNum); /* 0x130 */
+    virtual BYTE CanCommunicate(BYTE LocalUserNum); /* 0x134 */
     virtual bool vf_138(INT); /* 0x138 */
-    virtual INT vf_13c(BYTE, INT, INT); /* 0x13c */
-    virtual INT vf_140(INT, INT); /* 0x140 */
-    virtual INT vf_144(INT, INT); /* 0x144 */
-    virtual void vf_148(BYTE, INT); /* 0x148 */
-    virtual INT vf_14c(BYTE, INT, INT); /* 0x14c */
-    virtual INT vf_150(INT, INT, INT, INT); /* 0x150 */
-    virtual INT vf_154(BYTE); /* 0x154 */
-    virtual INT vf_158(BYTE); /* 0x158 */
-    virtual INT vf_15c(INT, INT); /* 0x15c */
-    virtual bool vf_160(INT, INT); /* 0x160 */
-    virtual INT vf_164(BYTE); /* 0x164 */
-    virtual INT vf_168(INT, INT); /* 0x168 */
-    virtual INT vf_16c(BYTE); /* 0x16c */
-    virtual bool vf_170(INT, INT, INT, INT); /* 0x170 */
+    virtual UBOOL IsFriend(BYTE LocalUserNum,FUniqueNetId PlayerID); /* 0x13c */
+    virtual UBOOL AreAnyFriends(BYTE LocalUserNum,TArray<FFriendsQuery>& Query); /* 0x140 */
+    virtual UBOOL ReadProfileSettings(BYTE LocalUserNum,class UOnlineProfileSettings* ProfileSettings); /* 0x144 */
+    virtual UBOOL WriteProfileSettings(BYTE LocalUserNum,class UOnlineProfileSettings* ProfileSettings); /* 0x148 */
+    virtual UBOOL ReadFriendsList(BYTE LocalUserNum,INT Count=0,INT StartingAt=0); /* 0x14c */
+    virtual BYTE GetFriendsList(BYTE LocalUserNum,TArray<FOnlineFriend>& Friends,INT Count=0,INT StartingAt=0); /* 0x150 */
+    virtual UBOOL RegisterLocalTalker(BYTE LocalUserNum); /* 0x154 */
+    virtual UBOOL UnregisterLocalTalker(BYTE LocalUserNum); /* 0x158 */
+    virtual UBOOL RegisterRemoteTalker(FUniqueNetId PlayerID); /* 0x15c */
+    virtual UBOOL UnregisterRemoteTalker(FUniqueNetId PlayerID); /* 0x160 */
+    virtual UBOOL IsLocalPlayerTalking(BYTE LocalUserNum); /* 0x164 */
+    virtual UBOOL IsRemotePlayerTalking(FUniqueNetId PlayerID); /* 0x168 */
+    virtual UBOOL IsHeadsetPresent(BYTE LocalUserNum); /* 0x16c */
+    virtual UBOOL SetRemoteTalkerPriority(BYTE LocalUserNum,FUniqueNetId PlayerID,INT Priority); /* 0x170 */
     virtual bool vf_174(INT, INT, INT); /* 0x174 */
     virtual bool vf_178(BYTE, INT, INT); /* 0x178 */
-    virtual INT vf_17c(BYTE); /* 0x17c */
-    virtual INT vf_180(BYTE); /* 0x180 */
-    virtual INT vf_184(BYTE); /* 0x184 */
-    virtual INT vf_188(BYTE); /* 0x188 */
-    virtual INT vf_18c(BYTE, INT); /* 0x18c */
-    virtual INT vf_190(BYTE, INT); /* 0x190 */
-    virtual INT vf_194(BYTE, INT); /* 0x194 */
-    virtual INT vf_198(INT, INT); /* 0x198 */
-    virtual void vf_19c(INT, INT); /* 0x19c */
-    virtual INT vf_1a0(INT, INT, INT); /* 0x1a0 */
-    virtual INT vf_1a4(INT, INT, INT); /* 0x1a4 */
+    virtual void StartNetworkedVoice(BYTE LocalUserNum); /* 0x17c */
+    virtual void StopNetworkedVoice(BYTE LocalUserNum); /* 0x180 */
+    virtual UBOOL StartSpeechRecognition(BYTE LocalUserNum); /* 0x184 */
+    virtual UBOOL StopSpeechRecognition(BYTE LocalUserNum); /* 0x188 */
+    virtual UBOOL GetRecognitionResults(BYTE LocalUserNum,TArray<FSpeechRecognizedWord>& Words); /* 0x18c */
+    virtual UBOOL SelectVocabulary(BYTE LocalUserNum,INT VocabularyId); /* 0x190 */
+    virtual UBOOL SetSpeechRecognitionObject(BYTE LocalUserNum,class USpeechRecognition* SpeechRecogObj); /* 0x194 */
+    virtual UBOOL ReadOnlineStats(const TArray<FUniqueNetId>& Players,class UOnlineStatsRead* StatsRead); /* 0x198 */
+    virtual UBOOL ReadOnlineStatsForFriends(BYTE LocalUserNum,class UOnlineStatsRead* StatsRead); /* 0x19c */
+    virtual UBOOL ReadOnlineStatsByRank(class UOnlineStatsRead* StatsRead,INT StartIndex=1,INT NumToRead=100); /* 0x1a0 */
+    virtual UBOOL ReadOnlineStatsByRankAroundPlayer(BYTE LocalUserNum,class UOnlineStatsRead* StatsRead,INT NumRows=10); /* 0x1a4 */
     virtual INT vf_1a8(); /* 0x1a8 */
-    virtual INT vf_1ac(INT, INT, INT, INT, INT); /* 0x1ac */
-    virtual INT vf_1b0(INT, INT); /* 0x1b0 */
-    virtual INT vf_1b4(INT, INT, INT, INT); /* 0x1b4 */
+    virtual UBOOL WriteOnlineStats(FName SessionName,FUniqueNetId Player,class UOnlineStatsWrite* StatsWrite); /* 0x1ac */
+    virtual UBOOL FlushOnlineStats(FName SessionName); /* 0x1b0 */
+    virtual UBOOL WriteOnlinePlayerScores(FName SessionName,INT LeaderboardId,const TArray<FOnlinePlayerScore>& PlayerScores); /* 0x1b4 */
     virtual INT vf_1b8(); /* 0x1b8 */
-    virtual INT vf_1bc(BYTE); /* 0x1bc */
+    virtual void SetNetworkNotificationPosition(BYTE NewPos); /* 0x1bc */
     virtual INT vf_1c0(INT); /* 0x1c0 */
     virtual bool vf_1c4(); /* 0x1c4 */
-    virtual INT vf_1c8(INT); /* 0x1c8 */
-    virtual INT vf_1cc(INT, INT); /* 0x1cc */
+    virtual UBOOL ReadTitleFile(const FString& FileToRead); /* 0x1c8 */
+    virtual UBOOL GetTitleFileContents(const FString& Filename,TArray<BYTE>& FileContents); /* 0x1cc */
     virtual INT vf_1d0(INT, INT, INT, INT); /* 0x1d0 */
     virtual void vf_1d4(INT, INT, INT, INT); /* 0x1d4 */
     virtual INT vf_1d8(INT, INT, INT, INT, INT, INT, INT); /* 0x1d8 */
     virtual INT vf_1dc(BYTE, INT, INT, INT); /* 0x1dc */
     virtual INT vf_1e0(INT, INT, INT); /* 0x1e0 */
-    virtual INT vf_1e4(BYTE, INT, INT); /* 0x1e4 */
-    virtual INT vf_1e8(INT, INT, INT); /* 0x1e8 */
-    virtual INT vf_1ec(INT, INT, INT); /* 0x1ec */
-    virtual INT vf_1f0(BYTE, INT, INT, INT); /* 0x1f0 */
-    virtual INT vf_1f4(INT, INT, INT, INT); /* 0x1f4 */
-    virtual INT vf_1f8(INT, INT, INT); /* 0x1f8 */
-    virtual INT vf_1fc(INT, INT, INT); /* 0x1fc */
+    virtual UBOOL RemoveFriend(BYTE LocalUserNum,FUniqueNetId FormerFriend); /* 0x1e4 */
+    virtual UBOOL AcceptFriendInvite(BYTE LocalUserNum,FUniqueNetId RequestingPlayer); /* 0x1e8 */
+    virtual UBOOL DenyFriendInvite(BYTE LocalUserNum,FUniqueNetId RequestingPlayer); /* 0x1ec */
+    virtual UBOOL SendMessageToFriend(BYTE LocalUserNum,FUniqueNetId Friend,const FString& Message); /* 0x1f0 */
+    virtual UBOOL SendGameInviteToFriend(BYTE LocalUserNum,FUniqueNetId Friend,const FString& Text=TEXT("")); /* 0x1f4 */
+    virtual UBOOL SendGameInviteToFriends(BYTE LocalUserNum,const TArray<FUniqueNetId>& Friends,const FString& Text=TEXT("")); /* 0x1f8 */
+    virtual UBOOL JoinFriendGame(BYTE LocalUserNum,FUniqueNetId Friend); /* 0x1fc */
     virtual void vf_200(void*); /* 0x200 */
     virtual INT vf_204(INT); /* 0x204 */
     virtual void vf_208(void*); /* 0x208 */
-    virtual INT vf_20c(INT, INT, INT); /* 0x20c */
-    virtual INT vf_210(BYTE, INT, INT); /* 0x210 */
+    virtual UBOOL ShowFeedbackUI(BYTE LocalUserNum,FUniqueNetId PlayerID); /* 0x20c */
+    virtual UBOOL ShowGamerCardUI(BYTE LocalUserNum,FUniqueNetId PlayerID); /* 0x210 */
     virtual INT vf_214(BYTE, INT, INT); /* 0x214 */
-    virtual INT vf_218(BYTE); /* 0x218 */
-    virtual INT vf_21c(INT); /* 0x21c */
-    virtual INT vf_220(INT, INT); /* 0x220 */
-    virtual INT vf_224(INT, INT, INT); /* 0x224 */
-    virtual INT vf_228(INT); /* 0x228 */
+    virtual UBOOL ShowMessagesUI(BYTE LocalUserNum); /* 0x218 */
+    virtual UBOOL ShowAchievementsUI(BYTE LocalUserNum); /* 0x21c */
+    virtual UBOOL ShowInviteUI(BYTE LocalUserNum,const FString& InviteText=TEXT("")); /* 0x220 */
+    virtual UBOOL ShowContentMarketplaceUI(BYTE LocalUserNum,INT CategoryMask=-1,INT OfferId=0); /* 0x224 */
+    virtual UBOOL ShowMembershipMarketplaceUI(BYTE LocalUserNum); /* 0x228 */
     virtual INT vf_22c(INT, INT, INT, INT); /* 0x22c */
     virtual INT vf_230(INT, INT); /* 0x230 */
     virtual INT vf_234(INT, INT); /* 0x234 */
@@ -37056,7 +37056,7 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual UBOOL ShowFriendsUI(BYTE LocalUserNum); /* 0x240 */
     virtual UBOOL ShowFriendsInviteUI(BYTE LocalUserNum,struct FUniqueNetId PlayerID); /* 0x244 */
     virtual UBOOL ShowPlayersUI(BYTE LocalUserNum); /* 0x248 */
-    virtual INT vf_24c(BYTE, INT, INT, INT); /* 0x24c */
+    virtual UBOOL ReadAchievements(BYTE LocalUserNum,INT TitleId=0,UBOOL bShouldReadText=TRUE,UBOOL bShouldReadImages=FALSE); /* 0x24c */
     virtual bool vf_250(BYTE, INT, INT); /* 0x250 */
     virtual INT vf_254(INT, INT, INT, INT); /* 0x254 */
     virtual INT vf_258(INT, INT, INT, INT, INT); /* 0x258 */
@@ -57894,19 +57894,19 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void polySelectMatchingGroups( UModel* Model ); /* 0x218 */
     virtual void polySelectMatchingItems( UModel* Model ); /* 0x21c */
     virtual void polySelectCoplanars( UModel* Model ); /* 0x220 */
-    virtual INT vf_224(INT); /* 0x224 */
-    virtual INT vf_228(INT); /* 0x228 */
-    virtual INT vf_22c(INT); /* 0x22c */
-    virtual INT vf_230(INT); /* 0x230 */
-    virtual void vf_234(INT); /* 0x234 */
-    virtual void vf_238(INT); /* 0x238 */
-    virtual void vf_23c(INT); /* 0x23c */
-    virtual void vf_240(INT); /* 0x240 */
-    virtual void vf_244(INT); /* 0x244 */
-    virtual void vf_248(INT); /* 0x248 */
-    virtual void vf_24c(INT); /* 0x24c */
-    virtual void vf_250(INT); /* 0x250 */
-    virtual void vf_254(INT); /* 0x254 */
+    virtual void polySelectAdjacents( UModel* Model ); /* 0x224 */
+    virtual void polySelectAdjacentWalls( UModel* Model ); /* 0x228 */
+    virtual void polySelectAdjacentFloors( UModel* Model ); /* 0x22c */
+    virtual void polySelectAdjacentSlants( UModel* Model ); /* 0x230 */
+    virtual void polySelectMatchingBrush( UModel* Model ); /* 0x234 */
+    virtual void polySelectMatchingMaterial(UBOOL bCurrentLevelOnly); /* 0x238 */
+    virtual void polySelectMatchingResolution(UBOOL bCurrentLevelOnly); /* 0x23c */
+    virtual void polySelectReverse( UModel* Model ); /* 0x240 */
+    virtual void polyMemorizeSet( UModel* Model ); /* 0x244 */
+    virtual void polyRememberSet( UModel* Model ); /* 0x248 */
+    virtual void polyXorSet( UModel* Model ); /* 0x24c */
+    virtual void polyUnionSet( UModel* Model ); /* 0x250 */
+    virtual void polyIntersectSet( UModel* Model ); /* 0x254 */
     virtual void polyTexPan( UModel* Model, INT PanU, INT PanV, INT Absolute ); /* 0x258 */
     virtual void polyTexScale( UModel* Model,FLOAT UU, FLOAT UV, FLOAT VU, FLOAT VV, UBOOL Absolute ); /* 0x25c */
     virtual void mapSelectOperation( ECsgOper CSGOper ); /* 0x260 */
@@ -58008,12 +58008,12 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     virtual INT vf_334(); /* 0x334 */
     virtual INT vf_338(); /* 0x338 */
     virtual INT vf_33c(); /* 0x33c */
-    virtual INT vf_340(INT, INT); /* 0x340 */
-    virtual INT vf_344(INT); /* 0x344 */
+    virtual void edactSelectOfClassAndArchetype( const UClass* InClass, const UObject* InArchetype ); /* 0x340 */
+    virtual void edactSelectSubclassOf( UClass* Class ); /* 0x344 */
     virtual INT vf_348(); /* 0x348 */
     virtual INT vf_34c(INT, INT); /* 0x34c */
-    virtual INT vf_350(INT); /* 0x350 */
-    virtual INT vf_354(INT); /* 0x354 */
+    virtual void edactSelectMatchingStaticMesh(UBOOL bAllClasses); /* 0x350 */
+    virtual void edactSelectMatchingSkeletalMesh(UBOOL bAllClasses); /* 0x354 */
     virtual INT vf_358(); /* 0x358 */
     virtual void edactUpdatePrefabFromInstance(); /* 0x35c */
     virtual void edactResetInstanceFromPrefab(); /* 0x360 */
@@ -59085,8 +59085,8 @@ struct UPropertyInputProxy : public UObject {
     virtual void OnSetFocus(WxPropertyControl* InItem); /* 0x120 */
     virtual void OnKillFocus(WxPropertyControl* InItem); /* 0x124 */
     virtual void DoubleClick(WxPropertyControl* InItem, const TArray<FObjectBaseAddress>& InObjects, const TCHAR* InValue, UBOOL bForceValue); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT); /* 0x12c */
-    virtual INT vf_130(INT, INT, INT); /* 0x130 */
+    virtual UBOOL LeftClick( WxPropertyControl* InItem, INT InX, INT InY ); /* 0x12c */
+    virtual UBOOL LeftUnclick( WxPropertyControl* InItem, INT InX, INT InY ); /* 0x130 */
     virtual void SendToObjects( WxPropertyControl* InItem ); /* 0x134 */
     virtual void ParentResized( WxPropertyControl* InItem, const wxRect& InRC ); /* 0x138 */
     virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
@@ -62817,7 +62817,7 @@ struct UPropertyInputBool : public UPropertyInputArrayItemBase {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
     virtual void DoubleClick(WxPropertyControl* InItem, const TArray<FObjectBaseAddress>& InObjects, const TCHAR* InValue, UBOOL bForceValue); /* 0x128 */
-    virtual INT vf_12c(INT, INT, INT); /* 0x12c */
+    virtual UBOOL LeftClick( WxPropertyControl* InItem, INT InX, INT InY ); /* 0x12c */
     /* registered size 0x40 */
 };
 
@@ -62828,7 +62828,7 @@ struct UPlayerInputMask_CustomInputProxy : public UPropertyInputBool {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
-    virtual INT vf_12c(INT, INT, INT); /* 0x12c */
+    virtual UBOOL LeftClick( WxPropertyControl* InItem, INT InX, INT InY ); /* 0x12c */
     /* registered size 0x40 */
 };
 

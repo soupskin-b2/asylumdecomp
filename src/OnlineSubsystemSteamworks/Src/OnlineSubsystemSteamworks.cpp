@@ -177,7 +177,7 @@ void sub_00e88770(void) {  }
 int UOnlineSubsystemSteamworks::vf_128(void) { return 0; }
 
 // @baa 0x00e88790
-int UOnlineSubsystemSteamworks::vf_12c(int a0) { return 0; }
+INT UOnlineSubsystemSteamworks::GetLoginStatus(BYTE a0) { return 0; }
 
 // @baa 0x00e887e0
 int sub_00e887e0(void) { return 0; }
@@ -192,19 +192,19 @@ void UOnlineSubsystemSteamworks::vf_1d4(int a0, int a1, int a2, int a3) {  }
 INT UOnlineSubsystemSteamworks::vf_1e0(INT a0, INT a1, INT a2) { return 0; }
 
 // @baa 0x00e88b40
-int UOnlineSubsystemSteamworks::vf_1e8(int a0, int a1, int a2) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::AcceptFriendInvite(BYTE LocalUserNum, FUniqueNetId RequestingPlayer) { return 0; }
 
 // @baa 0x00e88b50
-int UOnlineSubsystemSteamworks::vf_1ec(int a0, int a1, int a2) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::DenyFriendInvite(BYTE LocalUserNum, FUniqueNetId RequestingPlayer) { return 0; }
 
 // @baa 0x00e88b60
-int UOnlineSubsystemSteamworks::vf_1f4(int a0, int a1, int a2, int a3) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::SendGameInviteToFriend(BYTE LocalUserNum, FUniqueNetId Friend, const FString& Text) { return 0; }
 
 // @baa 0x00e88b70
-int UOnlineSubsystemSteamworks::vf_1f8(int a0, int a1, int a2) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::SendGameInviteToFriends(BYTE a0, const TArray<FUniqueNetId>& a1, const FString& a2) { return 0; }
 
 // @baa 0x00e88b80
-int UOnlineSubsystemSteamworks::vf_1fc(int a0, int a1, int a2) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::JoinFriendGame(BYTE LocalUserNum, FUniqueNetId Friend) { return 0; }
 
 // @baa 0x00e88bd0
 BYTE __stdcall sub_00e88bd0(int a) { return 2; }
@@ -234,19 +234,19 @@ bool UOnlineSubsystemSteamworks::vf_1c4() {
 }
 
 // @baa 0x00e88c30
-int UOnlineSubsystemSteamworks::vf_1c8(int a0) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::ReadTitleFile(const FString& a0) { return 0; }
 
 // @baa 0x00e88c40
-int UOnlineSubsystemSteamworks::vf_1cc(int a0, int a1) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::GetTitleFileContents(const FString& a0, TArray<BYTE>& a1) { return 0; }
 
 // @baa 0x00e88cf0
 int UOnlineSubsystemSteamworks::vf_23c(int a0, int a1) { return 0; }
 
 // @baa 0x00e88d80
-int UOnlineSubsystemSteamworks::vf_21c(int a0) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::ShowAchievementsUI(BYTE a0) { return 0; }
 
 // @baa 0x00e88dd0
-int UOnlineSubsystemSteamworks::vf_220(int a0, int a1) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::ShowInviteUI(BYTE a0, const FString& a1) { return 0; }
 
 // @baa 0x00e88de0
 int UOnlineSubsystemSteamworks::vf_1d8(int a0, int a1, int a2, int a3, int a4, int a5, int a6) { return 0; }
@@ -255,10 +255,10 @@ int UOnlineSubsystemSteamworks::vf_1d8(int a0, int a1, int a2, int a3, int a4, i
 int UOnlineSubsystemSteamworks::vf_254(int a0, int a1, int a2, int a3) { return 0; }
 
 // @baa 0x00e88e00
-int UOnlineSubsystemSteamworks::vf_224(int a0, int a1, int a2) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::ShowContentMarketplaceUI(BYTE a0, INT a1, INT a2) { return 0; }
 
 // @baa 0x00e88e10
-int UOnlineSubsystemSteamworks::vf_228(int a0) { return 0; }
+UBOOL UOnlineSubsystemSteamworks::ShowMembershipMarketplaceUI(BYTE a0) { return 0; }
 
 // @baa 0x00e88e20
 int UOnlineSubsystemSteamworks::vf_22c(int a0, int a1, int a2, int a3) { return 0; }
@@ -1813,10 +1813,10 @@ FSparseArrayConstIt_00e93170::FSparseArrayConstIt_00e93170(const TSparseArray<IN
 }
 
 // @baa 0x00e94400
-INT UOnlineSubsystemSteamworks::vf_1ac(INT a0, INT a1, INT a2, INT a3, INT a4) { return 1; }
+UBOOL UOnlineSubsystemSteamworks::WriteOnlineStats(FName SessionName, FUniqueNetId Player, class UOnlineStatsWrite* StatsWrite) { return 1; }
 
 // @baa 0x00e94410
-int UOnlineSubsystemSteamworks::vf_1b4(int a0, int a1, int a2, int a3) { return 1; }
+UBOOL UOnlineSubsystemSteamworks::WriteOnlinePlayerScores(FName SessionName, INT LeaderboardId, const TArray<FOnlinePlayerScore>& PlayerScores) { return 1; }
 
 struct C_view_00e954f0 {
     int sub_00e92e00(int, int, int);
@@ -2196,7 +2196,7 @@ void sub_00e98fa0();
 void sub_00e99380(void) { sub_00e98fa0(); }
 
 // @baa 0x00e99490
-INT UOnlineSubsystemSteamworks::vf_1b0(INT a0, INT a1) { return 1; }
+UBOOL UOnlineSubsystemSteamworks::FlushOnlineStats(FName SessionName) { return 1; }
 
 void sub_00e99100();
 // @baa 0x00e994a0

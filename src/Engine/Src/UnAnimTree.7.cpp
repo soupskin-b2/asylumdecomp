@@ -8,7 +8,7 @@
 #pragma warning(disable:4716)
 
 // @baa 0x00c4b5d0
-INT UAnimNodeBlendBase::vf_194(INT)
+void UAnimNodeBlendBase::OnRemoveChild(INT ChildNum)
 {
     RenameChildConnectors();
 }

@@ -8,7 +8,7 @@
 #pragma warning(disable:4716)
 
 // @baa 0x00c4b5c0
-INT UAnimNodeBlendBase::vf_190(INT)
+void UAnimNodeBlendBase::OnAddChild(INT ChildNum)
 {
     RenameChildConnectors();
 }

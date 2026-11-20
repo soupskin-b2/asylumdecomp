@@ -2399,10 +2399,10 @@ void UPropertyInputProxy::OnKillFocus(WxPropertyControl* a0) {  }
 void UPropertyInputProxy::DoubleClick(WxPropertyControl* a0, const TArray<FObjectBaseAddress>& a1, const TCHAR* a2, UBOOL a3) {  }
 
 // @baa 0x012028b0
-int UPropertyInputProxy::vf_12c(int a0, int a1, int a2) { return 0; }
+UBOOL UPropertyInputProxy::LeftClick(WxPropertyControl* a0, INT a1, INT a2) { return 0; }
 
 // @baa 0x012028c0
-int UPropertyInputProxy::vf_130(int a0, int a1, int a2) { return 0; }
+UBOOL UPropertyInputProxy::LeftUnclick(WxPropertyControl* a0, INT a1, INT a2) { return 0; }
 
 // @baa 0x012028d0
 void UPropertyInputProxy::SendToObjects(WxPropertyControl* a0) {  }

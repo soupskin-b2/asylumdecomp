@@ -464020,7 +464020,7 @@
     {
      "va": "00e88790",
      "size": 5,
-     "symbol": "?vf_12c@UOnlineSubsystemSteamworks@@UAEHH@Z"
+     "symbol": "?GetLoginStatus@UOnlineSubsystemSteamworks@@UAEHE@Z"
     },
     {
      "va": "00e887e0",
@@ -464045,27 +464045,27 @@
     {
      "va": "00e88b40",
      "size": 5,
-     "symbol": "?vf_1e8@UOnlineSubsystemSteamworks@@UAEHHHH@Z"
+     "symbol": "?AcceptFriendInvite@UOnlineSubsystemSteamworks@@UAEHEUFUniqueNetId@@@Z"
     },
     {
      "va": "00e88b50",
      "size": 5,
-     "symbol": "?vf_1ec@UOnlineSubsystemSteamworks@@UAEHHHH@Z"
+     "symbol": "?DenyFriendInvite@UOnlineSubsystemSteamworks@@UAEHEUFUniqueNetId@@@Z"
     },
     {
      "va": "00e88b60",
      "size": 5,
-     "symbol": "?vf_1f4@UOnlineSubsystemSteamworks@@UAEHHHHH@Z"
+     "symbol": "?SendGameInviteToFriend@UOnlineSubsystemSteamworks@@UAEHEUFUniqueNetId@@ABVFString@@@Z"
     },
     {
      "va": "00e88b70",
      "size": 5,
-     "symbol": "?vf_1f8@UOnlineSubsystemSteamworks@@UAEHHHH@Z"
+     "symbol": "?SendGameInviteToFriends@UOnlineSubsystemSteamworks@@UAEHEABV?$TArray@UFUniqueNetId@@@@ABVFString@@@Z"
     },
     {
      "va": "00e88b80",
      "size": 5,
-     "symbol": "?vf_1fc@UOnlineSubsystemSteamworks@@UAEHHHH@Z"
+     "symbol": "?JoinFriendGame@UOnlineSubsystemSteamworks@@UAEHEUFUniqueNetId@@@Z"
     },
     {
      "va": "00e88bd0",
@@ -464100,12 +464100,12 @@
     {
      "va": "00e88c30",
      "size": 5,
-     "symbol": "?vf_1c8@UOnlineSubsystemSteamworks@@UAEHH@Z"
+     "symbol": "?ReadTitleFile@UOnlineSubsystemSteamworks@@UAEHABVFString@@@Z"
     },
     {
      "va": "00e88c40",
      "size": 5,
-     "symbol": "?vf_1cc@UOnlineSubsystemSteamworks@@UAEHHH@Z"
+     "symbol": "?GetTitleFileContents@UOnlineSubsystemSteamworks@@UAEHABVFString@@AAV?$TArray@E@@@Z"
     },
     {
      "va": "00e88cf0",
@@ -464115,12 +464115,12 @@
     {
      "va": "00e88d80",
      "size": 5,
-     "symbol": "?vf_21c@UOnlineSubsystemSteamworks@@UAEHH@Z"
+     "symbol": "?ShowAchievementsUI@UOnlineSubsystemSteamworks@@UAEHE@Z"
     },
     {
      "va": "00e88dd0",
      "size": 5,
-     "symbol": "?vf_220@UOnlineSubsystemSteamworks@@UAEHHH@Z"
+     "symbol": "?ShowInviteUI@UOnlineSubsystemSteamworks@@UAEHEABVFString@@@Z"
     },
     {
      "va": "00e88de0",
@@ -464135,12 +464135,12 @@
     {
      "va": "00e88e00",
      "size": 5,
-     "symbol": "?vf_224@UOnlineSubsystemSteamworks@@UAEHHHH@Z"
+     "symbol": "?ShowContentMarketplaceUI@UOnlineSubsystemSteamworks@@UAEHEHH@Z"
     },
     {
      "va": "00e88e10",
      "size": 5,
-     "symbol": "?vf_228@UOnlineSubsystemSteamworks@@UAEHH@Z"
+     "symbol": "?ShowMembershipMarketplaceUI@UOnlineSubsystemSteamworks@@UAEHE@Z"
     },
     {
      "va": "00e88e20",
@@ -465050,12 +465050,12 @@
     {
      "va": "00e94400",
      "size": 8,
-     "symbol": "?vf_1ac@UOnlineSubsystemSteamworks@@UAEHHHHHH@Z"
+     "symbol": "?WriteOnlineStats@UOnlineSubsystemSteamworks@@UAEHUFName@@UFUniqueNetId@@PAUUOnlineStatsWrite@@@Z"
     },
     {
      "va": "00e94410",
      "size": 8,
-     "symbol": "?vf_1b4@UOnlineSubsystemSteamworks@@UAEHHHHH@Z"
+     "symbol": "?WriteOnlinePlayerScores@UOnlineSubsystemSteamworks@@UAEHUFName@@HABV?$TArray@UFOnlinePlayerScore@@@@@Z"
     },
     {
      "va": "00e954f0",
@@ -465225,7 +465225,7 @@
     {
      "va": "00e99490",
      "size": 8,
-     "symbol": "?vf_1b0@UOnlineSubsystemSteamworks@@UAEHHH@Z"
+     "symbol": "?FlushOnlineStats@UOnlineSubsystemSteamworks@@UAEHUFName@@@Z"
     },
     {
      "va": "00e994a0",
@@ -493370,12 +493370,12 @@
     {
      "va": "012028b0",
      "size": 5,
-     "symbol": "?vf_12c@UPropertyInputProxy@@UAEHHHH@Z"
+     "symbol": "?LeftClick@UPropertyInputProxy@@UAEHPAVWxPropertyControl@@HH@Z"
     },
     {
      "va": "012028c0",
      "size": 5,
-     "symbol": "?vf_130@UPropertyInputProxy@@UAEHHHH@Z"
+     "symbol": "?LeftUnclick@UPropertyInputProxy@@UAEHPAVWxPropertyControl@@HH@Z"
     },
     {
      "va": "012028d0",
