@@ -2563,3 +2563,21 @@ int sub_00ba8020(void)
   }
   return g_026bf778;
 }
+
+// @baa 0x00b73900
+/* Adds StartRotation (in turns) to the new particle's rotation. */
+void UParticleModuleRotation::Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime)
+{
+    FBaseParticle& Particle = *((FBaseParticle*)(Owner->ParticleData + Owner->ParticleStride * Owner->ParticleIndices[Owner->ActiveParticles]));
+    Particle.Rotation += (PI / 180.f) * 360.0f * StartRotation.GetValue(Owner->EmitterTime, Owner->Component);
+}
+
+// @baa 0x00b73960
+/* Sets the new particle's rotation rate from StartRotationRate (in turns per second). */
+void UParticleModuleRotationRate::Spawn(FParticleEmitterInstance* Owner, INT Offset, FLOAT SpawnTime)
+{
+    FBaseParticle& Particle = *((FBaseParticle*)(Owner->ParticleData + Owner->ParticleStride * Owner->ParticleIndices[Owner->ActiveParticles]));
+    FLOAT StartRotRate = (PI / 180.f) * 360.0f * StartRotationRate.GetValue(Owner->EmitterTime, Owner->Component);
+    Particle.RotationRate += StartRotRate;
+    Particle.BaseRotationRate += StartRotRate;
+}

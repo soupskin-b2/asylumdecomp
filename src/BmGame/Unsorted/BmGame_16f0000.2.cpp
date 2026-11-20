@@ -1927,17 +1927,19 @@ void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RE
 	*(BYTE*)Result = this->ShouldIDoLandAnim(Locator, MinLandHeight, MaxLandHeight);
 }
 
+/* The default of an optional TransitionId parameter: Id 0. */
+static FORCEINLINE FTransitionId NoTransitionId()
+{
+	FTransitionId Result;
+	Result.Id = 0;
+	return Result;
+}
+
 // @baa 0x016f3c20
 void ARPawnCharacter::execIsInAnyAutomaticTransition(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_BYTE_OPTX(Fuzziness, FUZZ_Exact);
-	/* Optional out struct: the kit's P_GET_STRUCT_OPTX_REF leaves out the skipped-parameter handling, written here. */
-	GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-	P_GET_STRUCT_OPTX_REF(FTransitionId, Transition);
-	if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-	{
-		Transition.Id = 0;
-	}
+	P_GET_STRUCT_OPTX_REF_DEF(FTransitionId, Transition, NoTransitionId());
 	P_FINISH;
 	*(UBOOL*)Result = IsInAnyAutomaticTransition(Fuzziness, pTransition ? &Transition : NULL);
 }

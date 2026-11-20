@@ -246,19 +246,9 @@ void ARPlayerController::execAmIStandingNextToFeature(FFrame& Stack, RESULT_DECL
 {
     P_GET_STRUCT(FEnvironmentSpecialMoveTypesContainer, FeatureType);
     P_GET_FLOAT(Distance);
-    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-    FVector FeatureNormalT;
-    GPropAddr = 0;
-    Stack.Step(Stack.Object, &FeatureNormalT);
-    BYTE* FeatureNormalAddr = GPropAddr;
-    FVector& FeatureNormal = GPropAddr ? *(FVector*)GPropAddr : FeatureNormalT;
-    if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-    {
-        FVector Zero(0.0f, 0.0f, 0.0f);
-        FeatureNormal = Zero;
-    }
+    P_GET_STRUCT_OPTX_REF_DEF(FVector, FeatureNormal, FVector(0.0f, 0.0f, 0.0f));
     P_FINISH;
-    *(UBOOL*)Result = static_cast<RPlayerControllerNative*>(this)->sub_01618460(FeatureType, Distance, FeatureNormalAddr ? &FeatureNormal : NULL);
+    *(UBOOL*)Result = static_cast<RPlayerControllerNative*>(this)->sub_01618460(FeatureType, Distance, pFeatureNormal ? &FeatureNormal : NULL);
 }
 
 struct RPlayerControllerNative_016f8c60 : ARPlayerController

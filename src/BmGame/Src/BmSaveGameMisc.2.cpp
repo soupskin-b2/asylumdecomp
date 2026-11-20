@@ -34,12 +34,7 @@ void ARHarpoonDragPhysicsBase::execGetAnchorPointPositionAndRotation(FFrame& Sta
 {
 	P_GET_INT(AnchorIndex);
 	P_GET_STRUCT_REF(FVector, OutPosition);
-	GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-	P_GET_STRUCT_OPTX_REF(FRotator, OutRotation);
-	if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-	{
-		OutRotation = FRotator(0, 0, 0);
-	}
+	P_GET_STRUCT_OPTX_REF_DEF(FRotator, OutRotation, FRotator(0, 0, 0));
 	P_FINISH;
 	*(UBOOL*)Result = ((ARHarpoonDragPhysicsBase*)this)->GetAnchorPointPositionAndRotation(AnchorIndex, OutPosition, pOutRotation ? &OutRotation : NULL);
 }

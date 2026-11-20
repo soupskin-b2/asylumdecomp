@@ -42,9 +42,6 @@ void UUIObject::execFindStyleSubscriberIndex(FFrame& Stack, RESULT_DECL)
     *(INT*)Result = ((UUIObject*)this)->sub_00db0fd0(Subscriber);
 }
 
-/* UnScript.h has this; ue3/Script.h doesn't. */
-#define P_GET_OBJECT_OPTX_REF(c, v, d) GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; c* v##T = d; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); c*& v = GPropAddr ? *(c**)GPropAddr : v##T;
-
 // @baa 0x00da8af0
 void UUIRoot::execGetCursorPosition(FFrame& Stack, RESULT_DECL)
 {
@@ -81,17 +78,7 @@ void UUIScreenObject::execInstanceUIPrefab(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(UUIPrefab, SourcePrefab);
     P_GET_NAME_OPTX(PrefabInstanceName, NAME_None);
 
-    /* P_GET_STRUCT_OPTX_REF(FVector2D, PlacementLocation, FVector2D(0,0)) */
-    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-    FVector2D PlacementLocationT;
-    GPropAddr = 0;
-    Stack.Step(Stack.Object, &PlacementLocationT);
-    FVector2D* pPlacementLocation = (FVector2D*)GPropAddr;
-    FVector2D& PlacementLocation = GPropAddr ? *(FVector2D*)GPropAddr : PlacementLocationT;
-    if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-    {
-        PlacementLocation = MakeVector2D(0, 0);
-    }
+    P_GET_STRUCT_OPTX_REF_DEF(FVector2D, PlacementLocation, MakeVector2D(0, 0));
 
     P_GET_INT_OPTX(InsertIndex, INDEX_NONE);
     P_GET_UBOOL_OPTX(bRenameExisting, TRUE);
@@ -119,14 +106,8 @@ void UUIScreenObject::execGetChildren(FFrame& Stack, RESULT_DECL)
 {
     P_GET_UBOOL_OPTX(bRecurse, FALSE);
 
-    /* P_GET_TARRAY_OPTX(UUIObject*, ExclusionSet, TArray<UUIObject*>()) */
-    FUIObjectArray ExclusionSet;
-    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-    Stack.Step(Stack.Object, &ExclusionSet);
-    if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-    {
-        ExclusionSet = FUIObjectArray();
-    }
+    /* P_GET_TARRAY_OPTX(UUIObject*, ExclusionSet, TArray<UUIObject*>()), through FUIObjectArray */
+    P_GET_STRUCT_OPTX(FUIObjectArray, ExclusionSet, FUIObjectArray());
     const UBOOL bHasExclusionSet = !(GRuntimeUCFlags & RUC_SkippedOptionalParm);
 
     P_FINISH;

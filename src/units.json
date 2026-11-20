@@ -219974,9 +219974,19 @@
      "symbol": "?HasUniqueStaticConfigName@UParticleModuleRotation@@UBEHXZ"
     },
     {
+     "va": "00b73900",
+     "size": 66,
+     "symbol": "?Spawn@UParticleModuleRotation@@UAEXPAUFParticleEmitterInstance@@HM@Z"
+    },
+    {
      "va": "00b73950",
      "size": 6,
      "symbol": "?HasUniqueStaticConfigName@UParticleModuleRotationRate@@UBEHXZ"
+    },
+    {
+     "va": "00b73960",
+     "size": 74,
+     "symbol": "?Spawn@UParticleModuleRotationRate@@UAEXPAUFParticleEmitterInstance@@HM@Z"
     },
     {
      "va": "00b739b0",

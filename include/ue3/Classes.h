@@ -6286,8 +6286,71 @@ struct FParticleEventCollideData : public FParticleEventData {
     FName BoneName; /* 0x4c */
 };
 
+/* UnParticleHelper.h: one particle (the head of each ParticleStride-sized entry in ParticleData; module payloads follow) */
+struct FBaseParticle {
+    FVector OldLocation; /* 0x0 */
+    FLOAT RelativeTime; /* 0xc */
+    FVector Location; /* 0x10 */
+    FLOAT OneOverMaxLifetime; /* 0x1c */
+    FVector BaseVelocity; /* 0x20 */
+    FLOAT Rotation; /* 0x2c */
+    FVector Velocity; /* 0x30 */
+    FLOAT BaseRotationRate; /* 0x3c */
+    FVector BaseSize; /* 0x40 */
+    FLOAT RotationRate; /* 0x4c */
+    FVector Size; /* 0x50 */
+    INT Flags; /* 0x5c */
+    FLinearColor Color; /* 0x60 */
+    FLinearColor BaseColor; /* 0x70 */
+};
+
+struct FLODBurstFired; /* UE3's per-LOD burst flags; not reconstructed for this build */
+
+/* ParticleEmitterInstances.h: an emitter's runtime state (0x164 bytes; 0x0 is the vtable, 0x01fefef8). Offsets from the
+ * constructor (0x00b4e270), Resize (0x00b31b70) and the module Spawn/Update bodies. */
 struct FParticleEmitterInstance {
-    /* Engine.ParticleEmitterInstance */
+    FParticleEmitterInstance(); /* 0x00b4e270 */
+    virtual ~FParticleEmitterInstance();
+    class UParticleSpriteEmitter* SpriteTemplate; /* 0x4 */
+    class UParticleSystemComponent* Component; /* 0x8 */
+    INT CurrentLODLevelIndex; /* 0xc */
+    class UParticleLODLevel* CurrentLODLevel; /* 0x10 */
+    INT TypeDataOffset; /* 0x14 */
+    INT SubUVDataOffset; /* 0x18 */
+    INT DynamicParameterDataOffset; /* 0x1c: set where InitParameters meets a UParticleModuleParameterDynamic */
+    INT Offset20; /* 0x20: another payload offset (zeroed by the constructor); which one isn't known */
+    FVector Location; /* 0x24 */
+    BITFIELD KillOnDeactivate : 1; /* 0x30 */
+    BITFIELD bKillOnCompleted : 1; /* 0x30 */
+    BITFIELD bRequiresSorting : 1; /* 0x30 */
+    INT SortMode; /* 0x34 */
+    BYTE* ParticleData; /* 0x38 */
+    WORD* ParticleIndices; /* 0x3c */
+    FMap_Mirror ModuleOffsetMap; /* 0x40: TMap<UParticleModule*,UINT> */
+    BYTE* InstanceData; /* 0x7c */
+    INT InstancePayloadSize; /* 0x80 */
+    FMap_Mirror ModuleInstanceOffsetMap; /* 0x84: TMap<UParticleModule*,UINT> */
+    INT PayloadOffset; /* 0xc0 */
+    INT ParticleSize; /* 0xc4 */
+    INT ParticleStride; /* 0xc8 */
+    INT ActiveParticles; /* 0xcc */
+    INT MaxActiveParticles; /* 0xd0 */
+    FLOAT SpawnFraction; /* 0xd4 */
+    FLOAT SecondsSinceCreation; /* 0xd8 */
+    FLOAT EmitterTime; /* 0xdc */
+    FVector OldLocation; /* 0xe0 */
+    FBox ParticleBoundingBox; /* 0xec */
+    TArray<struct FLODBurstFired> BurstFired; /* 0x108 */
+    INT LoopCount; /* 0x114 */
+    INT IsRenderDataDirty; /* 0x118 */
+    class UParticleModuleOrientationAxisLock* Module_AxisLock; /* 0x11c */
+    FLOAT EmitterDuration; /* 0x120 */
+    TArray<FLOAT> EmitterDurations; /* 0x124 */
+    FLOAT CurrentDelay; /* 0x130 */
+    INT TrianglesToRender; /* 0x134 */
+    INT MaxVertexIndex; /* 0x138 */
+    /* 0x13c..0x164: this build's own state (the constructor zeroes it, but for 1 at 0x140 and 1.0f at 0x154); not named yet */
+    INT _native13c[10]; /* 0x13c */
 };
 
 struct FParticleSysParam {

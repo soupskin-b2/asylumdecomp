@@ -15,17 +15,8 @@ struct FUIObjectArray : public TArray<UUIObject*>
 // @baa 0x00db7330
 void UUIScreenObject::execGetDockClients(FFrame& Stack, RESULT_DECL)
 {
-    /* P_GET_TARRAY_OPTX_REF(UUIObject*, DockClients, TArray<UUIObject*>()) */
-    FUIObjectArray DockClientsT;
-    GRuntimeUCFlags &= ~RUC_SkippedOptionalParm;
-    GPropAddr = 0;
-    Stack.Step(Stack.Object, &DockClientsT);
-    FUIObjectArray* pDockClients = (FUIObjectArray*)GPropAddr;
-    FUIObjectArray& DockClients = GPropAddr ? *(FUIObjectArray*)GPropAddr : DockClientsT;
-    if (GRuntimeUCFlags & RUC_SkippedOptionalParm)
-    {
-        DockClients = FUIObjectArray();
-    }
+    /* P_GET_TARRAY_OPTX_REF(UUIObject*, DockClients, TArray<UUIObject*>()), through FUIObjectArray */
+    P_GET_STRUCT_OPTX_REF_DEF(FUIObjectArray, DockClients, FUIObjectArray());
 
     P_GET_UBOOL_OPTX(bDirectDockClientsOnly, TRUE);
     P_GET_BYTE_OPTX(TargetFace, UIFACE_MAX);

@@ -179,6 +179,9 @@ enum { RUC_SkippedOptionalParm = 0x02 };
 #define P_GET_STR_OPTX_REF(v, d)    FString v##T(d); GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); FString* p##v = (FString*)GPropAddr; FString& v = GPropAddr ? *(FString*)GPropAddr : v##T;
 // (structs: no default and no flag change; the temp stays uninitialized when the caller leaves it out)
 #define P_GET_STRUCT_OPTX_REF(t, v) t v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); t* p##v = (t*)GPropAddr; t& v = GPropAddr ? *(t*)GPropAddr : v##T;
+// UE3's form (UnScriptMacros.h), which clears RUC_SkippedOptionalParm first and sets the struct to the default d when the
+// caller left it out: this build uses both (USkeletalMeshComponent::execFindClosestBone the one above).
+#define P_GET_STRUCT_OPTX_REF_DEF(t, v, d) t v##T; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); t* p##v = (t*)GPropAddr; t& v = GPropAddr ? *(t*)GPropAddr : v##T; if (GRuntimeUCFlags & RUC_SkippedOptionalParm) { v = d; }
 
 // After the last parameter: skip EX_EndFunctionParms, then a debug-info opcode if there is one.
 #define P_FINISH           Stack.Code++; if (*Stack.Code == EX_DebugInfo) Stack.Step(Stack.Object, 0);
