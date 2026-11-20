@@ -42361,7 +42361,7 @@
     {
      "va": "0162b260",
      "size": 44,
-     "symbol": "?vf_11c@URIdleWithDeathConfig@@UAEXH@Z"
+     "symbol": "?vf_11c@URIdleWithDeathConfig@@UAEXPAUURBMBehaviour_IdleWithPlannarProp@@@Z"
     },
     {
      "va": "0162b480",
@@ -404744,7 +404744,7 @@
     {
      "va": "004834b0",
      "size": 1704,
-     "symbol": "?sub_004834b0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004834b0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     }
    ]
   },
@@ -456518,7 +456518,7 @@
     {
      "va": "00e38180",
      "size": 8,
-     "symbol": "?vf_120@UPartyBeaconClient@@UAEHH@Z"
+     "symbol": "?vf_120@UPartyBeaconClient@@UAEHAAUFOnlineGameSearchResult@@@Z"
     },
     {
      "va": "00e38190",
@@ -509042,7 +509042,7 @@
     {
      "va": "004a4e90",
      "size": 526,
-     "symbol": "?sub_004a4e90@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a4e90@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a50a0",
@@ -509052,12 +509052,12 @@
     {
      "va": "004a51e0",
      "size": 822,
-     "symbol": "?sub_004a51e0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a51e0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a5520",
      "size": 1255,
-     "symbol": "?sub_004a5520@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a5520@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a5aa0",
@@ -509067,12 +509067,12 @@
     {
      "va": "004a5ac0",
      "size": 1109,
-     "symbol": "?sub_004a5ac0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a5ac0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a65d0",
      "size": 381,
-     "symbol": "?sub_004a65d0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a65d0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a6750",
@@ -509087,17 +509087,17 @@
     {
      "va": "004a6a20",
      "size": 381,
-     "symbol": "?sub_004a6a20@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a6a20@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a6ba0",
      "size": 234,
-     "symbol": "?sub_004a6ba0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a6ba0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a6c90",
      "size": 528,
-     "symbol": "?sub_004a6c90@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a6c90@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a6fa0",
@@ -509107,32 +509107,32 @@
     {
      "va": "004a6fd0",
      "size": 1847,
-     "symbol": "?sub_004a6fd0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a6fd0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a7710",
      "size": 2427,
-     "symbol": "?sub_004a7710@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a7710@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a8090",
      "size": 234,
-     "symbol": "?sub_004a8090@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a8090@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a8180",
      "size": 234,
-     "symbol": "?sub_004a8180@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a8180@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a86a0",
      "size": 968,
-     "symbol": "?sub_004a86a0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a86a0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a8e80",
      "size": 234,
-     "symbol": "?sub_004a8e80@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a8e80@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a9100",
@@ -509142,17 +509142,17 @@
     {
      "va": "004a9130",
      "size": 3166,
-     "symbol": "?sub_004a9130@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a9130@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004a9f50",
      "size": 1260,
-     "symbol": "?sub_004a9f50@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004a9f50@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ab260",
      "size": 234,
-     "symbol": "?sub_004ab260@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ab260@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ab3e0",
@@ -509167,7 +509167,7 @@
     {
      "va": "004ab860",
      "size": 234,
-     "symbol": "?sub_004ab860@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ab860@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ab9e0",
@@ -509177,52 +509177,52 @@
     {
      "va": "004aba00",
      "size": 965,
-     "symbol": "?sub_004aba00@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004aba00@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ac5d0",
      "size": 233,
-     "symbol": "?sub_004ac5d0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ac5d0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ac6c0",
      "size": 673,
-     "symbol": "?sub_004ac6c0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ac6c0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ac990",
      "size": 234,
-     "symbol": "?sub_004ac990@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ac990@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004aca80",
      "size": 234,
-     "symbol": "?sub_004aca80@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004aca80@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004acb70",
      "size": 234,
-     "symbol": "?sub_004acb70@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004acb70@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004acc60",
      "size": 379,
-     "symbol": "?sub_004acc60@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004acc60@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004acde0",
      "size": 234,
-     "symbol": "?sub_004acde0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004acde0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ad1d0",
      "size": 381,
-     "symbol": "?sub_004ad1d0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ad1d0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ad930",
      "size": 234,
-     "symbol": "?sub_004ad930@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ad930@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004adab0",
@@ -509232,12 +509232,12 @@
     {
      "va": "004adae0",
      "size": 1406,
-     "symbol": "?sub_004adae0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004adae0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ae5a0",
      "size": 381,
-     "symbol": "?sub_004ae5a0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ae5a0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004ae7b0",
@@ -509247,17 +509247,17 @@
     {
      "va": "004ae7d0",
      "size": 1112,
-     "symbol": "?sub_004ae7d0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004ae7d0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004aefe0",
      "size": 1694,
-     "symbol": "?sub_004aefe0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004aefe0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004afbd0",
      "size": 379,
-     "symbol": "?sub_004afbd0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004afbd0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     }
    ]
   },
@@ -509274,7 +509274,7 @@
     {
      "va": "004b22a0",
      "size": 1259,
-     "symbol": "?sub_004b22a0@@YA?AVFxCommandSyntax@@XZ"
+     "symbol": "?sub_004b22a0@@YA?AVFxCommandSyntax@Face@OC3Ent@@XZ"
     },
     {
      "va": "004b2bc0",

@@ -243,4 +243,53 @@ public:
     virtual ~NxForceFieldKernel();
 };
 
+/* NxStream.h: the SDK's serialization stream (cooked meshes go through it) */
+typedef unsigned char NxU8;
+typedef unsigned short NxU16;
+typedef float NxF32;
+typedef double NxF64;
+class NxStream
+{
+public:
+    NxStream() {}
+    virtual ~NxStream() {}
+    virtual NxU8 readByte() const = 0;
+    virtual NxU16 readWord() const = 0;
+    virtual NxU32 readDword() const = 0;
+    virtual NxF32 readFloat() const = 0;
+    virtual NxF64 readDouble() const = 0;
+    virtual void readBuffer(void* buffer, NxU32 size) const = 0;
+    virtual NxStream& storeByte(NxU8 b) = 0;
+    virtual NxStream& storeWord(NxU16 w) = 0;
+    virtual NxStream& storeDword(NxU32 d) = 0;
+    virtual NxStream& storeFloat(NxF32 f) = 0;
+    virtual NxStream& storeDouble(NxF64 f) = 0;
+    virtual NxStream& storeBuffer(const void* buffer, NxU32 size) = 0;
+};
+
+/* UnNovodexSupport.h: an NxStream over a byte array (vtable 01fb3850: destructor 00a046e0, readByte 009e39a0,
+ * readWord 009e3a20, readDword 009e3aa0, readFloat 009e3b20, readDouble 009e3ba0, readBuffer 009e3c20, storeByte ..
+ * storeDouble 009d7dd0..009d7e50 (each one storeBuffer of its value), storeBuffer 009e3cd0). TArray comes from
+ * Classes.h, so include it first. */
+template<class T> class TArray;
+class FNxMemoryBuffer : public NxStream
+{
+public:
+    TArray<BYTE>* Data; /* 0x04: check(Data) at UnNovodexSupport.cpp 675 */
+    mutable NxU32 ReadPos; /* 0x08 */
+    FNxMemoryBuffer(TArray<BYTE>* InData) : Data(InData), ReadPos(0) {}
+    virtual NxU8 readByte() const; /* 0x009e39a0 */
+    virtual NxU16 readWord() const; /* 0x009e3a20 */
+    virtual NxU32 readDword() const; /* 0x009e3aa0 */
+    virtual NxF32 readFloat() const; /* 0x009e3b20 */
+    virtual NxF64 readDouble() const; /* 0x009e3ba0 */
+    virtual void readBuffer(void* buffer, NxU32 size) const; /* 0x009e3c20 */
+    virtual NxStream& storeByte(NxU8 b); /* 0x009d7dd0 */
+    virtual NxStream& storeWord(NxU16 w); /* 0x009d7df0 */
+    virtual NxStream& storeDword(NxU32 d); /* 0x009d7e10 */
+    virtual NxStream& storeFloat(NxF32 f); /* 0x009d7e30 */
+    virtual NxStream& storeDouble(NxF64 f); /* 0x009d7e50 */
+    virtual NxStream& storeBuffer(const void* buffer, NxU32 size); /* 0x009e3cd0 */
+};
+
 #endif

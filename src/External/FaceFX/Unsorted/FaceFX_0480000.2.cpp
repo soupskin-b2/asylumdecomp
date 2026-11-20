@@ -1,6 +1,8 @@
 // FaceFX_0480000.cpp (part 2 of 2): 2 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#define BAA_FX_OUTLINE_SYNTAX_CTOR
+#include "ue3/FaceFX.h"
 
 struct C {
     short sub_01ab5e50();
@@ -18,69 +20,6 @@ short __cdecl sub_004820f0(void)
 
 /* FaceFX Studio, the command system (FxCommand.h, FxCommandSyntax.h; FxString.h of the FaceFX SDK).
  * Each console command describes the arguments it takes with a static CreateSyntax(). */
-typedef char FxChar;
-
-typedef unsigned int FxSize;
-
-static const FxSize FxInvalidIndex = (FxSize)-1;
-void FxFree(void* ptr, FxSize n);
-class FxString
-{
-public:
-	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
-	~FxString()
-	{
-		FxFree(_container, _allocatedCount);
-		_container = 0;
-		_usedCount = 0;
-		_allocatedCount = 0;
-	}
-
-private:
-	FxChar* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-/* The kind of value an argument takes. */
-enum FxCommandArgumentType
-{
-	CAT_Flag = 0,
-	CAT_Real,
-	CAT_DReal,
-	CAT_Size,
-	CAT_Int32,
-	CAT_String,
-	CAT_StringArray,
-	CAT_Bool
-};
-
-class FxCommandArgumentDesc
-{
-public:
-	FxCommandArgumentDesc(const FxString& argNameShort, const FxString& argNameLong, FxCommandArgumentType argType);
-	~FxCommandArgumentDesc();
-
-	FxString ArgNameShort;
-	FxString ArgNameLong;
-	FxCommandArgumentType ArgType;
-};
-
-class FxCommandSyntax
-{
-public:
-	FxCommandSyntax();
-	~FxCommandSyntax();
-
-	void AddArgDesc(const FxCommandArgumentDesc& argDesc);
-
-private:
-	/* FxArray<FxCommandArgumentDesc> */
-	FxCommandArgumentDesc* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
 // @baa 0x004834b0
 FxCommandSyntax sub_004834b0()
 {

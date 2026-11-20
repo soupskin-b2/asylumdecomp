@@ -1,6 +1,7 @@
 // UnrealEd_04f0000.cpp: 27 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/FaceFX.h"
 
 struct C {
     undefined4 sub_004f0090(byte);
@@ -551,39 +552,6 @@ void C_004fb3b0::sub_005032a0() {}
 
 /* FaceFX Studio, FxFaceGraphWidget: runs the batch of console commands that adds the stock
  * gesture nodes to the Face Graph (FxVM.h; FxString.h of the FaceFX SDK). */
-typedef char FxChar;
-
-typedef unsigned int FxSize;
-
-static const FxSize FxInvalidIndex = (FxSize)-1;
-void FxFree(void* ptr, FxSize n);
-class FxString
-{
-public:
-	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
-	~FxString()
-	{
-		FxFree(_container, _allocatedCount);
-		_container = 0;
-		_usedCount = 0;
-		_allocatedCount = 0;
-	}
-
-private:
-	FxChar* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-/* What executing a command came to. */
-enum FxCommandError;
-/* The virtual machine the console commands run in. */
-class FxVM
-{
-public:
-	static FxCommandError ExecuteCommand(const FxString& command);
-};
-
 class wxCommandEvent;
 /* The Face Graph view of FaceFX Studio (a wxWindow; only this handler is declared here). */
 class FxFaceGraphWidget

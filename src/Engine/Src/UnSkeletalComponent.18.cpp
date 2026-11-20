@@ -3,35 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
-
-/* FaceFX (FxName.h, FxActorInstance.h); only what this needs */
-namespace OC3Ent
-{
-namespace Face
-{
-    class FxName
-    {
-    private:
-        class FxNameTableEntry* Entry;
-    };
-
-    class FxActorInstance
-    {
-    public:
-        /* the current value of a FaceFX register (out of line, 0x01abca80) */
-        FLOAT GetRegister(const FxName& RegName);
-    };
-}
-}
-
-/* FFaceFXRegMap (UnFaceFXRegMap.h): maps an UnrealScript register name to the FaceFX one */
-struct FFaceFXRegMap
-{
-    OC3Ent::Face::FxName FaceFXRegName;
-
-    /* the mapping for a register name, NULL if it was never registered (0x00bf7480) */
-    static FFaceFXRegMap* GetRegisterMapping(const FString& RegName);
-};
+#include "ue3/FaceFX.h"
 
 // @baa 0x0091f590
 /* the value of one of the FaceFX actor instance's registers, 0 without one */

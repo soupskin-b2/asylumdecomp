@@ -406,18 +406,13 @@ UBOOL URIdleWithDeathConfig::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct C_view_0162b260 {
-    int sub_01628aa0(int);
-};
-
 // @baa 0x0162b260
-void URIdleWithDeathConfig::vf_11c(int param_2)
+/* The death link comes after the parent's links (its output links count with the reserved ones). */
+void URIdleWithDeathConfig::vf_11c(URBMBehaviour_IdleWithPlannarProp* Behaviour)
 {
-    int param_1 = (int)this;
-  ((C_view_0162b260 *)(this))->sub_01628aa0(param_2);
-  *(int *)(param_1 + 200) = *(int *)(param_2 + 0x1dc) + *(int *)(param_2 + 0x204);
-  *(int *)(param_2 + 0x204) = *(int *)(param_2 + 0x204) + 1;
-  return;
+    Super::vf_11c(Behaviour);
+    DeathLink = Behaviour->ReservedOutputLinks + Behaviour->NumOverlayNotifys;
+    Behaviour->NumOverlayNotifys++;
 }
 
 void sub_01629230();

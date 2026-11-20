@@ -1,6 +1,7 @@
 // UnrealEd_04b0000.cpp (part 2 of 2): 12 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/FaceFX.h"
 
 struct C {
     short sub_01ab5e50();
@@ -102,69 +103,6 @@ void C_004ba8a0::sub_004ba8a0(float In)
 
 /* FaceFX Studio, the command system (FxCommand.h, FxCommandSyntax.h; FxString.h of the FaceFX SDK).
  * Each console command describes the arguments it takes with a static CreateSyntax(). */
-typedef char FxChar;
-
-typedef unsigned int FxSize;
-
-static const FxSize FxInvalidIndex = (FxSize)-1;
-void FxFree(void* ptr, FxSize n);
-class FxString
-{
-public:
-	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
-	~FxString()
-	{
-		FxFree(_container, _allocatedCount);
-		_container = 0;
-		_usedCount = 0;
-		_allocatedCount = 0;
-	}
-
-private:
-	FxChar* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-/* The kind of value an argument takes. */
-enum FxCommandArgumentType
-{
-	CAT_Flag = 0,
-	CAT_Real,
-	CAT_DReal,
-	CAT_Size,
-	CAT_Int32,
-	CAT_String,
-	CAT_StringArray,
-	CAT_Bool
-};
-
-class FxCommandArgumentDesc
-{
-public:
-	FxCommandArgumentDesc(const FxString& argNameShort, const FxString& argNameLong, FxCommandArgumentType argType);
-	~FxCommandArgumentDesc();
-
-	FxString ArgNameShort;
-	FxString ArgNameLong;
-	FxCommandArgumentType ArgType;
-};
-
-class FxCommandSyntax
-{
-public:
-	FxCommandSyntax() : _container(0), _allocatedCount(0), _usedCount(0) {}
-	~FxCommandSyntax();
-
-	void AddArgDesc(const FxCommandArgumentDesc& argDesc);
-
-private:
-	/* FxArray<FxCommandArgumentDesc> */
-	FxCommandArgumentDesc* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
 // @baa 0x004b22a0
 FxCommandSyntax sub_004b22a0()
 {
@@ -180,59 +118,12 @@ FxCommandSyntax sub_004b22a0()
 	return newSyntax;
 }
 
-typedef bool FxBool;
-
-class FxClass;
-class FxObject;
-/* FxClass.h: the run-time class description every FxObject class carries. */
-#define FX_DECLARE_CLASS(classname, baseclassname) \
-	public: \
-		typedef baseclassname Super; \
-		static const FxClass* AllocateStaticClass##classname(); \
-		static const FxClass* StaticClass() \
-		{ \
-			if (!_pClassDesc) \
-			{ \
-				_pClassDesc = AllocateStaticClass##classname(); \
-			} \
-			return _pClassDesc; \
-		} \
-		static FxObject* ConstructObject(); \
-	private: \
-		static const FxClass* _pClassDesc
-#define FX_REGISTER_CLASS(classname) classname::StaticClass()
-class FxCommandArgumentDesc;
-class FxCommandSyntax_004b88a0
-{
-public:
-	~FxCommandSyntax_004b88a0();
-
-private:
-	/* FxArray<FxCommandArgumentDesc> */
-	FxCommandArgumentDesc* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-/* The base of the console commands; a command without arguments keeps this empty syntax. */
-class FxCommand
-{
-public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
-};
-
-class FxCommandManager
-{
-public:
-	static FxBool RegisterCommand(const FxString& commandName, const FxCommandSyntax_004b88a0& commandSyntax, FxObject* (*constructCommand)());
-};
-
 class FxDeveloperCommand : public FxCommand
 {
 	FX_DECLARE_CLASS(FxDeveloperCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxEatMemCommand : public FxCommand
@@ -240,7 +131,7 @@ class FxEatMemCommand : public FxCommand
 	FX_DECLARE_CLASS(FxEatMemCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxUndoCommand : public FxCommand
@@ -248,7 +139,7 @@ class FxUndoCommand : public FxCommand
 	FX_DECLARE_CLASS(FxUndoCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxRedoCommand : public FxCommand
@@ -256,7 +147,7 @@ class FxRedoCommand : public FxCommand
 	FX_DECLARE_CLASS(FxRedoCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxFlushUndoCommand : public FxCommand
@@ -274,7 +165,7 @@ class FxPrintCommand : public FxCommand
 	FX_DECLARE_CLASS(FxPrintCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxWarnCommand : public FxCommand
@@ -282,7 +173,7 @@ class FxWarnCommand : public FxCommand
 	FX_DECLARE_CLASS(FxWarnCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxErrorCommand : public FxCommand
@@ -290,7 +181,7 @@ class FxErrorCommand : public FxCommand
 	FX_DECLARE_CLASS(FxErrorCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxNewActorCommand : public FxCommand
@@ -298,7 +189,7 @@ class FxNewActorCommand : public FxCommand
 	FX_DECLARE_CLASS(FxNewActorCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxLoadActorCommand : public FxCommand
@@ -306,7 +197,7 @@ class FxLoadActorCommand : public FxCommand
 	FX_DECLARE_CLASS(FxLoadActorCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCloseActorCommand : public FxCommand
@@ -319,7 +210,7 @@ class FxSaveActorCommand : public FxCommand
 	FX_DECLARE_CLASS(FxSaveActorCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxRenameCommand : public FxCommand
@@ -327,7 +218,7 @@ class FxRenameCommand : public FxCommand
 	FX_DECLARE_CLASS(FxRenameCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxRenameActorCommand : public FxCommand
@@ -335,7 +226,7 @@ class FxRenameActorCommand : public FxCommand
 	FX_DECLARE_CLASS(FxRenameActorCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxSelectCommand : public FxCommand
@@ -343,7 +234,7 @@ class FxSelectCommand : public FxCommand
 	FX_DECLARE_CLASS(FxSelectCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCurrentTimeCommand : public FxCommand
@@ -351,7 +242,7 @@ class FxCurrentTimeCommand : public FxCommand
 	FX_DECLARE_CLASS(FxCurrentTimeCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxExecCommand : public FxCommand
@@ -359,7 +250,7 @@ class FxExecCommand : public FxCommand
 	FX_DECLARE_CLASS(FxExecCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxNodeGroupCommand : public FxCommand
@@ -367,7 +258,7 @@ class FxNodeGroupCommand : public FxCommand
 	FX_DECLARE_CLASS(FxNodeGroupCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxPhonemeListCommand : public FxCommand
@@ -375,7 +266,7 @@ class FxPhonemeListCommand : public FxCommand
 	FX_DECLARE_CLASS(FxPhonemeListCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxGraphCommand : public FxCommand
@@ -383,7 +274,7 @@ class FxGraphCommand : public FxCommand
 	FX_DECLARE_CLASS(FxGraphCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxMapCommand : public FxCommand
@@ -391,7 +282,7 @@ class FxMapCommand : public FxCommand
 	FX_DECLARE_CLASS(FxMapCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxBeginBatchCommand : public FxCommand
@@ -404,7 +295,7 @@ class FxExecBatchCommand : public FxCommand
 	FX_DECLARE_CLASS(FxExecBatchCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxBatchCommand : public FxCommand
@@ -417,7 +308,7 @@ class FxKeyCommand : public FxCommand
 	FX_DECLARE_CLASS(FxKeyCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxAnimGroupCommand : public FxCommand
@@ -425,7 +316,7 @@ class FxAnimGroupCommand : public FxCommand
 	FX_DECLARE_CLASS(FxAnimGroupCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxAnimCommand : public FxCommand
@@ -433,7 +324,7 @@ class FxAnimCommand : public FxCommand
 	FX_DECLARE_CLASS(FxAnimCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCurveCommand : public FxCommand
@@ -441,7 +332,7 @@ class FxCurveCommand : public FxCommand
 	FX_DECLARE_CLASS(FxCurveCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxAnalysisCommand : public FxCommand
@@ -449,7 +340,7 @@ class FxAnalysisCommand : public FxCommand
 	FX_DECLARE_CLASS(FxAnalysisCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxGetCommand : public FxCommand
@@ -457,7 +348,7 @@ class FxGetCommand : public FxCommand
 	FX_DECLARE_CLASS(FxGetCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxSetCommand : public FxCommand
@@ -465,7 +356,7 @@ class FxSetCommand : public FxCommand
 	FX_DECLARE_CLASS(FxSetCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxPlayCommand : public FxCommand
@@ -473,7 +364,7 @@ class FxPlayCommand : public FxCommand
 	FX_DECLARE_CLASS(FxPlayCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxStopCommand : public FxCommand
@@ -481,7 +372,7 @@ class FxStopCommand : public FxCommand
 	FX_DECLARE_CLASS(FxStopCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxExportLTFCommand : public FxCommand
@@ -489,7 +380,7 @@ class FxExportLTFCommand : public FxCommand
 	FX_DECLARE_CLASS(FxExportLTFCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxTemplateCommand : public FxCommand
@@ -497,7 +388,7 @@ class FxTemplateCommand : public FxCommand
 	FX_DECLARE_CLASS(FxTemplateCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxAnimSetCommand : public FxCommand
@@ -505,7 +396,7 @@ class FxAnimSetCommand : public FxCommand
 	FX_DECLARE_CLASS(FxAnimSetCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCookCommand : public FxCommand
@@ -513,7 +404,7 @@ class FxCookCommand : public FxCommand
 	FX_DECLARE_CLASS(FxCookCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCoordSysCommand : public FxCommand
@@ -521,7 +412,7 @@ class FxCoordSysCommand : public FxCommand
 	FX_DECLARE_CLASS(FxCoordSysCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxSetNameCommand : public FxCommand
@@ -529,7 +420,7 @@ class FxSetNameCommand : public FxCommand
 	FX_DECLARE_CLASS(FxSetNameCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxCollapseFaceGraphCommand : public FxCommand
@@ -537,7 +428,7 @@ class FxCollapseFaceGraphCommand : public FxCommand
 	FX_DECLARE_CLASS(FxCollapseFaceGraphCommand, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 class FxUE3Command : public FxCommand
@@ -545,7 +436,7 @@ class FxUE3Command : public FxCommand
 	FX_DECLARE_CLASS(FxUE3Command, FxCommand);
 
 public:
-	static FxCommandSyntax_004b88a0 CreateSyntax();
+	static FxCommandSyntax CreateSyntax();
 };
 
 // @baa 0x004b88a0

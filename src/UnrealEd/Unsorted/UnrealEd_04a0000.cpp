@@ -1,6 +1,7 @@
 // UnrealEd_04a0000.cpp: 51 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/FaceFX.h"
 
 struct M_004a0560 { void sub_00423d80(); };
 
@@ -268,69 +269,6 @@ undefined4 C_004ae7b0::sub_004ae7b0(byte param_2)
 
 /* FaceFX Studio, the command system (FxCommand.h, FxCommandSyntax.h; FxString.h of the FaceFX SDK).
  * Each console command describes the arguments it takes with a static CreateSyntax(). */
-typedef char FxChar;
-
-typedef unsigned int FxSize;
-
-static const FxSize FxInvalidIndex = (FxSize)-1;
-void FxFree(void* ptr, FxSize n);
-class FxString
-{
-public:
-	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
-	~FxString()
-	{
-		FxFree(_container, _allocatedCount);
-		_container = 0;
-		_usedCount = 0;
-		_allocatedCount = 0;
-	}
-
-private:
-	FxChar* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-/* The kind of value an argument takes. */
-enum FxCommandArgumentType
-{
-	CAT_Flag = 0,
-	CAT_Real,
-	CAT_DReal,
-	CAT_Size,
-	CAT_Int32,
-	CAT_String,
-	CAT_StringArray,
-	CAT_Bool
-};
-
-class FxCommandArgumentDesc
-{
-public:
-	FxCommandArgumentDesc(const FxString& argNameShort, const FxString& argNameLong, FxCommandArgumentType argType);
-	~FxCommandArgumentDesc();
-
-	FxString ArgNameShort;
-	FxString ArgNameLong;
-	FxCommandArgumentType ArgType;
-};
-
-class FxCommandSyntax
-{
-public:
-	FxCommandSyntax() : _container(0), _allocatedCount(0), _usedCount(0) {}
-	~FxCommandSyntax();
-
-	void AddArgDesc(const FxCommandArgumentDesc& argDesc);
-
-private:
-	/* FxArray<FxCommandArgumentDesc> */
-	FxCommandArgumentDesc* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
 // @baa 0x004a9130
 FxCommandSyntax sub_004a9130()
 {

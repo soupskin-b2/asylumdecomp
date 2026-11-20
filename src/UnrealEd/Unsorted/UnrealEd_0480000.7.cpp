@@ -1,6 +1,7 @@
 // UnrealEd_0480000.cpp: 4 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/FaceFX.h"
 
 struct X_
 {
@@ -21,38 +22,6 @@ unsigned char sub_00488c90(int a)
 
 /* FaceFX Studio, the command system (FxCommand.h, FxCommandSyntax.h, FxCommandManager.h, FxInternalCommands.h;
  * FxString.h of the FaceFX SDK). */
-typedef char FxChar;
-
-typedef bool FxBool;
-
-typedef unsigned int FxSize;
-
-static const FxSize FxInvalidIndex = (FxSize)-1;
-void FxFree(void* ptr, FxSize n);
-class FxString
-{
-public:
-	FxString(const FxChar* str, FxSize numChars = FxInvalidIndex);
-	~FxString()
-	{
-		FxFree(_container, _allocatedCount);
-		_container = 0;
-		_usedCount = 0;
-		_allocatedCount = 0;
-	}
-
-private:
-	FxChar* _container;
-	FxSize _allocatedCount;
-	FxSize _usedCount;
-};
-
-class FxCommandManager
-{
-public:
-	static FxBool UnregisterCommand(const FxString& commandName);
-};
-
 // @baa 0x0048b8d0
 /* Unregisters the commands FaceFX Studio comes with. */
 void sub_0048b8d0()

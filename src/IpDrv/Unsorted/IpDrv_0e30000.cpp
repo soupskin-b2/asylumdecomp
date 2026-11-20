@@ -68,7 +68,7 @@ C_00e38130* C_00e38130::sub_00e38130(void) { return this; }
 int UPartyBeaconClient::vf_11c(int a0) { return 1; }
 
 // @baa 0x00e38180
-int UPartyBeaconClient::vf_120(int a0) { return 1; }
+UBOOL UPartyBeaconClient::vf_120(FOnlineGameSearchResult& HostedSession) { return 1; }
 
 struct A_00e38190 { virtual void sub_00e38210(); char pad[44]; };
 

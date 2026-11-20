@@ -16957,7 +16957,7 @@ struct ACoverLink : public ANavigationPoint {
     /* virtual functions this class introduces (vtable 0x01f453f8) */
     virtual UBOOL GetFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, BYTE ChkAction, BYTE ChkType, INT& out_FireLinkIdx, TArray<INT>& out_Items); /* 0x3b0 */
     virtual UBOOL HasFireLinkTo(INT SlotIdx, const FCoverInfo& ChkCover, UBOOL bAllowFallbackLinks); /* 0x3b4 */
-    virtual INT vf_3b8(FLOAT, INT); /* 0x3b8 */
+    virtual UBOOL vf_3b8(INT SlotIdx, FFireLink* FireLink); /* 0x3b8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -19750,6 +19750,7 @@ struct UEngine : public USubsystem {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Tick(FLOAT DeltaSeconds); /* 0x10c */
     /* other member functions */
+    class UAudioDevice* GetAudioDevice(); /* 0x00cb0310: GEngine->Client->GetAudioDevice(), NULL without a client (it reads GEngine, not this) */
     void execGetPhysXuseGRB(FFrame& Stack, RESULT_DECL); /* 0x00cb24c0 */
     void execGetPhysXLevel(FFrame& Stack, RESULT_DECL); /* 0x00cb2470 */
     void execAddOverlayWrapped(FFrame& Stack, RESULT_DECL); /* 0x00cb8ea0 */
@@ -36553,7 +36554,7 @@ struct UPartyBeaconClient : public UPartyBeacon {
     virtual UBOOL CancelReservation(struct FUniqueNetId CancellingPartyLeader); /* 0x114 */
     virtual UBOOL HandleHostResponsePacketType(BYTE HostResponsePacketType,FNboSerializeFromBuffer& FromBuffer); /* 0x118 */
     virtual INT vf_11c(INT); /* 0x11c */
-    virtual INT vf_120(INT); /* 0x120 */
+    virtual UBOOL vf_120(FOnlineGameSearchResult& HostedSession); /* 0x120 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -50170,7 +50171,7 @@ struct URSimpleIdleConfig : public URIdleConfig {
     FName EndWeaponStance; /* 0xbc */
     /* virtual functions this class introduces (vtable 0x02345320) */
     virtual void vf_118(INT, INT); /* 0x118 */
-    virtual void vf_11c(INT); /* 0x11c */
+    virtual void vf_11c(class URBMBehaviour_IdleWithPlannarProp* Behaviour); /* 0x11c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -50198,7 +50199,7 @@ struct URIdleTransitionConfig : public URSimpleIdleConfig {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_118(INT, INT); /* 0x118 */
-    virtual void vf_11c(INT); /* 0x11c */
+    virtual void vf_11c(class URBMBehaviour_IdleWithPlannarProp* Behaviour); /* 0x11c */
     /* registered size 0x104 */
 };
 
@@ -50213,7 +50214,7 @@ struct URIdleWithDeathConfig : public URSimpleIdleConfig {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void vf_118(INT, INT); /* 0x118 */
-    virtual void vf_11c(INT); /* 0x11c */
+    virtual void vf_11c(class URBMBehaviour_IdleWithPlannarProp* Behaviour); /* 0x11c */
     /* UnrealScript natives */
     void execFireDeathLink(FFrame& Stack, RESULT_DECL); /* 0x01704bc0 */
     /* registered size 0xcc */
@@ -51088,7 +51089,7 @@ struct URPairedIdleConfig : public URSimpleIdleConfig {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* Owner); /* 0x10c */
     virtual void vf_118(INT, INT); /* 0x118 */
-    virtual void vf_11c(INT); /* 0x11c */
+    virtual void vf_11c(class URBMBehaviour_IdleWithPlannarProp* Behaviour); /* 0x11c */
     /* registered size 0x174 */
 };
 
