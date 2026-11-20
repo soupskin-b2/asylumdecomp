@@ -577,9 +577,11 @@ UBOOL USettings::GetStringSettingId(FName StringSettingName, INT& StringSettingI
 	return FALSE;
 }
 
-/* Kit gaps: FSettingsData::GetData (structcpptext) and USettings::FindProperty (inline in UnOnlineSubsystem/Settings headers) isn't declared. */
+/* Inlined here, in the form without the else: FSettingsData::GetData(FLOAT&) (Classes.h declares the out-of-line copy,
+ * 0x00d67b90). */
 struct FSettingsData__00d75800 : public FSettingsData
 {
+	using FSettingsData::GetData;
 	FORCEINLINE void GetData(FLOAT& OutData) const
 	{
 		if (Type == SDT_Float)
@@ -589,28 +591,12 @@ struct FSettingsData__00d75800 : public FSettingsData
 	}
 };
 
-struct USettings__00d75800 : public USettings
-{
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
-};
-
 // @baa 0x00d75800
 /* The value of a float property; FALSE when there's no such property or it isn't a float. */
 UBOOL USettings::GetFloatProperty(INT PropertyId, FLOAT& Value)
 {
 	UBOOL bFound = FALSE;
-	FSettingsProperty* Property = ((USettings__00d75800*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL)
 	{
 		if (Property->Data.Type == SDT_Float)
@@ -654,20 +640,10 @@ void USettings::GetQoSAdvertisedProperties(TArray<FSettingsProperty>& QoSProps)
 	}
 }
 
-/* Kit gaps: FSettingsData::GetData (structcpptext) and USettings::FindProperty (USettings.h) aren't declared. */
+/* Inlined here: FSettingsData::GetData(FLOAT&) (Classes.h declares the out-of-line copy, 0x00d67b90). */
 struct FSettingsData__00d76460 : public FSettingsData
 {
-	FORCEINLINE void GetData(INT& OutData) const
-	{
-		if (Type == SDT_Int32)
-		{
-			OutData = Value1;
-		}
-		else
-		{
-			OutData = 0;
-		}
-	}
+	using FSettingsData::GetData;
 	FORCEINLINE void GetData(FLOAT& OutData) const
 	{
 		if (Type == SDT_Float)
@@ -681,27 +657,11 @@ struct FSettingsData__00d76460 : public FSettingsData
 	}
 };
 
-struct USettings__00d76460 : public USettings
-{
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
-};
-
 // @baa 0x00d76460
 /* A ranged property's value as a float (ints are converted); FALSE when there's no such property. */
 UBOOL USettings::GetRangedPropertyValue(INT PropertyId, FLOAT& OutValue)
 {
-	FSettingsProperty* Property = ((USettings__00d76460*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL)
 	{
 		switch (Property->Data.Type)
@@ -754,18 +714,6 @@ struct FSettingsData__00d75890 : public FSettingsData
 
 struct USettings__00d75890 : public USettings
 {
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
 	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
 };
 
@@ -826,18 +774,6 @@ struct FSettingsData__00d75710 : public FSettingsData
 
 struct USettings__00d75710 : public USettings
 {
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
 	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
 };
 
@@ -858,18 +794,6 @@ void USettings::SetFloatProperty(INT PropertyId, FLOAT Value)
 
 struct USettings__00d759f0 : public USettings
 {
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
 	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
 };
 
@@ -906,49 +830,16 @@ FString USettings::GetPropertyAsStringByName(FName PropertyName)
 	return FString();
 }
 
-/* Kit gaps: FSettingsData's structcpptext (SetData(INT), out of line here at 00d6e2e0), USettings::FindPropertyMetaData, USettings::FindProperty,
- * FScriptDelegate::IsCallable (00784f80) and the delegateNotifyPropertyValueUpdated glue (out of line, 00d66f70)
- * aren't declared. */
-
-struct USettings__00d75b50 : public USettings
-{
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
-	FORCEINLINE FSettingsPropertyPropertyMetaData* FindPropertyMetaData(INT PropertyId)
-	{
-		for (INT Index = 0; Index < PropertyMappings.Num(); Index++)
-		{
-			FSettingsPropertyPropertyMetaData& MetaData = PropertyMappings(Index);
-			if (MetaData.Id == PropertyId)
-			{
-				return &MetaData;
-			}
-		}
-		return NULL;
-	}
-	void delegateNotifyPropertyValueUpdated(FName PropertyName); /* 0x00d66f70 */
-};
-
 // @baa 0x00d75b50
 /* Sets an id-mapped int property to one of its mapped value ids and tells the NotifyPropertyValueUpdated delegate;
  * FALSE when the property or the value id isn't known. */
 UBOOL USettings::SetPropertyValueId(INT PropertyId, INT ValueId)
 {
 	UBOOL bOk = FALSE;
-	FSettingsProperty* Property = ((USettings__00d75b50*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = FindProperty(PropertyId);
 	if (Property != NULL && Property->Data.Type == SDT_Int32)
 	{
-		FSettingsPropertyPropertyMetaData* MetaData = ((USettings__00d75b50*)this)->FindPropertyMetaData(PropertyId);
+		FSettingsPropertyPropertyMetaData* MetaData = FindPropertyMetaData(PropertyId);
 		if (MetaData != NULL && MetaData->MappingType == PVMT_IdMapped)
 		{
 			for (INT Index = 0; Index < MetaData->ValueMappings.Num(); Index++)

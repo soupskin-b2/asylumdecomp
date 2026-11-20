@@ -2452,8 +2452,6 @@ undefined4 C_0068f860::sub_0068f860(byte param_2)
   return param_1;
 }
 
-/* Kit gap: the mesh-side handler (0x00963100; its name isn't known) isn't declared. */
-
 // @baa 0x0068f840
 /* Slot 0x248 (unnamed in the kit): forwards to the static mesh. */
 void UStaticMeshComponent::vf_248(INT Param)

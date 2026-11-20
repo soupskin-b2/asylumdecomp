@@ -632,9 +632,6 @@ INT URAnimNode_Pose::vf_318(FLOAT FloorChange, INT, INT, INT)
 	return TRUE;
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
-
 // @baa 0x01595770
 /* Slot 0x284 (unnamed in the kit). */
 INT URAnimNode_Pose::vf_284(BYTE Fuzziness)
@@ -642,17 +639,11 @@ INT URAnimNode_Pose::vf_284(BYTE Fuzziness)
 	return PosePlayer.sub_015c2c00(Fuzziness);
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
-
 // @baa 0x01595790
 INT URAnimNode_Pose::IsInAnyAutomaticTransition(BYTE Fuzziness, FTransitionId* Transition)
 {
 	return PosePlayer.IsInAnyAutomaticTransition(Fuzziness, Transition);
 }
-
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
 
 // @baa 0x015957b0
 /* Slot 0x28c (unnamed in the kit). */
@@ -661,17 +652,11 @@ INT URAnimNode_Pose::vf_28c(BYTE Fuzziness)
 	return PosePlayer.sub_015c2d00(Fuzziness);
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
-
 // @baa 0x015957d0
 INT URAnimNode_Pose::IsInTransition(FTransitionId Transition, BYTE Fuzziness)
 {
 	return PosePlayer.IsInTransition(Transition, Fuzziness);
 }
-
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
 
 // @baa 0x01595a40
 /* Slot 0x1e4 (unnamed in the kit). */
@@ -686,17 +671,11 @@ void URAnimNode_Pose::OverrideTransitionTime(FLOAT Time, INT Param)
 	PosePlayer.OverrideTransitionTime(Time, Param);
 }
 
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
-
 // @baa 0x015959c0
 INT URAnimNode_Pose::IsInMovementStance(FName Stance, BYTE Fuzziness)
 {
 	return PosePlayer.IsInMovementStance(Stance, Fuzziness);
 }
-
-/* Kit gap: FPosePlayer's methods aren't declared (the node forwards to the one of the same name; they take the
- * fuzziness as a 32-bit enum). */
 
 // @baa 0x015959e0
 INT URAnimNode_Pose::IsInWeaponStance(FName Stance, BYTE Fuzziness)

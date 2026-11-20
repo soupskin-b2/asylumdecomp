@@ -35,10 +35,6 @@ UBOOL ARPlayerController::sub_01618460(INT FeatureTypes, FLOAT MaxDistance, FVec
 	return FALSE;
 }
 
-/* Kit gaps: ARPawnPlayer's environment-feature probe (016a5440) and this helper behind execShouldIKickOffWall
- * aren't declared. */
-
-
 // @baa 0x01618d10
 /* While flying with the cape glide available, probes for a wall ahead: TRUE when there's no front barrier;
  * a found barrier is cleared and refused. */

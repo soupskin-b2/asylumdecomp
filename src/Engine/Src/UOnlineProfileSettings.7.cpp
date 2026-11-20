@@ -5,22 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Enums.h"
 
-/* Kit gap: FSettingsData's structcpptext (GetData overloads) isn't declared. */
-struct FSettingsData_ : public FSettingsData
-{
-	FORCEINLINE void GetData(INT& OutData) const
-	{
-		if (Type == SDT_Int32)
-		{
-			OutData = Value1;
-		}
-		else
-		{
-			OutData = 0;
-		}
-	}
-};
-
 // @baa 0x00d72d20
 /* Returns the id of an id-mapped setting's current value and, optionally, its index in the value mappings. */
 UBOOL UOnlineProfileSettings::GetProfileSettingValueId(INT ProfileSettingId, INT& ValueId, INT* ListIndex)
@@ -37,7 +21,7 @@ UBOOL UOnlineProfileSettings::GetProfileSettingValueId(INT ProfileSettingId, INT
 				{
 					if (MetaData.MappingType == PVMT_IdMapped)
 					{
-						((const FSettingsData_&)Setting.ProfileSetting.Data).GetData(ValueId);
+						Setting.ProfileSetting.Data.GetData(ValueId);
 						if (ListIndex)
 						{
 							for (INT Index = 0; Index < MetaData.ValueMappings.Num(); Index++)

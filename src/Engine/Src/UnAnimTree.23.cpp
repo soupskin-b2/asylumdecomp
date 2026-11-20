@@ -86,9 +86,6 @@ void UAnimNodeBlendPerBone::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNode
 	this->BuildWeightList();
 }
 
-/* Kit gaps: USkeletalMeshComponent::BuildComposePriorityList and UAnimTree::InitTreeSynchGroups aren't declared
- * in Classes.h. */
-
 // @baa 0x00c7e0c0
 void UAnimTree::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {

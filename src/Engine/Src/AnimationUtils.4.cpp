@@ -5,7 +5,6 @@
 
 /* Callees Classes.h doesn't declare. */
 
-/* FAnimationUtils (AnimationUtils.h) isn't in the kit. */
 // @baa 0x00bfddb0
 /* The local pose of the required bones at Time, from the sequence's raw (uncompressed) keys; bones
  * without a track keep the mesh's reference pose. */

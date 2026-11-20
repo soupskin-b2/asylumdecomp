@@ -6,8 +6,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Native.h"
 
-/* Kit gap: USeqAct_Latent's script event glue for Update (0x008aa600, out of line). */
-
 // @baa 0x01568380
 /* The second input aborts the speech. Once the speech has started (or finished) it ends when finished or when
  * the timeout runs out; the timeout only counts down without the FMOD device, which reports the end itself. */

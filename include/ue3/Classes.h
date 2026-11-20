@@ -4610,15 +4610,38 @@ struct FSettingsData {
     void SetData(INT InData); /* 0x00d6e2e0 */
     void SetData(DWORD InSize, const BYTE* InData); /* 0x00d6e390 */
     void SetData(const TArray<BYTE>& InData); /* 0x00d6e3f0 (copies at 00d6e430, 00d742c0) */
-    void SetData(FLOAT InData);
+    void SetData(FLOAT InData); /* inlined, in more than one form */
     void SetData(DOUBLE InData); /* 0x00d6e320 (copy at 00d6e350) */
     void SetData(QWORD InData);
     UBOOL FromString(const FString& NewValue); /* 0x00d6e4a0 */
-    void GetData(INT& OutData) const;
+    FORCEINLINE void GetData(INT& OutData) const
+    {
+        if (Type == SDT_Int32)
+        {
+            OutData = Value1;
+        }
+        else
+        {
+            OutData = 0;
+        }
+    }
     void GetData(FLOAT& OutData) const; /* 0x00d67b90 (copies at 00d67c30, 00d6e470) */
     void GetData(DOUBLE& OutData) const;
     void GetData(QWORD& OutData) const;
-    void GetData(FString& OutData) const;
+    FORCEINLINE void GetData(FString& OutData) const
+    {
+        if (Type == SDT_String)
+        {
+            if (Value2.Dummy != 0)
+            {
+                OutData = (const TCHAR*)Value2.Dummy;
+            }
+            else
+            {
+                OutData = TEXT("");
+            }
+        }
+    }
     void GetData(TArray<BYTE>& OutData) const; /* 0x00d79720 */
     FString ToString() const; /* 0x00d797a0 */
     /* the rest of the structcpptext (USettings.h); the exe has these inlined or as per-caller copies */
@@ -25243,6 +25266,43 @@ struct USettings : public UObject {
     void execSetSettingsDataDateTime(FFrame& Stack, RESULT_DECL); /* 0x00c85400 */
     void execSetSettingsData(FFrame& Stack, RESULT_DECL); /* 0x00c85500 */
     void execEmptySettingsData(FFrame& Stack, RESULT_DECL); /* 0x00c85600 */
+    /* USettings.h's inline lookups by id (NULL when there is none) */
+    FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
+    {
+        for (INT Index = 0; Index < Properties.Num(); Index++)
+        {
+            FSettingsProperty& Property = Properties(Index);
+            if (Property.PropertyId == PropertyId)
+            {
+                return &Property;
+            }
+        }
+        return NULL;
+    }
+    FORCEINLINE FLocalizedStringSetting* FindStringSetting(INT SettingId)
+    {
+        for (INT Index = 0; Index < LocalizedSettings.Num(); Index++)
+        {
+            FLocalizedStringSetting& Setting = LocalizedSettings(Index);
+            if (Setting.Id == SettingId)
+            {
+                return &Setting;
+            }
+        }
+        return NULL;
+    }
+    FORCEINLINE FSettingsPropertyPropertyMetaData* FindPropertyMetaData(INT PropertyId)
+    {
+        for (INT Index = 0; Index < PropertyMappings.Num(); Index++)
+        {
+            FSettingsPropertyPropertyMetaData& MetaData = PropertyMappings(Index);
+            if (MetaData.Id == PropertyId)
+            {
+                return &MetaData;
+            }
+        }
+        return NULL;
+    }
     void EmptySettingsData(FSettingsData& Data); /* 0x00d67f60 */
     FLOAT GetSettingsDataFloat(FSettingsData& Data); /* 0x00d67f90 */
     INT GetSettingsDataInt(FSettingsData& Data); /* 0x00d67fc0 */
@@ -25508,6 +25568,31 @@ struct UOnlineProfileSettings : public UObject {
     void delegateNotifySettingValueUpdated(FName SettingName); /* 0x00d67120 */
     INT FindProfileMappingIndexByName(FName ProfileSettingName) const; /* 0x00d72690 */
     INT FindProfileSettingIndex(INT ProfileSettingId) const; /* 0x00d72590 */
+    /* UOnlineProfileSettings.h's inline lookups by id (NULL when there is none) */
+    FORCEINLINE FOnlineProfileSetting* FindProfileSetting(INT ProfileSettingId)
+    {
+        for (INT Index = 0; Index < ProfileSettings.Num(); Index++)
+        {
+            FOnlineProfileSetting& Setting = ProfileSettings(Index);
+            if (Setting.ProfileSetting.PropertyId == ProfileSettingId)
+            {
+                return &Setting;
+            }
+        }
+        return NULL;
+    }
+    FORCEINLINE FSettingsPropertyPropertyMetaData* FindProfileMappingMetaData(INT ProfileSettingId)
+    {
+        for (INT Index = 0; Index < ProfileMappings.Num(); Index++)
+        {
+            FSettingsPropertyPropertyMetaData& MetaData = ProfileMappings(Index);
+            if (MetaData.Id == ProfileSettingId)
+            {
+                return &MetaData;
+            }
+        }
+        return NULL;
+    }
     INT FindProfileMappingIndex(INT ProfileSettingId) const; /* 0x00d72610 */
     /* registered size 0x80 */
 };

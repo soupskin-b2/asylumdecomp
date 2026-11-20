@@ -46,18 +46,6 @@ template<> __declspec(noinline) INT TArray<FSettingsProperty>::Add(INT Count)
 #line 50 "USettings.cpp"
 struct USettings_ : public USettings
 {
-    FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-    {
-        for (INT Index = 0; Index < Properties.Num(); Index++)
-        {
-            FSettingsProperty& Property = Properties(Index);
-            if (Property.PropertyId == PropertyId)
-            {
-                return &Property;
-            }
-        }
-        return NULL;
-    }
     FORCEINLINE void delegateNotifyPropertyValueUpdated(FName PropertyName)
     {
         struct Settings_eventNotifyPropertyValueUpdated_Parms

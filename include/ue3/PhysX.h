@@ -235,4 +235,12 @@ FMatrix N2UTransform(const NxMat34& nTM); /* 0x009d7c00: the rotation transposed
 FVector N2UVectorCopy(const NxVec3& nVec); /* 0x009d7cc0 */
 FVector N2UPosition(const NxVec3& nVec); /* 0x009d7ce0: times 50 */
 
+/* NxForceFieldKernel.h: a force field's kernel (ANxForceField subclasses keep one in Kernel and delete it through the
+ * virtual destructor) */
+class NxForceFieldKernel
+{
+public:
+    virtual ~NxForceFieldKernel();
+};
+
 #endif

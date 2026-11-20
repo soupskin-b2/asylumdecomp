@@ -2,6 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/PhysX.h"
 
 // @baa 0x00d6e350
 /* Makes this a double value. */
@@ -35,52 +36,18 @@ BYTE USettings::GetPropertyType(INT PropertyId)
 	return SDT_Empty;
 }
 
-/* Kit gap: USettings::FindProperty (USettings.h) isn't declared. */
-struct USettings_ : public USettings
-{
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
-};
-
 // @baa 0x00d760d0
 /* Whether there's a property with this id. */
 UBOOL USettings::HasProperty(INT PropertyId)
 {
-	return ((USettings_*)this)->FindProperty(PropertyId) != NULL;
+	return this->FindProperty(PropertyId) != NULL;
 }
-
-/* Kit gap: USettings::FindStringSetting (USettings.h) isn't declared. */
-struct USettings__00d76140 : public USettings
-{
-	FORCEINLINE FLocalizedStringSetting* FindStringSetting(INT SettingId)
-	{
-		for (INT Index = 0; Index < LocalizedSettings.Num(); Index++)
-		{
-			FLocalizedStringSetting& Setting = LocalizedSettings(Index);
-			if (Setting.Id == SettingId)
-			{
-				return &Setting;
-			}
-		}
-		return NULL;
-	}
-};
 
 // @baa 0x00d76140
 /* Whether there's a string setting with this id. */
 UBOOL USettings::HasStringSetting(INT SettingId)
 {
-	return ((USettings__00d76140*)this)->FindStringSetting(SettingId) != NULL;
+	return this->FindStringSetting(SettingId) != NULL;
 }
 
 // @baa 0x00d761b0
@@ -99,65 +66,34 @@ UBOOL USettings::GetPropertyMappingType(INT PropertyId, BYTE& OutType)
 	return FALSE;
 }
 
-/* Kit gaps: FSettingsData::GetData (structcpptext) and USettings::FindProperty (USettings.h) aren't declared. */
-struct FSettingsData__00d75aa0 : public FSettingsData
-{
-	FORCEINLINE void GetData(FString& OutData) const
-	{
-		if (Type == SDT_String)
-		{
-			if (Value2.Dummy != 0)
-			{
-				OutData = (const TCHAR*)Value2.Dummy;
-			}
-			else
-			{
-				OutData = TEXT("");
-			}
-		}
-	}
-};
-
 // @baa 0x00d75aa0
 /* The value of a string property; FALSE when there's no such property or it isn't a string. */
 UBOOL USettings::GetStringProperty(INT PropertyId, FString& Value)
 {
 	UBOOL bFound = FALSE;
-	FSettingsProperty* Property = ((USettings_*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL)
 	{
 		if (Property->Data.Type == SDT_String)
 		{
-			((const FSettingsData__00d75aa0&)Property->Data).GetData(Value);
+			Property->Data.GetData(Value);
 			bFound = TRUE;
 		}
 	}
 	return bFound;
 }
 
-/* Kit gaps: FSettingsData::GetData (structcpptext) and USettings::FindProperty (USettings.h) aren't declared. */
-struct FSettingsData__00d75970 : public FSettingsData
-{
-	FORCEINLINE void GetData(INT& OutData) const
-	{
-		if (Type == SDT_Int32)
-		{
-			OutData = Value1;
-		}
-	}
-};
-
 // @baa 0x00d75970
 /* The value of an int property; FALSE when there's no such property or it isn't an int. */
 UBOOL USettings::GetIntProperty(INT PropertyId, INT& Value)
 {
 	UBOOL bFound = FALSE;
-	FSettingsProperty* Property = ((USettings_*)this)->FindProperty(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (Property != NULL)
 	{
 		if (Property->Data.Type == SDT_Int32)
 		{
-			((const FSettingsData__00d75970&)Property->Data).GetData(Value);
+			Property->Data.GetData(Value);
 			bFound = TRUE;
 		}
 	}
@@ -243,23 +179,6 @@ FString USettings::GetPropertyColumnHeader(INT PropertyId)
 	return Result;
 }
 
-/* Kit gap: USettings::FindPropertyMetaData (USettings.h) isn't declared. */
-struct USettings__00d75ce0 : public USettings
-{
-	FORCEINLINE FSettingsPropertyPropertyMetaData* FindPropertyMetaData(INT PropertyId)
-	{
-		for (INT Index = 0; Index < PropertyMappings.Num(); Index++)
-		{
-			FSettingsPropertyPropertyMetaData& MetaData = PropertyMappings(Index);
-			if (MetaData.Id == PropertyId)
-			{
-				return &MetaData;
-			}
-		}
-		return NULL;
-	}
-};
-
 // @baa 0x00d75ce0
 /* The value id of an id-mapped int property; FALSE when the property, its mapping or the id isn't known. */
 UBOOL USettings::GetPropertyValueId(INT PropertyId, INT& ValueId)
@@ -268,7 +187,7 @@ UBOOL USettings::GetPropertyValueId(INT PropertyId, INT& ValueId)
 	INT Value;
 	if (GetIntProperty(PropertyId, Value))
 	{
-		FSettingsPropertyPropertyMetaData* MetaData = ((USettings__00d75ce0*)this)->FindPropertyMetaData(PropertyId);
+		FSettingsPropertyPropertyMetaData* MetaData = this->FindPropertyMetaData(PropertyId);
 		if (MetaData != NULL && MetaData->MappingType == PVMT_IdMapped)
 		{
 			for (INT Index = 0; Index < MetaData->ValueMappings.Num(); Index++)
@@ -285,42 +204,13 @@ UBOOL USettings::GetPropertyValueId(INT PropertyId, INT& ValueId)
 	return bFound;
 }
 
-/* Kit gap: USettings::FindProperty / FindPropertyMetaData (USettings.h) aren't declared. */
-struct USettings__00d76220 : public USettings
-{
-	FORCEINLINE FSettingsProperty* FindProperty(INT PropertyId)
-	{
-		for (INT Index = 0; Index < Properties.Num(); Index++)
-		{
-			FSettingsProperty& Property = Properties(Index);
-			if (Property.PropertyId == PropertyId)
-			{
-				return &Property;
-			}
-		}
-		return NULL;
-	}
-	FORCEINLINE FSettingsPropertyPropertyMetaData* FindPropertyMetaData(INT PropertyId)
-	{
-		for (INT Index = 0; Index < PropertyMappings.Num(); Index++)
-		{
-			FSettingsPropertyPropertyMetaData& MetaData = PropertyMappings(Index);
-			if (MetaData.Id == PropertyId)
-			{
-				return &MetaData;
-			}
-		}
-		return NULL;
-	}
-};
-
 // @baa 0x00d76220
 /* The range of a ranged property and whether it's shown as an int; FALSE when it isn't a ranged property. */
 UBOOL USettings::GetPropertyRange(INT PropertyId, FLOAT& OutMinValue, FLOAT& OutMaxValue, FLOAT& RangeIncrement, BYTE& bFormatAsInt)
 {
 	UBOOL bOk = FALSE;
-	FSettingsPropertyPropertyMetaData* MetaData = ((USettings__00d76220*)this)->FindPropertyMetaData(PropertyId);
-	FSettingsProperty* Property = ((USettings__00d76220*)this)->FindProperty(PropertyId);
+	FSettingsPropertyPropertyMetaData* MetaData = this->FindPropertyMetaData(PropertyId);
+	FSettingsProperty* Property = this->FindProperty(PropertyId);
 	if (MetaData != NULL && MetaData->MappingType == PVMT_Ranged && Property != NULL)
 	{
 		RangeIncrement = MetaData->RangeIncrement;
@@ -423,14 +313,6 @@ UBOOL USettings::IsWildcardStringSetting(INT StringSettingId)
 	}
 	return FALSE;
 }
-
-/* Kit gap: the PhysX force-field kernel behind Kernel (an FPointer in the kit) isn't declared; it is deleted through
- * its virtual destructor. */
-class NxForceFieldKernel
-{
-public:
-	virtual ~NxForceFieldKernel();
-};
 
 // @baa 0x00d81c60
 /* Slot 0x23c (UE3's TermRBPhys): frees the kernel along with the field. */

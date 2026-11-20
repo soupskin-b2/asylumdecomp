@@ -652,9 +652,6 @@ UBOOL UUISceneThumbnailRenderer::HasParentClassChanged() const
 
 /* FLinearColor::White */
 extern FLinearColor g_025d574c;
-/* Kit gap: UIconThumbnailRenderer's icon accessor isn't declared (it loads the icon named by
- * the renderer's string the first time and caches it). */
-
 // @baa 0x012520e0
 /* Draws the icon texture over the whole thumbnail. UTexture::Resource (UE3 FTextureResource*) is an FPointer in the kit. */
 void UIconThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas,
