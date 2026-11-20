@@ -70627,22 +70627,22 @@
     {
      "va": "0062b200",
      "size": 24,
-     "symbol": "?GetPropertyValue@UStrProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UStrProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062aa70",
      "size": 24,
-     "symbol": "?GetPropertyValue@UDelegateProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UDelegateProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062b0b0",
      "size": 24,
-     "symbol": "?GetPropertyValue@UInterfaceProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UInterfaceProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062b2b0",
      "size": 24,
-     "symbol": "?GetPropertyValue@UArrayProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UArrayProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062e100",
@@ -70722,7 +70722,7 @@
     {
      "va": "006005b0",
      "size": 29,
-     "symbol": "?ImportText@UProperty@@UAEHHHHHH@Z"
+     "symbol": "?ImportText@UProperty@@UBEPB_WPB_WPAEHPAUUObject@@PAUFOutputDevice@@@Z"
     },
     {
      "va": "00600650",
@@ -70757,7 +70757,7 @@
     {
      "va": "0063efa0",
      "size": 40,
-     "symbol": "?ExportTextItem@UStructProperty@@UAEXIIIII@Z"
+     "symbol": "?ExportTextItem@UStructProperty@@UBEXAAVFString@@PBE1PAUUObject@@H@Z"
     },
     {
      "va": "0062a8d0",
@@ -70772,32 +70772,32 @@
     {
      "va": "0062aa00",
      "size": 26,
-     "symbol": "?GetPropertyValue@UIntProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UIntProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062ad40",
      "size": 26,
-     "symbol": "?GetPropertyValue@UFloatProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UFloatProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062aa20",
      "size": 26,
-     "symbol": "?SetPropertyValue@UIntProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UIntProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062ae90",
      "size": 26,
-     "symbol": "?GetPropertyValue@UObjectProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UObjectProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062af30",
      "size": 26,
-     "symbol": "?GetPropertyValue@UClassProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UClassProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062af50",
      "size": 26,
-     "symbol": "?SetPropertyValue@UClassProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UClassProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062aeb0",
@@ -70807,12 +70807,12 @@
     {
      "va": "0062ad60",
      "size": 26,
-     "symbol": "?SetPropertyValue@UFloatProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UFloatProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062afd0",
      "size": 26,
-     "symbol": "?GetPropertyValue@UComponentProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UComponentProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062aff0",
@@ -70827,7 +70827,7 @@
     {
      "va": "0062a8a0",
      "size": 38,
-     "symbol": "?HasValue@UByteProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UByteProperty@@UBEHPBEK@Z"
     },
     {
      "va": "0062a970",
@@ -70837,12 +70837,12 @@
     {
      "va": "0062a9a0",
      "size": 38,
-     "symbol": "?HasValue@UIntProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UIntProperty@@UBEHPBEK@Z"
     },
     {
      "va": "0062a9d0",
      "size": 34,
-     "symbol": "?ClearValue@UIntProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UIntProperty@@UBEXPAEK@Z"
     },
     {
      "va": "0062aa50",
@@ -70852,12 +70852,12 @@
     {
      "va": "0062aa90",
      "size": 40,
-     "symbol": "?SetPropertyValue@UDelegateProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UDelegateProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062ad10",
      "size": 35,
-     "symbol": "?ClearValue@UFloatProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UFloatProperty@@UBEXPAEK@Z"
     },
     {
      "va": "0062ade0",
@@ -70867,12 +70867,12 @@
     {
      "va": "0062ae30",
      "size": 38,
-     "symbol": "?HasValue@UObjectProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UObjectProperty@@UBEHPBEK@Z"
     },
     {
      "va": "0062ae60",
      "size": 34,
-     "symbol": "?ClearValue@UObjectProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UObjectProperty@@UBEXPAEK@Z"
     },
     {
      "va": "0062b050",
@@ -70882,7 +70882,7 @@
     {
      "va": "0062b0d0",
      "size": 34,
-     "symbol": "?SetPropertyValue@UInterfaceProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UInterfaceProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062b110",
@@ -70892,7 +70892,7 @@
     {
      "va": "0062b1c0",
      "size": 34,
-     "symbol": "?SetPropertyValue@UNameProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UNameProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062b740",
@@ -70912,7 +70912,7 @@
     {
      "va": "0062e940",
      "size": 37,
-     "symbol": "?ClearValue@UNameProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UNameProperty@@UBEXPAEK@Z"
     },
     {
      "va": "0062e370",
@@ -70927,7 +70927,7 @@
     {
      "va": "0062e440",
      "size": 44,
-     "symbol": "?ClearValue@UDelegateProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UDelegateProperty@@UBEXPAEK@Z"
     },
     {
      "va": "00639310",
@@ -70937,7 +70937,7 @@
     {
      "va": "006393f0",
      "size": 30,
-     "symbol": "?SetPropertyValue@UStrProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UStrProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062a7c0",
@@ -70952,12 +70952,12 @@
     {
      "va": "0062acd0",
      "size": 55,
-     "symbol": "?HasValue@UFloatProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UFloatProperty@@UBEHPBEK@Z"
     },
     {
      "va": "0062b130",
      "size": 76,
-     "symbol": "?CopyCompleteValue@UNameProperty@@UAEXPAX0PAUUObject@@1PAUFObjectInstancingGraph@@@Z"
+     "symbol": "?CopyCompleteValue@UNameProperty@@UBEXPAX0PAUUObject@@1PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "0062e760",
@@ -70967,17 +70967,17 @@
     {
      "va": "0062e800",
      "size": 62,
-     "symbol": "?HasValue@UInterfaceProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UInterfaceProperty@@UBEHPBEK@Z"
     },
     {
      "va": "006305c0",
      "size": 64,
-     "symbol": "?HasValue@UStrProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UStrProperty@@UBEHPBEK@Z"
     },
     {
      "va": "006319b0",
      "size": 71,
-     "symbol": "?ClearValue@UByteProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UByteProperty@@UBEXPAEK@Z"
     },
     {
      "va": "0062de80",
@@ -71024,7 +71024,7 @@
     {
      "va": "0062a830",
      "size": 45,
-     "symbol": "?CopyCompleteValue@UByteProperty@@UAEXPAX0PAUUObject@@1PAUFObjectInstancingGraph@@@Z"
+     "symbol": "?CopyCompleteValue@UByteProperty@@UBEXPAX0PAUUObject@@1PAUFObjectInstancingGraph@@@Z"
     },
     {
      "va": "0062a910",
@@ -71049,7 +71049,7 @@
     {
      "va": "0062ac10",
      "size": 47,
-     "symbol": "?SetPropertyValue@UBoolProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UBoolProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062ac40",
@@ -71114,7 +71114,7 @@
     {
      "va": "0062b1a0",
      "size": 24,
-     "symbol": "?GetPropertyValue@UNameProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UNameProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062b1f0",
@@ -71159,12 +71159,12 @@
     {
      "va": "0062b350",
      "size": 3,
-     "symbol": "?ExportTextItem@UMapProperty@@UAEXIIIII@Z"
+     "symbol": "?ExportTextItem@UMapProperty@@UBEXAAVFString@@PBE1PAUUObject@@H@Z"
     },
     {
      "va": "0062b360",
      "size": 7,
-     "symbol": "?ImportText@UMapProperty@@UAEHHHHHH@Z"
+     "symbol": "?ImportText@UMapProperty@@UBEPB_WPB_WPAEHPAUUObject@@PAUFOutputDevice@@@Z"
     },
     {
      "va": "0062b370",
@@ -71194,7 +71194,7 @@
     {
      "va": "0062b3c0",
      "size": 5,
-     "symbol": "?HasValue@UMapProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UMapProperty@@UBEHPBEK@Z"
     },
     {
      "va": "0062b3d0",
@@ -71504,7 +71504,7 @@
     {
      "va": "0062ddd0",
      "size": 171,
-     "symbol": "?sub_0062ddd0@UProperty_@@QAEHHAAVFString@@PAE1PAUUObject@@H@Z"
+     "symbol": "?ExportText@UProperty@@QBEHHAAVFString@@PAE1PAUUObject@@H@Z"
     },
     {
      "va": "0062dec0",
@@ -71884,12 +71884,12 @@
     {
      "va": "0062f8e0",
      "size": 5,
-     "symbol": "?GetPropertyValue@UMapProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UMapProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062f8f0",
      "size": 5,
-     "symbol": "?SetPropertyValue@UMapProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UMapProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062f900",
@@ -71909,12 +71909,12 @@
     {
      "va": "0062f9b0",
      "size": 5,
-     "symbol": "?GetPropertyValue@UStructProperty@@UAEHHH@Z"
+     "symbol": "?GetPropertyValue@UStructProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "0062f9c0",
      "size": 5,
-     "symbol": "?SetPropertyValue@UStructProperty@@UAEIPAIPAH@Z"
+     "symbol": "?SetPropertyValue@UStructProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "0062f9d0",
@@ -71939,7 +71939,7 @@
     {
      "va": "00630590",
      "size": 41,
-     "symbol": "?ClearValue@UInterfaceProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UInterfaceProperty@@UBEXPAEK@Z"
     },
     {
      "va": "006307f0",
@@ -82750,32 +82750,32 @@
     {
      "va": "00600570",
      "size": 27,
-     "symbol": "?SerializeItem@UProperty_@@QAEXAAVFArchive@@PAX1PAUUObject@@@Z"
+     "symbol": "?SerializeItem@UProperty@@UBEXAAVFArchive@@PAXH1@Z"
     },
     {
      "va": "00600590",
      "size": 27,
-     "symbol": "?ExportTextItem@UProperty@@UAEXIIIII@Z"
+     "symbol": "?ExportTextItem@UProperty@@UBEXAAVFString@@PBE1PAUUObject@@H@Z"
     },
     {
      "va": "006005d0",
      "size": 29,
-     "symbol": "?GetPropertyValue@UProperty@@UAEHHH@Z"
+     "symbol": "?SetPropertyValue@UProperty@@UBEHPAEABTUPropertyValue@@@Z"
     },
     {
      "va": "006005f0",
      "size": 29,
-     "symbol": "?SetPropertyValue@UProperty@@UAEIPAIPAH@Z"
+     "symbol": "?GetPropertyValue@UProperty@@UBEHPAEAATUPropertyValue@@@Z"
     },
     {
      "va": "00600610",
      "size": 29,
-     "symbol": "?HasValue@UProperty@@UAEHHH@Z"
+     "symbol": "?HasValue@UProperty@@UBEHPBEK@Z"
     },
     {
      "va": "00600630",
      "size": 27,
-     "symbol": "?ClearValue@UProperty@@UAEXPAEK@Z"
+     "symbol": "?ClearValue@UProperty@@UBEXPAEK@Z"
     }
    ]
   },

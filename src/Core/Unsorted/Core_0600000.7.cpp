@@ -4,39 +4,33 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* UProperty::SerializeItem (0x12c in the vtable) is a pure virtual that every property type
- * implements; it serializes the property's value (and defaults, for the properties that use them). */
-struct UProperty_ : public UProperty
-{
-	void SerializeItem(FArchive& Ar, void* Value, void* Defaults, class UObject* Owner);
-};
-
 // @baa 0x00600570
-void UProperty_::SerializeItem( FArchive& Ar, void* Value, void* Defaults, class UObject* Owner ) PURE_VIRTUAL(UProperty::SerializeItem,);
+/* every property type implements it (serializes the property's value) */
+void UProperty::SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const PURE_VIRTUAL(UProperty::SerializeItem,);
 
 // @baa 0x006005f0
-UINT UProperty::SetPropertyValue( UINT* Value, INT* ArrayIndex ) PURE_VIRTUAL(UProperty::SetPropertyValue, return 0;);
+UBOOL UProperty::SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const PURE_VIRTUAL(UProperty::SetPropertyValue, return FALSE;);
 
 // @baa 0x006005d0
-INT UProperty::GetPropertyValue(INT, INT)
+UBOOL UProperty::GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const
 {
-    PURE_VIRTUAL(UProperty::GetPropertyValue, return 0;);
+    PURE_VIRTUAL(UProperty::GetPropertyValue, return FALSE;);
 }
 
 // @baa 0x00600610
-INT UProperty::HasValue(INT, INT)
+UBOOL UProperty::HasValue(const BYTE* Data, DWORD PortFlags) const
 {
-    PURE_VIRTUAL(UProperty::HasValue, return 0;);
+    PURE_VIRTUAL(UProperty::HasValue, return FALSE;);
 }
 
 // @baa 0x00600590
-void UProperty::ExportTextItem(UINT Value, UINT DefaultValue, UINT Parent, UINT PortFlags, UINT ExportFlags)
+void UProperty::ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const
 {
 	PURE_VIRTUAL(UProperty::ExportTextItem,);
 }
 
 // @baa 0x00600630
-void UProperty::ClearValue(BYTE* Data, DWORD ArrayDim)
+void UProperty::ClearValue(BYTE* Data, DWORD PortFlags) const
 {
 	PURE_VIRTUAL(UProperty::ClearValue,);
 }

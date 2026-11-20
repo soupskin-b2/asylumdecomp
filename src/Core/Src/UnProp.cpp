@@ -42,7 +42,7 @@ void C_0062a820::sub_0062a820(unsigned char* a1, unsigned char* a2, int a3, int 
 
 
 // @baa 0x0062a830
-void UByteProperty::CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph)
+void UByteProperty::CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot, UObject* DestOwnerObject, FObjectInstancingGraph* InstanceGraph) const
 {
     INT ArrayDim = *(INT*)((BYTE*)this + 0x38);
     if (ArrayDim == 1)
@@ -67,22 +67,20 @@ INT UDelegateProperty::GetMinAlignment() const { return 4; }
 INT UBoolProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062ac10
-undefined4 UBoolProperty::SetPropertyValue(uint * param_2, int * param_3)
+UBOOL UBoolProperty::SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const
 {
-    int param_1 = (int)this;
-
-  undefined4 uVar1;
-  
-  uVar1 = 0;
-  if (param_2 != (uint *)0x0) {
-    if (*param_3 != 0) {
-      *param_2 = *param_2 | *(uint *)(param_1 + 0x70);
-      return 1;
+    UBOOL bResult = FALSE;
+    if (PropertyValueAddress != NULL)
+    {
+        if (PropertyValue.BoolValue)
+        {
+            *(BITFIELD*)PropertyValueAddress |= BitMask;
+            return TRUE;
+        }
+        *(BITFIELD*)PropertyValueAddress &= ~BitMask;
+        bResult = TRUE;
     }
-    *param_2 = *param_2 & ~*(uint *)(param_1 + 0x70);
-    uVar1 = 1;
-  }
-  return uVar1;
+    return bResult;
 }
 
 // @baa 0x0062ac40
@@ -138,13 +136,13 @@ INT UInterfaceProperty::GetMinAlignment() const { return 4; }
 INT UNameProperty::GetMinAlignment() const { return 4; }
 
 // @baa 0x0062b1a0
-INT UNameProperty::GetPropertyValue(INT PropertyValueAddress, INT OutValue)
+UBOOL UNameProperty::GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const
 {
-    UBOOL bResult = 0;
-    if (PropertyValueAddress)
+    UBOOL bResult = FALSE;
+    if (PropertyValueAddress != NULL)
     {
-        *(INT*)OutValue = PropertyValueAddress;
-        bResult = 1;
+        out_PropertyValue.NameValue = (FName*)PropertyValueAddress;
+        bResult = TRUE;
     }
     return bResult;
 }
@@ -175,10 +173,10 @@ struct C_0062b340 { int sub_0062b340(void); };
 int C_0062b340::sub_0062b340(void) { return *(int*)((char*)this + 32); }
 
 // @baa 0x0062b350
-void UMapProperty::ExportTextItem(UINT a0, UINT a1, UINT a2, UINT a3, UINT a4) {  }
+void UMapProperty::ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const {  }
 
 // @baa 0x0062b360
-int UMapProperty::ImportText(int a0, int a1, int a2, int a3, int a4) { return a0; }
+const TCHAR* UMapProperty::ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText) const { return Buffer; }
 
 // @baa 0x0062b370
 void UMapProperty::InstanceSubobjects(void* a0, void* a1, UObject* a2, struct FObjectInstancingGraph* a3) const {  }
@@ -196,7 +194,7 @@ void UMapProperty::DestroyValue(void* a0) const {  }
 UBOOL UMapProperty::IsLocalized() const { return 0; }
 
 // @baa 0x0062b3c0
-int UMapProperty::HasValue(int a0, int a1) { return 0; }
+UBOOL UMapProperty::HasValue(const BYTE* Data, DWORD PortFlags) const { return FALSE; }
 
 // @baa 0x0062b3d0
 void UMapProperty::AddCppProperty(int a0) {  }
@@ -591,19 +589,8 @@ undefined4 * C_0062c130::sub_0062c130(byte param_2)
   return param_1;
 }
 
-struct UProperty_ : public UProperty {
-    INT GetElementSize() const { return *(INT*)((BYTE*)this + 0x3c); }
-    INT GetOffset() const { return *(INT*)((BYTE*)this + 0x54); }
-    UBOOL Matches(BYTE* A, BYTE* B, INT ArrayIndex, DWORD PortFlags)
-    {
-        INT Ofs = ArrayIndex * GetElementSize() + GetOffset();
-        return Identical(A + Ofs, B ? B + Ofs : NULL, PortFlags);
-    }
-    UBOOL sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags);
-};
-
 // @baa 0x0062ddd0
-UBOOL UProperty_::sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags)
+UBOOL UProperty::ExportText(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags) const
 {
     if ((PortFlags & 0x80) && !IsLocalized())
     {
@@ -611,8 +598,8 @@ UBOOL UProperty_::sub_0062ddd0(INT Index, FString& ValueStr, BYTE* Data, BYTE* D
     }
     if (Data == Delta || !Matches(Data, Delta, Index, PortFlags))
     {
-        ExportTextItem((UINT)&ValueStr, (UINT)(Data + Index * GetElementSize() + GetOffset()),
-                       (UINT)(Delta ? Delta + Index * GetElementSize() + GetOffset() : NULL), (UINT)Parent, PortFlags);
+        ExportTextItem(ValueStr, Data + Index * ElementSize + Offset,
+                       Delta ? Delta + Index * ElementSize + Offset : NULL, Parent, PortFlags);
         return 1;
     }
     return 0;
@@ -1208,10 +1195,10 @@ void UMapProperty::InstanceComponents(BYTE* a0, BYTE* a1, UObject* a2, struct FO
 UBOOL UMapProperty::RequiresInit() const { return 0; }
 
 // @baa 0x0062f8e0
-int UMapProperty::GetPropertyValue(int a0, int a1) { return 0; }
+UBOOL UMapProperty::GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const { return FALSE; }
 
 // @baa 0x0062f8f0
-UINT UMapProperty::SetPropertyValue(UINT* a0, INT* a1) { return 0; }
+UBOOL UMapProperty::SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const { return FALSE; }
 
 // @baa 0x0062f900
 extern undefined * g_01eafe78;
@@ -1232,10 +1219,10 @@ undefined4 * C_0062f920::sub_0062f920(void)
 IMPLEMENT_CLASS_AT(UStructProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnProp.cpp", 4931);
 
 // @baa 0x0062f9b0
-int UStructProperty::GetPropertyValue(int a0, int a1) { return 0; }
+UBOOL UStructProperty::GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const { return FALSE; }
 
 // @baa 0x0062f9c0
-UINT UStructProperty::SetPropertyValue(UINT* a0, INT* a1) { return 0; }
+UBOOL UStructProperty::SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const { return FALSE; }
 
 // @baa 0x0062f9d0
 extern undefined * g_01eafff8;
@@ -1258,7 +1245,7 @@ IMPLEMENT_CLASS_AT(UDelegateProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x0062fa80
 
 // @baa 0x00630590
-void UInterfaceProperty::ClearValue(BYTE* Data, DWORD PortFlags)
+void UInterfaceProperty::ClearValue(BYTE* Data, DWORD PortFlags) const
 {
     if ((PortFlags & 0x80) == 0 || IsLocalized())
     {

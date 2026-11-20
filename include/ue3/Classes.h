@@ -44744,7 +44744,7 @@ struct URCharacter : public UObject {
     class UParticleSystem* AlwaysOnPSHead; /* 0x138 */
     class UParticleSystem* AlwaysOnPSChest; /* 0x13c */
     /* virtual functions this class introduces (vtable 0x022fdf48) */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual FCharacterMeshValues vf_10c(class ARBMPawnAI* Pawn); /* 0x10c: copies this character's settings onto Pawn and returns its body/physics/head meshes (head NULL unless bUseHeadMesh); URCharacterRandom forwards to the default object of eventGetRandomType's class */
     virtual INT vf_110(INT); /* 0x110 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -44801,7 +44801,7 @@ struct URCharacterRandom : public URCharacter {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT vf_10c(INT, INT); /* 0x10c */
+    virtual FCharacterMeshValues vf_10c(class ARBMPawnAI* Pawn); /* 0x10c */
     /* other member functions */
     class UClass* eventGetRandomType(INT randomVal); /* 0x015d94e0 */
     /* registered size 0x140 */
@@ -58136,6 +58136,22 @@ struct UField : public UObject {
     /* registered size 0x38 */
 };
 
+/* UnType.h: a property's value, for UProperty::GetPropertyValue / SetPropertyValue */
+union UPropertyValue {
+    BYTE ByteValue;
+    INT IntValue;
+    UBOOL BoolValue;
+    FLOAT FloatValue;
+    class UObject* ObjectValue;
+    struct UComponent* ComponentValue;
+    class UClass* ClassValue;
+    FName* NameValue;
+    FString* StringValue;
+    TArray<BYTE>* ArrayValue; /* UE3's FScriptArray*: any TArray */
+    FScriptDelegate* DelegateValue;
+    FScriptInterface* InterfaceValue;
+};
+
 struct UProperty : public UField {
     /* Core.Property (native only: no script package describes it) */
     DECLARE_CLASS(UProperty, UField, 0x10000001, 0x8000, Core)
@@ -58156,6 +58172,14 @@ struct UProperty : public UField {
     class UProperty* NextRef; /* 0x64 */
     class UProperty* ComponentPropertyLinkNext; /* 0x68 */
     class UProperty* TransientPropertyLinkNext; /* 0x6c */
+    /* UnType.h's inline helpers */
+    INT GetSize() const { return ArrayDim * ElementSize; }
+    UBOOL Matches(const void* A, const void* B, INT ArrayIndex, DWORD PortFlags = 0) const
+    {
+        INT Ofs = ArrayIndex * ElementSize + Offset;
+        return Identical((BYTE*)A + Ofs, B ? (BYTE*)B + Ofs : NULL, PortFlags);
+    }
+    UBOOL ExportText(INT Index, FString& ValueStr, BYTE* Data, BYTE* Delta, UObject* Parent, INT PortFlags) const; /* 0x0062ddd0 */
     /* virtual functions this class introduces (vtable 0x01ea6c00) */
     virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
     virtual FString GetCPPType(FString* ExtendedTypeText = NULL, DWORD CPPExportFlags = 0) const; /* 0x120 */
@@ -58163,14 +58187,14 @@ struct UProperty : public UField {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual void DestroyValue( void* Dest ) const; /* 0x154 */
     virtual FName GetID() const; /* 0x158 */
     virtual UBOOL IsLocalized() const; /* 0x15c */
@@ -58205,13 +58229,13 @@ struct UArrayProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual void DestroyValue( void* Dest ) const; /* 0x154 */
     virtual UBOOL IsLocalized() const; /* 0x15c */
     virtual UBOOL RequiresInit() const; /* 0x160 */
@@ -58570,13 +58594,13 @@ struct UBoolProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* registered size 0x74 */
 };
@@ -58693,14 +58717,14 @@ struct UByteProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* registered size 0x74 */
     /* other member functions */
@@ -59242,14 +59266,14 @@ struct UObjectProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual UBOOL ContainsInstancedObjectProperty() const; /* 0x170 */
@@ -59269,11 +59293,11 @@ struct UClassProperty : public UObjectProperty {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual FString GetCPPMacroType(FString& ExtendedTypeText) const; /* 0x11c */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual FName GetID() const; /* 0x158 */
     /* registered size 0x78 */
 };
@@ -59376,12 +59400,12 @@ struct UComponentProperty : public UObjectProperty {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual FName GetID() const; /* 0x158 */
     virtual void InstanceComponents( BYTE* Data, BYTE* DefaultData, UObject* Owner, struct FObjectInstancingGraph* InstanceGraph ); /* 0x164 */
     /* registered size 0x74 */
@@ -59803,14 +59827,14 @@ struct UDelegateProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
@@ -60655,14 +60679,14 @@ struct UFloatProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* registered size 0x70 */
 };
@@ -61927,14 +61951,14 @@ struct UIntProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* registered size 0x70 */
 };
@@ -61955,14 +61979,14 @@ struct UInterfaceProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     virtual UBOOL ContainsObjectReference() const; /* 0x16c */
     virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
@@ -62689,14 +62713,14 @@ struct UMapProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual void DestroyValue( void* Dest ) const; /* 0x154 */
     virtual UBOOL IsLocalized() const; /* 0x15c */
     virtual UBOOL RequiresInit() const; /* 0x160 */
@@ -63062,14 +63086,14 @@ struct UNameProperty : public UProperty {
     virtual void Link( FArchive& Ar, UProperty* Prev ); /* 0x124 */
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* registered size 0x70 */
 };
@@ -65059,13 +65083,13 @@ struct UStrProperty : public UProperty {
     virtual void Link( FArchive& Ar, UProperty* Prev ); /* 0x124 */
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual void DestroyValue( void* Dest ) const; /* 0x154 */
     virtual UBOOL RequiresInit() const; /* 0x160 */
     virtual INT GetMinAlignment() const; /* 0x168 */
@@ -65102,14 +65126,14 @@ struct UStructProperty : public UProperty {
     virtual UBOOL Identical(const void* A, const void* B, DWORD PortFlags = 0) const; /* 0x128 */
     virtual void SerializeItem(FArchive& Ar, void* Value, INT MaxReadBytes, void* Defaults) const; /* 0x12c */
     virtual UBOOL NetSerializeItem( FArchive& Ar, UPackageMap* Map, void* Data ) const; /* 0x130 */
-    virtual void ExportTextItem(UINT, UINT, UINT, UINT, UINT); /* 0x134 */
-    virtual INT ImportText(INT, INT, INT, INT, INT); /* 0x138 */
-    virtual INT GetPropertyValue(INT, INT); /* 0x13c */
-    virtual UINT SetPropertyValue(UINT*, INT*); /* 0x140 */
+    virtual void ExportTextItem(FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags) const; /* 0x134 */
+    virtual const TCHAR* ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText = NULL) const; /* 0x138 */
+    virtual UBOOL GetPropertyValue(BYTE* PropertyValueAddress, UPropertyValue& out_PropertyValue) const; /* 0x13c */
+    virtual UBOOL SetPropertyValue(BYTE* PropertyValueAddress, const UPropertyValue& PropertyValue) const; /* 0x140 */
     virtual void CopySingleValue( void* Dest, void* Src, UObject* SubobjectRoot=NULL, UObject* DestOwnerObject=NULL, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x144 */
-    virtual void CopyCompleteValue(void*, void*, UObject*, UObject*, FObjectInstancingGraph*); /* 0x148 */
-    virtual INT HasValue(INT, INT); /* 0x14c */
-    virtual void ClearValue(BYTE*, DWORD); /* 0x150 */
+    virtual void CopyCompleteValue(void* Dest, void* Src, UObject* SubobjectRoot = NULL, UObject* DestOwnerObject = NULL, struct FObjectInstancingGraph* InstanceGraph = NULL) const; /* 0x148 */
+    virtual UBOOL HasValue(const BYTE* Data, DWORD PortFlags = 0) const; /* 0x14c */
+    virtual void ClearValue(BYTE* Data, DWORD PortFlags = 0) const; /* 0x150 */
     virtual void DestroyValue( void* Dest ) const; /* 0x154 */
     virtual UBOOL IsLocalized() const; /* 0x15c */
     virtual void InstanceComponents( BYTE* Data, BYTE* DefaultData, UObject* Owner, struct FObjectInstancingGraph* InstanceGraph ); /* 0x164 */
@@ -65120,6 +65144,8 @@ struct UStructProperty : public UProperty {
     virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* registered size 0x74 */
 };
+/* UnType.h: exports a struct value as text (UStructProperty::ExportTextItem forwards to it) */
+void UStructProperty_ExportTextItem(class UScriptStruct* InStruct, FString& ValueStr, const BYTE* PropertyValue, const BYTE* DefaultValue, UObject* Parent, INT PortFlags); /* 0x0063ec80 */
 
 struct USystem : public USubsystem {
     /* Core.System (native only: no script package describes it) */
