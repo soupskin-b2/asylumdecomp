@@ -174,7 +174,7 @@ void C_008348f0::sub_008348f0(float In)
 }
 
 // @baa 0x0084af10
-/* vf_0b8 is GetDesc: shown in the editor's browser. */
+/* GetDesc: shown in the editor's browser. */
 FString UMorphTargetSet::GetDesc()
 {
 	return FString::Printf(TEXT("%d MorphTargets"), Targets.Num());

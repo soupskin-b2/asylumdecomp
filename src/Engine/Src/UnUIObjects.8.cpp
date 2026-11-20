@@ -5,8 +5,5 @@
 #include "ue3/Script.h"
 
 // @baa 0x00d98fe0
-const UUIScene* UUIScreenObject::GetScene() const
-{
-    GError->Logf(TEXT("Pure virtual not implemented (%s)"), TEXT("const UUIScreenObject::GetScene"));
-    return NULL;
-}
+/* UE3 declares the const overload with PURE_VIRTUAL(const UUIScreenObject::GetScene, ...): the name string keeps the const. */
+const UUIScene* UUIScreenObject::GetScene() const PURE_VIRTUAL(const UUIScreenObject::GetScene, return NULL;)

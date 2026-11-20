@@ -4,15 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/GFx.h"
 
-/* GFx.h only forward-declares FGFxEngine; Tick(FLOAT DeltaTime) is out of line at 00e531e0. */
-class FGFxEngine {
-public:
-    void Tick(FLOAT DeltaTime); /* 0x00e531e0 */
-};
-
-/* Slot 0x110 is UInteraction::Tick(FLOAT DeltaTime); the kit declares it `INT vf_110(INT)`, so
- * the override is written on a helper. */
-
 // @baa 0x00e53890
 void UGFxInteraction::Tick(FLOAT DeltaTime)
 {

@@ -1,6 +1,7 @@
 // TerrainEditor.cpp (part 2 of 4): 6 functions
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 int sub_0053dfa0(...);
@@ -37,12 +38,8 @@ void C::sub_0124b750()
     ((wxMenu*)this)->wxMenu::~wxMenu();
 }
 
-int sub_00630f20(...);
-extern INT g_026667a8;
 // @baa 0x012508c0
-void UThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped) {
-  sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UThumbnailRenderer::Draw");
-}
+void UThumbnailRenderer::Draw(UObject* Object, EThumbnailPrimType PrimType, INT X, INT Y, DWORD Width, DWORD Height, FViewport* Viewport, FCanvas* Canvas, EThumbnailBackgroundType BackgroundType, FColor PreviewBackgroundColor, FColor PreviewBackgroundColorDropped) PURE_VIRTUAL(UThumbnailRenderer::Draw,)
 
 // The object referenced by the field at 0x1b4; the call goes through its
 // 7th virtual slot (vtable offset 0x18).

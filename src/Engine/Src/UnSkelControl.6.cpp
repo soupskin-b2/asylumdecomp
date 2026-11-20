@@ -37,8 +37,6 @@ struct FIntArray : public TArray<INT>
     void Reset() { ArrayNum = 0; }
 };
 
-/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-
 // @baa 0x0092a250
 /* the controlled bone and its NumBones-1 parents, root-most first */
 void USkelControl_CCD_IK::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)

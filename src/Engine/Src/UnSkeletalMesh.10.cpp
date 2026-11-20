@@ -5,18 +5,7 @@
 #define BAA_OUTLINE_NEW
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
-
-
-
-/* FSkelMeshSection (UnSkeletalMesh.h): a run of triangles of one LOD drawn with one material. Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
+#include "ue3/SkeletalMesh.h"
 
 /* inline here; its out-of-line copy is 0x00943bb0 */
 inline FArchive& operator<<(FArchive& Ar, FSkelMeshSection& S)

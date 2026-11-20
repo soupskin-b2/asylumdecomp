@@ -25,8 +25,7 @@ void USkelControlBase::SetSkelControlStrength(FLOAT NewStrength, FLOAT InBlendTi
     }
 }
 
-/* slot 0x120 (vf_120) is USkelControlBase::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp);
- * the base version is at 0x009225f0. */
+/* USkelControlBase::TickSkelControl (slot 0x120); the base version is at 0x009225f0. */
 
 // @baa 0x00923c70
 void USkelControlLookAt::TickSkelControl(FLOAT DeltaSeconds, USkeletalMeshComponent* SkelComp)

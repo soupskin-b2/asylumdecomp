@@ -2,17 +2,11 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/SkeletalMesh.h"
 
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;
-
-/* FkDOPCollisionTriangle (UnkDOP.h): a triangle of a kDOP tree (8 bytes). Not in the kit. */
-struct FkDOPCollisionTriangle
-{
-    WORD v1, v2, v3;
-    WORD MaterialIndex;
-};
 
 FArchive& operator<<(FArchive& Ar, TArray<FkDOPCollisionTriangle>& A);
  /* 0x009599c0 */

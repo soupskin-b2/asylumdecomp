@@ -860,15 +860,15 @@ void C_015767e0::sub_015767e0(UINT A)
 }
 
 // @baa 0x01558120
-/* Like AActor::ShouldTrace, but the panel answers every level-geometry trace (0x80) even though it isn't world
- * geometry. (0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+/* Like AActor::ShouldTrace, but the panel answers every level-geometry trace even though it isn't world
+ * geometry. */
 UBOOL ARElectrifiedFloorPanel::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return (TraceFlags & 0x80)
-        || (!bWorldGeometry && (TraceFlags & 0x10)
-            && ((TraceFlags & 0x20)
+    return (TraceFlags & TRACE_LevelGeometry)
+        || (!bWorldGeometry && (TraceFlags & TRACE_Others)
+            && ((TraceFlags & TRACE_OnlyProjActor)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & TRACE_Blocking) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 struct C_01574e00

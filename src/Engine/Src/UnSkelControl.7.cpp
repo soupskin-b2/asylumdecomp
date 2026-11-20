@@ -11,8 +11,6 @@ struct FIntArray : public TArray<INT>
     INT Add(INT Count);
 };
 
-/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-
 // @baa 0x009255c0
 /* the controlled bone and its SplineLength-1 parents, root-most first */
 void USkelControlSpline::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
@@ -46,8 +44,6 @@ void USkelControlSpline::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent*
 }
 
 #line 76 "candidate.cpp"
-
-/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
 
 // @baa 0x00928820
 /* the controlled bone and its ChainLength-1 parents, root-most first */

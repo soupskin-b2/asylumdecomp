@@ -5,9 +5,6 @@
 
 /* UAudioComponent's play/stop side of the ambient sound (00791770 has no name in the headers). */
 
-/* AActor's vtable slot 0x314 (the headers guess `virtual FLOAT vf_314(INT)`; this override
- * returns nothing, so it is declared here as void under its address). */
-
 // @baa 0x00791ad0
 void AAmbientSound::UpdateComponentsInternal(UBOOL bCollisionUpdate)
 {

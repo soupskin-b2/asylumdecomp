@@ -4,10 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// UE3's ARRAY_COUNT (Core.h), missing from the kit.
-typedef Native (*NativeLookup)(const TCHAR*);
-
-extern NativeLookup GNativeLookupFuncs[500];
 void AutoInitializeRegistrantsCore(INT& Lookup);
 void AutoInitializeRegistrantsEngine(INT& Lookup);
 void AutoInitializeRegistrantsIpDrv(INT& Lookup);

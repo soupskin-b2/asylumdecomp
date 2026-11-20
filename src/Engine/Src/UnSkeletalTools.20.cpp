@@ -53,8 +53,6 @@ public:
     void Serialize(FArchive& Ar, UObject* Owner); /* 0x009810d0 */
 };
 
-/* USkeletalMesh members Classes.h doesn't declare */
-
 // @baa 0x00981280
 void USkeletalMesh::Serialize(FArchive& Ar)
 {
@@ -100,8 +98,6 @@ void USkeletalMesh::Serialize(FArchive& Ar)
         StripData(UE3::PLATFORM_Console);
     }
 }
-
-/* Kit gap: the mesh's resource setup (0x0097baf0, likely UE3's InitResources) isn't declared. */
 
 /* A global flag (its name isn't known) that suppresses the setup, e.g. while running a commandlet. */
 extern INT g_02676094;

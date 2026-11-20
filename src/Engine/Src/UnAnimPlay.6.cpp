@@ -18,8 +18,7 @@ void UAnimNodeSequence::BeginDestroy()
 }
 
 // @baa 0x00c4afa0
-/* UAnimNodeSequence slot 0x194 (UE3 GetAnimPlaybackLength()): the sequence length at the current global play rate
- * (vf_190, UE3 GetGlobalPlayRate()). */
+/* UAnimNodeSequence::GetAnimPlaybackLength (slot 0x194): the sequence length at the current global play rate. */
 FLOAT UAnimNodeSequence::GetAnimPlaybackLength()
 {
     if (AnimSeq)

@@ -1,6 +1,7 @@
 // UnEdTran.cpp: 76 functions
 // Placed here by: neighbours 58, class 9, callers 2, file 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 // @baa 0x00f730a0
@@ -763,11 +764,10 @@ struct C_00f79c30 { char pad[28]; M_00f79c30 m; void sub_00f79c30(); };
 void C_00f79c30::sub_00f79c30() { m.sub_00549240(); }
 
 // @baa 0x00f9c860
-bool UTransBuffer::IsActive(void)
+/* Whether a transaction is open (Begin calls nest). */
+UBOOL UTransBuffer::IsActive()
 {
-    int param_1 = (int)this;
-
-  return 0 < *(int *)(param_1 + 0x4c);
+    return ActiveCount > 0;
 }
 
 // @baa 0x00f9c870
@@ -823,14 +823,8 @@ C_00f79c20* C_00f79c20::sub_00f79c20()
     return this;
 }
 
-extern int g_026667a8;
-extern "C" int sub_00630f20(int IsCritical, const wchar_t* Msg, const wchar_t* FuncName);
 // @baa 0x00f73100
-void UTransactor::Cancel(INT StartIndex)
-{
-	// Pure virtual not implemented: concrete transactors override this.
-	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UTransactor::Cancel");
-}
+void UTransactor::Cancel(INT StartIndex) PURE_VIRTUAL(UTransactor::Cancel,)
 
 // @baa 0x00f73600
 

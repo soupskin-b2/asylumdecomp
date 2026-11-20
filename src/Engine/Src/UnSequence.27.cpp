@@ -8,8 +8,6 @@ inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Numb
 
 /* UnSequence.cpp's static level lookup (0x008cc3b0): finds the streaming level for LevelName. */
 UBOOL FindLevel(ULevelStreaming*& Level, FName LevelName);
-/* slot 0x1a0 (vf_1a0) */
-
 // @baa 0x008cc7c0
 void USeqAct_MultiLevelStreaming::UpdateStatus()
 {

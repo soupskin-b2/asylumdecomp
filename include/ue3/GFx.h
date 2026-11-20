@@ -23,9 +23,26 @@ struct FGFxMovie
 {
 	BYTE _pad_0[0x34];
 	GFxMovieView* pView; /* 0x34 */
+	FLOAT LastTime; /* 0x38: the clock UGFxMovie::SetTimingMode resets */
+	BYTE _pad_3c[0x10];
+	INT TimingMode; /* 0x4c: the owner's ETimingMode */
 };
 
-class FGFxEngine;
+/* UnGFx's FGFxEngine (GGFxEngine): only its out-of-line members the matched code calls are declared. The
+ * address-named ones have no recovered name yet (their callers are noted). */
+class FGFxEngine {
+public:
+    void Tick(FLOAT DeltaTime); /* 0x00e531e0 */
+    UBOOL InputChar(INT ControllerId, TCHAR Character); /* 0x00e5fae0 */
+    void SetFocus(FGFxMovie* Movie, UBOOL CaptureInput); /* 0x00e688b0 */
+    void FlushPlayerInput(void* Keys); /* 0x00e68530: Keys is a movie's capture-key set (TSet<NAME_INDEX>*), NULL for every key */
+    void sub_00e63ae0(FGFxMovie* Movie); /* UGFxMovie::execSetTopMost's call */
+    void sub_00e689a0(INT A, INT B); /* UGFxInteraction slot 0x120 (00e68a60) forwards its two arguments here */
+    void sub_00e52fa0(INT A); /* 00e53860 forwards a nonzero argument here */
+    void sub_00e53400(); /* called by 00e53880 */
+    void sub_00e5d3a0(); /* called by 00e5d870 */
+    void sub_00e64fb0(); /* called by 00e65ec0 */
+};
 extern FGFxEngine* GGFxEngine; /* 0x026caed4 */
 
 #endif

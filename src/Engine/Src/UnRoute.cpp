@@ -431,7 +431,7 @@ UBOOL UPathGoalEvaluator::InitialAbortCheck(ANavigationPoint* A, APawn* B)
 }
 
 // @baa 0x008a6d20
-// Default implementation of vf_110 for UPathGoalEvaluator: forwards the call to
+// Default implementation of EvaluateGoal for UPathGoalEvaluator: forwards the call to
 // the next evaluator in the chain, or returns 0 when the chain ends.
 UBOOL UPathGoalEvaluator::EvaluateGoal(ANavigationPoint*& A, APawn* B)
 {

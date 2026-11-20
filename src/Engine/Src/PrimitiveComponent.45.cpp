@@ -10,14 +10,12 @@ UBOOL UStaticMeshComponent::HasParentClassChanged() const
 }
 
 // @baa 0x006ea5a0
-/* The material override for ElementIndex, or NULL when it has none. (UE3's GetMaterial is const, so the array is
- * read through its const accessor.) */
-UMaterialInterface* UMeshComponent::GetMaterial(INT ElementIndex)
+/* The material override for ElementIndex, or NULL when it has none. */
+UMaterialInterface* UMeshComponent::GetMaterial(INT ElementIndex) const
 {
-    const TArray<UMaterialInterface*>& ConstMaterials = (const TArray<UMaterialInterface*>&)Materials;
-    if (ElementIndex < Materials.Num() && ConstMaterials(ElementIndex))
+    if (ElementIndex < Materials.Num() && Materials(ElementIndex))
     {
-        return ConstMaterials(ElementIndex);
+        return Materials(ElementIndex);
     }
     return NULL;
 }

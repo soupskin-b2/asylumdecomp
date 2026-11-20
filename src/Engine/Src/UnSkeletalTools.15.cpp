@@ -2,65 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
-
-/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
-
-/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
-struct FSkelMeshChunk
-{
-    DWORD BaseVertexIndex;
-    TArray<FRigidSkinVertex> RigidVertices;
-    TArray<FSoftSkinVertex> SoftVertices;
-    TArray<WORD> BoneMap;
-    INT NumRigidVertices;
-    INT NumSoftVertices;
-    INT MaxBoneInfluences;
-
-    INT GetNumVertices() const { return NumRigidVertices + NumSoftVertices; }
-};
-
-/* FStaticLODModel (UnSkeletalMesh.h); only its leading arrays are used here. */
-struct FStaticLODModel
-{
-    TArray<FSkelMeshSection> Sections;
-    TArray<FSkelMeshChunk> Chunks;
-};
+#include "ue3/SkeletalMesh.h"
 
 // @baa 0x00d49f80
 /* whether every vertex of the base LOD is a cloth vertex */

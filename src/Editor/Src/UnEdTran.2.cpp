@@ -9,15 +9,9 @@
 // @baa 0x00f793f0
 FString UTransactor::GetUndoDesc(UBOOL bCheckWhetherUndoPossible) PURE_VIRTUAL(UTransactor::GetUndoDesc, return TEXT(""););
 
-extern void* g_026667a8;
 extern TCHAR g_01e3f3dc[];
-int sub_00630f20(void*, const TCHAR*, ...);
 // @baa 0x00f79430
-FString UTransactor::GetRedoDesc()
-{
-	sub_00630f20(g_026667a8, L"Pure virtual not implemented (UTransactor::GetRedoDesc)", L"UTransactor::GetRedoDesc");
-	return FString(g_01e3f3dc);
-}
+FString UTransactor::GetRedoDesc() PURE_VIRTUAL(UTransactor::GetRedoDesc, return FString(g_01e3f3dc);)
 
 #include "ue3/ConstructObject.h"
 

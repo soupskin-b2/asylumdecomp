@@ -2,6 +2,7 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/Script.h"
 
 int sub_005c7a70(...);
 int sub_00c14850(void);
@@ -33,11 +34,6 @@ undefined4 * C_00c14a30::sub_00c14a30(void)
   return param_1;
 }
 
-int sub_00630f20(...);
-extern INT g_026667a8;
 // @baa 0x00c14910
 // @baa 0x00c14910
-void UPendingLevel::Tick(FLOAT DeltaTime)
-{
-	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UPendingLevel::Tick");
-}
+void UPendingLevel::Tick(FLOAT DeltaTime) PURE_VIRTUAL(UPendingLevel::Tick,)

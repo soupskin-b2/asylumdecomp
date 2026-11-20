@@ -218,8 +218,6 @@ void USeqAct_CastToFloat::Activated()
     FloatResult = (FLOAT)Value;
 }
 
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-
 // @baa 0x008bea90
 void USeqAct_Latent::DeActivated()
 {
@@ -241,8 +239,6 @@ inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Numb
 
 /* UnSequence.cpp's static level lookup (0x008cc3b0): finds the streaming level for LevelName. */
 UBOOL FindLevel(ULevelStreaming*& Level, FName LevelName);
-/* slot 0x1a0 (vf_1a0) */
-
 // @baa 0x008cc4a0
 void USeqAct_LevelStreaming::UpdateStatus()
 {
@@ -289,8 +285,6 @@ void USeqAct_ActorFactory::HandleEnableInputs()
     }
 }
 
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-
 // @baa 0x008bed40
 void USeqAct_ModifyObjectList::DeActivated()
 {
@@ -304,8 +298,6 @@ void USeqAct_ModifyObjectList::DeActivated()
         }
     }
 }
-
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
 
 // @baa 0x008c0360
 void USeqAct_PlaySound::DeActivated()
@@ -322,8 +314,6 @@ void USeqAct_PlaySound::DeActivated()
     }
 }
 
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-
 // @baa 0x008c0e00
 void USeqAct_PlayCameraAnim::DeActivated()
 {
@@ -338,8 +328,6 @@ void USeqAct_PlayCameraAnim::DeActivated()
         }
     }
 }
-
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
 
 // @baa 0x008bedb0
 void USeqAct_IsInObjectList::DeActivated()

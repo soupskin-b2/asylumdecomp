@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-// Not declared in Classes.h: UClass::GetDefaultObject (00572b30) and UObject::SaveConfig (005df020).
-
 // @baa 0x005999f0
 void UObject::execStaticSaveConfig(FFrame& Stack, RESULT_DECL)
 {

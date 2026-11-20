@@ -20,10 +20,6 @@ void AFracturedStaticMeshActor::eventSetInXrayMode(UBOOL bInXrayMode)
 	ProcessEvent(FindFunctionChecked(g_026c4ff0), &Parms);
 }
 
-/* Kit gap: FStateFrame stops at ProbeMask; UE3's next member is the latent action (WORD LatentAction at 0x34). */
-#pragma pack(push, 4)
-#pragma pack(pop)
-enum { AI_PollWaitForLanding = 528 };
 // @baa 0x007a07d0
 /* Latent: waits up to waitDuration for the pawn to land (polled while it's falling). */
 void AController::execWaitForLanding(FFrame& Stack, RESULT_DECL)

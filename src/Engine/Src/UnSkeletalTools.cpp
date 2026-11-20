@@ -2,6 +2,7 @@
 // Placed here by: neighbours 64, callers 9, class 6.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
+#include "ue3/SkeletalMesh.h"
 
 struct C {
     void sub_00849240(int);
@@ -155,33 +156,26 @@ struct C_00943da0 { char* sub_00943da0(void); };
 // @baa 0x00943da0
 char* C_00943da0::sub_00943da0(void) { return (char*)this + 80; }
 
-struct FMatrix44 {
-    void sub_00649c70(FMatrix44* Out);
-    float M[4][4];
-};
-
-struct FBone {
+/* An object with a matrix at 0x10 (owner unknown; its callers are in UnSkeletalMeshCollision.cpp) whose
+ * TransposeAdjoint and Determinant these return (FMatrix's out-of-line copies, 00649c70 and 00649b30). */
+struct FMatrixOwner_00943db0 {
     float Unk00; // 0x00
     float Unk04; // 0x04
     float Unk08; // 0x08
     float Unk0C; // 0x0c
-    FMatrix44 Matrix; // 0x10
-    FMatrix44* sub_00943db0(FMatrix44* Out);
+    FMatrix Matrix; // 0x10
+    FMatrix sub_00943db0() const;
+    FLOAT sub_00943dd0() const;
 };
 
 // @baa 0x00943db0
-FMatrix44* FBone::sub_00943db0(FMatrix44* Out)
+FMatrix FMatrixOwner_00943db0::sub_00943db0() const
 {
-    Matrix.sub_00649c70(Out);
-    return Out;
+    return Matrix.TransposeAdjoint();
 }
 
-struct M_00943dd0 { void sub_00649b30(); };
-
-struct C_00943dd0 { char pad[16]; M_00943dd0 m; void sub_00943dd0(); };
-
 // @baa 0x00943dd0
-void C_00943dd0::sub_00943dd0() { m.sub_00649b30(); }
+FLOAT FMatrixOwner_00943db0::sub_00943dd0() const { return Matrix.Determinant(); }
 
 struct C_00943de0 { int a, b; C_00943de0(int, int); };
 
@@ -876,93 +870,6 @@ void FNameIntPairSet::Empty(INT ExpectedNumElements)
         }
     }
 }
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
-
-/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
-
-/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
-struct FSkelMeshChunk
-{
-    DWORD BaseVertexIndex;
-    TArray<FRigidSkinVertex> RigidVertices;
-    TArray<FSoftSkinVertex> SoftVertices;
-    TArray<WORD> BoneMap;
-    INT NumRigidVertices;
-    INT NumSoftVertices;
-    INT MaxBoneInfluences;
-
-    INT GetNumVertices() const { return NumRigidVertices + NumSoftVertices; }
-};
-
-/* FRenderResource (RenderResource.h); the kit has no render resources. Only its address is used here. */
-class FRenderResource
-{
-public:
-    virtual ~FRenderResource();
-};
-
-/* starts releasing a resource on the rendering thread (RenderResource.cpp, 0x0071a040) */
-void BeginReleaseResource(FRenderResource* Resource);
-/* FRawStaticIndexBuffer (RawIndexBuffer.h): 0x60 bytes; its contents aren't used here. */
-class FRawStaticIndexBuffer : public FRenderResource
-{
-    BYTE Opaque[0x5c];
-};
-
-/* FSkeletalMeshVertexBuffer (UnSkeletalMesh.h): only its address is used here. */
-class FSkeletalMeshVertexBuffer : public FRenderResource
-{
-};
-
-/* FStaticLODModel (UnSkeletalMesh.h), up to the GPU-skin vertex buffer. */
-struct FStaticLODModel
-{
-    TArray<FSkelMeshSection> Sections;
-    TArray<FSkelMeshChunk> Chunks;
-    TArray<WORD> ActiveBoneIndices;
-    DWORD Size;
-    DWORD NumVertices;
-    DWORD NumTexCoords;
-    FRawStaticIndexBuffer IndexBuffer;               /* 0x30 */
-    FSkeletalMeshVertexBuffer VertexBufferGPUSkin;   /* 0x90 */
-
-    void ReleaseResources();
-};
 
 /* FRenderCommandFence::BeginFence (RenderingThread.cpp, 0x00719c60); the kit has USkeletalMesh::ReleaseResourcesFence as a bare INT */
 

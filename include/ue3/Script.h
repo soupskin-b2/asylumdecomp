@@ -1,5 +1,5 @@
 // UnrealScript natives: FFrame, GNatives and the P_GET_* / P_FINISH macros, as UE3 (2008-09) has
-// them. Include after "ue3/Classes.h".
+// them. Includes "ue3/Classes.h".
 //
 // Verified against the exe: Stack.Object is at +0x14, Stack.Code at +0x18, GNatives at 0x026888a0
 // (4-byte member function pointers, indexed by the byte at Stack.Code), EX_DebugInfo is 0x41.
@@ -12,6 +12,8 @@
 //         P_GET_VECTOR(V4); P_GET_VECTOR(V5); P_GET_FLOAT(F6); P_FINISH;
 //         *(void**)Result = sub_007ac800(P1, &T2, &T3, V4, V5, F6); }
 #pragma once
+
+#include "Classes.h"
 
 struct FFrame;
 typedef void (UObject::*Native)(FFrame& Stack, void* const Result);
@@ -136,11 +138,14 @@ extern INT GRunaway;           /* 0x0268d09c */
     Stack.Logf(NAME_Critical, TEXT("Runaway loop detected (over %i iterations)"), MAX_RUNAWAY); GRunaway = 0; } }
 
 extern BYTE* GPropAddr;
-extern class UProperty* GProperty; /* 0x026667ec: the property the last Step read (0 when none, e.g. execEndFunctionParms) */
+extern class UProperty* GProperty; /* 0x026667d0: the property the last Step read */
+extern class UObject* GPropObject; /* 0x026667ec: the object that property belongs to (execEndFunctionParms clears it). Order evidence:
+                                    * UE3's execLetDelegate clears GPropAddr, GProperty, GPropObject, and 00590940 stores to
+                                    * 026667e8, 026667d0, 026667ec; execDynArrayLength (00590150) sets 026667ec to this */
 extern DWORD GRuntimeUCFlags;
 typedef Native (*NativeLookup)(const TCHAR* Name);
 extern NativeLookup GNativeLookupFuncs[500]; /* each package's name -> native table (InitializeRegistrantsAndRegisterNames) */
-enum { RUC_SkippedOptionalParm = 0x02 };
+enum { RUC_ArrayLengthSet = 0x01, RUC_SkippedOptionalParm = 0x02 }; /* GRuntimeUCFlags */
 
 #define P_GET_STRUCT_REF(t, v) t v##T; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); t& v = GPropAddr ? *(t*)GPropAddr : v##T;
 #define P_GET_INT_REF(v)       INT v##T = 0; GPropAddr = 0; Stack.Step(Stack.Object, &v##T); INT& v = GPropAddr ? *(INT*)GPropAddr : v##T;

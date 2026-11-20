@@ -128,7 +128,7 @@ UBOOL URFlagManager::SetGlobalFlag(FName FlagName, UBOOL bValue)
 }
 
 // @baa 0x01540790
-/* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a local flag
+/* USequenceVariable::GetValueStr (slot 0x194): a local flag
  * variable shows the name of its flag. */
 FString URSeqVar_LocalFlag::GetValueStr()
 {
@@ -136,7 +136,7 @@ FString URSeqVar_LocalFlag::GetValueStr()
 }
 
 // @baa 0x015407c0
-/* USequenceVariable::GetValueStr (slot 0x194, a placeholder vf_194 in the kit): a global flag
+/* USequenceVariable::GetValueStr (slot 0x194): a global flag
  * variable shows the name of its flag. */
 FString URSeqVar_GlobalFlag::GetValueStr()
 {
@@ -144,8 +144,7 @@ FString URSeqVar_GlobalFlag::GetValueStr()
 }
 
 // @baa 0x01540870
-/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
- * UINT in the kit): the action's comment shows the comment of the selected mode. */
+/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c): the action's comment shows the comment of the selected mode. */
 void URSeqAct_SwitchFlags::PostEditChange(UProperty* PropertyThatChanged)
 {
     (FStringNoInit&)ObjComment = Comments(Mode);

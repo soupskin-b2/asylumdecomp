@@ -5,23 +5,7 @@
 #define BAA_OUTLINE_NEW
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
-
-
-/* FkDOPCollisionTriangle (UnkDOP.h): a triangle of a kDOP tree. Not in the kit. */
-struct FkDOPCollisionTriangle
-{
-    WORD v1, v2, v3;
-    WORD MaterialIndex;
-
-    FkDOPCollisionTriangle() : v1(0), v2(0), v3(0), MaterialIndex(0) {}
-
-    friend FArchive& operator<<(FArchive& Ar, FkDOPCollisionTriangle& Tri)
-    {
-        Ar << Tri.v1 << Tri.v2 << Tri.v3 << Tri.MaterialIndex;
-        return Ar;
-    }
-};
+#include "ue3/SkeletalMesh.h"
 
 // @baa 0x009599c0
 /* TArray<FkDOPCollisionTriangle>'s operator<< (Array.h): count, then each triangle */

@@ -4,26 +4,7 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
+#include "ue3/SkeletalMesh.h"
 
 // @baa 0x00d48160
 /* the out-of-line TArray<FSoftSkinVertex>::AddItem instantiation (FSkelMeshChunk::SoftVertices) */
@@ -59,15 +40,6 @@ FFloatArray::FFloatArray(INT InNum)
     AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(FLOAT));
 }
 
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
-
 // @baa 0x00d480f0
 /* the out-of-line TArray<FRigidSkinVertex>::AddItem instantiation (FSkelMeshChunk::RigidVertices) */
 template INT TArray<FRigidSkinVertex>::AddItem(const FRigidSkinVertex& Item);
@@ -99,57 +71,6 @@ void USkeletalMesh::InitBoneMirrorInfo()
     }
 }
 
-/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
-
-/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
-struct FSkelMeshChunk
-{
-    DWORD BaseVertexIndex;
-    TArray<FRigidSkinVertex> RigidVertices;
-    TArray<FSoftSkinVertex> SoftVertices;
-    TArray<WORD> BoneMap;
-    INT NumRigidVertices;
-    INT NumSoftVertices;
-    INT MaxBoneInfluences;
-
-};
-
-/* FMeshEdge (UnMeshBuild.h): a triangle edge for shadow volume extrusion. Not in the kit. */
-struct FMeshEdge
-{
-    INT Vertices[2];
-    INT Faces[2];
-};
-
-/* FRawStaticIndexBuffer (RawIndexBuffer.h): its contents aren't used here; the kit has no render
- * resources, so it is opaque. Its size (0x34) is taken from the LOD model's layout. */
-class FRawStaticIndexBuffer
-{
-    BYTE Opaque[0x34];
-};
-
-/* FStaticLODModel (UnSkeletalMesh.h), up to the shadow volume data. Not in the kit. */
-struct FStaticLODModel
-{
-    TArray<FSkelMeshSection> Sections;
-    TArray<FSkelMeshChunk> Chunks;
-    TArray<WORD> ActiveBoneIndices;
-    DWORD Size;
-    DWORD NumVertices;
-    DWORD NumTexCoords;
-    FRawStaticIndexBuffer IndexBuffer;     /* 0x30 */
-    TArray<WORD> ShadowIndices;            /* 0x64 */
-    TArray<FMeshEdge> Edges;               /* 0x70 */
-    TArray<BYTE> ShadowTriangleDoubleSided; /* 0x7c */
-};
-
 // @baa 0x0095cba0
 /* free the shadow volume data of every LOD (called when shadow volumes aren't used) */
 void USkeletalMesh::ClearShadowVolumeData()
@@ -157,8 +78,8 @@ void USkeletalMesh::ClearShadowVolumeData()
     for (INT LODIndex = 0; LODIndex < ((TIndirectArray<FStaticLODModel>&)LODModels).Num(); LODIndex++)
     {
         FStaticLODModel& LODModel = ((TIndirectArray<FStaticLODModel>&)LODModels)(LODIndex);
-        LODModel.ShadowIndices.Empty();
         LODModel.Edges.Empty();
+        LODModel.ShadowIndices.Empty();
         LODModel.ShadowTriangleDoubleSided.Empty();
     }
 }

@@ -10,8 +10,6 @@ struct Actor_eventDetach_Parms
 	AActor* Other;
 };
 
-// The script events aren't declared in Classes.h yet.
-
 // @baa 0x007538b0
 void AActor::eventDetach(AActor* Other)
 {

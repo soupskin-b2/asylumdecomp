@@ -5,16 +5,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 #include "ue3/Implement.h"
-
-/* FStaticLODModel (UnSkeletalMesh.h): one LOD of a skeletal mesh; only its destructor matters here */
-class FStaticLODModel
-{
-public:
-    ~FStaticLODModel(); /* 0x00975b40 */
-
-private:
-    BYTE Opaque[0x104];
-};
+#include "ue3/SkeletalMesh.h"
 
 /* TIndirectArray<FStaticLODModel> (USkeletalMesh::LODModels) */
 class FStaticLODModelArray : public TIndirectArray<FStaticLODModel>

@@ -31,7 +31,7 @@ struct APlayerController_ : public APlayerController
 	void sub_008c3830(const FString& S, FNameArg Type, FLOAT MsgLifeTime);	/* eventClientMessage */
 };
 
-/* USeqAct_Delay::UpdateOp (vtable 0x170) is declared only as vf_170 in Classes.h. */
+/* USeqAct_Delay::UpdateOp (vtable 0x170). */
 
 // @baa 0x008cbe40
 UBOOL USeqAct_Delay::UpdateOp(FLOAT DeltaTime)

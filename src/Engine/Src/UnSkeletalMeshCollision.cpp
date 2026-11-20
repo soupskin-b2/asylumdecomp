@@ -3,9 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
+#include "ue3/SkeletalMesh.h"
 
 /* the kDOP tree's bounds (UnkDOP.h): an axis-aligned box in this build */
-#define NUM_PLANES 3
 /* the tolerance on hits against a node's bounds (UnkDOP.h) */
 #define FUDGE_SIZE 0.1f
 /* TkDOPLineCollisionCheck<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a line check against a bone's
@@ -17,15 +17,6 @@ struct FSkelMeshkDOPLineCollisionCheck
     FVector LocalEnd;           /* 0x2c */
     FVector LocalDir;           /* 0x38 */
     FVector LocalOneOverDir;    /* 0x44 */
-};
-
-/* TkDOP<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a node's bounds */
-struct FkDOP
-{
-    FLOAT Min[NUM_PLANES];
-    FLOAT Max[NUM_PLANES];
-
-    UBOOL LineCheck(FSkelMeshkDOPLineCollisionCheck& Check, FLOAT& HitTime);
 };
 
 // @baa 0x0094eb40

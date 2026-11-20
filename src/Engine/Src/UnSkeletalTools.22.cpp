@@ -5,22 +5,10 @@
 #define BAA_OUTLINE_NEW
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
+#include "ue3/SkeletalMesh.h"
 
 FArchive& operator<<(FArchive& Ar, TArray<FVector>& A);
  /* 0x007c37a0 */
-/* TkDOPTree's nodes and triangles (UnkDOP.h); opaque elements, read with BulkSerialize */
-struct FkDOPNode
-{
-    BYTE Opaque[0x40]; /* the node's bounds and children or triangle range (size assumed) */
-};
-
-struct FkDOPCollisionTriangle
-{
-    WORD v1, v2, v3;
-    WORD MaterialIndex;
-};
-
 struct FkDOPNodeArray : public TArray<FkDOPNode>
 {
     ~FkDOPNodeArray();                /* 0x00957ce0 */

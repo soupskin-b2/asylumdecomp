@@ -5,7 +5,7 @@
 #include "ue3/Cast.h"
 
 // @baa 0x00ddb0d0
-/* vf_01c is PostLoad: older packages saved the referenced styles without their IDs or owners; fill them in. */
+/* PostLoad: older packages saved the referenced styles without their IDs or owners; fill them in. */
 void UUIStyle_Combo::PostLoad()
 {
 	Super::PostLoad();

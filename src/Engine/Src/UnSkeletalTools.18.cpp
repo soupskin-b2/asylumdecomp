@@ -2,32 +2,9 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
+#include "ue3/SkeletalMesh.h"
 
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
-
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-
-    /* serialized as its packed DWORD (out of line here, 0x0088b100) */
-    friend FArchive& operator<<(FArchive& Ar, FPackedNormal& N);
-};
-
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
 
 // @baa 0x009448f0
 FArchive& operator<<(FArchive& Ar, FRigidSkinVertex& V)

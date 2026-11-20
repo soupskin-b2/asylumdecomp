@@ -2,6 +2,7 @@
 // Placed here by: neighbours 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/SkeletalMesh.h"
 
 int sub_0053dfa0(...);
 int sub_00581450(void);
@@ -283,14 +284,6 @@ INT& FNameIntMap::Set(FName InKey, INT InValue)
     const FSetElementId_00d587c0 PairId = Add(Pair);
     return ElementData[PairId].Value.Value;
 }
-
-/* FStaticLODModel (UnSkeletalMesh.h): only GetTotalFaces (0x00951780) is used here. */
-struct FStaticLODModel
-{
-    INT GetTotalFaces();
-};
-
-/* slot 0x0b8 (vf_0b8) is UObject::GetDesc */
 
 // @baa 0x00d4ff50
 /* the mesh's line in the generic browser */

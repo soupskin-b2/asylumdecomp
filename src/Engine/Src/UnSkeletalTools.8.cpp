@@ -2,15 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
-
-/* FSkelMeshSection (UnSkeletalMesh.h): a run of triangles of one LOD drawn with one material. Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
+#include "ue3/SkeletalMesh.h"
 
 // @baa 0x00943bb0
 FArchive& operator<<(FArchive& Ar, FSkelMeshSection& S)
@@ -150,14 +142,6 @@ FSetElementId FNameIntPairSet::Add(const FPair& InElement, UBOOL* bIsAlreadyInSe
     }
     return ElementId;
 }
-
-/* FStaticLODModel (UnSkeletalMesh.h): only GetTotalFaces (0x00951780) is used here. */
-struct FStaticLODModel
-{
-    INT GetTotalFaces() const;
-};
-
-/* slot 0x0bc (vf_0bc) is UObject::GetDetailedDescription(INT InIndex), returning FString */
 
 // @baa 0x00d4ffe0
 /* the lines under the mesh's thumbnail in the browser */

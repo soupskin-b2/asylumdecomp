@@ -4,6 +4,7 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
+#include "ue3/SkeletalMesh.h"
 
 /* TArray<INT> with its out-of-line destructor (~TArray<INT>, 0x00549160) */
 struct FBoneIndexArray : public TArray<INT>
@@ -62,57 +63,6 @@ INT FSocketArray::AddUniqueItem(USkeletalMeshSocket* const& Item)
     new((EInternal*)(GetTypedData() + Index)) USkeletalMeshSocket*(Item);
     return Index;
 }
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
-
-/* FSkelMeshSection (UnSkeletalMesh.h). Not in the kit. */
-struct FSkelMeshSection
-{
-    WORD MaterialIndex;
-    WORD ChunkIndex;
-    DWORD BaseIndex;
-    WORD NumTriangles;
-};
-
-/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
-struct FSkelMeshChunk
-{
-    DWORD BaseVertexIndex;
-    TArray<FRigidSkinVertex> RigidVertices;
-    TArray<FSoftSkinVertex> SoftVertices;
-    TArray<WORD> BoneMap;
-    INT NumRigidVertices;
-    INT NumSoftVertices;
-    INT MaxBoneInfluences;
-
-};
 
 /* TArray<WORD> with its out-of-line destructor (~TArray<WORD>, 0x00602210) */
 struct FMergedBoneMapArray : public TArray<WORD>

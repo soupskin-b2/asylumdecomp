@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Callees Classes.h doesn't declare. */
-
 // @baa 0x00bfddb0
 /* The local pose of the required bones at Time, from the sequence's raw (uncompressed) keys; bones
  * without a track keep the mesh's reference pose. */

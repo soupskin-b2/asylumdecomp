@@ -4,12 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Callees Classes.h doesn't declare. */
-struct UActorComponent_ : public UActorComponent
-{
-	void sub_00759640(UBOOL bWillReattach);			/* ConditionalDetach */
-};
-
+/* TArray<FAttachment>::Remove, out of line here. */
 struct FAttachmentArray : public TArray<FAttachment>
 {
 	void sub_00920ee0(INT Index, INT Count);		/* Remove */
@@ -28,7 +23,7 @@ void USkeletalMeshComponent::DetachComponent(UActorComponent* Component)
 	{
 		if (Attachments(AttachmentIndex).Component == Component)
 		{
-			((UActorComponent_*)Component)->sub_00759640(FALSE);
+			Component->ConditionalDetach(FALSE);
 			((FAttachmentArray&)Attachments).sub_00920ee0(AttachmentIndex, 1);
 			bEnableUpdateChildComponents = Attachments.Num() > 0;
 

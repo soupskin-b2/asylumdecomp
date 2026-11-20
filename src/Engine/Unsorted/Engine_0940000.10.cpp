@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #define BAA_NO_ARCHIVE_OPERATORS /* this file inlines ByteOrderSerialize: its own operator<< below */
 #include "ue3/Classes.h"
+#include "ue3/SkeletalMesh.h"
 
 /* ByteOrderSerialize is restated as UnArc.h has it
  * inline: this file's copy is inlined, while the kit only knows the out-of-line one (0x0053ea70). */
@@ -31,16 +32,6 @@ public:
 inline FArchive& operator<<(FArchive& Ar, FLOAT& F) { return ((FArchive_&)Ar).ByteOrderSerialize(&F, sizeof(F)); }
 
 /* UnkDOP.h */
-#define NUM_PLANES 3
-/* FkDOP (UnkDOP.h): an axis-aligned bounding volume (a kDOP with 3 plane pairs). Not in the kit. */
-struct FkDOP
-{
-    FLOAT Min[NUM_PLANES];
-    FLOAT Max[NUM_PLANES];
-
-    friend FArchive& operator<<(FArchive& Ar, FkDOP& kDOP);
-};
-
 // @baa 0x00949d60
 FArchive& operator<<(FArchive& Ar, FkDOP& kDOP)
 {

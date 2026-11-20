@@ -42,15 +42,9 @@ void USkeletalMeshComponent::SetForceWireframe(UBOOL InForceWireframe)
     }
 }
 
-/* slot 0x25c (vf_25c) is UMeshComponent::GetMaterial(INT ElementIndex) */
-struct USkeletalMeshComponent__0091cdd0 : public USkeletalMeshComponent
-{
-    UMaterialInterface* GetMaterial(INT MaterialIndex) const;
-};
-
 // @baa 0x0091cdd0
 /* the component's override if set, else the mesh's material, else NULL */
-UMaterialInterface* USkeletalMeshComponent__0091cdd0::GetMaterial(INT MaterialIndex) const
+UMaterialInterface* USkeletalMeshComponent::GetMaterial(INT MaterialIndex) const
 {
     if (MaterialIndex < Materials.Num() && Materials(MaterialIndex))
     {

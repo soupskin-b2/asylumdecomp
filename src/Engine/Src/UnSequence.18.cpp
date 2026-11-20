@@ -7,8 +7,6 @@
 
 /* USeqAct_Latent::DeActivated (0x008bea90) */
 
-/* slot 0x178 (vf_178) is USequenceOp::DeActivated */
-
 // @baa 0x008c0660
 void USeqAct_PrepareMapChange::DeActivated()
 {
@@ -23,8 +21,6 @@ void USeqAct_PrepareMapChange::DeActivated()
     }
 }
 
-/* slot 0x174 (vf_174) is USequenceOp::Activated */
-
 // @baa 0x008abfe0
 void USeqAct_Delay::Activated()
 {
@@ -37,8 +33,6 @@ AWorldInfo* USequenceObject::GetWorldInfo()
 {
     return GWorld ? GWorld->GetWorldInfo() : NULL;
 }
-
-/* slot 0x174 (vf_174) is USequenceOp::Activated */
 
 // @baa 0x008c0110
 void USeqCond_GetServerType::Activated()

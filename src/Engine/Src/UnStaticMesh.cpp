@@ -51,6 +51,27 @@ FString AStaticMeshActor::GetDetailedInfoInternal()
     return Result;
 }
 
+// @baa 0x00957290
+UMaterialInterface* UStaticMeshComponent::GetMaterial(INT MaterialIndex, INT LOD) const
+{
+	if (MaterialIndex < Materials.Num() && Materials(MaterialIndex))
+	{
+		return Materials(MaterialIndex);
+	}
+	else if (StaticMesh && LOD < StaticMesh->LODModels.Num())
+	{
+		for (INT ElementIndex = 0; ElementIndex < ((TIndirectArray<FStaticMeshRenderData>&)StaticMesh->LODModels)(LOD).Elements.Num(); ElementIndex++)
+		{
+			const FStaticMeshElement& Element = ((TIndirectArray<FStaticMeshRenderData>&)StaticMesh->LODModels)(LOD).Elements(ElementIndex);
+			if (Element.MaterialIndex == MaterialIndex)
+			{
+				return Element.Material;
+			}
+		}
+	}
+	return NULL;
+}
+
 struct S
 {
     INT A;

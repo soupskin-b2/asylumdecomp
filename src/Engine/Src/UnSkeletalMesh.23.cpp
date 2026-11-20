@@ -5,21 +5,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 #include "ue3/Native.h"
+#include "ue3/SkeletalMesh.h"
 
 class UMaterialInterface;
-/* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
- * with. Not in the kit. */
-struct FSectionElementInfo
-{
-    FSectionElementInfo(UMaterialInterface* InMaterial, UBOOL bInEnableShadowCasting)
-        : Material(InMaterial)
-        , bEnableShadowCasting(bInEnableShadowCasting)
-    {}
-
-    UMaterialInterface* Material;
-    UBOOL bEnableShadowCasting;
-};
-
 /* TArray<FSectionElementInfo> with its out-of-line copy constructor (0x009673c0) and destructor (0x0094f930) */
 struct FSectionElementInfoArray : public TArray<FSectionElementInfo>
 {

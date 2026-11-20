@@ -27,18 +27,12 @@ void UGFxMovie::execGetGameViewportClient(FFrame& Stack, RESULT_DECL)
 	*(UGameViewportClient**)Result = g_026c3cdc ? g_026c3cdc->GameViewport : NULL;
 }
 
-extern void* g_026caed4;
-struct GFxViewport_
-{
-	void sub_00e63ae0(void*);
-};
-
 // @baa 0x00e64f70
 void UGFxMovie::execSetTopMost(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	if (g_026caed4 && pMovie.Dummy)
-		((GFxViewport_*)g_026caed4)->sub_00e63ae0((void*)pMovie.Dummy);
+	if (GGFxEngine && pMovie.Dummy)
+		GGFxEngine->sub_00e63ae0((FGFxMovie*)pMovie.Dummy);
 }
 
 // @baa 0x00e67ea0
@@ -74,9 +68,6 @@ void UGFxMovie::execGetStickMagAng(FFrame& Stack, RESULT_DECL)
     *(FName*)Result = GetStickMagAng(Stick);
 }
 
-/* UGFxMovie::SetViewport(INT X, INT Y, INT Width, INT Height) is out of line at 00e49d40;
- * the kit doesn't declare it. */
-
 // @baa 0x00e513f0
 void UGFxMovie::execSetViewport(FFrame& Stack, RESULT_DECL)
 {
@@ -87,13 +78,6 @@ void UGFxMovie::execSetViewport(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     this->SetViewport(X, Y, Width, Height);
 }
-
-/* GFx.h only forward-declares FGFxEngine (GGFxEngine, 026caed4);
- * FlushPlayerInput(TSet<NAME_INDEX>* Keys) is out of line at 00e68530. */
-class FGFxEngine {
-public:
-    void FlushPlayerInput(void* Keys); /* 0x00e68530 */
-};
 
 // @baa 0x00e6a470
 void UGFxMovie::execFlushPlayerInput(FFrame& Stack, RESULT_DECL)

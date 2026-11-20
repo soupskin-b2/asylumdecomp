@@ -6,16 +6,11 @@
 
 // The pure-virtual guard: report the error through the error device, which is
 // passed as the first argument (the device itself, not `this` in ecx).
-extern int __cdecl sub_00630f20(void* Device, const TCHAR* Fmt, const TCHAR* FuncName);
 // @baa 0x012508a0
-void UThumbnailRenderer::GetThumbnailSize(UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight)
-{
-    sub_00630f20(GError, TEXT("Pure virtual not implemented (%s)"), TEXT("UThumbnailRenderer::GetThumbnailSize"));
-}
+void UThumbnailRenderer::GetThumbnailSize(class UObject* Object, EThumbnailPrimType PrimType, FLOAT Zoom, DWORD& OutWidth, DWORD& OutHeight) PURE_VIRTUAL(UThumbnailRenderer::GetThumbnailSize,)
 
 // @baa 0x012506c0
-void UThumbnailLabelRenderer::BuildLabelList(INT Layer, INT X, INT Y)
-PURE_VIRTUAL(UThumbnailLabelRenderer::BuildLabelList, return;);
+void UThumbnailLabelRenderer::BuildLabelList(INT, INT, INT) PURE_VIRTUAL(UThumbnailLabelRenderer::BuildLabelList, return;);
 
 #include "ue3/ConstructObject.h"
 

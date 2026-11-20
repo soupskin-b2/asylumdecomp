@@ -6,8 +6,7 @@
 
 /* Cast<UAnimNodeSequence> is the out-of-line instantiation at 009109d0. */
 extern template UAnimNodeSequence* Cast<UAnimNodeSequence>(UObject* Src);
-/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
- * vf_134); neither is declared by name in Classes.h. */
+/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134); neither is declared by name in Classes.h. */
 
 
 // @baa 0x00c7c810

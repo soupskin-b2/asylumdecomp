@@ -9,16 +9,8 @@
 template FRandomAnimInfo& TArray<FRandomAnimInfo>::operator()(INT);
 
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
-/* UAnimNodeSlot's InitAnim override (UAnimNode vtable 0x128, declared only as vf_128). */
-struct UAnimNodeSlot_ : public UAnimNodeSlot
-{
-	void sub_00c56870();							/* UpdateWeightsForAdditiveAnimations */
-	void sub_00c56ca0(INT ChildIndex, FLOAT BlendTime);			/* SetActiveChild */
-	void InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent);
-};
-
 // @baa 0x00c62f70
-void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
+void UAnimNodeSlot::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)
 {
 	UAnimNodeBlendBase::InitAnim(MeshComp, Parent);
 
@@ -33,12 +25,12 @@ void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 		}
 	}
 
-	sub_00c56870();
+	UpdateWeightsForAdditiveAnimations();
 
 	// no weight at all: snap to the target child
 	if (((UAnimNodeBlendBase*)this)->GetChildWeightTotal() <= ZERO_ANIMWEIGHT_THRESH)
 	{
-		sub_00c56ca0(TargetChildIndex, 0.f);
+		SetActiveChild(TargetChildIndex, 0.f);
 	}
 
 	SynchNode = NULL;

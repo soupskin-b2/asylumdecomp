@@ -53,8 +53,6 @@ struct FAimComponentArray : public TArray<FAimComponent>
 	}
 };
 
-/* Callees Classes.h doesn't declare. */
-
 // @baa 0x00c623d0
 INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateIfNotFound)
 {

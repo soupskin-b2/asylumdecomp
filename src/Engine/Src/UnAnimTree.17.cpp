@@ -50,8 +50,7 @@ FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 	}
 }
 
-/* UAnimNodeScaleRateBySpeed's GetScaleValue override (UAnimNodeScalePlayRate vtable 0x19c, declared
- * only as vf_19c). */
+/* UAnimNodeScaleRateBySpeed's GetScaleValue override (UAnimNodeScalePlayRate vtable 0x19c). */
 // @baa 0x00c4bb40
 FLOAT UAnimNodeScaleRateBySpeed::GetScaleValue()
 {

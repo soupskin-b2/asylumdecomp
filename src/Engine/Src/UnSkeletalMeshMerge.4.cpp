@@ -38,8 +38,6 @@ struct FSocketArray : public TArray<USkeletalMeshSocket*>
     }
 };
 
-/* USkeletalMesh members used here that Classes.h doesn't declare */
-
 /* FSkeletalMeshMerge (UnSkeletalMeshMerge.h): merges several skeletal meshes into MergeMesh. Not in the kit. */
 class FSkeletalMeshMerge
 {

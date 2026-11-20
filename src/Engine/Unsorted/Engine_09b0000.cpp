@@ -138,8 +138,6 @@ void sub_009b03f0(S* p, INT Value)
     p->vf_18(Value);
 }
 
-int sub_00630f20(...);
-extern undefined4 g_026667a8;
 // @baa 0x009b4760
 EAcceptConnection FNetworkNotify::NotifyAcceptingConnection() PURE_VIRTUAL(FNetworkNotify::NotifyAcceptedConnection, return ACCEPTC_Ignore;)
 
@@ -468,12 +466,9 @@ void C_009bbf10::sub_009bbf10() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
-int sub_00630f20(int Value, const wchar_t* Format, const wchar_t* Name);
-// Pure virtual not implemented
 // @baa 0x009b4820
 void FNetworkNotify::NotifyReceivedFile(UNetConnection* Connection, INT PackageIndex, const TCHAR* Error, UBOOL Skipped) PURE_VIRTUAL(FNetworkNotify::NotifyReceivedFile,)
 
-int __cdecl sub_00630f20(void* Log, const wchar_t* Format, const wchar_t* Name);
 // @baa 0x009b4840
 void FNetworkNotify::NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds) PURE_VIRTUAL(FNetworkNotify::NotifyProgress,)
 

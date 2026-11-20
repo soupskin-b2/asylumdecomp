@@ -1803,8 +1803,6 @@ void USkeletalMeshComponent::AttachComponentToSocket(UActorComponent* Component,
 }
 
 extern FName g_026c4f5c; /* NAME_AnimTreeUpdated */
-/* Callees Classes.h doesn't declare. */
-
 struct AActor_ : public AActor
 {
 
@@ -1838,8 +1836,6 @@ void USkeletalMeshComponent::SetAnimTreeTemplate(UAnimTree* NewTemplate)
 		((AActor_*)Owner)->eventAnimTreeUpdated(this);
 	}
 }
-
-/* Callees Classes.h doesn't declare. */
 
 // @baa 0x0093dd00
 /* UpdateTransform also builds the anim tree if it hasn't been yet, and moves the attachments. */

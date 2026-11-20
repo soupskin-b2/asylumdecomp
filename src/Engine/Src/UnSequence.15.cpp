@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* USequenceEvent::CheckActivate (vtable 0x198, declared only as vf_198), called here non-virtually as Super::. */
+/* USequenceEvent::CheckActivate (vtable 0x198), called here non-virtually as Super::. */
 
 /* USeqEvent_Touch's override of that slot. */
 // @baa 0x008be740

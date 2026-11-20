@@ -1,6 +1,7 @@
 // UnConn.cpp: 43 functions
 // Placed here by: class 12, neighbours 11, callers 6, file 3.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 struct C_00567880 { int sub_00567880(void); };
@@ -210,11 +211,8 @@ void sub_00e16b70(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   return;
 }
 
-int sub_00630f20(...);
 // @baa 0x00c1a250
-void UNetConnection::LowLevelSend(void* Data, INT Count) {
-  sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UNetConnection::LowLevelSend");
-}
+void UNetConnection::LowLevelSend(void* Data, INT Count) PURE_VIRTUAL(UNetConnection::LowLevelSend,)
 
 // @baa 0x00e14c30
 void UChildConnection::Tick()

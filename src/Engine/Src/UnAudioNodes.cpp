@@ -1052,6 +1052,17 @@ INT USoundNodeDistanceCrossFade::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
+// @baa 0x00cd3110
+/* Looping nodes are finished once their loop count has run out (never when looping indefinitely). */
+UBOOL USoundNodeLooping::IsFinished(UAudioComponent* AudioComponent)
+{
+	RETRIEVE_SOUNDNODE_PAYLOAD(sizeof(INT) + sizeof(INT));
+	DECLARE_SOUNDNODE_ELEMENT(INT, CurrentLoopCount);
+#line 1427 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAudioNodes.cpp"
+	check(*RequiresInitialization == 0);
+	return bLoopIndefinitely ? FALSE : (CurrentLoopCount == 0);
+}
+
 struct C_00cd9940 { int sub_00cd9940(void); };
 // @baa 0x00cd29d0
 // @baa 0x00cd2a40

@@ -1,6 +1,7 @@
 // GFxUIInteraction.cpp (part 2 of 3): 52 functions
 // Placed here by: callers 10, file 10, neighbours 2.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/GFx.h"
 #include "ue3/Implement.h"
 
 // @baa 0x00e48930
@@ -175,16 +176,13 @@ UBOOL UGFxFSCmdHandler_Kismet::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-struct FGFxHandler { void sub_00e52fa0(INT Argument); };
-
-extern FGFxHandler* g_026caed4;
 struct UGFxInteraction_ : UGFxInteraction { void sub_00e53860(INT Argument); };
 
 // @baa 0x00e53860
 void UGFxInteraction_::sub_00e53860(INT Argument)
 {
-    if (g_026caed4 && Argument)
-        g_026caed4->sub_00e52fa0(Argument);
+    if (GGFxEngine && Argument)
+        GGFxEngine->sub_00e52fa0(Argument);
 }
 
 void sub_00e66c90();

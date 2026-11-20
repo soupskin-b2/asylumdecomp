@@ -960,6 +960,28 @@ enum ETexAlign { TEXALIGN_None = -1, TEXALIGN_Default = 0, TEXALIGN_Box = 1, TEX
 typedef FLOAT (*NodeEvaluator)(class ANavigationPoint*, APawn*, FLOAT);
 /* UnPath.h */
 enum ETestMoveResult { TESTMOVE_Stopped = 0, TESTMOVE_Moved = 1, TESTMOVE_Fell = 2, TESTMOVE_HitGoal = 5 };
+/* Engine.h: the latent AI natives' FStateFrame::LatentAction values */
+enum EAIFunctions { AI_PollMoveTo = 501, AI_PollMoveToward = 503, AI_PollStrafeTo = 505, AI_PollStrafeFacing = 507,
+                    AI_PollFinishRotation = 509, AI_PollWaitForLanding = 528 };
+/* UnLevel.h: MoveActor's options */
+enum EMoveFlags { MOVE_IgnoreBases = 0x00001, MOVE_NoFail = 0x00002, MOVE_TraceHitMaterial = 0x00004, MOVE_SingleBlocking = 0x00008 };
+/* UnLevel.h: line/point check options (the ShouldTrace overrides test them: APawn 0x1, AInterpActor 0x2,
+ * AVolume 0x8, AActor 0x10/0x20/0x40/0x80, APhysicsVolume 0x8000) */
+enum ETraceFlags
+{
+    TRACE_Pawns = 0x00001, TRACE_Movers = 0x00002, TRACE_Level = 0x00004, TRACE_Volumes = 0x00008,
+    TRACE_Others = 0x00010, TRACE_OnlyProjActor = 0x00020, TRACE_Blocking = 0x00040, TRACE_LevelGeometry = 0x00080,
+    TRACE_ShadowCast = 0x00100, TRACE_StopAtAnyHit = 0x00200, TRACE_SingleResult = 0x00400, TRACE_Material = 0x00800,
+    TRACE_Visible = 0x01000, TRACE_Terrain = 0x02000, TRACE_Tesselation = 0x04000, TRACE_PhysicsVolumes = 0x08000,
+    TRACE_TerrainIgnoreHoles = 0x10000, TRACE_ComplexCollision = 0x20000, TRACE_AllComponents = 0x40000,
+    TRACE_Accurate = 0x80000, TRACE_MoveIgnoresDestruction = 0x100000,
+    TRACE_Hash = TRACE_Pawns | TRACE_Movers | TRACE_Volumes | TRACE_Others | TRACE_Terrain | TRACE_LevelGeometry,
+    TRACE_Actors = TRACE_Pawns | TRACE_Movers | TRACE_Others | TRACE_LevelGeometry | TRACE_Terrain,
+    TRACE_World = TRACE_Level | TRACE_Movers | TRACE_Terrain | TRACE_LevelGeometry,
+    TRACE_AllColliding = TRACE_Level | TRACE_Actors | TRACE_Volumes,
+    TRACE_ProjTargets = TRACE_AllColliding | TRACE_OnlyProjActor,
+    TRACE_AllBlocking = TRACE_Blocking | TRACE_AllColliding,
+};
 /* UnObjBas.h / UnShowFlags.h: both are QWORDs of flags */
 typedef QWORD EObjectFlags;
 typedef QWORD EShowFlags;
@@ -3898,6 +3920,14 @@ struct __declspec(align(16)) FMatrix {
         ZPlane.X = InZ.X; ZPlane.Y = InZ.Y; ZPlane.Z = InZ.Z; ZPlane.W = InZ.W;
         WPlane.X = InW.X; WPlane.Y = InW.Y; WPlane.Z = InW.Z; WPlane.W = InW.W;
     }
+    /* UnMath.h: axes and origin (W 0, 0, 0, 1); URB_ConstraintSetup::GetRefFrameMatrix 00a322d0 builds its frames with it */
+    FORCEINLINE FMatrix(const FVector& InX, const FVector& InY, const FVector& InZ, const FVector& InW)
+    {
+        XPlane.X = InX.X; XPlane.Y = InX.Y; XPlane.Z = InX.Z; XPlane.W = 0.0f;
+        YPlane.X = InY.X; YPlane.Y = InY.Y; YPlane.Z = InY.Z; YPlane.W = 0.0f;
+        ZPlane.X = InZ.X; ZPlane.Y = InZ.Y; ZPlane.Z = InZ.Z; ZPlane.W = 0.0f;
+        WPlane.X = InW.X; WPlane.Y = InW.Y; WPlane.Z = InW.Z; WPlane.W = 1.0f;
+    }
     /* UnMath.h */
     FMatrix operator*(const FMatrix& Other) const; /* 0x0058e560 */
     FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const {
@@ -3930,6 +3960,10 @@ struct __declspec(align(16)) FMatrix {
     void GetAxes(FVector& X, FVector& Y, FVector& Z) const; /* 0x005c3260 */
     FMatrix Transpose() const; /* 0x0058e9a0 */
     FMatrix Inverse() const; /* 0x0058ea10 */
+    /* UnMath.h: (out of line in this build) the transposed adjoint, for transforming normals, and the determinant;
+     * callers such as 00663120 take both from a local-to-world matrix */
+    FMatrix TransposeAdjoint() const; /* 0x00649c70 */
+    FLOAT Determinant() const; /* 0x00649b30 */
     FMatrix InverseSafe() const; /* 0x006e1510 */ /* Identity when the rotation part is nearly zero, else Inverse() */
     void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER); /* 0x006a7f30 */
     FRotator Rotator() const; /* 0x005c3fc0 */
@@ -4354,6 +4388,27 @@ struct FBoneAtom {
     FBoneAtom() {}
     FORCEINLINE FBoneAtom(const FQuat& InRotation, const FVector& InTranslation, FLOAT InScale = 1.f) { Rotation = InRotation; Translation = InTranslation; Scale = InScale; }
     FORCEINLINE FBoneAtom& operator=(const FBoneAtom& Other) { Rotation = Other.Rotation; Translation = Other.Translation; Scale = Other.Scale; return *this; }    static const FBoneAtom Identity; /* 0x025df358: identity rotation, zero translation, scale 1 */
+};
+
+/* AnimationEncodingFormat.h (this build's interface): the base of the animation codecs. Every slot is a
+ * PURE_VIRTUAL body out of line (vtable 0x01ebbe34, in this order); each codec overrides them. UE3 passes the
+ * atom arrays as FBoneAtomArray (a TArray<FBoneAtom> with a stack allocator) and the pairs as BoneTrackArray. */
+class FMemoryReader;
+class FMemoryWriter;
+struct BoneTrackPair {
+    INT AtomIndex; /* 0x0 */
+    INT TrackIndex; /* 0x4 */
+};
+class AnimationEncodingFormat {
+public:
+    virtual void GetBoneAtomRotation(FBoneAtom& OutAtom, const class UAnimSequence& Seq, const BYTE* Stream, INT NumKeys, FLOAT Time, FLOAT RelativePos, UBOOL bLooping); /* 0x006636f0 */
+    virtual void GetBoneAtomTranslation(FBoneAtom& OutAtom, const class UAnimSequence& Seq, const BYTE* Stream, INT NumKeys, FLOAT Time, FLOAT RelativePos, UBOOL bLooping); /* 0x00663710 */
+    virtual void GetPoseRotations(TArray<FBoneAtom>& Atoms, const TArray<BoneTrackPair>& DesiredPairs, const class UAnimSequence& Seq, FLOAT RelativePos, UBOOL bLooping); /* 0x00663730 */
+    virtual void GetPoseTranslations(TArray<FBoneAtom>& Atoms, const TArray<BoneTrackPair>& DesiredPairs, const class UAnimSequence& Seq, FLOAT RelativePos, UBOOL bLooping); /* 0x00663750 */
+    virtual void ByteSwapRotationIn(class UAnimSequence& Seq, FMemoryReader& MemoryReader, BYTE*& Stream, INT NumKeys); /* 0x00663770 */
+    virtual void ByteSwapTranslationIn(class UAnimSequence& Seq, FMemoryReader& MemoryReader, BYTE*& Stream, INT NumKeys); /* 0x00663790 */
+    virtual void ByteSwapRotationOut(class UAnimSequence& Seq, FMemoryWriter& MemoryWriter, BYTE*& Stream, INT NumKeys); /* 0x006637b0 */
+    virtual void ByteSwapTranslationOut(class UAnimSequence& Seq, FMemoryWriter& MemoryWriter, BYTE*& Stream, INT NumKeys); /* 0x006637d0 */
 };
 
 struct FMaterialViewRelevance {
@@ -11856,6 +11911,7 @@ struct UActorComponent : public UComponent {
     /* other member functions */
     void ConditionalAttach(FSceneInterface* InScene,AActor* InOwner,const FMatrix& ParentToWorld); /* 0x0076a230 */
     void sub_00759620(); /* 0x00759620 */
+    void sub_0075e910(); /* 0x0075e910: a primitive or light with static shadowing outside PIE marks its world's lighting as needing a full rebuild (called by the InvalidateLightingCache overrides) */
     void ConditionalDetach(UBOOL bWillReattach = FALSE); /* 0x00759640 */
     void ConditionalUpdateTransform(); /* 0x00759670: UpdateTransform() if attached */
     void ConditionalUpdateTransform(const FMatrix& ParentToWorld); /* 0x007595f0: SetParentToWorld, then UpdateTransform() if attached */
@@ -14098,8 +14154,17 @@ struct UAnimationCompressionAlgorithm_RemoveLinearKeys : public UAnimationCompre
     static void BitwiseCompressAnimationTracks( UAnimSequence* Seq, BYTE TargetTranslationFormat, BYTE TargetRotationFormat, const TArray<FTranslationTrack>& TranslationData, const TArray<FRotationTrack>& RotationData, UBOOL IncludeKeyTable ); /* 0x00c00e80 */
     static void FilterTrivialPositionKeys( TArray<FTranslationTrack>& Track, FLOAT MaxPosDelta ); /* 0x00c01c00 */
     static void FilterTrivialRotationKeys( TArray<FRotationTrack>& InputTracks, FLOAT MaxRotDelta ); /* 0x00c01df0 */
+    /* UE3's AnimationCompressionAlgorithm.cpp helper; inlined into DoReduction (00c16ee0) in this build */
+    static void FilterTrivialKeys( TArray<FTranslationTrack>& PositionTracks, TArray<FRotationTrack>& RotationTracks, FLOAT MaxPosDelta, FLOAT MaxRotDelta )
+    {
+        FilterTrivialRotationKeys(RotationTracks, MaxRotDelta);
+        FilterTrivialPositionKeys(PositionTracks, MaxPosDelta);
+    }
     /* registered size 0x5c */
 };
+/* AnimationUtils.h / AnimationEncodingFormat.h free functions (cdecl) */
+void SeparateRawDataIntoTracks( const TArray<FRawAnimSequenceTrack>& RawAnimData, FLOAT SequenceLength, TArray<FTranslationTrack>& OutTranslationData, TArray<FRotationTrack>& OutRotationData ); /* 0x00c15fb0 */
+void AnimationFormat_SetInterfaceLinks( class UAnimSequence& Seq ); /* 0x00657280 */
 
 struct UAnimationCompressionAlgorithm_RemoveTrivialKeys : public UAnimationCompressionAlgorithm {
     /* Engine.AnimationCompressionAlgorithm_RemoveTrivialKeys */
@@ -14176,8 +14241,8 @@ struct UAnimNode : public UAnimObject {
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
     virtual UBOOL GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion); /* 0x148 */ /* 0x00c6c770 */
     virtual bool ShouldSaveCachedResults(); /* 0x14c */
-    virtual void vf_150(); /* 0x150 */
-    virtual void vf_154(); /* 0x154 */
+    virtual void OnBecomeRelevant(); /* 0x150 */
+    virtual void OnCeaseRelevant(); /* 0x154 */
     virtual UAnimTree* GetAnimTree(); /* 0x158 */
     virtual void SetAnim(FName Sequence); /* 0x15c */
     virtual void SetPosition(FLOAT NewTime, UBOOL bFireNotifies); /* 0x160 */
@@ -14200,6 +14265,9 @@ struct UAnimNode : public UAnimObject {
     void execFindAnimNode(FFrame& Stack, RESULT_DECL); /* 0x00c902e0 */
     /* other member functions */
     void GetNodesInternal(TArray<UAnimNode*>& Nodes); /* 0x00c52fa0 */
+    /* the GetNodes search state (UnAnimTree.cpp): set while a search runs, and the tag the current search stamps */
+    static UBOOL bNodeSearching; /* 0x026c2bcc */
+    static INT CurrentSearchTag; /* 0x026c2bd0 */
     INT CountNumParentsTicked(); /* 0x00c53000 */
     UBOOL IsChildOf(UAnimNode* Node); /* 0x00c53070 */
     void GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass); /* 0x00c5ed80 */
@@ -14214,6 +14282,16 @@ struct UAnimNode : public UAnimObject {
     {
         extern FName g_026c4f90; /* ENGINE_OnInit */
         ProcessEvent(FindFunctionChecked(g_026c4f90), NULL);
+    }
+    FORCEINLINE void eventOnBecomeRelevant()
+    {
+        extern FName g_026c4610; /* ENGINE_OnBecomeRelevant */
+        ProcessEvent(FindFunctionChecked(g_026c4610), NULL);
+    }
+    FORCEINLINE void eventOnCeaseRelevant()
+    {
+        extern FName g_026c42a8; /* ENGINE_OnCeaseRelevant */
+        ProcessEvent(FindFunctionChecked(g_026c42a8), NULL);
     }
 };
 /* UnAnimTree.cpp's file-level copy of UAnimNode::FillWithRefPose (UAnimNode::GetBoneAtoms calls this one; call
@@ -14242,7 +14320,7 @@ struct UAnimNodeBlendBase : public UAnimNode {
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
     virtual void BuildTickArray(TArray<class UAnimNode*>& OutTickArray); /* 0x140 */
     virtual void GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion); /* 0x144 */
-    virtual void vf_154(); /* 0x154 */
+    virtual void OnCeaseRelevant(); /* 0x154 */
     virtual void DrawAnimNode(class FCanvas* Canvas, UBOOL bSelected, UBOOL bShowWeight, UBOOL bCurves); /* 0x164 */
     virtual FString GetNodeTitle(); /* 0x168 */ /* 0x00cb91a0 */
     virtual FIntPoint GetConnectionLocation(INT ConnType, INT ConnIndex); /* 0x16c */
@@ -14413,7 +14491,7 @@ struct UAnimNodeBlendBySpeed : public UAnimNodeBlendList {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
-    virtual void vf_150(); /* 0x150 */
+    virtual void OnBecomeRelevant(); /* 0x150 */
     virtual INT GetNumSliders() const; /* 0x170 */
     virtual FLOAT GetSliderPosition(INT SliderIndex, INT ValueIndex); /* 0x178 */
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
@@ -14542,7 +14620,7 @@ struct UAnimNodeRandom : public UAnimNodeBlendList {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void InitAnim(class USkeletalMeshComponent* MeshComp, class UAnimNodeBlendBase* Parent); /* 0x128 */
     virtual void TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight); /* 0x134 */
-    virtual void vf_150(); /* 0x150 */
+    virtual void OnBecomeRelevant(); /* 0x150 */
     virtual void OnChildAnimEnd(class UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime); /* 0x18c */
     virtual void OnAddChild(INT ChildNum); /* 0x190 */
     virtual void OnRemoveChild(INT ChildNum); /* 0x194 */
@@ -15233,7 +15311,7 @@ struct UMeshComponent : public UPrimitiveComponent {
     virtual UINT GetUseSimpleBoxCollision(); /* 0x250 */
     virtual UINT GetUseSimpleLineCollision(); /* 0x254 */
     virtual INT GetNumElements(); /* 0x258 */
-    virtual class UMaterialInterface* GetMaterial(INT ElementIndex); /* 0x25c */
+    virtual class UMaterialInterface* GetMaterial(INT ElementIndex) const; /* 0x25c */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -15277,7 +15355,7 @@ struct UApexComponentBase : public UMeshComponent {
     virtual void TermComponentRBPhys(FRBPhysScene* InScene); /* 0x13c */
     virtual void UpdateBounds(); /* 0x160 */
     virtual INT GetNumElements(); /* 0x258 */
-    virtual class UMaterialInterface* GetMaterial(INT ElementIndex); /* 0x25c */
+    virtual class UMaterialInterface* GetMaterial(INT ElementIndex) const; /* 0x25c */
     /* registered size 0x1d0 */
 };
 
@@ -15829,7 +15907,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     /* virtual functions this class introduces (vtable 0x01ebf5b8) */
     virtual UBOOL SetStaticMesh(class UStaticMesh* NewMesh, UBOOL bForce); /* 0x260 */
     virtual void SetForceStaticDecals(UBOOL bInForceStaticDecals); /* 0x264 */
-    virtual class UMaterialInterface* GetMaterial(INT ElementIndex, INT LOD); /* 0x268 */
+    virtual class UMaterialInterface* GetMaterial(INT ElementIndex, INT LOD) const; /* 0x268 */
     virtual void CookPhysConvexDataForScale(ULevel* Level, const FVector& TotalScale3D, INT& TriByteCount, INT& TriMeshCount, INT& HullByteCount, INT& HullCount); /* 0x26c */
     virtual INT vf_270(INT, INT); /* 0x270 */
     virtual void vf_274(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x274 */
@@ -15869,7 +15947,7 @@ struct UStaticMeshComponent : public UMeshComponent {
     virtual UINT GetUseSimpleBoxCollision(); /* 0x250 */
     virtual UINT GetUseSimpleLineCollision(); /* 0x254 */
     virtual INT GetNumElements(); /* 0x258 */
-    virtual class UMaterialInterface* GetMaterial(INT ElementIndex); /* 0x25c */
+    virtual class UMaterialInterface* GetMaterial(INT ElementIndex) const; /* 0x25c */
     /* UnrealScript natives */
     void execSetForceStaticDecals(FFrame& Stack, RESULT_DECL); /* 0x00947170 */
     void execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_DECL); /* 0x00a01d30 */
@@ -17216,7 +17294,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
     virtual UINT GetUseSimpleBoxCollision(); /* 0x250 */
     virtual UINT GetUseSimpleLineCollision(); /* 0x254 */
     virtual INT GetNumElements(); /* 0x258 */
-    virtual class UMaterialInterface* GetMaterial(INT ElementIndex); /* 0x25c */
+    virtual class UMaterialInterface* GetMaterial(INT ElementIndex) const; /* 0x25c */
     /* UnrealScript natives */
     void execGetPhysicalMaterial(FFrame& Stack, RESULT_DECL); /* 0x006dc740 */
     void execMatchRefBone(FFrame& Stack, RESULT_DECL); /* 0x0090e910 */
@@ -18445,6 +18523,11 @@ struct ULightComponent : public UActorComponent {
     /* other member functions */
     UBOOL HasStaticShadowing() const; /* 0x006b4650 */
     void sub_006bab80(); /* 0x006bab80 */
+    /* EngineLightClasses.h (inline): the light's direction, WorldToLight's third column (FMatrix is stored as planes) */
+    FORCEINLINE FVector GetDirection() const
+    {
+        return FVector(WorldToLight.XPlane.Z, WorldToLight.YPlane.Z, WorldToLight.ZPlane.Z);
+    }
     /* registered size 0x170 */
 };
 
@@ -31720,9 +31803,9 @@ struct USeqCond_SwitchBase : public USequenceCondition {
     /* Engine.SeqCond_SwitchBase */
     DECLARE_CLASS(USeqCond_SwitchBase, USequenceCondition, 0x1, 0x0, Engine)
     /* virtual functions this class introduces (vtable 0x01f6b9a0) */
-    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
-    virtual INT FindCaseValueIndex(INT); /* 0x19c */
-    virtual INT GetSupportedValueCount(); /* 0x1a0 */
+    virtual UBOOL GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* 0x198 */
+    virtual INT FindCaseValueIndex(INT OutputLinkIndex) const; /* 0x19c */
+    virtual INT GetSupportedValueCount() const; /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -31744,9 +31827,9 @@ struct USeqCond_SwitchClass : public USeqCond_SwitchBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
-    virtual INT FindCaseValueIndex(INT); /* 0x19c */
-    virtual INT GetSupportedValueCount(); /* 0x1a0 */
+    virtual UBOOL GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* 0x198 */
+    virtual INT FindCaseValueIndex(INT OutputLinkIndex) const; /* 0x19c */
+    virtual INT GetSupportedValueCount() const; /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
     /* registered size 0xc8 */
 };
@@ -31758,9 +31841,9 @@ struct USeqCond_SwitchName : public USeqCond_SwitchBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
-    virtual INT FindCaseValueIndex(INT); /* 0x19c */
-    virtual INT GetSupportedValueCount(); /* 0x1a0 */
+    virtual UBOOL GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* 0x198 */
+    virtual INT FindCaseValueIndex(INT OutputLinkIndex) const; /* 0x19c */
+    virtual INT GetSupportedValueCount() const; /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
     /* registered size 0xc8 */
 };
@@ -31773,9 +31856,9 @@ struct USeqCond_SwitchObject : public USeqCond_SwitchBase {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual INT GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* the base's PURE_VIRTUAL returns 0 */ /* 0x198 */
-    virtual INT FindCaseValueIndex(INT); /* 0x19c */
-    virtual INT GetSupportedValueCount(); /* 0x1a0 */
+    virtual UBOOL GetOutputLinksToActivate(TArray<INT>& out_LinksToActivate); /* 0x198 */
+    virtual INT FindCaseValueIndex(INT OutputLinkIndex) const; /* 0x19c */
+    virtual INT GetSupportedValueCount() const; /* 0x1a0 */
     virtual FString GetCaseValueString(INT ValueIndex) const; /* 0x1a4 */
     /* registered size 0xcc */
 };
@@ -33834,6 +33917,7 @@ struct ATerrain : public AInfo {
     FRenderCommandFence* GetReleaseResourcesFence(); /* 0x00982010: created on first use */
     void sub_00759430(UBOOL); /* 0x00759430 */
     const WORD& Height(INT X, INT Y) const; /* 0x0098b970 */
+    WORD& Height(INT X, INT Y); /* 0x0098b9f0 */
     FTerrainInfoData* GetInfoData(INT X, INT Y); /* 0x0098ba70 */
     const FTerrainInfoData* GetInfoData(INT X, INT Y) const; /* 0x0098baf0 */
     void CalcLayerBounds(); /* 0x00997960 */
@@ -59209,7 +59293,7 @@ struct UBrushBuilder : public UObject {
     BITFIELD MergeCoplanars : 1; /* 0x68 */
     /* virtual functions this class introduces (vtable 0x02132968) */
     virtual void BeginBrush(UBOOL bMerge, FName BrushName); /* 0x10c */
-    virtual void EndBrush(); /* 0x110 */
+    virtual UBOOL EndBrush(); /* 0x110 */
     virtual INT GetVertexCount(); /* 0x114 */
     virtual FVector GetVertex(INT i); /* 0x118 */
     virtual INT GetPolyCount(); /* 0x11c */
@@ -59874,7 +59958,7 @@ struct UClient : public UObject, public FExec {
     virtual void AllowMessageProcessing(INT); /* 0x114 */
     virtual INT CreateViewport(INT, INT, INT, INT, INT); /* 0x118 */
     virtual INT CreateWindowChildViewport(INT, INT, INT, INT, INT, INT); /* 0x11c */
-    virtual INT CloseViewport(INT); /* 0x120 */
+    virtual void CloseViewport(struct FViewport* Viewport); /* 0x120 */
     virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
     virtual FName GetVirtualKey(INT KeyCode); /* 0x12c */
@@ -61339,6 +61423,35 @@ struct FStaticMeshkDOPTree {
 };
 struct FNativeElem_007c81e0 { DWORD Value; FNativeElem_007c81e0() {} FNativeElem_007c81e0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007c81e0 destroys */
 struct FNativeElem_007ca1b0 { DWORD Value; FNativeElem_007ca1b0() {} FNativeElem_007ca1b0(const DWORD& V) : Value(V) {} operator DWORD&() { return Value; } operator const DWORD&() const { return Value; } };  /* the native element type of the arrays ~TArray at 0x007ca1b0 destroys */
+/* UnStaticMesh.h: a fragment's index range (fractured meshes) */
+struct FFragmentRange {
+    INT BaseIndex; /* 0x0 */
+    INT NumPrimitives; /* 0x4 */
+};
+/* UnStaticMesh.h: one draw section of a static mesh LOD (0x3c; this build has no PlatformData). Offsets from
+ * UStaticMeshComponent::GetMaterial 00957290 (stride 0x3c, MaterialIndex 0x2c) and UE3's member order. */
+struct FStaticMeshElement {
+    class UMaterialInterface* Material; /* 0x0 */
+    FString Name; /* 0x4: the imported name (transient) */
+    UBOOL EnableCollision; /* 0x10 */
+    UBOOL OldEnableCollision; /* 0x14 */
+    UBOOL bEnableShadowCasting; /* 0x18 */
+    UINT FirstIndex; /* 0x1c */
+    UINT NumTriangles; /* 0x20 */
+    UINT MinVertexIndex; /* 0x24 */
+    UINT MaxVertexIndex; /* 0x28 */
+    INT MaterialIndex; /* 0x2c */
+    TArray<FFragmentRange> Fragments; /* 0x30 */
+};
+/* UnStaticMesh.h: a static mesh LOD (UStaticMesh::LODModels holds them: cast the field to
+ * TIndirectArray<FStaticMeshRenderData>&, as 00957290 does). Only Elements is recovered; the render buffers
+ * before it (VertexBuffer, PositionVertexBuffer, ColorVertexBuffer, NumVertices, bNeedsCPUAccess, IndexBuffer,
+ * WireframeIndexBuffer) are a known blob, and the members after it (RawTriangles, AdjacencyIndexBuffer) are
+ * left out: the struct is only ever reached through LODModels' pointers. */
+struct FStaticMeshRenderData {
+    BYTE _native0[0xe0]; /* the vertex and index buffers */
+    TArray<FStaticMeshElement> Elements; /* 0xe0 */
+};
 struct UStaticMesh : public UObject {
     /* Engine.StaticMesh (native only: no script package describes it) */
     DECLARE_CLASS(UStaticMesh, UObject, 0x10002040, 0x0, Engine)
@@ -62568,7 +62681,7 @@ struct UTransactor : public UObject {
     virtual INT End(); /* 0x110 */
     virtual void Cancel(INT StartIndex = 0); /* 0x114 */
     virtual void Reset(const TCHAR* Action); /* 0x118 */
-    virtual bool IsActive(); /* 0x11c */
+    virtual UBOOL IsActive(); /* 0x11c */
     virtual UBOOL CanUndo(FString* Str); /* 0x120 */
     virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
@@ -62602,7 +62715,7 @@ struct UTransBuffer : public UTransactor {
     virtual INT End(); /* 0x110 */
     virtual void Cancel(INT StartIndex = 0); /* 0x114 */
     virtual void Reset(const TCHAR* Action); /* 0x118 */
-    virtual bool IsActive(); /* 0x11c */
+    virtual UBOOL IsActive(); /* 0x11c */
     virtual UBOOL CanUndo(FString* Str); /* 0x120 */
     virtual UBOOL CanRedo(FString* Str); /* 0x124 */
     virtual FString GetUndoDesc(UBOOL bCheckWhetherUndoPossible = TRUE); /* 0x128 */
@@ -66655,7 +66768,7 @@ struct UWindowsClient : public UClient {
     virtual void AllowMessageProcessing(INT); /* 0x114 */
     virtual INT CreateViewport(INT, INT, INT, INT, INT); /* 0x118 */
     virtual INT CreateWindowChildViewport(INT, INT, INT, INT, INT, INT); /* 0x11c */
-    virtual INT CloseViewport(INT); /* 0x120 */
+    virtual void CloseViewport(struct FViewport* Viewport); /* 0x120 */
     virtual class UAudioDevice* GetAudioDevice(); /* 0x124 */
     virtual void ForceClearForceFeedback(); /* 0x128 */
     virtual FName GetVirtualKey(INT KeyCode); /* 0x12c */

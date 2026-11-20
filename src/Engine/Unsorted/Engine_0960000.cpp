@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/Map.h"
+#include "ue3/SkeletalMesh.h"
 
 struct C { void sub_0095a7c0(int); C *sub_00963890(int); };
 
@@ -1031,7 +1032,6 @@ C_00967210 *C_00967210::sub_00967210(int a) { sub_0095ac50(a); return this; }
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_00967230 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_00967230& operator++();
@@ -1982,15 +1982,6 @@ S009652b0* sub_009652b0_probe()
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;
-
-/* FkDOPNode (UnkDOP.h): a node of a kDOP tree (0x20 bytes). Not in the kit. */
-struct FkDOPNode
-{
-    FLOAT BoundsMin[3];  /* FkDOP BoundingVolume */
-    FLOAT BoundsMax[3];
-    UBOOL bIsLeaf;
-    WORD Children[2];    /* left and right child, or a leaf's triangle count and first triangle */
-};
 
 FArchive& operator<<(FArchive& Ar, TArray<FkDOPNode>& A);
  /* 0x00959800 */

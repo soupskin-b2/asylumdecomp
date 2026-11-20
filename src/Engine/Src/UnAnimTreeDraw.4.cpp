@@ -3,7 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* UAnimNodeBlend's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
+/* UAnimNodeBlend's editor slider handling. */
 
 // @baa 0x00cb2560
 void UAnimNodeBlend::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)
@@ -18,7 +18,7 @@ void UAnimNodeBlend::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT New
 
 #line 24 "candidate.cpp"
 
-/* UAnimNodeBlendBySpeed's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
+/* UAnimNodeBlendBySpeed's editor slider position. */
 
 // @baa 0x00cb9450
 FLOAT UAnimNodeBlendBySpeed::GetSliderPosition(INT SliderIndex, INT ValueIndex)
@@ -32,7 +32,7 @@ FLOAT UAnimNodeBlendBySpeed::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 
 #line 42 "candidate.cpp"
 
-/* UAnimNodeBlendBySpeed's editor slider handling (UAnimNode vtable slot, declared only as a vf_). */
+/* UAnimNodeBlendBySpeed's editor slider handling. */
 
 // @baa 0x00cb94e0
 void UAnimNodeBlendBySpeed::HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue)

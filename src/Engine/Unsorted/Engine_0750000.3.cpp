@@ -68,23 +68,19 @@ undefined4 C_0075fa50::sub_0075fa50(byte param_2)
 }
 
 // @baa 0x00758890
-/* APhysicsVolume handles one trace type itself (0x8000, not named in the headers) and leaves the
+/* APhysicsVolume handles physics-volume traces itself and leaves the
  * rest to AVolume. */
 UBOOL APhysicsVolume::ShouldTrace( UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags )
 {
-	if( ( TraceFlags & 0x8000 ) == 0 && !Super::ShouldTrace( Primitive, SourceActor, TraceFlags ) )
+	if( ( TraceFlags & TRACE_PhysicsVolumes ) == 0 && !Super::ShouldTrace( Primitive, SourceActor, TraceFlags ) )
 	{
 		return FALSE;
 	}
 	return TRUE;
 }
 
-struct AActor_ : public AActor {
-    FVector GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLocation);
-};
-
 // @baa 0x00758b20
-FVector AActor_::GetTargetLocation(AActor* RequestedBy, bool bRequestAlternateLocation)
+FVector AActor::GetTargetLocation(AActor* RequestedBy, UBOOL bRequestAlternateLoc)
 {
     return Location;
 }
@@ -99,26 +95,25 @@ FVector AActor::GetFOVCheckLocation()
 
 // @baa 0x007585b0
 /* World geometry answers level-geometry traces; other actors answer traces for "others" when they're projectile
- * targets or blocking. (0x80 TRACE_LevelGeometry, 0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+ * targets or blocking. */
 UBOOL AActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return (bWorldGeometry && (TraceFlags & 0x80))
-        || (!bWorldGeometry && (TraceFlags & 0x10)
-            && ((TraceFlags & 0x20)
+    return (bWorldGeometry && (TraceFlags & TRACE_LevelGeometry))
+        || (!bWorldGeometry && (TraceFlags & TRACE_Others)
+            && ((TraceFlags & TRACE_OnlyProjActor)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & TRACE_Blocking) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 // @baa 0x00758680
-/* Like AActor::ShouldTrace, but volumes answer volume traces (0x08 TRACE_Volumes) instead of "others".
- * (0x80 TRACE_LevelGeometry, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
+/* Like AActor::ShouldTrace, but volumes answer volume traces instead of "others". */
 UBOOL AVolume::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return (bWorldGeometry && (TraceFlags & 0x80))
-        || (!bWorldGeometry && (TraceFlags & 0x08)
-            && ((TraceFlags & 0x20)
+    return (bWorldGeometry && (TraceFlags & TRACE_LevelGeometry))
+        || (!bWorldGeometry && (TraceFlags & TRACE_Volumes)
+            && ((TraceFlags & TRACE_OnlyProjActor)
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-                : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
+                : (!(TraceFlags & TRACE_Blocking) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
 
 extern FName g_026c40d4;

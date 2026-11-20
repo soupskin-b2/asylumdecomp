@@ -4,22 +4,10 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
+#include "ue3/SkeletalMesh.h"
 
 /* the placement forms of new and delete (<new>) */
 class UMaterialInterface;
-/* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
- * with. Not in the kit. */
-struct FSectionElementInfo
-{
-    FSectionElementInfo(UMaterialInterface* InMaterial, UBOOL bInEnableShadowCasting)
-        : Material(InMaterial)
-        , bEnableShadowCasting(bInEnableShadowCasting)
-    {}
-
-    UMaterialInterface* Material;
-    UBOOL bEnableShadowCasting;
-};
-
 /* TArray<FSectionElementInfo> with its copy constructor and Copy */
 struct FSectionElementInfoArray : public TArray<FSectionElementInfo>
 {

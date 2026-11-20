@@ -1,6 +1,7 @@
 // Engine_0680000.cpp (part 1 of 7): 290 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 #include "ue3/Map.h"
 
@@ -1725,13 +1726,8 @@ undefined4 C_006894a0::sub_006894a0(byte param_2)
 // @baa 0x006894d0
 IMPLEMENT_CLASS_AT(UMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\PrimitiveComponent.cpp", 15);
 
-int sub_00630f20(...);
-extern undefined4 g_026667a8;
 // @baa 0x00689540
-INT UMeshComponent::GetNumElements() {
-  sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"UMeshComponent::GetNumElements");
-  return 0;
-}
+INT UMeshComponent::GetNumElements() PURE_VIRTUAL(UMeshComponent::GetNumElements, return 0;)
 
 // @baa 0x00689560
 struct C_00689590 { void sub_00685d30(int); void sub_00689590(); };

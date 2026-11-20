@@ -413,8 +413,6 @@ struct FIntArray : public TArray<INT>
     INT AddItem(const INT& Item);
 };
 
-/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
-
 // @baa 0x00916440
 void USkelControlSingleBone::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)
 {
@@ -424,8 +422,6 @@ void USkelControlSingleBone::GetAffectedBones(INT BoneIndex, USkeletalMeshCompon
 }
 
 #line 441 "candidate.cpp"
-
-/* slot 0x124 (vf_124) is USkelControlBase::GetAffectedBones */
 
 // @baa 0x00916480
 void USkelControlLookAt::GetAffectedBones(INT BoneIndex, USkeletalMeshComponent* SkelComp, TArray<INT>& OutBoneIndices)

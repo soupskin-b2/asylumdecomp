@@ -4,15 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/GFx.h"
 
-/* GFx.h only forward-declares FGFxEngine; SetFocus(FGFxMovie*, UBOOL CaptureInput) is out of
- * line at 00e688b0. */
-class FGFxEngine {
-public:
-    void SetFocus(FGFxMovie* Movie, UBOOL CaptureInput); /* 0x00e688b0 */
-};
-
 // @baa 0x00e68a80
-/* vf_174 is USequenceOp::Activated (USequenceAction::Activated is 008d1890). */
 void UGFxAction_SetFocus::Activated()
 {
     Super::Activated();
@@ -27,7 +19,7 @@ void UGFxAction_SetFocus::Activated()
 }
 
 /* UGFxMovie::SetFocus(UBOOL captureInput, UBOOL Focus), the native behind execSetFocus and
- * GFxAction_OpenMovie; the kit doesn't declare it. */
+ * GFxAction_OpenMovie. */
 
 // @baa 0x00e68b40
 void UGFxMovie::SetFocus(UBOOL captureInput, UBOOL Focus)

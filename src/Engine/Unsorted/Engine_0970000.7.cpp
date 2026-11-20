@@ -4,6 +4,7 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
+#include "ue3/SkeletalMesh.h"
 
 /* the array types inside FSkeletalMeshLODInfo, with their out-of-line destructors */
 struct FLODMaterialMapArray : public TArray<INT>
@@ -48,49 +49,6 @@ void FSkeletalMeshLODInfoArray::Empty(INT Slack)
     }
 }
 
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FRigidSkinVertex (UnSkeletalMesh.h): a vertex bound to a single bone (0x24 bytes). Not in the kit. */
-struct FRigidSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE Bone;
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
-
-/* FSkelMeshChunk (UnSkeletalMesh.h): vertices of one LOD skinned with one bone map. Not in the kit. */
-struct FSkelMeshChunk
-{
-    DWORD BaseVertexIndex;
-    TArray<FRigidSkinVertex> RigidVertices;
-    TArray<FSoftSkinVertex> SoftVertices;
-    TArray<WORD> BoneMap;
-    INT NumRigidVertices;
-    INT NumSoftVertices;
-    INT MaxBoneInfluences;
-
-    ~FSkelMeshChunk(); /* out of line, 0x009590c0 */
-};
-
 /* TArray<FSkelMeshChunk>::Empty (Array.h), out of line here (FStaticLODModel::Chunks) */
 struct FSkelMeshChunkArray : public TArray<FSkelMeshChunk>
 {
@@ -113,13 +71,6 @@ void FSkelMeshChunkArray::Empty(INT Slack)
         AllocatorInstance.ResizeAllocation(0, ArrayMax, sizeof(FSkelMeshChunk));
     }
 }
-
-/* one index pair of a LOD's influence data (UnSkeletalMesh.h; names assumed). Not in the kit. */
-struct FInfluenceIndexPair
-{
-    INT First;
-    INT Second;
-};
 
 /* TArray<FInfluenceIndexPair>'s destructor is out of line in this build (0x00958330) */
 template<> TArray<FInfluenceIndexPair>::~TArray();
@@ -145,19 +96,6 @@ void DestroyInfluenceIndexPairs(TArray<TArray<FInfluenceIndexPair> >& InfluenceI
 
 /* the placement forms of new and delete (<new>) */
 class UMaterialInterface;
-/* FSkeletalMeshSceneProxy::FSectionElementInfo (UnSkeletalRender.h): the material a section is drawn
- * with. Not in the kit. */
-struct FSectionElementInfo
-{
-    FSectionElementInfo(UMaterialInterface* InMaterial, UBOOL bInEnableShadowCasting)
-        : Material(InMaterial)
-        , bEnableShadowCasting(bInEnableShadowCasting)
-    {}
-
-    UMaterialInterface* Material;
-    UBOOL bEnableShadowCasting;
-};
-
 /* TArray<FSectionElementInfo> with its copy constructor and Copy */
 struct FSectionElementInfoArray : public TArray<FSectionElementInfo>
 {

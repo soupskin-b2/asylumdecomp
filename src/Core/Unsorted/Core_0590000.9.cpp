@@ -4,20 +4,12 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* Kit gaps: UObject's bytecode handlers (UnScript.cpp) aren't declared, nor the globals GProperty and GPropObject
- * (UnScript.cpp) or RUC_ArrayLengthSet (Script.h has only RUC_SkippedOptionalParm). */
-extern UProperty* g_026667d0;
-	/* GProperty */
-extern UObject* g_026667ec;
-	/* GPropObject */
-enum { RUC_ArrayLengthSet = 0x01 };
-
 // @baa 0x00590150
 void UObject::execDynArrayLength(FFrame& Stack, RESULT_DECL)
 {
-	g_026667d0 = NULL;
+	GProperty = NULL;
 	Stack.Step(this, NULL);
-	g_026667ec = this;
+	GPropObject = this;
 
 	if (GPropAddr)
 	{

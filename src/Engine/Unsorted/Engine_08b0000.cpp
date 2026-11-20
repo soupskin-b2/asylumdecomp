@@ -437,12 +437,6 @@ void AActor::ClearTimer(FName inTimerFunc, UObject* inObj)
     }
 }
 
-/* Kit gap: FName has no operator== here (UnName.h compares Index and Number). */
-static FORCEINLINE UBOOL NamesEqual(const FName& A, const FName& B)
-{
-    return A.Index == B.Index && A.Number == B.Number;
-}
-
 // @baa 0x008b7ec0
 /* Pauses or resumes every matching timer. */
 void AActor::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
@@ -453,7 +447,7 @@ void AActor::PauseTimer(UBOOL bPause, FName inTimerFunc, UObject* inObj)
     }
     for (INT Idx = 0; Idx < Timers.Num(); Idx++)
     {
-        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        if (Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
         {
             Timers(Idx).bPaused = bPause;
         }
@@ -471,7 +465,7 @@ UBOOL AActor::IsTimerActive(FName inTimerFunc, UObject* inObj)
     UBOOL bActive = FALSE;
     for (INT Idx = 0; Idx < Timers.Num(); Idx++)
     {
-        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        if (Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
         {
             bActive = Timers(Idx).Rate > 0.f;
             break;
@@ -491,7 +485,7 @@ FLOAT AActor::GetTimerCount(FName inTimerFunc, UObject* inObj)
     FLOAT Count = -1.f;
     for (INT Idx = 0; Idx < Timers.Num(); Idx++)
     {
-        if (NamesEqual(Timers(Idx).FuncName, inTimerFunc) && Timers(Idx).TimerObj == inObj)
+        if (Timers(Idx).FuncName == inTimerFunc && Timers(Idx).TimerObj == inObj)
         {
             Count = Timers(Idx).Count;
             break;

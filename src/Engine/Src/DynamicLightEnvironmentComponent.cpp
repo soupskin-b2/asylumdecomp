@@ -380,7 +380,6 @@ struct FDynamicLightEnvironmentState_ {
     void sub_006ce960(FLOAT DeltaTime);     // FDynamicLightEnvironmentState::Tick
 };
 
-/* vf_124 is declared `INT vf_124(FLOAT)`, but this override returns nothing (void Tick(FLOAT)). */
 
 // @baa 0x006cee60
 void UDynamicLightEnvironmentComponent::Tick(FLOAT DeltaTime)

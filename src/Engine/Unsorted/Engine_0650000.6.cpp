@@ -500,18 +500,9 @@ F00658ed0Obj::F00658ed0Obj(INT X, INT Y)
     B   = Y;
 }
 
-/* Kit gap: ULightComponent::GetDirection (an inline in EngineLightClasses.h) isn't declared. FMatrix here is planes, so M[i][2] is the i-th plane's Z. */
-struct ULightComponent_ : public ULightComponent
-{
-	FORCEINLINE FVector GetDirection() const
-	{
-		return FVector(WorldToLight.XPlane.Z, WorldToLight.YPlane.Z, WorldToLight.ZPlane.Z);
-	}
-};
-
 // @baa 0x006500a0
 /* Directional lights sit infinitely far away: W is 0. */
 FVector4 UDirectionalLightComponent::GetPosition() const
 {
-	return FVector4(-((const ULightComponent_*)this)->GetDirection() * TraceDistance, 0);
+	return FVector4(-GetDirection() * TraceDistance, 0);
 }

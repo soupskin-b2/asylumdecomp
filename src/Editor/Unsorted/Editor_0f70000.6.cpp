@@ -5,14 +5,10 @@
 #include "ue3/Script.h"
 
 // @baa 0x00f73120
-void UTransactor::Reset(const TCHAR* Flag) PURE_VIRTUAL(UTransactor::Reset,);
+void UTransactor::Reset(const TCHAR* Action) PURE_VIRTUAL(UTransactor::Reset,);
 
 // @baa 0x00f730c0
-INT UTransactor::Begin(const TCHAR* SessionName)
-{
-    GError->Logf(TEXT("Pure virtual not implemented (%s)"), TEXT("UTransactor::Begin"));
-    return 0;
-}
+INT UTransactor::Begin(const TCHAR* SessionName) PURE_VIRTUAL(UTransactor::Begin, return 0;)
 
 // @baa 0x00f73160
 UBOOL UTransactor::CanUndo(FString* Str)

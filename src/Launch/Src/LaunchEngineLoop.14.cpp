@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-// FName's string constructor (UnName.cpp), missing from the kit's FName.
-
 #define AUTOGENERATE_NAME(name) extern FName COMMONGAME_##name;
 AUTOGENERATE_NAME(ChangeGameSpeedOverTime)
 AUTOGENERATE_NAME(EndConversation)

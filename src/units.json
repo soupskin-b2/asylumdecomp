@@ -24338,7 +24338,7 @@
     {
      "va": "00c82f00",
      "size": 129,
-     "symbol": "?execGetDestination@AActor__00c82f00@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execGetDestination@AActor@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00c844c0",
@@ -136445,7 +136445,7 @@
     {
      "va": "00f9c860",
      "size": 9,
-     "symbol": "?IsActive@UTransBuffer@@UAE_NXZ"
+     "symbol": "?IsActive@UTransBuffer@@UAEHXZ"
     },
     {
      "va": "00f9c870",
@@ -169810,7 +169810,7 @@
     {
      "va": "009d7460",
      "size": 30,
-     "symbol": "?GetMaterial@UApexComponentBase@@UAEPAUUMaterialInterface@@H@Z"
+     "symbol": "?GetMaterial@UApexComponentBase@@UBEPAUUMaterialInterface@@H@Z"
     },
     {
      "va": "009d7490",
@@ -184091,7 +184091,7 @@
     {
      "va": "006ea5a0",
      "size": 149,
-     "symbol": "?GetMaterial@UMeshComponent@@UAEPAUUMaterialInterface@@H@Z"
+     "symbol": "?GetMaterial@UMeshComponent@@UBEPAUUMaterialInterface@@H@Z"
     },
     {
      "va": "006ff070",
@@ -200663,7 +200663,7 @@
     {
      "va": "00c52fa0",
      "size": 83,
-     "symbol": "?GetNodesInternal@UAnimNode_@@QAEXAAV?$TArray@PAUUAnimNode@@@@@Z"
+     "symbol": "?GetNodesInternal@UAnimNode@@QAEXAAV?$TArray@PAUUAnimNode@@@@@Z"
     },
     {
      "va": "00c53000",
@@ -200758,7 +200758,7 @@
     {
      "va": "00c698d0",
      "size": 103,
-     "symbol": "?PostEditChange@UAnimNodeBlendPerBone_@@UAEXPAUUProperty@@@Z"
+     "symbol": "?PostEditChange@UAnimNodeBlendPerBone@@UAEXPAUUProperty@@@Z"
     },
     {
      "va": "00c71100",
@@ -200959,7 +200959,7 @@
     {
      "va": "00c62f70",
      "size": 238,
-     "symbol": "?InitAnim@UAnimNodeSlot_@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
+     "symbol": "?InitAnim@UAnimNodeSlot@@UAEXPAUUSkeletalMeshComponent@@PAUUAnimNodeBlendBase@@@Z"
     }
    ]
   },
@@ -201110,7 +201110,7 @@
     {
      "va": "00c4b620",
      "size": 56,
-     "symbol": "?vf_150@UAnimNodeBlendBySpeed@@UAEXXZ"
+     "symbol": "?OnBecomeRelevant@UAnimNodeBlendBySpeed@@UAEXXZ"
     },
     {
      "va": "00c4bba0",
@@ -201120,7 +201120,7 @@
     {
      "va": "00c53520",
      "size": 143,
-     "symbol": "?vf_154@UAnimNodeBlendBase@@UAEXXZ"
+     "symbol": "?OnCeaseRelevant@UAnimNodeBlendBase@@UAEXXZ"
     },
     {
      "va": "00c535b0",
@@ -205622,6 +205622,11 @@
      "symbol": "?Serialize@USoundCue@@UAEXAAVFArchive@@@Z"
     },
     {
+     "va": "00cd3110",
+     "size": 352,
+     "symbol": "?IsFinished@USoundNodeLooping@@UAEHPAUUAudioComponent@@@Z"
+    },
+    {
      "va": "00cd9940",
      "size": 20,
      "symbol": "?sub_00cd9940@C_00cd9940@@QAEHXZ"
@@ -206838,7 +206843,7 @@
     {
      "va": "00cb5b20",
      "size": 27,
-     "symbol": "?GetAudioDevice@UClient@@QAEIXZ"
+     "symbol": "?GetAudioDevice@UClient@@UAEPAUUAudioDevice@@XZ"
     }
    ]
   },
@@ -206872,7 +206877,7 @@
     {
      "va": "00cb5b00",
      "size": 27,
-     "symbol": "?CloseViewport@UClient@@UAEHH@Z"
+     "symbol": "?CloseViewport@UClient@@UAEXPAUFViewport@@@Z"
     }
    ]
   },
@@ -210009,7 +210014,7 @@
     {
      "va": "00947260",
      "size": 20,
-     "symbol": "?GetMaterial@UStaticMeshComponent@@UAEPAUUMaterialInterface@@H@Z"
+     "symbol": "?GetMaterial@UStaticMeshComponent@@UBEPAUUMaterialInterface@@H@Z"
     }
    ]
   },
@@ -229355,7 +229360,7 @@
     {
      "va": "008e7f80",
      "size": 30,
-     "symbol": "?FindCaseValueIndex@USeqCond_SwitchBase@@UAEHH@Z"
+     "symbol": "?FindCaseValueIndex@USeqCond_SwitchBase@@UBEHH@Z"
     },
     {
      "va": "008e7fc0",
@@ -230491,22 +230496,22 @@
     {
      "va": "008b1840",
      "size": 7,
-     "symbol": "?GetSupportedValueCount@USeqCond_SwitchObject@@QAEHXZ"
+     "symbol": "?GetSupportedValueCount@USeqCond_SwitchObject@@UBEHXZ"
     },
     {
      "va": "008b1850",
      "size": 7,
-     "symbol": "?GetSupportedValueCount@USeqCond_SwitchName@@QAEHXZ"
+     "symbol": "?GetSupportedValueCount@USeqCond_SwitchName@@UBEHXZ"
     },
     {
      "va": "008b1860",
      "size": 7,
-     "symbol": "?GetSupportedValueCount@USeqCond_SwitchClass@@QAEHXZ"
+     "symbol": "?GetSupportedValueCount@USeqCond_SwitchClass@@UBEHXZ"
     },
     {
      "va": "008e7fa0",
      "size": 27,
-     "symbol": "?GetSupportedValueCount@USeqCond_SwitchBase@@QAEIXZ"
+     "symbol": "?GetSupportedValueCount@USeqCond_SwitchBase@@UBEHXZ"
     }
    ]
   },
@@ -240461,7 +240466,7 @@
     {
      "va": "0091cdd0",
      "size": 293,
-     "symbol": "?GetMaterial@USkeletalMeshComponent__0091cdd0@@QBEPAUUMaterialInterface@@H@Z"
+     "symbol": "?GetMaterial@USkeletalMeshComponent@@UBEPAUUMaterialInterface@@H@Z"
     },
     {
      "va": "0091d830",
@@ -241274,7 +241279,7 @@
     {
      "va": "0096e6c0",
      "size": 149,
-     "symbol": "?AllocateData@FSkeletalMeshVertexBuffer_0096e6c0@@QAEXXZ"
+     "symbol": "?AllocateData@FSkeletalMeshVertexBuffer@@QAEXXZ"
     },
     {
      "va": "009764f0",
@@ -242987,6 +242992,11 @@
      "va": "00956fb0",
      "size": 161,
      "symbol": "?GetDetailedInfoInternal@AStaticMeshActor@@UAE?AVFString@@XZ"
+    },
+    {
+     "va": "00957290",
+     "size": 391,
+     "symbol": "?GetMaterial@UStaticMeshComponent@@UBEPAUUMaterialInterface@@HH@Z"
     },
     {
      "va": "0096b4b0",
@@ -272538,7 +272548,7 @@
     {
      "va": "006636f0",
      "size": 27,
-     "symbol": "?sub_006636f0@AnimationEncodingFormat@@QAEXUFQuat@@UFVector@@@Z"
+     "symbol": "?GetBoneAtomRotation@AnimationEncodingFormat@@UAEXAAUFBoneAtom@@ABUUAnimSequence@@PBEHMMH@Z"
     }
    ]
   },
@@ -272649,7 +272659,7 @@
     {
      "va": "006637d0",
      "size": 27,
-     "symbol": "?ByteSwapTranslationOut@AnimationEncodingFormat@@UAEHHHHH@Z"
+     "symbol": "?ByteSwapTranslationOut@AnimationEncodingFormat@@UAEXAAUUAnimSequence@@AAVFMemoryWriter@@AAPAEH@Z"
     },
     {
      "va": "00665c50",
@@ -272686,7 +272696,7 @@
     {
      "va": "00663750",
      "size": 27,
-     "symbol": "?GetPoseTranslations@AnimationEncodingFormat@@QAEXHHHHH@Z"
+     "symbol": "?GetPoseTranslations@AnimationEncodingFormat@@UAEXAAV?$TArray@UFBoneAtom@@@@ABV?$TArray@UBoneTrackPair@@@@ABUUAnimSequence@@MH@Z"
     }
    ]
   },
@@ -290376,7 +290386,7 @@
     {
      "va": "00758b20",
      "size": 24,
-     "symbol": "?GetTargetLocation@AActor_@@QAE?AUFVector@@PAUAActor@@_N@Z"
+     "symbol": "?GetTargetLocation@AActor@@UAE?AUFVector@@PAU1@H@Z"
     },
     {
      "va": "00758b40",

@@ -60,12 +60,12 @@ return iVar2;
 int sub_0163e530(void) { return 0; }
 
 // @baa 0x0163e540
-/* Ropes answer only pawn traces (0x2 TRACE_Pawns), then like any other actor: projectile targets or blockers for
- * projectile-actor traces (0x20), blockers of the source for blocking traces (0x40). */
+/* Ropes answer only mover traces, then like any other actor: projectile targets or blockers for
+ * projectile-actor traces, blockers of the source for blocking traces. */
 UBOOL ARRopeBase::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, DWORD TraceFlags)
 {
-    return (TraceFlags & 0x2)
-        && ((TraceFlags & 0x20)
+    return (TraceFlags & TRACE_Movers)
+        && ((TraceFlags & TRACE_OnlyProjActor)
             ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
-            : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive))));
+            : (!(TraceFlags & TRACE_Blocking) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive))));
 }

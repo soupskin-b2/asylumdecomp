@@ -1,6 +1,7 @@
 // Engine_0660000.cpp (part 1 of 17): 158 functions
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 struct E { BYTE Bytes[12]; };
@@ -128,13 +129,8 @@ undefined4 C_00663350::sub_00663350(byte param_2)
   return param_1;
 }
 
-int sub_00630f20(...);
-extern undefined4 g_026667a8;
 // @baa 0x006634b0
-FLOAT USurface::GetSurfaceWidth() {
-  sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"USurface::GetSurfaceWidth");
-  return (float10)0;
-}
+FLOAT USurface::GetSurfaceWidth() PURE_VIRTUAL(USurface::GetSurfaceWidth, return 0.f;)
 
 int sub_00627f70(...);
 int sub_00654ca0(...);

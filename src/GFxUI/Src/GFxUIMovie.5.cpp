@@ -1,16 +1,14 @@
 // GFxUIMovie.cpp: 9 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/GFx.h"
 #include "ue3/Implement.h"
 
-struct FGFxHandler { void sub_00e689a0(INT Command, INT Argument); };
-
-extern FGFxHandler* g_026caed4;
 // @baa 0x00e68a60
 INT UGFxInteraction::vf_120(INT Command, INT Argument)
 {
-    if (g_026caed4)
-        g_026caed4->sub_00e689a0(Command, Argument);
+    if (GGFxEngine)
+        GGFxEngine->sub_00e689a0(Command, Argument);
     return 0;
 }
 

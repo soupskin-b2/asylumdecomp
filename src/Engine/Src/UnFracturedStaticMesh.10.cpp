@@ -58,7 +58,7 @@ UBOOL UFracturedBaseComponent::IsReadyForFinishDestroy()
 }
 
 // @baa 0x007b8b30
-/* UFracturedBaseComponent slot 0x290 (kit vf_290 with five INTs): UE3's IsElementFragmentVisible(ElementIndex,
+/* UFracturedBaseComponent slot 0x290: UE3's IsElementFragmentVisible(ElementIndex,
  * FragmentIndex, InteriorElementIndex, CoreFragmentIndex, bAnyFragmentsHidden); only the fragment's visibility counts. */
 UBOOL UFracturedBaseComponent::IsElementFragmentVisible(INT ElementIndex, INT FragmentIndex, INT InteriorElementIndex, INT CoreFragmentIndex, UBOOL bAnyFragmentsHidden)
 {

@@ -17,13 +17,6 @@ void UGFxMovie::execAdvance(FFrame& Stack, RESULT_DECL)
     }
 }
 
-/* GFx.h only forward-declares FGFxEngine; SetFocus(FGFxMovie*, UBOOL CaptureInput) is out of
- * line at 00e688b0. */
-class FGFxEngine {
-public:
-    void SetFocus(FGFxMovie* Movie, UBOOL CaptureInput); /* 0x00e688b0 */
-};
-
 // @baa 0x00e6a360
 void UGFxMovie::execSetFocus(FFrame& Stack, RESULT_DECL)
 {

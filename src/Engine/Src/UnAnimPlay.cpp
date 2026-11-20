@@ -232,10 +232,8 @@ FVector2D UAnimNodeSequenceBlendByAim::sub_00c4b080()
     return Aim;
 }
 
-/* SetAnimInfo (00c52b90) isn't declared on UAnimNodeSequenceBlendBase. */
-
 // @baa 0x00c5e6a0
-/* vf_1a0 is CheckAnimsUpToDate (flagged): refreshes every blended animation's info, and plays the first
+/* CheckAnimsUpToDate: Refreshes every blended animation's info, and plays the first
  * one that resolves on this node. */
 void UAnimNodeSequenceBlendBase::CheckAnimsUpToDate()
 {

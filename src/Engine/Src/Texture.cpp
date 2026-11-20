@@ -1,6 +1,7 @@
 // Texture.cpp (part 1 of 3): 12 functions
 // Placed here by: class 9, neighbours 2, file 1.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 // @baa 0x007173d0
@@ -32,21 +33,16 @@ FLOAT UTexture::vf_12c() {
 
 // @baa 0x0071ef60
 FLOAT UTexture::GetSurfaceWidth() {
-  return (float10)0;
+  return 0.f;
 }
 
 // @baa 0x0071ef70
 DOUBLE UTexture::GetSurfaceHeight() {
-  return (float10)0;
+  return 0.f;
 }
 
-int sub_00630f20(...);
-extern undefined4 g_026667a8;
 // @baa 0x0071ef80
-FTextureResource* UTexture::CreateResource() {
-  sub_00630f20(g_026667a8,L"Pure virtual not implemented (%s)",L"UTexture::CreateResource");
-  return 0;
-}
+FTextureResource* UTexture::CreateResource() PURE_VIRTUAL(UTexture::CreateResource, return 0;)
 
 // @baa 0x007240f0
 IMPLEMENT_CLASS_AT(UTexture, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture.cpp", 12);

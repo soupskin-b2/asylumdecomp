@@ -145,9 +145,30 @@ DWORD appStrihash(const TCHAR* Data); /* 0x0053e7c0 */
 extern DWORD GCRCTable[256]; /* 0x0269d7d0 */
 /* UnObjBas.h: the class and package flags code here tests */
 #define CLASS_Config        0x00000400
-#define PKG_Cooked          0x00000008
-#define PKG_ContainsMap     0x00020000
+/* EPackageFlags (UnObjBas.h, UPackage::PackageFlags); PKG_PlayInEditor is tested by 0075e910 */
+#define PKG_AllowDownload       0x00000001
+#define PKG_ClientOptional      0x00000002
+#define PKG_ServerSideOnly      0x00000004
+#define PKG_Cooked              0x00000008
+#define PKG_Unsecure            0x00000010
+#define PKG_SavedWithNewerVersion 0x00000020
+#define PKG_Need                0x00008000
+#define PKG_Compiling           0x00010000
+#define PKG_ContainsMap         0x00020000
+#define PKG_Trash               0x00040000
+#define PKG_DisallowLazyLoading 0x00080000
+#define PKG_PlayInEditor        0x00100000
+#define PKG_ContainsScript      0x00200000
+#define PKG_ContainsDebugInfo   0x00400000
+#define PKG_RequireImportsAlreadyLoaded 0x00800000
+#define PKG_StoreCompressed     0x02000000
+#define PKG_StoreFullyCompressed 0x04000000
+#define PKG_ContainsFaceFXData  0x10000000
+#define PKG_NoExportAllowed     0x20000000
+#define PKG_StrippedSource      0x40000000
+#define PKG_FilterEditorOnly    0x80000000
 #define MAXWORD             0xffffU
+#define MAX_FLT 3.402823466e+38F /* UnTemplate.h */
 extern UBOOL GIsGarbageCollecting; /* 0x0266e820 */
 /* UnVcWin32.cpp: seconds per appCycles() tick */
 extern DOUBLE g_0266e7f8;

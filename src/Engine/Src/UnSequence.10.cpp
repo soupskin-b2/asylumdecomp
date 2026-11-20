@@ -75,7 +75,7 @@ void C::sub_008e6260()
     Target = Source;
 }
 
-/* USeqCond_CompareFloat's Activated (USequenceOp vtable 0x174, declared only as vf_174). */
+/* USeqCond_CompareFloat's Activated (USequenceOp vtable 0x174). */
 
 // @baa 0x008e7290
 void USeqCond_CompareFloat::Activated()
@@ -215,8 +215,6 @@ struct FString_ : public FString
     FString_& operator=(const TCHAR* Other);
 };
 
-/* slot 0x01c (vf_01c) is UObject::PostLoad; USequenceObject's is 0x009086f0 */
-
 // @baa 0x00909a50
 void USeqEvent_Console::PostLoad()
 {
@@ -226,14 +224,12 @@ void USeqEvent_Console::PostLoad()
     USequenceObject::PostLoad(); // Super::PostLoad()
 }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 // @baa 0x008bce40
 FString USeqVar_Name::GetValueStr()
 {
     return NameValue.ToString();
 }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 // @baa 0x008c8a60
 FString USeqVar_Vector::GetValueStr()
 {
@@ -252,8 +248,6 @@ UBOOL USeqAct_LevelStreaming::UpdateOp(FLOAT DeltaTime)
     return ((USeqAct_LevelStreaming*)this)->IsLevelStreamingComplete(Level);
 }
 
-/* slot 0x174 (vf_174) is USequenceOp::Activated */
-
 // @baa 0x008e6490
 void USeqAct_SetString::Activated()
 {
@@ -266,8 +260,6 @@ UBOOL USequence::IsEnabled() const
 {
     return bEnabled && (ParentSequence == NULL || ((USequence*)ParentSequence)->IsEnabled());
 }
-
-/* slot 0x180 (vf_180) */
 
 // @baa 0x008aba80
 void USequenceOp::OnReceivedImpulse(USequenceOp* ActivatorOp, INT InputLinkIndex)
@@ -332,7 +324,6 @@ void USeqAct_ParticleEventGenerator::HandleEnableInputs()
 /* FName != NAME_None (UnName.h); the kit's FName has no operators. */
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 // @baa 0x008cb850
 FString USeqVar_Named::GetValueStr()
 {
@@ -343,8 +334,6 @@ FString USeqVar_Named::GetValueStr()
     return FString(TEXT("< ??? >"));
 }
 
-/* UObject::GetName (0x0043bbb0); the kit doesn't declare it. */
-/* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
 // @baa 0x008c84a0
 FString USeqVar_Object::GetValueStr()
 {
@@ -378,8 +367,6 @@ void USeqAct_Latent::AbortFor(AActor* LatentActor)
 
 // The game keeps ~TArray<UObject**> out of line (0x008c26a0).
 extern template TArray<UObject**>::~TArray();
-/* slot 0x174 (vf_174) is USequenceOp::Activated */
-
 // @baa 0x008f7e00
 void USeqAct_ModifyObjectList::Activated()
 {

@@ -606,14 +606,9 @@ void UUIObject::execGetDockParameters(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = GetDockParameters(SourceFace, TargetWidget, TargetFace, TargetPadding);
 }
 
-extern void* g_026667a8;
 extern TCHAR g_01e3f3dc[];
-int sub_00630f20(void*, const TCHAR*, ...);
 // @baa 0x00d99150
-void UUIScreenObject::InvalidatePositionDependencies(BYTE)
-{
-	sub_00630f20(g_026667a8, L"Pure virtual not implemented (%s)", L"UUIScreenObject::InvalidatePositionDependencies");
-}
+void UUIScreenObject::InvalidatePositionDependencies(BYTE) PURE_VIRTUAL(UUIScreenObject::InvalidatePositionDependencies,)
 
 // @baa 0x00daa3f0
 void UUIObject::RequestSceneInputMaskUpdate()

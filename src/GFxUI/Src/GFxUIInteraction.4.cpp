@@ -31,7 +31,6 @@ struct FObjectVarArray : public TArray<UObject**>
 /* UGFxMovie's Start script event (00e42060) and SetFocus(captureInput, Focus) (00e68b40). */
 
 // @baa 0x00e6b210
-/* vf_174 is USequenceOp::Activated (USequenceAction::Activated is 008d1890). */
 void UGFxAction_OpenMovie::Activated()
 {
     if (GEngine && GEngine->GameViewport)

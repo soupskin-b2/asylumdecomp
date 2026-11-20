@@ -33,19 +33,13 @@ void UMeshComponent::execGetNumElements( FFrame& Stack, RESULT_DECL )
 	*(INT*)Result = GetNumElements();
 }
 
-struct UMeshComponent_ : public UMeshComponent
-{
-    /* PrestreamTextures; Classes.h doesn't declare it. */
-    void sub_006dc850(FLOAT Seconds, UBOOL bPrioritizeCharacterTextures);
-};
-
 // @baa 0x006dc970
 void UMeshComponent::execPrestreamTextures(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(Seconds);
     P_GET_UBOOL(bPrioritizeCharacterTextures);
     P_FINISH;
-    ((UMeshComponent_*)this)->sub_006dc850(Seconds, bPrioritizeCharacterTextures);
+    PrestreamTextures(Seconds, bPrioritizeCharacterTextures);
 }
 
 // @baa 0x006e4ba0

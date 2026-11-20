@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-
 // @baa 0x0090cfe0
 void USkelControlSingleBone::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
@@ -16,8 +14,6 @@ void USkelControlSingleBone::HandleWidgetDrag(INT WidgetIndex, const FVector& Dr
 }
 
 #line 23 "candidate.cpp"
-
-/* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
 
 // @baa 0x0090d140
 void USkelControlLookAt::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
@@ -31,8 +27,6 @@ void USkelControlLookAt::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVe
 
 #line 41 "candidate.cpp"
 
-/* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
-
 // @baa 0x0090d2f0
 void USkelControl_CCD_IK::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec)
 {
@@ -44,8 +38,6 @@ void USkelControl_CCD_IK::HandleWidgetDrag(INT WidgetIndex, const FVector& DragV
 }
 
 #line 59 "candidate.cpp"
-
-/* slot 0x140 (vf_140) is USkelControlBase::HandleWidgetDrag(INT WidgetIndex, const FVector& DragVec) */
 
 // @baa 0x0090d1f0
 /* widget 0 moves the effector, widget 1 the joint target */

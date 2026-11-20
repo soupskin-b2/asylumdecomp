@@ -16,8 +16,8 @@ UBOOL URCapeRenderingComponent::HasUniqueStaticConfigName() const
     return sub_016cdb40 == sub_0053f6c0;
 }
 
-/* Undeclared in the kit: URCapeComponent's debug-draw helpers. 016b21c0/016b2200 test the local
- * player's cape debug settings; 016c65e0 resets the debug drawing. */
+/* URCapeComponent's debug-draw helpers: 016b21c0/016b2200 test the local player's cape debug settings;
+ * 016c65e0 resets the debug drawing. */
 
 // @baa 0x016cdf80
 void URCapeRenderingComponent::HandleDebugLineDrawing()

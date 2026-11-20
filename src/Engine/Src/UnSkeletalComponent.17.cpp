@@ -3,7 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* 0x009357b0 (UE3 UpdateSkelPose; name assumed) isn't declared in Classes.h: it rebuilds the pose from the AnimTree (skipped when the
+/* UpdateSkelPose (0x009357b0; UE3's name, assumed) rebuilds the pose from the AnimTree (skipped when the
  * argument is FALSE and the component's 0x400 flag at 0x334 is set) and advances TickTag. */
 
 // @baa 0x00935c60

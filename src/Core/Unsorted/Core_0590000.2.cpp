@@ -1422,7 +1422,7 @@ void UObject::execNotEqual_InterfaceInterface(FFrame& Stack, RESULT_DECL)
 void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 {
 	// For skipping over optional function parms without values specified.
-	GProperty = NULL;
+	GPropObject = NULL;
 	Stack.Code--;
 }
 
@@ -1494,17 +1494,13 @@ void UObject::execConditional(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-/* GPropObject (0x026667d0) isn't in Script.h yet. */
-extern UProperty* g_026667d0;
-	/* GPropObject */
-
 // @baa 0x00590940
 void UObject::execLetDelegate(FFrame& Stack, RESULT_DECL)
 {
 	// Get variable address.
 	GPropAddr = NULL;
-	g_026667d0 = NULL;
 	GProperty = NULL;
+	GPropObject = NULL;
 	Stack.Step(Stack.Object, NULL);	// Evaluate variable.
 	FScriptDelegate* DelegateAddr = (FScriptDelegate*)GPropAddr;
 	FScriptDelegate Delegate;

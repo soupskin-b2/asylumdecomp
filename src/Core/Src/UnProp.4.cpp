@@ -1,6 +1,7 @@
 // UnProp.cpp: 75 functions
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
+#include "ue3/Script.h"
 #include "ue3/Implement.h"
 
 // @baa 0x0062ada0
@@ -16,7 +17,6 @@ void UNameProperty::SerializeItem( FArchive& Ar, void* Value, INT MaxReadBytes, 
 {
 	Ar << *(FName*)Value;
 }
-
 
 // @baa 0x0062f570
 FName UComponentProperty::GetID() const
@@ -153,18 +153,8 @@ int C_005fab00::sub_005fab00(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
-/* GError->Logf: a variadic member, so cdecl with `this` pushed first. */
-struct FOutputDeviceError_ {
-    void sub_00630f20(const TCHAR* Fmt, ...);
-};
-
-extern FOutputDeviceError_* g_026667a8;
 // @baa 0x006005b0
-const TCHAR* UProperty::ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText) const
-{
-    g_026667a8->sub_00630f20(TEXT("Pure virtual not implemented (%s)"), TEXT("UProperty::ImportText"));
-    return NULL;
-}
+const TCHAR* UProperty::ImportText(const TCHAR* Buffer, BYTE* Data, INT PortFlags, UObject* OwnerObject, FOutputDevice* ErrorText) const PURE_VIRTUAL(UProperty::ImportText, return NULL;)
 
 struct M_00600650 { void sub_0040fcc0(); };
 

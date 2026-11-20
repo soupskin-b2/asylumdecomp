@@ -287,8 +287,7 @@ UBOOL ARDebugMenu::eventItemFdB(const FString& Text, FLOAT& Value, FLOAT MinValu
 }
 
 // @baa 0x01533790
-/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
- * UINT in the kit): editing a bark set marks its package dirty. */
+/* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c): editing a bark set marks its package dirty. */
 void URBarkSet::PostEditChange(UProperty* PropertyThatChanged)
 {
     Super::PostEditChange(PropertyThatChanged);

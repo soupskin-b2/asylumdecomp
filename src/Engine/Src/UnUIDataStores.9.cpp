@@ -7,7 +7,7 @@
 #define STRLEN(S) (((const FString&)(S)).Len())
 
 // @baa 0x00da3e40
-/* vf_144 is LoadDependentClasses: loads the classes named in the ini, falling back to the defaults. */
+/* LoadDependentClasses: loads the classes named in the ini, falling back to the defaults. */
 void UUIDataStore_OnlinePlayerData::LoadDependentClasses()
 {
 	if (STRLEN(ProfileSettingsClassName) > 0)

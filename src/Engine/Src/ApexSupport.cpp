@@ -1269,7 +1269,7 @@ UMaterialInterface* UApexDestructibleAsset::GetMaterial(INT MaterialIndex)
 
 // @baa 0x009d7460
 /* The asset's material. */
-UMaterialInterface* UApexComponentBase::GetMaterial(INT ElementIndex)
+UMaterialInterface* UApexComponentBase::GetMaterial(INT ElementIndex) const
 {
 	if (Asset)
 	{

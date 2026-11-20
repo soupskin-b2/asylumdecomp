@@ -5,19 +5,7 @@
 #define BAA_OUTLINE_NEW
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
-
-/* one index pair of a LOD's influence data (UnSkeletalMesh.h; names assumed). Not in the kit. */
-struct FInfluenceIndexPair
-{
-    INT First;
-    INT Second;
-
-    friend FArchive& operator<<(FArchive& Ar, FInfluenceIndexPair& P)
-    {
-        return Ar << P.First << P.Second;
-    }
-};
+#include "ue3/SkeletalMesh.h"
 
 FArchive& operator<<(FArchive& Ar, TArray<FInfluenceIndexPair>& A);
  /* 0x00963c40 */

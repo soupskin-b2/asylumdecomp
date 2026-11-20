@@ -1770,4 +1770,36 @@ FORCEINLINE const T& MirrorAs(const TMirror& Mirror)
 	return *(const T*)&Mirror;
 }
 
+/* UnAudio.h: a sound node's per-component state lives in UAudioComponent::SoundNodeData, at the offset
+ * SoundNodeOffsetMap (a TMap<USoundNode*, UINT>; Classes.h has only its mirror) keeps for the node.
+ * Verified: USoundNodeLooping::IsFinished (00cd3110; Find 00cbf3a0 and Set's TSet::Add 00cd1a40 out of line). */
+#define DECLARE_SOUNDNODE_ELEMENT(Type,Name) \
+	Type& Name = *((Type*)(Payload)); \
+	Payload += sizeof(Type);
+#define DECLARE_SOUNDNODE_ELEMENT_PTR(Type,Name) \
+	Type* Name = (Type*)(Payload); \
+	Payload += sizeof(Type);
+#define RETRIEVE_SOUNDNODE_PAYLOAD( Size ) \
+		BYTE*	Payload					= NULL; \
+		UBOOL*	RequiresInitialization	= NULL; \
+		{ \
+			TMap<USoundNode*, UINT>& SoundNodeOffsetMap = MirrorAs< TMap<USoundNode*, UINT> >(AudioComponent->SoundNodeOffsetMap); \
+			UINT* TempOffset = SoundNodeOffsetMap.Find( this ); \
+			UINT Offset; \
+			if( !TempOffset ) \
+			{ \
+				Offset = AudioComponent->SoundNodeData.AddZeroed( Size + sizeof(UBOOL)); \
+				SoundNodeOffsetMap.Set( this, Offset ); \
+				RequiresInitialization = (UBOOL*) &AudioComponent->SoundNodeData(Offset); \
+				*RequiresInitialization = 1; \
+				Offset += sizeof(UBOOL); \
+			} \
+			else \
+			{ \
+				RequiresInitialization = (UBOOL*) &AudioComponent->SoundNodeData(*TempOffset); \
+				Offset = *TempOffset + sizeof(UBOOL); \
+			} \
+			Payload = &AudioComponent->SoundNodeData(Offset); \
+		}
+
 #endif

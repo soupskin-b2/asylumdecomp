@@ -256,8 +256,8 @@ undefined4 * C_01547870::sub_01547870(void)
   return param_1;
 }
 
-/* Clears the activated state of every input (01547180, called from UpdateOp and Activated). The
- * kit doesn't declare it; the name is descriptive, the original's isn't known. */
+/* Clears the activated state of every input (01547180, called from UpdateOp and Activated). The name
+ * is descriptive, the original's isn't known. */
 
 // @baa 0x01547180
 void URSeqAct_WaitForAllInputs::ResetInputs()
@@ -291,7 +291,7 @@ struct FBoolArray : public TArray<FNativeElem_007b9350>
 };
 
 // @baa 0x01547130
-/* UObject slot 0x1c (a placeholder vf_01c in the kit; UE3's PostLoad there): make sure there is
+/* UObject::PostLoad (slot 0x1c): make sure there is
  * an InputsActivated entry for every input. */
 void URSeqAct_WaitForAllInputs::PostLoad()
 {

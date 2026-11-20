@@ -5,13 +5,7 @@
 #define BAA_OUTLINE_ALLOC
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
-
-/* one index pair of a LOD's influence data (UnSkeletalMesh.h; names assumed). Not in the kit. */
-struct FInfluenceIndexPair
-{
-    INT First;
-    INT Second;
-};
+#include "ue3/SkeletalMesh.h"
 
 // @baa 0x009502a0
 /* Array.h's placement new into a TArray, instantiated out of line for the LOD's arrays of influence pairs */

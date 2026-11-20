@@ -51,7 +51,7 @@ FString UAnimNodeBlend::GetSliderDrawValue(INT SliderIndex)
 
 #line 60 "candidate.cpp"
 
-/* UAnimNodeBlendBySpeed's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+/* UAnimNodeBlendBySpeed's editor slider label. */
 // @baa 0x00cc0790
 FString UAnimNodeBlendBySpeed::GetSliderDrawValue(INT SliderIndex)
 {
@@ -69,7 +69,7 @@ struct FString__00cc07f0 : public FString
 	static FString Printf(const TCHAR* Fmt, FLOAT Value, TCHAR Char);
 };
 
-#define PI (3.1415926535897932)	/* UAnimNodeBlendDirectional's editor slider label (UAnimNode vtable slot, declared only as a vf_). */
+#define PI (3.1415926535897932)	/* UAnimNodeBlendDirectional's editor slider label. */
 // @baa 0x00cc07f0
 FString UAnimNodeBlendDirectional::GetSliderDrawValue(INT SliderIndex)
 {

@@ -10,8 +10,6 @@
 template USequence* Cast<USequence>(UObject* Src);
 
 /* USkeletalMeshComponent::SetEnableClothSimulation (0x0090eac0) */
-/* slot 0x174 (vf_174) is USequenceOp::Activated */
-
 // @baa 0x008c0e70
 void USeqAct_SetClothParam::Activated()
 {

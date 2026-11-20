@@ -2,6 +2,7 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/SkeletalMesh.h"
 
 struct FSkelMeshSection;
 struct FSkelMeshChunk;
@@ -26,53 +27,6 @@ struct FMeshEdgeArray : public TArray<FMeshEdge> { ~FMeshEdgeArray(); };
 struct FInfluenceIndexPairArrays : public TArray<TArray<FInfluenceIndexPair> > { ~FInfluenceIndexPairArrays(); };
 
  /* 0x00975280 */
-/* FRawStaticIndexBuffer (RawIndexBuffer.h); opaque here */
-class FRawStaticIndexBuffer
-{
-public:
-    ~FRawStaticIndexBuffer(); /* 0x007c4f20 */
-
-private:
-    BYTE Opaque[0x34];
-};
-
-/* FSkeletalMeshVertexBuffer (UnSkeletalMesh.h); opaque here */
-class FSkeletalMeshVertexBuffer
-{
-public:
-    ~FSkeletalMeshVertexBuffer(); /* 0x0094ba30 */
-
-private:
-    BYTE Opaque[0x34];
-};
-
-/* FIntBulkData (UnBulkData.h): bulk data of INTs */
-struct FIntBulkData : public FUntypedBulkData_Mirror
-{
-};
-
-/* FStaticLODModel (UnSkeletalMesh.h): one LOD of a skeletal mesh. Not in the kit. */
-class FStaticLODModel
-{
-public:
-    ~FStaticLODModel();
-
-private:
-    FSkelMeshSectionArray Sections;
-    FSkelMeshChunkArray Chunks;
-    FWordArray ActiveBoneIndices;
-    FByteArray RequiredBones;
-    FRawStaticIndexBuffer IndexBuffer;          /* 0x30 */
-    FMeshEdgeArray Edges;                       /* 0x64 */
-    FWordArray ShadowIndices;                   /* 0x70 */
-    FByteArray ShadowTriangleDoubleSided;       /* 0x7c */
-    DWORD Size;                                 /* 0x88 */
-    DWORD NumVertices;                          /* 0x8c */
-    FSkeletalMeshVertexBuffer VertexBufferGPUSkin; /* 0x90 */
-    FInfluenceIndexPairArrays InfluenceIndexPairs; /* 0xc4 (name assumed) */
-    FIntBulkData RawPointIndices;               /* 0xd0 */
-};
-
 // @baa 0x00975b40
 FStaticLODModel::~FStaticLODModel()
 {

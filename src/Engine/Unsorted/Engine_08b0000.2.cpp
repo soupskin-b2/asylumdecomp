@@ -2,12 +2,6 @@
 // Functions whose original source file is not known yet, grouped by address.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 
-struct USeqCond_SwitchObject { int GetSupportedValueCount(void); };
-
-struct USeqCond_SwitchName { int GetSupportedValueCount(void); };
-
-struct USeqCond_SwitchClass { int GetSupportedValueCount(void); };
-
 struct C {
     void sub_008b4520(int);
 };

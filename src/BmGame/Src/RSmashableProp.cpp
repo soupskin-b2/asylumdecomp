@@ -195,7 +195,7 @@ extern FName g_026e37cc;
 	/* BMGAME_InitXRayMode */
 struct ARSmashableProp__01680090 : public ARSmashableProp
 {
-	/* script events (generated glue, BmGameClasses.h) */
+	/* script events (generated glue, BmGameClasses.h), inlined here; Classes.h declares the out-of-line copies */
 	void eventSetupDecalMaterialInstances()
 	{
 		ProcessEvent(FindFunctionChecked(g_026e3900), NULL);
@@ -204,11 +204,6 @@ struct ARSmashableProp__01680090 : public ARSmashableProp
 	{
 		ProcessEvent(FindFunctionChecked(g_026e37cc), NULL);
 	}
-	/* natives Classes.h doesn't declare */
-	UBOOL sub_01668ab0(); /* 0x01668ab0 */
-	void sub_0167aab0(); /* 0x0167aab0 */
-	void sub_01668bf0(AActor* Other); /* 0x01668bf0 */
-	void sub_0166b820(); /* 0x0166b820 */
 };
 
 // @baa 0x01680090

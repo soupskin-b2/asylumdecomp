@@ -1788,7 +1788,7 @@ void UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator(const INT Index)
 	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
 }
 
-/* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
+/* UAnimTree's PostEditChange (vtable 0x4c). */
 
 // @baa 0x00c4b6d0
 void UAnimTree::PostEditChange(UProperty* PropertyThatChanged)
@@ -1857,8 +1857,7 @@ void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 	}
 }
 
-/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
- * vf_134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
+/* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
 
 // @baa 0x00c7dfd0
 void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
@@ -1971,8 +1970,6 @@ void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& Desir
 }
 
 #line 2164 "candidate.cpp"
-
-/* UAnimNodeAimOffset's bone lookup methods aren't declared in Classes.h. */
 
 // @baa 0x00c560b0
 UBOOL UAnimNodeAimOffset::ContainsBone(const FName& BoneName)

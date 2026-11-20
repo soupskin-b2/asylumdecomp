@@ -118,45 +118,23 @@ void UAnimNodeAimOffset::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBle
 	this->UpdateListOfRequiredBones();
 }
 
-extern FName g_026c4610;
-	/* ENGINE_OnBecomeRelevant */
-/* Kit gap: the OnBecomeRelevant event's generated glue (EngineClasses.h) isn't declared; inlined here. */
-struct UAnimNode__00c4b620 : public UAnimNode
-{
-	FORCEINLINE void eventOnBecomeRelevant()
-	{
-		ProcessEvent(FindFunctionChecked(g_026c4610), NULL);
-	}
-};
-
 // @baa 0x00c4b620
 /* OnBecomeRelevant (vtable 0x150): tells script, then forgets the last channel so the next tick picks one. */
-void UAnimNodeBlendBySpeed::vf_150()
+void UAnimNodeBlendBySpeed::OnBecomeRelevant()
 {
-	((UAnimNode__00c4b620*)this)->eventOnBecomeRelevant();
+	eventOnBecomeRelevant();
 	LastChannel = INDEX_NONE;
 }
 
-extern FName g_026c42a8;
-	/* ENGINE_OnCeaseRelevant */
-/* Kit gap: the OnCeaseRelevant event's generated glue (EngineClasses.h) isn't declared; inlined here. */
-struct UAnimNode__00c53520 : public UAnimNode
-{
-	FORCEINLINE void eventOnCeaseRelevant()
-	{
-		ProcessEvent(FindFunctionChecked(g_026c42a8), NULL);
-	}
-};
-
 // @baa 0x00c53520
 /* OnCeaseRelevant (vtable 0x154): clears the children's total weights, then tells script. */
-void UAnimNodeBlendBase::vf_154()
+void UAnimNodeBlendBase::OnCeaseRelevant()
 {
 	for (INT i = 0; i < Children.Num(); i++)
 	{
 		Children(i).TotalWeight = 0.f;
 	}
-	((UAnimNode__00c53520*)this)->eventOnCeaseRelevant();
+	eventOnCeaseRelevant();
 }
 
 // @baa 0x00c7f1b0
@@ -245,7 +223,7 @@ struct FRandomAnimInfoArray : public TArray<FRandomAnimInfo>
 	void sub_00c57400(INT Index, INT Count);	/* Remove */
 };
 
-/* UAnimNodeRandom's override of UAnimNode::InitAnim (vtable 0x128, declared only as vf_128). */
+/* UAnimNodeRandom's override of UAnimNode::InitAnim (vtable 0x128). */
 
 // @baa 0x00c7ed80
 void UAnimNodeRandom::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBase* Parent)

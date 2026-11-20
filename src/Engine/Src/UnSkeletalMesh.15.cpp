@@ -2,32 +2,13 @@
 // Placed here by: contributions.
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
+#include "ue3/SkeletalMesh.h"
 
 /* UnObjBase.h: the platform being cooked for (UE3::PLATFORM_Xenon | UE3::PLATFORM_PS3 = 0xc) */
 extern DWORD GCookingTarget;
 enum { PLATFORM_Xenon = 4, PLATFORM_PS3 = 8 };
 /* the package version that moved skeletal meshes to GPU-skin vertex data (UnObjVer.h; name assumed) */
 enum { VER_USE_GPUSKIN_VERTEX_DATA = 0x1ed };
-
-/* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-};
-
-/* FSoftSkinVertex (UnSkeletalMesh.h): a vertex skinned to up to 4 bones (0x28 bytes). Not in the kit. */
-struct FSoftSkinVertex
-{
-    FVector Position;
-    FPackedNormal TangentX, TangentY, TangentZ;
-    FLOAT U, V;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
 
 /* TArray<FSoftSkinVertex> with its out-of-line BulkSerialize (0x00963b60) and destructor (0x00666710) */
 struct FSoftVertexArray : public TArray<FSoftSkinVertex>
@@ -36,72 +17,7 @@ struct FSoftVertexArray : public TArray<FSoftSkinVertex>
     void BulkSerialize(FArchive& Ar);
 };
 
-/* the part of a GPU-skin vertex both UV precisions share (UnSkeletalMesh.h). Not in the kit. */
-struct FGPUSkinVertexBase
-{
-    FVector Position;
-    FPackedNormal TangentX;
-    FPackedNormal TangentZ;
-    BYTE InfluenceBones[4];
-    BYTE InfluenceWeights[4];
-};
-
 class FResourceArrayInterface;
-/* FStaticMeshVertexDataInterface (StaticMeshVertex.h): the CPU copy of a vertex buffer's data. Not in the kit. */
-class FStaticMeshVertexDataInterface
-{
-public:
-    virtual ~FStaticMeshVertexDataInterface() {}
-    virtual void ResizeBuffer(UINT NumVertices) = 0;
-    virtual UINT GetStride() const = 0;
-    virtual BYTE* GetDataPointer() = 0;
-    virtual UINT GetNumVertices() const = 0;
-    virtual FResourceArrayInterface* GetResourceArray() = 0;
-    virtual void Serialize(FArchive& Ar) = 0;
-};
-
-/* FRenderResource (RenderResource.h). Not in the kit. */
-class FRenderResource
-{
-public:
-    virtual ~FRenderResource();
-
-private:
-    /* TLinkedList<FRenderResource*> ResourceLink */
-    FRenderResource* ResourceLinkElement;
-    void* ResourceLinkNext;
-    void* ResourceLinkPrevLink;
-    UBOOL bInitialized;
-};
-
-/* FVertexBuffer (RenderResource.h). Not in the kit. */
-class FVertexBuffer : public FRenderResource
-{
-public:
-    void* VertexBufferRHI; /* FVertexBufferRHIRef */
-};
-
-/* FSkeletalMeshVertexBuffer (UnSkeletalMesh.h): the GPU-skin vertices of a LOD. Not in the kit. */
-class FSkeletalMeshVertexBuffer : public FVertexBuffer
-{
-public:
-    void Init(const TArray<FSoftSkinVertex>& InVertices); /* 0x009764f0 */
-    void AllocateData();                                  /* 0x0096e6c0 */
-
-    UINT GetNumVertices() const { return NumVertices; }
-
-    friend FArchive& operator<<(FArchive& Ar, FSkeletalMeshVertexBuffer& VertexBuffer);
-
-private:
-    UBOOL bInfluencesByteSwapped;
-    UBOOL bUseFullPrecisionUVs;
-    UBOOL bUsePackedPosition;
-    FStaticMeshVertexDataInterface* VertexData;
-    BYTE* Data;
-    UINT Stride;
-    UINT NumVertices;
-};
-
 // @baa 0x0097b310
 /* serialize the vertex buffer's CPU data, converting the soft vertices of old packages */
 FArchive& operator<<(FArchive& Ar, FSkeletalMeshVertexBuffer& VertexBuffer)
@@ -143,46 +59,11 @@ FArchive& operator<<(FArchive& Ar, FSkeletalMeshVertexBuffer& VertexBuffer)
     return Ar;
 }
 
-/* FPackedNormal_0094b780 (UnMath.h): a unit vector packed into 4 bytes. */
-struct FPackedNormal_0094b780
-{
-    union
-    {
-        struct { BYTE X, Y, Z, W; } Vector;
-        DWORD Packed;
-    };
-
-    /* unpack to a vector in [-1,1] (out of line here, 0x008911f0) */
-    operator FVector() const;
-};
-
-/* FFloat16 (Float16.h): a 16-bit float. Not in the kit. */
-class FFloat16
-{
-public:
-    WORD Encoded;
-
-    FFloat16(FLOAT FP32Value) { Set(FP32Value); }
-    void Set(FLOAT FP32Value); /* out of line here, 0x00943460 */
-    operator FLOAT() const;    /* out of line here, 0x009434f0 */
-};
-
-/* FVector2DHalf (Float16Color.h): a 2D vector of 16-bit floats. Not in the kit. */
-struct FVector2DHalf
-{
-    FFloat16 X;
-    FFloat16 Y;
-
-    FVector2DHalf(const FLOAT& InX, const FLOAT& InY) : X(InX), Y(InY) {}
-    FVector2DHalf(const FVector2D& Vector2D) : X(Vector2D.X), Y(Vector2D.Y) {}
-};
-
-enum { MAX_TEXCOORDS = 4 };
 /* the static mesh vertex formats (StaticMeshVertex.h); only the UVs' precision differs. Not in the kit. */
 struct FStaticMeshFullVertex
 {
-    FPackedNormal_0094b780 TangentX;
-    FPackedNormal_0094b780 TangentZ;     /* W holds the sign of the basis determinant */
+    FPackedNormal TangentX;
+    FPackedNormal TangentZ;     /* W holds the sign of the basis determinant */
     DWORD OpaqueVertexExtra;    /* 4 bytes this build adds ahead of the UVs (unknown) */
 };
 
@@ -209,7 +90,7 @@ private:
 
 /* UnMath.h: the binormal of a tangent basis, rebuilt from TangentX, TangentZ and the basis sign
  * kept in TangentZ.W */
-static FORCEINLINE FVector GenerateYAxis(const FPackedNormal_0094b780& TangentX, const FPackedNormal_0094b780& TangentZ)
+static FORCEINLINE FVector GenerateYAxis(const FPackedNormal& TangentX, const FPackedNormal& TangentZ)
 {
     return (FVector(TangentZ) ^ FVector(TangentX)) * ((FLOAT)TangentZ.Vector.W / 127.5f - 1.0f);
 }

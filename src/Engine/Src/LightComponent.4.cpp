@@ -89,12 +89,6 @@ void ULightComponent::PostDuplicate()
 	bHasLightEverBeenBuiltIntoLightMap = 0;
 }
 
-/* UObject::GetOutermost (005d7350); Classes.h doesn't declare it on UObject. */
-struct UObject_ : public UObject
-{
-    UObject* sub_005d7350();
-};
-
 /* ConvertVolumesToConvexVolumes (LightComponent.cpp); the kit types the convex arrays with a stand-in element. */
 void sub_0079ae50(const TArray<ABrush*>& Volumes, TArray<FNativeElem_00693980>& ConvexVolumes);
 
@@ -105,7 +99,7 @@ void ULightComponent::sub_006bab80()
     for (INT VolumeIndex = 0; VolumeIndex < ExclusionVolumes.Num(); VolumeIndex++)
     {
         ABrush*& Volume = ExclusionVolumes(VolumeIndex);
-        if (Volume && ((UObject_*)Volume)->sub_005d7350() != ((UObject_*)this)->sub_005d7350())
+        if (Volume && Volume->GetOutermost() != GetOutermost())
         {
             Volume = NULL;
         }
@@ -113,7 +107,7 @@ void ULightComponent::sub_006bab80()
     for (INT VolumeIndex = 0; VolumeIndex < InclusionVolumes.Num(); VolumeIndex++)
     {
         ABrush*& Volume = InclusionVolumes(VolumeIndex);
-        if (Volume && ((UObject_*)Volume)->sub_005d7350() != ((UObject_*)this)->sub_005d7350())
+        if (Volume && Volume->GetOutermost() != GetOutermost())
         {
             Volume = NULL;
         }

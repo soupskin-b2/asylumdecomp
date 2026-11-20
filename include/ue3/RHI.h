@@ -10,8 +10,10 @@
  * nothing identifies yet are placeholders (vf_XXX), typed by their stack size; rename one when you
  * know it.
  *
- * Opt-in: #include "ue3/RHI.h" after Classes.h. It declares g_026b0d94 as FDynamicRHI* (GDynamicRHI);
+ * Opt-in: #include "ue3/RHI.h" (it includes Classes.h). It declares g_026b0d94 as FDynamicRHI* (GDynamicRHI);
  * a source that includes it can't also declare g_026b0d94 with another type. */
+#pragma once
+#include "Classes.h"
 #ifndef UE3_RHI_H
 #define UE3_RHI_H
 
@@ -59,7 +61,7 @@ struct FDepthStateInitializerRHI;
 struct FStencilStateInitializerRHI;
 struct FBlendStateInitializerRHI;
 struct FVertexElement;
-struct FResourceArrayInterface;
+class FResourceArrayInterface;
 struct FResourceBulkDataInterface;
 struct FResolveParams;
 struct FUpdateTextureRegion2D;

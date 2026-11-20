@@ -4,16 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/GFx.h"
 
-/* GFx.h only forward-declares FGFxEngine; InputChar(INT ControllerId, TCHAR Character) is out
- * of line at 00e5fae0. */
-class FGFxEngine {
-public:
-    UBOOL InputChar(INT ControllerId, TCHAR Character); /* 0x00e5fae0 */
-};
-
-/* Slot 0x11c is UInteraction::InputChar(INT ControllerId, TCHAR Character); the kit declares
- * it `INT vf_11c(INT, INT)`, so the override is written on a helper. */
-
 // @baa 0x00e5fce0
 UBOOL UGFxInteraction::InputChar(INT ControllerId, TCHAR Character)
 {

@@ -19,7 +19,7 @@ void USequenceOp::execPublishLinkedVariableValues( FFrame& Stack, RESULT_DECL )
 }
 
 // @baa 0x008e7f80
-INT USeqCond_SwitchBase::FindCaseValueIndex(INT CaseIndex)
+INT USeqCond_SwitchBase::FindCaseValueIndex(INT OutputLinkIndex) const
 {
 	PURE_VIRTUAL(USeqCond_SwitchBase::FindCaseValueIndex, return INDEX_NONE;);
 }

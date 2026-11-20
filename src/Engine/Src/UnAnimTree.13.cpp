@@ -51,7 +51,7 @@ void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 	UpdateListOfRequiredBones();
 }
 
-/* UAnimNodeRandom's OnChildAnimEnd override (vtable 0x18c, declared only as a vf_). */
+/* UAnimNodeRandom's OnChildAnimEnd override (vtable 0x18c). */
 // @baa 0x00c7ef10
 void UAnimNodeRandom::OnChildAnimEnd(UAnimNodeSequence* Child, FLOAT PlayedTime, FLOAT ExcessTime)
 {
@@ -362,7 +362,7 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
 
-/* UAnimTree's GetBoneAtoms override (its vtable slot is declared only as a vf_). */
+/* UAnimTree's GetBoneAtoms override. */
 // @baa 0x00c71100
 void UAnimTree::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
 {
@@ -382,38 +382,27 @@ void UAnimTree::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& Desir
 
 #line 431 "candidate.cpp"
 
-/* UAnimNode's node search statics (UnAnimTree.cpp) and TArray<UAnimNode*>::AddItem (out of line here)
- * aren't declared in the kit. */
+/* TArray<UAnimNode*>::AddItem, out of line here. */
 struct FAnimNodeArray : public TArray<UAnimNode*>
 {
 	INT sub_00914af0(UAnimNode* const& Item);		/* AddItem */
 };
 
-/* UAnimNode's GetNodesInternal (UAnimNode vtable slot, declared only as a vf_). */
-struct UAnimNode_ : public UAnimNode
-{
-	static UBOOL bNodeSearching;		/* 026c2bcc */
-	static INT CurrentSearchTag;		/* 026c2bd0 */
-	void GetNodesInternal(TArray<UAnimNode*>& Nodes);
-};
-
 // @baa 0x00c52fa0
-void UAnimNode_::GetNodesInternal(TArray<UAnimNode*>& Nodes)
+void UAnimNode::GetNodesInternal(TArray<UAnimNode*>& Nodes)
 {
 #line 346 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp"
-	check(UAnimNode_::bNodeSearching);
+	check(UAnimNode::bNodeSearching);
 
 	// each node only once per search
-	if (SearchTag != UAnimNode_::CurrentSearchTag)
+	if (SearchTag != CurrentSearchTag)
 	{
-		SearchTag = UAnimNode_::CurrentSearchTag;
+		SearchTag = CurrentSearchTag;
 		((FAnimNodeArray&)Nodes).sub_00914af0(this);
 	}
 }
 
 #line 462 "candidate.cpp"
-
-/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 
 // @baa 0x00c613b0
 FLOAT UAnimTree::GetGroupRelativePosition(FName GroupName)
@@ -427,8 +416,6 @@ FLOAT UAnimTree::GetGroupRelativePosition(FName GroupName)
 	return 0.f;
 }
 
-/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-
 // @baa 0x00c61420
 UAnimNodeSequence* UAnimTree::GetGroupSynchMaster(FName GroupName)
 {
@@ -440,8 +427,6 @@ UAnimNodeSequence* UAnimTree::GetGroupSynchMaster(FName GroupName)
 
 	return NULL;
 }
-
-/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 
 // @baa 0x00c61490
 UAnimNodeSequence* UAnimTree::GetGroupNotifyMaster(FName GroupName)
@@ -455,8 +440,6 @@ UAnimNodeSequence* UAnimTree::GetGroupNotifyMaster(FName GroupName)
 	return NULL;
 }
 
-/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
-
 // @baa 0x00c61570
 FLOAT UAnimTree::GetGroupRateScale(FName GroupName)
 {
@@ -468,8 +451,6 @@ FLOAT UAnimTree::GetGroupRateScale(FName GroupName)
 
 	return 0.f;
 }
-
-/* UAnimTree's anim group accessors (UnAnimTree.cpp) aren't declared in Classes.h. */
 
 // @baa 0x00c61500
 void UAnimTree::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
@@ -496,7 +477,7 @@ INT UAnimNode::CountNumParentsTicked()
 	return NumParentsTicked;
 }
 
-/* UAnimNodeAimOffset's editor slider position (UAnimNode vtable slot, declared only as a vf_). */
+/* UAnimNodeAimOffset's editor slider position. */
 // @baa 0x00c4ba00
 FLOAT UAnimNodeAimOffset::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 {
@@ -519,28 +500,21 @@ FLOAT UAnimNodeAimOffset::GetSliderPosition(INT SliderIndex, INT ValueIndex)
 
 /* The Super:: PostEditChange (UObject's; the classes between don't override it). */
 
-/* UAnimNodeBlendPerBone's PostEditChange (vtable 0x4c, declared only as vf_04c). */
-struct UAnimNodeBlendPerBone_ : public UAnimNodeBlendPerBone
-{
-	void sub_00c60a20();		/* BuildWeightList */
-	void PostEditChange(UProperty* PropertyThatChanged);
-};
-
 // @baa 0x00c698d0
-void UAnimNodeBlendPerBone_::PostEditChange(UProperty* PropertyThatChanged)
+void UAnimNodeBlendPerBone::PostEditChange(UProperty* PropertyThatChanged)
 {
 	if (PropertyThatChanged)
 	{
 		if (PropertyThatChanged->GetFName() == FName(TEXT("BranchStartBoneName")))
 		{
-			sub_00c60a20();
+			BuildWeightList();
 		}
 	}
 
 	UObject::PostEditChange(PropertyThatChanged);
 }
 
-/* UAnimNodeAimOffset's PostEditChange (vtable 0x4c, declared only as vf_04c). */
+/* UAnimNodeAimOffset's PostEditChange (vtable 0x4c). */
 // @baa 0x00c7ecf0
 void UAnimNodeAimOffset::PostEditChange(UProperty* PropertyThatChanged)
 {

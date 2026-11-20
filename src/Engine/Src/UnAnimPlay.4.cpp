@@ -5,7 +5,7 @@
 #include "ue3/AppMath.h"
 
 // @baa 0x00c4ff80
-/* vf_188 is GetNormalizedPosition (flagged): how far through the animation the node is, from 0 to 1. */
+/* GetNormalizedPosition: How far through the animation the node is, from 0 to 1. */
 FLOAT UAnimNodeSequence::GetNormalizedPosition()
 {
 	if (AnimSeq && AnimSeq->SequenceLength > 0.f)
@@ -29,7 +29,7 @@ struct UAnimNodeSequence_ : public UAnimNodeSequence
 };
 
 // @baa 0x00c5e5b0
-/* vf_160 is SetPosition (flagged): jumps to NewTime, firing the notifies passed over if bFireNotifies. */
+/* SetPosition: Jumps to NewTime, firing the notifies passed over if bFireNotifies. */
 void UAnimNodeSequence::SetPosition(FLOAT NewTime, UBOOL bFireNotifies)
 {
 	const FLOAT AnimLength = AnimSeq ? AnimSeq->SequenceLength : 0.f;
@@ -56,7 +56,7 @@ void UAnimNodeSequence::SetPosition(FLOAT NewTime, UBOOL bFireNotifies)
 }
 
 // @baa 0x00c4af60
-/* vf_18c is FindGroupPosition (flagged): the node's position, from 0 to 1, for a relative position in its
+/* FindGroupPosition: The node's position, from 0 to 1, for a relative position in its
  * synch group, shifted by SynchPosOffset and wrapped. */
 FLOAT UAnimNodeSequence::FindGroupPosition(FLOAT GroupRelativePosition)
 {

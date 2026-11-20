@@ -26,7 +26,7 @@ void UAnimNodeBlend::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
 	BlendTimeToGo = BlendTime;
 }
 
-/* UAnimNodeBlendBase::TickAnim (vtable 0x134, declared only as vf_134). */
+/* UAnimNodeBlendBase::TickAnim (vtable 0x134). */
 /* UAnimNodeBlend's TickAnim override. */
 // @baa 0x00c53f20
 void UAnimNodeBlend::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)

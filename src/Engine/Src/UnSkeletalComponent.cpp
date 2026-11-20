@@ -645,7 +645,6 @@ inline UBOOL IsZero(const FVector& V) { return V.X == 0.0f && V.Y == 0.0f && V.Z
 
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
-/* slot 0x128 (vf_128) is UActorComponent::UpdateChildComponents */
 // @baa 0x0091c910
 void USkeletalMeshComponent::UpdateChildComponents()
 {

@@ -11,12 +11,9 @@ void USoundNodeRandom::execPickNextNodeInAdvance( FFrame& Stack, RESULT_DECL )
 	PickNextNodeInAdvance();
 }
 
-// Classes.h declares vf_10c as returning void, but the game's function returns FLOAT.
-typedef FLOAT(__thiscall* FGetCueDuration)(void*);
-
 // @baa 0x00c8ee40
 void USoundCue::execGetCueDuration(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(FLOAT*)Result = ((FGetCueDuration)(*(void***)this)[0x10c / 4])(this);
+	*(FLOAT*)Result = GetCueDuration();
 }

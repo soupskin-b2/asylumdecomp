@@ -4,7 +4,7 @@
 #include "ue3/Classes.h"
 
 // @baa 0x00947260
-UMaterialInterface* UStaticMeshComponent::GetMaterial(INT MaterialIndex)
+UMaterialInterface* UStaticMeshComponent::GetMaterial(INT MaterialIndex) const
 {
 	return GetMaterial(MaterialIndex, 0);
 }
