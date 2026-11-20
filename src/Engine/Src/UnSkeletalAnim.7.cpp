@@ -11,17 +11,6 @@ struct FIntArray : public TArray<INT>
 	INT sub_00545f40(const INT& Item);	/* AddItem */
 };
 
-/* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
-inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
-{
-	INT BoneIndex = INDEX_NONE;
-	if (BoneName != NAME_None && SkelComp->SkeletalMesh)
-	{
-		BoneIndex = ((USkeletalMesh*)SkelComp->SkeletalMesh)->MatchRefBone(BoneName);
-	}
-	return BoneIndex;
-}
-
 
 // @baa 0x0092bd20
 /* (The kit's FName is a plain aggregate, so the FName(EName) temporaries are written as { Index, 0 }.)
@@ -40,7 +29,7 @@ void FParentTwistBoneFixers::Init(USkeletalMeshComponent* SkelComp)
 
 		for (INT i = 0; i < 10; i++)
 		{
-			const INT BoneIndex = MatchRefBone(SkelComp, BoneNames[i]);
+			const INT BoneIndex = SkelComp->MatchRefBone(BoneNames[i]);
 			if (BoneIndex != INDEX_NONE)
 			{
 				((FIntArray&)BoneIndices).sub_00545f40(BoneIndex);

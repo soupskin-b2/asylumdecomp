@@ -716,9 +716,9 @@ void __stdcall sub_016afac0(Sub* Object)
     Object->sub_009ef010();
 }
 
-/* Kit gaps: FName has no constructor from a string (UnName.h; 0x005d5620), and USkeletalMeshComponent::FindAnimNode
- * (0x0090eb80) isn't declared. FName_ is a same-layout stand-in; its declared copy constructor lets MSVC build
- * the by-value argument in place, as the original does. */
+/* The original builds each by-value FName argument of USkeletalMeshComponent::FindAnimNode (0x0090eb80) in place,
+ * which VC8 only does for a type with a user-declared copy constructor. Classes.h's FName has none (giving it one
+ * changes code elsewhere), so this calls FindAnimNode through a same-layout FName_ stand-in. */
 struct FName_
 {
     INT Index;

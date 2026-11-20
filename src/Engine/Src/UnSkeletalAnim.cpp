@@ -2109,7 +2109,7 @@ void USkeletalMeshComponent::UpdateTransform()
 }
 
 /* The three names here are hardcoded indices 0x61b..0x61d (the spine bones; their EName identifiers aren't known). */
-/* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
+/* USkeletalMeshComponent::MatchRefBone as this function inlines it: without Classes.h's NAME_None test. */
 inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
 {
 	INT BoneIndex = INDEX_NONE;

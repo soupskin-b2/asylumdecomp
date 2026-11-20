@@ -5,10 +5,9 @@
 #include "ue3/Classes.h"
 #include <new.h>
 
-/* Kit gaps: FName has no operator!= (UnName.h), and Core.h's EName lacks the names used here, hardcoded
- * indices (twist and helper bones; their EName identifiers aren't known). TArray has no AddItem or
- * Shrink (Array.h). The game inlines AddItem here; VC8 only does so in this big function when it's
- * FORCEINLINE (flagged for the header). */
+/* The bone names here are hardcoded EName indices (twist and helper bones; their EName identifiers aren't
+ * known). The game inlines TArray::AddItem in this big function, which VC8 only does when it's FORCEINLINE
+ * (Array.h's is plain inline), so the copy here is FORCEINLINE; Shrink is Array.h's. */
 template<class T> struct TArrayHelpers : public TArray<T>
 {
 	FORCEINLINE INT AddItem(const T& Item)
@@ -17,31 +16,11 @@ template<class T> struct TArrayHelpers : public TArray<T>
 		new(GetTypedData() + Index) T(Item);
 		return Index;
 	}
-	void Shrink()
-	{
-		if (ArrayMax != ArrayNum)
-		{
-			ArrayMax = ArrayNum;
-			AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(T));
-		}
-	}
 };
 
-/* USkeletalMeshComponent::MatchRefBone (UnSkeletalMesh.h), inline. */
-inline INT MatchRefBone(USkeletalMeshComponent* SkelComp, FName BoneName)
-{
-	INT BoneIndex = INDEX_NONE;
-	const FName None(NAME_None);
-	if (BoneName != None && SkelComp->SkeletalMesh)
-	{
-		BoneIndex = ((USkeletalMesh*)SkelComp->SkeletalMesh)->MatchRefBone(BoneName);
-	}
-	return BoneIndex;
-}
-
-/* UE3's FName has a constructor from a hardcoded name (FName(EName N) : Index(N), Number(0)), which this
- * build calls straight into the argument slots; the kit's FName is an aggregate, so the helper's
- * parameters use this stand-in (same layout). */
+/* An FName built from an EName straight into the argument slots: the original builds the by-value
+ * arguments in place, which VC8 only does for a type with a user-declared copy constructor. Classes.h's FName
+ * has none (giving it one changes code elsewhere), so the helper's parameters use this same-layout stand-in. */
 struct FNameE
 {
 	INT Index;
@@ -85,15 +64,15 @@ void FTwistBoneFixers::Init(USkeletalMeshComponent* SkelComp)
 
 			for (INT i = 0; i < 10; i++)
 			{
-				const INT BoneIndex = MatchRefBone(SkelComp, BoneNames[i]);
+				const INT BoneIndex = SkelComp->MatchRefBone(BoneNames[i]);
 				if (BoneIndex != INDEX_NONE)
 				{
 					((TArrayHelpers<BYTE>&)DependentBoneIndices).AddItem(BoneIndex);
 				}
 			}
 
-			((TArrayHelpers<FTwistBoneFixer>&)Fixers).Shrink();
-			((TArrayHelpers<BYTE>&)DependentBoneIndices).Shrink();
+			Fixers.Shrink();
+			DependentBoneIndices.Shrink();
 		}
 	}
 }

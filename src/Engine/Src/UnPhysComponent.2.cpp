@@ -3,14 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: USkeletalMeshComponent::MatchRefBone (0090e8e0, behind execMatchRefBone), USkeletalMesh::BoneIsChildOf
- * (00d49ed0) and the real names of URB_BodyInstance::SetFixed (SetFixed) and
- * URB_ConstraintInstance::SetAngularVelocityDrive (SetAngularVelocityDrive) aren't declared. */
-struct USkeletalMeshComponent_ : public USkeletalMeshComponent
-{
-	INT MatchRefBone(FName BoneName) const;
-};
-
 // @baa 0x00a1ca60
 /* After constraints break, frees everything below each broken joint: unfixes the bodies, turns off their bone springs
  * and switches off the drives of their constraints. */
@@ -28,14 +20,14 @@ void USkeletalMeshComponent::UpdateMeshForBrokenConstraints()
 		// Only broken constraints.
 		if (ConstraintInst && ConstraintInst->bTerminated)
 		{
-			const INT ConstrainedBoneIdx = ((USkeletalMeshComponent_*)this)->MatchRefBone(PhysicsAsset->ConstraintSetup(ConstraintIdx)->JointName);
+			const INT ConstrainedBoneIdx = sub_0090e8e0(PhysicsAsset->ConstraintSetup(ConstraintIdx)->JointName);
 			if (ConstrainedBoneIdx != INDEX_NONE)
 			{
 				// Every body at or below the broken joint.
 				for (INT BodyIdx = 0; BodyIdx < PhysicsAsset->BodySetup.Num(); BodyIdx++)
 				{
 					URB_BodySetup* BodySetup = PhysicsAsset->BodySetup(BodyIdx);
-					const INT BoneIndex = ((USkeletalMeshComponent_*)this)->MatchRefBone(BodySetup->BoneName);
+					const INT BoneIndex = sub_0090e8e0(BodySetup->BoneName);
 					if (BoneIndex != INDEX_NONE &&
 						(BoneIndex == ConstrainedBoneIdx || ((USkeletalMesh*)SkeletalMesh)->BoneIsChildOf(BoneIndex, ConstrainedBoneIdx)))
 					{
