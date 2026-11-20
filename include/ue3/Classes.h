@@ -30,11 +30,17 @@ struct FMatrix;
 #ifndef RF_Transactional
 #define RF_Transactional        ((QWORD)0x0000000100000000)
 #endif
+#ifndef RF_Unreachable
+#define RF_Unreachable          ((QWORD)0x0000000200000000)
+#endif
 #ifndef RF_Public
 #define RF_Public               ((QWORD)0x0000000400000000)
 #endif
 #ifndef RF_PerObjectConfig
 #define RF_PerObjectConfig      ((QWORD)0x0000010000000000)
+#endif
+#ifndef RF_Transient
+#define RF_Transient            ((QWORD)0x0000400000000000)
 #endif
 #ifndef RF_Cooked
 #define RF_Cooked               ((QWORD)0x0000800000000000)
@@ -3570,6 +3576,16 @@ struct FGuidImplementation {
     INT B; /* 0x4 */
     INT C; /* 0x8 */
     INT D; /* 0xc */
+    /* UnMisc.h's FGuid tests, for the script structs that mirror a GUID by value (WIDGET_ID, STYLE_ID) */
+    UBOOL IsValid() const { return (A | B | C | D) != 0; }
+    friend FORCEINLINE UBOOL operator==(const FGuidImplementation& X, const FGuidImplementation& Y)
+    {
+        return ((X.A ^ Y.A) | (X.B ^ Y.B) | (X.C ^ Y.C) | (X.D ^ Y.D)) == 0;
+    }
+    friend FORCEINLINE UBOOL operator!=(const FGuidImplementation& X, const FGuidImplementation& Y)
+    {
+        return ((X.A ^ Y.A) | (X.B ^ Y.B) | (X.C ^ Y.C) | (X.D ^ Y.D)) != 0;
+    }
 };
 
 struct FGuid {
@@ -5373,6 +5389,12 @@ struct FUIScreenValue_Extent {
     BYTE Orientation; /* 0x5 */
     /* other member functions */
     FLOAT GetValue(UUIScreenObject* OwnerWidget, EUIExtentEvalType OutputType) const; /* 0x00ddeac0 */
+    /* structcpptext (UIRoot.uc) */
+    UBOOL operator==(const FUIScreenValue_Extent& Other) const
+    {
+        return appAbs(Value - Other.Value) < DELTA && ScaleType == Other.ScaleType && Orientation == Other.Orientation;
+    }
+    UBOOL operator!=(const FUIScreenValue_Extent& Other) const { return !(*this == Other); }
 };
 
 struct FUIScreenValue_Position {
@@ -11621,6 +11643,18 @@ struct AActor : public UObject {
     void CheckStillInWorld(); /* 0x007843b0 */
     void eventRootMotionExtracted(class USkeletalMeshComponent* SkelComp,FBoneAtom& ExtractedRootMotionDelta); /* 0x0090ad80 */
     UBOOL IsOwnedBy(const AActor* TestOwner) const; /* 0x00754c10 */
+    /* UnActor.h: whether Other is this actor or one it is (indirectly) based on */
+    FORCEINLINE UBOOL IsBasedOn(const AActor* Other) const
+    {
+        for (const AActor* Test = this; Test != NULL; Test = Test->Base)
+        {
+            if (Test == Other)
+            {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
     AActor* sub_0068f1e0(); /* 0x0068f1e0 */
     void eventPostRenderFor(class APlayerController* PC, class UCanvas* Canvas, FVector CameraPosition, FVector CameraDir); /* 0x00753750 */
     BYTE eventScriptGetTeamNum(); /* 0x007537d0 */
@@ -15901,6 +15935,8 @@ struct UInterpGroupInst : public UObject {
     class UInterpGroup* Group; /* 0x30 */
     class AActor* GroupActor; /* 0x34 */
     TArrayNoInit<class UInterpTrackInst*> TrackInst; /* 0x38 */
+    /* UnInterpolation.h: the group's actor, NULL once it is being destroyed */
+    AActor* GetGroupActor() const { return (GroupActor == NULL || GroupActor->bDeleteMe) ? NULL : GroupActor; }
     /* virtual functions this class introduces (vtable 0x02098eb8) */
     virtual void vf_10c(); /* 0x10c */
     virtual void vf_110(); /* 0x110 */
@@ -16190,6 +16226,9 @@ struct UUIRoot : public UObject {
     void execSetDataStoreFieldValue(FFrame& Stack, RESULT_DECL); /* 0x00cc7090 */
     void execGetDataStoreFieldValue(FFrame& Stack, RESULT_DECL); /* 0x00cc7210 */
     void execGetCurrentUIController(FFrame& Stack, RESULT_DECL); /* 0x00da8920 */
+    /* UnUIObjects.cpp, inline in this build (bodies in Native.h, with GEngine: include it to use them) */
+    static UUIInteraction* GetCurrentUIController(); /* GEngine->GameViewport->UIController, or NULL */
+    static UGameUISceneClient* GetSceneClient(); /* that controller's scene client, or NULL */
     void execGetSceneClient(FFrame& Stack, RESULT_DECL); /* 0x00da8980 */
     void execGetFaceOrientation(FFrame& Stack, RESULT_DECL); /* 0x00da89e0 */
     void execGetInputPlatformType(FFrame& Stack, RESULT_DECL); /* 0x00da8a50 */
@@ -34844,6 +34883,8 @@ struct FLookupMap_Mirror_00dc02f0 : FLookupMap_Mirror { ~FLookupMap_Mirror_00dc0
 struct UUIScene : public UUIScreenObject {
     /* Engine.UIScene */
     DECLARE_CLASS(UUIScene, UUIScreenObject, 0x0, 0x0, Engine)
+    /* UnUIObjects.cpp, inline: the scene client that owns this scene (checked; body at the end of this file) */
+    UUISceneClient* GetSceneClient() const;
     UUIScene(); /* 0x00dc2c20 */
     FName SceneTag; /* 0x120 */
     class UUISceneClient* SceneClient; /* 0x128 */
@@ -66826,6 +66867,14 @@ template<class T> inline UClass* LoadClass(UObject* Outer, const TCHAR* Name, co
     return StaticLoadClass(T::StaticClass(), Outer, Name, Filename, LoadFlags, Sandbox);
 }
 
+
+/* UUIScene's inline accessor (UnUIObjects.cpp). UUIRoot's are in Native.h (they need GEngine). */
+FORCEINLINE UUISceneClient* UUIScene::GetSceneClient() const
+{
+    if (!(SceneClient))
+        appFailAssert("SceneClient", "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp", 5864, TEXT(""));
+    return SceneClient;
+}
 
 /* UnObjBas.h: constructing an object of class T. The outer INVALID_OBJECT means the transient package. The
  * body is in ue3/ConstructObject.h: include it where the unit compiles an instance (inline or out of line). */

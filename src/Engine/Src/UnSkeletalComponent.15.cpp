@@ -37,7 +37,6 @@ FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT 
     return FVector(0.f, 0.f, 0.f);
 }
 
-#define BIG_NUMBER (3.4e+38f)
 FORCEINLINE FLOAT SizeSquared(const FVector& V) { return V.X*V.X + V.Y*V.Y + V.Z*V.Z; }
 
 // @baa 0x0091ef60

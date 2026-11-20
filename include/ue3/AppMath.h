@@ -101,6 +101,16 @@ inline DWORD appCountLeadingZeros( DWORD Value )
 	}
 	return 31 - Result;
 }
+/* UnMath.h: log2 of the smallest power of two >= Arg (0 for 0 and 1), and that power, with the bit scans inline. */
+FORCEINLINE DWORD appCeilLogTwo(DWORD Arg)
+{
+	INT Bitmask = ((INT)(appCountLeadingZeros(Arg) << 26)) >> 31;
+	return (32 - appCountLeadingZeros(Arg - 1)) & (~Bitmask);
+}
+FORCEINLINE DWORD appRoundUpToPowerOfTwo(DWORD Arg)
+{
+	return 1 << appCeilLogTwo(Arg);
+}
 inline INT    appFloor2Int( FLOAT F )            { return appTrunc(floorf(F)); }
 
 // random numbers (UnVcWin32.h)
@@ -124,6 +134,8 @@ FORCEINLINE FLOAT appSRand()
 template< class T > inline T Abs( const T A )                          { return (A >= (T)0) ? A : -A; }
 template< class T > inline T Max( const T A, const T B )               { return (A >= B) ? A : B; }
 template< class T > inline T Min( const T A, const T B )               { return (A <= B) ? A : B; }
+template< class T > inline T Max3( const T A, const T B, const T C ) { return Max( Max( A, B ), C ); }
+template< class T > inline T Min3( const T A, const T B, const T C ) { return Min( Min( A, B ), C ); }
 template< class T > inline T Square( const T A )                       { return A * A; }
 template< class T > inline T Clamp( const T X, const T Min, const T Max ) { return X < Min ? Min : X < Max ? X : Max; }
 template< class T, class U > inline T Lerp( const T& A, const T& B, const U& Alpha ) { return (T)(A + Alpha * (B - A)); }

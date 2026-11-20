@@ -4,19 +4,10 @@
 #define BAA_OUTLINE_ALLOC	/* appRealloc out of line, as in Empty and Shrink */
 #include "ue3/Classes.h"
 
-/* Kit gaps, with UE3's definitions (Array.h): TArray has no Shrink; TArray<FLOAT>::Add is out of line
- * here (00544290). */
+/* TArray<FLOAT>::Add is out of line here (00544290). */
 struct FFloatArray : public TArray<FLOAT>
 {
 	INT sub_00544290(INT Count);			/* Add */
-	void Shrink()
-	{
-		if (ArrayMax != ArrayNum)
-		{
-			ArrayMax = ArrayNum;
-			AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(FLOAT));
-		}
-	}
 };
 
 UBOOL HasNonUnitScaleKeys(UAnimSequence* AnimSeq);

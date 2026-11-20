@@ -6,8 +6,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: TArray::AddItem (Array.h) and FSettingsProperty's copy constructor (structcpptext, 00d79460) aren't
- * declared. */
+/* Out of line here: FSettingsProperty's copy constructor (structcpptext, 00d79460; not in the kit) and this file's
+ * TArray::AddItem instance. */
 struct FSettingsProperty_ : public FSettingsProperty
 {
 	FSettingsProperty_(const FSettingsProperty_& Other); /* 0x00d79460 */

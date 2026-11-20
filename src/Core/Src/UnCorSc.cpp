@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-#define CPF_Config 0x0000000000004000
 // Not declared in Classes.h: UClass::GetDefaultObject (00572b30) and UObject::SaveConfig (005df020).
 
 // @baa 0x005999f0

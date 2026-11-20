@@ -9,14 +9,6 @@
 template FRandomAnimInfo& TArray<FRandomAnimInfo>::operator()(INT);
 
 #define ZERO_ANIMWEIGHT_THRESH (0.00001f)
-/* Kit gap, with UE3's definition (Array.h): TArray has no AddZeroed. */
-template<class T> inline INT AddZeroed(TArray<T>& Array, INT Count)
-{
-	const INT Index = Array.Add(Count);
-	appMemzero(Array.GetTypedData() + Index, Count * sizeof(T));
-	return Index;
-}
-
 /* UAnimNodeSlot's InitAnim override (UAnimNode vtable 0x128, declared only as vf_128). */
 struct UAnimNodeSlot_ : public UAnimNodeSlot
 {
@@ -34,7 +26,7 @@ void UAnimNodeSlot_::InitAnim(USkeletalMeshComponent* MeshComp, UAnimNodeBlendBa
 	if (TargetWeight.Num() != Children.Num())
 	{
 		TargetWeight.Empty();
-		AddZeroed(TargetWeight, Children.Num());
+		TargetWeight.AddZeroed(Children.Num());
 		if (TargetWeight.Num() > 0)
 		{
 			TargetWeight(0) = 1.f;

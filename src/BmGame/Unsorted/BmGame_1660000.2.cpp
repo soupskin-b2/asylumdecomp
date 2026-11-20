@@ -2080,20 +2080,12 @@ UBOOL ARPawnCharacter::IsInPose(FName MovementStance, FName WeaponStance)
 	return IsInMovementStance(MovementStance, 0) && IsInWeaponStance(WeaponStance, 0);
 }
 
-/* Kit gap: FVector has no constructor (UnMath.h); MakeVector stands in for FVector(X, Y, Z). */
-static FORCEINLINE FVector MakeVector(FLOAT InX, FLOAT InY, FLOAT InZ)
-{
-	FVector V;
-	V.X = InX; V.Y = InY; V.Z = InZ;
-	return V;
-}
-
 // @baa 0x0166f790
 FVector ARPawnCharacter::GetActualAimAtDirection()
 {
 	if (!Anim)
 	{
-		return MakeVector(1.f, 0.f, 0.f);
+		return FVector(1.f, 0.f, 0.f);
 	}
 	return Anim->GetActualAimAtDirection();
 }

@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include <xmmintrin.h>
 
-#define SMALL_NUMBER (1.e-8f)
 /* UE3's SSE appInvSqrt (UnVcWin32.h): one Newton-Raphson step on rsqrtss. The kit's AppMath.h has
  * 1.0f / sqrtf(F) instead. */
 FORCEINLINE FLOAT appInvSqrtSSE(FLOAT F)

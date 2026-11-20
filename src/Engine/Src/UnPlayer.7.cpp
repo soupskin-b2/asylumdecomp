@@ -64,8 +64,8 @@ void UGameViewportClient::execIsFullScreenViewport(FFrame& Stack, RESULT_DECL)
 
 extern FName g_026c4ce4;
 	/* ENGINE_Tick */
-/* Kit gap: UGameViewportClient::Tick (UnPlayer.cpp; not virtual in this build, UWorld::Tick calls it on
- * GEngine->GameViewport) isn't declared. */
+/* UGameViewportClient::Tick (UnPlayer.cpp; not virtual in this build, UWorld::Tick calls it on GEngine->GameViewport)
+ * inlines the Tick event's glue, which the kit has out of line (0x008888c0). */
 struct UGameViewportClient__00892430 : public UGameViewportClient
 {
 	/* GameViewportClient.Tick script event: the generated glue, inlined here (Tick is a probe function). */
@@ -81,14 +81,13 @@ struct UGameViewportClient__00892430 : public UGameViewportClient
 			ProcessEvent(FindFunctionChecked(g_026c4ce4), &Parms);
 		}
 	}
-	void Tick(FLOAT DeltaTime);
 };
 
 // @baa 0x00892430
-void UGameViewportClient__00892430::Tick(FLOAT DeltaTime)
+void UGameViewportClient::Tick(FLOAT DeltaTime)
 {
 	// first call the unrealscript tick
-	eventTick(DeltaTime);
+	((UGameViewportClient__00892430*)this)->eventTick(DeltaTime);
 
 	// now tick all interactions
 	for (INT i = 0; i < GlobalInteractions.Num(); i++)

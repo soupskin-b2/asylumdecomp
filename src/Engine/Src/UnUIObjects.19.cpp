@@ -17,34 +17,10 @@ void UUIRoot::execSetMouseCaptureOverride(FFrame& Stack, RESULT_DECL)
     }
 }
 
-/* Kit gap: UUIRoot::GetCurrentUIController and GetSceneClient (inline in this build) aren't declared. */
-struct UUIRoot_ : public UUIRoot
-{
-	static FORCEINLINE UUIInteraction* GetCurrentUIController()
-	{
-		UUIInteraction* Result = NULL;
-		if (GEngine != NULL && GEngine->GameViewport != NULL)
-		{
-			Result = GEngine->GameViewport->UIController;
-		}
-		return Result;
-	}
-	static FORCEINLINE UGameUISceneClient* GetSceneClient()
-	{
-		UGameUISceneClient* Result = NULL;
-		UUIInteraction* UIController = GetCurrentUIController();
-		if (UIController != NULL)
-		{
-			Result = UIController->SceneClient;
-		}
-		return Result;
-	}
-};
-
 // @baa 0x00da8980
 /* GameUISceneClient GetSceneClient() */
 void UUIRoot::execGetSceneClient(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UGameUISceneClient**)Result = UUIRoot_::GetSceneClient();
+	*(UGameUISceneClient**)Result = GetSceneClient();
 }

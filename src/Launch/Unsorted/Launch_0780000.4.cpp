@@ -15,7 +15,7 @@ void AAnimatedCamera::ApplyCameraModifiers(FLOAT DeltaTime, FTPOV& OutPOV)
     ApplyCameraModifiersNative(DeltaTime, OutPOV);
 }
 
-/* Kit gap: UCameraAnimInst::Stop (UnCamera.cpp; inlined here) isn't declared. */
+/* UCameraAnimInst::Stop (UnCamera.cpp): the kit declares the out-of-line copy (0x007880c0); this build inlines it here. */
 struct UCameraAnimInst_ : public UCameraAnimInst
 {
     FORCEINLINE void Stop(UBOOL bImmediate)

@@ -295,16 +295,12 @@ UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRoo
 
 #line 333 "candidate.cpp"
 
-/* Kit gaps: FName comparisons, USkeletalMeshComponent::FindAnimSequence (0091d860) and
- * UAnimNodeSequence::ShouldKeepCachedResult (00c4ad70) aren't declared. */
+/* UAnimNodeSequence::ClearCachedResult (00c5e220), inline here. */
 struct UAnimNodeSequence__00c5e520 : public UAnimNodeSequence
 {
-	UBOOL sub_00c4ad70();					/* ShouldKeepCachedResult */
-
-	/* ClearCachedResult (00c5e220), inline here. */
 	void ClearCachedResult()
 	{
-		if (CachedBoneAtoms.Num() > 0 && !sub_00c4ad70())
+		if (CachedBoneAtoms.Num() > 0 && !ShouldKeepCachedResult())
 		{
 			CachedBoneAtoms.Reset();
 		}

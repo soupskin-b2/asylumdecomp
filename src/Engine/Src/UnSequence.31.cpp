@@ -5,9 +5,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Classes.h"
 
-/* UnMaterial.h EMaterialUsage values this uses. */
-#define MATUSAGE_SkeletalMesh 0
-#define MATUSAGE_MorphTargets 14
 // @baa 0x008c0880
 /* UE3's USeqAct_SetMaterial::PostEditChange(UProperty* PropertyThatChanged): when a skeletal mesh actor is targeted,
  * make sure the new material is compiled for skeletal meshes (and morph targets if the mesh uses them). */

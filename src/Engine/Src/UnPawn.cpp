@@ -1455,22 +1455,12 @@ void APawn::sub_00865610()
     SerpentineDist = 0.f;
 }
 
-/* Kit gap: FVector has no constructors or operators here (UnMath.h); builds the return value in place. */
-static FORCEINLINE FVector MakeVector(FLOAT X, FLOAT Y, FLOAT Z)
-{
-    FVector Result;
-    Result.X = X;
-    Result.Y = Y;
-    Result.Z = Z;
-    return Result;
-}
-
 // @baa 0x00867c30
 /* APawn slot 0x398: UE3's APawn::GetPawnViewLocation(): Location + FVector(0,0,1) * BaseEyeHeight. */
 FVector APawn::GetPawnViewLocation()
 {
-    const FVector EyeOffset = MakeVector(0.f * BaseEyeHeight, 0.f * BaseEyeHeight, 1.f * BaseEyeHeight);
-    return MakeVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);
+    const FVector EyeOffset = FVector(0.f * BaseEyeHeight, 0.f * BaseEyeHeight, 1.f * BaseEyeHeight);
+    return FVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);
 }
 
 // @baa 0x00866050
@@ -1478,9 +1468,9 @@ FVector APawn::sub_00866050()
 {
     if (Physics == PHYS_Spider)
     {
-        return MakeVector(-Floor.X, -Floor.Y, -Floor.Z);
+        return FVector(-Floor.X, -Floor.Y, -Floor.Z);
     }
-    return MakeVector(0.f, 0.f, -1.f);
+    return FVector(0.f, 0.f, -1.f);
 }
 
 // @baa 0x00865070

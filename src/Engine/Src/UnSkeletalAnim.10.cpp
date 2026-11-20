@@ -7,8 +7,7 @@
 #include "ue3/Native.h"
 #include "ue3/Script.h"
 
-/* Kit gaps (UnString.h): the kit's FString has its destructor out of line and no operator*; this build
- * inlines both here. FString_ is a same-layout stand-in with UE3's inline forms; FName::ToString
+/* UnString.h: the kit's FString has its destructor out of line; this build inlines it here. FString_ is a same-layout stand-in with UE3's inline forms; FName::ToString
  * (005d5690) is declared on it to return one. */
 class FString_ : public TArray<TCHAR>
 {

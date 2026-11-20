@@ -51,7 +51,7 @@ void UDataStoreClient::GetAvailableDataStores(UUIScene* CurrentScene, TArray<UUI
 
 #line 92 "candidate.cpp"
 
-/* TArray::AddItem / AddUniqueItem (Array.h); not in the kit's TArray. */
+/* TArray::AddItem / AddUniqueItem (Array.h), with the element compare written as this instance has it. */
 template<typename T> struct TArrayAddUnique__00d91ae0 : public TArray<T>
 {
 	INT AddItem(const T& Item)

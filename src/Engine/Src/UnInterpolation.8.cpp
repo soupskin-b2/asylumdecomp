@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Classes.h"
 
-/* UnMath.h constant the kit lacks. */
-#define BIG_NUMBER (3.4e+38f)
 // @baa 0x00cf4c00
 /* UE3's UInterpTrackToggle::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition):
  * the key time nearest InPosition, skipping IgnoreKeys; FALSE if there is none. */

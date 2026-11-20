@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-#define THRESH_QUAT_NORMALIZED 0.02f
 
 // @baa 0x0059d4a0
 /* UnMath.h: a rotation (from a unit quaternion) followed by a translation. */

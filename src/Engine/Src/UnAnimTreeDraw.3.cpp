@@ -26,7 +26,6 @@ void UAnimNodeBlend::SetBlendTarget(FLOAT BlendTarget, FLOAT BlendTime)
 	BlendTimeToGo = BlendTime;
 }
 
-#define KINDA_SMALL_NUMBER (1.e-4)
 /* UAnimNodeBlendBase::TickAnim (vtable 0x134, declared only as vf_134). */
 /* UAnimNodeBlend's TickAnim override. */
 // @baa 0x00c53f20

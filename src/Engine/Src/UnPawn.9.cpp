@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-#undef GWorld
-#define GWorld ((UWorld*)g_026b62b8)
 // @baa 0x00865230
 /* Rendered within the last second (never asked on a dedicated server). */
 UBOOL AActor::PlayerCanSeeMe()

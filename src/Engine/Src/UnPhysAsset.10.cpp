@@ -28,8 +28,7 @@ void URB_BodyInstance::sub_009f9a40(const URB_BodyInstance* FromInst)
     bNoPawnCollision = FromInst->bNoPawnCollision;
 }
 
-/* Kit gaps: UPhysicsAsset::UpdateBoundsBodiesArray / UpdateBodySetupIndexMap (UnPhysAsset.cpp) aren't declared, and
- * BodySetupIndexMap is only an FMap_Mirror, so its Num() (element count minus free slots) is spelled out. */
+/* BodySetupIndexMap is only an FMap_Mirror, so its Num() (element count minus free slots) is spelled out. */
 struct UPhysicsAsset_ : public UPhysicsAsset
 {
 
@@ -44,17 +43,15 @@ void UPhysicsAsset::PostLoad()
 {
 	Super::PostLoad();
 
-	UPhysicsAsset_* This = (UPhysicsAsset_*)this;
-
 	// Ensure array of bounds bodies is up to date.
 	if (BoundsBodies.Num() == 0)
 	{
-		This->UpdateBoundsBodiesArray();
+		UpdateBoundsBodiesArray();
 	}
 
-	if (BodySetup.Num() > 0 && This->BodySetupIndexMapNum() == 0)
+	if (BodySetup.Num() > 0 && ((UPhysicsAsset_*)this)->BodySetupIndexMapNum() == 0)
 	{
-		This->UpdateBodySetupIndexMap();
+		UpdateBodySetupIndexMap();
 	}
 }
 
@@ -106,7 +103,8 @@ FString UPhysicsAsset::GetDesc()
 	return FString::Printf(TEXT("%d Bodies, %d Constraints"), BodySetup.Num(), ConstraintSetup.Num());
 }
 
-/* Kit gap: FString::Printf (0x005488a0) isn't declared. */
+/* FString::Printf has identical copies in this build (the variadic forwarder): the file's other caller (00a17b50)
+ * binds the kit's FString::Printf to 0x00723a70, so this one, at 0x005488a0, goes through a stand-in. */
 struct FString__00a17b80 : public FString
 {
 	static FString Printf(const TCHAR* Fmt, ...);

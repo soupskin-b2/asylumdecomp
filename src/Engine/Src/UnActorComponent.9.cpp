@@ -6,8 +6,6 @@
 #include "ue3/Array.h"
 #include <string.h>
 
-/* UnFile.h */
-#define appMemcpy memcpy
 /* TInlineAllocator<NumInlineElements>::ForElementType<T> (ContainerAllocationPolicies.h); the kit has
  * only the heap allocator. This instance: 32 inline elements of 4 bytes, heap fallback after them. */
 template<DWORD NumInlineElements, typename ElementType>

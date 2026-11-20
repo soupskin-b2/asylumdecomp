@@ -218,7 +218,7 @@ UBOOL UParticleModuleTrailTaper::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gap: TArray::InsertZeroed (Array.h; out of line here, 0x00b51d40) isn't in the kit's TArray. */
+/* TArray::InsertZeroed (Array.h) is out of line here (0x00b51d40 for FVector); the kit's is inline. */
 template<typename T> struct TArrayInsertZeroed_ : public TArray<T>
 {
     void InsertZeroed(INT Index, INT Count = 1); /* 0x00b51d40 for FVector */

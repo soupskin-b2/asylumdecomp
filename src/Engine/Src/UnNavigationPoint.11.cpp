@@ -5,7 +5,7 @@
 
 
 // @baa 0x008417e0
-/* ACoverLink::GetSlotHeight (UE3 UnNavigationPoint.cpp; not declared in the kit). */
+/* ACoverLink::GetSlotHeight (UE3 UnNavigationPoint.cpp). */
 FLOAT ACoverLink::GetSlotHeight(INT SlotIdx)
 {
     if (SlotIdx >= 0 && SlotIdx < Slots.Num())

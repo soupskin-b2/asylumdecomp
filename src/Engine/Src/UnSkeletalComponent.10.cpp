@@ -10,21 +10,11 @@ extern template UAnimTree* Cast<UAnimTree>(UObject* Src);
 extern template INT TArray<BYTE>::Add(INT Count);
 void* __cdecl memset(void* Dest, int Value, size_t Count);
 #pragma intrinsic(memset)
-/* TArray::Reset (Array.h): empties without freeing; not in the kit's TArray. */
-template<typename T> struct TArrayReset_ : public TArray<T>
-{
-    void Reset()
-    {
-        this->DestructItems(0, this->ArrayNum);
-        this->ArrayNum = 0;
-    }
-};
-
 // @baa 0x0092dce0
 /* build the bone -> skel control list lookup from the anim tree */
 void USkeletalMeshComponent::InitSkelControls()
 {
-    ((TArrayReset_<BYTE>&)SkelControlIndex).Reset();
+    SkelControlIndex.Reset();
 
     UAnimTree* Tree = Cast<UAnimTree>(Animations);
     if (SkeletalMesh && Tree && Tree->SkelControlLists.Num() > 0)

@@ -5,12 +5,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-/* Kit gap: FGuid operator== (UnMisc.h) for FSTYLE_ID. */
-FORCEINLINE UBOOL operator==(const FSTYLE_ID& X, const FSTYLE_ID& Y)
-{
-	return ((X.A ^ Y.A) | (X.B ^ Y.B) | (X.C ^ Y.C) | (X.D ^ Y.D)) == 0;
-}
-
 struct FStyleDataReference_ : public FStyleDataReference
 {
 	UBOOL operator==(const FStyleDataReference& Other) const;

@@ -21,8 +21,7 @@ void FSettingsData::GetData(TArray<BYTE>& OutData) const
 	}
 }
 
-/* Kit gaps: FName's comparison, FScriptDelegate::IsCallable and the delegateNotifySettingValueUpdated glue
- * (inlined here) aren't declared. */
+/* Inline here, out of line in the kit: FScriptDelegate::IsCallable (0x00784f80) and the delegateNotifySettingValueUpdated glue. */
 extern FName g_026c438c;
 	/* NotifySettingValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate

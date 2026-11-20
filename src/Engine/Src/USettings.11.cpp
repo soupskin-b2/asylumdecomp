@@ -4,8 +4,7 @@
 #include "ue3/Classes.h"
 #include <stdlib.h>
 
-/* Kit gaps: FString's operator* (UnString.h; out of line here at 00439b40), appAtoi/appAtof (UnCRT.h: _wtoi/_wtof)
- * and FSettingsData's structcpptext (FromString and the SetData overloads) aren't declared. */
+/* FString's operator* is out of line here (00439b40), not the kit's inline one; appAtoi/appAtof (UnCRT.h) are spelled _wtoi/_wtof. */
 struct FStringO_ : public FString
 {
 	const TCHAR* operator*() const; /* 0x00439b40 */

@@ -48,11 +48,9 @@ void AController::StopLatentExecution()
 
 extern FName g_026c543c;
 	/* ENGINE_LongFall */
-/* Kit gaps: AController::execPollWaitForLanding (the latent poll of WaitForLanding, registered with the natives;
- * UnController.cpp) and the Controller.LongFall script event's glue (EngineClasses.h, inline) aren't declared. */
-struct AController_ : public AController
+/* The Controller.LongFall script event's glue (EngineClasses.h, inline) isn't in the kit. */
+struct AController__007a0860 : public AController
 {
-	void execPollWaitForLanding(FFrame& Stack, RESULT_DECL);
 	void eventLongFall()
 	{
 		ProcessEvent(FindFunctionChecked(g_026c543c), NULL);
@@ -60,7 +58,7 @@ struct AController_ : public AController
 };
 
 // @baa 0x007a0860
-void AController_::execPollWaitForLanding(FFrame& Stack, RESULT_DECL)
+void AController::execPollWaitForLanding(FFrame& Stack, RESULT_DECL)
 {
 	if (Pawn && (Pawn->Physics != PHYS_Falling))
 	{
@@ -71,7 +69,7 @@ void AController_::execPollWaitForLanding(FFrame& Stack, RESULT_DECL)
 		LatentFloat -= *(FLOAT*)Result;
 		if (LatentFloat <= 0.f)
 		{
-			eventLongFall();
+			((AController__007a0860*)this)->eventLongFall();
 		}
 	}
 }

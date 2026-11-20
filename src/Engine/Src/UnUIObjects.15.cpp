@@ -280,25 +280,13 @@ UUIObject* UUIScreenObject::GetFocusedControl(UBOOL bRecurse, INT PlayerIndex) c
 
 #line 398 "candidate.cpp"
 
-/* Kit gaps: UUIScene::GetSceneClient (inline, UnUIObjects.cpp) and UUIObject::GetActiveSkin aren't declared. */
-struct UUIScene_ : public UUIScene
-{
-	FORCEINLINE UUISceneClient* GetSceneClient() const
-	{
-#line 5864 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
-		check(SceneClient);
-		return SceneClient;
-	}
-};
-
-
 // @baa 0x00daa120
 /* The skin the owning scene's scene client is using. */
 UUISkin* UUIObject::GetActiveSkin() const
 {
 #line 8658 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUIObjects.cpp"
 	check(OwnerScene);
-	return ((UUIScene_*)OwnerScene)->GetSceneClient()->ActiveSkin;
+	return OwnerScene->GetSceneClient()->ActiveSkin;
 }
 
 #line 425 "candidate.cpp"

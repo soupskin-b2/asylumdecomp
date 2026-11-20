@@ -6,23 +6,6 @@
 #include "ue3/Cast.h"
 #include <new.h>
 
-/* Kit gaps, with UE3's definitions (Array.h): TArray has no Reserve and no AddItem. */
-template<class T> inline void Reserve(TArray<T>& Array, INT Number)
-{
-	if (Number > Array.ArrayMax)
-	{
-		Array.ArrayMax = Number;
-		Array.AllocatorInstance.ResizeAllocation(Array.ArrayNum, Array.ArrayMax, sizeof(T));
-	}
-}
-
-template<class T> inline INT AddItem(TArray<T>& Array, const T& Item)
-{
-	const INT Index = Array.Add(1);
-	new(Array.GetTypedData() + Index) T(Item);
-	return Index;
-}
-
 // @baa 0x00c5ed80
 void UAnimNode::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 {
@@ -30,14 +13,14 @@ void UAnimNode::GetNodesByClass(TArray<UAnimNode*>& Nodes, UClass* BaseClass)
 	TArray<UAnimNode*> AllNodes;
 	sub_00c4b530(AllNodes);
 
-	Reserve(Nodes, AllNodes.Num());
+	Nodes.Reserve(AllNodes.Num());
 
 	// keep those of the class (or all of them without one)
 	for (INT i = 0; i < AllNodes.Num(); i++)
 	{
 		if (ObjectIsA(AllNodes(i), BaseClass))
 		{
-			AddItem(Nodes, AllNodes(i));
+			Nodes.AddItem(AllNodes(i));
 		}
 	}
 }
@@ -51,7 +34,7 @@ void UAnimNode::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynch
 	TArray<UAnimNode*> TmpNodes;
 	sub_00c4b530(TmpNodes);
 
-	Reserve(Nodes, TmpNodes.Num());
+	Nodes.Reserve(TmpNodes.Num());
 
 	// keep the sequence nodes (of the synch group, if given)
 	for (INT i = 0; i < TmpNodes.Num(); i++)
@@ -59,7 +42,7 @@ void UAnimNode::GetAnimSeqNodes(TArray<UAnimNodeSequence*>& Nodes, FName InSynch
 		UAnimNodeSequence* SeqNode = Cast<UAnimNodeSequence>(TmpNodes(i));
 		if (SeqNode && (InSynchGroupName == NAME_None || InSynchGroupName == SeqNode->SynchGroupName))
 		{
-			AddItem(Nodes, SeqNode);
+			Nodes.AddItem(SeqNode);
 		}
 	}
 }

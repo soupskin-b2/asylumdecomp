@@ -157,16 +157,13 @@ void UUIScreenObject::PostLoad()
     Children.RemoveItem(NULL);
 }
 
-/* ObjectFlags bits used here (UnObjBas.h names not in the kit): bit 46 and RF_Transactional (bit 32). */
-#define RF_Bit46_ QWORD(0x0000400000000000)
-#define RF_Transactional_ QWORD(0x0000000100000000)
 // @baa 0x00da9060
 /* UE3's UUIScreenObject::Initialize(UUIScene* inOwnerScene, UUIObject* inOwner): mark the widget transactional. */
 void UUIScreenObject::Initialize(UUIScene* inOwnerScene, UUIObject* inOwner)
 {
-    if ((ObjectFlags & RF_Bit46_) == 0)
+    if ((ObjectFlags & RF_Transient) == 0)
     {
-        ObjectFlags |= RF_Transactional_;
+        ObjectFlags |= RF_Transactional;
     }
 }
 

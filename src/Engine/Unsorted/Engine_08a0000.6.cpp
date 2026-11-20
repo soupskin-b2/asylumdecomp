@@ -358,31 +358,15 @@ INT USequenceObject::eventGetObjClassVersion()
 	return Parms.ReturnValue;
 }
 
-/* Kit gap: AActor::IsBasedOn (UnActor.h, inline) isn't declared. */
-struct AActor__008aa060 : public AActor
-{
-    FORCEINLINE UBOOL IsBasedOn(const AActor* Other) const
-    {
-        for (const AActor* Test = this; Test != NULL; Test = Test->Base)
-        {
-            if (Test == Other)
-            {
-                return TRUE;
-            }
-        }
-        return FALSE;
-    }
-};
-
 // @baa 0x008aa060
 void AActor::execIsBasedOn(FFrame& Stack, RESULT_DECL)
 {
     P_GET_OBJECT(AActor, Other);
     P_FINISH;
-    *(UBOOL*)Result = ((AActor__008aa060*)this)->IsBasedOn(Other);
+    *(UBOOL*)Result = IsBasedOn(Other);
 }
 
-/* Kit gap: AActor::IsOwnedBy (UnActor.h, inline) isn't declared. */
+/* AActor::IsOwnedBy (UnActor.h, inline): the kit declares the out-of-line copy (0x00754c10); this native inlines it. */
 struct AActor__008aa0f0 : public AActor
 {
     FORCEINLINE UBOOL IsOwnedBy(const AActor* Other) const

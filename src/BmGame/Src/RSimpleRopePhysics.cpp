@@ -8,14 +8,16 @@
 void sub_0166ac80(void) {  }
 
 
-struct FRBPhysScene {
+/* The rope's physics scene (+0x8): its class is unknown. Not UE3's FRBPhysScene, which has no vtable; slot 0x4 returns
+ * the NxScene, as FRBPhysScene::GetNovodexPrimaryScene does. */
+struct FRopePhysScene_0166ac90 {
     virtual void vf_00();
     virtual NxScene* GetNovodexPrimaryScene();
 };
 
 struct FRSimpleRopePhysics {
     BYTE _pad[8];
-    FRBPhysScene* Scene;
+    FRopePhysScene_0166ac90* Scene;
     NxActor* Actor;
 
     UBOOL GetIsInitialised() const { return Scene != NULL; }

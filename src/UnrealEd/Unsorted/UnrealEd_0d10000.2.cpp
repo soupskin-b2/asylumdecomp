@@ -9,24 +9,12 @@ template<class T> T* CastChecked(UObject* Src);
 extern template AEmitter* Cast<AEmitter>(UObject* Src);
 extern template ALensFlareSource* Cast<ALensFlareSource>(UObject* Src);
 extern template ALight* Cast<ALight>(UObject* Src);
-/* UE3's inline UObject::GetOuter() and UInterpGroupInst::GetGroupActor() (the kit lacks both). */
-inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
-
-inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
-{
-    if (GrInst->GroupActor == NULL || GrInst->GroupActor->bDeleteMe)
-    {
-        return NULL;
-    }
-    return GrInst->GroupActor;
-}
-
 // @baa 0x00d10550
 /* Remember whether the toggled actor (emitter, lens flare, light, or anything else) starts out active. */
 void UInterpTrackInstToggle::InitTrackInst(UInterpTrack* Track)
 {
-    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(this));
-    AActor* Actor = GetGroupActorOf(GrInst);
+    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(this->GetOuter());
+    AActor* Actor = GrInst->GetGroupActor();
     AEmitter* EmitterActor = Cast<AEmitter>(Actor);
     ALensFlareSource* LensFlareActor = Cast<ALensFlareSource>(Actor);
     ALight* LightActor = Cast<ALight>(Actor);
@@ -55,7 +43,7 @@ void UInterpTrackInstToggle::InitTrackInst(UInterpTrack* Track)
 void UInterpTrackFloatParticleParam::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
-	AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(GrInst));
+	AEmitter* Emitter = Cast<AEmitter>(GrInst->GetGroupActor());
 	if (Emitter)
 	{
 		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);

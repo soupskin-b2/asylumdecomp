@@ -62,21 +62,11 @@ UUIInteraction* UUIRoot::GetDefaultUIController()
 
 #line 83 "candidate.cpp"
 
-/* Kit gap: UUIRoot::GetSceneClient (the game's scene client, if there is one) isn't declared. */
-FORCEINLINE UGameUISceneClient* GetGameSceneClient()
-{
-	if (GEngine != NULL && GEngine->GameViewport != NULL && GEngine->GameViewport->UIController != NULL)
-	{
-		return (UGameUISceneClient*)GEngine->GameViewport->UIController->SceneClient;
-	}
-	return NULL;
-}
-
 // @baa 0x00da9be0
 /* Whether this scene is open in the game's scene client, and (with bTopmostScene) the active one for its player. */
 UBOOL UUIScene::IsSceneActive(UBOOL bTopmostScene)
 {
-	UGameUISceneClient* GameSceneClient = GetGameSceneClient();
+	UGameUISceneClient* GameSceneClient = UUIRoot::GetSceneClient();
 	if (GameSceneClient != NULL)
 	{
 		UBOOL bResult = GameSceneClient->FindSceneIndex(this) != INDEX_NONE;

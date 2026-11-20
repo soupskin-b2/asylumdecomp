@@ -5,7 +5,8 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: UUIStyle_Data::GetOwnerStyle and FStyleDataReference's methods aren't declared. */
+/* UUIStyle_Data::GetOwnerStyle: the kit declares the out-of-line copy (0x00ddb0a0); it is inline here. FStyleDataReference's
+ * IsCustomStyleData* (structcpptext) aren't in the kit. */
 struct UUIStyle_Data_ : public UUIStyle_Data
 {
 	/* GetOwnerStyle (00ddb0a0), inline here. */

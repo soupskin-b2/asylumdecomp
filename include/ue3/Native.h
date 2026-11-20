@@ -24,6 +24,28 @@ extern UWorld* g_026b62b8;
 #define GWorld g_026b62b8
 extern UEngine* g_026c3cdc;
 #define GEngine g_026c3cdc
+
+/* UUIRoot's inline accessors (UnUIObjects.cpp; declared in Classes.h). */
+FORCEINLINE UUIInteraction* UUIRoot::GetCurrentUIController()
+{
+    UUIInteraction* Result = NULL;
+    if (GEngine != NULL && GEngine->GameViewport != NULL)
+    {
+        Result = GEngine->GameViewport->UIController;
+    }
+    return Result;
+}
+FORCEINLINE UGameUISceneClient* UUIRoot::GetSceneClient()
+{
+    UGameUISceneClient* Result = NULL;
+    UUIInteraction* UIController = GetCurrentUIController();
+    if (UIController != NULL)
+    {
+        Result = UIController->SceneClient;
+    }
+    return Result;
+}
+
 extern TArray<UObject*> g_026a1ca4;
 #define GObjObjects g_026a1ca4
 

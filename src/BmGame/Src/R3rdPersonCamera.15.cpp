@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-#define KINDA_SMALL_NUMBER (1.e-4)
 // @baa 0x01689920
 FVector AR3rdPersonCamera::sub_01689920(const FVector& Target, FLOAT DeltaTime)
 {

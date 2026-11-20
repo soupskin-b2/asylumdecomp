@@ -37,7 +37,6 @@ FArchive& operator<<(FArchive& Ar, FSkelMeshChunk& C)
     return Ar;
 }
 
-#define SMALL_NUMBER (1.e-8f)
 /* UnSkeletalMesh.cpp helper (0x00d776d0): world-space matrix of a bone */
 FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld);
 class FPrimitiveDrawInterface;

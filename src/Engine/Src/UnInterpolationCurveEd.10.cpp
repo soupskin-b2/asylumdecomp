@@ -4,11 +4,8 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* FInterpCurve<FLOAT>::Eval (006eb030, out of line); the kit's FInterpCurveFloat doesn't declare it. */
-
-
 // @baa 0x00cfbd70
-/* UInterpTrackFade::GetFadeAmountAtTime (UE3 UnInterpolation.cpp; not declared in the kit). */
+/* UInterpTrackFade::GetFadeAmountAtTime (UE3 UnInterpolation.cpp). */
 FLOAT UInterpTrackFade::GetFadeAmountAtTime(FLOAT Time)
 {
     FLOAT FadeAmount = FloatTrack.Eval(Time, 0.f);

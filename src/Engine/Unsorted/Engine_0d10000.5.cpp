@@ -7,25 +7,12 @@
 /* UnObjBas.h CastChecked<T> (a Cast that fails loudly): out of line in this build, so only declared here. */
 template<class T> T* CastChecked(UObject* Src);
 extern template APlayerController* Cast<APlayerController>(UObject* Src);
-/* UE3's inline UObject::GetOuter() and UInterpGroupInst::GetGroupActor() (the kit lacks both). */
-inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
-
-inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
-{
-    if (GrInst->GroupActor == NULL || GrInst->GroupActor->bDeleteMe)
-    {
-        return NULL;
-    }
-    return GrInst->GroupActor;
-}
-
-
 // @baa 0x00d10790
 /* UE3's UInterpTrackColorScale::UpdateTrack: set the player camera's color scale from the curve. */
 void UInterpTrackColorScale::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
-    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
-    APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
+    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+    APlayerController* PC = Cast<APlayerController>(GrInst->GetGroupActor());
     if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
     {
         PC->PlayerCamera->bEnableColorScaling = TRUE;

@@ -5,7 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-#define BIG_NUMBER (3.4e+38f)
 // @baa 0x00cf4500
 /* Snaps to the closest position key not in IgnoreKeys; FALSE when there is none. */
 UBOOL UInterpTrackMove::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)

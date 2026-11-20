@@ -5,8 +5,9 @@
 #include "ue3/AppMath.h"
 #include "ue3/Cast.h"
 
-/* UnMath.h */
-#define SMALL_NUMBER	(1.e-8f)
+/* UnMath.h's SMALL_NUMBER as a float: the kit's (1.e-8) is a double, which changes the compare here */
+#undef SMALL_NUMBER
+#define SMALL_NUMBER (1.e-8f)
 
 // @baa 0x00764a50
 /* UnActor.cpp: has every mesh component prestream its textures for Seconds (0 = indefinitely, i.e. 30 days). */

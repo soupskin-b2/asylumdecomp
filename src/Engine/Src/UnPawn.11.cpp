@@ -4,8 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-#undef GWorld
-#define GWorld ((UWorld*)g_026b62b8)
 
 // @baa 0x008650a0
 UBOOL APawn::IsLocallyControlled()

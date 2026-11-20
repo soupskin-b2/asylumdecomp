@@ -371,41 +371,22 @@ struct FStaticLODModelArray : public TArray<FStaticLODModel*>
     }
 };
 
-/* a triangle's three corners. Its name is unknown; not in the kit. */
+/* a triangle's three corners (its UE3 name is unknown) */
 struct FSkelMeshTriangle
 {
     FVector Vertices[3];
-};
-
-/* TArray<FSkelMeshTriangle> with UE3's Reserve and AddItem */
-struct FSkelMeshTriangleArray : public TArray<FSkelMeshTriangle>
-{
-    void Reserve(INT Number)
-    {
-        if (Number > ArrayMax)
-        {
-            ArrayMax = Number;
-            AllocatorInstance.ResizeAllocation(ArrayNum, ArrayMax, sizeof(FSkelMeshTriangle));
-        }
-    }
-    INT AddItem(const FSkelMeshTriangle& Item)
-    {
-        const INT Index = Add(1);
-        new(GetTypedData() + Index) FSkelMeshTriangle(Item);
-        return Index;
-    }
 };
 
 /* USkeletalMesh with the native type of LODModels and this undeclared method */
 struct USkeletalMesh_ : public USkeletalMesh
 {
     FStaticLODModelArray& GetLODModels() { return (FStaticLODModelArray&)LODModels; }
-    void GetTriangles(FSkelMeshTriangleArray& OutTriangles);
+    void GetTriangles(TArray<FSkelMeshTriangle>& OutTriangles);
 };
 
 // @baa 0x0095f040
 /* add the triangles of the base LOD, by vertex position, to OutTriangles (the name of this method is unknown) */
-void USkeletalMesh_::GetTriangles(FSkelMeshTriangleArray& OutTriangles)
+void USkeletalMesh_::GetTriangles(TArray<FSkelMeshTriangle>& OutTriangles)
 {
     const INT NumIndices = GetLODModels()(0).IndexBuffer.Indices.Num();
     const INT NumTriangles = NumIndices / 3;

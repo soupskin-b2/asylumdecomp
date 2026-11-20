@@ -8,12 +8,6 @@
 #define NUM_PLANES 3
 /* the tolerance on hits against a node's bounds (UnkDOP.h) */
 #define FUDGE_SIZE 0.1f
-/* the max component of a vector (FVector::GetMax, UnMath.h; not in the kit) */
-static FORCEINLINE FLOAT GetMax(const FVector& V)
-{
-    return Max(Max(V.X, V.Y), V.Z);
-}
-
 /* TkDOPLineCollisionCheck<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a line check against a bone's
  * per-poly collision. Only the local-space line is used here. Not in the kit. */
 struct FSkelMeshkDOPLineCollisionCheck
@@ -125,7 +119,7 @@ UBOOL FkDOP::LineCheck(FSkelMeshkDOPLineCollisionCheck& Check, FLOAT& HitTime)
     }
 
     // the furthest entry plane is where it hits
-    HitTime = GetMax(Time);
+    HitTime = Time.GetMax();
 
     if (HitTime >= 0.0f && HitTime <= 1.0f)
     {

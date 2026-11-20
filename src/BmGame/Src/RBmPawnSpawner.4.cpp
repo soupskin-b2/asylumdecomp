@@ -5,8 +5,7 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: Cast<URCharacterRandom> (out of line, 0x015f7190), the GetRandomType script event glue
- * (0x015d94e0) and UMeshComponent::SetMaterial (0x006ea640) aren't declared. */
+/* Cast<URCharacterRandom> is out of line here (0x015f7190): declared, not defined, so the call binds to that copy. */
 template<class T> T* Cast(UObject* Src);
 
 // @baa 0x015fa180

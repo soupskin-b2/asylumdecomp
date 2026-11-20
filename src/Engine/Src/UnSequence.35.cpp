@@ -6,8 +6,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* UnMath.h */
-#define SMALL_NUMBER (1.e-8f)
 /* Force (or stop forcing) the materials' mips resident for Duration, here and on
  * every remote player. */
 

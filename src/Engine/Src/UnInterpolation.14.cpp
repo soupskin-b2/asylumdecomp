@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-#define KINDA_SMALL_NUMBER (1.e-4)
 // @baa 0x00cf41f0
 /* The track's key range; the position, rotation and lookup tracks always carry the same keys. */
 void UInterpTrackMove::GetTimeRange(FLOAT& StartTime, FLOAT& EndTime)

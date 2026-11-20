@@ -22,7 +22,6 @@ FORCEINLINE FLOAT appInvSqrtSSE(FLOAT F)
 	return temp;
 }
 
-#define SMALL_NUMBER (1.e-8f)
 // @baa 0x015dd3a0
 /* The flat direction an attack step animation travels in, mirrored for mirrored combat. */
 FVector URBMBehaviour_Combat::GetStepDirection(UAnimSequence* Anim)

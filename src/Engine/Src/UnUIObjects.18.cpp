@@ -3,6 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
+#include "ue3/Native.h"
 
 // @baa 0x00ca3190
 void UUIScreenObject::execInitializePlayerTracking( FFrame& Stack, RESULT_DECL )
@@ -549,19 +550,8 @@ void UUIObject::execSetPrivateBehavior(FFrame& Stack, RESULT_DECL)
 	SetPrivateBehavior(Behavior, Value, bRecurse);
 }
 
-extern UEngine* GEngine;
-
 struct UUIScreenObject__00da96c0 : public UUIScreenObject
 {
-	static UUIInteraction* GetCurrentUIController()
-	{
-		UUIInteraction* Result = NULL;
-		if ( GEngine != NULL && GEngine->GameViewport != NULL )
-		{
-			Result = GEngine->GameViewport->UIController;
-		}
-		return Result;
-	}
 	static UBOOL PlayUISound( FName SoundCueName, INT PlayerIndex )
 	{
 		UBOOL bResult = FALSE;
@@ -920,22 +910,8 @@ void UUIScene__00cb4040::execSetSceneRenderMode(FFrame& Stack, RESULT_DECL)
 
 #line 1432 "candidate.cpp"
 
-struct UUIRoot__00da8920 : public UUIRoot
-{
-	static UUIInteraction* GetCurrentUIController()
-	{
-		UUIInteraction* Result = NULL;
-		if ( GEngine != NULL && GEngine->GameViewport != NULL )
-		{
-			Result = GEngine->GameViewport->UIController;
-		}
-		return Result;
-	}
-	void execGetCurrentUIController(FFrame& Stack, RESULT_DECL);
-};
-
 // @baa 0x00da8920
-void UUIRoot__00da8920::execGetCurrentUIController(FFrame& Stack, RESULT_DECL)
+void UUIRoot::execGetCurrentUIController(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
 	*(UUIInteraction**)Result = GetCurrentUIController();

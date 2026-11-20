@@ -18,17 +18,14 @@ undefined4 C_007615b0::sub_007615b0(byte param_2)
   return param_1;
 }
 
-/* Kit gap: CastChecked<T> (UnObjBas.h) isn't declared; this build has CastChecked<ULevel> out of line (0x00766bb0). */
+/* This build has CastChecked<ULevel> out of line (0x00766bb0): declared, not defined (no ue3/Cast.h), so the call binds to it. */
 template<class T> T* CastChecked(UObject* Src);
-/* Kit gap: UObject::GetOuter() (UnObjBas.h) is missing; same inline accessor. */
-inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
-
 extern template ULevel* CastChecked<ULevel>(UObject* Src);
 
 // @baa 0x00769d90
 ULevel* AActor::sub_00769d90() const
 {
-    return CastChecked<ULevel>(GetOuterOf(this));
+    return CastChecked<ULevel>(GetOuter());
 }
 
 

@@ -6,8 +6,6 @@
 
 /* Kit gaps, with UE3's definitions (UnMath.h, UnInterpolation): PI and HALF_PI, CubicInterp (out of line here,
  * instantiated for FLOAT) and FInterpEaseInOut (out of line) (EAlphaBlendType is in the kit). */
-#define PI 		(3.1415926535897932)
-#define HALF_PI		(1.57079632679)
 template<class T, class U> T CubicInterp(const T& P0, const T& T0, const T& P1, const T& T1, const U& A);
 	/* <FLOAT, FLOAT>: 0059bb10 */
 FLOAT FInterpEaseInOut(FLOAT A, FLOAT B, FLOAT Alpha, FLOAT Exp);
@@ -31,9 +29,6 @@ FLOAT UAnimNodeBlendBase::GetBlendWeight(FLOAT ChildWeight)
 	return ChildWeight;
 }
 
-/* FVector::Size (UnMath.h), not in the kit. */
-static inline FLOAT VSize(const FVector& V) { return appSqrt(V.X * V.X + V.Y * V.Y + V.Z * V.Z); }
-
 // @baa 0x00c4b660
 FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 {
@@ -42,11 +37,11 @@ FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 	{
 		if (bUseAcceleration)
 		{
-			return VSize(Owner->Acceleration);
+			return Owner->Acceleration.Size();
 		}
 		else
 		{
-			return VSize(Owner->Velocity);
+			return Owner->Velocity.Size();
 		}
 	}
 	else
@@ -55,7 +50,6 @@ FLOAT UAnimNodeBlendBySpeed::CalcSpeed()
 	}
 }
 
-#define KINDA_SMALL_NUMBER (1.e-4)
 /* UAnimNodeScaleRateBySpeed's GetScaleValue override (UAnimNodeScalePlayRate vtable 0x19c, declared
  * only as vf_19c). */
 // @baa 0x00c4bb40

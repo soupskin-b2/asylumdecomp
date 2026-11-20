@@ -376,6 +376,8 @@ void USkelControlBase__0090cf30::SetSkelControlStrength(FLOAT NewStrength)
     StrengthTarget = NewStrength;
 }
 
+/* This file's threshold is 1.e-5f (the exe compares against that constant), not UnMath.h's KINDA_SMALL_NUMBER (1.e-4). */
+#undef KINDA_SMALL_NUMBER
 #define KINDA_SMALL_NUMBER (1.e-5f)
 
 // @baa 0x0090d0f0

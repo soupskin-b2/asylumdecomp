@@ -191741,7 +191741,7 @@
     {
      "va": "00d6e600",
      "size": 20,
-     "symbol": "??9FSettingsData_@@QBEHPB_W@Z"
+     "symbol": "??9FSettingsData@@QBEHABVFString@@@Z"
     }
    ]
   },
@@ -227209,7 +227209,7 @@
     {
      "va": "00892430",
      "size": 180,
-     "symbol": "?Tick@UGameViewportClient__00892430@@QAEXM@Z"
+     "symbol": "?Tick@UGameViewportClient@@QAEXM@Z"
     },
     {
      "va": "00895da0",
@@ -241674,7 +241674,7 @@
     {
      "va": "0095f040",
      "size": 499,
-     "symbol": "?GetTriangles@USkeletalMesh_@@QAEXAAUFSkelMeshTriangleArray@@@Z"
+     "symbol": "?GetTriangles@USkeletalMesh_@@QAEXAAV?$TArray@UFSkelMeshTriangle@@@@@Z"
     },
     {
      "va": "00975820",
@@ -251482,7 +251482,7 @@
     {
      "va": "00da8920",
      "size": 89,
-     "symbol": "?execGetCurrentUIController@UUIRoot__00da8920@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execGetCurrentUIController@UUIRoot@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "00da89e0",
@@ -297010,7 +297010,7 @@
     {
      "va": "007a0860",
      "size": 112,
-     "symbol": "?execPollWaitForLanding@AController_@@QAEXAAUFFrame@@QAX@Z"
+     "symbol": "?execPollWaitForLanding@AController@@QAEXAAUFFrame@@QAX@Z"
     },
     {
      "va": "007a0dc0",

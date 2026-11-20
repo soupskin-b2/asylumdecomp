@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* UE3's checkf (UnBuild.h): check with a formatted message */
-#define checkf(expr, ...) { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, __VA_ARGS__); }
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;

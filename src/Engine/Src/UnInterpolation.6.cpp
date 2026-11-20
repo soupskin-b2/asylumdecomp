@@ -27,18 +27,6 @@ UInterpGroupDirector* USeqAct_Interp::sub_00d141c0()
 
 /* UnObjBas.h CastChecked<T> (a Cast that fails loudly): out of line in this build, so only declared here. */
 template<class T> T* CastChecked(UObject* Src);
-/* UE3's inline UObject::GetOuter() and UInterpGroupInst::GetGroupActor() (the kit lacks both). */
-inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
-
-inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
-{
-    if (GrInst->GroupActor == NULL || GrInst->GroupActor->bDeleteMe)
-    {
-        return NULL;
-    }
-    return GrInst->GroupActor;
-}
-
 /* UE3's AActor::eventGetActorFXAsset() (script event glue). */
 
 // @baa 0x00d1c8c0
@@ -46,10 +34,10 @@ inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
  * asset and start from the sequence's current position. */
 void UInterpTrackInstFaceFX::InitTrackInst(UInterpTrack* Track)
 {
-    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(this));
-    USeqAct_Interp* Seq = CastChecked<USeqAct_Interp>(GetOuterOf(GrInst));
+    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(this->GetOuter());
+    USeqAct_Interp* Seq = CastChecked<USeqAct_Interp>(GrInst->GetOuter());
     UInterpTrackFaceFX* FaceFXTrack = CastChecked<UInterpTrackFaceFX>(Track);
-    AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
+    AActor* Actor = CastChecked<UInterpGroupInst>(this->GetOuter())->GetGroupActor();
     if (Actor != NULL)
     {
         UFaceFXAsset* Asset = Actor->eventGetActorFaceFXAsset();

@@ -5,8 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* UnMemory.h */
-#define appMemcpy memcpy
 /* FPackedNormal (UnMath.h): a unit vector packed into 4 bytes. */
 struct FPackedNormal
 {

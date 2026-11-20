@@ -4,8 +4,7 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gaps: UObject::GetOutermost (005d7350) isn't declared, UPackage is only forward-declared
- * (PackageFlags at 0x74), and the TArray::Remove instances are out of line here. */
+/* The TArray::Remove instances this file calls are out of line (each bound by its address). */
 struct FVectorArray : public TArray<FVector>	{ void sub_00667a40(INT Index, INT Count); };
 
 	/* Remove */
@@ -15,8 +14,6 @@ struct FQuatArray : public TArray<FQuat>	{ void sub_00921320(INT Index, INT Coun
 struct FFloatArray : public TArray<FLOAT>	{ void sub_00920980(INT Index, INT Count); };
 
 	/* Remove */
-template< class T > inline T Max3( const T A, const T B, const T C ) { return Max( Max( A, B ), C ); }
-
 
 // @baa 0x0092a830
 /* Cuts the raw keys before (bFromStart) or after CurrentTime, and respaces what's left over the new length. */

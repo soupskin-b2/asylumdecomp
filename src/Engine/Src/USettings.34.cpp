@@ -3,9 +3,8 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps: FName's comparison (UnName.h), FScriptDelegate::IsCallable, the delegateNotifyPropertyValueUpdated
- * glue, and the structcpptext of FSettingsData (operator=, 0x00d74260) / FSettingsProperty (operator=) aren't
- * declared; TArray::AddZeroed isn't in the kit's TArray. */
+/* Inline here: FScriptDelegate::IsCallable (the kit's is out of line, 0x00784f80), the delegateNotifyPropertyValueUpdated
+ * glue and FSettingsProperty's operator= (structcpptext, not in the kit). */
 extern FName g_026c47e8;
  /* NotifyPropertyValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate

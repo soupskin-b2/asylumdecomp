@@ -6,10 +6,8 @@
 #include "ue3/Implement.h"
 #include "ue3/Enums.h"
 
-/* Kit gap: FSettingsData's structcpptext (CleanUp, SetData), FScriptDelegate::IsCallable and the
- * delegateNotifySettingValueUpdated glue (inlined here; out of line at 00d67120) aren't declared. */
-
-/* FName's comparison (UnName.h); the kit's FName has none. */
+/* Inline here, out of line in the kit: FScriptDelegate::IsCallable (0x00784f80), FSettingsData::SetData(INT) (0x00d6e2e0)
+ * and the delegateNotifySettingValueUpdated glue (00d67120). */
 extern FName g_026c438c;
 	/* NotifySettingValueUpdated */
 struct FScriptDelegate_ : public FScriptDelegate

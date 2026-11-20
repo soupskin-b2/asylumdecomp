@@ -113,16 +113,7 @@ template<INT Size> struct TAlignedBytes<Size, 8> { __declspec(align(8)) struct T
 template<INT Size> struct TAlignedBytes<Size, 16> { __declspec(align(16)) struct TPadding { BYTE Pad[Size]; }; TPadding Padding; };
 template<typename ElementType> struct TTypeCompatibleBytes : public TAlignedBytes<sizeof(ElementType), __alignof(ElementType)> {};
 
-/* UnMath.h: the smallest power of two >= Arg (1 for 0), with the bit scans inline. */
-FORCEINLINE DWORD appCeilLogTwo(DWORD Arg)
-{
-	INT Bitmask = ((INT)(appCountLeadingZeros(Arg) << 26)) >> 31;
-	return (32 - appCountLeadingZeros(Arg - 1)) & (~Bitmask);
-}
-FORCEINLINE DWORD appRoundUpToPowerOfTwo(DWORD Arg)
-{
-	return 1 << appCeilLogTwo(Arg);
-}
+/* appCeilLogTwo / appRoundUpToPowerOfTwo: AppMath.h */
 
 /*-----------------------------------------------------------------------------
 	Hashes

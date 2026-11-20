@@ -6,17 +6,6 @@
 #include "ue3/Array.h"
 
 /* placement new as UE3 declares it (UnTemplate.h) */
-/* TArray::AddItem (Array.h): the kit's TArray lacks it */
-struct FIntArray : public TArray<INT> {
-    INT AddItem(const INT& Item)
-    {
-        const INT Index = Add(1);
-        ::new(GetTypedData() + Index) INT(Item);
-        return Index;
-    }
-};
-
-
 // @baa 0x00a09a70
 void UPhysicsAsset::GetBodyIndicesBelow(TArray<INT>& OutBodyIndices, FName InBoneName, USkeletalMesh* SkelMesh)
 {

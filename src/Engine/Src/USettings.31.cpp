@@ -6,8 +6,7 @@
 #include "ue3/Array.h"
 #include <string.h>
 
-/* Kit gaps: TArray::AddZeroed isn't declared (Array.h), and this file calls TArray<FIdToStringMapping>::Add out of
- * line (00d6ccc0). */
+/* This file calls TArray<FIdToStringMapping>::Add out of line (00d6ccc0), so AddZeroed is spelled over that Add. */
 template<class T> struct TArrayAdd_ : public TArray<T>
 {
 	INT Add(INT Count);

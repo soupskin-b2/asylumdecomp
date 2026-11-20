@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-#define THRESH_POINTS_ARE_SAME 0.002f	/* UnMath.h */
 // @baa 0x00d452d0
 /* UnStaticMeshBuild.cpp PointsEqual: whether two vectors are equal within four times THRESH_POINTS_ARE_SAME. */
 UBOOL sub_00d452d0(const FVector& V1, const FVector& V2)
@@ -16,7 +15,6 @@ UBOOL sub_00d452d0(const FVector& V1, const FVector& V2)
 	return TRUE;
 }
 
-#define THRESH_NORMALS_ARE_SAME 0.00002f	/* UnMath.h */
 // @baa 0x00d45310
 /* UnStaticMeshBuild.cpp NormalsEqual: whether two vectors are equal within four times THRESH_NORMALS_ARE_SAME. */
 UBOOL sub_00d45310(const FVector& V1, const FVector& V2)

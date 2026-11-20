@@ -1979,8 +1979,6 @@ S009652b0* sub_009652b0_probe()
 	return S.sub_009652b0();
 }
 
-/* UE3's checkf (UnBuild.h): check with a formatted message */
-#define checkf(expr, ...) { if (!(expr)) appFailAssert(#expr, __FILE__, __LINE__, __VA_ARGS__); }
 /* the package versions this build writes (UnObjVer.h); the kit doesn't declare them */
 extern INT GPackageFileVersion;
 extern INT GPackageFileLicenseeVersion;

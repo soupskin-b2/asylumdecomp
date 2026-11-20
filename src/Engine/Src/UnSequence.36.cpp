@@ -7,7 +7,8 @@
 #include "ue3/Classes.h"
 #include "ue3/Native.h"
 
-/* UnMath.h */
+/* UnMath.h's SMALL_NUMBER as a float: the kit's (1.e-8) is a double, which changes the compare here */
+#undef SMALL_NUMBER
 #define SMALL_NUMBER (1.e-8f)
 /* Force (or stop forcing) the materials' mips resident for Duration, here and on
  * every remote player. */

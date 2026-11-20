@@ -3,12 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gap: FGuid's comparison (UnMisc.h), for the script-struct mirror FWIDGET_ID. */
-inline UBOOL operator==(const FGuidImplementation& X, const FGuidImplementation& Y)
-{
-    return ((X.A ^ Y.A) | (X.B ^ Y.B) | (X.C ^ Y.C) | (X.D ^ Y.D)) == 0;
-}
-
 // @baa 0x00daf4f0
 /* UE3's UUIScreenObject::FindChildUsingID(FWIDGET_ID WidgetID, UBOOL bRecurse): the child tagged WidgetName
  * (FindChildIndex inlined), else, with bRecurse, the first match among the descendants. */

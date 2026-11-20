@@ -6,8 +6,6 @@
 #include "ue3/Array.h"
 #include <string.h>
 
-/* UnFile.h */
-#define appMemcpy memcpy
 /* TArray<T>::Copy for a 4-byte bitwise-copyable T (Array.h), out of line in the exe */
 struct FDwordArray : public TArray<DWORD> {
     void sub_0087d630(const FDwordArray& Source); // Copy

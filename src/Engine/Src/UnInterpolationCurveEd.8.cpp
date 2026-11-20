@@ -5,7 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-#define BIG_NUMBER (3.4e+38f) /* UnMath.h */
 // @baa 0x00cf7050
 UBOOL UInterpTrackVisibility::GetClosestSnapPosition(FLOAT InPosition, TArray<INT>& IgnoreKeys, FLOAT& OutPosition)
 {

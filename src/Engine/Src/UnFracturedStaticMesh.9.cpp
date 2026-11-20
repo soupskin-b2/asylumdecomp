@@ -5,8 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* UnMemory.h (memcpy, which the compiler emits as a call to the CRT copy) */
-#define appMemcpy memcpy
 /* TArray<FMatrix> (e.g. USkeletalMesh::RefBasesInvMatrix) */
 struct FMatrixArray : public TArray<FMatrix>
 {

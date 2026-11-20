@@ -5,8 +5,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* UnMemory.h (memcpy, which the compiler emits as a call to the CRT copy) */
-#define appMemcpy memcpy
 /* TArray<FMeshBone> (USkeletalMesh::RefSkeleton) with its out-of-line Empty (0x009582f0) */
 struct FRefSkeletonArray : public TArray<FMeshBone>
 {

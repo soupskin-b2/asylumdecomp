@@ -6,25 +6,13 @@
 
 /* UnObjBas.h CastChecked<T> (a Cast that fails loudly): out of line in this build, so only declared here. */
 template<class T> T* CastChecked(UObject* Src);
-/* UE3's inline UObject::GetOuter() and UInterpGroupInst::GetGroupActor() (the kit lacks both). */
-inline UObject* GetOuterOf(const UObject* Object) { return Object->Outer; }
-
-inline AActor* GetGroupActorOf(UInterpGroupInst* GrInst)
-{
-    if (GrInst->GroupActor == NULL || GrInst->GroupActor->bDeleteMe)
-    {
-        return NULL;
-    }
-    return GrInst->GroupActor;
-}
-
 // @baa 0x00d16230
 /* UInterpTrackInstFloatParticleParam slot 0x110 (UE3 RestoreActorState(UInterpTrack* Track)): put the saved value
  * back into the emitter's particle parameter. */
 void UInterpTrackInstFloatParticleParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatParticleParam* ParamTrack = CastChecked<UInterpTrackFloatParticleParam>(Track);
-    AEmitter* Emitter = Cast<AEmitter>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    AEmitter* Emitter = Cast<AEmitter>(CastChecked<UInterpGroupInst>(this->GetOuter())->GetGroupActor());
     if (Emitter != NULL)
     {
         Emitter->ParticleSystemComponent->SetFloatParameter(ParamTrack->ParamName, ResetFloat);
@@ -36,7 +24,7 @@ void UInterpTrackInstFloatParticleParam::RestoreActorState(UInterpTrack* Track)
  * particle system out of replay mode (PRS_Disabled, clip and frame 0). */
 void UInterpTrackInstParticleReplay::RestoreActorState(UInterpTrack* Track)
 {
-    AActor* Actor = GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this)));
+    AActor* Actor = CastChecked<UInterpGroupInst>(this->GetOuter())->GetGroupActor();
     if (Actor != NULL)
     {
         AEmitter* Emitter = Cast<AEmitter>(Actor);
@@ -57,7 +45,7 @@ void UInterpTrackInstSoundFade::InitTrackInst(UInterpTrack* Track)
     UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
     if (SoundFadeTrack->ResetVolume)
     {
-        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(this->GetOuter())->GroupActor);
         if (PC != NULL && PC->PlayerCamera != NULL)
         {
             storedSoundFade = PC->PlayerCamera->SoundFadeAmount;
@@ -73,7 +61,7 @@ void UInterpTrackInstSoundFade::TermTrackInst(UInterpTrack* Track)
     UInterpTrackSoundFade* SoundFadeTrack = CastChecked<UInterpTrackSoundFade>(Track);
     if (SoundFadeTrack->ResetVolume)
     {
-        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+        APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(this->GetOuter())->GroupActor);
         if (PC != NULL && PC->PlayerCamera != NULL && !PC->PlayerCamera->bDeleteMe)
         {
             PC->PlayerCamera->SoundFadeAmount = storedSoundFade;
@@ -87,7 +75,7 @@ void UInterpTrackInstSoundFade::TermTrackInst(UInterpTrack* Track)
 void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackFloatMaterialParam* ParamTrack = CastChecked<UInterpTrackFloatMaterialParam>(Track);
-    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(CastChecked<UInterpGroupInst>(this->GetOuter())->GetGroupActor());
     if (MatInstActor != NULL && MatInstActor->MatInst != NULL)
     {
         MatInstActor->MatInst->SetScalarParameterValue(ParamTrack->ParamName, ResetFloat);
@@ -99,7 +87,7 @@ void UInterpTrackInstFloatMaterialParam::RestoreActorState(UInterpTrack* Track)
  * player camera and reset the scale. */
 void UInterpTrackInstColorScale::TermTrackInst(UInterpTrack* Track)
 {
-    APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(GetOuterOf(this))->GroupActor);
+    APlayerController* PC = Cast<APlayerController>(CastChecked<UInterpGroupInst>(this->GetOuter())->GroupActor);
     if (PC != NULL && PC->PlayerCamera != NULL && !PC->PlayerCamera->bDeleteMe)
     {
         PC->PlayerCamera->bEnableColorScaling = FALSE;
@@ -113,7 +101,7 @@ void UInterpTrackInstColorScale::TermTrackInst(UInterpTrack* Track)
 void UInterpTrackInstVectorMaterialParam::RestoreActorState(UInterpTrack* Track)
 {
     UInterpTrackVectorMaterialParam* ParamTrack = CastChecked<UInterpTrackVectorMaterialParam>(Track);
-    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(GetGroupActorOf(CastChecked<UInterpGroupInst>(GetOuterOf(this))));
+    AMaterialInstanceActor* MatInstActor = Cast<AMaterialInstanceActor>(CastChecked<UInterpGroupInst>(this->GetOuter())->GetGroupActor());
     if (MatInstActor != NULL && MatInstActor->MatInst != NULL)
     {
         FLinearColor ResetColor;
@@ -157,8 +145,8 @@ extern template APlayerController* Cast<APlayerController>(UObject* Src);
 /* UE3's UInterpTrackSoundFade::UpdateTrack: set the player camera's sound fade from the curve. */
 void UInterpTrackSoundFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
-    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
-    APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
+    UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+    APlayerController* PC = Cast<APlayerController>(GrInst->GetGroupActor());
     if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
     {
         PC->PlayerCamera->SoundFadeAmount = ((UInterpTrackSoundFade*)this)->sub_00cfbe50(NewPosition);
@@ -172,8 +160,8 @@ void UInterpTrackFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, 
 {
     if (!bJump)
     {
-        UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(GetOuterOf(TrInst));
-        APlayerController* PC = Cast<APlayerController>(GetGroupActorOf(GrInst));
+        UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
+        APlayerController* PC = Cast<APlayerController>(GrInst->GetGroupActor());
         if (PC && PC->PlayerCamera && !PC->PlayerCamera->bDeleteMe)
         {
             PC->PlayerCamera->bEnableFading = TRUE;
@@ -189,7 +177,7 @@ void UInterpTrackFade::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, 
 void UInterpTrackMorphWeight::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
-	AActor* Actor = GetGroupActorOf(GrInst);
+	AActor* Actor = GrInst->GetGroupActor();
 	if (Actor)
 	{
 		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
@@ -203,7 +191,7 @@ void UInterpTrackMorphWeight::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* T
 void UInterpTrackSkelControlScale::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
-	AActor* Actor = GetGroupActorOf(GrInst);
+	AActor* Actor = GrInst->GetGroupActor();
 	if (Actor)
 	{
 		FLOAT NewFloatValue = FloatTrack.Eval(NewPosition, 0.f);
@@ -217,7 +205,7 @@ void UInterpTrackSkelControlScale::UpdateTrack(FLOAT NewPosition, UInterpTrackIn
 void UInterpTrackFaceFXRegister::UpdateTrack(FLOAT NewPosition, UInterpTrackInst* TrInst, UBOOL bJump)
 {
 	UInterpGroupInst* GrInst = CastChecked<UInterpGroupInst>(TrInst->GetOuter());
-	AActor* Actor = GetGroupActorOf(GrInst);
+	AActor* Actor = GrInst->GetGroupActor();
 	if (Actor)
 	{
 		((AActor*)Actor)->eventSetFaceFXRegister(Register, FloatTrack.Eval(NewPosition, 0.f), Operation);

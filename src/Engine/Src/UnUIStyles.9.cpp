@@ -4,23 +4,17 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: FGuid::IsValid / operator= on FSTYLE_ID (FGuidImplementation has no members). */
-inline UBOOL IsValidStyleID(const FSTYLE_ID& ID)
-{
-	return (ID.A | ID.B | ID.C | ID.D) != 0;
-}
-
 // @baa 0x00ddb0d0
 /* vf_01c is PostLoad: older packages saved the referenced styles without their IDs or owners; fill them in. */
 void UUIStyle_Combo::PostLoad()
 {
 	Super::PostLoad();
 
-	if (TextStyle.SourceStyle && !IsValidStyleID(TextStyle.SourceStyleID))
+	if (TextStyle.SourceStyle && !TextStyle.SourceStyleID.IsValid())
 	{
 		TextStyle.SourceStyleID = TextStyle.SourceStyle->StyleID;
 	}
-	if (ImageStyle.SourceStyle && !IsValidStyleID(ImageStyle.SourceStyleID))
+	if (ImageStyle.SourceStyle && !ImageStyle.SourceStyleID.IsValid())
 	{
 		ImageStyle.SourceStyleID = ImageStyle.SourceStyle->StyleID;
 	}

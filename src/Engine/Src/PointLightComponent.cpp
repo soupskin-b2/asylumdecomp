@@ -82,7 +82,6 @@ void UPointLightComponent::UpdatePreviewLightRadius()
 	}
 }
 
-#define SMALL_NUMBER (1.e-8f)
 // @baa 0x006e42d0
 /* Slot 0x184 (UE3's SetTransformedToWorld): the light's frame is the parent's, translated and with X and Z swapped,
  * without scaling. */

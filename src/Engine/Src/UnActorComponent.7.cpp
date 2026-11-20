@@ -80,36 +80,35 @@ UBOOL UStaticMeshComponentFactory::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-#define RF_PendingKill ((QWORD)0x0000000200000000)
 extern UBOOL g_025d6810;
 
 // @baa 0x007651d0
 UBOOL AActor::VerifyNoUnreachableReferences()
 {
-    UBOOL bPendingKill = FALSE;
+    UBOOL bFoundUnreachableReferences = FALSE;
     if (g_025d6810)
     {
-        if (this->HasAnyFlags(RF_PendingKill))
+        if (this->HasAnyFlags(RF_Unreachable))
         {
-            bPendingKill = TRUE;
+            bFoundUnreachableReferences = TRUE;
         }
         for (INT i = 0; i < Components.Num(); i++)
         {
             UActorComponent* Comp = Components(i);
-            if (Comp && Comp->HasAnyFlags(RF_PendingKill))
+            if (Comp && Comp->HasAnyFlags(RF_Unreachable))
             {
-                bPendingKill = TRUE;
+                bFoundUnreachableReferences = TRUE;
             }
         }
         for (INT i = 0; i < AllComponents.Num(); i++)
         {
             UActorComponent* Comp = AllComponents(i);
-            if (Comp && Comp->HasAnyFlags(RF_PendingKill))
+            if (Comp && Comp->HasAnyFlags(RF_Unreachable))
             {
-                bPendingKill = TRUE;
+                bFoundUnreachableReferences = TRUE;
             }
         }
-        if (bPendingKill)
+        if (bFoundUnreachableReferences)
         {
             // the log lines that listed the components are compiled out
             for (INT i = 0; i < Components.Num(); i++)
@@ -122,7 +121,7 @@ UBOOL AActor::VerifyNoUnreachableReferences()
             }
         }
     }
-    return !bPendingKill;
+    return !bFoundUnreachableReferences;
 }
 
 /* TArray<UActorComponent*>::RemoveItem as this build has it (Array.h:1032, the older remove-in-place form

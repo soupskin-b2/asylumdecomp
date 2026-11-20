@@ -6,13 +6,6 @@
 #include "ue3/AppMath.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: UnMath.h's appCeilLogTwo (inline). */
-FORCEINLINE DWORD appCeilLogTwo(DWORD Arg)
-{
-    INT Bitmask = ((INT)(appCountLeadingZeros(Arg) << 26)) >> 31;
-    return (32 - appCountLeadingZeros(Arg - 1)) & (~Bitmask);
-}
-
 // @baa 0x009574f0
 /* Keeps the light map resolution a power of two, drops decal materials from the overrides, and clamps the
  * subdivision settings. */
