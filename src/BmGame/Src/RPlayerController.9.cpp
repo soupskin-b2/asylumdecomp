@@ -422,14 +422,8 @@ INT __stdcall sub_016d2000(INT A)
 
 /* TArray<FString>::Empty is out of line in this build (0x00551710). */
 template<> void TArray<FString>::Empty(INT Slack);
-/* Kit gap: TArray::AddItem (UE3 Array.h) isn't declared; TArray<FString>'s copy is out of line. */
-struct FStringArray_ : public TArray<FString>
-{
-	INT AddItem(const FString& Item); /* 0x0054cfe0 */
-};
-
 /* The per-slot save descriptions shown in the load menu (one string list per save slot). */
-extern FStringArray_ g_026e2d88[];
+extern TArray<FString> g_026e2d88[];
 // @baa 0x0172d170
 void ARPlayerController::Live_StoreSaveInfo(INT Id, const FString& Difficulty, const FString& Percentage, const FString& TimePlayed, const FString& RoomName, const FString& ChallengeStr, const FString& RiddlerStr, const FString& UpgradesStr, const FString& BioStr)
 {

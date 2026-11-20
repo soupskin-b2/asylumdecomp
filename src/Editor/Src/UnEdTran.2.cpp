@@ -12,13 +12,8 @@ FString UTransactor::GetUndoDesc(UBOOL bCheckWhetherUndoPossible) PURE_VIRTUAL(U
 extern void* g_026667a8;
 extern TCHAR g_01e3f3dc[];
 int sub_00630f20(void*, const TCHAR*, ...);
-struct UTransactor__00f79430 : public UTransactor
-{
-	FString GetRedoDesc();
-};
-
 // @baa 0x00f79430
-FString UTransactor__00f79430::GetRedoDesc()
+FString UTransactor::GetRedoDesc()
 {
 	sub_00630f20(g_026667a8, L"Pure virtual not implemented (UTransactor::GetRedoDesc)", L"UTransactor::GetRedoDesc");
 	return FString(g_01e3f3dc);

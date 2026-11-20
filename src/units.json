@@ -136047,7 +136047,7 @@
     {
      "va": "00f79430",
      "size": 57,
-     "symbol": "?GetRedoDesc@UTransactor__00f79430@@UAE?AVFString@@XZ"
+     "symbol": "?GetRedoDesc@UTransactor@@UAE?AVFString@@XZ"
     },
     {
      "va": "00f9cf80",
@@ -189934,6 +189934,11 @@
      "symbol": "?sub_0072ad10@C@@QAEIE@Z"
     },
     {
+     "va": "0072fa80",
+     "size": 237,
+     "symbol": "?UpdateStreamingStatus@UTexture2D@@UAEHXZ"
+    },
+    {
      "va": "00732190",
      "size": 70,
      "symbol": "?InternalConstructor@UTexture2D@@SAXPAX@Z"
@@ -192389,7 +192394,7 @@
     {
      "va": "00d74260",
      "size": 88,
-     "symbol": "??4FSettingsData__00d74260@@QAEAAU0@ABU0@@Z"
+     "symbol": "??4FSettingsData@@QAEAAU0@ABU0@@Z"
     },
     {
      "va": "00d742e0",
@@ -299084,7 +299089,7 @@
     {
      "va": "007d5bb0",
      "size": 68,
-     "symbol": "?eventPostBeginPlay@AActor_@@QAEXXZ"
+     "symbol": "?eventPostBeginPlay@AActor@@QAEXXZ"
     },
     {
      "va": "007d5c00",
@@ -498742,6 +498747,11 @@
      "va": "0149b060",
      "size": 10,
      "symbol": "?sub_0149b060@C_0149b060@@QAEXH@Z"
+    },
+    {
+     "va": "0149b0e0",
+     "size": 71,
+     "symbol": "?UpdateActivePrimitives@UEditorUISceneClient@@UAEXPAVFCanvasScene@@@Z"
     },
     {
      "va": "0149b1e0",

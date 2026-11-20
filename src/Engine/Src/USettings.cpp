@@ -443,18 +443,9 @@ void FSettingsData::SetData(const TCHAR* InString)
 	}
 }
 
-/* Kit gap: FSettingsData's structcpptext (the SetData overloads and operator=) isn't declared. Its CleanUp is
- * folded with ~FSettingsData (00d67c50), which is what this calls. */
-struct FSettingsData__00d74260 : public FSettingsData
-{
-	void SetData(const TCHAR* InString); /* 0x00d6e1f0 */
-	void SetData(INT InSize, const BYTE* InData); /* 0x00d6e390 */
-	FSettingsData__00d74260& operator=(const FSettingsData__00d74260& Other);
-};
-
 // @baa 0x00d74260
 /* Copies another settings value, duplicating the string or blob it owns. */
-FSettingsData__00d74260& FSettingsData__00d74260::operator=(const FSettingsData__00d74260& Other)
+FSettingsData& FSettingsData::operator=(const FSettingsData& Other)
 {
 	if (this != &Other)
 	{
@@ -469,7 +460,7 @@ FSettingsData__00d74260& FSettingsData__00d74260::operator=(const FSettingsData_
 		else
 		{
 			// CleanUp(), then a plain copy.
-			this->~FSettingsData__00d74260();
+			this->~FSettingsData();
 			memcpy(this, &Other, sizeof(FSettingsData));
 		}
 	}
@@ -483,17 +474,11 @@ void USettings::SetSettingsDataString(FSettingsData& Data, const FString& InStri
 	Data.SetData(*(const FString&)InString);
 }
 
-struct FSettingsData__00d74300 : public FSettingsData
-{
-	void SetData(const TCHAR* InString); /* 0x00d6e1f0 */
-	FSettingsData__00d74300& operator=(const FSettingsData__00d74300& Other); /* 0x00d74260 */
-};
-
 // @baa 0x00d74300
 /* Copies one settings value into another. */
 void USettings::SetSettingsData(FSettingsData& Data, FSettingsData& Data2Copy)
 {
-	(FSettingsData__00d74300&)Data = (FSettingsData__00d74300&)Data2Copy;
+	Data = Data2Copy;
 }
 
 // @baa 0x00d742e0
@@ -510,13 +495,6 @@ void USettings::GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& OutBlob)
 	Data.GetData(OutBlob);
 }
 
-/* Kit gap: the structcpptext of FSettingsData (operator=), FSettingsProperty (copy constructor, operator=) and
- * FOnlineProfileSetting (operator=) isn't declared. */
-struct FSettingsData__00d79460 : public FSettingsData
-{
-	FSettingsData__00d79460& operator=(const FSettingsData__00d79460& Other); /* 0x00d74260 */
-};
-
 struct FSettingsProperty_ : public FSettingsProperty
 {
 	FSettingsProperty_(const FSettingsProperty_& Other);
@@ -525,7 +503,7 @@ struct FSettingsProperty_ : public FSettingsProperty
 		if (&Other != this)
 		{
 			PropertyId = Other.PropertyId;
-			Data = (const FSettingsData__00d79460&)Other.Data;
+			Data = Other.Data;
 		}
 		return *this;
 	}
@@ -540,7 +518,7 @@ struct FOnlineProfileSetting_ : public FOnlineProfileSetting
 FSettingsProperty_::FSettingsProperty_(const FSettingsProperty_& Other)
 {
 	PropertyId = Other.PropertyId;
-	(FSettingsData__00d79460&)Data = (const FSettingsData__00d79460&)Other.Data;
+	(FSettingsData&)Data = Other.Data;
 }
 
 // @baa 0x00d79460

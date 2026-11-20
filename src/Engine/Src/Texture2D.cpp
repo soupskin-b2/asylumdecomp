@@ -58,3 +58,42 @@ undefined4 C::sub_0072ad10(byte param_2)
 IMPLEMENT_CLASS_AT(UTexture2D, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2D.cpp", 25);
 
 // @baa 0x00733250
+
+// @baa 0x0072fa80
+/* Moves a pending mip change request along: finalizes it once the update part is done, and when finalization has
+ * finished either accepts the new mip count or rolls the request back (canceled, or the reallocation failed).
+ * Returns whether a request is still in flight. */
+UBOOL UTexture2D::UpdateStreamingStatus()
+{
+	UBOOL bHasPendingRequestInFlight = TRUE;
+	INT RequestStatus = PendingMipChangeRequestStatus.GetValue();
+	if (ResidentMips == RequestedMips)
+	{
+		#line 568 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2D.cpp"
+		check(RequestStatus == TEXTURE_READY_FOR_REQUESTS || RequestStatus == TEXTURE_PENDING_INITIALIZATION);
+		#line 569 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2D.cpp"
+		check(!bHasCancelationPending);
+		bHasPendingRequestInFlight = FALSE;
+	}
+	else if (RequestStatus == TEXTURE_READY_FOR_FINALIZATION)
+	{
+		#line 579 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2D.cpp"
+		check(Resource);
+		((FTexture2DResource*)Resource.Dummy)->BeginFinalizeMipCount();
+	}
+	else if (RequestStatus == TEXTURE_READY_FOR_REQUESTS)
+	{
+		FTexture2DResource* Texture2DResource = (FTexture2DResource*)Resource.Dummy;
+		if (bHasCancelationPending || (Texture2DResource && Texture2DResource->DidUpdateMipCountFail()))
+		{
+			RequestedMips = ResidentMips;
+			bHasCancelationPending = FALSE;
+		}
+		else
+		{
+			ResidentMips = RequestedMips;
+		}
+		bHasPendingRequestInFlight = FALSE;
+	}
+	return bHasPendingRequestInFlight;
+}

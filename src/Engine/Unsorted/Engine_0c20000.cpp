@@ -2160,13 +2160,6 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstant, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x00c2c310
 IMPLEMENT_CLASS_AT(UMaterialExpressionConstant2Vector, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 25);
 
-/* Kit gap: FString::Printf (UnString.h) isn't declared. */
-class FString_ : public FString
-{
-public:
-	static FString Printf(const TCHAR* Fmt, ...);
-};
-
 // @baa 0x00c2a4e0
 FString USpeechRecognition::GetDesc()
 {
@@ -2176,7 +2169,7 @@ FString USpeechRecognition::GetDesc()
 		FRecogVocabulary& Vocab = Vocabularies(i);
 		Count += Vocab.WhoDictionary.Num() + Vocab.WhatDictionary.Num() + Vocab.WhereDictionary.Num();
 	}
-	return FString_::Printf(TEXT("Items: %d"), Count);
+	return FString::Printf(TEXT("Items: %d"), Count);
 }
 
 #line 2184 "candidate.cpp"

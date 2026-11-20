@@ -68,13 +68,6 @@ void USkeletalMeshComponent::SetPhysicsAssetInstanceCached(UBOOL bCache)
 
 #line 90 "candidate.cpp"
 
-/* FRotationTranslationMatrix (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix : public FMatrix
-{
-public:
-    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
-};
-
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 // @baa 0x0091da00

@@ -91,49 +91,28 @@ void UObject::execLogInternalBoss(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 }
 
-/* Kit gap: FString::Printf (UnString.h) isn't declared. */
-class FString_ : public FString
-{
-public:
-	static FString Printf(const TCHAR* Fmt, ...);	/* 0x005488a0 */
-};
-
 // @baa 0x005ab860
 void UObject::execToHex(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(A);
 	P_FINISH;
-	*(FString*)Result = FString_::Printf(TEXT("%08X"), A);
+	*(FString*)Result = FString::Printf(TEXT("%08X"), A);
 }
-
-/* Kit gap: FString::ToUpper (UnString.h) isn't declared. */
-class FString__005abe50 : public FString
-{
-public:
-	FString ToUpper() const;	/* 0x0054df00 */
-};
 
 // @baa 0x005abe50
 void UObject::execCaps(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
 	P_FINISH;
-	*(FString*)Result = ((const FString__005abe50&)S).ToUpper();
+	*(FString*)Result = S.ToUpper();
 }
-
-/* Kit gap: FString::ToLower (UnString.h) isn't declared. */
-class FString__005abf20 : public FString
-{
-public:
-	FString ToLower() const;	/* 0x005aa530 */
-};
 
 // @baa 0x005abf20
 void UObject::execLocs(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STR(S);
 	P_FINISH;
-	*(FString*)Result = ((const FString__005abf20&)S).ToLower();
+	*(FString*)Result = S.ToLower();
 }
 
 /* Kit gap: FString::sub_005aa650 (UnString.h) isn't declared. */

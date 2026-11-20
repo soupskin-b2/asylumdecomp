@@ -223,6 +223,18 @@ undefined4 UEditorUISceneClient::vf_19c(void)
   return uVar1;
 }
 
+// @baa 0x0149b0e0
+/* Lets the scene update its primitives in the editor's canvas scene. */
+void UEditorUISceneClient::UpdateActivePrimitives(FCanvasScene* CanvasScene)
+{
+#line 1270 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\UnUIEditor.cpp"
+	check(CanvasScene);
+	if (Scene != NULL)
+	{
+		Scene->UpdateScenePrimitives(CanvasScene);
+	}
+}
+
 struct C_0149b060 {
     void sub_0149b060(int);
 };

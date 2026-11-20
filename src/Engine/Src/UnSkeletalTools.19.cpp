@@ -12,13 +12,6 @@ enum { VER_AA_SHADOW_EDGES_WORDS = 5 };
 enum { VER_AA_LOD_INFLUENCE_PAIRS = 0x216 };
 
 
-/* IsLoading is restated as this build compiles it (the flag normalized to 0/1), which the kit's inline doesn't do. */
-class FArchive_ : public FArchive
-{
-public:
-    UBOOL IsLoading() const { return ArIsLoading != 0; }
-};
-
 /* UnObjBas.h CastChecked<T>; out of line here (0x00980b40 for USkeletalMesh) */
 template<class T> T* CastChecked(UObject* Src);
 struct FSkelMeshSection;

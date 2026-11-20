@@ -63,13 +63,6 @@ INT UMaterialInstance::CompileStaticPermutation(INT Permutation, INT StaticPermu
     return Result;
 }
 
-/* Kit gap: UMaterialInstance::StaticPermutationResources is FMaterialResource* in UE3 but an FPointer mirror here; this
- * lets check() test it as the engine's pointer test does. */
-FORCEINLINE UBOOL operator!(const FPointer& P)
-{
-    return !P.Dummy;
-}
-
 // @baa 0x006aecb0
 /* UMaterialInstance slot 0x14c (kit vf_14c, UE3 FMaterialResource* GetMaterialResource(EShaderPlatform Platform)): the
  * instance's own static-permutation resource when it has one, else the parent's (returned as the kit's INT). */

@@ -40,25 +40,12 @@ void APlayerController::eventSetProgressMessage(BYTE MessageType, const FString&
 
 extern FName g_026c4570;
 	/* ENGINE_PostBeginPlay */
-/* Inlined here: the script-event glue for eventPostBeginPlay (0x007d5bb0); Classes.h declares the out-of-line copy.
- * PostBeginPlay is a probe function: the glue only calls into script when the current state probes for it. */
-struct AActor_ : public AActor
-{
-    FORCEINLINE void eventPostBeginPlay()
-    {
-        if (!StateFrame || (StateFrame->ProbeMask & ((QWORD)1 << (NAME_PostBeginPlay - NAME_PROBEMIN))))
-        {
-            ProcessEvent(FindFunctionChecked(g_026c4570), NULL);
-        }
-    }
-};
-
 // @baa 0x007d7170
 /* AActor slot 0x1d8: UE3's AActor::PostBeginPlay(): script PostBeginPlay, then the initial state and a base for
  * actors that should start on one (slot 0x124, UE3 FindBase). */
 void AActor::PostBeginPlay()
 {
-    ((AActor_*)this)->eventPostBeginPlay();
+    this->eventPostBeginPlay();
     bDonePostBeginPlay = TRUE;
     if (!bDeleteMe)
     {

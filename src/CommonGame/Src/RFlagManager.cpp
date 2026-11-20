@@ -143,20 +143,12 @@ FString URSeqVar_GlobalFlag::GetValueStr()
     return FlagName.ToString();
 }
 
-/* UE3's FStringNoInit::operator=(const FString&) (004899f0, out of line); the kit's FStringNoInit
- * doesn't declare it. */
-class FStringNoInit_ : public FStringNoInit
-{
-public:
-    FStringNoInit_& operator=(const FString& Other);
-};
-
 // @baa 0x01540870
 /* UObject::PostEditChange(UProperty* PropertyThatChanged) (slot 0x4c, a placeholder vf_04c taking
  * UINT in the kit): the action's comment shows the comment of the selected mode. */
 void URSeqAct_SwitchFlags::PostEditChange(UProperty* PropertyThatChanged)
 {
-    (FStringNoInit_&)ObjComment = Comments(Mode);
+    (FStringNoInit&)ObjComment = Comments(Mode);
 }
 
 // @baa 0x015406f0

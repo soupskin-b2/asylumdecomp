@@ -25,14 +25,8 @@ void UMaterialInterface::BeginDestroy()
 	Super::BeginDestroy();
 }
 
-/* Kit gap: FRenderCommandFence::GetNumPendingFences (0x0071f7e0) isn't declared. */
-struct FRenderCommandFence__006d9250 : public FRenderCommandFence_Mirror
-{
-	UINT GetNumPendingFences() const;
-};
-
 // @baa 0x006d9250
 UBOOL UMaterialInterface::IsReadyForFinishDestroy()
 {
-	return ((const FRenderCommandFence__006d9250&)ParentRefFence).GetNumPendingFences() == 0;
+	return ParentRefFence.GetNumPendingFences() == 0;
 }

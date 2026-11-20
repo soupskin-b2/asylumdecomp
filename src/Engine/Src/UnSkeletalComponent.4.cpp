@@ -254,15 +254,6 @@ void USkeletalMeshComponent::execFindClosestBone(FFrame& Stack, RESULT_DECL)
     *(FName*)Result = FindClosestBone(TestLocation, pBoneLocation, IgnoreScale);
 }
 
-/* FRotationTranslationMatrix (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix : public FMatrix
-{
-public:
-    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
-};
-
-/* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
-
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 // @baa 0x0091e8d0
@@ -288,13 +279,6 @@ void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DE
     }
 }
 
-/* FRotationTranslationMatrix_0091e6d0 (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix_0091e6d0 : public FMatrix
-{
-public:
-    FRotationTranslationMatrix_0091e6d0(const FRotator& Rot, const FVector& Origin);
-};
-
 // @baa 0x0091e6d0
 /* transform a world location and rotation into a bone's space */
 void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL)
@@ -310,7 +294,7 @@ void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL
     if (BoneIndex != INDEX_NONE)
     {
         FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
-        FMatrix WorldTM = FRotationTranslationMatrix_0091e6d0(InRotation, InPosition);
+        FMatrix WorldTM = FRotationTranslationMatrix(InRotation, InPosition);
         FMatrix LocalTM = WorldTM * BoneToWorldTM.InverseSafe();
 
         OutPosition = LocalTM.GetOrigin();

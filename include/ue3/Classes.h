@@ -3470,6 +3470,8 @@ struct FEditorPolyMember_4d0 {
 struct FPointer {
     /* Core.Pointer */
     INT Dummy; /* 0x0 */
+    /* lets check(Ptr) test a native pointer behind a script FPointer the way the engine's pointer test does */
+    UBOOL operator!() const { return !Dummy; }
 };
 
 struct FQWord {
@@ -3487,6 +3489,7 @@ struct FDouble {
 struct FThreadSafeCounter {
     /* Core.ThreadSafeCounter */
     volatile INT Value; /* 0x0 */
+    INT GetValue() const { return Value; }
 };
 
 struct FBitArray_Mirror {
@@ -3926,7 +3929,7 @@ struct FRotationMatrix : public FMatrix {
 };
 /* UnMath.h: a rotation followed by a translation (the constructor is out of line) */
 struct FRotationTranslationMatrix : public FMatrix {
-    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
+    FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin); /* 0x0058f1b0 */
 };
 /* UnMath.h: the global sine table (GMath; only the table is used here) */
 class FGlobalMath {
@@ -12121,6 +12124,20 @@ struct UTexture2D : public UTexture {
     void SetForceMipLevelsToBeResident(FLOAT); /* 0x00717d50 */
     /* registered size 0x100 */
 };
+/* Texture2D.cpp: the states of UTexture2D::PendingMipChangeRequestStatus (named by the checks in 0x0072fa80 and
+ * 0x0072af10) */
+enum { TEXTURE_PENDING_INITIALIZATION = -1, TEXTURE_READY_FOR_REQUESTS = 0, TEXTURE_READY_FOR_FINALIZATION = 2 };
+/* UnTex.h: a UTexture2D's render resource (what UTexture::Resource holds for one); only the members used so far are
+ * declared */
+class FTexture2DResource {
+public:
+    BYTE _native0[0x44]; /* not identified (vtable, FTextureResource's members) */
+    class UTexture2D* Owner; /* 0x44: BeginFinalizeMipCount reads Owner->PendingMipChangeRequestStatus */
+    BYTE _native48[0x108 - 0x48];
+    INT NumFailedReallocs; /* 0x108: UpdateStreamingStatus (0x0072fa80) tests it > 0 */
+    UBOOL DidUpdateMipCountFail() const { return NumFailedReallocs > 0; }
+    void BeginFinalizeMipCount(); /* 0x0072af10 */
+};
 
 struct USpriteComponent : public UPrimitiveComponent {
     /* Engine.SpriteComponent */
@@ -16237,7 +16254,7 @@ struct UUIScreenObject : public UUIRoot {
     virtual void vf_1c4(); /* 0x1c4 */
     virtual INT vf_1c8(); /* 0x1c8 */
     virtual void vf_1cc(); /* 0x1cc */
-    virtual void InitializePrimitives(FCanvas* Canvas); /* 0x1d0 */
+    virtual void InitializePrimitives(class FCanvasScene* CanvasScene); /* 0x1d0 */
     virtual void vf_1d4(INT, INT); /* 0x1d4 */
     virtual void vf_1d8(INT); /* 0x1d8 */
     virtual INT vf_1dc(INT); /* 0x1dc */
@@ -20751,8 +20768,8 @@ struct UUISceneClient : public UUIRoot, public FExec {
     virtual INT vf_168(INT, INT, INT); /* 0x168 */
     virtual void vf_16c(INT, INT, INT); /* 0x16c */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
-    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
+    virtual void InitializePrimitives(class FCanvasScene* CanvasScene); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvasScene* CanvasScene); /* 0x178 */
     virtual INT vf_17c(INT, INT); /* 0x17c */
     virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
@@ -20859,8 +20876,8 @@ struct UGameUISceneClient : public UUISceneClient {
     virtual INT vf_160(INT, INT, INT); /* 0x160 */
     virtual void RenderScenes(INT); /* 0x164 */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
-    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
+    virtual void InitializePrimitives(class FCanvasScene* CanvasScene); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvasScene* CanvasScene); /* 0x178 */
     virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     /* other member functions */
@@ -34734,14 +34751,14 @@ struct UUIScene : public UUIScreenObject {
     virtual INT vf_1f0(INT); /* 0x1f0 */
     virtual void vf_1f4(INT); /* 0x1f4 */
     virtual EUIPostProcessGroup GetScenePostProcessGroup(); /* 0x1f8 */
-    virtual INT vf_1fc(INT); /* 0x1fc */
+    virtual class UPostProcessChain* vf_1fc(EUIPostProcessGroup Group); /* 0x1fc: UIPostProcessBackground for Background, UIPostProcessForeground for Foreground, when GetScenePostProcessGroup includes it; else NULL */
     virtual void vf_200(); /* 0x200 */
     virtual void vf_204(); /* 0x204 */
     virtual INT vf_208(INT); /* 0x208 */
     virtual INT vf_20c(INT); /* 0x20c */
     virtual INT vf_210(INT, INT); /* 0x210 */
     virtual void vf_214(INT, INT); /* 0x214 */
-    virtual void UpdateScenePrimitives(FCanvas* Canvas); /* 0x218 */
+    virtual void UpdateScenePrimitives(class FCanvasScene* CanvasScene); /* 0x218 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -60564,8 +60581,8 @@ struct UEditorUISceneClient : public UUISceneClient, public FCallbackEventDevice
     virtual INT vf_15c(INT, INT, INT); /* 0x15c */
     virtual void RenderScenes(INT); /* 0x164 */
     virtual void RequestPrimitiveReinitialization(class UUIScene* Scene); /* 0x170 */
-    virtual void InitializePrimitives(class FCanvas* Canvas); /* 0x174 */
-    virtual void UpdateActivePrimitives(class FCanvas* Canvas); /* 0x178 */
+    virtual void InitializePrimitives(class FCanvasScene* CanvasScene); /* 0x174 */
+    virtual void UpdateActivePrimitives(class FCanvasScene* CanvasScene); /* 0x178 */
     virtual INT IsUIActive(DWORD Flags); /* 0x180 */
     virtual UINT IsSceneInitialized(INT); /* 0x184 */
     /* registered size 0x100 */

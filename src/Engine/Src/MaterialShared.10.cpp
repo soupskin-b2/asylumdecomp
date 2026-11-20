@@ -30,11 +30,6 @@ struct FInterpCurveFloat_ : public FInterpCurveFloat
 	~FInterpCurveFloat_();
 };
 
-struct TArrayCurvePointsFloat_ : public TArray<FInterpCurvePointFloat>
-{
-	TArrayCurvePointsFloat_& operator=(const TArray<FInterpCurvePointFloat>& Other);
-};
-
 struct MITVScalarParameterMapping
 {
 	static FScalarParameterValueOverTime* FindParameterByName(UMaterialInstanceTimeVarying* Instance, FName Name);
@@ -78,7 +73,7 @@ void UMaterialInstanceTimeVarying::SetScalarStartTime(FName ParameterName, FLOAT
 			FInterpCurveFloat_ TempCurve;
 			MITVParent->GetScalarCurveParameterValue(ParameterName, TempCurve);
 			FInterpCurveFloat& Curve = ParameterValue->ParameterValueCurve;
-			((TArrayCurvePointsFloat_&)Curve.Points) = TempCurve.Points;
+			Curve.Points = TempCurve.Points;
 			Curve.InterpMethod = TempCurve.InterpMethod;
 		}
 

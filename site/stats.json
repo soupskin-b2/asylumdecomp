@@ -1,27 +1,27 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-20",
  "functions": {
   "total": 174166,
-  "matched": 104820
+  "matched": 104822
  },
  "bytes": {
   "total": 24308116,
-  "matched": 4869311
+  "matched": 4869619
  },
  "areas": [
   {
    "name": "Engine",
    "functions": 69863,
    "bytes": 9201953,
-   "matched": 44309,
-   "matched_bytes": 2244782
+   "matched": 44310,
+   "matched_bytes": 2245019
   },
   {
    "name": "Editor",
    "functions": 42961,
    "bytes": 8040643,
-   "matched": 24459,
-   "matched_bytes": 924797
+   "matched": 24460,
+   "matched_bytes": 924868
   },
   {
    "name": "External",
