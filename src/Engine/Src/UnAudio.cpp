@@ -269,8 +269,9 @@ uint UAudioComponent::sub_00786280(void)
   return *(uint *)(param_1 + 0x60) >> 0x13 & 1;
 }
 
+struct C_00786290 { uint sub_00786290(void); };
 // @baa 0x00786290
-uint UAudioComponent::sub_00786290(void)
+uint C_00786290::sub_00786290(void)
 {
     int param_1 = (int)this;
 
@@ -674,15 +675,17 @@ void C_00790460::sub_00790460() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_007909d0 { int sub_007909d0(int param_2); };
 // @baa 0x007909d0
-int UBrushComponent::sub_007909d0(int param_2)
+int C_007909d0::sub_007909d0(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_00790a60 { int sub_00790a60(int param_2); };
 // @baa 0x00790a60
-int UBrushComponent::sub_00790a60(int param_2)
+int C_00790a60::sub_00790a60(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -804,8 +807,9 @@ struct C_view_00793260 {
     int sub_00790960(int, int);
 };
 
+struct C_00793260 { int sub_00793260(int param_2); };
 // @baa 0x00793260
-int UBrushComponent::sub_00793260(int param_2)
+int C_00793260::sub_00793260(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00793260 *)(this))->sub_00790960((int)(&param_2), param_2);
@@ -819,8 +823,9 @@ struct C_view_00793290 {
     int sub_007909e0(int, int);
 };
 
+struct C_00793290 { int sub_00793290(int param_2); };
 // @baa 0x00793290
-int UBrushComponent::sub_00793290(int param_2)
+int C_00793290::sub_00793290(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00793290 *)(this))->sub_007909e0((int)(&param_2), param_2);
@@ -830,8 +835,9 @@ int UBrushComponent::sub_00793290(int param_2)
   return 0;
 }
 
+struct C_007932c0 { int sub_007932c0(int param_2); };
 // @baa 0x007932c0
-int UBrushComponent::sub_007932c0(int param_2)
+int C_007932c0::sub_007932c0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -876,8 +882,9 @@ int C_007933d0::sub_007933d0(void)
 
 int sub_0053dfa0(...);
 int sub_00549310(void);
+struct C_007933e0 { undefined4 sub_007933e0(byte param_2); };
 // @baa 0x007933e0
-undefined4 UObject::sub_007933e0(byte param_2)
+undefined4 C_007933e0::sub_007933e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -888,8 +895,9 @@ undefined4 UObject::sub_007933e0(byte param_2)
   return param_1;
 }
 
+struct C_00793570 { int sub_00793570(int param_2); };
 // @baa 0x00793570
-int UBrushComponent::sub_00793570(int param_2)
+int C_00793570::sub_00793570(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
@@ -1025,8 +1033,9 @@ void sub_00793910(void) { sub_00792d80(); }
 // @baa 0x00793990
 // @baa 0x00793a00
 int sub_00793400(void);
+struct C_00794af0 { undefined4 sub_00794af0(byte param_2); };
 // @baa 0x00794af0
-undefined4 UBrushComponent::sub_00794af0(byte param_2)
+undefined4 C_00794af0::sub_00794af0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1094,8 +1103,9 @@ FSparseArrayConstIt_00794ef0::FSparseArrayConstIt_00794ef0(const TSparseArray<IN
 
 int sub_006f7810(void);
 extern undefined * g_01f16308;
+struct C_00794f40 { undefined4 * sub_00794f40(void); };
 // @baa 0x00794f40
-undefined4 * UPrimitiveComponent::sub_00794f40(void)
+undefined4 * C_00794f40::sub_00794f40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1111,8 +1121,9 @@ struct C_view_007967b0 {
     int sub_00794b10(int);
 };
 
+struct C_007967b0 { void sub_007967b0(void); };
 // @baa 0x007967b0
-void UBrushComponent::sub_007967b0(void)
+void C_007967b0::sub_007967b0(void)
 {
     int param_1 = (int)this;
   ((C_view_007967b0 *)((*(char **)((char *)this + 0x10))))->sub_00794b10(*(undefined4 *)(param_1 + 8));
@@ -1136,8 +1147,9 @@ void sub_00796730();
 void sub_00797820(void) { sub_00796730(); }
 
 int sub_00794da0(void);
+struct C_00797cd0 { int sub_00797cd0(void); };
 // @baa 0x00797cd0
-int UBrushComponent::sub_00797cd0(void)
+int C_00797cd0::sub_00797cd0(void)
 {
     int param_1 = (int)this;
 
@@ -1215,8 +1227,9 @@ struct C_view_00798a50 {
     int sub_00797be0(int, int);
 };
 
+struct C_00798a50 { undefined4 sub_00798a50(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00798a50
-undefined4 UBrushComponent::sub_00798a50(undefined4 param_2, undefined4 param_3)
+undefined4 C_00798a50::sub_00798a50(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00798a50 *)(this))->sub_00797be0(param_2, param_3);
@@ -1227,8 +1240,9 @@ struct C_view_00798a70 {
     int sub_00797c60(int, int);
 };
 
+struct C_00798a70 { int sub_00798a70(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00798a70
-int UBrushComponent::sub_00798a70(undefined4 param_2, undefined4 param_3)
+int C_00798a70::sub_00798a70(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00798a70 *)(this))->sub_00797c60(param_2, param_3);
@@ -1236,8 +1250,9 @@ int UBrushComponent::sub_00798a70(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00798a90 { int sub_00798a90(void); };
 // @baa 0x00798a90
-int UBrushComponent::sub_00798a90(void)
+int C_00798a90::sub_00798a90(void)
 {
     int param_1 = (int)this;
 
@@ -1340,8 +1355,9 @@ struct C_view_0079c720 {
 
 int sub_006311e0(...);
 extern undefined4 g_01f10aa4;
+struct C_0079c720 { void sub_0079c720(undefined4 param_2); };
 // @baa 0x0079c720
-void UAudioComponent::sub_0079c720(undefined4 param_2)
+void C_0079c720::sub_0079c720(undefined4 param_2)
 {
     int param_1 = (int)this;
   if ((*(byte *)(param_1 + 0x60) & 4) != 0) {
@@ -1478,8 +1494,9 @@ int UAudioDevice::vf_1d4(void) { return 0; }
 
 int sub_005c7a70(...);
 int sub_0079cb30(void);
+struct C_0079cc20 { undefined4 sub_0079cc20(byte param_2); };
 // @baa 0x0079cc20
-undefined4 UAudioDevice::sub_0079cc20(byte param_2)
+undefined4 C_0079cc20::sub_0079cc20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

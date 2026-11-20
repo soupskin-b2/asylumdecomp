@@ -34,8 +34,9 @@ void C::sub_01476fc0(wxEvent * param_2)
 }
 
 int sub_0053df70(...);
+struct C_0147aa60 { void sub_0147aa60(int param_2); };
 // @baa 0x0147aa60
-void UObject::sub_0147aa60(int param_2)
+void C_0147aa60::sub_0147aa60(int param_2)
 {
     int * param_1 = (int *)this;
 

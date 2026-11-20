@@ -298,8 +298,9 @@ FSparseArrayConstIt_01439e50::FSparseArrayConstIt_01439e50(const TSparseArray<IN
 
 int sub_005c7a20(void);
 extern undefined * g_0228f8e8;
+struct C_0143a210 { undefined4 * sub_0143a210(void); };
 // @baa 0x0143a210
-undefined4 * UObject::sub_0143a210(void)
+undefined4 * C_0143a210::sub_0143a210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

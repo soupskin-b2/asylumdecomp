@@ -50,8 +50,9 @@ IMPLEMENT_CLASS_AT(URAnimNotify_Camera, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 int sub_005c7a20(void);
 extern undefined * g_0231b5d8;
+struct C_01592060 { undefined4 * sub_01592060(void); };
 // @baa 0x01592060
-undefined4 * UObject::sub_01592060(void)
+undefined4 * C_01592060::sub_01592060(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -74,8 +75,9 @@ INT C_01592100::sub_01592100(INT arg1)
 int sub_01592150(int a0, int a1) { return a1; }
 
 extern undefined * g_0231b6f0;
+struct C_01592160 { undefined4 * sub_01592160(void); };
 // @baa 0x01592160
-undefined4 * UObject::sub_01592160(void)
+undefined4 * C_01592160::sub_01592160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -85,8 +87,9 @@ undefined4 * UObject::sub_01592160(void)
 }
 
 extern undefined * g_0231b808;
+struct C_01592210 { undefined4 * sub_01592210(void); };
 // @baa 0x01592210
-undefined4 * UObject::sub_01592210(void)
+undefined4 * C_01592210::sub_01592210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -96,8 +99,9 @@ undefined4 * UObject::sub_01592210(void)
 }
 
 extern undefined * g_0231bee0;
+struct C_01593850 { undefined4 * sub_01593850(void); };
 // @baa 0x01593850
-undefined4 * UObject::sub_01593850(void)
+undefined4 * C_01593850::sub_01593850(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

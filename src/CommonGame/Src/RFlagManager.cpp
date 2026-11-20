@@ -24,8 +24,9 @@ IMPLEMENT_CLASS_AT(URFlagManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 int sub_005c7a70(...);
 int sub_0154a720(void);
+struct C_0154a7b0 { undefined4 sub_0154a7b0(byte param_2); };
 // @baa 0x0154a7b0
-undefined4 URFlagManager::sub_0154a7b0(byte param_2)
+undefined4 C_0154a7b0::sub_0154a7b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -63,8 +64,9 @@ void URSeqVar_LocalFlag::PostEditChange(UProperty* a0) {  }
 
 int sub_005c7a20(void);
 extern undefined * g_022e5c68;
+struct C_01540630 { undefined4 * sub_01540630(void); };
 // @baa 0x01540630
-undefined4 * UObject::sub_01540630(void)
+undefined4 * C_01540630::sub_01540630(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -74,8 +76,9 @@ undefined4 * UObject::sub_01540630(void)
 }
 
 extern undefined * g_022e8f10;
+struct C_015479f0 { undefined4 * sub_015479f0(void); };
 // @baa 0x015479f0
-undefined4 * UObject::sub_015479f0(void)
+undefined4 * C_015479f0::sub_015479f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

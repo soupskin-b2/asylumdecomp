@@ -15,8 +15,9 @@ IMPLEMENT_CLASS_AT(UTransactor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x00f71a10
 int sub_005c7a20(void);
 extern undefined * g_02162020;
+struct C_00f71a30 { undefined4 * sub_00f71a30(void); };
 // @baa 0x00f71a30
-undefined4 * UObject::sub_00f71a30(void)
+undefined4 * C_00f71a30::sub_00f71a30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -701,8 +702,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00f7db60 { undefined4 * sub_00f7db60(undefined4 * param_2); };
 // @baa 0x00f7db60
-undefined4 * UObject::sub_00f7db60(undefined4 * param_2)
+undefined4 * C_00f7db60::sub_00f7db60(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -714,48 +716,54 @@ undefined4 * UObject::sub_00f7db60(undefined4 * param_2)
   return param_1;
 }
 
+struct C_00f7dba0 { int sub_00f7dba0(int param_2); };
 // @baa 0x00f7dba0
-int UObject::sub_00f7dba0(int param_2)
+int C_00f7dba0::sub_00f7dba0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00f7dbb0 { int sub_00f7dbb0(void); };
 // @baa 0x00f7dbb0
-int UObject::sub_00f7dbb0(void)
+int C_00f7dbb0::sub_00f7dbb0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00f7dbd0 { int sub_00f7dbd0(void); };
 // @baa 0x00f7dbd0
-int UObject::sub_00f7dbd0(void)
+int C_00f7dbd0::sub_00f7dbd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00f7e040 { int sub_00f7e040(int param_2); };
 // @baa 0x00f7e040
-int UState::sub_00f7e040(int param_2)
+int C_00f7e040::sub_00f7e040(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00f7e0c0 { int sub_00f7e0c0(int param_2); };
 // @baa 0x00f7e0c0
-int UState::sub_00f7e0c0(int param_2)
+int C_00f7e0c0::sub_00f7e0c0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00f7e160 { int sub_00f7e160(int param_2); };
 // @baa 0x00f7e160
-int UState::sub_00f7e160(int param_2)
+int C_00f7e160::sub_00f7e160(int param_2)
 {
     int * param_1 = (int *)this;
 

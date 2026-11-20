@@ -342,8 +342,9 @@ void C_00a58650::sub_00a58650(undefined1 param_2, undefined1 param_3, undefined1
 
 // @baa 0x00a64960
 int sub_00a64980(void);
+struct C_00a649f0 { undefined4 sub_00a649f0(byte param_2); };
 // @baa 0x00a649f0
-undefined4 ULensFlare::sub_00a649f0(byte param_2)
+undefined4 C_00a649f0::sub_00a649f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -371,9 +372,10 @@ undefined4 C_00a64a10::sub_00a64a10(void)
   return 1;
 }
 
+struct C_00a651b0 { undefined4 * sub_00a651b0(byte param_2); };
 // @baa 0x00a64ff0
 // @baa 0x00a651b0
-undefined4 * UCanvas::sub_00a651b0(byte param_2)
+undefined4 * C_00a651b0::sub_00a651b0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

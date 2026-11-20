@@ -99,8 +99,9 @@ UBOOL ARPawnPlayer::HasParentClassChanged() const
 
 int sub_005c7a20(void);
 extern undefined * g_0237cea0;
+struct C_016867e0 { undefined4 * sub_016867e0(void); };
 // @baa 0x016867e0
-undefined4 * UObject::sub_016867e0(void)
+undefined4 * C_016867e0::sub_016867e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -110,8 +111,9 @@ undefined4 * UObject::sub_016867e0(void)
 }
 
 extern undefined * g_0237cfe0;
+struct C_01691000 { undefined4 * sub_01691000(void); };
 // @baa 0x01691000
-undefined4 * UObject::sub_01691000(void)
+undefined4 * C_01691000::sub_01691000(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -121,8 +123,9 @@ undefined4 * UObject::sub_01691000(void)
 }
 
 extern undefined * g_0237d0f0;
+struct C_01691050 { undefined4 * sub_01691050(void); };
 // @baa 0x01691050
-undefined4 * UObject::sub_01691050(void)
+undefined4 * C_01691050::sub_01691050(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -132,8 +135,9 @@ undefined4 * UObject::sub_01691050(void)
 }
 
 extern undefined * g_0237d200;
+struct C_01691100 { undefined4 * sub_01691100(void); };
 // @baa 0x01691100
-undefined4 * UObject::sub_01691100(void)
+undefined4 * C_01691100::sub_01691100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -143,8 +147,9 @@ undefined4 * UObject::sub_01691100(void)
 }
 
 extern undefined * g_0237d310;
+struct C_01691210 { undefined4 * sub_01691210(void); };
 // @baa 0x01691210
-undefined4 * UObject::sub_01691210(void)
+undefined4 * C_01691210::sub_01691210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -154,8 +159,9 @@ undefined4 * UObject::sub_01691210(void)
 }
 
 extern undefined * g_0237d420;
+struct C_01691260 { undefined4 * sub_01691260(void); };
 // @baa 0x01691260
-undefined4 * UObject::sub_01691260(void)
+undefined4 * C_01691260::sub_01691260(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -165,8 +171,9 @@ undefined4 * UObject::sub_01691260(void)
 }
 
 extern undefined * g_0237d530;
+struct C_01691310 { undefined4 * sub_01691310(void); };
 // @baa 0x01691310
-undefined4 * UObject::sub_01691310(void)
+undefined4 * C_01691310::sub_01691310(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -176,8 +183,9 @@ undefined4 * UObject::sub_01691310(void)
 }
 
 extern undefined * g_0237d640;
+struct C_016913c0 { undefined4 * sub_016913c0(void); };
 // @baa 0x016913c0
-undefined4 * UObject::sub_016913c0(void)
+undefined4 * C_016913c0::sub_016913c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -187,8 +195,9 @@ undefined4 * UObject::sub_016913c0(void)
 }
 
 extern undefined * g_0237d750;
+struct C_016914d0 { undefined4 * sub_016914d0(void); };
 // @baa 0x016914d0
-undefined4 * UObject::sub_016914d0(void)
+undefined4 * C_016914d0::sub_016914d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -198,8 +207,9 @@ undefined4 * UObject::sub_016914d0(void)
 }
 
 extern undefined * g_0237d860;
+struct C_01691520 { undefined4 * sub_01691520(void); };
 // @baa 0x01691520
-undefined4 * UObject::sub_01691520(void)
+undefined4 * C_01691520::sub_01691520(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

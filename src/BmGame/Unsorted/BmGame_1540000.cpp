@@ -222,8 +222,9 @@ int sub_0154adb0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_022fc3c8;
+struct C_0154adc0 { undefined4 * sub_0154adc0(void); };
 // @baa 0x0154adc0
-undefined4 * UObject::sub_0154adc0(void)
+undefined4 * C_0154adc0::sub_0154adc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -246,8 +247,9 @@ struct C_0154ae70 { C_0154ae70* sub_0154ae70(void); };
 C_0154ae70* C_0154ae70::sub_0154ae70(void) { *(int*)((char*)this + 0) = (int)g_022fc4d4; return this; }
 
 int sub_0053dfa0(...);
+struct C_0154ae80 { undefined4 * sub_0154ae80(byte param_2); };
 // @baa 0x0154ae80
-undefined4 * UREvidenceInterface::sub_0154ae80(byte param_2)
+undefined4 * C_0154ae80::sub_0154ae80(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -414,8 +416,9 @@ int sub_0154b100(int a0, int a1) { return a1; }
 int sub_0154b110(int a0, int a1) { return a1; }
 
 extern undefined * g_022fc4e0;
+struct C_0154b120 { undefined4 * sub_0154b120(void); };
 // @baa 0x0154b120
-undefined4 * UObject::sub_0154b120(void)
+undefined4 * C_0154b120::sub_0154b120(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -595,8 +598,9 @@ IMPLEMENT_CLASS_AT(URAnimNotify_Script, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x0154b590
 extern undefined * g_022fc740;
+struct C_0154b5b0 { undefined4 * sub_0154b5b0(void); };
 // @baa 0x0154b5b0
-undefined4 * UObject::sub_0154b5b0(void)
+undefined4 * C_0154b5b0::sub_0154b5b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -609,8 +613,9 @@ undefined4 * UObject::sub_0154b5b0(void)
 int sub_0154b5d0(int a0, int a1) { return a1; }
 
 extern undefined * g_022fc858;
+struct C_0154b5e0 { undefined4 * sub_0154b5e0(void); };
 // @baa 0x0154b5e0
-undefined4 * UObject::sub_0154b5e0(void)
+undefined4 * C_0154b5e0::sub_0154b5e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1870,8 +1875,9 @@ C_0154c230* C_0154c230::sub_0154c230(void) { return this; }
 int sub_0154c240(int a0, int a1) { return a1; }
 
 extern undefined * g_022fc970;
+struct C_0154c250 { undefined4 * sub_0154c250(void); };
 // @baa 0x0154c250
-undefined4 * UObject::sub_0154c250(void)
+undefined4 * C_0154c250::sub_0154c250(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1899,8 +1905,9 @@ undefined4 C_0154c2f0::sub_0154c2f0(void)
 int sub_0154c300(int a0, int a1) { return a1; }
 
 extern undefined * g_022fca80;
+struct C_0154c310 { undefined4 * sub_0154c310(void); };
 // @baa 0x0154c310
-undefined4 * UObject::sub_0154c310(void)
+undefined4 * C_0154c310::sub_0154c310(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1923,8 +1930,9 @@ undefined4 sub_0154c3b0(undefined4 param_1, undefined4 param_2)
 int sub_0154c3c0(int a0, int a1) { return a1; }
 
 extern undefined * g_022fcb90;
+struct C_0154c3d0 { undefined4 * sub_0154c3d0(void); };
 // @baa 0x0154c3d0
-undefined4 * UObject::sub_0154c3d0(void)
+undefined4 * C_0154c3d0::sub_0154c3d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1944,8 +1952,9 @@ undefined4 sub_0154c470(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_022fcca0;
+struct C_0154c480 { undefined4 * sub_0154c480(void); };
 // @baa 0x0154c480
-undefined4 * UObject::sub_0154c480(void)
+undefined4 * C_0154c480::sub_0154c480(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

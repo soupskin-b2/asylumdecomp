@@ -169,8 +169,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_0059a860 { int sub_0059a860(int param_2); };
 // @baa 0x0059a860
-int UObject::sub_0059a860(int param_2)
+int C_0059a860::sub_0059a860(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -1260,8 +1261,9 @@ int USubsystem::sub_0059d830(void) { return *(int*)((char*)this + 132); }
 
 int sub_0053dfa0(...);
 int sub_0059d8c0(void);
+struct C_0059d930 { undefined4 sub_0059d930(byte param_2); };
 // @baa 0x0059d930
-undefined4 USubsystem::sub_0059d930(byte param_2)
+undefined4 C_0059d930::sub_0059d930(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

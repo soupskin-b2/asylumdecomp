@@ -24,8 +24,9 @@ struct C_view {
     int sub_013752b0(int, int);
 };
 
+struct C_0137e200 { int sub_0137e200(int param_2); };
 // @baa 0x0137e200
-int UObject::sub_0137e200(int param_2)
+int C_0137e200::sub_0137e200(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_013752b0((int)(&param_2), param_2);
@@ -39,8 +40,9 @@ struct C_view_0137e2b0 {
     int sub_0137e230(int);
 };
 
+struct C_0137e2b0 { int sub_0137e2b0(undefined4 param_2); };
 // @baa 0x0137e2b0
-int UObject::sub_0137e2b0(undefined4 param_2)
+int C_0137e2b0::sub_0137e2b0(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view_0137e2b0 *)(this))->sub_0137e230(param_2);

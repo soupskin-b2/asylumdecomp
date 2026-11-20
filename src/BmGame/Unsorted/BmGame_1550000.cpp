@@ -1467,8 +1467,9 @@ void V_01557590::sub_01557590(int a0) { g(a0); }
 // @baa 0x01557da0
 void ARPontoonBase::EditorInitPontoonMeshes() {  }
 
+struct C_01557dd0 { uint sub_01557dd0(void); };
 // @baa 0x01557dd0
-uint ARBMWeaponStunStickBase::sub_01557dd0(void)
+uint C_01557dd0::sub_01557dd0(void)
 {
     int param_1 = (int)this;
 

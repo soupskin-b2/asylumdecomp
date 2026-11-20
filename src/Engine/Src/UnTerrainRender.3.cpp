@@ -48,8 +48,9 @@ void C_009b68a0::sub_009b68a0(int param_2)
 
 int sub_0053dfa0(...);
 int sub_00656490(void);
+struct C_009b9210 { undefined4 sub_009b9210(byte param_2); };
 // @baa 0x009b9210
-undefined4 ULensFlare::sub_009b9210(byte param_2)
+undefined4 C_009b9210::sub_009b9210(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

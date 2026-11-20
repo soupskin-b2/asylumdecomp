@@ -262,8 +262,9 @@ void UInput::FlushPressedKeys()
 // @baa 0x00d839b0
 // @baa 0x00d84210
 int sub_00d80eb0(void);
+struct C_00d871d0 { int sub_00d871d0(void); };
 // @baa 0x00d871d0
-int UInput::sub_00d871d0(void)
+int C_00d871d0::sub_00d871d0(void)
 {
     int param_1 = (int)this;
 
@@ -273,8 +274,9 @@ int UInput::sub_00d871d0(void)
   return param_1;
 }
 
+struct C_00d88400 { int sub_00d88400(void); };
 // @baa 0x00d88400
-int UInput::sub_00d88400(void)
+int C_00d88400::sub_00d88400(void)
 {
     int param_1 = (int)this;
 
@@ -284,8 +286,9 @@ int UInput::sub_00d88400(void)
   return param_1;
 }
 
+struct C_00d8a990 { int sub_00d8a990(void); };
 // @baa 0x00d8a990
-int UInput::sub_00d8a990(void)
+int C_00d8a990::sub_00d8a990(void)
 {
     int param_1 = (int)this;
 
@@ -321,8 +324,9 @@ void sub_00d88140();
 // @baa 0x00d8bc00
 void sub_00d8bc00(void) { sub_00d88140(); }
 
+struct C_00d8bcf0 { int sub_00d8bcf0(void); };
 // @baa 0x00d8bcf0
-int UInput::sub_00d8bcf0(void)
+int C_00d8bcf0::sub_00d8bcf0(void)
 {
     int param_1 = (int)this;
 
@@ -343,8 +347,9 @@ void sub_00d8bd30(void) { sub_00d8a7c0(); }
 // @baa 0x00d8bde0
 int sub_005c7a70(...);
 int sub_00d8bd40(void);
+struct C_00d8bdf0 { undefined4 sub_00d8bdf0(byte param_2); };
 // @baa 0x00d8bdf0
-undefined4 UInput::sub_00d8bdf0(byte param_2)
+undefined4 C_00d8bdf0::sub_00d8bdf0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -357,8 +362,9 @@ undefined4 UInput::sub_00d8bdf0(byte param_2)
 
 int sub_00d8abf0(void);
 extern undefined * g_020b7878;
+struct C_00d8be20 { undefined4 * sub_00d8be20(void); };
 // @baa 0x00d8be20
-undefined4 * UInput::sub_00d8be20(void)
+undefined4 * C_00d8be20::sub_00d8be20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -448,8 +454,9 @@ C_00d8e330* C_00d8e330::sub_00d8e330(void) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_020b79b0;
+struct C_00d8e340 { undefined4 * sub_00d8e340(void); };
 // @baa 0x00d8e340
-undefined4 * UObject::sub_00d8e340(void)
+undefined4 * C_00d8e340::sub_00d8e340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -463,8 +470,9 @@ undefined4 * UObject::sub_00d8e340(void)
 // @baa 0x00d8e400
 // @baa 0x00d8e420
 extern undefined * g_020ee6d8;
+struct C_00e28410 { undefined4 * sub_00e28410(void); };
 // @baa 0x00e28410
-undefined4 * UInput::sub_00e28410(void)
+undefined4 * C_00e28410::sub_00e28410(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -474,8 +482,9 @@ undefined4 * UInput::sub_00e28410(void)
 }
 
 extern undefined * g_021625d0;
+struct C_00f962f0 { undefined4 * sub_00f962f0(void); };
 // @baa 0x00f962f0
-undefined4 * UInput::sub_00f962f0(void)
+undefined4 * C_00f962f0::sub_00f962f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -485,8 +494,9 @@ undefined4 * UInput::sub_00f962f0(void)
 }
 
 extern undefined * g_022815e8;
+struct C_01422120 { undefined4 * sub_01422120(void); };
 // @baa 0x01422120
-undefined4 * UInput::sub_01422120(void)
+undefined4 * C_01422120::sub_01422120(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -496,8 +506,9 @@ undefined4 * UInput::sub_01422120(void)
 }
 
 extern undefined * g_022e0dd8;
+struct C_01537ec0 { undefined4 * sub_01537ec0(void); };
 // @baa 0x01537ec0
-undefined4 * UInput::sub_01537ec0(void)
+undefined4 * C_01537ec0::sub_01537ec0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -507,8 +518,9 @@ undefined4 * UInput::sub_01537ec0(void)
 }
 
 extern undefined * g_0234cd40;
+struct C_016342b0 { undefined4 * sub_016342b0(void); };
 // @baa 0x016342b0
-undefined4 * UInput::sub_016342b0(void)
+undefined4 * C_016342b0::sub_016342b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -81,8 +81,9 @@ UBOOL USettings::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00d67b40 { void sub_00d67b40(undefined4 * param_2); };
 // @baa 0x00d67b40
-void USettings::sub_00d67b40(undefined4 * param_2)
+void C_00d67b40::sub_00d67b40(undefined4 * param_2)
 {
     char * param_1 = (char *)this;
 
@@ -94,8 +95,9 @@ void USettings::sub_00d67b40(undefined4 * param_2)
   return;
 }
 
+struct C_00d67b60 { void sub_00d67b60(undefined4 * param_2); };
 // @baa 0x00d67b60
-void USettings::sub_00d67b60(undefined4 * param_2)
+void C_00d67b60::sub_00d67b60(undefined4 * param_2)
 {
     char * param_1 = (char *)this;
 
@@ -113,8 +115,9 @@ typedef uint size_t;
 
 int sub_0053df40(...);
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00d67bb0 { void sub_00d67bb0(undefined4 * param_2, undefined4 * param_3); };
 // @baa 0x00d67bb0
-void USettings::sub_00d67bb0(undefined4 * param_2, undefined4 * param_3)
+void C_00d67bb0::sub_00d67bb0(undefined4 * param_2, undefined4 * param_3)
 {
     char * param_1 = (char *)this;
 
@@ -134,8 +137,9 @@ void USettings::sub_00d67bb0(undefined4 * param_2, undefined4 * param_3)
   return;
 }
 
+struct C_00d67c00 { void sub_00d67c00(undefined4 * param_2, undefined4 * param_3); };
 // @baa 0x00d67c00
-void USettings::sub_00d67c00(undefined4 * param_2, undefined4 * param_3)
+void C_00d67c00::sub_00d67c00(undefined4 * param_2, undefined4 * param_3)
 {
     char * param_1 = (char *)this;
 
@@ -149,8 +153,9 @@ void USettings::sub_00d67c00(undefined4 * param_2, undefined4 * param_3)
   return;
 }
 
+struct C_00d67d50 { undefined4 sub_00d67d50(float param_2); };
 // @baa 0x00d67d50
-undefined4 USettings::sub_00d67d50(float param_2)
+undefined4 C_00d67d50::sub_00d67d50(float param_2)
 {
     char * param_1 = (char *)this;
   if ((*param_1 == '\x05') && (param_2 == *(float *)(param_1 + 4))) {
@@ -159,8 +164,9 @@ undefined4 USettings::sub_00d67d50(float param_2)
   return 0;
 }
 
+struct C_00d67e00 { undefined4 sub_00d67e00(double param_2); };
 // @baa 0x00d67e00
-undefined4 USettings::sub_00d67e00(double param_2)
+undefined4 C_00d67e00::sub_00d67e00(double param_2)
 {
     char * param_1 = (char *)this;
   if ((*param_1 == '\x03') && (param_2 == *(double *)(param_1 + 4))) {
@@ -277,8 +283,9 @@ int S::sub_00d79ec0(int a,int b,int c){
 // @baa 0x00d88530
 int sub_005c7a20(void);
 extern undefined * g_020b6d88;
+struct C_00d88550 { undefined4 * sub_00d88550(void); };
 // @baa 0x00d88550
-undefined4 * UObject::sub_00d88550(void)
+undefined4 * C_00d88550::sub_00d88550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -306,8 +313,9 @@ void C_00d88690::sub_00d88980() {}
 
 int sub_005c7a70(...);
 int sub_00d888c0(void);
+struct C_00d88980 { undefined4 sub_00d88980(byte param_2); };
 // @baa 0x00d88980
-undefined4 UOnlineSubsystem::sub_00d88980(byte param_2)
+undefined4 C_00d88980::sub_00d88980(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

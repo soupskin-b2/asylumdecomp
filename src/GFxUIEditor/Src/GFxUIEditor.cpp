@@ -10,8 +10,9 @@ IMPLEMENT_CLASS_AT(UGFxEditor, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 
 int sub_005c7a20(void);
 extern undefined * g_022cc240;
+struct C_014f9dc0 { undefined4 * sub_014f9dc0(void); };
 // @baa 0x014f9dc0
-undefined4 * UObject::sub_014f9dc0(void)
+undefined4 * C_014f9dc0::sub_014f9dc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -114,8 +114,9 @@ int sub_016687e0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_02375fc8;
+struct C_016687f0 { undefined4 * sub_016687f0(void); };
 // @baa 0x016687f0
-undefined4 * UObject::sub_016687f0(void)
+undefined4 * C_016687f0::sub_016687f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -239,8 +240,9 @@ struct C_01668d40 { void sub_01668d40(void); };
 void C_01668d40::sub_01668d40(void) { *(int*)((char*)this + 0) = (int)g_023760d4; }
 
 int sub_0053dfa0(...);
+struct C_01668d50 { undefined4 * sub_01668d50(byte param_2); };
 // @baa 0x01668d50
-undefined4 * URCrimeSceneAsset::sub_01668d50(byte param_2)
+undefined4 * C_01668d50::sub_01668d50(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -466,8 +468,9 @@ extern char g_01ebb554[];
 // @baa 0x0166a9d0
 void URSimpleRopeComponent::sub_0166a9d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_0166a9e0 { undefined4 * sub_0166a9e0(byte param_2); };
 // @baa 0x0166a9e0
-undefined4 * URSimpleRopeComponent::sub_0166a9e0(byte param_2)
+undefined4 * C_0166a9e0::sub_0166a9e0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -596,8 +599,9 @@ void ARPawn::TeleportPhysics()
   return;
 }
 
+struct C_0166d710 { uint sub_0166d710(void); };
 // @baa 0x0166d710
-uint ARPawnCombat::sub_0166d710(void)
+uint C_0166d710::sub_0166d710(void)
 {
     int param_1 = (int)this;
 

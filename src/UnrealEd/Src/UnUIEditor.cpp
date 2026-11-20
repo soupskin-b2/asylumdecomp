@@ -1445,8 +1445,9 @@ int C_014a1090::sub_014a1090(int param_2)
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_014a1140 { int sub_014a1140(int param_2); };
 // @baa 0x014a1140
-int UTexture2D::sub_014a1140(int param_2)
+int C_014a1140::sub_014a1140(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1815,8 +1816,9 @@ int C_014a1ad0::sub_014a1ad0(void)
 
 int sub_005c7a70(...);
 int sub_014a1b50(void);
+struct C_014a1bc0 { undefined4 sub_014a1bc0(byte param_2); };
 // @baa 0x014a1bc0
-undefined4 UUIEditorOptions::sub_014a1bc0(byte param_2)
+undefined4 C_014a1bc0::sub_014a1bc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1898,8 +1900,9 @@ struct C_014ba240 { C_014ba240* sub_014ba240(void); };
 C_014ba240* C_014ba240::sub_014ba240(void) { return this; }
 
 int sub_014ad9b0(void);
+struct C_014ba300 { int sub_014ba300(void); };
 // @baa 0x014ba300
-int UTexture2D::sub_014ba300(void)
+int C_014ba300::sub_014ba300(void)
 {
     int param_1 = (int)this;
 
@@ -2056,8 +2059,9 @@ UBOOL UUISceneManager::HasParentClassChanged() const
 
 int sub_005c7a20(void);
 extern undefined * g_022b2718;
+struct C_014adab0 { undefined4 * sub_014adab0(void); };
 // @baa 0x014adab0
-undefined4 * UObject::sub_014adab0(void)
+undefined4 * C_014adab0::sub_014adab0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2067,8 +2071,9 @@ undefined4 * UObject::sub_014adab0(void)
 }
 
 extern undefined * g_022b2828;
+struct C_014adad0 { undefined4 * sub_014adad0(void); };
 // @baa 0x014adad0
-undefined4 * UObject::sub_014adad0(void)
+undefined4 * C_014adad0::sub_014adad0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

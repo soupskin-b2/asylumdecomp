@@ -13,8 +13,9 @@ struct C_view {
     int sub_00ffa960(int, int);
 };
 
+struct C_00ffc150 { int sub_00ffc150(int param_2); };
 // @baa 0x00ffc150
-int UTexture2D::sub_00ffc150(int param_2)
+int C_00ffc150::sub_00ffc150(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00ffa960((int)(&param_2), param_2);
@@ -42,8 +43,9 @@ FSparseArrayConstIt_00ffc2a0& FSparseArrayConstIt_00ffc2a0::operator++()
 
 int sub_0053dfa0(...);
 int sub_00ffa900(void);
+struct C_00ffc2c0 { undefined4 sub_00ffc2c0(byte param_2); };
 // @baa 0x00ffc2c0
-undefined4 UObject::sub_00ffc2c0(byte param_2)
+undefined4 C_00ffc2c0::sub_00ffc2c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -91,8 +93,9 @@ struct C_view_00ffc6e0 {
     int sub_00f2f610();
 };
 
+struct C_00ffc6e0 { undefined4 sub_00ffc6e0(byte param_2); };
 // @baa 0x00ffc6e0
-undefined4 UTexture2D::sub_00ffc6e0(byte param_2)
+undefined4 C_00ffc6e0::sub_00ffc6e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00ffc6e0 *)(((char *)this + 8)))->sub_00f2f610();

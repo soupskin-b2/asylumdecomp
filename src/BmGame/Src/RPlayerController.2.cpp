@@ -353,8 +353,9 @@ void ARPlayerController::RecordEidosMetricsLocationAchievement(const FString& Me
 // @baa 0x01614b60
 void sub_01614b60(void) {  }
 
+struct C_01614f10 { undefined4 sub_01614f10(void); };
 // @baa 0x01614f10
-undefined4 ARPlayerController::sub_01614f10(void)
+undefined4 C_01614f10::sub_01614f10(void)
 {
     int param_1 = (int)this;
 
@@ -1049,8 +1050,9 @@ void sub_016161f0(undefined4 param_1, undefined4 param_2, undefined4 param_3)
 }
 
 int sub_016162f0(...);
+struct C_01619e30 { void sub_01619e30(void); };
 // @baa 0x01619e30
-void ARPlayerController::sub_01619e30(void)
+void C_01619e30::sub_01619e30(void)
 {
     int param_1 = (int)this;
 
@@ -1421,8 +1423,9 @@ UBOOL ARPlayerController::StopAtLedge() {
 
 int sub_005c7a70(...);
 int sub_016320e0(void);
+struct C_01632340 { undefined4 sub_01632340(byte param_2); };
 // @baa 0x01632340
-undefined4 ARPlayerController::sub_01632340(byte param_2)
+undefined4 C_01632340::sub_01632340(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1792,8 +1795,9 @@ C_0171e530& C_0171e530::sub_0171e530(int Arg)
 
 int sub_005c7a20(void);
 extern undefined * g_023c9ab8;
+struct C_0171e550 { undefined4 * sub_0171e550(void); };
 // @baa 0x0171e550
-undefined4 * UObject::sub_0171e550(void)
+undefined4 * C_0171e550::sub_0171e550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1903,8 +1907,9 @@ UBOOL URPlayerInput::HasParentClassChanged() const
 
 int sub_0077ccd0(void);
 extern undefined * g_0234b308;
+struct C_016303f0 { undefined4 * sub_016303f0(void); };
 // @baa 0x016303f0
-undefined4 * APlayerController::sub_016303f0(void)
+undefined4 * C_016303f0::sub_016303f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

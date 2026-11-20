@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_0053df70(...);
+struct C_016d5990 { void sub_016d5990(int param_2); };
 // @baa 0x016d5990
-void URCapeStateController::sub_016d5990(int param_2)
+void C_016d5990::sub_016d5990(int param_2)
 {
     int * param_1 = (int *)this;
 

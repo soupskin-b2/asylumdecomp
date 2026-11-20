@@ -8,8 +8,9 @@ struct C_view {
     int sub_006029e0(int, int);
 };
 
+struct C_0060bb90 { int sub_0060bb90(int param_2); };
 // @baa 0x0060bb90
-int UFracturedStaticMeshComponent::sub_0060bb90(int param_2)
+int C_0060bb90::sub_0060bb90(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -39,8 +40,9 @@ struct C_view_006161b0 {
     int sub_006134b0(int, int);
 };
 
+struct C_006161b0 { void sub_006161b0(void); };
 // @baa 0x006161b0
-void UPackageMap::sub_006161b0(void)
+void C_006161b0::sub_006161b0(void)
 {
     int param_1 = (int)this;
   ((C_view_006161b0 *)(this))->sub_006134b0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);

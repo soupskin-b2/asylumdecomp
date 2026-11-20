@@ -173,8 +173,9 @@ const DWORD* S_012a17f0::sub_012a17f0(INT Index) const
 }
 
 int sub_00c38ac0(void);
+struct C_012a1840 { undefined4 sub_012a1840(byte param_2); };
 // @baa 0x012a1840
-undefined4 UObject::sub_012a1840(byte param_2)
+undefined4 C_012a1840::sub_012a1840(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -343,8 +344,9 @@ void __stdcall sub_012a2ae0(int a0, int a1) {  }
 
 int sub_005c7a70(...);
 int sub_012a33a0(void);
+struct C_012a3410 { undefined4 sub_012a3410(byte param_2); };
 // @baa 0x012a3410
-undefined4 UTexAligner::sub_012a3410(byte param_2)
+undefined4 C_012a3410::sub_012a3410(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -412,8 +414,9 @@ void C_012aa070::sub_012aa070() {
 }
 
 int sub_012abc60(void);
+struct C_012abcc0 { undefined4 sub_012abcc0(byte param_2); };
 // @baa 0x012abcc0
-undefined4 UTexAlignerDefault::sub_012abcc0(byte param_2)
+undefined4 C_012abcc0::sub_012abcc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -425,8 +428,9 @@ undefined4 UTexAlignerDefault::sub_012abcc0(byte param_2)
 }
 
 int sub_012abdb0(void);
+struct C_012abe10 { undefined4 sub_012abe10(byte param_2); };
 // @baa 0x012abe10
-undefined4 UTexAlignerBox::sub_012abe10(byte param_2)
+undefined4 C_012abe10::sub_012abe10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -438,8 +442,9 @@ undefined4 UTexAlignerBox::sub_012abe10(byte param_2)
 }
 
 int sub_012abf00(void);
+struct C_012abf60 { undefined4 sub_012abf60(byte param_2); };
 // @baa 0x012abf60
-undefined4 UTexAlignerFit::sub_012abf60(byte param_2)
+undefined4 C_012abf60::sub_012abf60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -461,8 +466,9 @@ void sub_012ac010(undefined4 param_1, undefined4 param_2)
 }
 
 int sub_012a4c10(void);
+struct C_012ac2c0 { undefined4 sub_012ac2c0(byte param_2); };
 // @baa 0x012ac2c0
-undefined4 UTexAligner::sub_012ac2c0(byte param_2)
+undefined4 C_012ac2c0::sub_012ac2c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

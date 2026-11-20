@@ -121,8 +121,9 @@ return iVar2;
 }
 
 int sub_012a0830(void);
+struct C_012a23b0 { undefined4 sub_012a23b0(byte param_2); };
 // @baa 0x012a23b0
-undefined4 USoundNodeWave::sub_012a23b0(byte param_2)
+undefined4 C_012a23b0::sub_012a23b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

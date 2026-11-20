@@ -21,8 +21,9 @@ void sub_00b31080(void) {  }
 
 int sub_0053dfa0(...);
 extern undefined * g_01feddf8;
+struct C_00b31090 { undefined4 * sub_00b31090(byte param_2); };
 // @baa 0x00b31090
-undefined4 * UParticleModuleUberLTISIVCL::sub_00b31090(byte param_2)
+undefined4 * C_00b31090::sub_00b31090(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -54,8 +55,9 @@ void UParticleModule::RefreshModule(UInterpCurveEdSetup* a0, UParticleEmitter* a
 // @baa 0x00b3d660
 int sub_005c7a20(void);
 extern undefined * g_01fedf88;
+struct C_00b3d680 { undefined4 * sub_00b3d680(void); };
 // @baa 0x00b3d680
-undefined4 * UObject::sub_00b3d680(void)
+undefined4 * C_00b3d680::sub_00b3d680(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -68,8 +70,9 @@ undefined4 * UObject::sub_00b3d680(void)
 IMPLEMENT_CLASS_AT(UParticleModuleCollisionBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Collision.cpp", 19);
 
 extern undefined * g_01fee0f0;
+struct C_00b3d700 { undefined4 * sub_00b3d700(void); };
 // @baa 0x00b3d700
-undefined4 * UObject::sub_00b3d700(void)
+undefined4 * C_00b3d700::sub_00b3d700(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -87,8 +90,9 @@ EModuleType UParticleModuleEventBase::GetModuleType() const { return EPMT_Event;
 
 // @baa 0x00b3d7b0
 extern undefined * g_01fee258;
+struct C_00b3d7d0 { undefined4 * sub_00b3d7d0(void); };
 // @baa 0x00b3d7d0
-undefined4 * UObject::sub_00b3d7d0(void)
+undefined4 * C_00b3d7d0::sub_00b3d7d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -112,8 +116,9 @@ UBOOL UParticleModuleEventReceiverBase::ProcessParticleEvent(FParticleEmitterIns
 
 // @baa 0x00b3d880
 extern undefined * g_01fee3c0;
+struct C_00b3d8a0 { undefined4 * sub_00b3d8a0(void); };
 // @baa 0x00b3d8a0
-undefined4 * UObject::sub_00b3d8a0(void)
+undefined4 * C_00b3d8a0::sub_00b3d8a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -126,8 +131,9 @@ undefined4 * UObject::sub_00b3d8a0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleMaterialBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Material.cpp", 12);
 
 extern undefined * g_01fee530;
+struct C_00b3d920 { undefined4 * sub_00b3d920(void); };
 // @baa 0x00b3d920
-undefined4 * UObject::sub_00b3d920(void)
+undefined4 * C_00b3d920::sub_00b3d920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -141,8 +147,9 @@ undefined4 * UObject::sub_00b3d920(void)
 IMPLEMENT_CLASS_AT(UParticleModuleOrbitBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Orbit.cpp", 11);
 
 extern undefined * g_01fee698;
+struct C_00b3d9c0 { undefined4 * sub_00b3d9c0(void); };
 // @baa 0x00b3d9c0
-undefined4 * UObject::sub_00b3d9c0(void)
+undefined4 * C_00b3d9c0::sub_00b3d9c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -156,8 +163,9 @@ undefined4 * UObject::sub_00b3d9c0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleParameterBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\ParticleModules_Parameter.cpp", 15);
 
 extern undefined * g_01fee800;
+struct C_00b3da60 { undefined4 * sub_00b3da60(void); };
 // @baa 0x00b3da60
-undefined4 * UObject::sub_00b3da60(void)
+undefined4 * C_00b3da60::sub_00b3da60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -446,8 +454,9 @@ UBOOL UParticleModuleTypeDataTrail::HasUniqueStaticConfigName() const { return 1
 
 int sub_00b4e270(void);
 extern undefined4 g_0200c158;
+struct C_00b74b00 { undefined4 * sub_00b74b00(void); };
 // @baa 0x00b74b00
-undefined4 * UParticleModuleTypeDataTrail::sub_00b74b00(void)
+undefined4 * C_00b74b00::sub_00b74b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -467,8 +476,9 @@ void UParticleModuleTypeDataTrail::vf_16c(void) {  }
 UBOOL UParticleModuleTypeDataBeam::HasUniqueStaticConfigName() const { return 1; }
 
 extern undefined4 g_0200c1f8;
+struct C_00b74c10 { undefined4 * sub_00b74c10(void); };
 // @baa 0x00b74c10
-undefined4 * UParticleModuleTypeDataBeam::sub_00b74c10(void)
+undefined4 * C_00b74c10::sub_00b74c10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -607,8 +617,9 @@ void sub_0040fcc0();
 void sub_00b92370(void) { sub_0040fcc0(); }
 
 extern undefined * g_0200c608;
+struct C_00b97130 { undefined4 * sub_00b97130(void); };
 // @baa 0x00b97130
-undefined4 * UObject::sub_00b97130(void)
+undefined4 * C_00b97130::sub_00b97130(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -621,8 +632,9 @@ undefined4 * UObject::sub_00b97130(void)
 IMPLEMENT_CLASS_AT(UParticleModuleAccelerationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 15);
 
 extern undefined * g_0200c770;
+struct C_00b971d0 { undefined4 * sub_00b971d0(void); };
 // @baa 0x00b971d0
-undefined4 * UObject::sub_00b971d0(void)
+undefined4 * C_00b971d0::sub_00b971d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -635,8 +647,9 @@ undefined4 * UObject::sub_00b971d0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleAttractorBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 16);
 
 extern undefined * g_0200c8d8;
+struct C_00b97210 { undefined4 * sub_00b97210(void); };
 // @baa 0x00b97210
-undefined4 * UObject::sub_00b97210(void)
+undefined4 * C_00b97210::sub_00b97210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -649,8 +662,9 @@ undefined4 * UObject::sub_00b97210(void)
 IMPLEMENT_CLASS_AT(URParticleModuleAttractorComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 6470);
 
 extern undefined * g_0200ca48;
+struct C_00b97310 { undefined4 * sub_00b97310(void); };
 // @baa 0x00b97310
-undefined4 * UObject::sub_00b97310(void)
+undefined4 * C_00b97310::sub_00b97310(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -663,8 +677,9 @@ undefined4 * UObject::sub_00b97310(void)
 IMPLEMENT_CLASS_AT(UParticleModuleColorBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 17);
 
 extern undefined * g_0200cbb0;
+struct C_00b97350 { undefined4 * sub_00b97350(void); };
 // @baa 0x00b97350
-undefined4 * UObject::sub_00b97350(void)
+undefined4 * C_00b97350::sub_00b97350(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -677,8 +692,9 @@ undefined4 * UObject::sub_00b97350(void)
 IMPLEMENT_CLASS_AT(UParticleModuleColorByParameter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 5412);
 
 extern undefined * g_0200cd18;
+struct C_00b97450 { undefined4 * sub_00b97450(void); };
 // @baa 0x00b97450
-undefined4 * UObject::sub_00b97450(void)
+undefined4 * C_00b97450::sub_00b97450(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -699,8 +715,9 @@ FLOAT UParticleModuleLifetimeBase::GetMaxLifetime() {
 IMPLEMENT_CLASS_AT(UParticleModuleLifetimeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 19);
 
 extern undefined * g_0200ce80;
+struct C_00b97520 { undefined4 * sub_00b97520(void); };
 // @baa 0x00b97520
-undefined4 * UObject::sub_00b97520(void)
+undefined4 * C_00b97520::sub_00b97520(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -710,8 +727,9 @@ undefined4 * UObject::sub_00b97520(void)
 }
 
 extern undefined * g_0200cff0;
+struct C_00b975a0 { undefined4 * sub_00b975a0(void); };
 // @baa 0x00b975a0
-undefined4 * UObject::sub_00b975a0(void)
+undefined4 * C_00b975a0::sub_00b975a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -724,8 +742,9 @@ undefined4 * UObject::sub_00b975a0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleLocationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 20);
 
 extern undefined * g_0200d158;
+struct C_00b975e0 { undefined4 * sub_00b975e0(void); };
 // @baa 0x00b975e0
-undefined4 * UObject::sub_00b975e0(void)
+undefined4 * C_00b975e0::sub_00b975e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -738,8 +757,9 @@ undefined4 * UObject::sub_00b975e0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleLocationEmitter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 756);
 
 extern undefined * g_0200d2c0;
+struct C_00b97680 { undefined4 * sub_00b97680(void); };
 // @baa 0x00b97680
-undefined4 * UObject::sub_00b97680(void)
+undefined4 * C_00b97680::sub_00b97680(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -755,8 +775,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocationEmitterDirect, "e:\\Projects\\Amadeus\
 IMPLEMENT_CLASS_AT(UParticleModuleLocationPrimitiveBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 941);
 
 extern undefined * g_0200d598;
+struct C_00b977d0 { undefined4 * sub_00b977d0(void); };
 // @baa 0x00b977d0
-undefined4 * UObject::sub_00b977d0(void)
+undefined4 * C_00b977d0::sub_00b977d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -769,8 +790,9 @@ undefined4 * UObject::sub_00b977d0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleLocationVertex, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 6717);
 
 extern undefined * g_0200d708;
+struct C_00b978d0 { undefined4 * sub_00b978d0(void); };
 // @baa 0x00b978d0
-undefined4 * UObject::sub_00b978d0(void)
+undefined4 * C_00b978d0::sub_00b978d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -783,8 +805,9 @@ undefined4 * UObject::sub_00b978d0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleOrientationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 21);
 
 extern undefined * g_0200d870;
+struct C_00b97910 { undefined4 * sub_00b97910(void); };
 // @baa 0x00b97910
-undefined4 * UObject::sub_00b97910(void)
+undefined4 * C_00b97910::sub_00b97910(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -801,8 +824,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleOrientationAxisLock, "e:\\Projects\\Amadeus\\A
 IMPLEMENT_CLASS_AT(UParticleModuleRotationBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 22);
 
 extern undefined * g_0200d9e0;
+struct C_00b97a10 { undefined4 * sub_00b97a10(void); };
 // @baa 0x00b97a10
-undefined4 * UObject::sub_00b97a10(void)
+undefined4 * C_00b97a10::sub_00b97a10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -816,8 +840,9 @@ undefined4 * UObject::sub_00b97a10(void)
 IMPLEMENT_CLASS_AT(UParticleModuleRotationRateBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 23);
 
 extern undefined * g_0200db48;
+struct C_00b97ab0 { undefined4 * sub_00b97ab0(void); };
 // @baa 0x00b97ab0
-undefined4 * UObject::sub_00b97ab0(void)
+undefined4 * C_00b97ab0::sub_00b97ab0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -831,8 +856,9 @@ undefined4 * UObject::sub_00b97ab0(void)
 IMPLEMENT_CLASS_AT(UParticleModuleSizeBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 24);
 
 extern undefined * g_0200dcb0;
+struct C_00b97b50 { undefined4 * sub_00b97b50(void); };
 // @baa 0x00b97b50
-undefined4 * UObject::sub_00b97b50(void)
+undefined4 * C_00b97b50::sub_00b97b50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -846,8 +872,9 @@ undefined4 * UObject::sub_00b97b50(void)
 IMPLEMENT_CLASS_AT(UParticleModuleSubUVBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 25);
 
 extern undefined * g_0200de18;
+struct C_00b97bf0 { undefined4 * sub_00b97bf0(void); };
 // @baa 0x00b97bf0
-undefined4 * UObject::sub_00b97bf0(void)
+undefined4 * C_00b97bf0::sub_00b97bf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -862,8 +889,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberBase, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00b97ca0
 extern undefined * g_0200df80;
+struct C_00b97cc0 { undefined4 * sub_00b97cc0(void); };
 // @baa 0x00b97cc0
-undefined4 * UObject::sub_00b97cc0(void)
+undefined4 * C_00b97cc0::sub_00b97cc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -873,8 +901,9 @@ undefined4 * UObject::sub_00b97cc0(void)
 }
 
 extern undefined * g_0200e0f0;
+struct C_00b97ce0 { undefined4 * sub_00b97ce0(void); };
 // @baa 0x00b97ce0
-undefined4 * UObject::sub_00b97ce0(void)
+undefined4 * C_00b97ce0::sub_00b97ce0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -891,8 +920,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberRainDrops, "e:\\Projects\\Amadeus\\AA\\Gam
 IMPLEMENT_CLASS_AT(UParticleModuleVelocityBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 28);
 
 extern undefined * g_0200e260;
+struct C_00b97df0 { undefined4 * sub_00b97df0(void); };
 // @baa 0x00b97df0
-undefined4 * UObject::sub_00b97df0(void)
+undefined4 * C_00b97df0::sub_00b97df0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -905,8 +935,9 @@ undefined4 * UObject::sub_00b97df0(void)
 // @baa 0x00b9ac80
 // @baa 0x00b9aca0
 extern undefined * g_0200e518;
+struct C_00b9acc0 { undefined4 * sub_00b9acc0(void); };
 // @baa 0x00b9acc0
-undefined4 * UObject::sub_00b9acc0(void)
+undefined4 * C_00b9acc0::sub_00b9acc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -920,8 +951,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleAcceleration, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00b9ad50
 extern undefined * g_0200e680;
+struct C_00b9ad70 { undefined4 * sub_00b9ad70(void); };
 // @baa 0x00b9ad70
-undefined4 * UObject::sub_00b9ad70(void)
+undefined4 * C_00b9ad70::sub_00b9ad70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -936,8 +968,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleAccelerationOverLifetime, "e:\\Projects\\Amade
 // @baa 0x00b9ae00
 // @baa 0x00b9ae20
 extern undefined * g_0200e7e8;
+struct C_00b9ae40 { undefined4 * sub_00b9ae40(void); };
 // @baa 0x00b9ae40
-undefined4 * UObject::sub_00b9ae40(void)
+undefined4 * C_00b9ae40::sub_00b9ae40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -951,8 +984,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleAttractorLine, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00b9aee0
 extern undefined * g_0200e950;
+struct C_00b9af10 { undefined4 * sub_00b9af10(void); };
 // @baa 0x00b9af10
-undefined4 * UObject::sub_00b9af10(void)
+undefined4 * C_00b9af10::sub_00b9af10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -966,8 +1000,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleAttractorParticle, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x00b9afb0
 extern undefined * g_0200eab8;
+struct C_00b9afe0 { undefined4 * sub_00b9afe0(void); };
 // @baa 0x00b9afe0
-undefined4 * UObject::sub_00b9afe0(void)
+undefined4 * C_00b9afe0::sub_00b9afe0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -983,8 +1018,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleAttractorPoint, "e:\\Projects\\Amadeus\\AA\\Ga
 // @baa 0x00b9b0c0
 // @baa 0x00b9b0e0
 extern undefined * g_0200ec20;
+struct C_00b9b100 { undefined4 * sub_00b9b100(void); };
 // @baa 0x00b9b100
-undefined4 * UObject::sub_00b9b100(void)
+undefined4 * C_00b9b100::sub_00b9b100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -999,8 +1035,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleColor, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x00b9b1a0
 // @baa 0x00b9b1d0
 extern undefined * g_0200ed88;
+struct C_00b9b1f0 { undefined4 * sub_00b9b1f0(void); };
 // @baa 0x00b9b1f0
-undefined4 * UObject::sub_00b9b1f0(void)
+undefined4 * C_00b9b1f0::sub_00b9b1f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1014,8 +1051,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleColorOverLife, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00b9b290
 extern undefined * g_0200eef0;
+struct C_00b9b2c0 { undefined4 * sub_00b9b2c0(void); };
 // @baa 0x00b9b2c0
-undefined4 * UObject::sub_00b9b2c0(void)
+undefined4 * C_00b9b2c0::sub_00b9b2c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1029,8 +1067,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleColorScaleOverDensity, "e:\\Projects\\Amadeus\
 
 // @baa 0x00b9b360
 extern undefined * g_0200f058;
+struct C_00b9b390 { undefined4 * sub_00b9b390(void); };
 // @baa 0x00b9b390
-undefined4 * UObject::sub_00b9b390(void)
+undefined4 * C_00b9b390::sub_00b9b390(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1045,8 +1084,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleColorScaleOverLife, "e:\\Projects\\Amadeus\\AA
 // @baa 0x00b9b430
 // @baa 0x00b9b460
 extern undefined * g_0200f1c0;
+struct C_00b9b480 { undefined4 * sub_00b9b480(void); };
 // @baa 0x00b9b480
-undefined4 * UObject::sub_00b9b480(void)
+undefined4 * C_00b9b480::sub_00b9b480(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1060,8 +1100,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleKillBox, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00b9b520
 extern undefined * g_0200f328;
+struct C_00b9b550 { undefined4 * sub_00b9b550(void); };
 // @baa 0x00b9b550
-undefined4 * UObject::sub_00b9b550(void)
+undefined4 * C_00b9b550::sub_00b9b550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1076,8 +1117,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleKillHeight, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x00b9b5e0
 // @baa 0x00b9b600
 extern undefined * g_0200f490;
+struct C_00b9b620 { undefined4 * sub_00b9b620(void); };
 // @baa 0x00b9b620
-undefined4 * UObject::sub_00b9b620(void)
+undefined4 * C_00b9b620::sub_00b9b620(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1092,8 +1134,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLifetime, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x00b9b6b0
 // @baa 0x00b9b6d0
 extern undefined * g_0200f600;
+struct C_00b9b6f0 { undefined4 * sub_00b9b6f0(void); };
 // @baa 0x00b9b6f0
-undefined4 * UObject::sub_00b9b6f0(void)
+undefined4 * C_00b9b6f0::sub_00b9b6f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1107,8 +1150,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocation, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00b9b780
 extern undefined * g_0200f768;
+struct C_00b9b7a0 { undefined4 * sub_00b9b7a0(void); };
 // @baa 0x00b9b7a0
-undefined4 * UObject::sub_00b9b7a0(void)
+undefined4 * C_00b9b7a0::sub_00b9b7a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1124,8 +1168,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocationDirect, "e:\\Projects\\Amadeus\\AA\\Ga
 // @baa 0x00b9b890
 // @baa 0x00b9b8b0
 extern undefined * g_0200d428;
+struct C_00b9b8d0 { undefined4 * sub_00b9b8d0(void); };
 // @baa 0x00b9b8d0
-undefined4 * UObject::sub_00b9b8d0(void)
+undefined4 * C_00b9b8d0::sub_00b9b8d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1135,8 +1180,9 @@ undefined4 * UObject::sub_00b9b8d0(void)
 }
 
 extern undefined * g_0200f8d8;
+struct C_00b9b8f0 { undefined4 * sub_00b9b8f0(void); };
 // @baa 0x00b9b8f0
-undefined4 * UObject::sub_00b9b8f0(void)
+undefined4 * C_00b9b8f0::sub_00b9b8f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1150,8 +1196,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocationPrimitiveCylinder, "e:\\Projects\\Amad
 
 // @baa 0x00b9b990
 extern undefined * g_0200fa48;
+struct C_00b9b9c0 { undefined4 * sub_00b9b9c0(void); };
 // @baa 0x00b9b9c0
-undefined4 * UObject::sub_00b9b9c0(void)
+undefined4 * C_00b9b9c0::sub_00b9b9c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1166,8 +1213,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleLocationPrimitiveSphere, "e:\\Projects\\Amadeu
 // @baa 0x00b9ba50
 // @baa 0x00b9ba80
 extern undefined * g_0200fbb8;
+struct C_00b9baa0 { undefined4 * sub_00b9baa0(void); };
 // @baa 0x00b9baa0
-undefined4 * UObject::sub_00b9baa0(void)
+undefined4 * C_00b9baa0::sub_00b9baa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1183,8 +1231,9 @@ IMPLEMENT_CLASS_AT(URParticleModuleLocationSphereSection, "e:\\Projects\\Amadeus
 // @baa 0x00b9bbc0
 // @baa 0x00b9bbe0
 extern undefined * g_0200fd28;
+struct C_00b9bc00 { undefined4 * sub_00b9bc00(void); };
 // @baa 0x00b9bc00
-undefined4 * UObject::sub_00b9bc00(void)
+undefined4 * C_00b9bc00::sub_00b9bc00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1205,8 +1254,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleRequired, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x00b9bcd0
 // @baa 0x00b9bd00
 extern undefined * g_0200fe90;
+struct C_00b9bd20 { undefined4 * sub_00b9bd20(void); };
 // @baa 0x00b9bd20
-undefined4 * UObject::sub_00b9bd20(void)
+undefined4 * C_00b9bd20::sub_00b9bd20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1220,8 +1270,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleMeshRotation, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00b9bdb0
 extern undefined4 g_0200fff8;
+struct C_00b9bdd0 { undefined4 * sub_00b9bdd0(void); };
 // @baa 0x00b9bdd0
-undefined4 * UObject::sub_00b9bdd0(void)
+undefined4 * C_00b9bdd0::sub_00b9bdd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1235,8 +1286,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleRotation, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00b9be60
 extern undefined * g_02010160;
+struct C_00b9be80 { undefined4 * sub_00b9be80(void); };
 // @baa 0x00b9be80
-undefined4 * UObject::sub_00b9be80(void)
+undefined4 * C_00b9be80::sub_00b9be80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1251,8 +1303,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleRotationOverLifetime, "e:\\Projects\\Amadeus\\
 // @baa 0x00b9bf10
 // @baa 0x00b9bf30
 extern undefined * g_020102c8;
+struct C_00b9bf50 { undefined4 * sub_00b9bf50(void); };
 // @baa 0x00b9bf50
-undefined4 * UObject::sub_00b9bf50(void)
+undefined4 * C_00b9bf50::sub_00b9bf50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1266,8 +1319,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleMeshRotationRate, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00b9bfe0
 extern undefined * g_02010430;
+struct C_00b9c000 { undefined4 * sub_00b9c000(void); };
 // @baa 0x00b9c000
-undefined4 * UObject::sub_00b9c000(void)
+undefined4 * C_00b9c000::sub_00b9c000(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1281,8 +1335,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleMeshRotationRateMultiplyLife, "e:\\Projects\\A
 
 // @baa 0x00b9c090
 extern undefined * g_02010598;
+struct C_00b9c0b0 { undefined4 * sub_00b9c0b0(void); };
 // @baa 0x00b9c0b0
-undefined4 * UObject::sub_00b9c0b0(void)
+undefined4 * C_00b9c0b0::sub_00b9c0b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1296,8 +1351,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleRotationRate, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00b9c140
 extern undefined * g_02010700;
+struct C_00b9c160 { undefined4 * sub_00b9c160(void); };
 // @baa 0x00b9c160
-undefined4 * UObject::sub_00b9c160(void)
+undefined4 * C_00b9c160::sub_00b9c160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1312,8 +1368,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleRotationRateMultiplyLife, "e:\\Projects\\Amade
 // @baa 0x00b9c1f0
 // @baa 0x00b9c210
 extern undefined * g_02010868;
+struct C_00b9c230 { undefined4 * sub_00b9c230(void); };
 // @baa 0x00b9c230
-undefined4 * UObject::sub_00b9c230(void)
+undefined4 * C_00b9c230::sub_00b9c230(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1327,8 +1384,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSize, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00b9c2c0
 extern undefined * g_020109d0;
+struct C_00b9c2e0 { undefined4 * sub_00b9c2e0(void); };
 // @baa 0x00b9c2e0
-undefined4 * UObject::sub_00b9c2e0(void)
+undefined4 * C_00b9c2e0::sub_00b9c2e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1345,8 +1403,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSizeMultiplyLife, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00b9c380
 extern undefined * g_02010b38;
+struct C_00b9c3a0 { undefined4 * sub_00b9c3a0(void); };
 // @baa 0x00b9c3a0
-undefined4 * UObject::sub_00b9c3a0(void)
+undefined4 * C_00b9c3a0::sub_00b9c3a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1360,8 +1419,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSizeMultiplyVelocity, "e:\\Projects\\Amadeus\\
 
 // @baa 0x00b9c430
 extern undefined * g_02010ca0;
+struct C_00b9c450 { undefined4 * sub_00b9c450(void); };
 // @baa 0x00b9c450
-undefined4 * UObject::sub_00b9c450(void)
+undefined4 * C_00b9c450::sub_00b9c450(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1376,8 +1436,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSizeScale, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00b9c4e0
 // @baa 0x00b9c500
 extern undefined * g_02010e08;
+struct C_00b9c520 { undefined4 * sub_00b9c520(void); };
 // @baa 0x00b9c520
-undefined4 * UObject::sub_00b9c520(void)
+undefined4 * C_00b9c520::sub_00b9c520(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1391,8 +1452,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSubUV, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00b9c5b0
 extern undefined * g_02010f80;
+struct C_00b9c5d0 { undefined4 * sub_00b9c5d0(void); };
 // @baa 0x00b9c5d0
-undefined4 * UObject::sub_00b9c5d0(void)
+undefined4 * C_00b9c5d0::sub_00b9c5d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1406,8 +1468,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSubUVDirect, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x00b9c670
 extern undefined * g_020110f0;
+struct C_00b9c6a0 { undefined4 * sub_00b9c6a0(void); };
 // @baa 0x00b9c6a0
-undefined4 * UObject::sub_00b9c6a0(void)
+undefined4 * C_00b9c6a0::sub_00b9c6a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1424,8 +1487,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleSubUVSelect, "e:\\Projects\\Amadeus\\AA\\Game\
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBase, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 26);
 
 extern undefined * g_02011260;
+struct C_00b9c770 { undefined4 * sub_00b9c770(void); };
 // @baa 0x00b9c770
-undefined4 * UObject::sub_00b9c770(void)
+undefined4 * C_00b9c770::sub_00b9c770(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1442,8 +1506,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleTypeDataBeam, "e:\\Projects\\Amadeus\\AA\\Game
 IMPLEMENT_CLASS_AT(UParticleModuleTypeDataMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleModules.cpp", 2815);
 
 extern undefined * g_020113e0;
+struct C_00b9c890 { undefined4 * sub_00b9c890(void); };
 // @baa 0x00b9c890
-undefined4 * UObject::sub_00b9c890(void)
+undefined4 * C_00b9c890::sub_00b9c890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1458,8 +1523,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleTypeDataTrail, "e:\\Projects\\Amadeus\\AA\\Gam
 // @baa 0x00b9c920
 // @baa 0x00b9c940
 extern undefined * g_02011560;
+struct C_00b9c960 { undefined4 * sub_00b9c960(void); };
 // @baa 0x00b9c960
-undefined4 * UObject::sub_00b9c960(void)
+undefined4 * C_00b9c960::sub_00b9c960(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1473,8 +1539,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberLTISIVCL, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00b9ca40
 extern undefined * g_020116d0;
+struct C_00b9ca70 { undefined4 * sub_00b9ca70(void); };
 // @baa 0x00b9ca70
-undefined4 * UObject::sub_00b9ca70(void)
+undefined4 * C_00b9ca70::sub_00b9ca70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1488,8 +1555,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberLTISIVCLIL, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00b9cb60
 extern undefined * g_02011840;
+struct C_00b9cb90 { undefined4 * sub_00b9cb90(void); };
 // @baa 0x00b9cb90
-undefined4 * UObject::sub_00b9cb90(void)
+undefined4 * C_00b9cb90::sub_00b9cb90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1504,8 +1572,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberLTISIVCLILIRSSBLIRR, "e:\\Projects\\Amadeu
 // @baa 0x00b9ccb0
 // @baa 0x00b9cce0
 extern undefined * g_020119b0;
+struct C_00b9cd00 { undefined4 * sub_00b9cd00(void); };
 // @baa 0x00b9cd00
-undefined4 * UObject::sub_00b9cd00(void)
+undefined4 * C_00b9cd00::sub_00b9cd00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1519,8 +1588,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberRainImpacts, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00b9ce20
 extern undefined * g_02011b20;
+struct C_00b9ce50 { undefined4 * sub_00b9ce50(void); };
 // @baa 0x00b9ce50
-undefined4 * UObject::sub_00b9ce50(void)
+undefined4 * C_00b9ce50::sub_00b9ce50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1534,8 +1604,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberRainSplashA, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00b9cf30
 extern undefined * g_02011c90;
+struct C_00b9cf60 { undefined4 * sub_00b9cf60(void); };
 // @baa 0x00b9cf60
-undefined4 * UObject::sub_00b9cf60(void)
+undefined4 * C_00b9cf60::sub_00b9cf60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1550,8 +1621,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleUberRainSplashB, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x00b9d040
 // @baa 0x00b9d070
 extern undefined * g_02011e00;
+struct C_00b9d090 { undefined4 * sub_00b9d090(void); };
 // @baa 0x00b9d090
-undefined4 * UObject::sub_00b9d090(void)
+undefined4 * C_00b9d090::sub_00b9d090(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1565,8 +1637,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleVelocity, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00b9d130
 extern undefined * g_02011f68;
+struct C_00b9d160 { undefined4 * sub_00b9d160(void); };
 // @baa 0x00b9d160
-undefined4 * UObject::sub_00b9d160(void)
+undefined4 * C_00b9d160::sub_00b9d160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1580,8 +1653,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleVelocityInheritParent, "e:\\Projects\\Amadeus\
 
 // @baa 0x00b9d1f0
 extern undefined * g_020120d0;
+struct C_00b9d210 { undefined4 * sub_00b9d210(void); };
 // @baa 0x00b9d210
-undefined4 * UObject::sub_00b9d210(void)
+undefined4 * C_00b9d210::sub_00b9d210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2331,8 +2405,9 @@ UBOOL UParticleModuleLocationVertex::HasParentClassChanged() const
 }
 
 int sub_00ba2860(void);
+struct C_00ba6fa0 { undefined4 sub_00ba6fa0(byte param_2); };
 // @baa 0x00ba6fa0
-undefined4 UParticleModuleUberLTISIVCL::sub_00ba6fa0(byte param_2)
+undefined4 C_00ba6fa0::sub_00ba6fa0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

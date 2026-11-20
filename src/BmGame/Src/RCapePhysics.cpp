@@ -394,8 +394,9 @@ struct C_view {
 };
 
 extern undefined4 g_023899b4;
+struct C_016ccf60 { void sub_016ccf60(void); };
 // @baa 0x016ccf60
-void URCapeConfig::sub_016ccf60(void)
+void C_016ccf60::sub_016ccf60(void)
 {
     int * param_1 = (int *)this;
   if (*param_1 == 0) {

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_005738c0(void);
+struct C_00577ce0 { undefined4 sub_00577ce0(byte param_2); };
 // @baa 0x00577ce0
-undefined4 UObject::sub_00577ce0(byte param_2)
+undefined4 C_00577ce0::sub_00577ce0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UObject::sub_00577ce0(byte param_2)
 }
 
 int sub_00d7c070(void);
+struct C_00d82830 { undefined4 sub_00d82830(byte param_2); };
 // @baa 0x00d82830
-undefined4 UGameUISceneClient::sub_00d82830(byte param_2)
+undefined4 C_00d82830::sub_00d82830(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -31,8 +33,9 @@ undefined4 UGameUISceneClient::sub_00d82830(byte param_2)
 }
 
 int sub_00c38ac0(void);
+struct C_00ddf8c0 { undefined4 sub_00ddf8c0(byte param_2); };
 // @baa 0x00ddf8c0
-undefined4 UObject::sub_00ddf8c0(byte param_2)
+undefined4 C_00ddf8c0::sub_00ddf8c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -43,8 +46,9 @@ undefined4 UObject::sub_00ddf8c0(byte param_2)
   return param_1;
 }
 
+struct C_00de0280 { undefined4 sub_00de0280(byte param_2); };
 // @baa 0x00de0280
-undefined4 UUITexture::sub_00de0280(byte param_2)
+undefined4 C_00de0280::sub_00de0280(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

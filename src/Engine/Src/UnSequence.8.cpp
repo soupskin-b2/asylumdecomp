@@ -68,8 +68,9 @@ void C_008c1880::sub_008c1880(int param_2)
   return;
 }
 
+struct C_008c1a00 { void sub_008c1a00(int param_2); };
 // @baa 0x008c1a00
-void UObject::sub_008c1a00(int param_2)
+void C_008c1a00::sub_008c1a00(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -86,8 +87,9 @@ void UObject::sub_008c1a00(int param_2)
   return;
 }
 
+struct C_008c1b80 { void sub_008c1b80(int param_2); };
 // @baa 0x008c1b80
-void UObject::sub_008c1b80(int param_2)
+void C_008c1b80::sub_008c1b80(int param_2)
 {
     int * param_1 = (int *)this;
 

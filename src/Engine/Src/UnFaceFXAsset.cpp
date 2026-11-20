@@ -16,40 +16,45 @@ UBOOL UFaceFXAsset::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00bef940 { int sub_00bef940(int param_2); };
 // @baa 0x00bef940
-int UFaceFXAsset::sub_00bef940(int param_2)
+int C_00bef940::sub_00bef940(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00bef950 { int sub_00bef950(int param_2); };
 // @baa 0x00bef950
-int UFaceFXAsset::sub_00bef950(int param_2)
+int C_00bef950::sub_00bef950(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00bef9e0 { int sub_00bef9e0(int param_2); };
 // @baa 0x00bef9e0
-int UFaceFXAsset::sub_00bef9e0(int param_2)
+int C_00bef9e0::sub_00bef9e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00befa60 { int sub_00befa60(int param_2); };
 // @baa 0x00befa60
-int UFaceFXAsset::sub_00befa60(int param_2)
+int C_00befa60::sub_00befa60(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00befc20 { int sub_00befc20(int param_2); };
 // @baa 0x00befc20
-int UObject::sub_00befc20(int param_2)
+int C_00befc20::sub_00befc20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -60,8 +65,9 @@ struct C_view {
     int sub_00befba0(int);
 };
 
+struct C_00befc30 { int sub_00befc30(undefined4 param_2); };
 // @baa 0x00befc30
-int UObject::sub_00befc30(undefined4 param_2)
+int C_00befc30::sub_00befc30(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00befba0(param_2);
@@ -73,24 +79,27 @@ void sub_00bef7d0();
 // @baa 0x00befc50
 void sub_00befc50(void) { sub_00bef7d0(); }
 
+struct C_00befc60 { int sub_00befc60(void); };
 // @baa 0x00befc60
-int UObject::sub_00befc60(void)
+int C_00befc60::sub_00befc60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00befc70 { int sub_00befc70(void); };
 // @baa 0x00befc70
-int UObject::sub_00befc70(void)
+int C_00befc70::sub_00befc70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00befc80 { int sub_00befc80(void); };
 // @baa 0x00befc80
-int UObject::sub_00befc80(void)
+int C_00befc80::sub_00befc80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -101,8 +110,9 @@ struct C_view_00bf0a70 {
     int sub_00befa70(int, int);
 };
 
+struct C_00bf0a70 { int sub_00bf0a70(int param_2); };
 // @baa 0x00bf0a70
-int UFaceFXAsset::sub_00bf0a70(int param_2)
+int C_00bf0a70::sub_00bf0a70(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00bf0a70 *)(this))->sub_00befa70((int)(&param_2), param_2);
@@ -112,16 +122,18 @@ int UFaceFXAsset::sub_00bf0a70(int param_2)
   return 0;
 }
 
+struct C_00bf0ae0 { int sub_00bf0ae0(void); };
 // @baa 0x00bf0ae0
-int UFaceFXAsset::sub_00bf0ae0(void)
+int C_00bf0ae0::sub_00bf0ae0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[2] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00bf0af0 { int sub_00bf0af0(void); };
 // @baa 0x00bf0af0
-int UFaceFXAsset::sub_00bf0af0(void)
+int C_00bf0af0::sub_00bf0af0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -332,8 +344,9 @@ FSparseArrayConstIt_00bf11c0::FSparseArrayConstIt_00bf11c0(const TSparseArray<IN
 
 int sub_005c7a20(void);
 extern undefined * g_02026208;
+struct C_00bf1270 { undefined4 * sub_00bf1270(void); };
 // @baa 0x00bf1270
-undefined4 * UObject::sub_00bf1270(void)
+undefined4 * C_00bf1270::sub_00bf1270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -350,8 +363,9 @@ struct C_view_00bf3940 {
     int sub_00befa70(int, int);
 };
 
+struct C_00bf3940 { int sub_00bf3940(int param_2); };
 // @baa 0x00bf3940
-int UFaceFXAsset::sub_00bf3940(int param_2)
+int C_00bf3940::sub_00bf3940(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -430,8 +444,9 @@ FSparseArrayConstIt_00bf4130::FSparseArrayConstIt_00bf4130(const TSparseArray<IN
 
 // @baa 0x00bf4180
 extern undefined * g_02026318;
+struct C_00bf41a0 { undefined4 * sub_00bf41a0(void); };
 // @baa 0x00bf41a0
-undefined4 * UObject::sub_00bf41a0(void)
+undefined4 * C_00bf41a0::sub_00bf41a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -448,8 +463,9 @@ IMPLEMENT_CLASS_AT(URFMODSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 
 // @baa 0x00bf4c10
 int sub_00bf3f70(void);
+struct C_00bf5e10 { int sub_00bf5e10(void); };
 // @baa 0x00bf5e10
-int UFaceFXAsset::sub_00bf5e10(void)
+int C_00bf5e10::sub_00bf5e10(void)
 {
     int param_1 = (int)this;
 
@@ -460,8 +476,9 @@ int UFaceFXAsset::sub_00bf5e10(void)
 }
 
 int sub_00bf3fd0(void);
+struct C_00bf5e30 { int sub_00bf5e30(void); };
 // @baa 0x00bf5e30
-int UFaceFXAsset::sub_00bf5e30(void)
+int C_00bf5e30::sub_00bf5e30(void)
 {
     int param_1 = (int)this;
 
@@ -472,8 +489,9 @@ int UFaceFXAsset::sub_00bf5e30(void)
 }
 
 int sub_00bf4030(void);
+struct C_00bf5e50 { int sub_00bf5e50(void); };
 // @baa 0x00bf5e50
-int UFaceFXAsset::sub_00bf5e50(void)
+int C_00bf5e50::sub_00bf5e50(void)
 {
     int param_1 = (int)this;
 
@@ -500,8 +518,9 @@ struct C_view_00bf6310 {
     int sub_00bf5b90(int, int);
 };
 
+struct C_00bf6310 { undefined4 sub_00bf6310(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00bf6310
-undefined4 UFaceFXAsset::sub_00bf6310(undefined4 param_2, undefined4 param_3)
+undefined4 C_00bf6310::sub_00bf6310(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00bf6310 *)(this))->sub_00bf5b90(param_2, param_3);
@@ -512,8 +531,9 @@ struct C_view_00bf6330 {
     int sub_00bf5c10(int, int);
 };
 
+struct C_00bf6330 { int sub_00bf6330(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00bf6330
-int UFaceFXAsset::sub_00bf6330(undefined4 param_2, undefined4 param_3)
+int C_00bf6330::sub_00bf6330(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00bf6330 *)(this))->sub_00bf5c10(param_2, param_3);
@@ -525,8 +545,9 @@ struct C_view_00bf6350 {
     int sub_00bf5c90(int, int);
 };
 
+struct C_00bf6350 { undefined4 sub_00bf6350(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00bf6350
-undefined4 UFaceFXAsset::sub_00bf6350(undefined4 param_2, undefined4 param_3)
+undefined4 C_00bf6350::sub_00bf6350(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00bf6350 *)(this))->sub_00bf5c90(param_2, param_3);
@@ -537,8 +558,9 @@ struct C_view_00bf6370 {
     int sub_00bf5d10(int, int);
 };
 
+struct C_00bf6370 { int sub_00bf6370(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00bf6370
-int UFaceFXAsset::sub_00bf6370(undefined4 param_2, undefined4 param_3)
+int C_00bf6370::sub_00bf6370(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00bf6370 *)(this))->sub_00bf5d10(param_2, param_3);
@@ -550,8 +572,9 @@ struct C_view_00bf6390 {
     int sub_00bf5d90(int, int);
 };
 
+struct C_00bf6390 { int sub_00bf6390(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00bf6390
-int UFaceFXAsset::sub_00bf6390(undefined4 param_2, undefined4 param_3)
+int C_00bf6390::sub_00bf6390(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00bf6390 *)(this))->sub_00bf5d90(param_2, param_3);
@@ -559,8 +582,9 @@ int UFaceFXAsset::sub_00bf6390(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00bf63b0 { int sub_00bf63b0(void); };
 // @baa 0x00bf63b0
-int UFaceFXAsset::sub_00bf63b0(void)
+int C_00bf63b0::sub_00bf63b0(void)
 {
     int param_1 = (int)this;
 
@@ -570,8 +594,9 @@ int UFaceFXAsset::sub_00bf63b0(void)
   return param_1;
 }
 
+struct C_00bf63d0 { int sub_00bf63d0(void); };
 // @baa 0x00bf63d0
-int UFaceFXAsset::sub_00bf63d0(void)
+int C_00bf63d0::sub_00bf63d0(void)
 {
     int param_1 = (int)this;
 
@@ -581,8 +606,9 @@ int UFaceFXAsset::sub_00bf63d0(void)
   return param_1;
 }
 
+struct C_00bf63f0 { int sub_00bf63f0(void); };
 // @baa 0x00bf63f0
-int UFaceFXAsset::sub_00bf63f0(void)
+int C_00bf63f0::sub_00bf63f0(void)
 {
     int param_1 = (int)this;
 
@@ -608,8 +634,9 @@ void sub_00bf61a0();
 // @baa 0x00bf7010
 void sub_00bf7010(void) { sub_00bf61a0(); }
 
+struct C_00bf7060 { int sub_00bf7060(void); };
 // @baa 0x00bf7060
-int UFaceFXAsset::sub_00bf7060(void)
+int C_00bf7060::sub_00bf7060(void)
 {
     int param_1 = (int)this;
 
@@ -619,8 +646,9 @@ int UFaceFXAsset::sub_00bf7060(void)
   return param_1;
 }
 
+struct C_00bf7080 { int sub_00bf7080(void); };
 // @baa 0x00bf7080
-int UFaceFXAsset::sub_00bf7080(void)
+int C_00bf7080::sub_00bf7080(void)
 {
     int param_1 = (int)this;
 
@@ -630,8 +658,9 @@ int UFaceFXAsset::sub_00bf7080(void)
   return param_1;
 }
 
+struct C_00bf70a0 { int sub_00bf70a0(void); };
 // @baa 0x00bf70a0
-int UFaceFXAsset::sub_00bf70a0(void)
+int C_00bf70a0::sub_00bf70a0(void)
 {
     int param_1 = (int)this;
 
@@ -651,8 +680,9 @@ void sub_00bf70d0(void) { sub_00bf5f10(); }
 void sub_00bf7460(void) { sub_00bf6030(); }
 
 extern undefined * g_020267b0;
+struct C_00bf7730 { undefined4 * sub_00bf7730(void); };
 // @baa 0x00bf7730
-undefined4 * UObject::sub_00bf7730(void)
+undefined4 * C_00bf7730::sub_00bf7730(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -664,9 +694,10 @@ undefined4 * UObject::sub_00bf7730(void)
 // @baa 0x00bf7750
 IMPLEMENT_CLASS_AT(URSeqAct_SetMaterialInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\RSeqAct_SetMaterialInstance.cpp", 4);
 
+struct C_00bf77e0 { int sub_00bf77e0(void); };
 // @baa 0x00bf77b0
 // @baa 0x00bf77e0
-int UFaceFXAsset::sub_00bf77e0(void)
+int C_00bf77e0::sub_00bf77e0(void)
 {
     int param_1 = (int)this;
 
@@ -676,8 +707,9 @@ int UFaceFXAsset::sub_00bf77e0(void)
   return param_1;
 }
 
+struct C_00bf7800 { int sub_00bf7800(void); };
 // @baa 0x00bf7800
-int UFaceFXAsset::sub_00bf7800(void)
+int C_00bf7800::sub_00bf7800(void)
 {
     int param_1 = (int)this;
 
@@ -687,8 +719,9 @@ int UFaceFXAsset::sub_00bf7800(void)
   return param_1;
 }
 
+struct C_00bf7820 { int sub_00bf7820(void); };
 // @baa 0x00bf7820
-int UFaceFXAsset::sub_00bf7820(void)
+int C_00bf7820::sub_00bf7820(void)
 {
     int param_1 = (int)this;
 
@@ -702,8 +735,9 @@ struct C_view_015b7970 {
     int sub_00bf5ad0(int, int);
 };
 
+struct C_015b7970 { void sub_015b7970(void); };
 // @baa 0x015b7970
-void UFaceFXAsset::sub_015b7970(void)
+void C_015b7970::sub_015b7970(void)
 {
     int param_1 = (int)this;
   ((C_view_015b7970 *)(this))->sub_00bf5ad0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);

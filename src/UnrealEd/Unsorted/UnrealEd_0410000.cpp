@@ -145,8 +145,9 @@ void C_00414070::sub_00414070(void)
 }
 
 int sub_0053df70(...);
+struct C_004140a0 { void sub_004140a0(int param_2); };
 // @baa 0x004140a0
-void UObject::sub_004140a0(int param_2)
+void C_004140a0::sub_004140a0(int param_2)
 {
     int * param_1 = (int *)this;
 

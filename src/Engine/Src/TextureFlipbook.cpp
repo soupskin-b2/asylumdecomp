@@ -198,8 +198,9 @@ void C_0076ea90::sub_0076eb40() {}
 
 int sub_005c7a70(...);
 int sub_0076eac0(void);
+struct C_0076eb40 { undefined4 sub_0076eb40(byte param_2); };
 // @baa 0x0076eb40
-undefined4 UTextureFlipBook::sub_0076eb40(byte param_2)
+undefined4 C_0076eb40::sub_0076eb40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

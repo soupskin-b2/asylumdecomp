@@ -12,8 +12,9 @@ struct C_view {
     int sub_014bc720(int);
 };
 
+struct C_014c3710 { int sub_014c3710(int param_2); };
 // @baa 0x014c3710
-int UTexture2D::sub_014c3710(int param_2)
+int C_014c3710::sub_014c3710(int param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_014bc720(param_2);
@@ -27,8 +28,9 @@ struct C_view_014c3740 {
 };
 
 int sub_0053dfa0(...);
+struct C_014c3740 { undefined4 sub_014c3740(byte param_2); };
 // @baa 0x014c3740
-undefined4 UTexture2D::sub_014c3740(byte param_2)
+undefined4 C_014c3740::sub_014c3740(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_014c3740 *)(((char *)this + 4)))->sub_014bbb40();
@@ -42,8 +44,9 @@ struct C_view_014c3fa0 {
     int sub_014c3be0(int);
 };
 
+struct C_014c3fa0 { void sub_014c3fa0(void); };
 // @baa 0x014c3fa0
-void UTexture2D::sub_014c3fa0(void)
+void C_014c3fa0::sub_014c3fa0(void)
 {
     int param_1 = (int)this;
   ((C_view_014c3fa0 *)((*(char **)((char *)this + 0x10))))->sub_014c3be0(*(undefined4 *)(param_1 + 8));
@@ -91,8 +94,9 @@ struct C_view_014c5890 {
 };
 
 extern undefined * g_022b8dd8;
+struct C_014c5890 { undefined4 * sub_014c5890(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014c5890
-undefined4 * UObject::sub_014c5890(undefined4 param_2, undefined4 param_3)
+undefined4 * C_014c5890::sub_014c5890(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_014c5890 *)(this))->sub_011ac8c0(param_2, param_3);
@@ -111,8 +115,9 @@ int sub_014c58c0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_022b9138;
+struct C_014c58d0 { undefined4 * sub_014c58d0(void); };
 // @baa 0x014c58d0
-undefined4 * UObject::sub_014c58d0(void)
+undefined4 * C_014c58d0::sub_014c58d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -215,8 +220,9 @@ UBOOL UPlayerInputMask_CustomDrawProxy::HasParentClassChanged() const
 }
 
 extern undefined * g_022ba0d8;
+struct C_014c82b0 { undefined4 * sub_014c82b0(void); };
 // @baa 0x014c82b0
-undefined4 * UObject::sub_014c82b0(void)
+undefined4 * C_014c82b0::sub_014c82b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

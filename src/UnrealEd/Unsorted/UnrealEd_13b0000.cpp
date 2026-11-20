@@ -8,8 +8,9 @@ struct C_view {
     int sub_00547da0(int);
 };
 
+struct C_013b0070 { int sub_013b0070(int param_2); };
 // @baa 0x013b0070
-int URFMODSound::sub_013b0070(int param_2)
+int C_013b0070::sub_013b0070(int param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00547da0(param_2);
@@ -644,8 +645,9 @@ struct C_view_013bd7e0 {
     int sub_013aeff0(int, int);
 };
 
+struct C_013bd7e0 { int sub_013bd7e0(int param_2); };
 // @baa 0x013bd7e0
-int UPackageMap::sub_013bd7e0(int param_2)
+int C_013bd7e0::sub_013bd7e0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

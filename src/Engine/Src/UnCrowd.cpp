@@ -41,8 +41,9 @@ void sub_00ccbf20();
 void sub_00ccf680(void) { sub_00ccbf20(); }
 
 int sub_00cc8150(void);
+struct C_00ccf830 { int sub_00ccf830(void); };
 // @baa 0x00ccf830
-int UBrushComponent::sub_00ccf830(void)
+int C_00ccf830::sub_00ccf830(void)
 {
     int param_1 = (int)this;
 

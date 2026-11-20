@@ -47,8 +47,9 @@ struct C_view {
 };
 
 extern undefined4 g_02200df8;
+struct C_01220320 { undefined4 * sub_01220320(undefined4 param_2); };
 // @baa 0x01220320
-undefined4 * UUnrealEdEngine::sub_01220320(undefined4 param_2)
+undefined4 * C_01220320::sub_01220320(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(0);
@@ -257,8 +258,9 @@ int sub_01221690(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_022011a8;
+struct C_012216a0 { undefined4 * sub_012216a0(void); };
 // @baa 0x012216a0
-undefined4 * UObject::sub_012216a0(void)
+undefined4 * C_012216a0::sub_012216a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -897,8 +899,9 @@ void sub_0040fcc0();
 // @baa 0x0122eb30
 void sub_0122eb30(void) { sub_0040fcc0(); }
 
+struct C_0122ebc0 { int sub_0122ebc0(int param_2); };
 // @baa 0x0122ebc0
-int UUnrealEdEngine::sub_0122ebc0(int param_2)
+int C_0122ebc0::sub_0122ebc0(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
@@ -909,8 +912,9 @@ struct C_view_0122ec70 {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_0122ec70 { undefined4 * sub_0122ec70(int * param_2); };
 // @baa 0x0122ec70
-undefined4 * UObject::sub_0122ec70(int * param_2)
+undefined4 * C_0122ec70::sub_0122ec70(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -942,8 +946,9 @@ struct C_view_0122f540 {
     int sub_00417dc0(int);
 };
 
+struct C_0122f540 { undefined4 * sub_0122f540(undefined4 * param_2); };
 // @baa 0x0122f540
-undefined4 * UObject::sub_0122f540(undefined4 * param_2)
+undefined4 * C_0122f540::sub_0122f540(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_0122f540 *)(this))->sub_00417dc0(param_2[1]);

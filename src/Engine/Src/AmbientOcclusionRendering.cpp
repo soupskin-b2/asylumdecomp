@@ -132,8 +132,9 @@ struct C_view {
 int sub_006311e0(...);
 int sub_00ac55b0(...);
 extern undefined4 g_01fc6c10;
+struct C_00a745b0 { void sub_00a745b0(undefined4 param_2, int param_3, int param_4, undefined4 param_5, undefined4 param_6); };
 // @baa 0x00a745b0
-void UMorphWeightSequence::sub_00a745b0(undefined4 param_2, int param_3, int param_4, undefined4 param_5, undefined4 param_6)
+void C_00a745b0::sub_00a745b0(undefined4 param_2, int param_3, int param_4, undefined4 param_5, undefined4 param_6)
 {
     int param_1 = (int)this;
   int iVar1;

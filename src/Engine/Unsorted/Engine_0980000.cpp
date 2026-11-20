@@ -163,8 +163,9 @@ undefined4 C_009816e0::sub_009816e0(void)
   return 1;
 }
 
+struct C_00981800 { void sub_00981800(void); };
 // @baa 0x00981800
-void UStaticMeshComponent::sub_00981800(void)
+void C_00981800::sub_00981800(void)
 {
     int param_1 = (int)this;
 
@@ -179,8 +180,9 @@ int sub_009818b0(void) { return (int)g_01f894fc; }
 
 int sub_0053dfa0(...);
 int sub_009818c0(void);
+struct C_00981910 { undefined4 sub_00981910(byte param_2); };
 // @baa 0x00981910
-undefined4 UStaticMeshComponent::sub_00981910(byte param_2)
+undefined4 C_00981910::sub_00981910(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -205,8 +207,9 @@ struct C_00981b00 { char pad[252]; M_00981b00 m; void sub_00981b00(); };
 // @baa 0x00981b00
 void C_00981b00::sub_00981b00() { m.sub_00b20de0(); }
 
+struct C_00981c00 { void sub_00981c00(void); };
 // @baa 0x00981c00
-void UStaticMeshComponent::sub_00981c00(void)
+void C_00981c00::sub_00981c00(void)
 {
     int param_1 = (int)this;
 

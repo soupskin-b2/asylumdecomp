@@ -1702,8 +1702,9 @@ void C_00b07e40::sub_00b07e40(int a1,Z* a2,int a3,int a4,W* a5){
 }
 
 int sub_00b08ae0(void);
+struct C_00b08c50 { undefined4 sub_00b08c50(byte param_2); };
 // @baa 0x00b08c50
-undefined4 ULensFlare::sub_00b08c50(byte param_2)
+undefined4 C_00b08c50::sub_00b08c50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1714,8 +1715,9 @@ undefined4 ULensFlare::sub_00b08c50(byte param_2)
   return param_1;
 }
 
+struct C_00b08d60 { void sub_00b08d60(void); };
 // @baa 0x00b08d60
-void ULensFlare::sub_00b08d60(void)
+void C_00b08d60::sub_00b08d60(void)
 {
 int param_1=(uint)this;
 
@@ -1729,8 +1731,9 @@ if(iVar1!=0){
 return;
 }
 
+struct C_00b0a400 { void sub_00b0a400(void); };
 // @baa 0x00b0a400
-void ULensFlare::sub_00b0a400(void)
+void C_00b0a400::sub_00b0a400(void)
 {
 int param_1=(int)this;
 
@@ -1844,8 +1847,9 @@ int C_00b0eda0::sub_00b0eda0(void)
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00b0ee20 { int sub_00b0ee20(int param_2); };
 // @baa 0x00b0ee20
-int UTexture2D::sub_00b0ee20(int param_2)
+int C_00b0ee20::sub_00b0ee20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -2110,8 +2114,9 @@ struct C_view {
     int sub_0073f030(int);
 };
 
+struct C_00b0ffb0 { undefined4 sub_00b0ffb0(undefined4 param_2); };
 // @baa 0x00b0ffb0
-undefined4 UMorphWeightSequence::sub_00b0ffb0(undefined4 param_2)
+undefined4 C_00b0ffb0::sub_00b0ffb0(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

@@ -151,8 +151,9 @@ void sub_009225e0(void) { sub_009214a0(); }
 // @baa 0x0092f870
 int sub_005c7a20(void);
 extern undefined * g_01f787f8;
+struct C_0092f8a0 { undefined4 * sub_0092f8a0(void); };
 // @baa 0x0092f8a0
-undefined4 * UObject::sub_0092f8a0(void)
+undefined4 * C_0092f8a0::sub_0092f8a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -170,8 +171,9 @@ IMPLEMENT_CLASS_AT(USkelControlLimb, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x0092f9c0
 extern undefined * g_01f78948;
+struct C_0092f9f0 { undefined4 * sub_0092f9f0(void); };
 // @baa 0x0092f9f0
-undefined4 * UObject::sub_0092f9f0(void)
+undefined4 * C_0092f9f0::sub_0092f9f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -181,8 +183,9 @@ undefined4 * UObject::sub_0092f9f0(void)
 }
 
 extern undefined * g_01f78a98;
+struct C_0092fa10 { undefined4 * sub_0092fa10(void); };
 // @baa 0x0092fa10
-undefined4 * UObject::sub_0092fa10(void)
+undefined4 * C_0092fa10::sub_0092fa10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -196,8 +199,9 @@ IMPLEMENT_CLASS_AT(USkelControlFootPlacement, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x0092fa90
 extern undefined * g_01f78be8;
+struct C_0092fac0 { undefined4 * sub_0092fac0(void); };
 // @baa 0x0092fac0
-undefined4 * UObject::sub_0092fac0(void)
+undefined4 * C_0092fac0::sub_0092fac0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -218,8 +222,9 @@ IMPLEMENT_CLASS_AT(USkelControlSingleBone, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x0092fbe0
 extern undefined * g_01f78d40;
+struct C_0092fc10 { undefined4 * sub_0092fc10(void); };
 // @baa 0x0092fc10
-undefined4 * UObject::sub_0092fc10(void)
+undefined4 * C_0092fc10::sub_0092fc10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -229,8 +234,9 @@ undefined4 * UObject::sub_0092fc10(void)
 }
 
 extern undefined * g_01f78e90;
+struct C_0092fc30 { undefined4 * sub_0092fc30(void); };
 // @baa 0x0092fc30
-undefined4 * UObject::sub_0092fc30(void)
+undefined4 * C_0092fc30::sub_0092fc30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -244,8 +250,9 @@ IMPLEMENT_CLASS_AT(USkelControlWheel, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x0092fcb0
 extern undefined * g_01f78fe0;
+struct C_0092fce0 { undefined4 * sub_0092fce0(void); };
 // @baa 0x0092fce0
-undefined4 * UObject::sub_0092fce0(void)
+undefined4 * C_0092fce0::sub_0092fce0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -259,8 +266,9 @@ IMPLEMENT_CLASS_AT(USkelControlSpline, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x0092fd60
 extern undefined * g_01f79130;
+struct C_0092fd90 { undefined4 * sub_0092fd90(void); };
 // @baa 0x0092fd90
-undefined4 * UObject::sub_0092fd90(void)
+undefined4 * C_0092fd90::sub_0092fd90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

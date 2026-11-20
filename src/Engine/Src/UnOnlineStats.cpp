@@ -16,8 +16,9 @@ ULightMapTexture2D::ULightMapTexture2D()
 
 int sub_005c7a70(...);
 int sub_00d3ada0(void);
+struct C_00d3ae00 { undefined4 sub_00d3ae00(byte param_2); };
 // @baa 0x00d3ae00
-undefined4 ULightMapTexture2D::sub_00d3ae00(byte param_2)
+undefined4 C_00d3ae00::sub_00d3ae00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -34,8 +35,9 @@ undefined4 ULightMapTexture2D::sub_00d3ae00(byte param_2)
 IMPLEMENT_CLASS_AT(UOnlineStatsRead, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnOnlineStats.cpp", 8);
 
 int sub_00828ee0(...);
+struct C_00d419b0 { void sub_00d419b0(undefined4 param_2); };
 // @baa 0x00d419b0
-void UOnlineStatsRead::sub_00d419b0(undefined4 param_2)
+void C_00d419b0::sub_00d419b0(undefined4 param_2)
 {
     int param_1 = (int)this;
 

@@ -1906,8 +1906,9 @@ undefined4 C_0096e610::sub_0096e610(undefined4 param_2)
 }
 
 int sub_007c4f20(void);
+struct C_0096e670 { undefined4 sub_0096e670(byte param_2); };
 // @baa 0x0096e670
-undefined4 UTexture2DComposite::sub_0096e670(byte param_2)
+undefined4 C_0096e670::sub_0096e670(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -24,8 +24,9 @@ struct C_view {
     int sub_0057ee60(int, int);
 };
 
+struct C_00581330 { int sub_00581330(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00581330
-int UState::sub_00581330(undefined4 param_2, undefined4 param_3)
+int C_00581330::sub_00581330(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_0057ee60(param_2, param_3);
@@ -37,8 +38,9 @@ struct C_view_00581350 {
     int sub_0057eee0(int, int);
 };
 
+struct C_00581350 { int sub_00581350(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00581350
-int UState::sub_00581350(undefined4 param_2, undefined4 param_3)
+int C_00581350::sub_00581350(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00581350 *)(this))->sub_0057eee0(param_2, param_3);
@@ -47,8 +49,9 @@ int UState::sub_00581350(undefined4 param_2, undefined4 param_3)
 }
 
 int sub_0057bf00(void);
+struct C_005834e0 { int sub_005834e0(void); };
 // @baa 0x005834e0
-int UState::sub_005834e0(void)
+int C_005834e0::sub_005834e0(void)
 {
     int param_1 = (int)this;
 
@@ -59,8 +62,9 @@ int UState::sub_005834e0(void)
 }
 
 int sub_0057bfb0(void);
+struct C_00583500 { int sub_00583500(void); };
 // @baa 0x00583500
-int UState::sub_00583500(void)
+int C_00583500::sub_00583500(void)
 {
     int param_1 = (int)this;
 
@@ -70,8 +74,9 @@ int UState::sub_00583500(void)
   return param_1;
 }
 
+struct C_005864d0 { int sub_005864d0(void); };
 // @baa 0x005864d0
-int UState::sub_005864d0(void)
+int C_005864d0::sub_005864d0(void)
 {
     int param_1 = (int)this;
 
@@ -81,8 +86,9 @@ int UState::sub_005864d0(void)
   return param_1;
 }
 
+struct C_005864f0 { int sub_005864f0(void); };
 // @baa 0x005864f0
-int UState::sub_005864f0(void)
+int C_005864f0::sub_005864f0(void)
 {
     int param_1 = (int)this;
 
@@ -93,8 +99,9 @@ int UState::sub_005864f0(void)
 }
 
 int sub_0057bd80(void);
+struct C_00586510 { int sub_00586510(void); };
 // @baa 0x00586510
-int UState::sub_00586510(void)
+int C_00586510::sub_00586510(void)
 {
     int param_1 = (int)this;
 
@@ -108,8 +115,9 @@ struct C_view_00586530 {
     int sub_00583540(int);
 };
 
+struct C_00586530 { undefined4 sub_00586530(undefined4 param_2); };
 // @baa 0x00586530
-undefined4 UState::sub_00586530(undefined4 param_2)
+undefined4 C_00586530::sub_00586530(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00586530 *)(this))->sub_00583540(param_2);

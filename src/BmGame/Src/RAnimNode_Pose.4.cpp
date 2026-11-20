@@ -70,8 +70,9 @@ void C_015a2430::sub_015a2430(int param_2)
   return;
 }
 
+struct C_015a7730 { void sub_015a7730(int param_2); };
 // @baa 0x015a7730
-void URAnimNode_Pose::sub_015a7730(int param_2)
+void C_015a7730::sub_015a7730(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -88,8 +89,9 @@ void URAnimNode_Pose::sub_015a7730(int param_2)
   return;
 }
 
+struct C_015a7770 { void sub_015a7770(int param_2); };
 // @baa 0x015a7770
-void URAnimNode_Pose::sub_015a7770(int param_2)
+void C_015a7770::sub_015a7770(int param_2)
 {
     int * param_1 = (int *)this;
 

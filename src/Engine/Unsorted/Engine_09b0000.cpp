@@ -147,8 +147,9 @@ EAcceptConnection FNetworkNotify::NotifyAcceptingConnection() PURE_VIRTUAL(FNetw
 UWorld* FNetworkNotify::NotifyGetWorld() PURE_VIRTUAL(FNetworkNotify::NotifyGetWorld, return NULL;)
 
 int sub_00656490(void);
+struct C_009b4b60 { undefined4 sub_009b4b60(byte param_2); };
 // @baa 0x009b4b60
-undefined4 ULensFlare::sub_009b4b60(byte param_2)
+undefined4 C_009b4b60::sub_009b4b60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -160,8 +161,9 @@ undefined4 ULensFlare::sub_009b4b60(byte param_2)
 }
 
 int sub_00656520(void);
+struct C_009b4b80 { undefined4 sub_009b4b80(byte param_2); };
 // @baa 0x009b4b80
-undefined4 UTexture2DComposite::sub_009b4b80(byte param_2)
+undefined4 C_009b4b80::sub_009b4b80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -311,16 +313,18 @@ void C_009b6e00::sub_009b6e00(int param_2)
 // @baa 0x009b6e40
 void __stdcall sub_009b6e40(int a0, int a1) {  }
 
+struct C_009b73d0 { int sub_009b73d0(int param_2); };
 // @baa 0x009b73d0
-int UState::sub_009b73d0(int param_2)
+int C_009b73d0::sub_009b73d0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_009b74d0 { int sub_009b74d0(int param_2); };
 // @baa 0x009b74d0
-int UState::sub_009b74d0(int param_2)
+int C_009b74d0::sub_009b74d0(int param_2)
 {
     int * param_1 = (int *)this;
 

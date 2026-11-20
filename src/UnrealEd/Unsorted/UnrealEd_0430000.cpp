@@ -1368,8 +1368,9 @@ float10 C_00439800::sub_00439800(int param_2)
   return (float10)(param_1[8] * param_2) / (float10)*param_1;
 }
 
+struct C_00439b80 { int sub_00439b80(void); };
 // @baa 0x00439b80
-int URFMODSound::sub_00439b80(void)
+int C_00439b80::sub_00439b80(void)
 {
     int param_1 = (int)this;
 

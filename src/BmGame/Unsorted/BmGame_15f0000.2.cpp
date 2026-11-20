@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0054eec0(void);
+struct C_015f2830 { undefined4 sub_015f2830(byte param_2); };
 // @baa 0x015f2830
-undefined4 UTexture2D::sub_015f2830(byte param_2)
+undefined4 C_015f2830::sub_015f2830(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UTexture2D::sub_015f2830(byte param_2)
 }
 
 int sub_00549310(void);
+struct C_015f2880 { undefined4 sub_015f2880(byte param_2); };
 // @baa 0x015f2880
-undefined4 UObject::sub_015f2880(byte param_2)
+undefined4 C_015f2880::sub_015f2880(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

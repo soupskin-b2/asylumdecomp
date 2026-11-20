@@ -1039,8 +1039,9 @@ FString UAnimNode::GetNodeTitle()
 // @baa 0x00c647a0
 int sub_005c7a20(void);
 extern undefined * g_020599d8;
+struct C_00c647d0 { undefined4 * sub_00c647d0(void); };
 // @baa 0x00c647d0
-undefined4 * UObject::sub_00c647d0(void)
+undefined4 * C_00c647d0::sub_00c647d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1066,8 +1067,9 @@ IMPLEMENT_CLASS_AT(UAnimNodeScalePlayRate, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00c65500
 extern undefined * g_0205b718;
+struct C_00c65530 { undefined4 * sub_00c65530(void); };
 // @baa 0x00c65530
-undefined4 * UObject::sub_00c65530(void)
+undefined4 * C_00c65530::sub_00c65530(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1077,8 +1079,9 @@ undefined4 * UObject::sub_00c65530(void)
 }
 
 extern undefined * g_0205b8b8;
+struct C_00c65550 { undefined4 * sub_00c65550(void); };
 // @baa 0x00c65550
-undefined4 * UObject::sub_00c65550(void)
+undefined4 * C_00c65550::sub_00c65550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1092,8 +1095,9 @@ IMPLEMENT_CLASS_AT(UAnimNodeScaleRateBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00c655d0
 extern undefined * g_0205ba58;
+struct C_00c65600 { undefined4 * sub_00c65600(void); };
 // @baa 0x00c65600
-undefined4 * UObject::sub_00c65600(void)
+undefined4 * C_00c65600::sub_00c65600(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1510,8 +1514,9 @@ int sub_00c79150(void)
 }
 
 extern undefined * g_0205bfe8;
+struct C_00c79180 { undefined4 * sub_00c79180(void); };
 // @baa 0x00c79180
-undefined4 * UObject::sub_00c79180(void)
+undefined4 * C_00c79180::sub_00c79180(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1536,8 +1541,9 @@ int sub_00c79250(void)
 }
 
 extern undefined * g_0205c188;
+struct C_00c79280 { undefined4 * sub_00c79280(void); };
 // @baa 0x00c79280
-undefined4 * UObject::sub_00c79280(void)
+undefined4 * C_00c79280::sub_00c79280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1549,8 +1555,9 @@ undefined4 * UObject::sub_00c79280(void)
 // @baa 0x00c792a0
 // @baa 0x00c79310
 extern undefined * g_0205c328;
+struct C_00c79340 { undefined4 * sub_00c79340(void); };
 // @baa 0x00c79340
-undefined4 * UObject::sub_00c79340(void)
+undefined4 * C_00c79340::sub_00c79340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

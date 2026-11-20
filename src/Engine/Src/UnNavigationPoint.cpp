@@ -192,8 +192,9 @@ return iVar2;
 }
 
 int sub_00854780(void);
+struct C_00857510 { int sub_00857510(void); };
 // @baa 0x00857510
-int ACoverLink::sub_00857510(void)
+int C_00857510::sub_00857510(void)
 {
     int param_1 = (int)this;
 
@@ -204,8 +205,9 @@ int ACoverLink::sub_00857510(void)
 }
 
 int sub_008547e0(void);
+struct C_00857530 { int sub_00857530(void); };
 // @baa 0x00857530
-int ACoverLink::sub_00857530(void)
+int C_00857530::sub_00857530(void)
 {
     int param_1 = (int)this;
 
@@ -215,8 +217,9 @@ int ACoverLink::sub_00857530(void)
   return param_1;
 }
 
+struct C_00858f70 { int sub_00858f70(void); };
 // @baa 0x00858f70
-int ACoverLink::sub_00858f70(void)
+int C_00858f70::sub_00858f70(void)
 {
     int param_1 = (int)this;
 
@@ -226,8 +229,9 @@ int ACoverLink::sub_00858f70(void)
   return param_1;
 }
 
+struct C_00858f90 { int sub_00858f90(void); };
 // @baa 0x00858f90
-int ACoverLink::sub_00858f90(void)
+int C_00858f90::sub_00858f90(void)
 {
     int param_1 = (int)this;
 
@@ -378,8 +382,9 @@ void C_008595f0::sub_008595f0(void)
     }
 }
 
+struct C_00859670 { int sub_00859670(void); };
 // @baa 0x00859670
-int ACoverLink::sub_00859670(void)
+int C_00859670::sub_00859670(void)
 {
     int param_1 = (int)this;
 
@@ -389,8 +394,9 @@ int ACoverLink::sub_00859670(void)
   return param_1;
 }
 
+struct C_00859690 { int sub_00859690(void); };
 // @baa 0x00859690
-int ACoverLink::sub_00859690(void)
+int C_00859690::sub_00859690(void)
 {
     int param_1 = (int)this;
 
@@ -400,8 +406,9 @@ int ACoverLink::sub_00859690(void)
   return param_1;
 }
 
+struct C_00859f60 { int sub_00859f60(void); };
 // @baa 0x00859f60
-int ACoverLink::sub_00859f60(void)
+int C_00859f60::sub_00859f60(void)
 {
     int param_1 = (int)this;
 
@@ -411,8 +418,9 @@ int ACoverLink::sub_00859f60(void)
   return param_1;
 }
 
+struct C_00859f80 { int sub_00859f80(void); };
 // @baa 0x00859f80
-int ACoverLink::sub_00859f80(void)
+int C_00859f80::sub_00859f80(void)
 {
     int param_1 = (int)this;
 
@@ -451,8 +459,9 @@ int sub_00835e90(void);
 int sub_0085d040(...);
 int sub_0085d46f(...);
 extern undefined4 g_026b55e8;
+struct C_0085d420 { undefined4 sub_0085d420(void); };
 // @baa 0x0085d420
-undefined4 ACoverLink::sub_0085d420(void)
+undefined4 C_0085d420::sub_0085d420(void)
 {
     int param_1 = (int)this;
 

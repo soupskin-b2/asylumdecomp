@@ -36,8 +36,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_Venom, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 int sub_005c7a20(void);
 extern undefined * g_0233a7f8;
+struct C_015fab20 { undefined4 * sub_015fab20(void); };
 // @baa 0x015fab20
-undefined4 * UObject::sub_015fab20(void)
+undefined4 * C_015fab20::sub_015fab20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -47,8 +48,9 @@ undefined4 * UObject::sub_015fab20(void)
 }
 
 extern undefined * g_0233a9e8;
+struct C_015fabf0 { undefined4 * sub_015fabf0(void); };
 // @baa 0x015fabf0
-undefined4 * UObject::sub_015fabf0(void)
+undefined4 * C_015fabf0::sub_015fabf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -58,8 +60,9 @@ undefined4 * UObject::sub_015fabf0(void)
 }
 
 extern undefined * g_0233abd8;
+struct C_015fac40 { undefined4 * sub_015fac40(void); };
 // @baa 0x015fac40
-undefined4 * UObject::sub_015fac40(void)
+undefined4 * C_015fac40::sub_015fac40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -69,8 +72,9 @@ undefined4 * UObject::sub_015fac40(void)
 }
 
 extern undefined * g_0233adc8;
+struct C_015facf0 { undefined4 * sub_015facf0(void); };
 // @baa 0x015facf0
-undefined4 * UObject::sub_015facf0(void)
+undefined4 * C_015facf0::sub_015facf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -80,8 +84,9 @@ undefined4 * UObject::sub_015facf0(void)
 }
 
 extern undefined * g_0233afb8;
+struct C_015fada0 { undefined4 * sub_015fada0(void); };
 // @baa 0x015fada0
-undefined4 * UObject::sub_015fada0(void)
+undefined4 * C_015fada0::sub_015fada0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -91,8 +96,9 @@ undefined4 * UObject::sub_015fada0(void)
 }
 
 extern undefined * g_0233b1a8;
+struct C_015fae50 { undefined4 * sub_015fae50(void); };
 // @baa 0x015fae50
-undefined4 * UObject::sub_015fae50(void)
+undefined4 * C_015fae50::sub_015fae50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

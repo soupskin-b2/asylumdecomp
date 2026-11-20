@@ -11,8 +11,9 @@ USystem::USystem()
 
 int sub_0053dfa0(...);
 int sub_00639e10(void);
+struct C_00642fe0 { undefined4 sub_00642fe0(byte param_2); };
 // @baa 0x00642fe0
-undefined4 UObject::sub_00642fe0(byte param_2)
+undefined4 C_00642fe0::sub_00642fe0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -5,8 +5,9 @@
 
 int sub_005c7a70(...);
 int sub_0071eea0(void);
+struct C_0071efc0 { undefined4 sub_0071efc0(byte param_2); };
 // @baa 0x0071efc0
-undefined4 UTexture::sub_0071efc0(byte param_2)
+undefined4 C_0071efc0::sub_0071efc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -28,8 +29,9 @@ UBOOL UTexture::HasParentClassChanged() const
 
 int sub_0071eff0(void);
 extern undefined * g_01eeea40;
+struct C_007290b0 { undefined4 * sub_007290b0(void); };
 // @baa 0x007290b0
-undefined4 * UTexture::sub_007290b0(void)
+undefined4 * C_007290b0::sub_007290b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -39,8 +41,9 @@ undefined4 * UTexture::sub_007290b0(void)
 }
 
 extern undefined * g_01efedd0;
+struct C_00760ed0 { undefined4 * sub_00760ed0(void); };
 // @baa 0x00760ed0
-undefined4 * UTexture::sub_00760ed0(void)
+undefined4 * C_00760ed0::sub_00760ed0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -53,8 +56,9 @@ undefined4 * UTexture::sub_00760ed0(void)
 IMPLEMENT_CLASS_AT(UTexture2DDynamic, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\Texture2DDynamic.cpp", 8);
 
 extern undefined * g_01efef00;
+struct C_00760f90 { undefined4 * sub_00760f90(void); };
 // @baa 0x00760f90
-undefined4 * UTexture::sub_00760f90(void)
+undefined4 * C_00760f90::sub_00760f90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -64,8 +68,9 @@ undefined4 * UTexture::sub_00760f90(void)
 }
 
 extern undefined * g_01eff170;
+struct C_00761290 { undefined4 * sub_00761290(void); };
 // @baa 0x00761290
-undefined4 * UTexture::sub_00761290(void)
+undefined4 * C_00761290::sub_00761290(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -75,8 +80,9 @@ undefined4 * UTexture::sub_00761290(void)
 }
 
 extern undefined * g_01eff2a0;
+struct C_00761360 { undefined4 * sub_00761360(void); };
 // @baa 0x00761360
-undefined4 * UTexture::sub_00761360(void)
+undefined4 * C_00761360::sub_00761360(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -86,8 +92,9 @@ undefined4 * UTexture::sub_00761360(void)
 }
 
 extern undefined * g_01eff3d0;
+struct C_00761380 { undefined4 * sub_00761380(void); };
 // @baa 0x00761380
-undefined4 * UTexture::sub_00761380(void)
+undefined4 * C_00761380::sub_00761380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

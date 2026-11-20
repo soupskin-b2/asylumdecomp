@@ -148,8 +148,9 @@ struct C_view {
     int sub_016cec10();
 };
 
+struct C_016ae8c0 { void sub_016ae8c0(void); };
 // @baa 0x016ae8c0
-void URCapeComponent::sub_016ae8c0(void)
+void C_016ae8c0::sub_016ae8c0(void)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
@@ -163,8 +164,9 @@ struct C_view_016ae8e0 {
     int sub_016cec20();
 };
 
+struct C_016ae8e0 { void sub_016ae8e0(void); };
 // @baa 0x016ae8e0
-void URCapeComponent::sub_016ae8e0(void)
+void C_016ae8e0::sub_016ae8e0(void)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0xb8) != 0) {
@@ -203,8 +205,9 @@ undefined4 sub_016ae980(void)
 }
 
 extern undefined4 g_0238572c;
+struct C_016aea90 { int sub_016aea90(void); };
 // @baa 0x016aea90
-int URCapeComponent::sub_016aea90(void)
+int C_016aea90::sub_016aea90(void)
 {
     int param_1 = (int)this;
 
@@ -217,8 +220,9 @@ int URCapeComponent::sub_016aea90(void)
 }
 
 extern undefined4 g_0238580c;
+struct C_016aeac0 { int sub_016aeac0(void); };
 // @baa 0x016aeac0
-int URCapeComponent::sub_016aeac0(void)
+int C_016aeac0::sub_016aeac0(void)
 {
     int param_1 = (int)this;
 
@@ -231,8 +235,9 @@ int URCapeComponent::sub_016aeac0(void)
 }
 
 extern undefined4 g_023859cc;
+struct C_016aeaf0 { int sub_016aeaf0(void); };
 // @baa 0x016aeaf0
-int URCapeComponent::sub_016aeaf0(void)
+int C_016aeaf0::sub_016aeaf0(void)
 {
     int param_1 = (int)this;
 
@@ -245,8 +250,9 @@ int URCapeComponent::sub_016aeaf0(void)
 }
 
 extern undefined4 g_02385aac;
+struct C_016aeb20 { int sub_016aeb20(void); };
 // @baa 0x016aeb20
-int URCapeComponent::sub_016aeb20(void)
+int C_016aeb20::sub_016aeb20(void)
 {
     int param_1 = (int)this;
 
@@ -259,8 +265,9 @@ int URCapeComponent::sub_016aeb20(void)
 }
 
 extern undefined4 g_02385b8c;
+struct C_016aeb50 { int sub_016aeb50(void); };
 // @baa 0x016aeb50
-int URCapeComponent::sub_016aeb50(void)
+int C_016aeb50::sub_016aeb50(void)
 {
     int param_1 = (int)this;
 
@@ -273,8 +280,9 @@ int URCapeComponent::sub_016aeb50(void)
 }
 
 extern undefined4 g_02385c6c;
+struct C_016aeb80 { int sub_016aeb80(void); };
 // @baa 0x016aeb80
-int URCapeComponent::sub_016aeb80(void)
+int C_016aeb80::sub_016aeb80(void)
 {
     int param_1 = (int)this;
 
@@ -287,8 +295,9 @@ int URCapeComponent::sub_016aeb80(void)
 }
 
 extern undefined4 g_02385d4c;
+struct C_016aebb0 { int sub_016aebb0(void); };
 // @baa 0x016aebb0
-int URCapeComponent::sub_016aebb0(void)
+int C_016aebb0::sub_016aebb0(void)
 {
     int param_1 = (int)this;
 
@@ -301,8 +310,9 @@ int URCapeComponent::sub_016aebb0(void)
 }
 
 extern undefined4 g_02385e2c;
+struct C_016aebe0 { int sub_016aebe0(void); };
 // @baa 0x016aebe0
-int URCapeComponent::sub_016aebe0(void)
+int C_016aebe0::sub_016aebe0(void)
 {
     int param_1 = (int)this;
 
@@ -315,8 +325,9 @@ int URCapeComponent::sub_016aebe0(void)
 }
 
 extern undefined4 g_02385f0c;
+struct C_016aec10 { uint sub_016aec10(void); };
 // @baa 0x016aec10
-uint URCapeComponent::sub_016aec10(void)
+uint C_016aec10::sub_016aec10(void)
 {
     int param_1 = (int)this;
 
@@ -329,8 +340,9 @@ uint URCapeComponent::sub_016aec10(void)
 }
 
 extern undefined4 g_02385fec;
+struct C_016aec50 { uint sub_016aec50(void); };
 // @baa 0x016aec50
-uint URCapeComponent::sub_016aec50(void)
+uint C_016aec50::sub_016aec50(void)
 {
     int param_1 = (int)this;
 
@@ -343,8 +355,9 @@ uint URCapeComponent::sub_016aec50(void)
 }
 
 extern undefined4 g_023860cc;
+struct C_016aec90 { uint sub_016aec90(void); };
 // @baa 0x016aec90
-uint URCapeComponent::sub_016aec90(void)
+uint C_016aec90::sub_016aec90(void)
 {
     int param_1 = (int)this;
 
@@ -357,8 +370,9 @@ uint URCapeComponent::sub_016aec90(void)
 }
 
 extern undefined4 g_0238636c;
+struct C_016aed50 { int sub_016aed50(void); };
 // @baa 0x016aed50
-int URCapeComponent::sub_016aed50(void)
+int C_016aed50::sub_016aed50(void)
 {
     int param_1 = (int)this;
 
@@ -410,8 +424,9 @@ struct C_view_016b20d0 {
 
 int sub_016b0430(...);
 extern undefined4 g_02384c00;
+struct C_016b20d0 { int sub_016b20d0(void); };
 // @baa 0x016b20d0
-int URCapeComponent::sub_016b20d0(void)
+int C_016b20d0::sub_016b20d0(void)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -520,8 +535,9 @@ IMPLEMENT_CLASS_AT(URCapeConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x016ccfa0
 int sub_0053dfa0(...);
 int sub_016cd5b0(void);
+struct C_016cd630 { undefined4 sub_016cd630(byte param_2); };
 // @baa 0x016cd630
-undefined4 URCapeComponent::sub_016cd630(byte param_2)
+undefined4 C_016cd630::sub_016cd630(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

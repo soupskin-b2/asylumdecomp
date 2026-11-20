@@ -4,8 +4,9 @@
 #include "ue3/Implement.h"
 
 int sub_0053df70(...);
+struct C_00e2fb60 { void sub_00e2fb60(int param_2); };
 // @baa 0x00e2fb60
-void UPartyBeaconHost::sub_00e2fb60(int param_2)
+void C_00e2fb60::sub_00e2fb60(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -22,8 +23,9 @@ void UPartyBeaconHost::sub_00e2fb60(int param_2)
   return;
 }
 
+struct C_00e2fba0 { void sub_00e2fba0(int param_2); };
 // @baa 0x00e2fba0
-void UPartyBeaconHost::sub_00e2fba0(int param_2)
+void C_00e2fba0::sub_00e2fba0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -40,8 +42,9 @@ void UPartyBeaconHost::sub_00e2fba0(int param_2)
   return;
 }
 
+struct C_00e333c0 { void sub_00e333c0(int param_2); };
 // @baa 0x00e333c0
-void UPartyBeaconHost::sub_00e333c0(int param_2)
+void C_00e333c0::sub_00e333c0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -58,8 +61,9 @@ void UPartyBeaconHost::sub_00e333c0(int param_2)
   return;
 }
 
+struct C_00e33400 { void sub_00e33400(int param_2); };
 // @baa 0x00e33400
-void UPartyBeaconHost::sub_00e33400(int param_2)
+void C_00e33400::sub_00e33400(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -76,8 +80,9 @@ void UPartyBeaconHost::sub_00e33400(int param_2)
   return;
 }
 
+struct C_00e335f0 { void sub_00e335f0(int param_2); };
 // @baa 0x00e335f0
-void UPartyBeaconHost::sub_00e335f0(int param_2)
+void C_00e335f0::sub_00e335f0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -114,8 +119,9 @@ undefined4 UPartyBeacon::sub_00e348e0(byte param_2)
 int sub_00e34900(void);
 extern undefined * g_020f4c78;
 extern undefined * g_020f4c90;
+struct C_00e38150 { undefined4 * sub_00e38150(void); };
 // @baa 0x00e38150
-undefined4 * UPartyBeacon::sub_00e38150(void)
+undefined4 * C_00e38150::sub_00e38150(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -187,8 +187,9 @@ extern char g_01ebb554[];
 void USkeletalMeshComponent::sub_0090f260(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_0090f270 { undefined4 * sub_0090f270(byte param_2); };
 // @baa 0x0090f270
-undefined4 * USkeletalMeshComponent::sub_0090f270(byte param_2)
+undefined4 * C_0090f270::sub_0090f270(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -199,8 +200,9 @@ undefined4 * USkeletalMeshComponent::sub_0090f270(byte param_2)
   return param_1;
 }
 
+struct C_0090f2b0 { undefined4 sub_0090f2b0(void); };
 // @baa 0x0090f2b0
-undefined4 USkeletalMeshComponent::sub_0090f2b0(void)
+undefined4 C_0090f2b0::sub_0090f2b0(void)
 {
     int param_1 = (int)this;
 
@@ -218,8 +220,9 @@ int sub_0090f2d0(void) { return (int)g_01f75634; }
 // @baa 0x0090f2e0
 void USkeletalMeshComponent::sub_0090f2e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_0090f2f0 { undefined4 * sub_0090f2f0(byte param_2); };
 // @baa 0x0090f2f0
-undefined4 * USkeletalMeshComponent::sub_0090f2f0(byte param_2)
+undefined4 * C_0090f2f0::sub_0090f2f0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -443,8 +446,9 @@ INT USkeletalMeshComponent::GetNumElements()
 }
 
 int sub_0092db40(void);
+struct C_00935790 { void sub_00935790(undefined4 param_2); };
 // @baa 0x00935790
-void USkeletalMeshComponent::sub_00935790(undefined4 param_2)
+void C_00935790::sub_00935790(undefined4 param_2)
 {
     int param_1 = (int)this;
 

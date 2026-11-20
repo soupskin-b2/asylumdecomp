@@ -1011,8 +1011,9 @@ int sub_0173f640(int a0) { return *(int*)a0; }
 
 int sub_005c7a20(void);
 extern undefined * g_023d4ef0;
+struct C_0173f650 { undefined4 * sub_0173f650(void); };
 // @baa 0x0173f650
-undefined4 * UObject::sub_0173f650(void)
+undefined4 * C_0173f650::sub_0173f650(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

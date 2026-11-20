@@ -5,8 +5,9 @@
 
 int sub_0060b320(void);
 extern undefined * g_0214c4f8;
+struct C_00f31560 { undefined4 * sub_00f31560(void); };
 // @baa 0x00f31560
-undefined4 * UExporter::sub_00f31560(void)
+undefined4 * C_00f31560::sub_00f31560(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

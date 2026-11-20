@@ -46,8 +46,9 @@ void C_007bd8d0::sub_007bd8d0(int param_2)
   return;
 }
 
+struct C_007bd910 { void sub_007bd910(int param_2); };
 // @baa 0x007bd910
-void UFracturedBaseComponent::sub_007bd910(int param_2)
+void C_007bd910::sub_007bd910(int param_2)
 {
     int * param_1 = (int *)this;
 

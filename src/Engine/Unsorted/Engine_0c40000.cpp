@@ -58,8 +58,9 @@ FSparseArrayConstIt_00c40320& FSparseArrayConstIt_00c40320::operator++()
 
 int sub_0053dfa0(...);
 int sub_00c37e60(void);
+struct C_00c40340 { undefined4 sub_00c40340(byte param_2); };
 // @baa 0x00c40340
-undefined4 UObject::sub_00c40340(byte param_2)
+undefined4 C_00c40340::sub_00c40340(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -71,8 +72,9 @@ undefined4 UObject::sub_00c40340(byte param_2)
 }
 
 int sub_00c3f650(void);
+struct C_00c40360 { undefined4 sub_00c40360(byte param_2); };
 // @baa 0x00c40360
-undefined4 UObject::sub_00c40360(byte param_2)
+undefined4 C_00c40360::sub_00c40360(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -159,8 +161,9 @@ void sub_00c40380();
 void sub_00c43210(void) { sub_00c40380(); }
 
 int sub_00c380e0(void);
+struct C_00c432e0 { int sub_00c432e0(void); };
 // @baa 0x00c432e0
-int USpeechRecognition::sub_00c432e0(void)
+int C_00c432e0::sub_00c432e0(void)
 {
     int param_1 = (int)this;
 
@@ -171,8 +174,9 @@ int USpeechRecognition::sub_00c432e0(void)
 }
 
 int sub_00c38140(void);
+struct C_00c453e0 { int sub_00c453e0(void); };
 // @baa 0x00c453e0
-int USpeechRecognition::sub_00c453e0(void)
+int C_00c453e0::sub_00c453e0(void)
 {
     int param_1 = (int)this;
 
@@ -200,8 +204,9 @@ struct C_00c45440 { C_00c45440* sub_00c45440(void); };
 // @baa 0x00c45440
 C_00c45440* C_00c45440::sub_00c45440(void) { return this; }
 
+struct C_00c45450 { int sub_00c45450(void); };
 // @baa 0x00c45450
-int USpeechRecognition::sub_00c45450(void)
+int C_00c45450::sub_00c45450(void)
 {
     int param_1 = (int)this;
 
@@ -218,8 +223,9 @@ C_00c45470 *C_00c45470::sub_00c45470(int a) { sub_00c449f0(a); return this; }
 
 int sub_005c7a70(...);
 int sub_00c45500(void);
+struct C_00c455c0 { undefined4 sub_00c455c0(byte param_2); };
 // @baa 0x00c455c0
-undefined4 USpeechRecognition::sub_00c455c0(byte param_2)
+undefined4 C_00c455c0::sub_00c455c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

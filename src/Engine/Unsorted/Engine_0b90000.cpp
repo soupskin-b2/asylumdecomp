@@ -86,8 +86,9 @@ undefined4 C_00b97030::sub_00b97030(byte param_2)
 }
 
 int sub_0040fcc0(void);
+struct C_00b97050 { undefined4 sub_00b97050(byte param_2); };
 // @baa 0x00b97050
-undefined4 UObject::sub_00b97050(byte param_2)
+undefined4 C_00b97050::sub_00b97050(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -100,8 +101,9 @@ undefined4 UObject::sub_00b97050(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_0200e3c8;
+struct C_00b9a9f0 { undefined4 * sub_00b9a9f0(void); };
 // @baa 0x00b9a9f0
-undefined4 * UObject::sub_00b9a9f0(void)
+undefined4 * C_00b9a9f0::sub_00b9a9f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

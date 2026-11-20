@@ -9,8 +9,9 @@ void sub_00717d10(void) { sub_00581450(); }
 
 int sub_0053dfa0(...);
 int sub_006efb40(void);
+struct C_0071b120 { undefined4 sub_0071b120(byte param_2); };
 // @baa 0x0071b120
-undefined4 ULensFlare::sub_0071b120(byte param_2)
+undefined4 C_0071b120::sub_0071b120(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -23,8 +24,9 @@ undefined4 ULensFlare::sub_0071b120(byte param_2)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_0071d710 { int sub_0071d710(undefined4*param_2); };
 // @baa 0x0071d710
-int UTexture2D::sub_0071d710(undefined4*param_2)
+int C_0071d710::sub_0071d710(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

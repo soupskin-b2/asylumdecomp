@@ -9,8 +9,9 @@ int UTexture2D::sub_005678e0(void) { return *(int*)((char*)this + 16); }
 // @baa 0x005678f0
 int UTexture2D::sub_005678f0(void) { return *(int*)((char*)this + 12); }
 
+struct C_00567900 { bool sub_00567900(void); };
 // @baa 0x00567900
-bool UTexture2D::sub_00567900(void)
+bool C_00567900::sub_00567900(void)
 {
     int param_1 = (int)this;
 
@@ -22,8 +23,9 @@ void UTexture2D::PostDuplicate() {  }
 
 int sub_0056bf90(void);
 extern undefined * g_01eee3d0;
+struct C_0071d180 { undefined4 * sub_0071d180(void); };
 // @baa 0x0071d180
-undefined4 * UTexture2D::sub_0071d180(void)
+undefined4 * C_0071d180::sub_0071d180(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

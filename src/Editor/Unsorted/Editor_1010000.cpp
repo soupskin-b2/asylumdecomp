@@ -55,8 +55,9 @@ int sub_01016060(void) { return 1; }
 int sub_0059c760(void);
 int sub_005b5790(...);
 extern undefined4 g_0268d080;
+struct C_01016070 { bool sub_01016070(void); };
 // @baa 0x01016070
-bool UCommandlet::sub_01016070(void)
+bool C_01016070::sub_01016070(void)
 {
     int param_1 = (int)this;
 
@@ -1257,8 +1258,9 @@ struct C_view {
     int sub_0053ea70(int, int);
 };
 
+struct C_01017d50 { undefined4 sub_01017d50(undefined4 param_2); };
 // @baa 0x01017d50
-undefined4 UTexture2D::sub_01017d50(undefined4 param_2)
+undefined4 C_01017d50::sub_01017d50(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_0053ea70(param_2, 4);
@@ -1266,8 +1268,9 @@ undefined4 UTexture2D::sub_01017d50(undefined4 param_2)
 }
 
 extern undefined * g_01e72a60;
+struct C_01017d70 { undefined4 * sub_01017d70(byte param_2); };
 // @baa 0x01017d70
-undefined4 * UTexture2D::sub_01017d70(byte param_2)
+undefined4 * C_01017d70::sub_01017d70(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1318,8 +1321,9 @@ struct C_01017ea0 { int sub_01017ea0(void); };
 int C_01017ea0::sub_01017ea0(void) { return *(int*)((char*)this + 112); }
 
 int sub_00c38ac0(void);
+struct C_01017eb0 { undefined4 sub_01017eb0(byte param_2); };
 // @baa 0x01017eb0
-undefined4 UObject::sub_01017eb0(byte param_2)
+undefined4 C_01017eb0::sub_01017eb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3287,8 +3291,9 @@ struct C_0101c400 { char pad[8]; M_0101c400 m; void sub_0101c400(); };
 void C_0101c400::sub_0101c400() { m.sub_0040fcc0(); }
 
 int sub_0040fcc0(void);
+struct C_0101c410 { undefined4 sub_0101c410(byte param_2); };
 // @baa 0x0101c410
-undefined4 UObject::sub_0101c410(byte param_2)
+undefined4 C_0101c410::sub_0101c410(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4544,8 +4549,9 @@ struct C_view_0101e6f0 {
     int sub_00547da0(int);
 };
 
+struct C_0101e6f0 { int sub_0101e6f0(int param_2); };
 // @baa 0x0101e6f0
-int URFMODSound::sub_0101e6f0(int param_2)
+int C_0101e6f0::sub_0101e6f0(int param_2)
 {
     int param_1 = (int)this;
   ((C_view_0101e6f0 *)(this))->sub_00547da0(param_2);

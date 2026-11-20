@@ -472,8 +472,9 @@ void sub_00781b40(void) { sub_00777f80(); }
 
 int sub_005c7a70(...);
 int sub_00781b50(void);
+struct C_00781c20 { undefined4 sub_00781c20(byte param_2); };
 // @baa 0x00781c20
-undefined4 UAudioComponent::sub_00781c20(byte param_2)
+undefined4 C_00781c20::sub_00781c20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -540,8 +541,9 @@ int sub_00781d10(void)
 IMPLEMENT_CLASS_AT(AWorldInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnActor.cpp", 46);
 
 int sub_00781d40(void);
+struct C_00781f20 { undefined4 sub_00781f20(byte param_2); };
 // @baa 0x00781f20
-undefined4 AWorldInfo::sub_00781f20(byte param_2)
+undefined4 C_00781f20::sub_00781f20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

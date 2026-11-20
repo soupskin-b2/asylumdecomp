@@ -83,8 +83,9 @@ C_014fa890::C_014fa890() : a(0), b(0), c(0) {}
 
 int sub_005c7a20(void);
 extern undefined * g_022ccc48;
+struct C_014ff080 { undefined4 * sub_014ff080(void); };
 // @baa 0x014ff080
-undefined4 * UObject::sub_014ff080(void)
+undefined4 * C_014ff080::sub_014ff080(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

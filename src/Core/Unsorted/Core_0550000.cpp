@@ -20,8 +20,9 @@ struct C_view {
     int sub_0054db70(int, int);
 };
 
+struct C_005554f0 { int sub_005554f0(int param_2); };
 // @baa 0x005554f0
-int URFMODSound::sub_005554f0(int param_2)
+int C_005554f0::sub_005554f0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -180,8 +181,9 @@ struct C_view_00558160 {
     int sub_005557c0(int);
 };
 
+struct C_00558160 { void sub_00558160(void); };
 // @baa 0x00558160
-void UPackageMap::sub_00558160(void)
+void C_00558160::sub_00558160(void)
 {
     int param_1 = (int)this;
   ((C_view_00558160 *)((*(char **)((char *)this + 0x10))))->sub_005557c0(*(undefined4 *)(param_1 + 8));
@@ -193,8 +195,9 @@ struct C_view_00558180 {
     int sub_005559a0(int);
 };
 
+struct C_00558180 { void sub_00558180(void); };
 // @baa 0x00558180
-void UPackageMap::sub_00558180(void)
+void C_00558180::sub_00558180(void)
 {
     int param_1 = (int)this;
   ((C_view_00558180 *)((*(char **)((char *)this + 0x10))))->sub_005559a0(*(undefined4 *)(param_1 + 8));
@@ -206,8 +209,9 @@ struct C_view_005581a0 {
     int sub_00555ad0(int);
 };
 
+struct C_005581a0 { void sub_005581a0(void); };
 // @baa 0x005581a0
-void UPackageMap::sub_005581a0(void)
+void C_005581a0::sub_005581a0(void)
 {
     int param_1 = (int)this;
   ((C_view_005581a0 *)((*(char **)((char *)this + 0x10))))->sub_00555ad0(*(undefined4 *)(param_1 + 8));
@@ -219,8 +223,9 @@ struct C_view_005581c0 {
     int sub_00555ce0(int);
 };
 
+struct C_005581c0 { void sub_005581c0(void); };
 // @baa 0x005581c0
-void UPackageMap::sub_005581c0(void)
+void C_005581c0::sub_005581c0(void)
 {
     int param_1 = (int)this;
   ((C_view_005581c0 *)((*(char **)((char *)this + 0x10))))->sub_00555ce0(*(undefined4 *)(param_1 + 8));
@@ -232,8 +237,9 @@ struct C_view_005581e0 {
     int sub_00555e50(int);
 };
 
+struct C_005581e0 { void sub_005581e0(void); };
 // @baa 0x005581e0
-void UPackageMap::sub_005581e0(void)
+void C_005581e0::sub_005581e0(void)
 {
     int param_1 = (int)this;
   ((C_view_005581e0 *)((*(char **)((char *)this + 0x10))))->sub_00555e50(*(undefined4 *)(param_1 + 8));
@@ -245,8 +251,9 @@ struct C_view_00558200 {
     int sub_00555f80(int);
 };
 
+struct C_00558200 { void sub_00558200(void); };
 // @baa 0x00558200
-void UPackageMap::sub_00558200(void)
+void C_00558200::sub_00558200(void)
 {
     int param_1 = (int)this;
   ((C_view_00558200 *)((*(char **)((char *)this + 0x10))))->sub_00555f80(*(undefined4 *)(param_1 + 8));

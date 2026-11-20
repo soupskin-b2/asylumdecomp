@@ -42,8 +42,9 @@ int * C::sub_00ab4cc0(int param_2, int param_3)
 
 int sub_0053d240(...);
 int sub_0053df70(...);
+struct C_00abce40 { int sub_00abce40(int*param_2); };
 // @baa 0x00abce40
-int ULensFlare::sub_00abce40(int*param_2)
+int C_00abce40::sub_00abce40(int*param_2)
 {
 int*param_1=(int*)this;
 

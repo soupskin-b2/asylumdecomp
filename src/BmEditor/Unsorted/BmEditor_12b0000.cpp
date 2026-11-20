@@ -10,8 +10,9 @@ void C::sub_012bd6e0(int) { sub_012b9710(); }
 
 int sub_005c7a20(void);
 extern undefined * g_02225c40;
+struct C_012bd840 { undefined4 * sub_012bd840(void); };
 // @baa 0x012bd840
-undefined4 * UObject::sub_012bd840(void)
+undefined4 * C_012bd840::sub_012bd840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -28,8 +29,9 @@ struct C_view {
     int sub_012ba0d0(int);
 };
 
+struct C_012bd940 { void sub_012bd940(void); };
 // @baa 0x012bd940
-void UCascadeOptions::sub_012bd940(void)
+void C_012bd940::sub_012bd940(void)
 {
     int param_1 = (int)this;
   int iVar1;

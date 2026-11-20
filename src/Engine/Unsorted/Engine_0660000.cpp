@@ -115,8 +115,9 @@ int sub_00663340(void) { return (int)g_026b0f44; }
 
 int sub_0053dfa0(...);
 int sub_00656790(void);
+struct C_00663350 { undefined4 sub_00663350(byte param_2); };
 // @baa 0x00663350
-undefined4 ULensFlare::sub_00663350(byte param_2)
+undefined4 C_00663350::sub_00663350(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -578,8 +579,9 @@ void sub_006672e0(int param_1, int param_2)
   return;
 }
 
+struct C_00667b20 { void sub_00667b20(int param_2); };
 // @baa 0x00667b20
-void UObject::sub_00667b20(int param_2)
+void C_00667b20::sub_00667b20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -753,8 +755,9 @@ void __stdcall sub_00667e20(int a0, int a1) {  }
 // @baa 0x00667ff0
 void __stdcall sub_00667ff0(int a0, int a1) {  }
 
+struct C_00668000 { void sub_00668000(int param_2); };
 // @baa 0x00668000
-void UObject::sub_00668000(int param_2)
+void C_00668000::sub_00668000(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -771,8 +774,9 @@ void UObject::sub_00668000(int param_2)
   return;
 }
 
+struct C_00668040 { void sub_00668040(int param_2); };
 // @baa 0x00668040
-void UObject::sub_00668040(int param_2)
+void C_00668040::sub_00668040(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -848,8 +852,9 @@ struct C_view {
 };
 
 int sub_00716170(...);
+struct C_006682e0 { undefined4 sub_006682e0(undefined4 param_2); };
 // @baa 0x006682e0
-undefined4 UTexture2D::sub_006682e0(undefined4 param_2)
+undefined4 C_006682e0::sub_006682e0(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -879,8 +884,9 @@ struct C_view_00668450 {
     int sub_0065e370(int);
 };
 
+struct C_00668450 { undefined4 sub_00668450(undefined4 param_2); };
 // @baa 0x00668450
-undefined4 UTexture2D::sub_00668450(undefined4 param_2)
+undefined4 C_00668450::sub_00668450(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

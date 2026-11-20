@@ -404,8 +404,9 @@ struct C_016895e0 { C_016895e0* sub_016895e0(void); };
 // @baa 0x016895e0
 C_016895e0* C_016895e0::sub_016895e0(void) { return this; }
 
+struct C_0168a610 { undefined4 sub_0168a610(void); };
 // @baa 0x0168a610
-undefined4 AR3rdPersonCamera::sub_0168a610(void)
+undefined4 C_0168a610::sub_0168a610(void)
 {
     int param_1 = (int)this;
 
@@ -655,8 +656,9 @@ void C_0169e2d0::sub_0169e2e0() {}
 
 int sub_005c7a70(...);
 int sub_0169dfc0(void);
+struct C_0169e2e0 { undefined4 sub_0169e2e0(byte param_2); };
 // @baa 0x0169e2e0
-undefined4 ARPawnPlayer::sub_0169e2e0(byte param_2)
+undefined4 C_0169e2e0::sub_0169e2e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -670,8 +672,9 @@ undefined4 ARPawnPlayer::sub_0169e2e0(byte param_2)
 int sub_0169e310(void);
 extern undefined * g_0237ef08;
 extern undefined * g_0237ef20;
+struct C_0169e3b0 { undefined4 * sub_0169e3b0(void); };
 // @baa 0x0169e3b0
-undefined4 * ARPawnPlayer::sub_0169e3b0(void)
+undefined4 * C_0169e3b0::sub_0169e3b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -698,8 +701,9 @@ IMPLEMENT_CLASS_AT(ARPawnPlayerBm, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x0169e470
 extern undefined * g_0237f598;
 extern undefined * g_0237f5b0;
+struct C_0169e4a0 { undefined4 * sub_0169e4a0(void); };
 // @baa 0x0169e4a0
-undefined4 * ARPawnPlayer::sub_0169e4a0(void)
+undefined4 * C_0169e4a0::sub_0169e4a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -726,8 +730,9 @@ IMPLEMENT_CLASS_AT(ARPawnPlayerChallengeJokerBase, "e:\\Projects\\Amadeus\\AA\\G
 // @baa 0x0169e570
 extern undefined * g_0237fc38;
 extern undefined * g_0237fc50;
+struct C_0169e5a0 { undefined4 * sub_0169e5a0(void); };
 // @baa 0x0169e5a0
-undefined4 * ARPawnPlayer::sub_0169e5a0(void)
+undefined4 * C_0169e5a0::sub_0169e5a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

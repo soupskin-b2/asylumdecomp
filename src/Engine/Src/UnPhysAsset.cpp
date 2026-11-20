@@ -70,8 +70,9 @@ void URB_BodyInstance::SetDampingRampupProportion(float param_2)
 
 int sub_00a17400(void);
 extern undefined4 g_026b62b8;
+struct C_00a207c0 { void sub_00a207c0(undefined4 param_2); };
 // @baa 0x00a207c0
-void URB_BodyInstance::sub_00a207c0(undefined4 param_2)
+void C_00a207c0::sub_00a207c0(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -125,8 +126,9 @@ IMPLEMENT_CLASS_AT(URB_BodySetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00a2ce80
 int sub_005c7a70(...);
 int sub_00a2cf20(void);
+struct C_00a2cfc0 { undefined4 sub_00a2cfc0(byte param_2); };
 // @baa 0x00a2cfc0
-undefined4 UPhysicsAsset::sub_00a2cfc0(byte param_2)
+undefined4 C_00a2cfc0::sub_00a2cfc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -152,8 +154,9 @@ IMPLEMENT_CLASS_AT(UPhysicsAsset, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00a2e060
 int sub_00a2dfd0(void);
+struct C_00a2e070 { undefined4 sub_00a2e070(byte param_2); };
 // @baa 0x00a2e070
-undefined4 UPhysicsAssetInstance::sub_00a2e070(byte param_2)
+undefined4 C_00a2e070::sub_00a2e070(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

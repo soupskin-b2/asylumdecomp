@@ -115,8 +115,9 @@ FSparseArrayConstIt_006fa5a0& FSparseArrayConstIt_006fa5a0::operator++()
 int sub_0067eb60(void);
 extern undefined4 g_01ed9f44;
 extern undefined * g_01ed9f4c;
+struct C_006fab60 { undefined4 * sub_006fab60(void); };
 // @baa 0x006fab60
-undefined4 * UTexture2D::sub_006fab60(void)
+undefined4 * C_006fab60::sub_006fab60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -183,8 +184,9 @@ undefined4 * C_006fac00::sub_006fac00(void)
 int sub_0067edb0(void);
 extern undefined4 g_01ed9fe0;
 extern undefined * g_01ed9fe8;
+struct C_006fac50 { undefined4 * sub_006fac50(void); };
 // @baa 0x006fac50
-undefined4 * UTexture2D::sub_006fac50(void)
+undefined4 * C_006fac50::sub_006fac50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

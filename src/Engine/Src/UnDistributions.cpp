@@ -639,8 +639,9 @@ undefined4 C_007c4db0::sub_007c4db0(byte param_2)
 }
 
 int sub_00549160(void);
+struct C_007c4dd0 { undefined4 sub_007c4dd0(byte param_2); };
 // @baa 0x007c4dd0
-undefined4 UObject::sub_007c4dd0(byte param_2)
+undefined4 C_007c4dd0::sub_007c4dd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

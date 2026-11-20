@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0061bb20(void);
+struct C_0061d820 { undefined4 sub_0061d820(byte param_2); };
 // @baa 0x0061d820
-undefined4 UPackageMap::sub_0061d820(byte param_2)
+undefined4 C_0061d820::sub_0061d820(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

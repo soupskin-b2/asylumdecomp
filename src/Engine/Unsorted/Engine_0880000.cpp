@@ -225,8 +225,9 @@ int sub_00888e80(void)
 
 int sub_00888eb0(void);
 int sub_005c7a70(...);
+struct C_00889010 { undefined4 sub_00889010(byte param_2); };
 // @baa 0x00889010
-undefined4 UInteraction::sub_00889010(byte param_2)
+undefined4 C_00889010::sub_00889010(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -245,8 +246,9 @@ undefined4 sub_00889030(undefined4 param_1, undefined4 param_2)
 
 int sub_00d6bfd0(void);
 extern undefined * g_01f4d490;
+struct C_00889040 { undefined4 * sub_00889040(void); };
 // @baa 0x00889040
-undefined4 * UInteraction::sub_00889040(void)
+undefined4 * C_00889040::sub_00889040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

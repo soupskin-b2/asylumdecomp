@@ -153,8 +153,9 @@ int C_01722590::sub_01722590(undefined4* param_2)
 
 int sub_0053dfa0(...);
 int sub_01721240(void);
+struct C_017227d0 { undefined4 sub_017227d0(byte param_2); };
 // @baa 0x017227d0
-undefined4 UObject::sub_017227d0(byte param_2)
+undefined4 C_017227d0::sub_017227d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -166,8 +167,9 @@ undefined4 UObject::sub_017227d0(byte param_2)
 }
 
 int sub_0171e4b0(void);
+struct C_017227f0 { undefined4 sub_017227f0(byte param_2); };
 // @baa 0x017227f0
-undefined4 UObject::sub_017227f0(byte param_2)
+undefined4 C_017227f0::sub_017227f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -179,8 +181,9 @@ undefined4 UObject::sub_017227f0(byte param_2)
 }
 
 int sub_01720e60(void);
+struct C_01722810 { undefined4 sub_01722810(byte param_2); };
 // @baa 0x01722810
-undefined4 UObject::sub_01722810(byte param_2)
+undefined4 C_01722810::sub_01722810(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -265,8 +268,9 @@ C_017297d0* C_017297d0::sub_017297d0(void) { return this; }
 
 int sub_006f7810(void);
 extern undefined * g_023c9e80;
+struct C_0172ac30 { undefined4 * sub_0172ac30(void); };
 // @baa 0x0172ac30
-undefined4 * UPrimitiveComponent::sub_0172ac30(void)
+undefined4 * C_0172ac30::sub_0172ac30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

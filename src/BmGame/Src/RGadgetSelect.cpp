@@ -8,8 +8,9 @@ int sub_01638d70(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_02359a60;
+struct C_01638d80 { undefined4 * sub_01638d80(void); };
 // @baa 0x01638d80
-undefined4 * UObject::sub_01638d80(void)
+undefined4 * C_01638d80::sub_01638d80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

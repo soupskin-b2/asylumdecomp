@@ -361,8 +361,9 @@ struct C_view {
     int sub_01060190(int, int);
 };
 
+struct C_01062da0 { int sub_01062da0(int param_2); };
 // @baa 0x01062da0
-int UContentTagIndex::sub_01062da0(int param_2)
+int C_01062da0::sub_01062da0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_01060190((int)(&param_2), param_2);
@@ -372,32 +373,36 @@ int UContentTagIndex::sub_01062da0(int param_2)
   return 0;
 }
 
+struct C_01062dd0 { int sub_01062dd0(int param_2); };
 // @baa 0x01062dd0
-int UContentTagIndex::sub_01062dd0(int param_2)
+int C_01062dd0::sub_01062dd0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x54 + *param_1;
 }
 
+struct C_01062de0 { int sub_01062de0(int param_2); };
 // @baa 0x01062de0
-int UContentTagIndex::sub_01062de0(int param_2)
+int C_01062de0::sub_01062de0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x54 + *param_1;
 }
 
+struct C_01062df0 { int sub_01062df0(void); };
 // @baa 0x01062df0
-int UContentTagIndex::sub_01062df0(void)
+int C_01062df0::sub_01062df0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x54 + *(int *)*param_1;
 }
 
+struct C_01062e00 { int sub_01062e00(void); };
 // @baa 0x01062e00
-int UContentTagIndex::sub_01062e00(void)
+int C_01062e00::sub_01062e00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -433,8 +438,9 @@ struct C_view_01062ed0 {
     int sub_006f25d0(int, int);
 };
 
+struct C_01062ed0 { int sub_01062ed0(int param_2); };
 // @baa 0x01062ed0
-int UContentTagIndex::sub_01062ed0(int param_2)
+int C_01062ed0::sub_01062ed0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_01062ed0 *)(this))->sub_006f25d0((int)(&param_2), param_2);
@@ -444,8 +450,9 @@ int UContentTagIndex::sub_01062ed0(int param_2)
   return 0;
 }
 
+struct C_01062f00 { int sub_01062f00(void); };
 // @baa 0x01062f00
-int UContentTagIndex::sub_01062f00(void)
+int C_01062f00::sub_01062f00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -456,8 +463,9 @@ struct C_view_01062f10 {
     int sub_010604e0(int, int);
 };
 
+struct C_01062f10 { int sub_01062f10(int param_2); };
 // @baa 0x01062f10
-int UContentTagIndex::sub_01062f10(int param_2)
+int C_01062f10::sub_01062f10(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_01062f10 *)(this))->sub_010604e0((int)(&param_2), param_2);
@@ -863,8 +871,9 @@ TConstSetBitIterator_01063bb0::TConstSetBitIterator_01063bb0(const TBitArray& In
     It.FindFirstSetBit();
 }
 
+struct C_010686d0 { int sub_010686d0(int param_2); };
 // @baa 0x010686d0
-int UContentTagIndex::sub_010686d0(int param_2)
+int C_010686d0::sub_010686d0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

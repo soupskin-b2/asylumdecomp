@@ -175,8 +175,9 @@ int sub_006a8fb0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01ece0c8;
+struct C_006a8fc0 { undefined4 * sub_006a8fc0(void); };
 // @baa 0x006a8fc0
-undefined4 * UObject::sub_006a8fc0(void)
+undefined4 * C_006a8fc0::sub_006a8fc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -238,8 +239,9 @@ int sub_006a9130(int a0, int a1) { return a1; }
 int sub_006a9140(int a0, int a1) { return a1; }
 
 extern undefined * g_01ece218;
+struct C_006a9150 { undefined4 * sub_006a9150(void); };
 // @baa 0x006a9150
-undefined4 * UObject::sub_006a9150(void)
+undefined4 * C_006a9150::sub_006a9150(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -253,8 +255,9 @@ IMPLEMENT_CLASS_AT(ULightFunction, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 
 // @baa 0x006a91d0
 extern undefined * g_01ebbd08;
+struct C_006a91f0 { undefined4 * sub_006a91f0(void); };
 // @baa 0x006a91f0
-undefined4 * UObject::sub_006a91f0(void)
+undefined4 * C_006a91f0::sub_006a91f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

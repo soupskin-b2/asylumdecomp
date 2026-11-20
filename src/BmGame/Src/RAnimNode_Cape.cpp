@@ -15,8 +15,9 @@ UBOOL URAnimNode_Cape::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_0155cf50 { uint sub_0155cf50(void); };
 // @baa 0x0155cf50
-uint URAnimNode_Cape::sub_0155cf50(void)
+uint C_0155cf50::sub_0155cf50(void)
 {
     int param_1 = (int)this;
 

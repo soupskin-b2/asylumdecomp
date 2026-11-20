@@ -129,8 +129,9 @@ void sub_016c6320(void) { sub_016c5de0(); }
 
 int sub_005c7a20(void);
 extern undefined * g_023922f8;
+struct C_016c6330 { undefined4 * sub_016c6330(void); };
 // @baa 0x016c6330
-undefined4 * UObject::sub_016c6330(void)
+undefined4 * C_016c6330::sub_016c6330(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -255,8 +256,9 @@ void sub_007b9350();
 void sub_016c6980(void) { sub_007b9350(); }
 
 extern undefined * g_02392658;
+struct C_016c6e40 { undefined4 * sub_016c6e40(void); };
 // @baa 0x016c6e40
-undefined4 * UObject::sub_016c6e40(void)
+undefined4 * C_016c6e40::sub_016c6e40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -381,8 +383,9 @@ ARSpecialMoveInstance_HoleGrab::ARSpecialMoveInstance_HoleGrab()
 
 int sub_005c7a70(...);
 int sub_016c9d90(void);
+struct C_016c9df0 { undefined4 sub_016c9df0(byte param_2); };
 // @baa 0x016c9df0
-undefined4 ARSpecialMoveInstance_HoleGrab::sub_016c9df0(byte param_2)
+undefined4 C_016c9df0::sub_016c9df0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -476,8 +479,9 @@ int C_016cc0a0::sub_016cc0a0(void)
 }
 
 extern undefined * g_023970c8;
+struct C_016cc0c0 { undefined4 * sub_016cc0c0(void); };
 // @baa 0x016cc0c0
-undefined4 * UObject::sub_016cc0c0(void)
+undefined4 * C_016cc0c0::sub_016cc0c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -494,8 +498,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocTeleportFinalAttackRefPoints, "e:\\Projects\\Ama
 
 // @baa 0x016cc320
 extern undefined * g_02397408;
+struct C_016cc350 { undefined4 * sub_016cc350(void); };
 // @baa 0x016cc350
-undefined4 * UObject::sub_016cc350(void)
+undefined4 * C_016cc350::sub_016cc350(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -512,8 +517,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowPositionOnPath, "e:\\Projects\\Amadeus\\
 
 // @baa 0x016cc4b0
 extern undefined * g_02397750;
+struct C_016cc4e0 { undefined4 * sub_016cc4e0(void); };
 // @baa 0x016cc4e0
-undefined4 * UObject::sub_016cc4e0(void)
+undefined4 * C_016cc4e0::sub_016cc4e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -622,8 +628,9 @@ extern char g_01ebc268[];
 int sub_016cdb40(void) { return (int)g_01ebc268; }
 
 extern undefined * g_023a26c8;
+struct C_016cdb50 { undefined4 * sub_016cdb50(void); };
 // @baa 0x016cdb50
-undefined4 * UObject::sub_016cdb50(void)
+undefined4 * C_016cdb50::sub_016cdb50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -646,8 +653,9 @@ undefined4 sub_016cdbf0(undefined4 param_1, undefined4 param_2)
 int sub_016cdc00(int a0, int a1) { return a1; }
 
 extern undefined * g_023a2818;
+struct C_016cdc10 { undefined4 * sub_016cdc10(void); };
 // @baa 0x016cdc10
-undefined4 * UObject::sub_016cdc10(void)
+undefined4 * C_016cdc10::sub_016cdc10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -693,8 +701,9 @@ void sub_016cdd10(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 }
 
 extern undefined * g_023a2928;
+struct C_016cdd70 { undefined4 * sub_016cdd70(void); };
 // @baa 0x016cdd70
-undefined4 * UObject::sub_016cdd70(void)
+undefined4 * C_016cdd70::sub_016cdd70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0075b520(void);
+struct C_007615b0 { undefined4 sub_007615b0(byte param_2); };
 // @baa 0x007615b0
-undefined4 UTextureCube::sub_007615b0(byte param_2)
+undefined4 C_007615b0::sub_007615b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

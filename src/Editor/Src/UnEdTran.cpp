@@ -794,8 +794,9 @@ struct C_view {
 };
 
 extern undefined * g_022322e8;
+struct C_012db720 { undefined4 * sub_012db720(undefined4 param_2); };
 // @baa 0x012db720
-undefined4 * UTransBuffer::sub_012db720(undefined4 param_2)
+undefined4 * C_012db720::sub_012db720(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00f9d050(param_2);

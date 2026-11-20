@@ -1228,8 +1228,9 @@ struct C_00e9d4c0 { int sub_00e9d4c0(void); };
 // @baa 0x00e9d4c0
 int C_00e9d4c0::sub_00e9d4c0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d540 { int*sub_00e9d540(int*param_2); };
 // @baa 0x00e9d540
-int*ULensFlare::sub_00e9d540(int*param_2)
+int*C_00e9d540::sub_00e9d540(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -1246,8 +1247,9 @@ if((int*)0x0!=piVar1){
 return param_1;
 }
 
+struct C_00e9d570 { int*sub_00e9d570(int*param_2); };
 // @baa 0x00e9d570
-int*ULensFlare::sub_00e9d570(int*param_2)
+int*C_00e9d570::sub_00e9d570(int*param_2)
 {
 int*param_1=(int*)this;
 

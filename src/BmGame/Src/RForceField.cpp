@@ -30,8 +30,9 @@ extern char g_01ebb554[];
 void URForceField::sub_016d2960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_016d2970 { undefined4 * sub_016d2970(byte param_2); };
 // @baa 0x016d2970
-undefined4 * URForceField::sub_016d2970(byte param_2)
+undefined4 * C_016d2970::sub_016d2970(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

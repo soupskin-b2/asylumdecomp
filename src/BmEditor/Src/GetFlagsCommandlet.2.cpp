@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_0053df70(...);
+struct C_00f7d9f0 { void sub_00f7d9f0(int param_2); };
 // @baa 0x00f7d9f0
-void UObject::sub_00f7d9f0(int param_2)
+void C_00f7d9f0::sub_00f7d9f0(int param_2)
 {
     int * param_1 = (int *)this;
 

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_0117d2e0(void);
+struct C_015081b0 { undefined4 sub_015081b0(byte param_2); };
 // @baa 0x015081b0
-undefined4 UOptionsDupObject::sub_015081b0(byte param_2)
+undefined4 C_015081b0::sub_015081b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -38,8 +39,9 @@ void sub_0117f220();
 void sub_015082b0(void) { sub_0117f220(); }
 
 int sub_01506ce0(void);
+struct C_01508430 { int sub_01508430(void); };
 // @baa 0x01508430
-int UTexture2D::sub_01508430(void)
+int C_01508430::sub_01508430(void)
 {
     int param_1 = (int)this;
 
@@ -49,8 +51,9 @@ int UTexture2D::sub_01508430(void)
   return param_1;
 }
 
+struct C_015084c0 { int sub_015084c0(void); };
 // @baa 0x015084c0
-int UTexture2D::sub_015084c0(void)
+int C_015084c0::sub_015084c0(void)
 {
     int param_1 = (int)this;
 
@@ -64,8 +67,9 @@ void sub_01508450();
 // @baa 0x015084e0
 void sub_015084e0(void) { sub_01508450(); }
 
+struct C_015084f0 { int sub_015084f0(void); };
 // @baa 0x015084f0
-int UTexture2D::sub_015084f0(void)
+int C_015084f0::sub_015084f0(void)
 {
     int param_1 = (int)this;
 

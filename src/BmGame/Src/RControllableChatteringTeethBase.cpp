@@ -17,8 +17,9 @@ UBOOL ARControllableChatteringTeethBase::HasParentClassChanged() const
 
 int sub_006311e0(...);
 extern undefined4 g_023c29f0;
+struct C_01715120 { void sub_01715120(float param_2); };
 // @baa 0x01715120
-void ARControllableChatteringTeethBase::sub_01715120(float param_2)
+void C_01715120::sub_01715120(float param_2)
 {
     int param_1 = (int)this;
   if (*(char *)(param_1 + 0x480) != '\x04') {

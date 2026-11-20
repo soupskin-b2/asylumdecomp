@@ -39,8 +39,9 @@ return iVar2;
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_00fabff0 { undefined4 sub_00fabff0(byte param_2); };
 // @baa 0x00fabff0
-undefined4 UObject::sub_00fabff0(byte param_2)
+undefined4 C_00fabff0::sub_00fabff0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

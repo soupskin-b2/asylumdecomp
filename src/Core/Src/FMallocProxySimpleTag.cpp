@@ -27,8 +27,9 @@ struct C_view_0055b6e0 {
 int sub_006311e0(...);
 extern undefined4 g_01e7008c;
 extern undefined4 g_0267608c;
+struct C_0055b6e0 { undefined4 sub_0055b6e0(int param_2); };
 // @baa 0x0055b6e0
-undefined4 UTexture2D::sub_0055b6e0(int param_2)
+undefined4 C_0055b6e0::sub_0055b6e0(int param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

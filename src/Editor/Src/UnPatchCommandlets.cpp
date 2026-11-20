@@ -124,8 +124,9 @@ struct C_view {
     int sub_00556fa0(int);
 };
 
+struct C_010eea10 { undefined4 sub_010eea10(int param_2); };
 // @baa 0x010eea10
-undefined4 URFMODSound::sub_010eea10(int param_2)
+undefined4 C_010eea10::sub_010eea10(int param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_00547da0(param_2);
@@ -141,8 +142,9 @@ undefined4 URFMODSound::sub_010eea10(int param_2)
 IMPLEMENT_CLASS_AT(UPatchScriptCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnPatchCommandlets.cpp", 1890);
 
 int sub_010fe9e0(void);
+struct C_010fea60 { undefined4 sub_010fea60(byte param_2); };
 // @baa 0x010fea60
-undefined4 UObject::sub_010fea60(byte param_2)
+undefined4 C_010fea60::sub_010fea60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -158,8 +160,9 @@ struct C_view_010fea80 {
 };
 
 extern undefined4 g_021a7980;
+struct C_010fea80 { undefined4 * sub_010fea80(undefined4 param_2); };
 // @baa 0x010fea80
-undefined4 * UObject::sub_010fea80(undefined4 param_2)
+undefined4 * C_010fea80::sub_010fea80(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_010fea80 *)(this))->sub_010fe8a0(param_2);

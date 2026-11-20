@@ -706,8 +706,9 @@ void C_0110ed20::sub_0110edd0() {}
 
 int sub_005c7a70(...);
 int sub_0110ed30(void);
+struct C_0110edd0 { undefined4 sub_0110edd0(byte param_2); };
 // @baa 0x0110edd0
-undefined4 URReimportFMODSoundFactory::sub_0110edd0(byte param_2)
+undefined4 C_0110edd0::sub_0110edd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -862,8 +863,9 @@ UStripSourceCommandlet::UStripSourceCommandlet()
 
 // @baa 0x0110f700
 int sub_0110f700(void);
+struct C_0110f760 { undefined4 sub_0110f760(byte param_2); };
 // @baa 0x0110f760
-undefined4 UStripSourceCommandlet::sub_0110f760(byte param_2)
+undefined4 C_0110f760::sub_0110f760(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -882,8 +884,9 @@ USetMaterialUsageCommandlet::USetMaterialUsageCommandlet()
 
 // @baa 0x0110f7e0
 int sub_0110f7e0(void);
+struct C_0110f840 { undefined4 sub_0110f840(byte param_2); };
 // @baa 0x0110f840
-undefined4 USetMaterialUsageCommandlet::sub_0110f840(byte param_2)
+undefined4 C_0110f840::sub_0110f840(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

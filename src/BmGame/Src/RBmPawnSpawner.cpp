@@ -172,8 +172,9 @@ int sub_015fa3a0(void)
 
 int sub_005c7a20(void);
 extern undefined * g_02339930;
+struct C_015fa3d0 { undefined4 * sub_015fa3d0(void); };
 // @baa 0x015fa3d0
-undefined4 * UObject::sub_015fa3d0(void)
+undefined4 * C_015fa3d0::sub_015fa3d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -183,8 +184,9 @@ undefined4 * UObject::sub_015fa3d0(void)
 }
 
 extern undefined * g_02339ad0;
+struct C_015fa490 { undefined4 * sub_015fa490(void); };
 // @baa 0x015fa490
-undefined4 * UObject::sub_015fa490(void)
+undefined4 * C_015fa490::sub_015fa490(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -194,8 +196,9 @@ undefined4 * UObject::sub_015fa490(void)
 }
 
 extern undefined * g_0233ca18;
+struct C_015fbee0 { undefined4 * sub_015fbee0(void); };
 // @baa 0x015fbee0
-undefined4 * UObject::sub_015fbee0(void)
+undefined4 * C_015fbee0::sub_015fbee0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -205,8 +208,9 @@ undefined4 * UObject::sub_015fbee0(void)
 }
 
 extern undefined * g_0233cbd8;
+struct C_015fbfa0 { undefined4 * sub_015fbfa0(void); };
 // @baa 0x015fbfa0
-undefined4 * UObject::sub_015fbfa0(void)
+undefined4 * C_015fbfa0::sub_015fbfa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -216,8 +220,9 @@ undefined4 * UObject::sub_015fbfa0(void)
 }
 
 extern undefined * g_0233cd80;
+struct C_015fc0b0 { undefined4 * sub_015fc0b0(void); };
 // @baa 0x015fc0b0
-undefined4 * UObject::sub_015fc0b0(void)
+undefined4 * C_015fc0b0::sub_015fc0b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -227,8 +232,9 @@ undefined4 * UObject::sub_015fc0b0(void)
 }
 
 extern undefined * g_0233cf20;
+struct C_015fc100 { undefined4 * sub_015fc100(void); };
 // @baa 0x015fc100
-undefined4 * UObject::sub_015fc100(void)
+undefined4 * C_015fc100::sub_015fc100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -238,8 +244,9 @@ undefined4 * UObject::sub_015fc100(void)
 }
 
 extern undefined * g_0233d0c8;
+struct C_015fc1f0 { undefined4 * sub_015fc1f0(void); };
 // @baa 0x015fc1f0
-undefined4 * UObject::sub_015fc1f0(void)
+undefined4 * C_015fc1f0::sub_015fc1f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -250,8 +257,9 @@ undefined4 * UObject::sub_015fc1f0(void)
 
 int sub_005c7a70(...);
 int sub_015fe8d0(void);
+struct C_015fe9a0 { undefined4 sub_015fe9a0(byte param_2); };
 // @baa 0x015fe9a0
-undefined4 ARPawnBossIvyBase::sub_015fe9a0(byte param_2)
+undefined4 C_015fe9a0::sub_015fe9a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

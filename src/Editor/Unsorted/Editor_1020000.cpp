@@ -32,8 +32,9 @@ struct C_view {
     int sub_00faa3c0(int, int);
 };
 
+struct C_01021380 { int sub_01021380(int param_2); };
 // @baa 0x01021380
-int UTexture2D::sub_01021380(int param_2)
+int C_01021380::sub_01021380(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00faa3c0((int)(&param_2), param_2);
@@ -495,8 +496,9 @@ FSparseArrayConstIt_010247b0::FSparseArrayConstIt_010247b0(const TSparseArray<IN
 }
 
 int sub_0101b440(void);
+struct C_01024800 { undefined4 sub_01024800(byte param_2); };
 // @baa 0x01024800
-undefined4 UObject::sub_01024800(byte param_2)
+undefined4 C_01024800::sub_01024800(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -535,8 +537,9 @@ undefined4 C_01027240::sub_01027240(byte param_2)
   return param_1;
 }
 
+struct C_010274d0 { int sub_010274d0(int param_2); };
 // @baa 0x010274d0
-int UTexture2D::sub_010274d0(int param_2)
+int C_010274d0::sub_010274d0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

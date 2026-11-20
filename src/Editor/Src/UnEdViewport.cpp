@@ -530,8 +530,9 @@ undefined * sub_00f73760(void)
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_00f737f0 { undefined4 sub_00f737f0(byte param_2); };
 // @baa 0x00f737f0
-undefined4 UObject::sub_00f737f0(byte param_2)
+undefined4 C_00f737f0::sub_00f737f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

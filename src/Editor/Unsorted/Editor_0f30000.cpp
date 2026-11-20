@@ -126,8 +126,9 @@ IMPLEMENT_CLASS_AT(URenderTargetCubeExporterTGA, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00f31860
 extern undefined * g_0214cac0;
+struct C_00f31880 { undefined4 * sub_00f31880(void); };
 // @baa 0x00f31880
-undefined4 * UExporter::sub_00f31880(void)
+undefined4 * C_00f31880::sub_00f31880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

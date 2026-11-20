@@ -10796,10 +10796,7 @@ struct UObject {
     FString GetPathName(UObject* StopOuter = NULL) const; /* 0x005d59a0 */
     void PopState(FFrame&, UBOOL); /* 0x005aecc0 */
     void StoreConfig(INT, INT, INT); /* 0x005de600 */
-    void sub_004140a0(INT); /* 0x004140a0 */
-    UINT sub_004164b0(BYTE); /* 0x004164b0 */
     INT sub_00417e30(); /* 0x00417e30 */
-    bool sub_0053e4e0(); /* 0x0053e4e0 */
     void sub_0053e500(INT); /* 0x0053e500 */
     INT sub_0053e510(); /* 0x0053e510 */
     INT sub_00540bd0(); /* 0x00540bd0 */
@@ -10824,8 +10821,6 @@ struct UObject {
     INT sub_00540e80(); /* 0x00540e80 */
     INT sub_00540e90(); /* 0x00540e90 */
     INT sub_00540f50(); /* 0x00540f50 */
-    INT sub_00543dc0(INT); /* 0x00543dc0 */
-    INT sub_00543e00(UINT); /* 0x00543e00 */
     INT sub_00543e40(); /* 0x00543e40 */
     INT sub_00543f30(); /* 0x00543f30 */
     INT sub_00544130(); /* 0x00544130 */
@@ -10834,26 +10829,8 @@ struct UObject {
     INT sub_005443c0(INT); /* 0x005443c0 */
     INT sub_005443d0(); /* 0x005443d0 */
     INT sub_005443e0(INT); /* 0x005443e0 */
-    INT sub_00546060(INT); /* 0x00546060 */
-    INT sub_00546070(INT); /* 0x00546070 */
-    INT sub_00546100(INT); /* 0x00546100 */
-    INT sub_00546120(INT); /* 0x00546120 */
-    INT sub_00546130(INT); /* 0x00546130 */
-    INT sub_00546140(INT); /* 0x00546140 */
-    INT sub_00546150(INT); /* 0x00546150 */
-    UINT sub_00546390(); /* 0x00546390 */
-    INT sub_005463b0(INT); /* 0x005463b0 */
-    INT sub_005463c0(INT); /* 0x005463c0 */
-    void sub_00546430(UINT*); /* 0x00546430 */
-    INT sub_00546450(INT); /* 0x00546450 */
-    INT sub_00546460(INT); /* 0x00546460 */
-    INT sub_00546470(INT); /* 0x00546470 */
-    INT sub_00546480(); /* 0x00546480 */
-    INT sub_005464a0(); /* 0x005464a0 */
-    UINT sub_005466a0(); /* 0x005466a0 */
     INT sub_00546750(INT); /* 0x00546750 */
     INT sub_00546760(INT); /* 0x00546760 */
-    INT sub_005470b0(UINT*, INT); /* 0x005470b0 */
     INT sub_005473c0(INT); /* 0x005473c0 */
     INT sub_00547440(INT); /* 0x00547440 */
     INT sub_00547500(INT); /* 0x00547500 */
@@ -10861,103 +10838,10 @@ struct UObject {
     INT sub_00547ac0(INT); /* 0x00547ac0 */
     INT sub_00547ad0(INT); /* 0x00547ad0 */
     void sub_00547ae0(); /* 0x00547ae0 */
-    UINT* sub_00547af0(UINT*); /* 0x00547af0 */
-    INT sub_00547ca0(INT); /* 0x00547ca0 */
-    UINT sub_00548020(UINT); /* 0x00548020 */
-    INT sub_00548080(INT); /* 0x00548080 */
-    UINT* sub_00548090(INT*); /* 0x00548090 */
-    UINT* sub_00548da0(UINT*); /* 0x00548da0 */
-    UINT* sub_00548e20(UINT*); /* 0x00548e20 */
-    INT sub_00549460(INT); /* 0x00549460 */
-    INT sub_00549470(INT); /* 0x00549470 */
-    INT sub_00549520(); /* 0x00549520 */
-    UINT sub_00549530(); /* 0x00549530 */
-    INT sub_005495b0(INT); /* 0x005495b0 */
-    UINT sub_005495c0(); /* 0x005495c0 */
-    INT sub_0054cfc0(); /* 0x0054cfc0 */
-    INT sub_0054d070(INT); /* 0x0054d070 */
-    INT sub_0054d080(INT); /* 0x0054d080 */
-    INT sub_0054d090(INT); /* 0x0054d090 */
-    INT sub_0054d0a0(INT); /* 0x0054d0a0 */
-    INT sub_0054d0b0(); /* 0x0054d0b0 */
-    INT sub_0054d0d0(INT); /* 0x0054d0d0 */
-    INT sub_0054d0f0(INT); /* 0x0054d0f0 */
-    INT sub_0054d110(); /* 0x0054d110 */
-    INT sub_0054d130(); /* 0x0054d130 */
-    INT sub_0054d150(INT); /* 0x0054d150 */
-    INT sub_0054d160(INT); /* 0x0054d160 */
-    INT sub_0054d170(INT); /* 0x0054d170 */
-    INT sub_0054d2a0(INT); /* 0x0054d2a0 */
-    INT sub_0054d3f0(UINT); /* 0x0054d3f0 */
-    INT sub_0054d410(INT); /* 0x0054d410 */
-    UINT* sub_0054de60(INT*); /* 0x0054de60 */
-    INT sub_0054e090(INT); /* 0x0054e090 */
-    INT sub_0054e120(INT); /* 0x0054e120 */
-    INT sub_0054e270(INT); /* 0x0054e270 */
-    INT sub_0054e3d0(INT); /* 0x0054e3d0 */
-    INT sub_0054e540(); /* 0x0054e540 */
-    INT sub_0054e550(); /* 0x0054e550 */
-    UINT sub_00551920(UINT); /* 0x00551920 */
-    UINT* sub_00551f80(UINT*); /* 0x00551f80 */
-    UINT* sub_00551fa0(UINT*); /* 0x00551fa0 */
-    INT sub_005539e0(); /* 0x005539e0 */
-    UINT* sub_00570cd0(UINT*); /* 0x00570cd0 */
-    INT sub_00573b10(INT); /* 0x00573b10 */
-    INT sub_00573b90(INT); /* 0x00573b90 */
-    INT sub_00573c20(INT); /* 0x00573c20 */
-    INT sub_00573c30(INT); /* 0x00573c30 */
-    INT sub_00573e10(INT); /* 0x00573e10 */
-    INT sub_00573fe0(INT); /* 0x00573fe0 */
-    INT sub_00573ff0(UINT); /* 0x00573ff0 */
-    UINT sub_00574910(BYTE); /* 0x00574910 */
-    UINT sub_00577ce0(BYTE); /* 0x00577ce0 */
-    UINT* sub_0058f420(); /* 0x0058f420 */
-    INT sub_0059a860(INT); /* 0x0059a860 */
-    void sub_0059d090(INT); /* 0x0059d090 */
-    UINT sub_005a1a30(BYTE); /* 0x005a1a30 */
-    INT sub_005a1a50(); /* 0x005a1a50 */
-    INT sub_005a1a70(); /* 0x005a1a70 */
-    INT sub_005a1a80(); /* 0x005a1a80 */
-    INT sub_005a1a90(); /* 0x005a1a90 */
-    INT sub_005a1aa0(); /* 0x005a1aa0 */
-    INT sub_005a1ab0(INT); /* 0x005a1ab0 */
-    INT sub_005a1ad0(); /* 0x005a1ad0 */
-    void sub_005a8f10(INT); /* 0x005a8f10 */
-    void sub_005a90b0(INT); /* 0x005a90b0 */
-    INT sub_005a9360(INT); /* 0x005a9360 */
-    INT sub_005a9380(INT); /* 0x005a9380 */
-    INT sub_005a9390(INT); /* 0x005a9390 */
-    INT sub_005a93a0(); /* 0x005a93a0 */
-    INT sub_005a93c0(); /* 0x005a93c0 */
-    INT sub_005a93d0(); /* 0x005a93d0 */
-    INT sub_005a93f0(); /* 0x005a93f0 */
-    INT sub_005a9400(); /* 0x005a9400 */
-    INT sub_005a9420(); /* 0x005a9420 */
-    INT sub_005a9520(); /* 0x005a9520 */
-    INT sub_005a9540(); /* 0x005a9540 */
-    UINT* sub_005a9d00(INT*); /* 0x005a9d00 */
-    UINT* sub_005a9d50(INT*); /* 0x005a9d50 */
-    INT sub_005a9db0(INT); /* 0x005a9db0 */
-    INT sub_005a9dc0(INT); /* 0x005a9dc0 */
     INT sub_005a9dd0(); /* 0x005a9dd0 */
-    INT sub_005a9de0(INT); /* 0x005a9de0 */
-    INT sub_005a9df0(); /* 0x005a9df0 */
-    INT sub_005a9e00(); /* 0x005a9e00 */
-    INT sub_005a9e10(); /* 0x005a9e10 */
-    INT sub_005a9eb0(); /* 0x005a9eb0 */
-    INT sub_005a9ec0(); /* 0x005a9ec0 */
-    UINT sub_005aa020(BYTE); /* 0x005aa020 */
-    UINT sub_005aa050(BYTE); /* 0x005aa050 */
-    UINT sub_005ad0d0(BYTE); /* 0x005ad0d0 */
-    UINT* sub_005b14f0(); /* 0x005b14f0 */
     INT sub_005c1d10(); /* 0x005c1d10 */
     INT sub_005c1e60(); /* 0x005c1e60 */
-    INT sub_005c1e90(); /* 0x005c1e90 */
-    INT sub_005c1ea0(); /* 0x005c1ea0 */
     INT sub_005c1ed0(); /* 0x005c1ed0 */
-    UINT sub_005c1f00(); /* 0x005c1f00 */
-    UINT sub_005c1f20(); /* 0x005c1f20 */
-    UINT sub_005c1f40(); /* 0x005c1f40 */
     INT sub_005c2070(); /* 0x005c2070 */
     INT sub_005c2100(); /* 0x005c2100 */
     INT sub_005c2130(); /* 0x005c2130 */
@@ -10966,90 +10850,9 @@ struct UObject {
     INT sub_005c21a0(); /* 0x005c21a0 */
     INT sub_005c21e0(); /* 0x005c21e0 */
     INT sub_005c2260(); /* 0x005c2260 */
-    void sub_005c7de0(INT, INT); /* 0x005c7de0 */
-    INT sub_005c81c0(UINT*); /* 0x005c81c0 */
-    INT sub_005c8270(UINT*); /* 0x005c8270 */
-    INT sub_005c82f0(INT); /* 0x005c82f0 */
     INT sub_005c8330(UINT*); /* 0x005c8330 */
-    void sub_005c8eb0(INT); /* 0x005c8eb0 */
-    void sub_005cb7f0(INT); /* 0x005cb7f0 */
-    UINT* sub_005cb830(UINT); /* 0x005cb830 */
-    void sub_005cb8e0(INT); /* 0x005cb8e0 */
-    void sub_005cbac0(INT); /* 0x005cbac0 */
-    INT sub_005cbb60(); /* 0x005cbb60 */
     INT sub_005cbd50(); /* 0x005cbd50 */
-    INT sub_005cbd60(INT); /* 0x005cbd60 */
-    UINT sub_005cbdd0(BYTE); /* 0x005cbdd0 */
-    INT sub_005cbe00(INT); /* 0x005cbe00 */
-    INT sub_005cbec0(INT); /* 0x005cbec0 */
-    INT sub_005cbed0(INT); /* 0x005cbed0 */
-    INT sub_005cc050(INT); /* 0x005cc050 */
-    INT sub_005cc060(UINT); /* 0x005cc060 */
-    INT sub_005cc080(); /* 0x005cc080 */
-    INT sub_005cc090(); /* 0x005cc090 */
-    INT sub_005cc0b0(); /* 0x005cc0b0 */
-    INT sub_005cc0f0(INT); /* 0x005cc0f0 */
-    INT sub_005cc110(INT); /* 0x005cc110 */
-    INT sub_005cc120(INT); /* 0x005cc120 */
-    INT sub_005cc130(); /* 0x005cc130 */
-    INT sub_005cc140(); /* 0x005cc140 */
-    INT sub_005cc160(); /* 0x005cc160 */
-    INT sub_005cc180(); /* 0x005cc180 */
-    INT sub_005cc1a0(); /* 0x005cc1a0 */
-    INT sub_005cc1c0(); /* 0x005cc1c0 */
-    INT sub_005cc1e0(); /* 0x005cc1e0 */
-    INT sub_005cc200(); /* 0x005cc200 */
-    INT sub_005cc220(); /* 0x005cc220 */
-    INT sub_005cc240(); /* 0x005cc240 */
-    INT sub_005cc250(); /* 0x005cc250 */
-    INT sub_005cc270(); /* 0x005cc270 */
-    UINT sub_005cc500(BYTE); /* 0x005cc500 */
-    UINT* sub_005d1ac0(BYTE); /* 0x005d1ac0 */
     INT sub_005d1cc0(); /* 0x005d1cc0 */
-    INT sub_005d1e00(INT); /* 0x005d1e00 */
-    INT sub_005d1e20(INT); /* 0x005d1e20 */
-    INT sub_005d1f00(INT); /* 0x005d1f00 */
-    INT sub_005d1f10(); /* 0x005d1f10 */
-    INT sub_005d1f20(); /* 0x005d1f20 */
-    INT sub_005d1f40(); /* 0x005d1f40 */
-    INT sub_005d2010(); /* 0x005d2010 */
-    INT sub_005d2030(); /* 0x005d2030 */
-    INT sub_005d2150(INT); /* 0x005d2150 */
-    INT sub_005d2250(INT); /* 0x005d2250 */
-    INT sub_005d2260(INT); /* 0x005d2260 */
-    INT sub_005d22f0(INT); /* 0x005d22f0 */
-    INT sub_005d23e0(); /* 0x005d23e0 */
-    UINT sub_005d2400(BYTE); /* 0x005d2400 */
-    UINT sub_005d4060(BYTE); /* 0x005d4060 */
-    INT sub_005d4b50(INT); /* 0x005d4b50 */
-    INT sub_005d4b80(INT); /* 0x005d4b80 */
-    INT sub_005d4bb0(INT); /* 0x005d4bb0 */
-    UINT sub_005d5670(UINT, UINT); /* 0x005d5670 */
-    UINT sub_005d56f0(BYTE); /* 0x005d56f0 */
-    INT sub_005d5bd0(INT); /* 0x005d5bd0 */
-    INT sub_005d5c10(INT); /* 0x005d5c10 */
-    UINT sub_005d5c90(INT); /* 0x005d5c90 */
-    UINT sub_005dc150(UINT, UINT); /* 0x005dc150 */
-    void sub_005dc170(); /* 0x005dc170 */
-    UINT sub_005dc180(UINT, UINT); /* 0x005dc180 */
-    INT sub_005dc1a0(UINT, UINT); /* 0x005dc1a0 */
-    INT sub_005dc1c0(UINT, UINT); /* 0x005dc1c0 */
-    INT sub_005dc1e0(UINT, UINT); /* 0x005dc1e0 */
-    UINT sub_005dc200(UINT, UINT); /* 0x005dc200 */
-    void sub_005dc280(); /* 0x005dc280 */
-    INT sub_005dccf0(UINT, UINT, UINT); /* 0x005dccf0 */
-    INT sub_005dcd40(UINT, UINT, UINT); /* 0x005dcd40 */
-    void sub_005dcdf0(); /* 0x005dcdf0 */
-    void sub_005df3b0(); /* 0x005df3b0 */
-    void sub_005df5b0(); /* 0x005df5b0 */
-    INT sub_005f0660(UINT, UINT); /* 0x005f0660 */
-    UINT* sub_005f19e0(INT*); /* 0x005f19e0 */
-    INT sub_005f1a20(INT); /* 0x005f1a20 */
-    INT sub_005f1a90(); /* 0x005f1a90 */
-    UINT sub_005f1b20(BYTE); /* 0x005f1b20 */
-    UINT* sub_005f1b40(UINT*); /* 0x005f1b40 */
-    UINT sub_005f49d0(BYTE); /* 0x005f49d0 */
-    INT sub_005fc300(INT); /* 0x005fc300 */
     INT sub_005fc3a0(); /* 0x005fc3a0 */
     INT sub_005fc3b0(); /* 0x005fc3b0 */
     INT sub_005fc3c0(); /* 0x005fc3c0 */
@@ -11057,175 +10860,13 @@ struct UObject {
     INT sub_005fc400(); /* 0x005fc400 */
     INT sub_005fc420(); /* 0x005fc420 */
     INT sub_005fc430(); /* 0x005fc430 */
-    UINT* sub_00601260(UINT*); /* 0x00601260 */
-    UINT* sub_006012c0(UINT*, UINT, UINT); /* 0x006012c0 */
-    UINT* sub_006013e0(UINT*, UINT); /* 0x006013e0 */
-    UINT sub_006028c0(BYTE); /* 0x006028c0 */
-    UINT* sub_00603130(INT*); /* 0x00603130 */
-    INT sub_00603170(INT); /* 0x00603170 */
-    INT sub_006031d0(); /* 0x006031d0 */
-    INT sub_006031f0(INT); /* 0x006031f0 */
-    UINT* sub_006032a0(INT*); /* 0x006032a0 */
-    UINT* sub_006032f0(INT*); /* 0x006032f0 */
-    INT sub_006033a0(INT); /* 0x006033a0 */
-    INT sub_00603430(INT); /* 0x00603430 */
-    INT sub_00603520(INT); /* 0x00603520 */
-    INT sub_00603530(BYTE); /* 0x00603530 */
-    UINT* sub_00603560(UINT*); /* 0x00603560 */
-    UINT* sub_006041a0(UINT*); /* 0x006041a0 */
-    UINT sub_006041e0(BYTE); /* 0x006041e0 */
-    UINT sub_00604200(BYTE); /* 0x00604200 */
-    UINT sub_00604220(BYTE); /* 0x00604220 */
-    INT sub_00604240(BYTE); /* 0x00604240 */
-    void sub_00604270(INT); /* 0x00604270 */
-    void sub_006042b0(INT); /* 0x006042b0 */
     INT sub_006042f0(); /* 0x006042f0 */
-    UINT* sub_00604300(UINT*); /* 0x00604300 */
-    UINT* sub_00604340(UINT*); /* 0x00604340 */
-    UINT* sub_006043d0(UINT*); /* 0x006043d0 */
-    INT sub_00604470(INT); /* 0x00604470 */
-    UINT* sub_00604540(INT*); /* 0x00604540 */
-    UINT sub_006045d0(BYTE); /* 0x006045d0 */
-    UINT* sub_006045f0(UINT*); /* 0x006045f0 */
-    UINT* sub_00604630(UINT*); /* 0x00604630 */
-    UINT sub_006080e0(BYTE); /* 0x006080e0 */
-    UINT sub_00608110(BYTE); /* 0x00608110 */
-    INT sub_006082d0(INT); /* 0x006082d0 */
-    INT sub_006083c0(INT); /* 0x006083c0 */
-    UINT* sub_00608530(INT*); /* 0x00608530 */
-    INT sub_006085d0(INT); /* 0x006085d0 */
-    INT sub_00608660(); /* 0x00608660 */
-    INT sub_006086e0(INT); /* 0x006086e0 */
-    UINT* sub_006086f0(UINT*); /* 0x006086f0 */
-    UINT* sub_00608710(UINT*); /* 0x00608710 */
-    UINT sub_00608740(BYTE); /* 0x00608740 */
-    UINT sub_00608760(BYTE); /* 0x00608760 */
-    UINT sub_00608780(BYTE); /* 0x00608780 */
-    UINT sub_0060d760(BYTE); /* 0x0060d760 */
-    UINT sub_0060e850(BYTE); /* 0x0060e850 */
-    UINT* sub_0060e900(UINT*); /* 0x0060e900 */
-    UINT* sub_006103d0(INT*); /* 0x006103d0 */
-    UINT* sub_00610400(INT*); /* 0x00610400 */
-    INT sub_006104b0(UINT); /* 0x006104b0 */
-    UINT sub_00611b90(BYTE); /* 0x00611b90 */
-    UINT* sub_006123f0(); /* 0x006123f0 */
-    void sub_0061e6b0(); /* 0x0061e6b0 */
-    void sub_0061e6c0(); /* 0x0061e6c0 */
-    UINT sub_006212b0(BYTE); /* 0x006212b0 */
-    UINT sub_006212f0(BYTE); /* 0x006212f0 */
-    void sub_006218e0(); /* 0x006218e0 */
-    UINT* sub_0062c160(); /* 0x0062c160 */
-    UINT* sub_00637630(UINT*); /* 0x00637630 */
-    UINT sub_006399c0(UINT, UINT); /* 0x006399c0 */
-    UINT sub_006399e0(BYTE); /* 0x006399e0 */
-    INT sub_0063f050(UINT, UINT, UINT); /* 0x0063f050 */
-    INT sub_0063f1e0(UINT, UINT); /* 0x0063f1e0 */
-    INT sub_0063f240(UINT); /* 0x0063f240 */
-    UINT sub_0063f260(BYTE); /* 0x0063f260 */
-    UINT sub_00642fe0(BYTE); /* 0x00642fe0 */
-    UINT* sub_0064b670(); /* 0x0064b670 */
-    UINT* sub_0064b880(); /* 0x0064b880 */
-    UINT* sub_0064b960(); /* 0x0064b960 */
-    UINT* sub_0064b990(); /* 0x0064b990 */
     INT sub_00655090(); /* 0x00655090 */
-    void sub_00657cc0(UINT); /* 0x00657cc0 */
-    void sub_00667b20(INT); /* 0x00667b20 */
-    void sub_00668000(INT); /* 0x00668000 */
-    void sub_00668040(INT); /* 0x00668040 */
-    UINT sub_00675a40(); /* 0x00675a40 */
-    UINT sub_00675b10(); /* 0x00675b10 */
-    UINT sub_0067f2b0(BYTE); /* 0x0067f2b0 */
-    UINT sub_006857a0(BYTE); /* 0x006857a0 */
     void sub_0069c8d0(INT, INT); /* 0x0069c8d0 */
-    INT sub_0069d750(UINT*, INT); /* 0x0069d750 */
-    void sub_006a2bc0(); /* 0x006a2bc0 */
-    void sub_006a3200(); /* 0x006a3200 */
-    UINT* sub_006a8fc0(); /* 0x006a8fc0 */
-    UINT* sub_006a9150(); /* 0x006a9150 */
-    UINT* sub_006a91f0(); /* 0x006a91f0 */
-    UINT* sub_006b8910(UINT*); /* 0x006b8910 */
-    UINT sub_006bd1b0(BYTE); /* 0x006bd1b0 */
-    UINT sub_006bd1d0(BYTE); /* 0x006bd1d0 */
-    UINT* sub_006c0c60(); /* 0x006c0c60 */
-    UINT* sub_006c0c80(); /* 0x006c0c80 */
-    UINT* sub_006c0d30(); /* 0x006c0d30 */
-    UINT* sub_006c0de0(); /* 0x006c0de0 */
-    UINT* sub_006c0e90(); /* 0x006c0e90 */
-    UINT sub_006c51a0(BYTE); /* 0x006c51a0 */
-    UINT* sub_006c6690(); /* 0x006c6690 */
-    UINT* sub_006c66b0(); /* 0x006c66b0 */
-    UINT* sub_006c8cc0(INT*); /* 0x006c8cc0 */
-    UINT* sub_006c8cf0(INT*); /* 0x006c8cf0 */
-    UINT sub_006c8f40(BYTE); /* 0x006c8f40 */
-    INT sub_006d4280(); /* 0x006d4280 */
-    INT sub_006d42f0(); /* 0x006d42f0 */
-    UINT sub_006e1dd0(BYTE); /* 0x006e1dd0 */
-    UINT sub_006f25b0(BYTE); /* 0x006f25b0 */
-    INT sub_006f2650(INT); /* 0x006f2650 */
-    INT sub_006f26e0(INT); /* 0x006f26e0 */
-    INT sub_006f2770(INT); /* 0x006f2770 */
-    INT sub_006f2810(INT); /* 0x006f2810 */
-    INT sub_00703830(INT, UINT, UINT, UINT); /* 0x00703830 */
-    void sub_00710b90(); /* 0x00710b90 */
-    void sub_00710dd0(); /* 0x00710dd0 */
-    UINT* sub_00722e00(INT*); /* 0x00722e00 */
-    INT sub_00722e50(INT); /* 0x00722e50 */
-    UINT* sub_00722e60(INT*); /* 0x00722e60 */
-    INT sub_00722eb0(); /* 0x00722eb0 */
-    INT sub_00722f20(INT); /* 0x00722f20 */
-    INT sub_00722f90(INT); /* 0x00722f90 */
-    INT sub_00722fa0(INT); /* 0x00722fa0 */
     INT sub_00722fb0(); /* 0x00722fb0 */
-    UINT* sub_007230e0(INT*); /* 0x007230e0 */
-    INT sub_00723130(INT); /* 0x00723130 */
-    UINT* sub_00723140(INT*); /* 0x00723140 */
-    INT sub_00723190(); /* 0x00723190 */
-    INT sub_007231a0(); /* 0x007231a0 */
-    INT sub_007232d0(INT); /* 0x007232d0 */
-    UINT* sub_00723400(INT*); /* 0x00723400 */
-    INT sub_00723440(INT); /* 0x00723440 */
-    UINT sub_00723d20(BYTE); /* 0x00723d20 */
-    UINT sub_00723d40(BYTE); /* 0x00723d40 */
-    UINT sub_00723d60(BYTE); /* 0x00723d60 */
-    UINT sub_00723d80(BYTE); /* 0x00723d80 */
-    void sub_00723df0(INT); /* 0x00723df0 */
-    UINT* sub_00723f20(UINT*); /* 0x00723f20 */
-    INT sub_00727560(UINT); /* 0x00727560 */
-    INT sub_00727580(INT); /* 0x00727580 */
-    UINT sub_00727590(BYTE); /* 0x00727590 */
-    UINT sub_007275b0(BYTE); /* 0x007275b0 */
-    UINT sub_007275d0(BYTE); /* 0x007275d0 */
-    UINT* sub_00753cc0(); /* 0x00753cc0 */
-    UINT* sub_00753cf0(); /* 0x00753cf0 */
-    UINT* sub_007544e0(); /* 0x007544e0 */
-    UINT* sub_007545a0(); /* 0x007545a0 */
-    UINT* sub_007546e0(); /* 0x007546e0 */
-    UINT* sub_007547a0(); /* 0x007547a0 */
-    UINT* sub_00754850(); /* 0x00754850 */
-    UINT* sub_007549e0(); /* 0x007549e0 */
-    UINT* sub_00754a30(); /* 0x00754a30 */
-    UINT* sub_00760b90(); /* 0x00760b90 */
-    UINT* sub_00760ce0(); /* 0x00760ce0 */
-    UINT* sub_00760d30(); /* 0x00760d30 */
-    UINT* sub_00760de0(); /* 0x00760de0 */
     void sub_00765d90(); /* 0x00765d90 */
     UINT sub_00765df0(); /* 0x00765df0 */
-    UINT sub_0076b080(BYTE); /* 0x0076b080 */
-    UINT* sub_0076e890(); /* 0x0076e890 */
-    UINT* sub_0076e8b0(); /* 0x0076e8b0 */
-    UINT* sub_00785390(); /* 0x00785390 */
-    UINT* sub_00785440(); /* 0x00785440 */
-    UINT* sub_007854f0(); /* 0x007854f0 */
-    UINT sub_007933e0(BYTE); /* 0x007933e0 */
-    UINT* sub_0079f2d0(); /* 0x0079f2d0 */
-    UINT* sub_0079fba0(); /* 0x0079fba0 */
-    UINT* sub_0079fc50(); /* 0x0079fc50 */
-    UINT sub_007c4dd0(BYTE); /* 0x007c4dd0 */
-    UINT sub_007e4c80(BYTE); /* 0x007e4c80 */
-    UINT sub_007eed00(BYTE); /* 0x007eed00 */
-    UINT* sub_00802a50(); /* 0x00802a50 */
     INT sub_00805490(); /* 0x00805490 */
-    UINT* sub_008054f0(UINT, UINT); /* 0x008054f0 */
     INT sub_00805550(); /* 0x00805550 */
     INT sub_00805560(); /* 0x00805560 */
     INT sub_00805610(); /* 0x00805610 */
@@ -11236,599 +10877,27 @@ struct UObject {
     INT sub_008056e0(); /* 0x008056e0 */
     INT sub_008057a0(); /* 0x008057a0 */
     INT sub_008057c0(); /* 0x008057c0 */
-    INT sub_00805830(INT); /* 0x00805830 */
     INT sub_008058f0(); /* 0x008058f0 */
     INT sub_00805970(); /* 0x00805970 */
     INT sub_008059f0(); /* 0x008059f0 */
     INT sub_00805a00(); /* 0x00805a00 */
     INT sub_00805ae0(); /* 0x00805ae0 */
     INT sub_00805af0(); /* 0x00805af0 */
-    INT sub_00805b70(INT); /* 0x00805b70 */
     INT sub_00805b80(); /* 0x00805b80 */
     INT sub_00805c30(); /* 0x00805c30 */
-    INT sub_00805c60(INT); /* 0x00805c60 */
-    INT sub_008089e0(INT); /* 0x008089e0 */
     INT sub_00808a20(); /* 0x00808a20 */
-    INT sub_00812700(UINT, UINT); /* 0x00812700 */
-    void sub_00812780(INT); /* 0x00812780 */
-    void sub_00818120(INT); /* 0x00818120 */
-    INT sub_00818290(UINT, UINT); /* 0x00818290 */
-    INT sub_008182b0(UINT, UINT); /* 0x008182b0 */
-    INT sub_008182d0(UINT, UINT); /* 0x008182d0 */
-    UINT sub_00831780(BYTE); /* 0x00831780 */
-    UINT* sub_008339f0(); /* 0x008339f0 */
-    UINT* sub_008341f0(); /* 0x008341f0 */
-    UINT* sub_0083d6a0(); /* 0x0083d6a0 */
-    UINT* sub_0083d7d0(); /* 0x0083d7d0 */
-    UINT* sub_0083d7f0(); /* 0x0083d7f0 */
-    UINT* sub_00849d40(UINT*); /* 0x00849d40 */
-    UINT sub_00849f50(BYTE); /* 0x00849f50 */
-    UINT* sub_00852950(); /* 0x00852950 */
-    UINT* sub_00855960(UINT*); /* 0x00855960 */
-    UINT* sub_00855a20(UINT*); /* 0x00855a20 */
-    UINT* sub_008590f0(); /* 0x008590f0 */
-    UINT* sub_00859110(); /* 0x00859110 */
-    UINT* sub_008591b0(); /* 0x008591b0 */
-    UINT sub_00897e20(BYTE); /* 0x00897e20 */
-    INT sub_00897ea0(INT); /* 0x00897ea0 */
-    UINT* sub_00898210(); /* 0x00898210 */
-    UINT sub_008a4da0(INT*); /* 0x008a4da0 */
-    UINT* sub_008a56f0(); /* 0x008a56f0 */
-    UINT* sub_008a5720(); /* 0x008a5720 */
-    UINT* sub_008a57d0(); /* 0x008a57d0 */
-    UINT* sub_008a5880(); /* 0x008a5880 */
-    UINT* sub_008a5930(); /* 0x008a5930 */
-    UINT* sub_008a59e0(); /* 0x008a59e0 */
-    UINT* sub_008a5a90(); /* 0x008a5a90 */
-    UINT* sub_008a5b40(); /* 0x008a5b40 */
-    UINT* sub_008a5ca0(); /* 0x008a5ca0 */
-    UINT* sub_008a5cd0(); /* 0x008a5cd0 */
-    UINT* sub_008a5d80(); /* 0x008a5d80 */
-    UINT* sub_008bbdf0(); /* 0x008bbdf0 */
-    UINT* sub_008bbee0(); /* 0x008bbee0 */
-    UINT* sub_008bbf00(); /* 0x008bbf00 */
-    UINT* sub_008bc3b0(); /* 0x008bc3b0 */
-    UINT* sub_008bc3d0(); /* 0x008bc3d0 */
-    UINT* sub_008bc510(); /* 0x008bc510 */
-    UINT* sub_008bc5c0(); /* 0x008bc5c0 */
-    UINT* sub_008bc760(); /* 0x008bc760 */
-    UINT* sub_008bc9b0(); /* 0x008bc9b0 */
-    UINT* sub_008bc9d0(); /* 0x008bc9d0 */
-    UINT* sub_008bcc50(); /* 0x008bcc50 */
-    UINT* sub_008bcc70(); /* 0x008bcc70 */
-    UINT* sub_008bcd60(); /* 0x008bcd60 */
-    UINT* sub_008bcea0(); /* 0x008bcea0 */
-    UINT* sub_008bcf60(); /* 0x008bcf60 */
-    UINT* sub_008bd0d0(); /* 0x008bd0d0 */
-    void sub_008c1a00(INT); /* 0x008c1a00 */
-    void sub_008c1b80(INT); /* 0x008c1b80 */
-    UINT* sub_008c2aa0(UINT*); /* 0x008c2aa0 */
-    INT sub_008c2cb0(INT); /* 0x008c2cb0 */
-    INT sub_008c2cc0(INT); /* 0x008c2cc0 */
-    INT sub_008c2cd0(INT); /* 0x008c2cd0 */
-    UINT* sub_008c85a0(); /* 0x008c85a0 */
-    UINT* sub_008c85c0(); /* 0x008c85c0 */
-    UINT* sub_008c8680(); /* 0x008c8680 */
-    UINT* sub_008c8750(); /* 0x008c8750 */
-    UINT* sub_008c8830(); /* 0x008c8830 */
-    UINT* sub_008c8970(); /* 0x008c8970 */
-    UINT sub_008cdab0(BYTE); /* 0x008cdab0 */
-    UINT sub_008d2130(UINT); /* 0x008d2130 */
-    INT sub_008d2170(INT); /* 0x008d2170 */
-    INT sub_008d21a0(INT); /* 0x008d21a0 */
-    INT sub_008d21d0(INT); /* 0x008d21d0 */
-    UINT sub_008d2260(BYTE); /* 0x008d2260 */
-    UINT sub_008d2280(BYTE); /* 0x008d2280 */
-    UINT sub_008d22a0(BYTE); /* 0x008d22a0 */
-    UINT* sub_008e2220(); /* 0x008e2220 */
-    UINT* sub_008e2240(); /* 0x008e2240 */
-    UINT* sub_008e2690(); /* 0x008e2690 */
-    UINT* sub_008e26b0(); /* 0x008e26b0 */
-    UINT* sub_008e2760(); /* 0x008e2760 */
-    UINT* sub_008e2810(); /* 0x008e2810 */
-    UINT* sub_008e28c0(); /* 0x008e28c0 */
-    UINT* sub_008e2980(); /* 0x008e2980 */
-    UINT* sub_008e2a40(); /* 0x008e2a40 */
-    UINT* sub_008e2af0(); /* 0x008e2af0 */
-    UINT* sub_008e2ba0(); /* 0x008e2ba0 */
-    UINT* sub_008e2c50(); /* 0x008e2c50 */
-    UINT* sub_008e2d00(); /* 0x008e2d00 */
-    UINT* sub_008e2dc0(); /* 0x008e2dc0 */
-    UINT* sub_008e3020(); /* 0x008e3020 */
-    UINT* sub_008e30d0(); /* 0x008e30d0 */
-    UINT* sub_008e3180(); /* 0x008e3180 */
-    UINT* sub_008e3230(); /* 0x008e3230 */
-    UINT* sub_008e32e0(); /* 0x008e32e0 */
-    UINT* sub_008e3430(); /* 0x008e3430 */
-    UINT* sub_008e3520(); /* 0x008e3520 */
-    UINT* sub_008e3540(); /* 0x008e3540 */
-    UINT* sub_008e35f0(); /* 0x008e35f0 */
-    UINT* sub_008e36a0(); /* 0x008e36a0 */
-    UINT* sub_008e3750(); /* 0x008e3750 */
-    UINT* sub_008e3c60(); /* 0x008e3c60 */
-    UINT* sub_008e3d10(); /* 0x008e3d10 */
-    UINT* sub_008e3dd0(); /* 0x008e3dd0 */
-    UINT* sub_008e3ea0(); /* 0x008e3ea0 */
-    UINT* sub_008e4000(); /* 0x008e4000 */
-    UINT* sub_008e4020(); /* 0x008e4020 */
-    UINT* sub_008e40d0(); /* 0x008e40d0 */
-    UINT* sub_008e4190(); /* 0x008e4190 */
-    UINT* sub_008e4240(); /* 0x008e4240 */
-    UINT* sub_008e42f0(); /* 0x008e42f0 */
-    UINT* sub_008e43c0(); /* 0x008e43c0 */
-    UINT* sub_008e4480(); /* 0x008e4480 */
-    UINT* sub_008e4530(); /* 0x008e4530 */
-    UINT* sub_008e45e0(); /* 0x008e45e0 */
-    UINT* sub_008e4690(); /* 0x008e4690 */
-    UINT* sub_008e4750(); /* 0x008e4750 */
-    UINT* sub_008e4800(); /* 0x008e4800 */
-    UINT* sub_008e48c0(); /* 0x008e48c0 */
-    UINT* sub_008e4a70(); /* 0x008e4a70 */
-    UINT* sub_008e4b40(); /* 0x008e4b40 */
-    UINT* sub_008e4bf0(); /* 0x008e4bf0 */
-    UINT* sub_008e50e0(); /* 0x008e50e0 */
-    UINT* sub_008e5190(); /* 0x008e5190 */
-    UINT* sub_008e5240(); /* 0x008e5240 */
-    UINT* sub_008e52f0(); /* 0x008e52f0 */
-    UINT* sub_008e53a0(); /* 0x008e53a0 */
-    UINT* sub_008e5450(); /* 0x008e5450 */
-    UINT* sub_008e5500(); /* 0x008e5500 */
-    UINT* sub_008e55b0(); /* 0x008e55b0 */
-    UINT* sub_008e5660(); /* 0x008e5660 */
-    UINT* sub_008e5770(); /* 0x008e5770 */
-    UINT* sub_008e57c0(); /* 0x008e57c0 */
-    UINT* sub_008e58e0(); /* 0x008e58e0 */
-    UINT* sub_008e5a00(); /* 0x008e5a00 */
-    UINT* sub_008e5b00(); /* 0x008e5b00 */
-    UINT* sub_008e5c20(); /* 0x008e5c20 */
-    UINT* sub_008e5d60(); /* 0x008e5d60 */
-    UINT* sub_008e5ea0(); /* 0x008e5ea0 */
-    UINT* sub_008e5f50(); /* 0x008e5f50 */
-    UINT* sub_008e6070(); /* 0x008e6070 */
-    UINT* sub_008e6190(); /* 0x008e6190 */
-    UINT* sub_008e6240(); /* 0x008e6240 */
-    UINT* sub_008e6300(); /* 0x008e6300 */
-    UINT* sub_008e63c0(); /* 0x008e63c0 */
-    UINT* sub_008e6470(); /* 0x008e6470 */
-    UINT* sub_008e6560(); /* 0x008e6560 */
-    UINT* sub_008e6680(); /* 0x008e6680 */
-    UINT* sub_008e6c80(); /* 0x008e6c80 */
-    UINT* sub_008e6ca0(); /* 0x008e6ca0 */
-    UINT* sub_008e6d60(); /* 0x008e6d60 */
-    UINT* sub_008e6ef0(); /* 0x008e6ef0 */
-    UINT* sub_008e6fa0(); /* 0x008e6fa0 */
-    UINT* sub_008e7050(); /* 0x008e7050 */
-    UINT* sub_008e7170(); /* 0x008e7170 */
-    UINT* sub_008e71c0(); /* 0x008e71c0 */
-    UINT* sub_008e7270(); /* 0x008e7270 */
-    UINT* sub_008e7480(); /* 0x008e7480 */
-    UINT* sub_008e7670(); /* 0x008e7670 */
-    UINT* sub_008e7720(); /* 0x008e7720 */
-    UINT* sub_008e77d0(); /* 0x008e77d0 */
-    UINT* sub_008e79d0(); /* 0x008e79d0 */
-    UINT* sub_008e7bf0(); /* 0x008e7bf0 */
-    UINT* sub_008e7ca0(); /* 0x008e7ca0 */
-    UINT* sub_008e7e50(); /* 0x008e7e50 */
-    UINT* sub_008e8030(); /* 0x008e8030 */
-    UINT* sub_008e8050(); /* 0x008e8050 */
-    UINT* sub_008e8110(); /* 0x008e8110 */
-    UINT* sub_008e81d0(); /* 0x008e81d0 */
-    UINT* sub_008e8360(); /* 0x008e8360 */
-    UINT* sub_008e8380(); /* 0x008e8380 */
-    UINT* sub_008e84b0(); /* 0x008e84b0 */
-    UINT* sub_008e8570(); /* 0x008e8570 */
-    UINT* sub_008e8620(); /* 0x008e8620 */
-    UINT* sub_008e86d0(); /* 0x008e86d0 */
-    UINT* sub_008e8780(); /* 0x008e8780 */
-    UINT* sub_008e8830(); /* 0x008e8830 */
-    UINT* sub_008e88e0(); /* 0x008e88e0 */
-    UINT* sub_008e8990(); /* 0x008e8990 */
-    UINT* sub_008e8a40(); /* 0x008e8a40 */
-    UINT* sub_008e8af0(); /* 0x008e8af0 */
-    UINT* sub_008e8ba0(); /* 0x008e8ba0 */
-    UINT* sub_008e8c50(); /* 0x008e8c50 */
-    UINT* sub_008e8d00(); /* 0x008e8d00 */
-    UINT* sub_008e8db0(); /* 0x008e8db0 */
-    UINT* sub_008e8e70(); /* 0x008e8e70 */
-    UINT* sub_008e8f40(); /* 0x008e8f40 */
-    UINT* sub_008e9020(); /* 0x008e9020 */
-    UINT* sub_0090aff0(); /* 0x0090aff0 */
-    UINT* sub_0090b0f0(); /* 0x0090b0f0 */
-    UINT* sub_0090bd70(); /* 0x0090bd70 */
-    UINT* sub_0090bda0(); /* 0x0090bda0 */
-    UINT* sub_0090be50(); /* 0x0090be50 */
-    UINT* sub_0090bf00(); /* 0x0090bf00 */
-    UINT* sub_0090bfb0(); /* 0x0090bfb0 */
-    UINT* sub_0090c060(); /* 0x0090c060 */
-    UINT* sub_0090c110(); /* 0x0090c110 */
-    UINT* sub_0090c220(); /* 0x0090c220 */
-    UINT* sub_0090c2d0(); /* 0x0090c2d0 */
-    INT sub_009147f0(INT); /* 0x009147f0 */
-    UINT* sub_009224d0(); /* 0x009224d0 */
-    UINT* sub_0092f8a0(); /* 0x0092f8a0 */
-    UINT* sub_0092f9f0(); /* 0x0092f9f0 */
-    UINT* sub_0092fa10(); /* 0x0092fa10 */
-    UINT* sub_0092fac0(); /* 0x0092fac0 */
-    UINT* sub_0092fc10(); /* 0x0092fc10 */
-    UINT* sub_0092fc30(); /* 0x0092fc30 */
-    UINT* sub_0092fce0(); /* 0x0092fce0 */
-    UINT* sub_0092fd90(); /* 0x0092fd90 */
-    UINT* sub_0093f9e0(); /* 0x0093f9e0 */
-    UINT* sub_00940680(); /* 0x00940680 */
-    UINT sub_009417d0(BYTE); /* 0x009417d0 */
-    UINT* sub_00941800(UINT*); /* 0x00941800 */
-    UINT sub_00941830(BYTE); /* 0x00941830 */
-    UINT* sub_00943900(); /* 0x00943900 */
-    INT sub_00947480(INT); /* 0x00947480 */
-    UINT sub_009927c0(BYTE); /* 0x009927c0 */
-    UINT sub_009927e0(BYTE); /* 0x009927e0 */
     UINT sub_009939e0(BYTE); /* 0x009939e0 */
-    UINT* sub_00995040(); /* 0x00995040 */
-    UINT* sub_00995100(); /* 0x00995100 */
-    UINT sub_009a0a10(BYTE); /* 0x009a0a10 */
-    UINT* sub_009c1aa0(); /* 0x009c1aa0 */
-    UINT* sub_009c1ac0(); /* 0x009c1ac0 */
-    UINT* sub_009c1b70(); /* 0x009c1b70 */
-    UINT* sub_009c1c20(); /* 0x009c1c20 */
-    UINT* sub_009e92e0(); /* 0x009e92e0 */
-    UINT* sub_009e9300(); /* 0x009e9300 */
-    UINT* sub_009e9440(); /* 0x009e9440 */
-    UINT* sub_009e94f0(); /* 0x009e94f0 */
-    UINT* sub_009e9590(); /* 0x009e9590 */
-    UINT* sub_009efe30(); /* 0x009efe30 */
-    UINT sub_009f1700(UINT, UINT); /* 0x009f1700 */
-    INT sub_009f3900(UINT, UINT, UINT); /* 0x009f3900 */
-    UINT* sub_009f7290(); /* 0x009f7290 */
-    UINT* sub_009f7370(); /* 0x009f7370 */
-    UINT* sub_009f7430(); /* 0x009f7430 */
-    UINT* sub_009f7520(); /* 0x009f7520 */
-    UINT* sub_00a223c0(); /* 0x00a223c0 */
-    UINT* sub_00a2c380(); /* 0x00a2c380 */
-    UINT* sub_00a2ffb0(); /* 0x00a2ffb0 */
-    UINT* sub_00a30110(); /* 0x00a30110 */
-    UINT* sub_00a30140(); /* 0x00a30140 */
-    UINT* sub_00a30200(); /* 0x00a30200 */
-    UINT* sub_00a302c0(); /* 0x00a302c0 */
-    UINT* sub_00a30380(); /* 0x00a30380 */
-    UINT* sub_00a30440(); /* 0x00a30440 */
-    UINT* sub_00a30500(); /* 0x00a30500 */
-    UINT* sub_00a305c0(); /* 0x00a305c0 */
-    UINT* sub_00a33e80(); /* 0x00a33e80 */
-    UINT* sub_00a33f20(); /* 0x00a33f20 */
-    UINT* sub_00a34070(); /* 0x00a34070 */
-    UINT* sub_00a34170(); /* 0x00a34170 */
-    UINT* sub_00a56c30(); /* 0x00a56c30 */
-    UINT* sub_00a56ec0(); /* 0x00a56ec0 */
     UINT sub_00a656f0(BYTE); /* 0x00a656f0 */
     UINT sub_00a65780(BYTE); /* 0x00a65780 */
     UINT sub_00a659b0(BYTE); /* 0x00a659b0 */
     UINT sub_00a65a40(BYTE); /* 0x00a65a40 */
-    void sub_00a666b0(UINT); /* 0x00a666b0 */
-    UINT* sub_00ab1b70(); /* 0x00ab1b70 */
-    void sub_00b02e10(INT); /* 0x00b02e10 */
-    UINT* sub_00b3d680(); /* 0x00b3d680 */
-    UINT* sub_00b3d700(); /* 0x00b3d700 */
-    UINT* sub_00b3d7d0(); /* 0x00b3d7d0 */
-    UINT* sub_00b3d8a0(); /* 0x00b3d8a0 */
-    UINT* sub_00b3d920(); /* 0x00b3d920 */
-    UINT* sub_00b3d9c0(); /* 0x00b3d9c0 */
-    UINT* sub_00b3da60(); /* 0x00b3da60 */
-    UINT* sub_00b3db60(); /* 0x00b3db60 */
-    UINT* sub_00b3dc50(); /* 0x00b3dc50 */
-    UINT* sub_00b3dd00(); /* 0x00b3dd00 */
-    UINT* sub_00b3dd20(); /* 0x00b3dd20 */
-    UINT* sub_00b3ddc0(); /* 0x00b3ddc0 */
     UINT* sub_00b40d20(); /* 0x00b40d20 */
-    UINT* sub_00b40e10(); /* 0x00b40e10 */
-    UINT* sub_00b40ed0(); /* 0x00b40ed0 */
-    UINT* sub_00b43720(); /* 0x00b43720 */
     UINT* sub_00b43870(); /* 0x00b43870 */
-    UINT* sub_00b439e0(); /* 0x00b439e0 */
-    UINT* sub_00b43b20(); /* 0x00b43b20 */
-    UINT* sub_00b43c00(); /* 0x00b43c00 */
-    UINT* sub_00b4c520(); /* 0x00b4c520 */
     UINT* sub_00b60110(INT*); /* 0x00b60110 */
-    INT sub_00b60170(INT); /* 0x00b60170 */
-    INT sub_00b60180(UINT); /* 0x00b60180 */
-    INT sub_00b601a0(); /* 0x00b601a0 */
-    INT sub_00b601d0(INT); /* 0x00b601d0 */
-    INT sub_00b601e0(); /* 0x00b601e0 */
-    INT sub_00b601f0(); /* 0x00b601f0 */
-    UINT sub_00b60940(BYTE); /* 0x00b60940 */
     INT sub_00b60ab0(); /* 0x00b60ab0 */
-    UINT sub_00b64cc0(BYTE); /* 0x00b64cc0 */
     char* sub_00b65220(); /* 0x00b65220 */
-    UINT sub_00b652e0(BYTE); /* 0x00b652e0 */
-    UINT sub_00b65360(BYTE); /* 0x00b65360 */
-    UINT* sub_00b65380(); /* 0x00b65380 */
-    UINT* sub_00b65480(); /* 0x00b65480 */
-    UINT* sub_00b65710(); /* 0x00b65710 */
-    UINT* sub_00b66620(); /* 0x00b66620 */
-    UINT* sub_00b66640(); /* 0x00b66640 */
-    UINT* sub_00b66710(); /* 0x00b66710 */
-    UINT* sub_00b667f0(); /* 0x00b667f0 */
-    UINT* sub_00b668f0(); /* 0x00b668f0 */
-    UINT* sub_00b669d0(); /* 0x00b669d0 */
-    UINT* sub_00b66ab0(); /* 0x00b66ab0 */
-    UINT* sub_00b711d0(); /* 0x00b711d0 */
-    UINT sub_00b97050(BYTE); /* 0x00b97050 */
-    UINT* sub_00b97130(); /* 0x00b97130 */
-    UINT* sub_00b971d0(); /* 0x00b971d0 */
-    UINT* sub_00b97210(); /* 0x00b97210 */
-    UINT* sub_00b97310(); /* 0x00b97310 */
-    UINT* sub_00b97350(); /* 0x00b97350 */
-    UINT* sub_00b97450(); /* 0x00b97450 */
-    UINT* sub_00b97520(); /* 0x00b97520 */
-    UINT* sub_00b975a0(); /* 0x00b975a0 */
-    UINT* sub_00b975e0(); /* 0x00b975e0 */
-    UINT* sub_00b97680(); /* 0x00b97680 */
-    UINT* sub_00b977d0(); /* 0x00b977d0 */
-    UINT* sub_00b978d0(); /* 0x00b978d0 */
-    UINT* sub_00b97910(); /* 0x00b97910 */
-    UINT* sub_00b97a10(); /* 0x00b97a10 */
-    UINT* sub_00b97ab0(); /* 0x00b97ab0 */
-    UINT* sub_00b97b50(); /* 0x00b97b50 */
-    UINT* sub_00b97bf0(); /* 0x00b97bf0 */
-    UINT* sub_00b97cc0(); /* 0x00b97cc0 */
-    UINT* sub_00b97ce0(); /* 0x00b97ce0 */
-    UINT* sub_00b97df0(); /* 0x00b97df0 */
-    UINT* sub_00b9a9f0(); /* 0x00b9a9f0 */
-    UINT* sub_00b9acc0(); /* 0x00b9acc0 */
-    UINT* sub_00b9ad70(); /* 0x00b9ad70 */
-    UINT* sub_00b9ae40(); /* 0x00b9ae40 */
-    UINT* sub_00b9af10(); /* 0x00b9af10 */
-    UINT* sub_00b9afe0(); /* 0x00b9afe0 */
-    UINT* sub_00b9b100(); /* 0x00b9b100 */
-    UINT* sub_00b9b1f0(); /* 0x00b9b1f0 */
-    UINT* sub_00b9b2c0(); /* 0x00b9b2c0 */
-    UINT* sub_00b9b390(); /* 0x00b9b390 */
-    UINT* sub_00b9b480(); /* 0x00b9b480 */
-    UINT* sub_00b9b550(); /* 0x00b9b550 */
-    UINT* sub_00b9b620(); /* 0x00b9b620 */
-    UINT* sub_00b9b6f0(); /* 0x00b9b6f0 */
-    UINT* sub_00b9b7a0(); /* 0x00b9b7a0 */
-    UINT* sub_00b9b8d0(); /* 0x00b9b8d0 */
-    UINT* sub_00b9b8f0(); /* 0x00b9b8f0 */
-    UINT* sub_00b9b9c0(); /* 0x00b9b9c0 */
-    UINT* sub_00b9baa0(); /* 0x00b9baa0 */
-    UINT* sub_00b9bc00(); /* 0x00b9bc00 */
-    UINT* sub_00b9bd20(); /* 0x00b9bd20 */
-    UINT* sub_00b9bdd0(); /* 0x00b9bdd0 */
-    UINT* sub_00b9be80(); /* 0x00b9be80 */
-    UINT* sub_00b9bf50(); /* 0x00b9bf50 */
-    UINT* sub_00b9c000(); /* 0x00b9c000 */
-    UINT* sub_00b9c0b0(); /* 0x00b9c0b0 */
-    UINT* sub_00b9c160(); /* 0x00b9c160 */
-    UINT* sub_00b9c230(); /* 0x00b9c230 */
-    UINT* sub_00b9c2e0(); /* 0x00b9c2e0 */
-    UINT* sub_00b9c3a0(); /* 0x00b9c3a0 */
-    UINT* sub_00b9c450(); /* 0x00b9c450 */
-    UINT* sub_00b9c520(); /* 0x00b9c520 */
-    UINT* sub_00b9c5d0(); /* 0x00b9c5d0 */
-    UINT* sub_00b9c6a0(); /* 0x00b9c6a0 */
-    UINT* sub_00b9c770(); /* 0x00b9c770 */
-    UINT* sub_00b9c890(); /* 0x00b9c890 */
-    UINT* sub_00b9c960(); /* 0x00b9c960 */
-    UINT* sub_00b9ca70(); /* 0x00b9ca70 */
-    UINT* sub_00b9cb90(); /* 0x00b9cb90 */
-    UINT* sub_00b9cd00(); /* 0x00b9cd00 */
-    UINT* sub_00b9ce50(); /* 0x00b9ce50 */
-    UINT* sub_00b9cf60(); /* 0x00b9cf60 */
-    UINT* sub_00b9d090(); /* 0x00b9d090 */
-    UINT* sub_00b9d160(); /* 0x00b9d160 */
-    UINT* sub_00b9d210(); /* 0x00b9d210 */
-    UINT* sub_00baafc0(); /* 0x00baafc0 */
-    UINT* sub_00bab080(); /* 0x00bab080 */
-    UINT* sub_00bb7f30(); /* 0x00bb7f30 */
-    UINT* sub_00bb83f0(); /* 0x00bb83f0 */
-    UINT sub_00bc88a0(BYTE); /* 0x00bc88a0 */
-    UINT* sub_00bc8f30(); /* 0x00bc8f30 */
-    UINT* sub_00bc8f50(); /* 0x00bc8f50 */
-    UINT* sub_00bc8ff0(); /* 0x00bc8ff0 */
-    UINT* sub_00bcd790(); /* 0x00bcd790 */
-    UINT* sub_00bcd880(); /* 0x00bcd880 */
-    UINT* sub_00bd73d0(); /* 0x00bd73d0 */
-    UINT* sub_00bec790(); /* 0x00bec790 */
-    UINT* sub_00bec840(); /* 0x00bec840 */
-    UINT* sub_00bec8f0(); /* 0x00bec8f0 */
-    UINT* sub_00bed700(); /* 0x00bed700 */
-    INT sub_00befc20(INT); /* 0x00befc20 */
-    INT sub_00befc30(UINT); /* 0x00befc30 */
-    INT sub_00befc60(); /* 0x00befc60 */
-    INT sub_00befc70(); /* 0x00befc70 */
-    INT sub_00befc80(); /* 0x00befc80 */
-    UINT sub_00befd00(BYTE); /* 0x00befd00 */
-    UINT sub_00bf0b90(BYTE); /* 0x00bf0b90 */
-    UINT* sub_00bf1270(); /* 0x00bf1270 */
-    UINT* sub_00bf41a0(); /* 0x00bf41a0 */
-    UINT* sub_00bf7730(); /* 0x00bf7730 */
-    UINT* sub_00bfbc90(); /* 0x00bfbc90 */
-    UINT* sub_00bfbcb0(); /* 0x00bfbcb0 */
-    UINT* sub_00bfbd50(); /* 0x00bfbd50 */
-    UINT* sub_00bfbdf0(); /* 0x00bfbdf0 */
-    UINT* sub_00bfbe90(); /* 0x00bfbe90 */
-    UINT* sub_00bfbf30(); /* 0x00bfbf30 */
-    UINT sub_00c00500(BYTE); /* 0x00c00500 */
-    UINT* sub_00c13d10(); /* 0x00c13d10 */
-    UINT* sub_00c29ef0(UINT*); /* 0x00c29ef0 */
-    UINT sub_00c29f30(BYTE); /* 0x00c29f30 */
-    INT sub_00c29f60(); /* 0x00c29f60 */
-    INT sub_00c29f80(); /* 0x00c29f80 */
-    INT sub_00c29fa0(); /* 0x00c29fa0 */
-    INT sub_00c2a020(); /* 0x00c2a020 */
-    INT sub_00c2a040(); /* 0x00c2a040 */
-    INT sub_00c2a050(); /* 0x00c2a050 */
-    UINT* sub_00c2a410(); /* 0x00c2a410 */
-    UINT* sub_00c2baf0(); /* 0x00c2baf0 */
-    UINT* sub_00c2bb90(); /* 0x00c2bb90 */
-    UINT* sub_00c2bc40(); /* 0x00c2bc40 */
-    UINT* sub_00c2bd00(); /* 0x00c2bd00 */
-    UINT* sub_00c2bdb0(); /* 0x00c2bdb0 */
-    UINT* sub_00c2be60(); /* 0x00c2be60 */
-    UINT* sub_00c2bf00(); /* 0x00c2bf00 */
-    UINT* sub_00c2bfa0(); /* 0x00c2bfa0 */
-    UINT* sub_00c2c040(); /* 0x00c2c040 */
-    UINT* sub_00c2c0f0(); /* 0x00c2c0f0 */
-    UINT* sub_00c2c1a0(); /* 0x00c2c1a0 */
-    UINT* sub_00c2c250(); /* 0x00c2c250 */
-    UINT* sub_00c2c2f0(); /* 0x00c2c2f0 */
-    UINT* sub_00c2c390(); /* 0x00c2c390 */
-    UINT* sub_00c2c430(); /* 0x00c2c430 */
-    UINT* sub_00c2c4d0(); /* 0x00c2c4d0 */
-    UINT* sub_00c2c580(); /* 0x00c2c580 */
-    UINT* sub_00c2c630(); /* 0x00c2c630 */
-    UINT* sub_00c2c6e0(); /* 0x00c2c6e0 */
-    UINT* sub_00c2c790(); /* 0x00c2c790 */
-    UINT* sub_00c2c850(); /* 0x00c2c850 */
-    UINT* sub_00c2c910(); /* 0x00c2c910 */
-    UINT* sub_00c2c9b0(); /* 0x00c2c9b0 */
-    UINT* sub_00c2ca90(); /* 0x00c2ca90 */
-    UINT* sub_00c2cb30(); /* 0x00c2cb30 */
-    UINT* sub_00c2cbd0(); /* 0x00c2cbd0 */
-    UINT* sub_00c2cc80(); /* 0x00c2cc80 */
-    UINT* sub_00c2cd30(); /* 0x00c2cd30 */
-    UINT* sub_00c2cdd0(); /* 0x00c2cdd0 */
-    UINT* sub_00c2cf00(); /* 0x00c2cf00 */
-    UINT* sub_00c2cfc0(); /* 0x00c2cfc0 */
-    UINT* sub_00c2d060(); /* 0x00c2d060 */
-    UINT* sub_00c2d140(); /* 0x00c2d140 */
-    UINT* sub_00c2d1f0(); /* 0x00c2d1f0 */
-    UINT* sub_00c2d2a0(); /* 0x00c2d2a0 */
-    UINT* sub_00c2d350(); /* 0x00c2d350 */
-    UINT* sub_00c2d400(); /* 0x00c2d400 */
-    UINT* sub_00c2d4b0(); /* 0x00c2d4b0 */
-    UINT* sub_00c2d560(); /* 0x00c2d560 */
-    UINT* sub_00c2d610(); /* 0x00c2d610 */
-    UINT* sub_00c2d6c0(); /* 0x00c2d6c0 */
-    UINT* sub_00c2d770(); /* 0x00c2d770 */
-    UINT* sub_00c2d820(); /* 0x00c2d820 */
-    UINT* sub_00c2d8c0(); /* 0x00c2d8c0 */
-    UINT* sub_00c2d970(); /* 0x00c2d970 */
-    UINT* sub_00c2da20(); /* 0x00c2da20 */
-    UINT* sub_00c2dac0(); /* 0x00c2dac0 */
-    UINT* sub_00c2db70(); /* 0x00c2db70 */
-    UINT* sub_00c2dc20(); /* 0x00c2dc20 */
-    UINT* sub_00c2dcc0(); /* 0x00c2dcc0 */
-    UINT* sub_00c2dd90(); /* 0x00c2dd90 */
-    UINT* sub_00c2de30(); /* 0x00c2de30 */
-    UINT* sub_00c2e220(); /* 0x00c2e220 */
-    UINT* sub_00c2e2c0(); /* 0x00c2e2c0 */
-    UINT* sub_00c2e370(); /* 0x00c2e370 */
-    UINT* sub_00c2e410(); /* 0x00c2e410 */
-    UINT* sub_00c2e4c0(); /* 0x00c2e4c0 */
-    UINT* sub_00c2e570(); /* 0x00c2e570 */
-    UINT* sub_00c2e620(); /* 0x00c2e620 */
-    UINT* sub_00c2e6c0(); /* 0x00c2e6c0 */
-    UINT* sub_00c2e770(); /* 0x00c2e770 */
-    UINT* sub_00c2e810(); /* 0x00c2e810 */
-    UINT* sub_00c2e8c0(); /* 0x00c2e8c0 */
-    UINT* sub_00c2ea00(); /* 0x00c2ea00 */
-    UINT* sub_00c2ea20(); /* 0x00c2ea20 */
-    UINT* sub_00c2eae0(); /* 0x00c2eae0 */
-    UINT* sub_00c2eb90(); /* 0x00c2eb90 */
-    UINT* sub_00c2ec50(); /* 0x00c2ec50 */
-    UINT* sub_00c2f080(); /* 0x00c2f080 */
-    UINT* sub_00c2f120(); /* 0x00c2f120 */
-    UINT* sub_00c2f1d0(); /* 0x00c2f1d0 */
-    UINT* sub_00c2f280(); /* 0x00c2f280 */
-    UINT* sub_00c2f320(); /* 0x00c2f320 */
-    UINT sub_00c31aa0(BYTE); /* 0x00c31aa0 */
-    INT sub_00c31ac0(); /* 0x00c31ac0 */
-    UINT sub_00c31ad0(BYTE); /* 0x00c31ad0 */
-    INT sub_00c31b90(); /* 0x00c31b90 */
-    UINT* sub_00c32090(); /* 0x00c32090 */
-    UINT* sub_00c38c10(); /* 0x00c38c10 */
-    UINT sub_00c40340(BYTE); /* 0x00c40340 */
-    UINT sub_00c40360(BYTE); /* 0x00c40360 */
-    UINT sub_00c40870(BYTE); /* 0x00c40870 */
-    UINT* sub_00c512a0(); /* 0x00c512a0 */
-    UINT* sub_00c51340(); /* 0x00c51340 */
-    UINT* sub_00c513e0(); /* 0x00c513e0 */
-    UINT* sub_00c51480(); /* 0x00c51480 */
-    UINT* sub_00c51520(); /* 0x00c51520 */
-    UINT* sub_00c51640(); /* 0x00c51640 */
-    UINT* sub_00c51660(); /* 0x00c51660 */
-    UINT* sub_00c51700(); /* 0x00c51700 */
-    UINT* sub_00c517b0(); /* 0x00c517b0 */
-    UINT* sub_00c51850(); /* 0x00c51850 */
-    UINT* sub_00c518f0(); /* 0x00c518f0 */
-    UINT* sub_00c51990(); /* 0x00c51990 */
-    UINT* sub_00c51a30(); /* 0x00c51a30 */
-    UINT* sub_00c51ad0(); /* 0x00c51ad0 */
-    UINT* sub_00c51b70(); /* 0x00c51b70 */
-    UINT* sub_00c51c90(); /* 0x00c51c90 */
-    UINT* sub_00c51cb0(); /* 0x00c51cb0 */
-    UINT* sub_00c51d50(); /* 0x00c51d50 */
-    UINT* sub_00c51df0(); /* 0x00c51df0 */
-    UINT* sub_00c51e90(); /* 0x00c51e90 */
-    UINT* sub_00c51f30(); /* 0x00c51f30 */
-    UINT* sub_00c51fe0(); /* 0x00c51fe0 */
-    UINT* sub_00c52080(); /* 0x00c52080 */
-    UINT* sub_00c52120(); /* 0x00c52120 */
-    UINT* sub_00c521c0(); /* 0x00c521c0 */
-    UINT* sub_00c5a170(); /* 0x00c5a170 */
-    UINT sub_00c63550(BYTE); /* 0x00c63550 */
     void sub_00c63570(); /* 0x00c63570 */
-    UINT* sub_00c647d0(); /* 0x00c647d0 */
-    UINT* sub_00c64890(); /* 0x00c64890 */
-    UINT* sub_00c64950(); /* 0x00c64950 */
-    UINT* sub_00c64970(); /* 0x00c64970 */
-    UINT* sub_00c64a20(); /* 0x00c64a20 */
-    UINT* sub_00c64b00(); /* 0x00c64b00 */
-    UINT* sub_00c64c50(); /* 0x00c64c50 */
-    UINT* sub_00c64d10(); /* 0x00c64d10 */
-    UINT* sub_00c64d30(); /* 0x00c64d30 */
-    UINT* sub_00c64e00(); /* 0x00c64e00 */
-    UINT* sub_00c64ec0(); /* 0x00c64ec0 */
-    UINT* sub_00c65030(); /* 0x00c65030 */
-    UINT* sub_00c65050(); /* 0x00c65050 */
-    UINT* sub_00c65100(); /* 0x00c65100 */
-    UINT* sub_00c651b0(); /* 0x00c651b0 */
-    UINT* sub_00c65260(); /* 0x00c65260 */
-    UINT* sub_00c65330(); /* 0x00c65330 */
-    UINT* sub_00c653f0(); /* 0x00c653f0 */
-    UINT* sub_00c65530(); /* 0x00c65530 */
-    UINT* sub_00c65550(); /* 0x00c65550 */
-    UINT* sub_00c65600(); /* 0x00c65600 */
     UINT sub_00c6a9f0(BYTE); /* 0x00c6a9f0 */
-    UINT* sub_00c6b1f0(); /* 0x00c6b1f0 */
-    UINT* sub_00c78fc0(); /* 0x00c78fc0 */
-    UINT* sub_00c79180(); /* 0x00c79180 */
-    UINT* sub_00c79280(); /* 0x00c79280 */
-    UINT* sub_00c79340(); /* 0x00c79340 */
-    UINT* sub_00c8c6f0(); /* 0x00c8c6f0 */
-    UINT* sub_00c8c720(); /* 0x00c8c720 */
-    UINT* sub_00c8c810(); /* 0x00c8c810 */
-    UINT sub_00cb2520(BYTE); /* 0x00cb2520 */
-    UINT sub_00cb2540(BYTE); /* 0x00cb2540 */
-    UINT* sub_00cb8be0(); /* 0x00cb8be0 */
-    INT sub_00cbf420(INT); /* 0x00cbf420 */
-    INT sub_00cbf430(INT); /* 0x00cbf430 */
-    INT sub_00cbf440(INT); /* 0x00cbf440 */
-    INT sub_00cbf450(); /* 0x00cbf450 */
-    INT sub_00cbf470(); /* 0x00cbf470 */
-    INT sub_00cbf540(INT); /* 0x00cbf540 */
-    INT sub_00cbf550(); /* 0x00cbf550 */
-    INT sub_00cbf640(); /* 0x00cbf640 */
-    UINT* sub_00cc0370(); /* 0x00cc0370 */
-    UINT sub_00cc4d50(BYTE); /* 0x00cc4d50 */
-    UINT* sub_00cc5950(); /* 0x00cc5950 */
-    UINT* sub_00cc5c10(); /* 0x00cc5c10 */
-    UINT* sub_00cc5d50(); /* 0x00cc5d50 */
-    UINT* sub_00cc5e10(); /* 0x00cc5e10 */
-    UINT* sub_00cc5eb0(); /* 0x00cc5eb0 */
-    UINT* sub_00cc5f70(); /* 0x00cc5f70 */
-    UINT* sub_00cc6040(); /* 0x00cc6040 */
-    UINT* sub_00cca370(); /* 0x00cca370 */
-    UINT* sub_00cca460(); /* 0x00cca460 */
-    UINT* sub_00cca480(); /* 0x00cca480 */
-    UINT* sub_00cca580(); /* 0x00cca580 */
-    UINT* sub_00cca630(); /* 0x00cca630 */
-    UINT* sub_00cca720(); /* 0x00cca720 */
-    UINT* sub_00cca7e0(); /* 0x00cca7e0 */
-    UINT* sub_00cca8a0(); /* 0x00cca8a0 */
-    UINT* sub_00cd29a0(); /* 0x00cd29a0 */
-    UINT* sub_00cd8c00(); /* 0x00cd8c00 */
     DWORD sub_00ce8810(DWORD); /* 0x00ce8810 */
     UINT* sub_00ce9520(); /* 0x00ce9520 */
     UINT* sub_00ce9550(); /* 0x00ce9550 */
@@ -11855,735 +10924,28 @@ struct UObject {
     UINT* sub_00cea3d0(); /* 0x00cea3d0 */
     UINT* sub_00cea480(); /* 0x00cea480 */
     UINT* sub_00cea530(); /* 0x00cea530 */
-    UINT* sub_00cf11b0(); /* 0x00cf11b0 */
-    UINT* sub_00cf8cf0(); /* 0x00cf8cf0 */
     UINT* sub_00cfa210(); /* 0x00cfa210 */
     UINT* sub_00d00cb0(); /* 0x00d00cb0 */
-    UINT* sub_00d00f60(); /* 0x00d00f60 */
-    UINT* sub_00d00f80(); /* 0x00d00f80 */
     UINT* sub_00d063e0(); /* 0x00d063e0 */
-    UINT sub_00d0c8c0(BYTE); /* 0x00d0c8c0 */
     UINT* sub_00d18b10(); /* 0x00d18b10 */
-    UINT sub_00d219d0(BYTE); /* 0x00d219d0 */
-    UINT sub_00d219f0(BYTE); /* 0x00d219f0 */
-    UINT sub_00d21a10(BYTE); /* 0x00d21a10 */
-    UINT sub_00d21f00(BYTE); /* 0x00d21f00 */
-    UINT* sub_00d28f10(UINT*); /* 0x00d28f10 */
     UINT sub_00d29170(BYTE); /* 0x00d29170 */
-    UINT* sub_00d35190(); /* 0x00d35190 */
-    UINT* sub_00d39390(); /* 0x00d39390 */
-    UINT* sub_00d393c0(); /* 0x00d393c0 */
-    UINT* sub_00d3f660(); /* 0x00d3f660 */
-    UINT* sub_00d3f720(); /* 0x00d3f720 */
-    UINT* sub_00d40120(); /* 0x00d40120 */
-    INT sub_00d48d30(INT); /* 0x00d48d30 */
-    UINT sub_00d4c240(BYTE); /* 0x00d4c240 */
-    UINT sub_00d56c70(BYTE); /* 0x00d56c70 */
-    UINT sub_00d58470(UINT, UINT); /* 0x00d58470 */
-    INT sub_00d58490(UINT, UINT, UINT); /* 0x00d58490 */
-    INT sub_00d584c0(UINT, UINT); /* 0x00d584c0 */
-    UINT sub_00d586c0(UINT, UINT); /* 0x00d586c0 */
-    INT sub_00d58a00(UINT, UINT, UINT); /* 0x00d58a00 */
-    void sub_00d58b60(); /* 0x00d58b60 */
-    void sub_00d58b70(); /* 0x00d58b70 */
-    UINT* sub_00d67070(); /* 0x00d67070 */
-    UINT* sub_00d671a0(); /* 0x00d671a0 */
-    UINT sub_00d7c510(BYTE); /* 0x00d7c510 */
-    UINT* sub_00d85530(UINT*); /* 0x00d85530 */
-    UINT sub_00d86f00(UINT, UINT); /* 0x00d86f00 */
-    UINT sub_00d86f20(UINT, UINT); /* 0x00d86f20 */
-    UINT sub_00d86f40(UINT, UINT); /* 0x00d86f40 */
-    INT sub_00d86f60(UINT, UINT); /* 0x00d86f60 */
-    INT sub_00d86f80(UINT, UINT); /* 0x00d86f80 */
-    INT sub_00d86fa0(UINT, UINT); /* 0x00d86fa0 */
-    INT sub_00d86fc0(UINT, UINT); /* 0x00d86fc0 */
-    INT sub_00d86fe0(UINT, UINT); /* 0x00d86fe0 */
-    INT sub_00d87000(UINT, UINT); /* 0x00d87000 */
-    void sub_00d87020(); /* 0x00d87020 */
-    INT sub_00d88220(UINT, UINT, UINT); /* 0x00d88220 */
-    INT sub_00d88270(UINT, UINT, UINT); /* 0x00d88270 */
-    UINT sub_00d883e0(BYTE); /* 0x00d883e0 */
-    UINT* sub_00d88550(); /* 0x00d88550 */
-    UINT* sub_00d889c0(); /* 0x00d889c0 */
-    UINT* sub_00d88ac0(); /* 0x00d88ac0 */
-    UINT* sub_00d88b80(); /* 0x00d88b80 */
-    UINT* sub_00d8e340(); /* 0x00d8e340 */
-    UINT* sub_00d8eb30(); /* 0x00d8eb30 */
-    UINT* sub_00d8f040(); /* 0x00d8f040 */
-    UINT* sub_00d8f3b0(); /* 0x00d8f3b0 */
-    UINT* sub_00d8f400(); /* 0x00d8f400 */
-    UINT* sub_00d96a60(); /* 0x00d96a60 */
-    UINT* sub_00d96a80(); /* 0x00d96a80 */
-    UINT* sub_00d96b60(); /* 0x00d96b60 */
-    UINT* sub_00d96c10(); /* 0x00d96c10 */
-    UINT* sub_00d96c30(); /* 0x00d96c30 */
-    UINT* sub_00d96cd0(); /* 0x00d96cd0 */
-    UINT* sub_00d96d70(); /* 0x00d96d70 */
-    UINT* sub_00d96e10(); /* 0x00d96e10 */
-    UINT* sub_00d96ec0(); /* 0x00d96ec0 */
-    UINT* sub_00d96f80(); /* 0x00d96f80 */
-    UINT* sub_00d96fa0(); /* 0x00d96fa0 */
-    UINT* sub_00d97040(); /* 0x00d97040 */
-    UINT* sub_00d970a0(); /* 0x00d970a0 */
-    UINT* sub_00d970c0(); /* 0x00d970c0 */
-    UINT* sub_00d971e0(); /* 0x00d971e0 */
-    UINT* sub_00d97200(); /* 0x00d97200 */
-    UINT* sub_00d97220(); /* 0x00d97220 */
-    UINT* sub_00d97310(); /* 0x00d97310 */
-    UINT* sub_00d973b0(); /* 0x00d973b0 */
-    UINT* sub_00d973d0(); /* 0x00d973d0 */
-    UINT* sub_00d973f0(); /* 0x00d973f0 */
-    UINT* sub_00d97490(); /* 0x00d97490 */
-    UINT* sub_00d974b0(); /* 0x00d974b0 */
-    UINT* sub_00d97550(); /* 0x00d97550 */
-    UINT* sub_00d97570(); /* 0x00d97570 */
-    UINT* sub_00d98a80(); /* 0x00d98a80 */
-    UINT* sub_00d98b50(); /* 0x00d98b50 */
-    UINT* sub_00d98c80(); /* 0x00d98c80 */
-    UINT* sub_00d991a0(); /* 0x00d991a0 */
-    UINT* sub_00d9e6d0(); /* 0x00d9e6d0 */
-    UINT* sub_00d9e890(); /* 0x00d9e890 */
-    UINT* sub_00da6580(); /* 0x00da6580 */
-    UINT* sub_00da6880(); /* 0x00da6880 */
-    UINT* sub_00da6a10(); /* 0x00da6a10 */
-    UINT* sub_00da6ac0(); /* 0x00da6ac0 */
-    UINT* sub_00da6b70(); /* 0x00da6b70 */
-    UINT* sub_00da6c20(); /* 0x00da6c20 */
-    UINT* sub_00da6cd0(); /* 0x00da6cd0 */
-    UINT* sub_00dba7d0(INT*); /* 0x00dba7d0 */
-    void sub_00dbdb50(); /* 0x00dbdb50 */
-    void sub_00dbfff0(); /* 0x00dbfff0 */
-    UINT* sub_00dc03c0(); /* 0x00dc03c0 */
-    UINT* sub_00dc0410(); /* 0x00dc0410 */
-    UINT* sub_00dc0520(); /* 0x00dc0520 */
-    UINT* sub_00dc05d0(); /* 0x00dc05d0 */
-    UINT* sub_00dc0620(); /* 0x00dc0620 */
-    UINT* sub_00dc0730(); /* 0x00dc0730 */
-    UINT* sub_00dc0780(); /* 0x00dc0780 */
-    UINT* sub_00dc0830(); /* 0x00dc0830 */
-    UINT* sub_00dc98d0(); /* 0x00dc98d0 */
-    UINT* sub_00dcc310(); /* 0x00dcc310 */
-    UINT* sub_00dcc3f0(); /* 0x00dcc3f0 */
-    UINT* sub_00dcc4a0(); /* 0x00dcc4a0 */
-    UINT* sub_00ddcfa0(); /* 0x00ddcfa0 */
-    UINT* sub_00ddd2b0(); /* 0x00ddd2b0 */
-    UINT* sub_00ddd300(); /* 0x00ddd300 */
-    UINT* sub_00ddd3b0(); /* 0x00ddd3b0 */
     INT sub_00ddd560(); /* 0x00ddd560 */
-    UINT* sub_00ddd590(); /* 0x00ddd590 */
-    UINT* sub_00ddd640(); /* 0x00ddd640 */
-    UINT* sub_00ddd6f0(); /* 0x00ddd6f0 */
-    UINT* sub_00ddd7a0(); /* 0x00ddd7a0 */
-    UINT sub_00ddf8c0(BYTE); /* 0x00ddf8c0 */
-    UINT* sub_00df03a0(); /* 0x00df03a0 */
-    UINT* sub_00df1920(); /* 0x00df1920 */
-    UINT* sub_00df32a0(); /* 0x00df32a0 */
-    UINT* sub_00e252b0(); /* 0x00e252b0 */
-    UINT* sub_00e25370(); /* 0x00e25370 */
-    UINT* sub_00e27470(); /* 0x00e27470 */
-    UINT* sub_00e28130(); /* 0x00e28130 */
-    void sub_00e2f030(void*, UINT); /* 0x00e2f030 */
-    UINT sub_00e33f40(BYTE); /* 0x00e33f40 */
-    UINT* sub_00e38240(); /* 0x00e38240 */
-    UINT* sub_00e41d70(); /* 0x00e41d70 */
-    UINT* sub_00e592c0(); /* 0x00e592c0 */
-    UINT sub_00e5ca00(BYTE); /* 0x00e5ca00 */
-    UINT* sub_00e67f40(); /* 0x00e67f40 */
-    UINT* sub_00e67ff0(); /* 0x00e67ff0 */
-    UINT* sub_00e680b0(); /* 0x00e680b0 */
-    UINT* sub_00e68180(); /* 0x00e68180 */
-    UINT* sub_00e68230(); /* 0x00e68230 */
-    UINT* sub_00e682f0(); /* 0x00e682f0 */
-    UINT* sub_00e683a0(); /* 0x00e683a0 */
-    UINT* sub_00e68460(); /* 0x00e68460 */
-    UINT* sub_00e93540(); /* 0x00e93540 */
-    UINT sub_00ed1d20(BYTE); /* 0x00ed1d20 */
-    UINT* sub_00ee00b0(); /* 0x00ee00b0 */
-    UINT* sub_00ee00f0(); /* 0x00ee00f0 */
-    UINT* sub_00ef9590(UINT*); /* 0x00ef9590 */
-    UINT sub_00f22930(BYTE); /* 0x00f22930 */
-    UINT* sub_00f25880(INT*); /* 0x00f25880 */
-    UINT sub_00f27050(BYTE); /* 0x00f27050 */
-    UINT sub_00f27070(BYTE); /* 0x00f27070 */
-    UINT sub_00f270a0(BYTE); /* 0x00f270a0 */
-    UINT sub_00f270d0(BYTE); /* 0x00f270d0 */
-    UINT sub_00f27100(BYTE); /* 0x00f27100 */
-    UINT sub_00f27130(BYTE); /* 0x00f27130 */
-    UINT sub_00f27160(BYTE); /* 0x00f27160 */
-    UINT sub_00f27190(BYTE); /* 0x00f27190 */
-    UINT* sub_00f27200(UINT*); /* 0x00f27200 */
-    UINT sub_00f2da60(BYTE); /* 0x00f2da60 */
-    UINT* sub_00f4cb70(); /* 0x00f4cb70 */
-    UINT* sub_00f4cbc0(); /* 0x00f4cbc0 */
-    UINT* sub_00f4cc70(); /* 0x00f4cc70 */
-    UINT* sub_00f4cca0(); /* 0x00f4cca0 */
-    UINT* sub_00f4dd30(); /* 0x00f4dd30 */
-    UINT* sub_00f4de00(); /* 0x00f4de00 */
-    UINT sub_00f51b40(BYTE); /* 0x00f51b40 */
-    UINT sub_00f51c20(BYTE); /* 0x00f51c20 */
-    UINT sub_00f51c40(BYTE); /* 0x00f51c40 */
-    UINT sub_00f51c60(BYTE); /* 0x00f51c60 */
-    UINT sub_00f5e810(BYTE); /* 0x00f5e810 */
-    INT sub_00f61c50(UINT); /* 0x00f61c50 */
-    UINT sub_00f61d60(BYTE); /* 0x00f61d60 */
-    UINT* sub_00f71a30(); /* 0x00f71a30 */
-    UINT sub_00f737f0(BYTE); /* 0x00f737f0 */
-    INT sub_00f794a0(UINT); /* 0x00f794a0 */
-    void sub_00f7d9f0(INT); /* 0x00f7d9f0 */
     INT sub_00f7da30(); /* 0x00f7da30 */
-    UINT* sub_00f7db60(UINT*); /* 0x00f7db60 */
-    INT sub_00f7dba0(INT); /* 0x00f7dba0 */
-    INT sub_00f7dbb0(); /* 0x00f7dbb0 */
-    INT sub_00f7dbd0(); /* 0x00f7dbd0 */
-    INT sub_00f7dbe0(INT); /* 0x00f7dbe0 */
     INT sub_00f7dbf0(); /* 0x00f7dbf0 */
-    INT sub_00f7dc00(INT); /* 0x00f7dc00 */
-    INT sub_00f7dc10(INT); /* 0x00f7dc10 */
-    INT sub_00f7dc20(INT); /* 0x00f7dc20 */
-    void sub_00f7dc40(INT); /* 0x00f7dc40 */
-    UINT sub_00f7dc80(BYTE); /* 0x00f7dc80 */
-    UINT sub_00f88500(BYTE); /* 0x00f88500 */
-    UINT* sub_00fa4fd0(); /* 0x00fa4fd0 */
-    UINT* sub_00fa5070(); /* 0x00fa5070 */
-    UINT* sub_00fa5090(); /* 0x00fa5090 */
-    UINT* sub_00fa5130(); /* 0x00fa5130 */
-    UINT* sub_00fa51d0(); /* 0x00fa51d0 */
-    UINT* sub_00fa5270(); /* 0x00fa5270 */
-    UINT* sub_00fa5310(); /* 0x00fa5310 */
-    UINT* sub_00fa53b0(); /* 0x00fa53b0 */
-    UINT* sub_00fa5450(); /* 0x00fa5450 */
-    UINT* sub_00fa54f0(); /* 0x00fa54f0 */
-    UINT* sub_00fa5590(); /* 0x00fa5590 */
-    UINT* sub_00fa5630(); /* 0x00fa5630 */
-    UINT* sub_00fa8ad0(UINT*); /* 0x00fa8ad0 */
-    UINT* sub_00faa4e0(INT*); /* 0x00faa4e0 */
-    UINT sub_00fabff0(BYTE); /* 0x00fabff0 */
-    UINT* sub_00fac010(UINT*); /* 0x00fac010 */
-    void sub_00fac050(INT); /* 0x00fac050 */
-    UINT* sub_00fac090(UINT*); /* 0x00fac090 */
-    UINT sub_00fb2ed0(BYTE); /* 0x00fb2ed0 */
-    UINT* sub_00fb4420(UINT*); /* 0x00fb4420 */
-    UINT sub_00fb45b0(BYTE); /* 0x00fb45b0 */
-    UINT sub_00fb45d0(BYTE); /* 0x00fb45d0 */
-    UINT sub_00fb78e0(BYTE); /* 0x00fb78e0 */
-    void sub_00fb9890(); /* 0x00fb9890 */
-    UINT sub_00fb9910(BYTE); /* 0x00fb9910 */
-    UINT sub_00fbbf70(UINT, UINT); /* 0x00fbbf70 */
-    INT sub_00fbc040(UINT, UINT); /* 0x00fbc040 */
-    void sub_00fbc060(); /* 0x00fbc060 */
-    void sub_00fbc080(); /* 0x00fbc080 */
-    INT sub_00fbd710(UINT, UINT, UINT); /* 0x00fbd710 */
     INT sub_00ff2350(UINT*); /* 0x00ff2350 */
-    INT sub_00ff65e0(); /* 0x00ff65e0 */
-    void sub_00ff6690(INT); /* 0x00ff6690 */
     INT sub_00ff6a30(INT); /* 0x00ff6a30 */
     INT sub_00ff6a40(INT); /* 0x00ff6a40 */
     INT sub_00ff6be0(); /* 0x00ff6be0 */
     INT sub_00ff6c00(); /* 0x00ff6c00 */
     UINT sub_00ff6c10(BYTE); /* 0x00ff6c10 */
-    UINT sub_00ff6c30(BYTE); /* 0x00ff6c30 */
-    INT sub_00ff6d00(INT); /* 0x00ff6d00 */
-    INT sub_00ff6d80(INT); /* 0x00ff6d80 */
-    INT sub_00ff6d90(INT); /* 0x00ff6d90 */
-    INT sub_00ff6da0(); /* 0x00ff6da0 */
-    UINT sub_00ff7000(BYTE); /* 0x00ff7000 */
-    UINT sub_00ffa8c0(BYTE); /* 0x00ffa8c0 */
-    UINT sub_00ffa8e0(BYTE); /* 0x00ffa8e0 */
-    INT sub_00ffada0(UINT); /* 0x00ffada0 */
-    UINT sub_00ffadf0(BYTE); /* 0x00ffadf0 */
-    UINT sub_00ffc2c0(BYTE); /* 0x00ffc2c0 */
-    UINT sub_00ffd6a0(INT); /* 0x00ffd6a0 */
-    UINT sub_01017eb0(BYTE); /* 0x01017eb0 */
-    UINT sub_0101c410(BYTE); /* 0x0101c410 */
-    UINT sub_01021030(BYTE); /* 0x01021030 */
-    UINT sub_01024800(BYTE); /* 0x01024800 */
-    UINT sub_01030010(BYTE); /* 0x01030010 */
-    UINT sub_01034350(UINT, UINT); /* 0x01034350 */
-    INT sub_01037970(UINT, UINT, UINT); /* 0x01037970 */
-    UINT sub_01046c70(BYTE); /* 0x01046c70 */
-    UINT sub_01046c90(BYTE); /* 0x01046c90 */
-    UINT sub_01046cb0(BYTE); /* 0x01046cb0 */
-    UINT sub_01046cd0(BYTE); /* 0x01046cd0 */
-    UINT sub_01046cf0(BYTE); /* 0x01046cf0 */
-    UINT sub_01046d10(BYTE); /* 0x01046d10 */
-    UINT sub_01046d30(BYTE); /* 0x01046d30 */
-    UINT sub_01046d50(BYTE); /* 0x01046d50 */
-    UINT sub_01046d70(BYTE); /* 0x01046d70 */
-    UINT sub_01046d90(BYTE); /* 0x01046d90 */
-    UINT sub_01046db0(BYTE); /* 0x01046db0 */
-    UINT sub_01046dd0(BYTE); /* 0x01046dd0 */
-    UINT sub_01049e70(BYTE); /* 0x01049e70 */
-    UINT sub_01049e90(BYTE); /* 0x01049e90 */
-    UINT sub_01049eb0(BYTE); /* 0x01049eb0 */
-    UINT sub_01049ed0(BYTE); /* 0x01049ed0 */
-    UINT sub_01049ef0(BYTE); /* 0x01049ef0 */
-    UINT sub_0104a040(BYTE); /* 0x0104a040 */
-    UINT sub_0104a060(BYTE); /* 0x0104a060 */
-    UINT sub_0104a080(BYTE); /* 0x0104a080 */
-    UINT sub_0104a0a0(BYTE); /* 0x0104a0a0 */
-    UINT sub_0104a0c0(BYTE); /* 0x0104a0c0 */
-    UINT sub_0104a0e0(BYTE); /* 0x0104a0e0 */
-    UINT sub_0104a100(BYTE); /* 0x0104a100 */
-    UINT sub_0104a120(BYTE); /* 0x0104a120 */
-    UINT sub_0104a140(BYTE); /* 0x0104a140 */
-    UINT sub_0104a160(BYTE); /* 0x0104a160 */
-    UINT sub_0104a180(BYTE); /* 0x0104a180 */
-    UINT sub_0104a1a0(BYTE); /* 0x0104a1a0 */
-    UINT sub_0104c320(BYTE); /* 0x0104c320 */
-    UINT sub_0104c340(BYTE); /* 0x0104c340 */
-    UINT sub_0104c360(BYTE); /* 0x0104c360 */
-    UINT sub_0104c380(BYTE); /* 0x0104c380 */
-    UINT sub_0104c3a0(BYTE); /* 0x0104c3a0 */
-    INT sub_0104e4f0(UINT); /* 0x0104e4f0 */
-    INT sub_0104e700(UINT); /* 0x0104e700 */
-    INT sub_0104e910(UINT); /* 0x0104e910 */
-    INT sub_0104eb20(UINT); /* 0x0104eb20 */
-    INT sub_0104ed30(UINT); /* 0x0104ed30 */
-    INT sub_0105fa50(UINT, UINT); /* 0x0105fa50 */
     INT sub_0105fe90(); /* 0x0105fe90 */
     INT sub_0105fea0(); /* 0x0105fea0 */
     INT sub_0105feb0(); /* 0x0105feb0 */
-    UINT* sub_0105ffe0(UINT*); /* 0x0105ffe0 */
-    INT sub_01060020(INT); /* 0x01060020 */
-    INT sub_01060030(); /* 0x01060030 */
-    INT sub_01060050(); /* 0x01060050 */
-    INT sub_01060060(); /* 0x01060060 */
-    INT sub_01060080(); /* 0x01060080 */
-    INT sub_010600a0(); /* 0x010600a0 */
-    INT sub_010600c0(INT); /* 0x010600c0 */
-    INT sub_010600d0(); /* 0x010600d0 */
-    INT sub_010600f0(); /* 0x010600f0 */
-    UINT sub_01060110(BYTE); /* 0x01060110 */
-    INT sub_01060210(INT); /* 0x01060210 */
-    UINT* sub_010602c0(INT*); /* 0x010602c0 */
-    UINT sub_01060700(BYTE); /* 0x01060700 */
-    UINT* sub_01060720(UINT*); /* 0x01060720 */
-    UINT sub_01063030(BYTE); /* 0x01063030 */
-    UINT sub_01063270(BYTE); /* 0x01063270 */
-    UINT sub_0107eba0(BYTE); /* 0x0107eba0 */
-    UINT sub_0107ebc0(BYTE); /* 0x0107ebc0 */
-    UINT sub_01083ad0(BYTE); /* 0x01083ad0 */
-    UINT sub_01083af0(BYTE); /* 0x01083af0 */
     void* sub_01084500(); /* 0x01084500 */
     void sub_01084610(); /* 0x01084610 */
     void sub_01084630(); /* 0x01084630 */
-    UINT* sub_010849c0(); /* 0x010849c0 */
-    UINT sub_01093620(BYTE); /* 0x01093620 */
-    UINT sub_01093640(BYTE); /* 0x01093640 */
-    UINT sub_01093660(BYTE); /* 0x01093660 */
-    UINT sub_01093680(BYTE); /* 0x01093680 */
-    INT sub_010938f0(INT); /* 0x010938f0 */
-    UINT sub_01093a10(BYTE); /* 0x01093a10 */
     INT sub_010c34f0(INT); /* 0x010c34f0 */
-    UINT sub_010c6b70(BYTE); /* 0x010c6b70 */
-    UINT sub_010c6c60(BYTE); /* 0x010c6c60 */
-    UINT sub_010c7a00(BYTE); /* 0x010c7a00 */
-    UINT sub_010cad20(BYTE); /* 0x010cad20 */
-    UINT sub_010cb2a0(BYTE); /* 0x010cb2a0 */
-    UINT sub_010e0010(BYTE); /* 0x010e0010 */
-    UINT sub_010e7a80(UINT, UINT); /* 0x010e7a80 */
-    UINT sub_010e7aa0(UINT, UINT); /* 0x010e7aa0 */
-    UINT sub_010ecf60(BYTE); /* 0x010ecf60 */
-    INT sub_010eedd0(UINT, UINT, UINT); /* 0x010eedd0 */
-    INT sub_010eee00(UINT, UINT, UINT); /* 0x010eee00 */
-    UINT sub_010fea60(BYTE); /* 0x010fea60 */
-    UINT* sub_010fea80(UINT); /* 0x010fea80 */
-    INT sub_010fef40(UINT); /* 0x010fef40 */
-    UINT* sub_010fef60(UINT); /* 0x010fef60 */
-    UINT sub_010fef90(BYTE); /* 0x010fef90 */
-    UINT sub_010ffc50(BYTE); /* 0x010ffc50 */
-    INT sub_010ffd00(UINT); /* 0x010ffd00 */
-    UINT sub_010ffd20(BYTE); /* 0x010ffd20 */
-    INT sub_011051a0(INT); /* 0x011051a0 */
-    INT sub_011051b0(); /* 0x011051b0 */
-    INT sub_011051d0(); /* 0x011051d0 */
-    UINT sub_011051f0(BYTE); /* 0x011051f0 */
-    UINT* sub_011193f0(); /* 0x011193f0 */
-    UINT* sub_011195a0(); /* 0x011195a0 */
-    UINT* sub_011195f0(); /* 0x011195f0 */
-    UINT* sub_011196a0(); /* 0x011196a0 */
-    UINT* sub_01119750(); /* 0x01119750 */
-    UINT* sub_01119800(); /* 0x01119800 */
-    UINT* sub_011198b0(); /* 0x011198b0 */
-    UINT sub_0111d710(BYTE); /* 0x0111d710 */
-    UINT sub_0111d730(BYTE); /* 0x0111d730 */
-    UINT sub_0111d750(BYTE); /* 0x0111d750 */
-    UINT sub_0111d770(BYTE); /* 0x0111d770 */
-    UINT sub_0111d790(BYTE); /* 0x0111d790 */
-    UINT sub_0111d7b0(BYTE); /* 0x0111d7b0 */
-    UINT sub_0111d7d0(BYTE); /* 0x0111d7d0 */
-    INT sub_0112fa50(INT); /* 0x0112fa50 */
-    INT sub_0112fba0(UINT); /* 0x0112fba0 */
-    UINT sub_01130c50(BYTE); /* 0x01130c50 */
-    UINT sub_0113bdc0(BYTE); /* 0x0113bdc0 */
-    UINT sub_01145f70(BYTE); /* 0x01145f70 */
-    UINT sub_011463e0(BYTE); /* 0x011463e0 */
-    UINT sub_01146400(BYTE); /* 0x01146400 */
-    INT sub_011551e0(UINT, UINT); /* 0x011551e0 */
-    INT sub_01155200(UINT, UINT); /* 0x01155200 */
-    INT sub_01155220(UINT, UINT); /* 0x01155220 */
-    UINT* sub_0115bef0(); /* 0x0115bef0 */
-    UINT* sub_0115daf0(); /* 0x0115daf0 */
-    UINT* sub_0115dbc0(); /* 0x0115dbc0 */
-    UINT* sub_0115dc80(); /* 0x0115dc80 */
-    UINT* sub_0115ddd0(); /* 0x0115ddd0 */
-    UINT* sub_0115df20(); /* 0x0115df20 */
-    UINT* sub_0115e100(); /* 0x0115e100 */
-    UINT* sub_0115e2e0(); /* 0x0115e2e0 */
-    UINT* sub_01164ca0(UINT*); /* 0x01164ca0 */
-    UINT sub_01172b60(BYTE); /* 0x01172b60 */
-    UINT* sub_0117d430(); /* 0x0117d430 */
-    UINT* sub_0117d450(); /* 0x0117d450 */
-    UINT* sub_0117d4f0(); /* 0x0117d4f0 */
-    UINT* sub_0117d590(); /* 0x0117d590 */
-    UINT* sub_0117d630(); /* 0x0117d630 */
-    UINT* sub_0117d6d0(); /* 0x0117d6d0 */
-    UINT* sub_0117d770(); /* 0x0117d770 */
-    UINT* sub_0117d890(); /* 0x0117d890 */
-    UINT* sub_0117d8b0(); /* 0x0117d8b0 */
-    UINT* sub_0117d950(); /* 0x0117d950 */
-    UINT* sub_0117d9f0(); /* 0x0117d9f0 */
-    UINT* sub_0117db10(); /* 0x0117db10 */
-    UINT* sub_0117db30(); /* 0x0117db30 */
-    UINT* sub_0117dbd0(); /* 0x0117dbd0 */
-    UINT* sub_0117dc70(); /* 0x0117dc70 */
-    UINT* sub_0117dd10(); /* 0x0117dd10 */
-    UINT* sub_0117ddb0(); /* 0x0117ddb0 */
-    UINT* sub_0117de50(); /* 0x0117de50 */
-    UINT* sub_0117def0(); /* 0x0117def0 */
-    UINT* sub_0117df90(); /* 0x0117df90 */
-    UINT* sub_0117e030(); /* 0x0117e030 */
-    UINT* sub_0117e0d0(); /* 0x0117e0d0 */
-    UINT* sub_0117e170(); /* 0x0117e170 */
-    UINT* sub_0117e210(); /* 0x0117e210 */
-    UINT* sub_0117e2b0(); /* 0x0117e2b0 */
-    UINT* sub_0117e350(); /* 0x0117e350 */
-    UINT* sub_0117e3f0(); /* 0x0117e3f0 */
-    UINT* sub_0117e490(); /* 0x0117e490 */
-    UINT* sub_0117e530(); /* 0x0117e530 */
-    UINT* sub_0117e5d0(); /* 0x0117e5d0 */
-    UINT* sub_0117e670(); /* 0x0117e670 */
-    UINT* sub_0117e710(); /* 0x0117e710 */
-    UINT* sub_0117e7b0(); /* 0x0117e7b0 */
-    UINT* sub_0117e850(); /* 0x0117e850 */
-    UINT* sub_0117e970(); /* 0x0117e970 */
-    UINT* sub_0117e990(); /* 0x0117e990 */
-    UINT* sub_0117ea30(); /* 0x0117ea30 */
-    UINT* sub_0117ead0(); /* 0x0117ead0 */
-    UINT* sub_0117ebf0(); /* 0x0117ebf0 */
-    UINT* sub_0117ec10(); /* 0x0117ec10 */
-    UINT* sub_0117ecb0(); /* 0x0117ecb0 */
-    UINT* sub_0117ed50(); /* 0x0117ed50 */
-    UINT* sub_0117ee70(); /* 0x0117ee70 */
-    UINT* sub_0117ee90(); /* 0x0117ee90 */
-    UINT* sub_0117ef30(); /* 0x0117ef30 */
-    UINT* sub_0117efd0(); /* 0x0117efd0 */
-    UINT* sub_0117f070(); /* 0x0117f070 */
-    UINT* sub_011920f0(); /* 0x011920f0 */
-    UINT* sub_011a1180(INT*); /* 0x011a1180 */
-    INT sub_011a1270(INT); /* 0x011a1270 */
-    UINT sub_011a1690(BYTE); /* 0x011a1690 */
-    UINT* sub_011a16b0(UINT*); /* 0x011a16b0 */
-    UINT sub_011aa360(BYTE); /* 0x011aa360 */
-    UINT* sub_011ae000(); /* 0x011ae000 */
-    UINT sub_011d4a60(BYTE); /* 0x011d4a60 */
-    UINT sub_011d4a80(BYTE); /* 0x011d4a80 */
-    UINT sub_011d4aa0(BYTE); /* 0x011d4aa0 */
-    UINT* sub_011e94b0(); /* 0x011e94b0 */
-    UINT* sub_011f1910(); /* 0x011f1910 */
-    UINT* sub_011f1940(); /* 0x011f1940 */
-    UINT* sub_011f19f0(); /* 0x011f19f0 */
-    UINT* sub_011f1aa0(); /* 0x011f1aa0 */
-    UINT* sub_011f1b50(); /* 0x011f1b50 */
-    UINT* sub_011f1c00(); /* 0x011f1c00 */
-    UINT* sub_011f1cb0(); /* 0x011f1cb0 */
-    UINT sub_011f7950(BYTE); /* 0x011f7950 */
-    void sub_01200c20(INT); /* 0x01200c20 */
-    INT sub_01200f90(INT); /* 0x01200f90 */
-    INT sub_01200fa0(INT); /* 0x01200fa0 */
-    INT sub_01200fb0(INT); /* 0x01200fb0 */
-    INT sub_01200fd0(INT); /* 0x01200fd0 */
-    INT sub_01200fe0(INT); /* 0x01200fe0 */
-    INT sub_01200ff0(); /* 0x01200ff0 */
-    INT sub_01201010(); /* 0x01201010 */
-    INT sub_01201020(); /* 0x01201020 */
-    INT sub_01201040(); /* 0x01201040 */
-    INT sub_01201050(INT); /* 0x01201050 */
-    INT sub_01201100(INT); /* 0x01201100 */
-    INT sub_012011a0(INT); /* 0x012011a0 */
-    UINT* sub_01201250(INT*); /* 0x01201250 */
-    INT sub_01201370(INT); /* 0x01201370 */
-    INT sub_012014d0(UINT); /* 0x012014d0 */
-    INT sub_01201570(INT); /* 0x01201570 */
-    UINT* sub_01201620(INT*); /* 0x01201620 */
-    INT sub_01201710(INT); /* 0x01201710 */
-    INT sub_012017a0(INT); /* 0x012017a0 */
-    UINT sub_01202520(BYTE); /* 0x01202520 */
-    UINT sub_01202540(BYTE); /* 0x01202540 */
-    UINT sub_01202560(BYTE); /* 0x01202560 */
-    UINT sub_01202580(BYTE); /* 0x01202580 */
-    UINT* sub_012025a0(UINT*); /* 0x012025a0 */
-    UINT* sub_01202680(UINT*); /* 0x01202680 */
-    UINT sub_01208ba0(BYTE); /* 0x01208ba0 */
-    UINT sub_01208c00(BYTE); /* 0x01208c00 */
-    UINT sub_01208c20(BYTE); /* 0x01208c20 */
-    UINT sub_01208c40(BYTE); /* 0x01208c40 */
-    UINT* sub_012216a0(); /* 0x012216a0 */
-    UINT sub_01221f20(BYTE); /* 0x01221f20 */
-    UINT* sub_0122ec70(INT*); /* 0x0122ec70 */
-    UINT sub_0122f520(BYTE); /* 0x0122f520 */
-    UINT* sub_0122f540(UINT*); /* 0x0122f540 */
-    UINT sub_01232c20(BYTE); /* 0x01232c20 */
-    UINT sub_01232c60(BYTE); /* 0x01232c60 */
-    UINT* sub_0124c320(); /* 0x0124c320 */
-    UINT* sub_0124c460(); /* 0x0124c460 */
-    UINT* sub_0124c490(); /* 0x0124c490 */
-    UINT* sub_0124c540(); /* 0x0124c540 */
-    UINT* sub_0124c5f0(); /* 0x0124c5f0 */
-    UINT* sub_0124c6a0(); /* 0x0124c6a0 */
-    UINT* sub_0124c750(); /* 0x0124c750 */
-    UINT* sub_0124c800(); /* 0x0124c800 */
-    UINT* sub_0124c8b0(); /* 0x0124c8b0 */
-    UINT* sub_0124c960(); /* 0x0124c960 */
-    UINT* sub_0124ca10(); /* 0x0124ca10 */
-    UINT* sub_0124cac0(); /* 0x0124cac0 */
-    UINT* sub_0124cb70(); /* 0x0124cb70 */
-    UINT* sub_0124cca0(); /* 0x0124cca0 */
-    UINT* sub_0124ccd0(); /* 0x0124ccd0 */
-    UINT* sub_0124ce30(); /* 0x0124ce30 */
-    UINT* sub_0124cef0(); /* 0x0124cef0 */
-    UINT* sub_0124cf20(); /* 0x0124cf20 */
-    UINT* sub_0124cfd0(); /* 0x0124cfd0 */
-    UINT* sub_0124d080(); /* 0x0124d080 */
-    UINT* sub_0124d210(); /* 0x0124d210 */
-    UINT* sub_0124d240(); /* 0x0124d240 */
-    UINT* sub_0124d300(); /* 0x0124d300 */
-    UINT* sub_0124d3c0(); /* 0x0124d3c0 */
-    UINT* sub_0124d470(); /* 0x0124d470 */
-    UINT sub_0124d5c0(BYTE); /* 0x0124d5c0 */
-    UINT* sub_01253500(); /* 0x01253500 */
-    UINT* sub_01253520(); /* 0x01253520 */
-    UINT* sub_012535c0(); /* 0x012535c0 */
-    UINT* sub_01253660(); /* 0x01253660 */
-    UINT* sub_0126c9d0(); /* 0x0126c9d0 */
-    UINT sub_01284b60(BYTE); /* 0x01284b60 */
-    UINT* sub_01290050(); /* 0x01290050 */
-    UINT sub_012a1840(BYTE); /* 0x012a1840 */
-    UINT sub_012b44f0(BYTE); /* 0x012b44f0 */
-    UINT* sub_012bd840(); /* 0x012bd840 */
-    UINT sub_012c0cf0(BYTE); /* 0x012c0cf0 */
-    UINT sub_012c0d70(BYTE); /* 0x012c0d70 */
-    UINT sub_012c0df0(BYTE); /* 0x012c0df0 */
-    UINT sub_012c0e70(BYTE); /* 0x012c0e70 */
-    UINT sub_012c0ef0(BYTE); /* 0x012c0ef0 */
-    UINT sub_012c0f70(BYTE); /* 0x012c0f70 */
-    UINT sub_012c0ff0(BYTE); /* 0x012c0ff0 */
-    UINT sub_012c1070(BYTE); /* 0x012c1070 */
-    UINT* sub_012d9720(); /* 0x012d9720 */
-    UINT* sub_012df810(); /* 0x012df810 */
-    UINT* sub_012df840(); /* 0x012df840 */
-    UINT* sub_012df8f0(); /* 0x012df8f0 */
-    UINT* sub_012df9a0(); /* 0x012df9a0 */
-    UINT* sub_012dfa50(); /* 0x012dfa50 */
-    UINT* sub_012dfb00(); /* 0x012dfb00 */
-    UINT* sub_012dfbb0(); /* 0x012dfbb0 */
-    UINT* sub_012dfc60(); /* 0x012dfc60 */
-    UINT* sub_012dfd10(); /* 0x012dfd10 */
-    UINT* sub_012dfe40(); /* 0x012dfe40 */
-    UINT* sub_012dfe70(); /* 0x012dfe70 */
-    UINT* sub_012dff20(); /* 0x012dff20 */
-    UINT sub_012dffd0(BYTE); /* 0x012dffd0 */
-    UINT sub_012e0000(BYTE); /* 0x012e0000 */
-    UINT sub_012e0030(BYTE); /* 0x012e0030 */
-    UINT sub_012e0060(BYTE); /* 0x012e0060 */
-    UINT sub_012e0090(BYTE); /* 0x012e0090 */
-    UINT sub_012e00c0(BYTE); /* 0x012e00c0 */
-    UINT sub_012e00f0(BYTE); /* 0x012e00f0 */
-    UINT sub_012e0120(BYTE); /* 0x012e0120 */
-    UINT sub_012e0150(BYTE); /* 0x012e0150 */
-    UINT sub_012e0180(BYTE); /* 0x012e0180 */
-    UINT sub_012e01b0(BYTE); /* 0x012e01b0 */
-    UINT sub_012e01e0(BYTE); /* 0x012e01e0 */
-    UINT sub_012e0210(BYTE); /* 0x012e0210 */
-    UINT sub_012e0240(BYTE); /* 0x012e0240 */
-    UINT* sub_0130f070(); /* 0x0130f070 */
-    UINT sub_0130f170(BYTE); /* 0x0130f170 */
-    UINT sub_0130f1f0(BYTE); /* 0x0130f1f0 */
-    UINT sub_0130f270(BYTE); /* 0x0130f270 */
-    UINT sub_0130f2f0(BYTE); /* 0x0130f2f0 */
-    UINT sub_01310520(BYTE); /* 0x01310520 */
-    UINT sub_013105a0(BYTE); /* 0x013105a0 */
-    UINT* sub_01337810(); /* 0x01337810 */
-    UINT* sub_01337840(); /* 0x01337840 */
-    INT sub_01374420(INT); /* 0x01374420 */
-    INT sub_01374520(INT); /* 0x01374520 */
-    INT sub_013745a0(); /* 0x013745a0 */
-    INT sub_01374630(INT); /* 0x01374630 */
-    INT sub_01374730(INT); /* 0x01374730 */
-    INT sub_013747b0(); /* 0x013747b0 */
-    INT sub_013747c0(); /* 0x013747c0 */
-    INT sub_01374850(INT); /* 0x01374850 */
-    INT sub_01374900(); /* 0x01374900 */
-    INT sub_01374910(); /* 0x01374910 */
-    UINT sub_01375240(BYTE); /* 0x01375240 */
-    UINT sub_013755a0(BYTE); /* 0x013755a0 */
-    UINT sub_0137d210(BYTE); /* 0x0137d210 */
-    UINT sub_0137d230(BYTE); /* 0x0137d230 */
-    UINT sub_0137d310(BYTE); /* 0x0137d310 */
-    INT sub_0137e200(INT); /* 0x0137e200 */
-    INT sub_0137e2b0(UINT); /* 0x0137e2b0 */
-    INT sub_01385a60(UINT); /* 0x01385a60 */
-    UINT sub_01385a80(BYTE); /* 0x01385a80 */
-    INT sub_0138c5f0(UINT, UINT); /* 0x0138c5f0 */
-    void sub_0138c610(); /* 0x0138c610 */
-    UINT* sub_0138c630(); /* 0x0138c630 */
-    UINT sub_013def70(BYTE); /* 0x013def70 */
-    UINT sub_013def90(BYTE); /* 0x013def90 */
-    UINT* sub_013defd0(BYTE); /* 0x013defd0 */
-    UINT sub_013df3c0(BYTE); /* 0x013df3c0 */
-    UINT* sub_013e0db0(UINT*, UINT); /* 0x013e0db0 */
-    UINT sub_013e9ca0(BYTE); /* 0x013e9ca0 */
-    UINT sub_01407b30(BYTE); /* 0x01407b30 */
-    UINT* sub_0141c1d0(); /* 0x0141c1d0 */
-    UINT* sub_01420e40(); /* 0x01420e40 */
-    UINT sub_01427a60(BYTE); /* 0x01427a60 */
-    UINT sub_01439330(BYTE); /* 0x01439330 */
-    UINT* sub_0143a170(); /* 0x0143a170 */
-    UINT* sub_0143a210(); /* 0x0143a210 */
-    UINT sub_014513d0(BYTE); /* 0x014513d0 */
-    UINT sub_014513f0(BYTE); /* 0x014513f0 */
-    UINT sub_01451410(BYTE); /* 0x01451410 */
-    UINT* sub_01452cf0(); /* 0x01452cf0 */
-    void sub_0145e900(); /* 0x0145e900 */
-    void sub_0145e970(INT); /* 0x0145e970 */
-    UINT* sub_0146b040(); /* 0x0146b040 */
-    UINT* sub_01477a20(); /* 0x01477a20 */
-    UINT* sub_01477ad0(); /* 0x01477ad0 */
-    UINT* sub_01477b80(); /* 0x01477b80 */
-    void sub_0147aa60(INT); /* 0x0147aa60 */
-    UINT* sub_0147e5f0(UINT*); /* 0x0147e5f0 */
-    UINT sub_0147e630(BYTE); /* 0x0147e630 */
-    INT sub_0147e740(INT); /* 0x0147e740 */
-    INT sub_0147e7c0(INT); /* 0x0147e7c0 */
-    INT sub_0147e8e0(INT); /* 0x0147e8e0 */
-    INT sub_0147e990(INT); /* 0x0147e990 */
-    INT sub_0147eb80(INT); /* 0x0147eb80 */
-    INT sub_0147eb90(INT); /* 0x0147eb90 */
-    INT sub_0147eba0(); /* 0x0147eba0 */
-    INT sub_0147ec10(); /* 0x0147ec10 */
-    INT sub_0147ec20(); /* 0x0147ec20 */
-    INT sub_0147ec30(); /* 0x0147ec30 */
-    UINT sub_0147f0d0(BYTE); /* 0x0147f0d0 */
-    UINT sub_0147f100(BYTE); /* 0x0147f100 */
-    UINT* sub_0147f130(UINT*); /* 0x0147f130 */
-    INT sub_01482250(); /* 0x01482250 */
-    INT sub_01482270(); /* 0x01482270 */
-    INT sub_01482280(); /* 0x01482280 */
-    INT sub_014822a0(); /* 0x014822a0 */
-    INT sub_014822b0(INT); /* 0x014822b0 */
-    UINT sub_01482530(BYTE); /* 0x01482530 */
-    INT sub_01482550(INT); /* 0x01482550 */
-    UINT* sub_01482560(UINT*); /* 0x01482560 */
-    UINT sub_01482710(BYTE); /* 0x01482710 */
-    UINT sub_014829e0(BYTE); /* 0x014829e0 */
-    UINT sub_01482db0(BYTE); /* 0x01482db0 */
-    INT sub_01486260(UINT); /* 0x01486260 */
-    UINT sub_01486370(BYTE); /* 0x01486370 */
-    UINT* sub_01487110(); /* 0x01487110 */
-    UINT* sub_014871b0(); /* 0x014871b0 */
-    UINT* sub_01487250(); /* 0x01487250 */
-    void sub_01489b70(); /* 0x01489b70 */
-    void sub_01489b90(); /* 0x01489b90 */
-    UINT sub_0148a4b0(BYTE); /* 0x0148a4b0 */
-    UINT* sub_0148a800(); /* 0x0148a800 */
-    INT sub_0148b460(UINT); /* 0x0148b460 */
-    UINT sub_0148b730(BYTE); /* 0x0148b730 */
-    void sub_0148c860(); /* 0x0148c860 */
-    UINT sub_0148c870(UINT, UINT); /* 0x0148c870 */
-    UINT sub_0148c890(UINT, UINT); /* 0x0148c890 */
-    INT sub_0148c8b0(UINT, UINT); /* 0x0148c8b0 */
-    INT sub_0148c8d0(UINT, UINT); /* 0x0148c8d0 */
-    INT sub_0148c8f0(UINT, UINT); /* 0x0148c8f0 */
-    INT sub_0148c910(UINT, UINT); /* 0x0148c910 */
-    UINT sub_0148c930(BYTE); /* 0x0148c930 */
-    INT sub_0148d260(UINT, UINT, UINT); /* 0x0148d260 */
-    INT sub_0148d2b0(UINT, UINT, UINT); /* 0x0148d2b0 */
-    UINT* sub_0149caf0(); /* 0x0149caf0 */
-    UINT sub_014a7040(BYTE); /* 0x014a7040 */
-    UINT* sub_014adab0(); /* 0x014adab0 */
-    UINT* sub_014adad0(); /* 0x014adad0 */
-    UINT* sub_014c5890(UINT, UINT); /* 0x014c5890 */
-    UINT* sub_014c58d0(); /* 0x014c58d0 */
-    UINT* sub_014c59b0(); /* 0x014c59b0 */
-    UINT* sub_014c7280(); /* 0x014c7280 */
-    UINT* sub_014c7330(); /* 0x014c7330 */
-    UINT* sub_014c73e0(); /* 0x014c73e0 */
-    UINT* sub_014c82b0(); /* 0x014c82b0 */
-    UINT* sub_014f9dc0(); /* 0x014f9dc0 */
-    UINT* sub_014fb0b0(); /* 0x014fb0b0 */
-    UINT* sub_014fccd0(); /* 0x014fccd0 */
-    UINT* sub_014fcd70(); /* 0x014fcd70 */
-    UINT* sub_014ff080(); /* 0x014ff080 */
-    UINT* sub_0150c280(); /* 0x0150c280 */
-    UINT* sub_01512bb0(UINT*, UINT); /* 0x01512bb0 */
-    UINT* sub_01515450(UINT*); /* 0x01515450 */
-    INT sub_015154a0(); /* 0x015154a0 */
-    INT sub_015154c0(); /* 0x015154c0 */
-    INT sub_015155c0(INT); /* 0x015155c0 */
-    INT sub_015155d0(); /* 0x015155d0 */
-    INT sub_015155f0(); /* 0x015155f0 */
-    INT sub_01515600(); /* 0x01515600 */
-    INT sub_01515620(); /* 0x01515620 */
-    INT sub_01515630(); /* 0x01515630 */
-    UINT sub_01515650(BYTE); /* 0x01515650 */
-    UINT* sub_01516800(UINT*); /* 0x01516800 */
-    UINT sub_015268b0(BYTE); /* 0x015268b0 */
-    UINT* sub_0152c480(); /* 0x0152c480 */
-    UINT sub_0152fa90(BYTE); /* 0x0152fa90 */
-    UINT* sub_01533770(); /* 0x01533770 */
-    UINT* sub_01533840(); /* 0x01533840 */
-    UINT* sub_01534ca0(); /* 0x01534ca0 */
-    UINT* sub_0153fbf0(); /* 0x0153fbf0 */
-    UINT* sub_0153fc90(); /* 0x0153fc90 */
-    UINT* sub_0153ff40(); /* 0x0153ff40 */
-    UINT* sub_01540000(); /* 0x01540000 */
-    UINT* sub_01540570(); /* 0x01540570 */
-    UINT* sub_01540630(); /* 0x01540630 */
-    UINT* sub_01541c10(); /* 0x01541c10 */
-    UINT* sub_01541d80(); /* 0x01541d80 */
-    UINT* sub_01541dc0(); /* 0x01541dc0 */
-    UINT* sub_01541e60(); /* 0x01541e60 */
-    UINT* sub_01541f00(); /* 0x01541f00 */
-    UINT* sub_01542d20(); /* 0x01542d20 */
-    UINT* sub_015437f0(); /* 0x015437f0 */
-    UINT* sub_01546c60(); /* 0x01546c60 */
-    UINT* sub_01546e80(); /* 0x01546e80 */
-    UINT* sub_01546f30(); /* 0x01546f30 */
-    UINT* sub_01547040(); /* 0x01547040 */
-    UINT* sub_01547100(); /* 0x01547100 */
-    UINT* sub_015475b0(); /* 0x015475b0 */
-    UINT* sub_01547870(); /* 0x01547870 */
-    UINT* sub_01547920(); /* 0x01547920 */
-    UINT* sub_015479f0(); /* 0x015479f0 */
-    UINT* sub_0154adc0(); /* 0x0154adc0 */
-    UINT* sub_0154b120(); /* 0x0154b120 */
     UINT* sub_0154b270(); /* 0x0154b270 */
-    UINT* sub_0154b5b0(); /* 0x0154b5b0 */
-    UINT* sub_0154b5e0(); /* 0x0154b5e0 */
-    UINT* sub_0154c250(); /* 0x0154c250 */
-    UINT* sub_0154c310(); /* 0x0154c310 */
-    UINT* sub_0154c3d0(); /* 0x0154c3d0 */
-    UINT* sub_0154c480(); /* 0x0154c480 */
-    UINT sub_0156a8f0(BYTE); /* 0x0156a8f0 */
-    UINT* sub_0156a970(UINT*); /* 0x0156a970 */
-    UINT sub_0156f4e0(BYTE); /* 0x0156f4e0 */
-    UINT sub_0156f500(BYTE); /* 0x0156f500 */
-    UINT* sub_0156fae0(); /* 0x0156fae0 */
-    UINT* sub_0156fba0(); /* 0x0156fba0 */
-    UINT* sub_0156fd10(); /* 0x0156fd10 */
-    UINT* sub_0156fe80(); /* 0x0156fe80 */
-    UINT* sub_0156fff0(); /* 0x0156fff0 */
-    UINT* sub_01570170(); /* 0x01570170 */
     UINT* sub_01572130(); /* 0x01572130 */
     UINT* sub_01572150(); /* 0x01572150 */
     UINT* sub_01572390(); /* 0x01572390 */
@@ -12594,273 +10956,10 @@ struct UObject {
     UINT* sub_01572730(); /* 0x01572730 */
     UINT* sub_015727e0(); /* 0x015727e0 */
     UINT* sub_01574520(); /* 0x01574520 */
-    UINT* sub_0157e510(); /* 0x0157e510 */
-    UINT* sub_0157e660(); /* 0x0157e660 */
-    UINT* sub_0157e720(); /* 0x0157e720 */
-    UINT* sub_0157e940(); /* 0x0157e940 */
-    UINT* sub_0157eaa0(); /* 0x0157eaa0 */
-    UINT* sub_0157ec00(); /* 0x0157ec00 */
-    UINT* sub_0157ed60(); /* 0x0157ed60 */
-    UINT* sub_0157eeb0(); /* 0x0157eeb0 */
-    UINT* sub_0157f000(); /* 0x0157f000 */
-    UINT* sub_0157f150(); /* 0x0157f150 */
-    UINT* sub_0157f2a0(); /* 0x0157f2a0 */
-    UINT* sub_0157f460(); /* 0x0157f460 */
-    UINT* sub_0157f5b0(); /* 0x0157f5b0 */
-    UINT* sub_0157f6d0(); /* 0x0157f6d0 */
-    UINT* sub_0157f820(); /* 0x0157f820 */
-    UINT* sub_0157f970(); /* 0x0157f970 */
-    UINT* sub_0157fb50(); /* 0x0157fb50 */
-    UINT* sub_0157fca0(); /* 0x0157fca0 */
-    UINT* sub_0157fdf0(); /* 0x0157fdf0 */
-    UINT* sub_0157ffc0(); /* 0x0157ffc0 */
-    UINT* sub_01580110(); /* 0x01580110 */
-    UINT* sub_01580270(); /* 0x01580270 */
-    UINT* sub_015803a0(); /* 0x015803a0 */
-    UINT* sub_015804f0(); /* 0x015804f0 */
-    UINT* sub_015806c0(); /* 0x015806c0 */
-    UINT* sub_01580890(); /* 0x01580890 */
-    UINT* sub_015809e0(); /* 0x015809e0 */
-    UINT* sub_01580b40(); /* 0x01580b40 */
-    UINT* sub_01580ca0(); /* 0x01580ca0 */
-    UINT* sub_01580df0(); /* 0x01580df0 */
-    UINT* sub_01580f40(); /* 0x01580f40 */
-    UINT* sub_015812e0(); /* 0x015812e0 */
-    UINT* sub_01581430(); /* 0x01581430 */
-    UINT* sub_01581580(); /* 0x01581580 */
-    UINT* sub_015816d0(); /* 0x015816d0 */
-    UINT* sub_01581790(); /* 0x01581790 */
-    UINT* sub_01581850(); /* 0x01581850 */
-    UINT* sub_01581aa0(); /* 0x01581aa0 */
-    UINT* sub_01581e10(); /* 0x01581e10 */
-    UINT* sub_015820e0(); /* 0x015820e0 */
-    UINT* sub_015821b0(); /* 0x015821b0 */
-    UINT* sub_01582280(); /* 0x01582280 */
-    UINT* sub_015823d0(); /* 0x015823d0 */
-    UINT* sub_01582560(); /* 0x01582560 */
-    UINT* sub_01582610(); /* 0x01582610 */
-    UINT* sub_015828b0(); /* 0x015828b0 */
-    UINT* sub_01582960(); /* 0x01582960 */
-    UINT* sub_01582a20(); /* 0x01582a20 */
-    UINT* sub_01582af0(); /* 0x01582af0 */
-    UINT* sub_01582e00(); /* 0x01582e00 */
-    UINT* sub_01582ed0(); /* 0x01582ed0 */
-    UINT* sub_01583040(); /* 0x01583040 */
-    UINT* sub_015831b0(); /* 0x015831b0 */
-    UINT* sub_01583320(); /* 0x01583320 */
-    UINT* sub_01583420(); /* 0x01583420 */
-    UINT* sub_01583590(); /* 0x01583590 */
-    UINT* sub_01583650(); /* 0x01583650 */
-    UINT* sub_01583710(); /* 0x01583710 */
-    UINT* sub_01583b70(); /* 0x01583b70 */
-    UINT* sub_01583f10(); /* 0x01583f10 */
-    UINT* sub_015841c0(); /* 0x015841c0 */
-    UINT* sub_01584330(); /* 0x01584330 */
-    UINT* sub_01584a90(); /* 0x01584a90 */
-    UINT* sub_01584b40(); /* 0x01584b40 */
-    UINT* sub_01584d20(); /* 0x01584d20 */
-    UINT* sub_01584ea0(); /* 0x01584ea0 */
-    UINT* sub_01584ec0(); /* 0x01584ec0 */
-    UINT* sub_01585260(); /* 0x01585260 */
-    UINT* sub_01585280(); /* 0x01585280 */
-    UINT* sub_015853d0(); /* 0x015853d0 */
-    UINT* sub_015856a0(); /* 0x015856a0 */
-    UINT* sub_015856c0(); /* 0x015856c0 */
-    UINT* sub_01585810(); /* 0x01585810 */
-    UINT* sub_01585960(); /* 0x01585960 */
-    UINT* sub_01585a70(); /* 0x01585a70 */
-    UINT* sub_01585b40(); /* 0x01585b40 */
-    UINT* sub_01585c00(); /* 0x01585c00 */
-    UINT* sub_01591fb0(); /* 0x01591fb0 */
-    UINT* sub_01592060(); /* 0x01592060 */
-    UINT* sub_01592160(); /* 0x01592160 */
-    UINT* sub_01592210(); /* 0x01592210 */
-    UINT* sub_015923d0(); /* 0x015923d0 */
-    UINT* sub_01592400(); /* 0x01592400 */
-    UINT* sub_01592500(); /* 0x01592500 */
-    UINT* sub_01593600(); /* 0x01593600 */
-    UINT* sub_015937a0(); /* 0x015937a0 */
-    UINT* sub_01593850(); /* 0x01593850 */
-    UINT* sub_01593900(); /* 0x01593900 */
-    UINT* sub_015939c0(); /* 0x015939c0 */
-    UINT* sub_01593a80(); /* 0x01593a80 */
-    UINT* sub_01594070(); /* 0x01594070 */
-    UINT* sub_015944d0(); /* 0x015944d0 */
-    UINT* sub_01594610(); /* 0x01594610 */
-    UINT* sub_01594860(); /* 0x01594860 */
-    UINT* sub_01594a10(); /* 0x01594a10 */
-    UINT* sub_01594be0(); /* 0x01594be0 */
-    UINT* sub_01594fa0(); /* 0x01594fa0 */
-    UINT* sub_01595050(); /* 0x01595050 */
-    UINT* sub_01595100(); /* 0x01595100 */
-    UINT* sub_015951c0(); /* 0x015951c0 */
-    UINT* sub_015953d0(); /* 0x015953d0 */
     UINT* sub_015a6d80(UINT*); /* 0x015a6d80 */
     INT sub_015a6f70(); /* 0x015a6f70 */
-    UINT sub_015a6f80(BYTE); /* 0x015a6f80 */
-    UINT* sub_015b41c0(); /* 0x015b41c0 */
-    UINT* sub_015b4270(); /* 0x015b4270 */
-    UINT* sub_015bce60(); /* 0x015bce60 */
-    UINT* sub_015bcf10(); /* 0x015bcf10 */
-    UINT* sub_015bcfd0(); /* 0x015bcfd0 */
-    UINT* sub_015bd120(); /* 0x015bd120 */
-    UINT* sub_015bd150(); /* 0x015bd150 */
-    UINT* sub_015bd200(); /* 0x015bd200 */
-    UINT* sub_015bd2b0(); /* 0x015bd2b0 */
-    UINT* sub_015bd360(); /* 0x015bd360 */
-    UINT* sub_015bd410(); /* 0x015bd410 */
-    UINT* sub_015bd4c0(); /* 0x015bd4c0 */
-    UINT* sub_015bd580(); /* 0x015bd580 */
-    UINT* sub_015bd650(); /* 0x015bd650 */
-    UINT* sub_015bd710(); /* 0x015bd710 */
-    UINT* sub_015bd7d0(); /* 0x015bd7d0 */
-    UINT* sub_015bd890(); /* 0x015bd890 */
-    UINT* sub_015bd950(); /* 0x015bd950 */
-    UINT* sub_015bdaa0(); /* 0x015bdaa0 */
-    UINT* sub_015bdb70(); /* 0x015bdb70 */
-    UINT* sub_015be2a0(); /* 0x015be2a0 */
-    UINT* sub_015be370(); /* 0x015be370 */
-    UINT* sub_015be4c0(); /* 0x015be4c0 */
-    UINT* sub_015be570(); /* 0x015be570 */
-    UINT* sub_015be620(); /* 0x015be620 */
-    UINT* sub_015be710(); /* 0x015be710 */
-    UINT* sub_015d4a80(); /* 0x015d4a80 */
-    UINT* sub_015d8260(); /* 0x015d8260 */
-    UINT* sub_015d9380(); /* 0x015d9380 */
-    UINT* sub_015d9430(); /* 0x015d9430 */
-    UINT sub_015f2880(BYTE); /* 0x015f2880 */
-    UINT sub_015f28a0(BYTE); /* 0x015f28a0 */
-    UINT* sub_015f2930(); /* 0x015f2930 */
-    UINT* sub_015f29f0(); /* 0x015f29f0 */
-    UINT* sub_015f2aa0(); /* 0x015f2aa0 */
-    UINT sub_015f2e30(BYTE); /* 0x015f2e30 */
-    UINT* sub_015fa3d0(); /* 0x015fa3d0 */
-    UINT* sub_015fa490(); /* 0x015fa490 */
-    UINT* sub_015fa5d0(); /* 0x015fa5d0 */
-    UINT* sub_015fa5f0(); /* 0x015fa5f0 */
-    UINT* sub_015fa6a0(); /* 0x015fa6a0 */
-    UINT* sub_015fa780(); /* 0x015fa780 */
-    UINT* sub_015fa940(); /* 0x015fa940 */
-    UINT* sub_015fa960(); /* 0x015fa960 */
-    UINT* sub_015faa70(); /* 0x015faa70 */
-    UINT* sub_015fab20(); /* 0x015fab20 */
-    UINT* sub_015fabf0(); /* 0x015fabf0 */
-    UINT* sub_015fac40(); /* 0x015fac40 */
-    UINT* sub_015facf0(); /* 0x015facf0 */
-    UINT* sub_015fada0(); /* 0x015fada0 */
-    UINT* sub_015fae50(); /* 0x015fae50 */
-    UINT* sub_015faf80(); /* 0x015faf80 */
-    UINT* sub_015fafd0(); /* 0x015fafd0 */
-    UINT* sub_015fb0b0(); /* 0x015fb0b0 */
-    UINT* sub_015fb2c0(); /* 0x015fb2c0 */
-    UINT* sub_015fb430(); /* 0x015fb430 */
-    UINT* sub_015fb5e0(); /* 0x015fb5e0 */
-    UINT* sub_015fb600(); /* 0x015fb600 */
-    UINT* sub_015fb800(); /* 0x015fb800 */
-    UINT* sub_015fba70(); /* 0x015fba70 */
-    UINT* sub_015fbb40(); /* 0x015fbb40 */
-    UINT* sub_015fbd40(); /* 0x015fbd40 */
-    UINT* sub_015fbd60(); /* 0x015fbd60 */
-    UINT* sub_015fbe20(); /* 0x015fbe20 */
-    UINT* sub_015fbee0(); /* 0x015fbee0 */
-    UINT* sub_015fbfa0(); /* 0x015fbfa0 */
-    UINT* sub_015fc0b0(); /* 0x015fc0b0 */
-    UINT* sub_015fc100(); /* 0x015fc100 */
-    UINT* sub_015fc1f0(); /* 0x015fc1f0 */
-    UINT* sub_01612a50(); /* 0x01612a50 */
-    UINT* sub_01612aa0(); /* 0x01612aa0 */
-    UINT* sub_0161da60(); /* 0x0161da60 */
-    UINT* sub_01621e20(); /* 0x01621e20 */
-    UINT* sub_016230b0(); /* 0x016230b0 */
-    UINT* sub_01623100(); /* 0x01623100 */
-    UINT sub_01624650(BYTE); /* 0x01624650 */
-    UINT sub_01624670(BYTE); /* 0x01624670 */
-    UINT sub_01624690(BYTE); /* 0x01624690 */
-    UINT sub_016246b0(BYTE); /* 0x016246b0 */
-    UINT sub_016246d0(BYTE); /* 0x016246d0 */
-    UINT* sub_01624700(); /* 0x01624700 */
-    UINT* sub_016247b0(); /* 0x016247b0 */
-    UINT* sub_01624ac0(); /* 0x01624ac0 */
-    UINT* sub_01624ae0(); /* 0x01624ae0 */
-    UINT* sub_01624ba0(); /* 0x01624ba0 */
-    UINT* sub_01624c50(); /* 0x01624c50 */
-    UINT sub_0162b7e0(BYTE); /* 0x0162b7e0 */
-    UINT sub_0162b800(BYTE); /* 0x0162b800 */
-    UINT* sub_01631420(); /* 0x01631420 */
-    UINT* sub_01631440(); /* 0x01631440 */
     UINT sub_01638350(UINT); /* 0x01638350 */
-    UINT* sub_01638d80(); /* 0x01638d80 */
-    UINT sub_016501b0(BYTE); /* 0x016501b0 */
-    UINT sub_016501d0(BYTE); /* 0x016501d0 */
-    UINT* sub_01650330(); /* 0x01650330 */
-    UINT* sub_0165c980(); /* 0x0165c980 */
-    UINT* sub_016687f0(); /* 0x016687f0 */
-    UINT* sub_016741b0(); /* 0x016741b0 */
-    UINT* sub_01675240(); /* 0x01675240 */
-    UINT* sub_016752e0(); /* 0x016752e0 */
-    UINT* sub_01675380(); /* 0x01675380 */
-    UINT* sub_016754b0(); /* 0x016754b0 */
-    UINT* sub_016754d0(); /* 0x016754d0 */
-    UINT* sub_0167be30(); /* 0x0167be30 */
-    UINT* sub_0167bf10(); /* 0x0167bf10 */
-    UINT* sub_01686730(); /* 0x01686730 */
-    UINT* sub_016867e0(); /* 0x016867e0 */
-    UINT* sub_01691000(); /* 0x01691000 */
-    UINT* sub_01691050(); /* 0x01691050 */
-    UINT* sub_01691100(); /* 0x01691100 */
-    UINT* sub_01691210(); /* 0x01691210 */
-    UINT* sub_01691260(); /* 0x01691260 */
-    UINT* sub_01691310(); /* 0x01691310 */
-    UINT* sub_016913c0(); /* 0x016913c0 */
-    UINT* sub_016914d0(); /* 0x016914d0 */
-    UINT* sub_01691520(); /* 0x01691520 */
-    UINT* sub_0169ce50(); /* 0x0169ce50 */
-    UINT* sub_0169fa70(); /* 0x0169fa70 */
-    INT sub_016a9c50(INT); /* 0x016a9c50 */
-    UINT* sub_016b8a50(); /* 0x016b8a50 */
-    UINT* sub_016c6330(); /* 0x016c6330 */
     UINT sub_016c6920(BYTE); /* 0x016c6920 */
-    UINT sub_016c6940(BYTE); /* 0x016c6940 */
-    UINT* sub_016c6e40(); /* 0x016c6e40 */
-    UINT* sub_016cc0c0(); /* 0x016cc0c0 */
-    UINT* sub_016cc2a0(); /* 0x016cc2a0 */
-    UINT* sub_016cc350(); /* 0x016cc350 */
-    UINT* sub_016cc420(); /* 0x016cc420 */
-    UINT* sub_016cc4e0(); /* 0x016cc4e0 */
-    UINT* sub_016cdb50(); /* 0x016cdb50 */
-    UINT* sub_016cdc10(); /* 0x016cdc10 */
-    UINT* sub_016cdd70(); /* 0x016cdd70 */
-    UINT* sub_016d1a40(); /* 0x016d1a40 */
-    UINT* sub_016d8870(); /* 0x016d8870 */
-    UINT* sub_016db4e0(); /* 0x016db4e0 */
-    UINT* sub_016dc050(); /* 0x016dc050 */
-    UINT* sub_016dc1e0(); /* 0x016dc1e0 */
-    UINT* sub_016e4890(); /* 0x016e4890 */
-    UINT* sub_016e5910(); /* 0x016e5910 */
-    UINT* sub_0170a6d0(); /* 0x0170a6d0 */
-    UINT* sub_0171e550(); /* 0x0171e550 */
-    UINT sub_017227d0(BYTE); /* 0x017227d0 */
-    UINT sub_017227f0(BYTE); /* 0x017227f0 */
-    UINT sub_01722810(BYTE); /* 0x01722810 */
-    UINT* sub_0172b150(); /* 0x0172b150 */
-    UINT* sub_0172b3c0(); /* 0x0172b3c0 */
-    UINT* sub_017333e0(); /* 0x017333e0 */
-    UINT* sub_0173f650(); /* 0x0173f650 */
-    UINT* sub_017412f0(UINT*); /* 0x017412f0 */
-    UINT sub_01743bb0(BYTE); /* 0x01743bb0 */
-    UINT* sub_01744440(); /* 0x01744440 */
-    UINT* sub_0174aaa0(); /* 0x0174aaa0 */
-    UINT* sub_0174ab40(); /* 0x0174ab40 */
-    UINT* sub_0174abe0(); /* 0x0174abe0 */
-    UINT* sub_0174ac80(); /* 0x0174ac80 */
-    UINT* sub_0174ad20(); /* 0x0174ad20 */
-    UINT sub_0174c0d0(BYTE); /* 0x0174c0d0 */
-    UINT* sub_01759840(); /* 0x01759840 */
-    UINT* sub_0175d580(); /* 0x0175d580 */
-    UINT* sub_0175e2a0(); /* 0x0175e2a0 */
-    UINT* sub_0175e340(); /* 0x0175e340 */
-    UINT* sub_0175e3e0(); /* 0x0175e3e0 */
-    UINT* sub_0175e480(); /* 0x0175e480 */
     void CallFunction(FFrame& Stack, RESULT_DECL, UFunction* Function); /* 0x005a6cd0 */
     /* registered size 0x30 */
 };
@@ -12878,7 +10977,6 @@ struct UComponent : public UObject {
     virtual UBOOL IsPendingKill(); /* 0x038 */
     virtual UBOOL GetNativePropertyValues( TMap<FString,FString>& out_PropertyValues, DWORD ExportFlags=0 ) const; /* 0x0c0 */
     /* other member functions */
-    UINT* sub_005400a0(); /* 0x005400a0 */
     FLOAT sub_00540130(INT, INT); /* 0x00540130 */
     FLOAT sub_00540150(INT, INT); /* 0x00540150 */
     DWORD sub_00540250(DWORD); /* 0x00540250 */
@@ -12909,10 +11007,8 @@ struct USubsystem : public UObject, public FExec {
     INT sub_0053ea60(); /* 0x0053ea60 */
     INT sub_0053eb20(); /* 0x0053eb20 */
     void sub_00544880(INT, INT); /* 0x00544880 */
-    bool sub_0058f8a0(); /* 0x0058f8a0 */
     INT sub_0059d820(); /* 0x0059d820 */
     INT sub_0059d830(); /* 0x0059d830 */
-    UINT sub_0059d930(BYTE); /* 0x0059d930 */
     FString sub_005a1730(); /* 0x005a1730 */
     /* registered size 0x34 */
     /* FExec */
@@ -12940,7 +11036,6 @@ struct UCommandlet : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     INT eventMain(const FString& Params); /* 0x005aa890 */
-    bool sub_01016070(); /* 0x01016070 */
     /* registered size 0x70 */
 };
 
@@ -12987,7 +11082,6 @@ struct UDistributionFloat : public UComponent, public FCurveEdInterface {
     virtual UBOOL NeedsLoadForClient() const; /* 0x088 */
     virtual UBOOL NeedsLoadForServer() const; /* 0x08c */
     /* other member functions */
-    UINT sub_00545c80(BYTE); /* 0x00545c80 */
     /* registered size 0x44 */
     /* FCurveEdInterface */
     virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x0053d5f0 */
@@ -13015,7 +11109,6 @@ struct UDistributionVector : public UComponent, public FCurveEdInterface {
     virtual UBOOL NeedsLoadForClient() const; /* 0x088 */
     virtual UBOOL NeedsLoadForServer() const; /* 0x08c */
     /* other member functions */
-    UINT sub_005403b0(BYTE); /* 0x005403b0 */
     /* registered size 0x44 */
     /* FCurveEdInterface */
     virtual void GetInRange(FLOAT& MinIn, FLOAT& MaxIn); /* 0x0053d6a0 */
@@ -13030,7 +11123,6 @@ struct UHelpCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0061bd50(BYTE); /* 0x0061bd50 */
     /* registered size 0x70 */
 };
 
@@ -13566,10 +11658,6 @@ struct AActor : public UObject {
     void FlushPersistentDebugLines(); /* 0x008cfd50 */
     INT sub_0068f200(); /* 0x0068f200 */
     void SetTickGroup(BYTE); /* 0x007580f0 */
-    bool sub_00758300(INT); /* 0x00758300 */
-    UINT sub_00769da0(); /* 0x00769da0 */
-    UINT sub_0077e510(); /* 0x0077e510 */
-    void sub_008a7830(UINT, FLOAT*); /* 0x008a7830 */
     void FinishAnim(UINT); /* 0x00c4afe0 */
     void SetCollisionFromCollisionType(); /* 0x00780e30 */
     /* registered size 0x1a8 */
@@ -13890,59 +11978,8 @@ struct UPrimitiveComponent : public UActorComponent {
     void sub_006db370(FMatrix& OutTransform, FVector& OutScale); /* 0x006db370 */
     void sub_009feb00(UBOOL); /* 0x009feb00 */
     void sub_009ff970(INT, INT); /* 0x009ff970 */
-    UINT sub_006894a0(BYTE); /* 0x006894a0 */
-    UINT* sub_00689e90(); /* 0x00689e90 */
-    UINT* sub_006c9a30(); /* 0x006c9a30 */
-    UINT* sub_006c9a50(); /* 0x006c9a50 */
-    UINT* sub_006c9b00(); /* 0x006c9b00 */
     UBOOL HasStaticShadowing() const; /* 0x006db280 */
-    UINT sub_006db290(); /* 0x006db290 */
-    void sub_006db630(); /* 0x006db630 */
-    void sub_006dbe90(UINT); /* 0x006dbe90 */
-    UINT* sub_006f92c0(); /* 0x006f92c0 */
-    UINT* sub_006f92e0(); /* 0x006f92e0 */
-    UINT* sub_006f9390(); /* 0x006f9390 */
-    UINT* sub_006f9440(); /* 0x006f9440 */
-    UINT* sub_006f94f0(); /* 0x006f94f0 */
-    UINT* sub_006f95a0(); /* 0x006f95a0 */
-    UINT* sub_006f9650(); /* 0x006f9650 */
-    UINT* sub_006f9700(); /* 0x006f9700 */
-    UINT* sub_006f97b0(); /* 0x006f97b0 */
-    UINT* sub_006f97d0(); /* 0x006f97d0 */
-    UINT* sub_0072ee10(); /* 0x0072ee10 */
-    UINT* sub_00794f40(); /* 0x00794f40 */
     UINT sub_00a158b0(BYTE); /* 0x00a158b0 */
-    UINT* sub_00a22310(); /* 0x00a22310 */
-    UINT* sub_00a22530(); /* 0x00a22530 */
-    UINT* sub_00a22550(); /* 0x00a22550 */
-    UINT* sub_00a22600(); /* 0x00a22600 */
-    UINT* sub_00a4ad20(); /* 0x00a4ad20 */
-    UINT* sub_00b66530(); /* 0x00b66530 */
-    UINT* sub_00b66550(); /* 0x00b66550 */
-    UINT* sub_00bcd6a0(); /* 0x00bcd6a0 */
-    UINT* sub_00bd0360(); /* 0x00bd0360 */
-    UINT sub_00c13bb0(BYTE); /* 0x00c13bb0 */
-    UINT* sub_00c147a0(); /* 0x00c147a0 */
-    UINT* sub_00c3ec10(); /* 0x00c3ec10 */
-    UINT* sub_00c3ecc0(); /* 0x00c3ecc0 */
-    UINT* sub_00e0b7a0(); /* 0x00e0b7a0 */
-    UINT sub_00f09600(BYTE); /* 0x00f09600 */
-    UINT* sub_00f0ae60(); /* 0x00f0ae60 */
-    UINT* sub_00f0ae80(); /* 0x00f0ae80 */
-    UINT* sub_012b0f10(); /* 0x012b0f10 */
-    UINT* sub_012b0fc0(); /* 0x012b0fc0 */
-    UINT* sub_01468f30(); /* 0x01468f30 */
-    UINT sub_01543980(BYTE); /* 0x01543980 */
-    UINT* sub_01573940(); /* 0x01573940 */
-    UINT* sub_015739f0(); /* 0x015739f0 */
-    UINT* sub_015f2b50(); /* 0x015f2b50 */
-    UINT* sub_01654b50(); /* 0x01654b50 */
-    UINT* sub_01654b70(); /* 0x01654b70 */
-    UINT* sub_01654c40(); /* 0x01654c40 */
-    UINT* sub_01680810(); /* 0x01680810 */
-    UINT sub_01729a40(BYTE); /* 0x01729a40 */
-    UINT* sub_0172ac30(); /* 0x0172ac30 */
-    UINT* sub_0172ace0(); /* 0x0172ace0 */
     void DetachDecal(UDecalComponent* Decal); /* 0x006eff50 */
     /* registered size 0x1b0 */
 };
@@ -13961,9 +11998,7 @@ struct USurface : public UObject {
     void execGetSurfaceHeight(FFrame& Stack, RESULT_DECL); /* 0x00716bf0 */
     /* other member functions */
     void sub_0064bbf0(); /* 0x0064bbf0 */
-    void sub_0064bbe0(); /* 0x0064bbe0 */
     void sub_0064bde0(); /* 0x0064bde0 */
-    UINT* sub_0064be40(BYTE); /* 0x0064be40 */
     /* registered size 0x30 */
 };
 
@@ -14025,13 +12060,6 @@ struct UTexture : public USurface {
     virtual DOUBLE GetSurfaceHeight(); /* 0x110 */
     /* other member functions */
     void ReleaseResource(); /* 0x0072a2d0 */
-    UINT sub_0071efc0(BYTE); /* 0x0071efc0 */
-    UINT* sub_007290b0(); /* 0x007290b0 */
-    UINT* sub_00760ed0(); /* 0x00760ed0 */
-    UINT* sub_00760f90(); /* 0x00760f90 */
-    UINT* sub_00761290(); /* 0x00761290 */
-    UINT* sub_00761360(); /* 0x00761360 */
-    UINT* sub_00761380(); /* 0x00761380 */
     /* registered size 0xb0 */
 };
 
@@ -14093,126 +12121,36 @@ struct UTexture2D : public UTexture {
     void* sub_014d79d0(void); /* 0x014d79d0 */
     void SetForceMipLevelsToBeResident(FLOAT); /* 0x00717d50 */
     void sub_0053ec70(); /* 0x0053ec70 */
-    UINT* sub_005448c0(); /* 0x005448c0 */
-    UINT* sub_00545ce0(UINT); /* 0x00545ce0 */
     void sub_00545d10(INT); /* 0x00545d10 */
     INT sub_00545d20(); /* 0x00545d20 */
-    UINT sub_00545d30(); /* 0x00545d30 */
-    UINT* sub_00545d80(UINT, UINT); /* 0x00545d80 */
-    UINT* sub_00546c80(); /* 0x00546c80 */
-    UINT* sub_00546ff0(); /* 0x00546ff0 */
-    UINT sub_0055b6e0(INT); /* 0x0055b6e0 */
-    bool sub_005670a0(); /* 0x005670a0 */
     INT sub_00567190(); /* 0x00567190 */
     INT sub_005671a0(); /* 0x005671a0 */
-    void sub_005673b0(); /* 0x005673b0 */
-    void sub_005673d0(); /* 0x005673d0 */
-    UINT* sub_005674a0(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x005674a0 */
-    UINT sub_00567830(); /* 0x00567830 */
     void sub_00567850(); /* 0x00567850 */
-    INT sub_00567860(); /* 0x00567860 */
     INT sub_00567870(); /* 0x00567870 */
     INT sub_00567880(); /* 0x00567880 */
     INT sub_005678c0(); /* 0x005678c0 */
     INT sub_005678e0(); /* 0x005678e0 */
     INT sub_005678f0(); /* 0x005678f0 */
-    bool sub_00567900(); /* 0x00567900 */
-    UINT sub_00567930(); /* 0x00567930 */
-    bool sub_00567940(); /* 0x00567940 */
-    UINT sub_00567950(); /* 0x00567950 */
     INT sub_00567960(); /* 0x00567960 */
     INT sub_00567970(); /* 0x00567970 */
     INT sub_00567980(); /* 0x00567980 */
     INT sub_00567990(); /* 0x00567990 */
     void sub_00567a20(); /* 0x00567a20 */
-    void sub_00567a80(UINT); /* 0x00567a80 */
     INT sub_00567a90(); /* 0x00567a90 */
-    void sub_00567aa0(UINT); /* 0x00567aa0 */
     INT sub_00567ab0(); /* 0x00567ab0 */
-    UINT sub_0056a640(BYTE); /* 0x0056a640 */
-    UINT* sub_0056a670(UINT, UINT); /* 0x0056a670 */
-    UINT sub_0056b700(BYTE); /* 0x0056b700 */
-    UINT sub_0056b720(BYTE); /* 0x0056b720 */
-    UINT sub_0056b740(BYTE); /* 0x0056b740 */
-    UINT* sub_005707b0(UINT, UINT); /* 0x005707b0 */
     void sub_00570840(INT); /* 0x00570840 */
     INT sub_00570850(); /* 0x00570850 */
     void sub_00570860(); /* 0x00570860 */
-    UINT sub_00570870(); /* 0x00570870 */
-    UINT* sub_00570880(BYTE); /* 0x00570880 */
-    void sub_00570950(); /* 0x00570950 */
-    UINT sub_00570b30(BYTE); /* 0x00570b30 */
-    void sub_00570b50(); /* 0x00570b50 */
     INT sub_005726f0(); /* 0x005726f0 */
     void sub_00572700(INT); /* 0x00572700 */
     INT sub_00572710(); /* 0x00572710 */
     UINT sub_00572720(UINT); /* 0x00572720 */
-    UINT sub_00576b60(BYTE); /* 0x00576b60 */
-    UINT sub_00576b80(BYTE); /* 0x00576b80 */
-    UINT sub_00576ba0(BYTE); /* 0x00576ba0 */
-    UINT sub_00576bc0(BYTE); /* 0x00576bc0 */
-    UINT sub_00578c50(BYTE); /* 0x00578c50 */
-    void sub_005799f0(INT, INT); /* 0x005799f0 */
     UINT sub_0057cb40(INT); /* 0x0057cb40 */
-    void sub_00581f70(); /* 0x00581f70 */
-    UINT sub_00582b40(BYTE); /* 0x00582b40 */
-    UINT* sub_00586720(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x00586720 */
-    UINT sub_0058b000(BYTE); /* 0x0058b000 */
-    INT sub_005accf0(INT); /* 0x005accf0 */
-    INT sub_005af6a0(INT); /* 0x005af6a0 */
-    void sub_005b4850(); /* 0x005b4850 */
-    INT sub_005b5490(); /* 0x005b5490 */
-    INT sub_005b54b0(); /* 0x005b54b0 */
-    INT sub_005b54d0(); /* 0x005b54d0 */
-    INT sub_005b5c60(); /* 0x005b5c60 */
-    INT sub_005b5cf0(); /* 0x005b5cf0 */
-    INT sub_005b5d10(); /* 0x005b5d10 */
-    INT sub_005b5d30(); /* 0x005b5d30 */
-    void sub_005b6d30(); /* 0x005b6d30 */
-    INT sub_005b7700(); /* 0x005b7700 */
-    INT sub_005b7720(); /* 0x005b7720 */
-    INT sub_005b7740(); /* 0x005b7740 */
-    INT sub_005b7bf0(); /* 0x005b7bf0 */
-    INT sub_005b7c10(); /* 0x005b7c10 */
-    INT sub_005b7c30(); /* 0x005b7c30 */
-    INT sub_005b7c50(); /* 0x005b7c50 */
-    INT sub_005b8400(); /* 0x005b8400 */
-    INT sub_005b8420(); /* 0x005b8420 */
-    INT sub_005b8440(); /* 0x005b8440 */
-    INT sub_005b9160(); /* 0x005b9160 */
-    INT sub_005b9180(); /* 0x005b9180 */
-    INT sub_005b91a0(); /* 0x005b91a0 */
-    INT sub_005b91c0(); /* 0x005b91c0 */
-    INT sub_005ba250(); /* 0x005ba250 */
-    INT sub_005ba270(); /* 0x005ba270 */
-    INT sub_005ba290(); /* 0x005ba290 */
-    UINT sub_005ba2b0(UINT); /* 0x005ba2b0 */
-    INT sub_005ba8f0(); /* 0x005ba8f0 */
-    INT sub_005ba910(); /* 0x005ba910 */
-    INT sub_005ba930(); /* 0x005ba930 */
-    INT sub_005ba950(); /* 0x005ba950 */
-    INT sub_005bad40(); /* 0x005bad40 */
-    UINT sub_005bb0b0(UINT); /* 0x005bb0b0 */
-    INT sub_005bbd70(); /* 0x005bbd70 */
-    INT sub_005bde80(); /* 0x005bde80 */
-    INT sub_005bfa50(); /* 0x005bfa50 */
-    INT sub_005db320(); /* 0x005db320 */
-    INT sub_005dc840(); /* 0x005dc840 */
-    INT sub_005dce70(); /* 0x005dce70 */
-    INT sub_005df4c0(); /* 0x005df4c0 */
-    UINT* sub_005fe3b0(); /* 0x005fe3b0 */
-    INT sub_0065e100(INT); /* 0x0065e100 */
     UINT sub_0065e120(UINT); /* 0x0065e120 */
     UINT sub_0065e190(BYTE); /* 0x0065e190 */
     UINT sub_0065e370(UINT); /* 0x0065e370 */
-    UINT sub_006682e0(UINT); /* 0x006682e0 */
     UINT sub_00668330(BYTE); /* 0x00668330 */
-    UINT sub_00668450(UINT); /* 0x00668450 */
     INT sub_00669880(INT); /* 0x00669880 */
-    UINT sub_006731d0(BYTE); /* 0x006731d0 */
-    UINT* sub_0067f120(); /* 0x0067f120 */
-    INT sub_0067f3e0(INT); /* 0x0067f3e0 */
-    INT sub_0067f4a0(INT); /* 0x0067f4a0 */
     void sub_0067fda0(); /* 0x0067fda0 */
     INT sub_0067fff0(INT); /* 0x0067fff0 */
     void sub_00680010(); /* 0x00680010 */
@@ -14220,62 +12158,15 @@ struct UTexture2D : public UTexture {
     void sub_006800b0(); /* 0x006800b0 */
     void sub_00680110(); /* 0x00680110 */
     void sub_00680b20(INT); /* 0x00680b20 */
-    void sub_006865d0(INT); /* 0x006865d0 */
-    INT sub_006877a0(INT); /* 0x006877a0 */
-    void sub_006877e0(); /* 0x006877e0 */
-    UINT sub_00687930(UINT); /* 0x00687930 */
-    UINT sub_00687b70(UINT); /* 0x00687b70 */
-    UINT sub_00687da0(UINT); /* 0x00687da0 */
-    UINT* sub_00688030(); /* 0x00688030 */
-    UINT* sub_006880f0(); /* 0x006880f0 */
-    UINT sub_00688600(BYTE); /* 0x00688600 */
-    UINT sub_00688620(BYTE); /* 0x00688620 */
     void* sub_0068a660(INT); /* 0x0068a660 */
-    UINT sub_0068a750(INT); /* 0x0068a750 */
     UINT sub_0068b3f0(BYTE); /* 0x0068b3f0 */
     UINT sub_0068b410(BYTE); /* 0x0068b410 */
     UINT sub_0068b430(BYTE); /* 0x0068b430 */
     UINT sub_0068b450(BYTE); /* 0x0068b450 */
-    UINT sub_0068b6c0(BYTE); /* 0x0068b6c0 */
-    INT sub_0068e360(); /* 0x0068e360 */
-    INT sub_0068e380(); /* 0x0068e380 */
-    INT sub_006938d0(UINT, UINT); /* 0x006938d0 */
     INT sub_006938f0(); /* 0x006938f0 */
-    INT sub_00693ad0(); /* 0x00693ad0 */
-    INT sub_00693e70(UINT, UINT); /* 0x00693e70 */
-    INT sub_00693e90(UINT, UINT); /* 0x00693e90 */
-    UINT sub_00693eb0(BYTE); /* 0x00693eb0 */
-    INT sub_00693ee0(); /* 0x00693ee0 */
-    INT sub_00693f00(); /* 0x00693f00 */
     UINT sub_00693f20(BYTE); /* 0x00693f20 */
     UINT sub_00693f40(BYTE); /* 0x00693f40 */
     UINT sub_00693f60(BYTE); /* 0x00693f60 */
-    INT sub_00696aa0(); /* 0x00696aa0 */
-    INT sub_00696ac0(); /* 0x00696ac0 */
-    INT sub_006989c0(); /* 0x006989c0 */
-    INT sub_006989e0(); /* 0x006989e0 */
-    INT sub_00699c40(); /* 0x00699c40 */
-    INT sub_00699cd0(); /* 0x00699cd0 */
-    INT sub_00699d60(); /* 0x00699d60 */
-    void sub_0069e700(INT); /* 0x0069e700 */
-    INT sub_0069e7f0(INT); /* 0x0069e7f0 */
-    INT sub_0069e8f0(INT); /* 0x0069e8f0 */
-    INT sub_0069e9f0(INT); /* 0x0069e9f0 */
-    INT sub_0069ec70(INT); /* 0x0069ec70 */
-    INT sub_0069ecf0(INT); /* 0x0069ecf0 */
-    INT sub_0069ed70(INT); /* 0x0069ed70 */
-    INT sub_0069ed80(); /* 0x0069ed80 */
-    INT sub_0069ed90(); /* 0x0069ed90 */
-    INT sub_0069eda0(); /* 0x0069eda0 */
-    void sub_0069edb0(INT); /* 0x0069edb0 */
-    void sub_0069edf0(INT); /* 0x0069edf0 */
-    void sub_0069ee30(INT); /* 0x0069ee30 */
-    INT sub_0069ee70(INT); /* 0x0069ee70 */
-    INT sub_0069efc0(INT); /* 0x0069efc0 */
-    INT sub_0069f120(INT); /* 0x0069f120 */
-    INT sub_0069fb00(INT); /* 0x0069fb00 */
-    INT sub_0069fb90(INT); /* 0x0069fb90 */
-    INT sub_0069fc20(INT); /* 0x0069fc20 */
     void sub_0069ff80(INT*); /* 0x0069ff80 */
     void sub_0069ffe0(INT*); /* 0x0069ffe0 */
     UINT sub_006a0ae0(BYTE); /* 0x006a0ae0 */
@@ -14285,124 +12176,38 @@ struct UTexture2D : public UTexture {
     INT sub_006a1bf0(UINT); /* 0x006a1bf0 */
     INT sub_006a1d40(UINT); /* 0x006a1d40 */
     UINT* sub_006b0ee0(INT); /* 0x006b0ee0 */
-    UINT* sub_006b3a40(UINT); /* 0x006b3a40 */
-    INT sub_006c5040(INT); /* 0x006c5040 */
-    INT sub_006c5250(INT); /* 0x006c5250 */
-    INT sub_006c87a0(INT); /* 0x006c87a0 */
-    INT sub_006c87e0(); /* 0x006c87e0 */
-    INT sub_006c8800(); /* 0x006c8800 */
-    INT sub_006c8880(INT); /* 0x006c8880 */
-    INT sub_006cbaf0(INT); /* 0x006cbaf0 */
-    void sub_006d2bf0(); /* 0x006d2bf0 */
-    UINT sub_006d2d30(UINT, UINT); /* 0x006d2d30 */
-    INT sub_006d3e40(UINT, UINT, UINT); /* 0x006d3e40 */
     UINT sub_006ec620(BYTE); /* 0x006ec620 */
-    UINT* sub_006f5a20(); /* 0x006f5a20 */
-    UINT* sub_006fab60(); /* 0x006fab60 */
-    UINT* sub_006fac50(); /* 0x006fac50 */
-    INT sub_00708300(); /* 0x00708300 */
-    INT sub_00708390(); /* 0x00708390 */
-    INT sub_0070b860(INT); /* 0x0070b860 */
-    INT sub_0070b960(INT); /* 0x0070b960 */
-    INT sub_0070ba60(INT); /* 0x0070ba60 */
-    INT sub_0070bce0(INT); /* 0x0070bce0 */
-    INT sub_0070bd60(INT); /* 0x0070bd60 */
-    INT sub_0070bde0(INT); /* 0x0070bde0 */
-    INT sub_0070bdf0(); /* 0x0070bdf0 */
-    INT sub_0070be00(); /* 0x0070be00 */
-    INT sub_0070be10(); /* 0x0070be10 */
-    void sub_0070be20(INT); /* 0x0070be20 */
-    void sub_0070be60(INT); /* 0x0070be60 */
-    void sub_0070bea0(INT); /* 0x0070bea0 */
-    INT sub_0070bee0(INT); /* 0x0070bee0 */
-    INT sub_0070c030(INT); /* 0x0070c030 */
-    INT sub_0070c190(INT); /* 0x0070c190 */
-    INT sub_0070cb70(INT); /* 0x0070cb70 */
-    INT sub_0070cc00(INT); /* 0x0070cc00 */
-    INT sub_0070cc90(INT); /* 0x0070cc90 */
     INT sub_0070ee60(UINT); /* 0x0070ee60 */
     INT sub_0070efb0(UINT); /* 0x0070efb0 */
     INT sub_0070f100(UINT); /* 0x0070f100 */
-    UINT* sub_00715630(); /* 0x00715630 */
-    UINT sub_00715650(BYTE); /* 0x00715650 */
-    UINT* sub_00717bc0(UINT); /* 0x00717bc0 */
-    UINT* sub_00717cf0(); /* 0x00717cf0 */
-    UINT sub_00717d20(BYTE); /* 0x00717d20 */
-    UINT* sub_0071d180(); /* 0x0071d180 */
-    INT* sub_0071d550(INT*); /* 0x0071d550 */
-    void sub_0071d5a0(); /* 0x0071d5a0 */
-    INT* sub_0071d5c0(INT*); /* 0x0071d5c0 */
-    void sub_0071d630(); /* 0x0071d630 */
-    INT* sub_0071d650(INT*); /* 0x0071d650 */
-    void sub_0071d6a0(); /* 0x0071d6a0 */
-    INT sub_0071d710(UINT*); /* 0x0071d710 */
     INT sub_0071d810(UINT*); /* 0x0071d810 */
-    UINT sub_0071d940(BYTE); /* 0x0071d940 */
-    INT sub_0071d960(INT); /* 0x0071d960 */
     INT sub_0071d980(); /* 0x0071d980 */
     INT sub_0071d990(); /* 0x0071d990 */
     INT sub_0071d9e0(UINT*); /* 0x0071d9e0 */
-    INT sub_0071dab0(INT); /* 0x0071dab0 */
-    INT sub_0071dac0(INT); /* 0x0071dac0 */
     INT sub_0071dae0(); /* 0x0071dae0 */
-    INT sub_0071daf0(); /* 0x0071daf0 */
     INT sub_0071db10(); /* 0x0071db10 */
-    INT sub_0071db90(INT); /* 0x0071db90 */
     INT sub_0071dc30(); /* 0x0071dc30 */
     INT sub_0071dcd0(); /* 0x0071dcd0 */
-    void sub_00726f20(INT); /* 0x00726f20 */
-    INT sub_00726f60(INT); /* 0x00726f60 */
-    INT sub_00726f70(INT); /* 0x00726f70 */
-    INT sub_00726fa0(INT); /* 0x00726fa0 */
-    INT sub_00726fb0(INT); /* 0x00726fb0 */
     INT sub_00726fe0(INT); /* 0x00726fe0 */
     INT sub_007270a0(); /* 0x007270a0 */
     INT sub_007270b0(INT); /* 0x007270b0 */
-    INT sub_007270c0(INT); /* 0x007270c0 */
-    INT sub_007270f0(); /* 0x007270f0 */
-    INT sub_00727100(); /* 0x00727100 */
-    INT sub_00727110(INT); /* 0x00727110 */
-    INT sub_00727120(INT); /* 0x00727120 */
-    INT sub_00727150(INT); /* 0x00727150 */
-    INT sub_00727160(INT); /* 0x00727160 */
-    INT sub_007272e0(INT); /* 0x007272e0 */
-    INT sub_007273e0(INT); /* 0x007273e0 */
-    INT sub_007273f0(INT); /* 0x007273f0 */
     void sub_00727e40(); /* 0x00727e40 */
     void sub_00727ea0(); /* 0x00727ea0 */
     void sub_00727f00(); /* 0x00727f00 */
     void sub_00727f60(); /* 0x00727f60 */
     void sub_00727fc0(); /* 0x00727fc0 */
     void sub_00728020(); /* 0x00728020 */
-    INT sub_0072ba10(); /* 0x0072ba10 */
-    INT sub_0072ba20(); /* 0x0072ba20 */
-    INT sub_0072ba30(); /* 0x0072ba30 */
-    INT sub_0072ba80(INT); /* 0x0072ba80 */
-    INT sub_0072bb60(INT); /* 0x0072bb60 */
-    INT sub_0072bdc0(INT); /* 0x0072bdc0 */
-    UINT* sub_0072ca60(); /* 0x0072ca60 */
     UINT sub_0072cdd0(BYTE); /* 0x0072cdd0 */
     UINT sub_0072cdf0(BYTE); /* 0x0072cdf0 */
     UINT sub_0072ce10(BYTE); /* 0x0072ce10 */
     UINT sub_0072ce30(BYTE); /* 0x0072ce30 */
     UINT sub_0072ce50(BYTE); /* 0x0072ce50 */
     UINT sub_0072ce70(BYTE); /* 0x0072ce70 */
-    INT sub_0072d520(UINT*); /* 0x0072d520 */
-    INT sub_0072d740(UINT*); /* 0x0072d740 */
-    INT sub_0072eda0(INT); /* 0x0072eda0 */
-    INT sub_0072edd0(INT); /* 0x0072edd0 */
-    INT sub_0072fe20(INT); /* 0x0072fe20 */
     void sub_007306b0(); /* 0x007306b0 */
     void sub_00730740(); /* 0x00730740 */
     void sub_007307d0(); /* 0x007307d0 */
     void sub_00730860(); /* 0x00730860 */
     void sub_007308f0(); /* 0x007308f0 */
-    void sub_00730910(); /* 0x00730910 */
-    void sub_00730930(); /* 0x00730930 */
-    void sub_00730950(); /* 0x00730950 */
-    void sub_00730970(); /* 0x00730970 */
-    void sub_00730990(); /* 0x00730990 */
-    void sub_007309b0(); /* 0x007309b0 */
     UINT sub_007309d0(BYTE); /* 0x007309d0 */
     UINT sub_007309f0(BYTE); /* 0x007309f0 */
     UINT sub_00730a10(BYTE); /* 0x00730a10 */
@@ -14434,96 +12239,18 @@ struct UTexture2D : public UTexture {
     UINT sub_00735360(BYTE); /* 0x00735360 */
     UINT sub_00735380(BYTE); /* 0x00735380 */
     UINT sub_007353a0(BYTE); /* 0x007353a0 */
-    INT sub_00735e10(); /* 0x00735e10 */
-    INT sub_00735e30(); /* 0x00735e30 */
-    INT sub_00735e50(); /* 0x00735e50 */
-    INT sub_00735e70(); /* 0x00735e70 */
-    INT sub_00735e90(); /* 0x00735e90 */
-    INT sub_00735eb0(); /* 0x00735eb0 */
-    INT sub_00735ed0(); /* 0x00735ed0 */
-    void sub_00737090(); /* 0x00737090 */
-    UINT sub_00737370(UINT, UINT); /* 0x00737370 */
-    INT sub_00737680(UINT, UINT); /* 0x00737680 */
-    INT sub_007376a0(UINT, UINT); /* 0x007376a0 */
-    INT sub_007376c0(UINT, UINT); /* 0x007376c0 */
-    INT sub_007376e0(UINT, UINT); /* 0x007376e0 */
-    INT sub_00737700(UINT, UINT); /* 0x00737700 */
-    INT sub_00737720(UINT, UINT); /* 0x00737720 */
-    INT sub_00737740(UINT, UINT); /* 0x00737740 */
-    INT sub_00737760(); /* 0x00737760 */
-    INT sub_00737780(); /* 0x00737780 */
-    INT sub_007377a0(); /* 0x007377a0 */
-    INT sub_007377c0(); /* 0x007377c0 */
-    INT sub_007377e0(); /* 0x007377e0 */
-    INT sub_00737860(); /* 0x00737860 */
-    INT sub_00737880(); /* 0x00737880 */
     UINT sub_007378a0(BYTE); /* 0x007378a0 */
     UINT sub_007378c0(BYTE); /* 0x007378c0 */
     UINT sub_007378e0(BYTE); /* 0x007378e0 */
     UINT sub_00737900(BYTE); /* 0x00737900 */
     UINT sub_00737920(BYTE); /* 0x00737920 */
     UINT sub_00737940(BYTE); /* 0x00737940 */
-    INT sub_00738130(UINT, UINT, UINT); /* 0x00738130 */
-    INT sub_00738220(); /* 0x00738220 */
-    INT sub_00738240(); /* 0x00738240 */
-    INT sub_00738260(); /* 0x00738260 */
-    INT sub_00738280(); /* 0x00738280 */
-    void sub_007382a0(); /* 0x007382a0 */
-    INT sub_007382c0(); /* 0x007382c0 */
-    INT sub_007382f0(); /* 0x007382f0 */
-    INT sub_00738310(); /* 0x00738310 */
-    INT sub_0073a810(); /* 0x0073a810 */
-    INT sub_0073a830(); /* 0x0073a830 */
-    INT sub_0073a850(); /* 0x0073a850 */
-    INT sub_0073a870(); /* 0x0073a870 */
-    void sub_0073a890(); /* 0x0073a890 */
-    INT sub_0073a8b0(); /* 0x0073a8b0 */
-    void sub_0073a8d0(); /* 0x0073a8d0 */
-    INT sub_0073a8e0(); /* 0x0073a8e0 */
-    INT sub_0073a900(); /* 0x0073a900 */
-    INT sub_0073d100(); /* 0x0073d100 */
-    INT sub_0073d190(); /* 0x0073d190 */
-    INT sub_0073d220(); /* 0x0073d220 */
-    INT sub_0073d7c0(); /* 0x0073d7c0 */
-    INT sub_0073d7e0(); /* 0x0073d7e0 */
-    INT sub_0073d800(); /* 0x0073d800 */
-    INT sub_0073d840(BYTE); /* 0x0073d840 */
-    INT sub_00741100(INT); /* 0x00741100 */
-    INT sub_00741180(INT); /* 0x00741180 */
-    INT sub_00741200(INT); /* 0x00741200 */
-    INT sub_00741210(); /* 0x00741210 */
-    INT sub_00741220(); /* 0x00741220 */
-    INT sub_00741230(); /* 0x00741230 */
-    void sub_00741240(INT); /* 0x00741240 */
-    void sub_00741280(INT); /* 0x00741280 */
-    void sub_007412c0(INT); /* 0x007412c0 */
-    INT sub_00741300(INT); /* 0x00741300 */
-    INT sub_00741450(INT); /* 0x00741450 */
-    INT sub_007415b0(INT); /* 0x007415b0 */
-    INT sub_007423b0(INT); /* 0x007423b0 */
-    INT sub_00742440(INT); /* 0x00742440 */
-    INT sub_007424d0(INT); /* 0x007424d0 */
     UINT sub_00743390(BYTE); /* 0x00743390 */
     UINT sub_007433b0(BYTE); /* 0x007433b0 */
     UINT sub_007433d0(BYTE); /* 0x007433d0 */
     INT sub_00744790(UINT); /* 0x00744790 */
     INT sub_007448e0(UINT); /* 0x007448e0 */
     INT sub_00744a30(UINT); /* 0x00744a30 */
-    INT sub_007491f0(INT); /* 0x007491f0 */
-    INT sub_00749270(INT); /* 0x00749270 */
-    INT sub_007492f0(INT); /* 0x007492f0 */
-    INT sub_00749300(); /* 0x00749300 */
-    INT sub_00749310(); /* 0x00749310 */
-    INT sub_00749320(); /* 0x00749320 */
-    void sub_00749330(INT); /* 0x00749330 */
-    void sub_00749370(INT); /* 0x00749370 */
-    void sub_007493b0(INT); /* 0x007493b0 */
-    INT sub_007493f0(INT); /* 0x007493f0 */
-    INT sub_00749540(INT); /* 0x00749540 */
-    INT sub_007496a0(INT); /* 0x007496a0 */
-    INT sub_0074a4a0(INT); /* 0x0074a4a0 */
-    INT sub_0074a530(INT); /* 0x0074a530 */
-    INT sub_0074a5c0(INT); /* 0x0074a5c0 */
     UINT sub_0074b480(BYTE); /* 0x0074b480 */
     UINT sub_0074b4a0(BYTE); /* 0x0074b4a0 */
     UINT sub_0074b4c0(BYTE); /* 0x0074b4c0 */
@@ -14532,15 +12259,8 @@ struct UTexture2D : public UTexture {
     INT sub_0074cb50(UINT); /* 0x0074cb50 */
     void* sub_00818650(INT); /* 0x00818650 */
     void* sub_0081e7d0(INT); /* 0x0081e7d0 */
-    INT sub_00825980(); /* 0x00825980 */
-    UINT* sub_00943cf0(); /* 0x00943cf0 */
-    UINT sub_00943d20(BYTE); /* 0x00943d20 */
     UINT* sub_00946e40(); /* 0x00946e40 */
     UINT sub_00946e60(BYTE); /* 0x00946e60 */
-    INT sub_00a4ad00(INT); /* 0x00a4ad00 */
-    INT sub_00a4ccc0(UINT*); /* 0x00a4ccc0 */
-    UINT sub_00a54aa0(BYTE); /* 0x00a54aa0 */
-    void sub_00a61920(UINT, UINT); /* 0x00a61920 */
     void sub_00a61b00(UINT, UINT); /* 0x00a61b00 */
     void sub_00a61ce0(UINT, UINT); /* 0x00a61ce0 */
     void sub_00a61ec0(UINT, UINT); /* 0x00a61ec0 */
@@ -14553,191 +12273,19 @@ struct UTexture2D : public UTexture {
     UINT sub_00a66500(BYTE); /* 0x00a66500 */
     INT sub_00acbfd0(INT); /* 0x00acbfd0 */
     INT sub_00ae0f80(); /* 0x00ae0f80 */
-    INT sub_00ae5bc0(); /* 0x00ae5bc0 */
     INT sub_00ae8fe0(); /* 0x00ae8fe0 */
-    void sub_00aec100(); /* 0x00aec100 */
-    INT sub_00aec110(); /* 0x00aec110 */
-    INT sub_00b0ee20(INT); /* 0x00b0ee20 */
-    INT sub_00b116b0(INT); /* 0x00b116b0 */
-    UINT* sub_00b11740(); /* 0x00b11740 */
-    UINT* sub_00b11760(); /* 0x00b11760 */
-    INT sub_00b13c30(INT); /* 0x00b13c30 */
-    UINT sub_00b269f0(UINT, UINT); /* 0x00b269f0 */
-    INT sub_00b26a10(UINT, UINT); /* 0x00b26a10 */
-    INT sub_00b27810(UINT, UINT, UINT); /* 0x00b27810 */
-    INT sub_00b29a10(); /* 0x00b29a10 */
     void* sub_00c18c40(INT); /* 0x00c18c40 */
-    UINT sub_00c19e50(BYTE); /* 0x00c19e50 */
-    UINT sub_00c19e70(BYTE); /* 0x00c19e70 */
     INT sub_00cfce70(UINT*, INT); /* 0x00cfce70 */
-    UINT* sub_00d1ea30(); /* 0x00d1ea30 */
-    UINT* sub_00d1ea60(); /* 0x00d1ea60 */
-    UINT sub_00d1ea90(BYTE); /* 0x00d1ea90 */
-    UINT sub_00d1eab0(BYTE); /* 0x00d1eab0 */
-    INT sub_00d79290(INT); /* 0x00d79290 */
-    INT sub_00d7d6a0(INT); /* 0x00d7d6a0 */
-    UINT sub_00d8c4c0(BYTE); /* 0x00d8c4c0 */
-    INT sub_00db2200(INT); /* 0x00db2200 */
-    INT sub_00db2210(); /* 0x00db2210 */
-    INT sub_00db2230(); /* 0x00db2230 */
-    INT sub_00db2360(INT); /* 0x00db2360 */
-    INT sub_00db23c0(); /* 0x00db23c0 */
-    INT sub_00db23e0(); /* 0x00db23e0 */
-    INT sub_00db23f0(INT); /* 0x00db23f0 */
-    INT sub_00db24d0(INT); /* 0x00db24d0 */
-    INT sub_00db2550(INT); /* 0x00db2550 */
-    INT sub_00db2560(); /* 0x00db2560 */
-    INT sub_00db2580(); /* 0x00db2580 */
-    INT sub_00db5d00(INT); /* 0x00db5d00 */
-    INT sub_00db8850(INT); /* 0x00db8850 */
-    INT sub_00dbc7e0(); /* 0x00dbc7e0 */
-    void sub_00dbd900(); /* 0x00dbd900 */
-    UINT sub_00dbd9a0(UINT, UINT); /* 0x00dbd9a0 */
-    INT sub_00dbd9c0(); /* 0x00dbd9c0 */
-    INT sub_00dbfee0(UINT, UINT, UINT); /* 0x00dbfee0 */
-    INT sub_00dbff30(); /* 0x00dbff30 */
-    UINT* sub_00e01db0(); /* 0x00e01db0 */
-    UINT sub_00e06ec0(BYTE); /* 0x00e06ec0 */
-    UINT sub_00e06ee0(BYTE); /* 0x00e06ee0 */
-    UINT sub_00e644d0(BYTE); /* 0x00e644d0 */
     bool sub_00ec13f0(); /* 0x00ec13f0 */
     INT sub_00f252f0(INT); /* 0x00f252f0 */
-    UINT* sub_00f76b90(UINT, UINT, UINT); /* 0x00f76b90 */
     UINT sub_00f79470(UINT); /* 0x00f79470 */
     UINT sub_00f7e820(UINT); /* 0x00f7e820 */
-    UINT* sub_00f9dc80(UINT); /* 0x00f9dc80 */
     INT sub_00f9dd30(); /* 0x00f9dd30 */
-    UINT sub_00f9dd60(); /* 0x00f9dd60 */
-    bool sub_00f9dd80(); /* 0x00f9dd80 */
-    UINT sub_00f9dd90(); /* 0x00f9dd90 */
     char* sub_00f9dee0(); /* 0x00f9dee0 */
     INT sub_00f9def0(); /* 0x00f9def0 */
-    void sub_00f9df20(UINT); /* 0x00f9df20 */
-    void sub_00f9df40(UINT); /* 0x00f9df40 */
-    INT sub_00f9df90(UINT, UINT, UINT, UINT); /* 0x00f9df90 */
-    void sub_00f9dfc0(INT, UINT); /* 0x00f9dfc0 */
-    void sub_00f9e070(); /* 0x00f9e070 */
-    void sub_00f9e120(); /* 0x00f9e120 */
-    void sub_00f9e1f0(INT); /* 0x00f9e1f0 */
-    INT sub_00f9e2b0(INT); /* 0x00f9e2b0 */
-    UINT sub_00fa03e0(INT, UINT); /* 0x00fa03e0 */
-    void sub_00fa0420(UINT*); /* 0x00fa0420 */
-    UINT sub_00fa0450(INT); /* 0x00fa0450 */
-    UINT* sub_00fa27c0(UINT); /* 0x00fa27c0 */
     UINT sub_00fa2830(UINT*); /* 0x00fa2830 */
-    INT sub_00faa630(INT); /* 0x00faa630 */
-    INT sub_00faa640(); /* 0x00faa640 */
-    INT sub_00faa650(); /* 0x00faa650 */
-    INT sub_00faa930(INT); /* 0x00faa930 */
-    INT sub_00faa9b0(); /* 0x00faa9b0 */
-    INT sub_00faa9c0(); /* 0x00faa9c0 */
-    INT sub_00faaa50(INT); /* 0x00faaa50 */
-    INT sub_00fb2b50(INT); /* 0x00fb2b50 */
-    INT sub_00fb2b80(INT); /* 0x00fb2b80 */
-    INT sub_00fb2b90(); /* 0x00fb2b90 */
-    INT sub_00fb2ba0(); /* 0x00fb2ba0 */
-    INT sub_00fb2c10(INT); /* 0x00fb2c10 */
-    INT sub_00fb2c20(); /* 0x00fb2c20 */
-    INT sub_00fb2c30(INT); /* 0x00fb2c30 */
-    INT sub_00fb2c40(INT); /* 0x00fb2c40 */
-    INT sub_00fb2c50(INT); /* 0x00fb2c50 */
-    INT sub_00fb2c60(INT); /* 0x00fb2c60 */
-    INT sub_00fb2c90(); /* 0x00fb2c90 */
-    INT sub_00fb2ca0(); /* 0x00fb2ca0 */
-    INT sub_00fb2cb0(INT); /* 0x00fb2cb0 */
-    INT sub_00fb2d00(); /* 0x00fb2d00 */
-    INT sub_00fb2d20(INT); /* 0x00fb2d20 */
-    UINT sub_00fb2e30(); /* 0x00fb2e30 */
-    INT sub_00fb2e40(); /* 0x00fb2e40 */
-    UINT sub_00fb2e50(BYTE); /* 0x00fb2e50 */
-    INT sub_00fb2f70(INT); /* 0x00fb2f70 */
-    INT sub_00fb3020(INT); /* 0x00fb3020 */
-    void sub_00fb3580(INT); /* 0x00fb3580 */
-    void sub_00fb35c0(INT); /* 0x00fb35c0 */
-    void sub_00fb3600(INT); /* 0x00fb3600 */
-    INT sub_00fb56b0(INT); /* 0x00fb56b0 */
-    INT sub_00fb5990(); /* 0x00fb5990 */
-    INT sub_00fb59a0(); /* 0x00fb59a0 */
-    INT sub_00fb59c0(); /* 0x00fb59c0 */
-    INT sub_00fb59d0(); /* 0x00fb59d0 */
-    INT sub_00fb5a50(); /* 0x00fb5a50 */
-    INT sub_00fb5a70(); /* 0x00fb5a70 */
-    INT sub_00fb5d80(INT); /* 0x00fb5d80 */
-    INT sub_00fb5df0(INT); /* 0x00fb5df0 */
-    UINT sub_00fb6cc0(BYTE); /* 0x00fb6cc0 */
     void sub_00fbb060(); /* 0x00fbb060 */
-    void sub_00fbbd70(); /* 0x00fbbd70 */
-    INT sub_00fbcac0(); /* 0x00fbcac0 */
-    INT sub_00fbcfa0(); /* 0x00fbcfa0 */
-    INT sub_00fbcfc0(); /* 0x00fbcfc0 */
-    INT sub_00fbd040(); /* 0x00fbd040 */
     UINT sub_00fbd3e0(BYTE); /* 0x00fbd3e0 */
-    void sub_00fbd960(); /* 0x00fbd960 */
-    UINT sub_00fbdb00(UINT, UINT); /* 0x00fbdb00 */
-    void sub_00fbdb70(); /* 0x00fbdb70 */
-    UINT sub_00fbdb80(UINT, UINT); /* 0x00fbdb80 */
-    UINT sub_00fbdc80(UINT, UINT); /* 0x00fbdc80 */
-    UINT sub_00fbdca0(UINT, UINT); /* 0x00fbdca0 */
-    INT sub_00fbdd80(); /* 0x00fbdd80 */
-    INT sub_00fbde20(UINT, UINT); /* 0x00fbde20 */
-    INT sub_00fbde40(UINT, UINT); /* 0x00fbde40 */
-    void sub_00fbde60(); /* 0x00fbde60 */
-    INT sub_00fbde80(UINT, UINT); /* 0x00fbde80 */
-    INT sub_00fbdea0(UINT, UINT); /* 0x00fbdea0 */
-    INT sub_00fbdec0(UINT, UINT); /* 0x00fbdec0 */
-    INT sub_00fbdee0(UINT, UINT); /* 0x00fbdee0 */
-    INT sub_00fbdf00(UINT, UINT); /* 0x00fbdf00 */
-    INT sub_00fbdf20(UINT, UINT); /* 0x00fbdf20 */
-    INT sub_00fbdf60(); /* 0x00fbdf60 */
-    INT sub_00fbdf80(); /* 0x00fbdf80 */
-    INT sub_00fbdfa0(); /* 0x00fbdfa0 */
-    INT sub_00fbdfc0(UINT, UINT); /* 0x00fbdfc0 */
-    INT sub_00fbdfe0(); /* 0x00fbdfe0 */
-    INT sub_00fbe840(UINT, UINT, UINT); /* 0x00fbe840 */
-    INT sub_00fbe8e0(UINT, UINT, UINT); /* 0x00fbe8e0 */
-    INT sub_00fbe970(UINT, UINT, UINT); /* 0x00fbe970 */
-    INT sub_00fbe9c0(UINT, UINT, UINT); /* 0x00fbe9c0 */
-    INT sub_00fbea50(); /* 0x00fbea50 */
-    INT sub_00fbeb10(); /* 0x00fbeb10 */
-    INT sub_00fbeb30(); /* 0x00fbeb30 */
-    void sub_00fbeb50(); /* 0x00fbeb50 */
-    INT sub_00fbeb70(); /* 0x00fbeb70 */
-    INT sub_00fbebe0(); /* 0x00fbebe0 */
-    INT sub_00fc9770(); /* 0x00fc9770 */
-    INT sub_00fc9790(); /* 0x00fc9790 */
-    void sub_00fc97b0(); /* 0x00fc97b0 */
-    INT sub_00fc97d0(); /* 0x00fc97d0 */
-    INT sub_00fc98b0(); /* 0x00fc98b0 */
-    INT sub_00fcb720(); /* 0x00fcb720 */
-    void sub_00fd8420(); /* 0x00fd8420 */
-    INT sub_00fd84b0(); /* 0x00fd84b0 */
-    INT sub_00fd8a90(); /* 0x00fd8a90 */
-    INT sub_00fda770(); /* 0x00fda770 */
-    INT sub_00fe40d0(); /* 0x00fe40d0 */
-    INT sub_00ffa710(INT); /* 0x00ffa710 */
-    INT sub_00ffc150(INT); /* 0x00ffc150 */
-    UINT sub_00ffc6e0(BYTE); /* 0x00ffc6e0 */
-    INT sub_00fff1c0(INT); /* 0x00fff1c0 */
-    void sub_00fff740(); /* 0x00fff740 */
-    UINT* sub_00fff7c0(INT*); /* 0x00fff7c0 */
-    UINT* sub_00fff7f0(INT*); /* 0x00fff7f0 */
-    INT sub_01003010(); /* 0x01003010 */
-    void sub_01003280(); /* 0x01003280 */
-    UINT sub_01003510(UINT, UINT); /* 0x01003510 */
-    INT sub_01003530(UINT, UINT); /* 0x01003530 */
-    INT sub_01003550(UINT, UINT); /* 0x01003550 */
-    void sub_01003570(); /* 0x01003570 */
-    INT sub_01003590(); /* 0x01003590 */
-    INT sub_010035b0(); /* 0x010035b0 */
-    INT sub_01004690(UINT, UINT, UINT); /* 0x01004690 */
-    INT sub_010046e0(); /* 0x010046e0 */
-    INT sub_01004700(); /* 0x01004700 */
-    INT sub_010054a0(); /* 0x010054a0 */
-    INT sub_010054c0(); /* 0x010054c0 */
-    INT sub_0100bec0(); /* 0x0100bec0 */
-    UINT sub_0100c650(BYTE); /* 0x0100c650 */
-    UINT sub_01017d50(UINT); /* 0x01017d50 */
-    UINT* sub_01017d70(BYTE); /* 0x01017d70 */
     UINT sub_01017e50(UINT); /* 0x01017e50 */
     INT sub_0101c520(INT); /* 0x0101c520 */
     INT sub_0101c5d0(INT); /* 0x0101c5d0 */
@@ -14807,7 +12355,6 @@ struct UTexture2D : public UTexture {
     void sub_0101e9e0(); /* 0x0101e9e0 */
     void sub_0101ea40(); /* 0x0101ea40 */
     void sub_0101eaa0(); /* 0x0101eaa0 */
-    INT sub_01021380(INT); /* 0x01021380 */
     INT sub_010213b0(); /* 0x010213b0 */
     INT sub_010214f0(INT); /* 0x010214f0 */
     INT sub_01021970(); /* 0x01021970 */
@@ -14845,7 +12392,6 @@ struct UTexture2D : public UTexture {
     INT sub_010234d0(); /* 0x010234d0 */
     INT sub_010234e0(INT); /* 0x010234e0 */
     INT sub_01023510(); /* 0x01023510 */
-    INT sub_010274d0(INT); /* 0x010274d0 */
     INT sub_01027510(); /* 0x01027510 */
     INT sub_01027520(); /* 0x01027520 */
     INT sub_010276f0(INT); /* 0x010276f0 */
@@ -14894,13 +12440,11 @@ struct UTexture2D : public UTexture {
     INT sub_0102fca0(INT); /* 0x0102fca0 */
     INT sub_0102fd60(INT); /* 0x0102fd60 */
     INT sub_0102fe70(INT); /* 0x0102fe70 */
-    INT sub_010330b0(); /* 0x010330b0 */
     UINT sub_010344c0(BYTE); /* 0x010344c0 */
     INT sub_01035af0(); /* 0x01035af0 */
     INT sub_01035b10(); /* 0x01035b10 */
     INT sub_01035b30(); /* 0x01035b30 */
     INT sub_01035b50(); /* 0x01035b50 */
-    INT sub_01036bd0(); /* 0x01036bd0 */
     void sub_01037c40(); /* 0x01037c40 */
     UINT sub_01037dd0(UINT, UINT); /* 0x01037dd0 */
     void sub_01037e80(); /* 0x01037e80 */
@@ -14927,13 +12471,6 @@ struct UTexture2D : public UTexture {
     INT sub_010383d0(); /* 0x010383d0 */
     INT sub_010383f0(); /* 0x010383f0 */
     INT sub_01038410(); /* 0x01038410 */
-    INT sub_01038aa0(UINT, UINT); /* 0x01038aa0 */
-    INT sub_01038ac0(UINT, UINT); /* 0x01038ac0 */
-    INT sub_01038ae0(UINT, UINT); /* 0x01038ae0 */
-    INT sub_01038b00(UINT, UINT); /* 0x01038b00 */
-    INT sub_01038b20(UINT, UINT); /* 0x01038b20 */
-    INT sub_01038c80(); /* 0x01038c80 */
-    UINT sub_01038ca0(BYTE); /* 0x01038ca0 */
     INT sub_01038e50(UINT, UINT, UINT); /* 0x01038e50 */
     void sub_01038e80(); /* 0x01038e80 */
     INT sub_010391e0(UINT, UINT, UINT); /* 0x010391e0 */
@@ -14943,37 +12480,10 @@ struct UTexture2D : public UTexture {
     INT sub_01039360(); /* 0x01039360 */
     INT sub_01039380(); /* 0x01039380 */
     INT sub_010393a0(); /* 0x010393a0 */
-    UINT sub_0103c6e0(BYTE); /* 0x0103c6e0 */
-    INT sub_0103c710(); /* 0x0103c710 */
     INT sub_0103d810(); /* 0x0103d810 */
     INT sub_0103d830(); /* 0x0103d830 */
     INT sub_0103d850(); /* 0x0103d850 */
     INT sub_0103d870(); /* 0x0103d870 */
-    INT sub_0103d9a0(); /* 0x0103d9a0 */
-    INT sub_0103da00(); /* 0x0103da00 */
-    INT sub_0103e570(); /* 0x0103e570 */
-    INT sub_0103e620(); /* 0x0103e620 */
-    INT sub_01042c00(); /* 0x01042c00 */
-    UINT sub_01042c20(BYTE); /* 0x01042c20 */
-    UINT sub_010454e0(BYTE); /* 0x010454e0 */
-    UINT sub_01045500(BYTE); /* 0x01045500 */
-    UINT sub_01045520(BYTE); /* 0x01045520 */
-    UINT sub_01045540(BYTE); /* 0x01045540 */
-    UINT sub_01045560(BYTE); /* 0x01045560 */
-    INT sub_01045590(); /* 0x01045590 */
-    UINT sub_01045a90(BYTE); /* 0x01045a90 */
-    INT sub_0104f540(); /* 0x0104f540 */
-    INT sub_0104f560(); /* 0x0104f560 */
-    INT sub_0104f580(); /* 0x0104f580 */
-    INT sub_0104f5a0(); /* 0x0104f5a0 */
-    INT sub_0104f5c0(); /* 0x0104f5c0 */
-    INT sub_0104f5e0(); /* 0x0104f5e0 */
-    INT sub_0104f600(); /* 0x0104f600 */
-    INT sub_0104f620(); /* 0x0104f620 */
-    INT sub_0104f640(); /* 0x0104f640 */
-    INT sub_0104f660(); /* 0x0104f660 */
-    INT sub_0104f680(); /* 0x0104f680 */
-    INT sub_0104f6a0(); /* 0x0104f6a0 */
     void sub_0104f6c0(); /* 0x0104f6c0 */
     void sub_0104f6e0(); /* 0x0104f6e0 */
     void sub_0104f700(); /* 0x0104f700 */
@@ -14991,158 +12501,27 @@ struct UTexture2D : public UTexture {
     INT sub_010500a0(); /* 0x010500a0 */
     INT sub_010500c0(); /* 0x010500c0 */
     INT sub_010500e0(); /* 0x010500e0 */
-    INT sub_01050640(); /* 0x01050640 */
-    INT sub_01050660(); /* 0x01050660 */
-    INT sub_01050680(); /* 0x01050680 */
-    INT sub_010506a0(); /* 0x010506a0 */
-    INT sub_010506c0(); /* 0x010506c0 */
-    INT sub_010506e0(); /* 0x010506e0 */
-    INT sub_01050700(); /* 0x01050700 */
-    INT sub_01050720(); /* 0x01050720 */
-    INT sub_01050740(); /* 0x01050740 */
-    INT sub_01050760(); /* 0x01050760 */
-    INT sub_01050780(); /* 0x01050780 */
-    INT sub_010507a0(); /* 0x010507a0 */
     INT sub_01050e40(); /* 0x01050e40 */
     INT sub_01050e60(); /* 0x01050e60 */
     INT sub_01050e80(); /* 0x01050e80 */
     INT sub_01050ea0(); /* 0x01050ea0 */
     INT sub_01050ec0(); /* 0x01050ec0 */
-    INT sub_01050fa0(); /* 0x01050fa0 */
-    INT sub_01050fc0(); /* 0x01050fc0 */
-    INT sub_01050fe0(); /* 0x01050fe0 */
-    INT sub_01051000(); /* 0x01051000 */
-    INT sub_01051020(); /* 0x01051020 */
-    INT sub_01051040(); /* 0x01051040 */
-    INT sub_01051060(); /* 0x01051060 */
-    INT sub_01051080(); /* 0x01051080 */
-    INT sub_010510a0(); /* 0x010510a0 */
-    INT sub_010510c0(); /* 0x010510c0 */
-    INT sub_010510e0(); /* 0x010510e0 */
-    INT sub_01051100(); /* 0x01051100 */
     INT sub_01054050(); /* 0x01054050 */
     INT sub_01054070(); /* 0x01054070 */
     INT sub_01054090(); /* 0x01054090 */
     INT sub_010540b0(); /* 0x010540b0 */
     INT sub_010540d0(); /* 0x010540d0 */
-    INT sub_010541b0(); /* 0x010541b0 */
-    INT sub_010541d0(); /* 0x010541d0 */
-    INT sub_010541f0(); /* 0x010541f0 */
-    INT sub_01054210(); /* 0x01054210 */
-    INT sub_01054230(); /* 0x01054230 */
-    INT sub_01054250(); /* 0x01054250 */
-    INT sub_01054270(); /* 0x01054270 */
-    INT sub_01054290(); /* 0x01054290 */
-    INT sub_010542b0(); /* 0x010542b0 */
-    INT sub_010542d0(); /* 0x010542d0 */
-    INT sub_010542f0(); /* 0x010542f0 */
-    INT sub_01054310(); /* 0x01054310 */
     INT sub_01054670(); /* 0x01054670 */
     INT sub_01054690(); /* 0x01054690 */
     INT sub_010546b0(); /* 0x010546b0 */
     INT sub_010546d0(); /* 0x010546d0 */
     INT sub_010546f0(); /* 0x010546f0 */
-    UINT sub_01054f80(BYTE); /* 0x01054f80 */
-    INT sub_01059310(); /* 0x01059310 */
-    INT sub_010593a0(); /* 0x010593a0 */
-    INT sub_010593d0(); /* 0x010593d0 */
-    INT sub_01059400(); /* 0x01059400 */
-    UINT* sub_01091a40(UINT*); /* 0x01091a40 */
     INT sub_01091a80(); /* 0x01091a80 */
-    INT sub_01091a90(INT); /* 0x01091a90 */
-    INT sub_01091ab0(INT); /* 0x01091ab0 */
-    INT sub_01091ac0(); /* 0x01091ac0 */
-    INT sub_01091ae0(); /* 0x01091ae0 */
-    INT sub_01091af0(INT); /* 0x01091af0 */
-    INT sub_01091b00(); /* 0x01091b00 */
-    INT sub_01091b20(); /* 0x01091b20 */
-    INT sub_01091b30(); /* 0x01091b30 */
-    INT sub_01091b40(); /* 0x01091b40 */
-    INT sub_01091c50(INT); /* 0x01091c50 */
-    INT sub_01091c60(); /* 0x01091c60 */
-    INT sub_01091c70(); /* 0x01091c70 */
-    INT sub_01091c90(); /* 0x01091c90 */
-    INT sub_01091ca0(); /* 0x01091ca0 */
-    UINT sub_01091e50(BYTE); /* 0x01091e50 */
-    INT sub_01091e70(INT); /* 0x01091e70 */
     UINT* sub_01091f20(INT*); /* 0x01091f20 */
-    INT sub_01091f80(UINT); /* 0x01091f80 */
-    INT sub_01091fa0(INT); /* 0x01091fa0 */
     UINT* sub_01092050(INT*); /* 0x01092050 */
-    INT sub_010920b0(UINT); /* 0x010920b0 */
-    INT sub_010923b0(UINT); /* 0x010923b0 */
-    INT sub_01092470(INT); /* 0x01092470 */
-    INT sub_010925a0(INT); /* 0x010925a0 */
-    INT sub_01092790(INT); /* 0x01092790 */
-    INT sub_010928d0(UINT); /* 0x010928d0 */
-    INT sub_010928f0(); /* 0x010928f0 */
-    INT sub_01092900(); /* 0x01092900 */
-    INT sub_01092990(INT); /* 0x01092990 */
-    INT sub_01092a90(INT); /* 0x01092a90 */
-    INT sub_01092b30(INT); /* 0x01092b30 */
-    INT sub_01092b40(INT); /* 0x01092b40 */
-    INT sub_01092b50(INT); /* 0x01092b50 */
-    INT sub_01092be0(INT); /* 0x01092be0 */
-    INT sub_01092ce0(INT); /* 0x01092ce0 */
-    INT sub_01092d80(INT); /* 0x01092d80 */
-    INT sub_01092d90(INT); /* 0x01092d90 */
-    INT sub_01092da0(INT); /* 0x01092da0 */
-    INT sub_01092e30(INT); /* 0x01092e30 */
-    INT sub_01092ef0(); /* 0x01092ef0 */
-    INT sub_01092f40(); /* 0x01092f40 */
-    INT sub_01092f50(INT); /* 0x01092f50 */
-    INT sub_01092f60(INT); /* 0x01092f60 */
-    INT sub_01092f70(INT); /* 0x01092f70 */
-    INT sub_01092f80(INT); /* 0x01092f80 */
-    INT sub_01092f90(INT); /* 0x01092f90 */
-    INT sub_01092fa0(INT); /* 0x01092fa0 */
-    INT sub_010931a0(); /* 0x010931a0 */
-    INT sub_010931e0(); /* 0x010931e0 */
-    INT sub_010931f0(); /* 0x010931f0 */
-    INT sub_01093200(); /* 0x01093200 */
-    INT sub_01093210(); /* 0x01093210 */
-    INT sub_01093220(); /* 0x01093220 */
-    INT sub_01093230(); /* 0x01093230 */
-    INT sub_01093250(); /* 0x01093250 */
-    INT sub_01093260(); /* 0x01093260 */
-    INT sub_01093270(); /* 0x01093270 */
-    UINT sub_010936d0(BYTE); /* 0x010936d0 */
     INT sub_010952b0(INT); /* 0x010952b0 */
-    INT sub_01095360(); /* 0x01095360 */
-    INT sub_01095380(); /* 0x01095380 */
-    INT sub_01095390(); /* 0x01095390 */
-    INT sub_01095400(); /* 0x01095400 */
-    INT sub_01095420(); /* 0x01095420 */
-    INT sub_01095430(); /* 0x01095430 */
-    INT sub_01095440(); /* 0x01095440 */
-    INT sub_01095450(); /* 0x01095450 */
-    INT sub_010955c0(); /* 0x010955c0 */
-    INT sub_010955d0(); /* 0x010955d0 */
-    INT sub_010955f0(); /* 0x010955f0 */
-    INT sub_01095600(); /* 0x01095600 */
-    INT sub_01095620(); /* 0x01095620 */
-    INT sub_01095640(INT); /* 0x01095640 */
-    INT sub_01095680(INT); /* 0x01095680 */
-    INT sub_010956c0(INT); /* 0x010956c0 */
-    INT sub_010956f0(INT); /* 0x010956f0 */
-    INT sub_01095720(INT); /* 0x01095720 */
-    INT sub_01095940(); /* 0x01095940 */
-    INT sub_01095990(); /* 0x01095990 */
-    UINT sub_01095b80(); /* 0x01095b80 */
-    INT sub_01095b90(); /* 0x01095b90 */
-    INT sub_01095be0(); /* 0x01095be0 */
-    UINT sub_01095c30(); /* 0x01095c30 */
-    INT sub_01095c40(); /* 0x01095c40 */
-    INT sub_01095c90(); /* 0x01095c90 */
     UINT* sub_01095f70(UINT*); /* 0x01095f70 */
     UINT* sub_01095f90(UINT*); /* 0x01095f90 */
-    UINT sub_01097730(BYTE); /* 0x01097730 */
-    UINT sub_01097750(BYTE); /* 0x01097750 */
-    UINT sub_01097770(BYTE); /* 0x01097770 */
-    UINT sub_01097790(BYTE); /* 0x01097790 */
-    UINT sub_010977c0(BYTE); /* 0x010977c0 */
-    INT sub_0109acd0(INT); /* 0x0109acd0 */
-    INT sub_0109ad10(INT); /* 0x0109ad10 */
     UINT sub_0109ad90(INT); /* 0x0109ad90 */
     INT sub_0109add0(INT); /* 0x0109add0 */
     INT sub_0109b0a0(INT); /* 0x0109b0a0 */
@@ -15182,13 +12561,11 @@ struct UTexture2D : public UTexture {
     void sub_010a3170(); /* 0x010a3170 */
     INT sub_010a39d0(); /* 0x010a39d0 */
     INT sub_010a3bd0(); /* 0x010a3bd0 */
-    INT sub_010a44a0(); /* 0x010a44a0 */
     INT sub_010a4520(); /* 0x010a4520 */
     INT sub_010a4600(); /* 0x010a4600 */
     INT sub_010a46e0(); /* 0x010a46e0 */
     INT sub_010a4800(); /* 0x010a4800 */
     INT sub_010a4820(); /* 0x010a4820 */
-    UINT sub_010a4900(BYTE); /* 0x010a4900 */
     INT sub_010a4cc0(); /* 0x010a4cc0 */
     INT sub_010a4e30(); /* 0x010a4e30 */
     INT sub_010a4e50(); /* 0x010a4e50 */
@@ -15215,45 +12592,14 @@ struct UTexture2D : public UTexture {
     UINT sub_010a6850(UINT, UINT); /* 0x010a6850 */
     void sub_010a6870(); /* 0x010a6870 */
     UINT sub_010a6940(UINT, UINT); /* 0x010a6940 */
-    INT sub_010a6960(UINT, UINT); /* 0x010a6960 */
-    INT sub_010a6980(UINT, UINT); /* 0x010a6980 */
-    INT sub_010a69a0(UINT, UINT); /* 0x010a69a0 */
-    INT sub_010a69c0(UINT, UINT); /* 0x010a69c0 */
-    INT sub_010a69e0(UINT, UINT); /* 0x010a69e0 */
-    INT sub_010a6a00(UINT, UINT); /* 0x010a6a00 */
-    INT sub_010a6a20(UINT, UINT); /* 0x010a6a20 */
-    INT sub_010a6a40(UINT, UINT); /* 0x010a6a40 */
-    INT sub_010a6a60(UINT, UINT); /* 0x010a6a60 */
-    INT sub_010a6a80(UINT, UINT); /* 0x010a6a80 */
-    INT sub_010a6aa0(UINT, UINT); /* 0x010a6aa0 */
-    INT sub_010a6ac0(UINT, UINT); /* 0x010a6ac0 */
-    INT sub_010a6ae0(UINT, UINT); /* 0x010a6ae0 */
-    INT sub_010a6b00(); /* 0x010a6b00 */
-    INT sub_010a6ba0(UINT); /* 0x010a6ba0 */
     INT sub_010a6c20(); /* 0x010a6c20 */
     INT sub_010a6cc0(); /* 0x010a6cc0 */
     INT sub_010a6d60(); /* 0x010a6d60 */
-    INT sub_010a6d80(UINT, UINT); /* 0x010a6d80 */
-    INT sub_010a6e20(UINT, UINT); /* 0x010a6e20 */
     INT sub_010a6ec0(); /* 0x010a6ec0 */
     INT sub_010a6ee0(); /* 0x010a6ee0 */
-    INT sub_010a7110(); /* 0x010a7110 */
-    INT sub_010a7130(); /* 0x010a7130 */
-    INT sub_010a7150(); /* 0x010a7150 */
-    INT sub_010a7170(); /* 0x010a7170 */
-    INT sub_010a7190(); /* 0x010a7190 */
-    INT sub_010a71b0(); /* 0x010a71b0 */
-    INT sub_010a78c0(); /* 0x010a78c0 */
-    INT sub_010a7a00(UINT, UINT, UINT); /* 0x010a7a00 */
-    INT sub_010a7a90(); /* 0x010a7a90 */
-    INT sub_010a7b30(UINT, UINT, UINT); /* 0x010a7b30 */
-    INT sub_010a7be0(UINT, UINT, UINT); /* 0x010a7be0 */
-    INT sub_010a7c90(); /* 0x010a7c90 */
     INT sub_010a7dc0(); /* 0x010a7dc0 */
     INT sub_010a7e50(); /* 0x010a7e50 */
     INT sub_010a7ee0(); /* 0x010a7ee0 */
-    UINT sub_010a7f50(UINT, UINT); /* 0x010a7f50 */
-    UINT sub_010a7fc0(UINT, UINT); /* 0x010a7fc0 */
     INT sub_010a7fe0(); /* 0x010a7fe0 */
     INT sub_010a8000(); /* 0x010a8000 */
     INT sub_010a8350(); /* 0x010a8350 */
@@ -15262,7 +12608,6 @@ struct UTexture2D : public UTexture {
     INT sub_010a83b0(); /* 0x010a83b0 */
     INT sub_010a83d0(); /* 0x010a83d0 */
     INT sub_010a83f0(); /* 0x010a83f0 */
-    INT sub_010ac990(); /* 0x010ac990 */
     void sub_010ac9b0(); /* 0x010ac9b0 */
     INT sub_010ac9c0(); /* 0x010ac9c0 */
     INT sub_010acd20(); /* 0x010acd20 */
@@ -15273,180 +12618,18 @@ struct UTexture2D : public UTexture {
     void* sub_010af2d0(INT); /* 0x010af2d0 */
     void sub_010af2f0(); /* 0x010af2f0 */
     void* sub_010b1c20(INT); /* 0x010b1c20 */
-    UINT sub_010b1e50(BYTE); /* 0x010b1e50 */
-    void sub_010b5120(); /* 0x010b5120 */
-    INT sub_010b5140(); /* 0x010b5140 */
-    INT sub_010b5230(); /* 0x010b5230 */
-    INT sub_010b5480(); /* 0x010b5480 */
-    INT sub_010b54c0(); /* 0x010b54c0 */
-    INT sub_010b5620(UINT); /* 0x010b5620 */
-    UINT sub_010b5640(BYTE); /* 0x010b5640 */
     void sub_010b59e0(); /* 0x010b59e0 */
-    INT sub_010c70e0(INT); /* 0x010c70e0 */
-    UINT sub_010f2b00(BYTE); /* 0x010f2b00 */
-    INT sub_011a0e40(INT); /* 0x011a0e40 */
-    INT sub_011a0f30(INT); /* 0x011a0f30 */
-    INT sub_011a0fd0(INT); /* 0x011a0fd0 */
-    INT sub_011a10d0(INT); /* 0x011a10d0 */
-    INT sub_011a9fe0(INT); /* 0x011a9fe0 */
-    INT sub_011aa010(INT); /* 0x011aa010 */
-    INT sub_011aa0b0(INT); /* 0x011aa0b0 */
-    INT sub_011aa0e0(INT); /* 0x011aa0e0 */
-    INT sub_011ad0b0(INT); /* 0x011ad0b0 */
-    UINT sub_011ad1a0(INT); /* 0x011ad1a0 */
-    INT sub_011b50d0(); /* 0x011b50d0 */
-    INT sub_011b50f0(); /* 0x011b50f0 */
-    INT sub_011b5110(); /* 0x011b5110 */
-    INT sub_011b5130(); /* 0x011b5130 */
-    INT sub_011b5150(); /* 0x011b5150 */
-    void sub_011b5b80(); /* 0x011b5b80 */
-    UINT sub_011b5e40(UINT, UINT); /* 0x011b5e40 */
-    INT sub_011b5e60(UINT, UINT); /* 0x011b5e60 */
-    INT sub_011b5e80(UINT, UINT); /* 0x011b5e80 */
-    INT sub_011b5ea0(UINT, UINT); /* 0x011b5ea0 */
-    INT sub_011b5ec0(UINT, UINT); /* 0x011b5ec0 */
-    INT sub_011b5ee0(UINT, UINT); /* 0x011b5ee0 */
-    INT sub_011b5f00(); /* 0x011b5f00 */
-    INT sub_011b5f20(); /* 0x011b5f20 */
-    INT sub_011b5f40(); /* 0x011b5f40 */
-    INT sub_011b5f60(); /* 0x011b5f60 */
-    INT sub_011b5f80(); /* 0x011b5f80 */
-    INT sub_011b6180(UINT, UINT, UINT); /* 0x011b6180 */
-    INT sub_011b61d0(); /* 0x011b61d0 */
-    INT sub_011b61f0(); /* 0x011b61f0 */
-    INT sub_011b6210(); /* 0x011b6210 */
-    INT sub_011b6230(); /* 0x011b6230 */
-    INT sub_011b6250(); /* 0x011b6250 */
-    INT sub_011ba050(); /* 0x011ba050 */
-    INT sub_011ba070(); /* 0x011ba070 */
-    INT sub_011ba090(); /* 0x011ba090 */
-    INT sub_011ba0b0(); /* 0x011ba0b0 */
-    INT sub_011ba0d0(); /* 0x011ba0d0 */
-    INT sub_01468c80(INT); /* 0x01468c80 */
     INT sub_01485d00(INT); /* 0x01485d00 */
     INT sub_01489910(INT); /* 0x01489910 */
-    INT sub_0148b790(); /* 0x0148b790 */
-    INT sub_0148c990(); /* 0x0148c990 */
-    INT sub_0148d400(); /* 0x0148d400 */
-    INT sub_0148f710(); /* 0x0148f710 */
-    UINT sub_01499490(BYTE); /* 0x01499490 */
-    UINT* sub_0149b460(); /* 0x0149b460 */
-    INT sub_014a1140(INT); /* 0x014a1140 */
-    INT sub_014a6210(INT); /* 0x014a6210 */
-    INT sub_014acb80(INT); /* 0x014acb80 */
-    INT sub_014acc10(INT); /* 0x014acc10 */
-    INT sub_014acc60(); /* 0x014acc60 */
-    UINT sub_014acd40(BYTE); /* 0x014acd40 */
-    UINT* sub_014ace70(UINT*); /* 0x014ace70 */
-    INT sub_014b2a50(INT); /* 0x014b2a50 */
-    INT sub_014b2ab0(); /* 0x014b2ab0 */
-    UINT* sub_014b2e00(UINT*); /* 0x014b2e00 */
-    UINT* sub_014b2f30(UINT*); /* 0x014b2f30 */
-    UINT sub_014b31c0(BYTE); /* 0x014b31c0 */
-    INT sub_014ba300(); /* 0x014ba300 */
-    INT sub_014bafc0(); /* 0x014bafc0 */
-    INT sub_014bafe0(); /* 0x014bafe0 */
-    INT sub_014bb000(); /* 0x014bb000 */
-    INT sub_014bb0f0(); /* 0x014bb0f0 */
-    void sub_014bc070(); /* 0x014bc070 */
-    UINT sub_014bc080(UINT, UINT); /* 0x014bc080 */
-    INT sub_014bc0a0(UINT, UINT); /* 0x014bc0a0 */
-    INT sub_014bc0c0(UINT, UINT); /* 0x014bc0c0 */
-    INT sub_014bc0e0(UINT, UINT); /* 0x014bc0e0 */
-    INT sub_014bc100(UINT, UINT); /* 0x014bc100 */
-    INT sub_014bc120(); /* 0x014bc120 */
-    INT sub_014bc140(); /* 0x014bc140 */
-    INT sub_014bc160(); /* 0x014bc160 */
-    INT sub_014bc230(); /* 0x014bc230 */
-    INT sub_014bc670(UINT, UINT, UINT); /* 0x014bc670 */
-    INT sub_014bc6c0(); /* 0x014bc6c0 */
-    INT sub_014bc6e0(); /* 0x014bc6e0 */
-    INT sub_014bc700(); /* 0x014bc700 */
-    INT sub_014bc790(); /* 0x014bc790 */
-    INT sub_014bdc10(); /* 0x014bdc10 */
-    INT sub_014bdc30(); /* 0x014bdc30 */
-    INT sub_014bdc50(); /* 0x014bdc50 */
-    INT sub_014c3710(INT); /* 0x014c3710 */
-    UINT sub_014c3740(BYTE); /* 0x014c3740 */
-    void sub_014c3fa0(); /* 0x014c3fa0 */
-    INT sub_014d7910(INT); /* 0x014d7910 */
     INT sub_014d7940(INT); /* 0x014d7940 */
-    INT sub_014d8810(INT); /* 0x014d8810 */
     INT sub_014d8850(INT); /* 0x014d8850 */
     INT sub_014d8f40(); /* 0x014d8f40 */
     INT sub_014d9220(); /* 0x014d9220 */
     INT sub_014d9270(); /* 0x014d9270 */
     INT sub_014d9a50(); /* 0x014d9a50 */
-    INT sub_014d9ae0(); /* 0x014d9ae0 */
-    INT sub_014db190(); /* 0x014db190 */
-    INT sub_014db230(); /* 0x014db230 */
-    INT sub_014dbb40(); /* 0x014dbb40 */
-    INT sub_014dbb70(); /* 0x014dbb70 */
-    INT sub_01501f30(); /* 0x01501f30 */
-    INT sub_01501fc0(); /* 0x01501fc0 */
-    INT sub_01501ff0(); /* 0x01501ff0 */
-    INT sub_01502020(); /* 0x01502020 */
-    INT sub_01508430(); /* 0x01508430 */
-    INT sub_015084c0(); /* 0x015084c0 */
-    INT sub_015084f0(); /* 0x015084f0 */
-    INT sub_01509570(); /* 0x01509570 */
-    INT sub_01515760(INT); /* 0x01515760 */
-    INT sub_01515770(); /* 0x01515770 */
-    INT sub_01526980(INT); /* 0x01526980 */
-    INT sub_01526a10(INT); /* 0x01526a10 */
-    INT sub_0152b7e0(INT); /* 0x0152b7e0 */
-    INT sub_0152b8d0(INT); /* 0x0152b8d0 */
-    INT sub_0152d740(INT); /* 0x0152d740 */
-    INT sub_0152d780(INT); /* 0x0152d780 */
-    void sub_01531890(); /* 0x01531890 */
-    UINT sub_015318a0(UINT, UINT); /* 0x015318a0 */
-    void sub_015318c0(); /* 0x015318c0 */
-    UINT sub_015319c0(UINT, UINT); /* 0x015319c0 */
-    void sub_01531bf0(); /* 0x01531bf0 */
-    UINT sub_01531cf0(UINT, UINT); /* 0x01531cf0 */
-    INT sub_01531d10(UINT, UINT); /* 0x01531d10 */
-    INT sub_01531d30(UINT, UINT); /* 0x01531d30 */
-    INT sub_015331e0(UINT, UINT, UINT); /* 0x015331e0 */
-    INT sub_01533270(UINT, UINT, UINT); /* 0x01533270 */
-    INT sub_015332c0(); /* 0x015332c0 */
-    INT sub_01533350(); /* 0x01533350 */
-    INT sub_015334a0(UINT, UINT, UINT); /* 0x015334a0 */
-    UINT sub_015f2830(BYTE); /* 0x015f2830 */
-    UINT sub_01650190(BYTE); /* 0x01650190 */
-    INT sub_01740f20(INT); /* 0x01740f20 */
-    INT sub_01741020(INT); /* 0x01741020 */
-    INT sub_01743b10(INT); /* 0x01743b10 */
-    INT sub_01743b40(INT); /* 0x01743b40 */
-    INT sub_01743b50(INT); /* 0x01743b50 */
-    INT sub_01743c40(INT); /* 0x01743c40 */
-    INT sub_01743c50(INT); /* 0x01743c50 */
-    INT sub_01743c60(INT); /* 0x01743c60 */
-    INT sub_01746500(INT); /* 0x01746500 */
-    INT sub_01746530(INT); /* 0x01746530 */
-    INT sub_01749d40(INT); /* 0x01749d40 */
-    INT sub_01749d80(INT); /* 0x01749d80 */
-    INT sub_0174c510(); /* 0x0174c510 */
-    INT sub_0174c530(); /* 0x0174c530 */
-    void sub_0174e2e0(); /* 0x0174e2e0 */
-    UINT sub_0174e3b0(UINT, UINT); /* 0x0174e3b0 */
-    INT sub_0174e4e0(UINT, UINT); /* 0x0174e4e0 */
-    INT sub_0174e500(UINT, UINT); /* 0x0174e500 */
-    INT sub_0174e520(UINT, UINT); /* 0x0174e520 */
-    INT sub_0174e550(); /* 0x0174e550 */
-    INT sub_0174e570(); /* 0x0174e570 */
-    INT sub_0174fe80(UINT, UINT, UINT); /* 0x0174fe80 */
-    INT sub_01750210(); /* 0x01750210 */
-    INT sub_01750230(); /* 0x01750230 */
-    UINT sub_01750250(BYTE); /* 0x01750250 */
-    INT sub_01753970(); /* 0x01753970 */
-    INT sub_01753990(); /* 0x01753990 */
-    INT sub_01755870(); /* 0x01755870 */
-    INT sub_017572d0(); /* 0x017572d0 */
     void sub_017573c0(); /* 0x017573c0 */
     UINT sub_017573d0(BYTE); /* 0x017573d0 */
-    INT sub_01757440(); /* 0x01757440 */
     UINT sub_01757600(BYTE); /* 0x01757600 */
-    INT sub_01757690(); /* 0x01757690 */
     /* registered size 0x100 */
 };
 
@@ -16443,11 +13626,7 @@ struct AController : public AActor {
     UBOOL PointReachable(FVector); /* 0x007a0c00 */
     void StopLatentExecution(); /* 0x007a0dc0 */
     ANavigationPoint* FindRandomDest(); /* 0x007ad390 */
-    UINT sub_00773800(BYTE); /* 0x00773800 */
-    UINT* sub_00776950(); /* 0x00776950 */
     bool InLatentExecution(UINT); /* 0x007a0da0 */
-    void sub_007a0ec0(); /* 0x007a0ec0 */
-    UINT* sub_015f4780(); /* 0x015f4780 */
     /* registered size 0x330 */
 };
 
@@ -16726,14 +13905,8 @@ struct APlayerController : public AController {
     void ServerNotifyLoadedWorld(FName); /* 0x007afac0 */
     UBOOL HasClientLoadedCurrentWorld(); /* 0x007afb80 */
     UBOOL IsPlayerMuted(FUniqueNetId&); /* 0x007b5600 */
-    UINT sub_0077cca0(BYTE); /* 0x0077cca0 */
-    UINT* sub_0077cd70(); /* 0x0077cd70 */
     void sub_007a14f0(INT); /* 0x007a14f0 */
     class UInterpTrackInstDirector* sub_007a1500(); /* 0x007a1500: returns ControllingDirTrackInst */
-    UINT* sub_00e27fc0(); /* 0x00e27fc0 */
-    UINT* sub_01533560(); /* 0x01533560 */
-    UINT* sub_016303f0(); /* 0x016303f0 */
-    UINT* sub_01631520(); /* 0x01631520 */
     /* registered size 0x5b0 */
 };
 
@@ -17199,10 +14372,7 @@ struct UAudioComponent : public UActorComponent {
     void KeyOff(); /* 0x00799ea0 */
     void KeyOffOnMarker(); /* 0x00799f70 */
     void ResetToDefaults(); /* 0x0079ab00 */
-    UINT sub_00781c20(BYTE); /* 0x00781c20 */
     UINT sub_00786280(); /* 0x00786280 */
-    UINT sub_00786290(); /* 0x00786290 */
-    void sub_0079c720(UINT); /* 0x0079c720 */
     /* registered size 0x1b8 */
 };
 
@@ -17278,7 +14448,6 @@ struct USoundCue : public UObject {
     void execGetCueDuration(FFrame& Stack, RESULT_DECL); /* 0x00c8ee40 */
     void execGetDistanceProperties(FFrame& Stack, RESULT_DECL); /* 0x00c8ee80 */
     /* other member functions */
-    UINT sub_00cdbae0(BYTE); /* 0x00cdbae0 */
     /* registered size 0xd8 */
 };
 
@@ -18593,12 +15762,6 @@ struct UAnimSequence : public UObject {
     UBOOL CropRawAnimData(FLOAT CurrentTime, UBOOL bFromStart); /* 0x0092a830 */
     void sub_00917b80(FBoneAtom& OutAtom, INT TrackIndex, FLOAT Time, UBOOL bLooping, UBOOL bUseRawData); /* 0x00917b80 */
     UAnimSet* sub_009411e0(); /* 0x009411e0 */
-    UINT sub_0093f9b0(BYTE); /* 0x0093f9b0 */
-    INT sub_00940600(); /* 0x00940600 */
-    INT sub_00940d20(); /* 0x00940d20 */
-    INT sub_00940f70(); /* 0x00940f70 */
-    INT sub_00941720(); /* 0x00941720 */
-    UINT sub_009417b0(UINT); /* 0x009417b0 */
     /* registered size 0x178 */
 };
 
@@ -18782,7 +15945,6 @@ struct ULightEnvironmentComponent : public UActorComponent {
     void execIsEnabled(FFrame& Stack, RESULT_DECL); /* 0x00c8b6d0 */
     /* other member functions */
     void SetEnabled(UBOOL); /* 0x006ad720 */
-    UINT sub_006ad770(); /* 0x006ad770 */
     /* registered size 0x5c */
 };
 
@@ -19138,7 +16300,6 @@ struct UAudioDevice : public USubsystem {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
     void sub_00785f10(INT A, INT B); /* 0x00785f10 */
-    UINT sub_0079cc20(BYTE); /* 0x0079cc20 */
     /* registered size 0x19c */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x0079dea0 */
@@ -19194,62 +16355,7 @@ struct UBrushComponent : public UPrimitiveComponent {
     virtual FPrimitiveSceneProxy* CreateSceneProxy(); /* 0x1fc */
     /* other member functions */
     void sub_00787610(); /* 0x00787610 */
-    UINT* sub_00787620(BYTE); /* 0x00787620 */
-    INT sub_007909d0(INT); /* 0x007909d0 */
-    INT sub_00790a60(INT); /* 0x00790a60 */
-    INT sub_00790b00(INT); /* 0x00790b00 */
-    INT sub_00790b10(INT); /* 0x00790b10 */
-    INT sub_00790b20(); /* 0x00790b20 */
-    INT sub_00793260(INT); /* 0x00793260 */
-    INT sub_00793290(INT); /* 0x00793290 */
-    INT sub_007932c0(INT); /* 0x007932c0 */
-    INT sub_00793570(INT); /* 0x00793570 */
-    INT sub_00794840(INT); /* 0x00794840 */
-    INT sub_00794a80(INT); /* 0x00794a80 */
-    UINT sub_00794af0(BYTE); /* 0x00794af0 */
-    void sub_007967b0(); /* 0x007967b0 */
-    INT sub_00797cd0(); /* 0x00797cd0 */
-    UINT sub_00798a50(UINT, UINT); /* 0x00798a50 */
-    INT sub_00798a70(UINT, UINT); /* 0x00798a70 */
-    INT sub_00798a90(); /* 0x00798a90 */
-    INT sub_007996d0(); /* 0x007996d0 */
-    INT sub_0079bdd0(); /* 0x0079bdd0 */
-    UINT sub_007f21f0(BYTE); /* 0x007f21f0 */
-    void sub_007f5c30(); /* 0x007f5c30 */
     void sub_00a2aa30(); /* 0x00a2aa30 */
-    INT sub_00cc4c50(INT); /* 0x00cc4c50 */
-    INT sub_00cc4c80(); /* 0x00cc4c80 */
-    INT sub_00cc4ca0(); /* 0x00cc4ca0 */
-    INT sub_00cc4e60(INT); /* 0x00cc4e60 */
-    INT sub_00cc7950(); /* 0x00cc7950 */
-    INT sub_00cc7970(); /* 0x00cc7970 */
-    INT sub_00cc7980(); /* 0x00cc7980 */
-    INT sub_00cc7990(); /* 0x00cc7990 */
-    INT sub_00cc79b0(); /* 0x00cc79b0 */
-    INT sub_00cc79d0(INT); /* 0x00cc79d0 */
-    INT sub_00cc7b20(); /* 0x00cc7b20 */
-    INT sub_00cc7b30(); /* 0x00cc7b30 */
-    INT sub_00cc7c30(); /* 0x00cc7c30 */
-    INT sub_00ccbe10(INT); /* 0x00ccbe10 */
-    INT sub_00ccc000(); /* 0x00ccc000 */
-    INT sub_00ccc010(); /* 0x00ccc010 */
-    INT sub_00ccc020(); /* 0x00ccc020 */
-    INT sub_00ccc040(); /* 0x00ccc040 */
-    void sub_00ccc410(); /* 0x00ccc410 */
-    UINT sub_00ccc430(BYTE); /* 0x00ccc430 */
-    UINT sub_00ccc450(BYTE); /* 0x00ccc450 */
-    INT sub_00ccf830(); /* 0x00ccf830 */
-    void sub_00cd1b60(); /* 0x00cd1b60 */
-    UINT sub_00cd1c50(UINT, UINT); /* 0x00cd1c50 */
-    INT sub_00cd1d10(UINT, UINT); /* 0x00cd1d10 */
-    UINT sub_00cd1d30(BYTE); /* 0x00cd1d30 */
-    INT sub_00cd1dd0(); /* 0x00cd1dd0 */
-    INT sub_00cd26c0(UINT, UINT, UINT); /* 0x00cd26c0 */
-    INT sub_00cd2830(); /* 0x00cd2830 */
-    UINT sub_00cd28b0(UINT, UINT); /* 0x00cd28b0 */
-    INT sub_00cd28d0(UINT, UINT); /* 0x00cd28d0 */
-    INT sub_00cd9940(); /* 0x00cd9940 */
-    UINT sub_0117cf20(BYTE); /* 0x0117cf20 */
     /* registered size 0x200 */
 };
 
@@ -19412,21 +16518,11 @@ struct UStaticMeshComponent : public UMeshComponent {
     void execDisableRBCollisionWithSMC(FFrame& Stack, RESULT_DECL); /* 0x00a01d30 */
     /* other member functions */
     void DisableRBCollisionWithSMC(UStaticMeshComponent* OtherSMC, UBOOL bDisabled); /* 0x00a01cc0 */
-    UINT sub_0068f860(BYTE); /* 0x0068f860 */
-    UINT* sub_00691790(); /* 0x00691790 */
-    UINT* sub_007c8890(); /* 0x007c8890 */
-    UINT sub_00823750(BYTE); /* 0x00823750 */
-    void sub_00981800(); /* 0x00981800 */
-    UINT sub_00981910(BYTE); /* 0x00981910 */
-    void sub_00981c00(); /* 0x00981c00 */
-    UINT sub_00997440(BYTE); /* 0x00997440 */
     DOUBLE sub_00bce250(FLOAT); /* 0x00bce250 */
     void* sub_00bce2b0(); /* 0x00bce2b0 */
     INT sub_00bce310(); /* 0x00bce310 */
     INT sub_00bce4e0(); /* 0x00bce4e0 */
     void sub_00bcebc0(UINT); /* 0x00bcebc0 */
-    UINT* sub_01240920(); /* 0x01240920 */
-    UINT* sub_0141c760(); /* 0x0141c760 */
     /* registered size 0x1f0 */
 };
 
@@ -19674,7 +16770,6 @@ struct UCanvas : public UObject {
     void DrawRotatedTile(UTexture* Tex, FRotator Rotation, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, FLOAT AnchorX, FLOAT AnchorY); /* 0x00aaa5f0 */
     void DrawTextureLine(FVector StartPoint, FVector EndPoint, FLOAT Perc, FLOAT Width, FColor LineColor, UTexture* LineTexture, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL); /* 0x00aaad50 */
     void DrawTextureDoubleLine(FVector StartPoint, FVector EndPoint, FLOAT Perc, FLOAT Spacing, FLOAT Width, FColor LineColor, FColor AltLineColor, UTexture* Tex, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL); /* 0x00aab0f0 */
-    UINT* sub_00a651b0(BYTE); /* 0x00a651b0 */
     /* registered size 0x90 */
 };
 
@@ -19743,7 +16838,6 @@ struct UCodecMovie : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00cb2500(BYTE); /* 0x00cb2500 */
     /* registered size 0x34 */
 };
 
@@ -19823,8 +16917,6 @@ struct UInteraction : public UUIRoot {
     UBOOL delegateOnReceivedNativeInputKey(INT ControllerId, FName Key, BYTE EventType, FLOAT AmountDepressed, UBOOL bGamepad); /* 0x00888e10 */
     void eventTick(FLOAT DeltaTime); /* 0x00888f20 */
     UBOOL delegateOnReceivedNativeInputChar(INT ControllerId, const FString& Unicode); /* 0x00895e80 */
-    UINT sub_00889010(BYTE); /* 0x00889010 */
-    UINT* sub_00889040(); /* 0x00889040 */
     /* registered size 0x60 */
 };
 
@@ -19861,7 +16953,6 @@ struct UConsole : public UInteraction {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void eventOutputText(const FString& Text); /* 0x00895f30 */
-    UINT sub_00d81430(BYTE); /* 0x00d81430 */
     /* registered size 0x184 */
 };
 
@@ -20103,8 +17194,6 @@ struct UUIScreenObject : public UUIRoot {
     FVector Project(const FVector& CanvasPosition); /* 0x00dc3550 */
     FVector DeProject(const FVector& PixelPosition); /* 0x00dc3690 */
     FVector PixelToCanvas(const FVector2D& PixelPosition); /* 0x00dc3700 */
-    UINT sub_00da99d0(); /* 0x00da99d0 */
-    UINT sub_00dbcd20(); /* 0x00dbcd20 */
     /* registered size 0x120 */
 };
 
@@ -20274,18 +17363,6 @@ struct UUIObject : public UUIScreenObject {
     void UpdateRotationMatrix(); /* 0x00dc7170 */
     void SetAnchorPosition(FVector NewAnchorPosition, BYTE InputType); /* 0x00dc8f60 */
     UBOOL SetWidgetStyleByName(FName StyleResolverTagToSet, FName StyleFriendlyName); /* 0x00dc9020 */
-    UINT sub_00d99350(BYTE); /* 0x00d99350 */
-    UINT* sub_00d99460(); /* 0x00d99460 */
-    UINT* sub_00d994b0(); /* 0x00d994b0 */
-    UINT* sub_00d99560(); /* 0x00d99560 */
-    UINT* sub_00d99610(); /* 0x00d99610 */
-    UINT sub_00daabf0(); /* 0x00daabf0 */
-    UINT* sub_00db6bb0(); /* 0x00db6bb0 */
-    UINT* sub_00db6cc0(); /* 0x00db6cc0 */
-    UINT* sub_00db6d70(); /* 0x00db6d70 */
-    UINT* sub_00db6dc0(); /* 0x00db6dc0 */
-    UINT* sub_00db6e70(); /* 0x00db6e70 */
-    void sub_00dc8f90(INT, INT, INT, INT); /* 0x00dc8f90 */
     INT sub_00db0fd0(const TScriptInterface<IUIStyleResolver>& Subscriber); /* 0x00db0fd0 */
     /* registered size 0x370 */
 };
@@ -20440,15 +17517,6 @@ struct ACoverLink : public ANavigationPoint {
     UBOOL IsExposedTo(INT SlotIdx, FCoverInfo ChkSlot, FLOAT& out_ExposedScale); /* 0x0085bb70 */
     UBOOL AutoAdjustSlot(INT SlotIdx, UBOOL bOnlyCheckLeans); /* 0x0085e3c0 */
     INT AddCoverSlot(FVector SlotLocation, FRotator SlotRotation, INT SlotIdx, UBOOL bForceSlotUpdate); /* 0x00861460 */
-    INT sub_00857510(); /* 0x00857510 */
-    INT sub_00857530(); /* 0x00857530 */
-    INT sub_00858f70(); /* 0x00858f70 */
-    INT sub_00858f90(); /* 0x00858f90 */
-    INT sub_00859670(); /* 0x00859670 */
-    INT sub_00859690(); /* 0x00859690 */
-    INT sub_00859f60(); /* 0x00859f60 */
-    INT sub_00859f80(); /* 0x00859f80 */
-    UINT sub_0085d420(); /* 0x0085d420 */
     /* registered size 0x2f8 */
 };
 
@@ -21013,30 +18081,8 @@ struct USkeletalMeshComponent : public UMeshComponent {
     void SetSoftBodyFrozen(UBOOL); /* 0x00a339f0 */
     void SetForceRefPose(UBOOL bNewForceRefPose); /* 0x0090eaa0 */
     void sub_0090f260(); /* 0x0090f260 */
-    UINT* sub_0090f270(BYTE); /* 0x0090f270 */
-    UINT sub_0090f2b0(); /* 0x0090f2b0 */
     void sub_0090f2e0(); /* 0x0090f2e0 */
-    UINT* sub_0090f2f0(BYTE); /* 0x0090f2f0 */
-    INT sub_009216c0(INT); /* 0x009216c0 */
-    INT sub_009216d0(); /* 0x009216d0 */
-    INT sub_009216f0(); /* 0x009216f0 */
     INT sub_00921700(); /* 0x00921700 */
-    INT sub_009217b0(INT); /* 0x009217b0 */
-    INT sub_009217c0(); /* 0x009217c0 */
-    INT sub_00921840(INT); /* 0x00921840 */
-    INT sub_00921850(); /* 0x00921850 */
-    INT sub_00921870(INT); /* 0x00921870 */
-    INT sub_00921890(INT); /* 0x00921890 */
-    INT sub_009218a0(); /* 0x009218a0 */
-    INT sub_009218b0(); /* 0x009218b0 */
-    INT sub_009218c0(); /* 0x009218c0 */
-    INT sub_009218d0(); /* 0x009218d0 */
-    INT sub_009218e0(); /* 0x009218e0 */
-    INT sub_009218f0(); /* 0x009218f0 */
-    void sub_0092ed20(INT); /* 0x0092ed20 */
-    UINT sub_0092ede0(BYTE); /* 0x0092ede0 */
-    INT sub_0092ef30(INT); /* 0x0092ef30 */
-    INT sub_0092ef40(INT); /* 0x0092ef40 */
     INT sub_0092f080(); /* 0x0092f080 */
     INT sub_0092f0e0(); /* 0x0092f0e0 */
     INT sub_0092f100(); /* 0x0092f100 */
@@ -21044,79 +18090,9 @@ struct USkeletalMeshComponent : public UMeshComponent {
     INT sub_0092f120(); /* 0x0092f120 */
     INT sub_0092f140(INT); /* 0x0092f140 */
     INT sub_0092f150(); /* 0x0092f150 */
-    INT sub_0092f260(INT); /* 0x0092f260 */
-    INT sub_0092f2f0(INT); /* 0x0092f2f0 */
-    INT sub_0092f3c0(INT); /* 0x0092f3c0 */
-    INT sub_0092f3d0(); /* 0x0092f3d0 */
-    void sub_00935790(UINT); /* 0x00935790 */
     INT sub_00935ef0(); /* 0x00935ef0 */
-    INT sub_00935f00(); /* 0x00935f00 */
-    void sub_00935f90(); /* 0x00935f90 */
-    INT sub_00936230(INT); /* 0x00936230 */
-    INT sub_00936260(INT); /* 0x00936260 */
-    INT sub_00936290(); /* 0x00936290 */
-    UINT sub_00936370(BYTE); /* 0x00936370 */
-    UINT sub_00936390(BYTE); /* 0x00936390 */
-    UINT sub_00936d70(BYTE); /* 0x00936d70 */
-    INT sub_00938100(INT); /* 0x00938100 */
-    INT sub_00938140(); /* 0x00938140 */
-    void sub_009382d0(); /* 0x009382d0 */
-    UINT sub_0093cc30(BYTE); /* 0x0093cc30 */
-    INT sub_0093d340(); /* 0x0093d340 */
-    INT sub_0093e0b0(UINT, UINT); /* 0x0093e0b0 */
-    INT sub_0093e0d0(UINT, UINT); /* 0x0093e0d0 */
-    INT sub_0093e0f0(UINT, UINT); /* 0x0093e0f0 */
-    INT sub_0093e110(); /* 0x0093e110 */
     UINT* sub_0093e1b0(UINT*); /* 0x0093e1b0 */
     UINT* sub_0093e2c0(UINT*); /* 0x0093e2c0 */
-    INT sub_00940420(); /* 0x00940420 */
-    INT sub_00940c50(); /* 0x00940c50 */
-    INT sub_00941c60(UINT); /* 0x00941c60 */
-    void sub_00942190(); /* 0x00942190 */
-    INT sub_00942210(); /* 0x00942210 */
-    INT sub_00942b70(); /* 0x00942b70 */
-    void sub_00943240(); /* 0x00943240 */
-    INT sub_00943250(); /* 0x00943250 */
-    INT sub_009432a0(); /* 0x009432a0 */
-    INT sub_00996420(INT); /* 0x00996420 */
-    UINT* sub_00bf44e0(); /* 0x00bf44e0 */
-    INT sub_00d945d0(INT); /* 0x00d945d0 */
-    INT sub_00d965e0(INT); /* 0x00d965e0 */
-    UINT* sub_00d9e010(INT*); /* 0x00d9e010 */
-    UINT* sub_00d9e100(INT*); /* 0x00d9e100 */
-    void sub_00da09a0(); /* 0x00da09a0 */
-    UINT sub_00da09b0(UINT, UINT); /* 0x00da09b0 */
-    INT sub_00da09d0(UINT, UINT); /* 0x00da09d0 */
-    INT sub_00da09f0(UINT, UINT); /* 0x00da09f0 */
-    void sub_00da0a10(); /* 0x00da0a10 */
-    INT sub_00da0a30(); /* 0x00da0a30 */
-    INT sub_00da2180(UINT, UINT, UINT); /* 0x00da2180 */
-    INT sub_00da21d0(); /* 0x00da21d0 */
-    INT sub_00da33b0(); /* 0x00da33b0 */
-    INT sub_00da4420(); /* 0x00da4420 */
-    UINT sub_00da5450(BYTE); /* 0x00da5450 */
-    UINT* sub_00da5480(UINT*); /* 0x00da5480 */
-    UINT* sub_00da54b0(INT*); /* 0x00da54b0 */
-    UINT* sub_00da54e0(INT*); /* 0x00da54e0 */
-    UINT sub_00da5740(BYTE); /* 0x00da5740 */
-    INT sub_00da5dc0(); /* 0x00da5dc0 */
-    void sub_00da5f50(); /* 0x00da5f50 */
-    INT sub_00da5f70(); /* 0x00da5f70 */
-    INT sub_00da5f90(); /* 0x00da5f90 */
-    INT sub_00da6080(); /* 0x00da6080 */
-    INT sub_00da60a0(); /* 0x00da60a0 */
-    INT sub_00da60e0(); /* 0x00da60e0 */
-    INT sub_00da6100(); /* 0x00da6100 */
-    INT sub_00da6140(); /* 0x00da6140 */
-    void sub_010eef80(); /* 0x010eef80 */
-    UINT* sub_01321f30(); /* 0x01321f30 */
-    UINT* sub_01321fe0(); /* 0x01321fe0 */
-    UINT* sub_013542d0(); /* 0x013542d0 */
-    UINT* sub_0141c070(); /* 0x0141c070 */
-    UINT* sub_0141c120(); /* 0x0141c120 */
-    UINT* sub_016dc100(); /* 0x016dc100 */
-    void sub_01753960(); /* 0x01753960 */
-    INT sub_01755280(); /* 0x01755280 */
     /* registered size 0x5b0 */
 };
 
@@ -21493,9 +18469,6 @@ struct AHUD : public AActor {
     /* other member functions */
     void Draw3DLine(FVector Start, FVector End, FColor LineColor); /* 0x008a9530 */
     void Draw2DLine(INT X1, INT Y1, INT X2, INT Y2, FColor LineColor); /* 0x008a9580 */
-    UINT sub_00773bf0(BYTE); /* 0x00773bf0 */
-    UINT* sub_00e27870(); /* 0x00e27870 */
-    UINT* sub_015300e0(); /* 0x015300e0 */
     /* registered size 0x42c */
 };
 
@@ -21533,19 +18506,8 @@ struct UInput : public UInteraction {
     void execResetInput(FFrame& Stack, RESULT_DECL); /* 0x00ca0a60 */
     void execGetBind(FFrame& Stack, RESULT_DECL); /* 0x00cbd140 */
     /* other member functions */
-    INT sub_00d871d0(); /* 0x00d871d0 */
-    INT sub_00d88400(); /* 0x00d88400 */
-    INT sub_00d8a990(); /* 0x00d8a990 */
     void sub_00d8bbe0(); /* 0x00d8bbe0 */
     void sub_00d8bbf0(); /* 0x00d8bbf0 */
-    INT sub_00d8bcf0(); /* 0x00d8bcf0 */
-    UINT sub_00d8bdf0(BYTE); /* 0x00d8bdf0 */
-    UINT* sub_00d8be20(); /* 0x00d8be20 */
-    UINT* sub_00e28410(); /* 0x00e28410 */
-    UINT* sub_00f962f0(); /* 0x00f962f0 */
-    UINT* sub_01422120(); /* 0x01422120 */
-    UINT* sub_01537ec0(); /* 0x01537ec0 */
-    UINT* sub_016342b0(); /* 0x016342b0 */
     /* registered size 0xcc */
 };
 
@@ -21722,12 +18684,9 @@ struct UDecalComponent : public UPrimitiveComponent {
     void ComputeReceivers(); /* 0x006a7240 */
     void ResetToDefaults(); /* 0x0069a3f0 */
     void sub_0069ba80(); /* 0x0069ba80 */
-    void sub_0064e000(); /* 0x0064e000 */
     void sub_0064e050(); /* 0x0064e050 */
-    UINT* sub_0064e060(BYTE); /* 0x0064e060 */
     void SetDecalMaterial(UINT); /* 0x0064e0c0 */
     INT GetDecalMaterial(); /* 0x0064e0e0 */
-    UINT sub_006858e0(BYTE); /* 0x006858e0 */
     /* registered size 0x2c0 */
 };
 
@@ -21943,15 +18902,8 @@ struct UMaterial : public UMaterialInterface {
     virtual UINT vf_15c(); /* 0x15c */
     /* other member functions */
     INT sub_006d72b0(INT* bInUse, INT Usage); /* 0x006d72b0 */
-    UINT* sub_0064f240(UINT); /* 0x0064f240 */
-    UINT sub_0069b820(BYTE); /* 0x0069b820 */
-    UINT* sub_0069b9d0(); /* 0x0069b9d0 */
     void sub_006ae080(); /* 0x006ae080 */
     UINT sub_006ae0c0(); /* 0x006ae0c0 */
-    UINT sub_006d7490(BYTE); /* 0x006d7490 */
-    UINT sub_00fcb8f0(BYTE); /* 0x00fcb8f0 */
-    void sub_011edc60(); /* 0x011edc60 */
-    UINT* sub_01449ec0(); /* 0x01449ec0 */
     UBOOL GetUsageByFlag(INT Usage); /* 0x006b56e0 */
     /* registered size 0x2a4 */
 };
@@ -22152,9 +19104,6 @@ struct ULightComponent : public UActorComponent {
     /* other member functions */
     UBOOL HasStaticShadowing() const; /* 0x006b4650 */
     void sub_006bab80(); /* 0x006bab80 */
-    UINT sub_006ad0a0(); /* 0x006ad0a0 */
-    UINT sub_006ad0d0(); /* 0x006ad0d0 */
-    void sub_006ad1f0(UINT); /* 0x006ad1f0 */
     /* registered size 0x170 */
 };
 
@@ -22695,8 +19644,6 @@ struct UDrawLightRadiusComponent : public UDrawSphereComponent {
     virtual void UpdateBounds(); /* 0x160 */
     virtual FPrimitiveSceneProxy* CreateSceneProxy(); /* 0x1fc */
     /* other member functions */
-    INT sub_006b1f60(); /* 0x006b1f60 */
-    UINT sub_006b1f70(BYTE); /* 0x006b1f70 */
     /* registered size 0x1c0 */
 };
 
@@ -22730,7 +19677,6 @@ struct ADroppedPickup : public AActor {
     void execRemoveFromNavigation(FFrame& Stack, RESULT_DECL); /* 0x00c87880 */
     /* other member functions */
     void AddToNavigation(); /* 0x007bf630 */
-    void sub_007a06f0(); /* 0x007a06f0 */
     /* registered size 0x1b8 */
 };
 
@@ -23017,20 +19963,6 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
     void SetEditorLODLevel(INT); /* 0x00b51ba0 */
     INT sub_00b51bc0(); /* 0x00b51bc0 */
     INT sub_00b51bd0(); /* 0x00b51bd0 */
-    UINT sub_00b51c00(); /* 0x00b51c00 */
-    void sub_00b64b80(INT); /* 0x00b64b80 */
-    INT sub_00b64c10(INT); /* 0x00b64c10 */
-    INT sub_00b65fe0(INT); /* 0x00b65fe0 */
-    INT sub_00b69270(INT); /* 0x00b69270 */
-    void sub_00b69390(); /* 0x00b69390 */
-    INT sub_00b6a970(INT); /* 0x00b6a970 */
-    INT sub_00b6fe80(); /* 0x00b6fe80 */
-    INT sub_00b6fea0(); /* 0x00b6fea0 */
-    INT sub_00b6feb0(); /* 0x00b6feb0 */
-    INT sub_00b6fed0(); /* 0x00b6fed0 */
-    INT sub_00b6fee0(); /* 0x00b6fee0 */
-    INT sub_00b6fef0(); /* 0x00b6fef0 */
-    UINT sub_00b70300(BYTE); /* 0x00b70300 */
     void sub_00b5ee80(FName& InEventName, FLOAT InEmitterTime, FVector& InLocation, FVector& InDirection, FVector& InVelocity, FLOAT InParticleTime, FVector& InNormal, FLOAT InTime, INT InItem, FName& InBoneName); /* 0x00b5ee80 */
     /* registered size 0x2d0 */
 };
@@ -23333,9 +20265,7 @@ struct UEngine : public USubsystem {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Tick(FLOAT DeltaSeconds); /* 0x10c */
     /* other member functions */
-    UINT sub_007f7310(BYTE); /* 0x007f7310 */
     INT sub_00cb0420(); /* 0x00cb0420 */
-    UINT sub_00cb0430(); /* 0x00cb0430 */
     /* registered size 0x42c */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00cb0440 */
@@ -23388,32 +20318,6 @@ struct UFaceFXAsset : public UObject {
     /* other member functions */
     void MountFaceFXAnimSet(UFaceFXAnimSet*); /* 0x00bf70e0 */
     void UnmountFaceFXAnimSet(UFaceFXAnimSet*); /* 0x00bf71b0 */
-    INT sub_00bef940(INT); /* 0x00bef940 */
-    INT sub_00bef950(INT); /* 0x00bef950 */
-    INT sub_00bef9e0(INT); /* 0x00bef9e0 */
-    INT sub_00befa60(INT); /* 0x00befa60 */
-    INT sub_00bf0a70(INT); /* 0x00bf0a70 */
-    INT sub_00bf0ae0(); /* 0x00bf0ae0 */
-    INT sub_00bf0af0(); /* 0x00bf0af0 */
-    INT sub_00bf3940(INT); /* 0x00bf3940 */
-    INT sub_00bf5e10(); /* 0x00bf5e10 */
-    INT sub_00bf5e30(); /* 0x00bf5e30 */
-    INT sub_00bf5e50(); /* 0x00bf5e50 */
-    UINT sub_00bf6310(UINT, UINT); /* 0x00bf6310 */
-    INT sub_00bf6330(UINT, UINT); /* 0x00bf6330 */
-    UINT sub_00bf6350(UINT, UINT); /* 0x00bf6350 */
-    INT sub_00bf6370(UINT, UINT); /* 0x00bf6370 */
-    INT sub_00bf6390(UINT, UINT); /* 0x00bf6390 */
-    INT sub_00bf63b0(); /* 0x00bf63b0 */
-    INT sub_00bf63d0(); /* 0x00bf63d0 */
-    INT sub_00bf63f0(); /* 0x00bf63f0 */
-    INT sub_00bf7060(); /* 0x00bf7060 */
-    INT sub_00bf7080(); /* 0x00bf7080 */
-    INT sub_00bf70a0(); /* 0x00bf70a0 */
-    INT sub_00bf77e0(); /* 0x00bf77e0 */
-    INT sub_00bf7800(); /* 0x00bf7800 */
-    INT sub_00bf7820(); /* 0x00bf7820 */
-    void sub_015b7970(); /* 0x015b7970 */
     /* registered size 0x78 */
 };
 
@@ -23616,38 +20520,6 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
     void SetDetailPosition(FVector); /* 0x00be4940 */
     void SetSimulationPosition(FVector); /* 0x00be4bb0 */
     void ApplyForce(FVector WorldPos, FLOAT Strength, FLOAT Radius, UBOOL bImpulse); /* 0x00be6e50 */
-    void sub_006753c0(INT); /* 0x006753c0 */
-    INT sub_00680b50(INT); /* 0x00680b50 */
-    INT sub_006d1680(); /* 0x006d1680 */
-    INT sub_006d1800(); /* 0x006d1800 */
-    INT sub_006d30a0(); /* 0x006d30a0 */
-    INT sub_006d3110(UINT, UINT); /* 0x006d3110 */
-    INT sub_006d3130(UINT, UINT); /* 0x006d3130 */
-    INT sub_006d3150(); /* 0x006d3150 */
-    INT sub_006d4000(); /* 0x006d4000 */
-    INT sub_006d4070(); /* 0x006d4070 */
-    INT sub_006d6000(); /* 0x006d6000 */
-    INT sub_006d6250(); /* 0x006d6250 */
-    INT sub_006d6690(); /* 0x006d6690 */
-    INT sub_007080f0(); /* 0x007080f0 */
-    INT sub_00a4e280(); /* 0x00a4e280 */
-    INT sub_00a4e2a0(); /* 0x00a4e2a0 */
-    INT sub_00a4e2c0(); /* 0x00a4e2c0 */
-    INT sub_00a4faf0(); /* 0x00a4faf0 */
-    INT sub_00a4fb10(); /* 0x00a4fb10 */
-    INT sub_00a4fb30(); /* 0x00a4fb30 */
-    INT sub_00a51370(); /* 0x00a51370 */
-    INT sub_00a51440(); /* 0x00a51440 */
-    INT sub_00a51460(); /* 0x00a51460 */
-    INT sub_00a52430(); /* 0x00a52430 */
-    INT sub_00a52650(); /* 0x00a52650 */
-    INT sub_00a52670(); /* 0x00a52670 */
-    INT sub_00a53780(); /* 0x00a53780 */
-    INT sub_00a552f0(); /* 0x00a552f0 */
-    INT sub_00a55790(INT); /* 0x00a55790 */
-    INT sub_00a55ab0(INT); /* 0x00a55ab0 */
-    INT sub_00bdc940(); /* 0x00bdc940 */
-    void sub_00be73e0(); /* 0x00be73e0 */
     /* registered size 0x260 */
 };
 
@@ -23737,38 +20609,21 @@ struct UFogVolumeConeDensityComponent : public UFogVolumeDensityComponent {
     virtual struct FFogVolumeDensitySceneInfo* CreateFogVolumeDensityInfo(const class UPrimitiveComponent* MeshComponent) const; /* 0x14c */
     /* other member functions */
     INT sub_006abaa0(); /* 0x006abaa0 */
-    UINT sub_006abad0(BYTE); /* 0x006abad0 */
     void sub_006abb70(); /* 0x006abb70 */
     void sub_006abb80(); /* 0x006abb80 */
-    UINT* sub_006abb90(BYTE); /* 0x006abb90 */
-    UINT* sub_006abbb0(BYTE); /* 0x006abbb0 */
-    UINT sub_006abc40(); /* 0x006abc40 */
     void sub_006abc80(); /* 0x006abc80 */
-    UINT* sub_006abc90(BYTE); /* 0x006abc90 */
     void sub_006abd30(); /* 0x006abd30 */
     void sub_006abd40(); /* 0x006abd40 */
-    UINT* sub_006abd50(BYTE); /* 0x006abd50 */
-    UINT* sub_006abd70(BYTE); /* 0x006abd70 */
     INT sub_006abe80(); /* 0x006abe80 */
     INT sub_006abe90(); /* 0x006abe90 */
-    UINT sub_006abec0(); /* 0x006abec0 */
     void sub_006abee0(); /* 0x006abee0 */
-    UINT* sub_006abef0(BYTE); /* 0x006abef0 */
     void sub_006abf20(INT); /* 0x006abf20 */
     void sub_006abf30(INT); /* 0x006abf30 */
     void sub_006abf70(); /* 0x006abf70 */
-    UINT* sub_006abf80(BYTE); /* 0x006abf80 */
     INT sub_006abfe0(); /* 0x006abfe0 */
     void sub_006ac030(); /* 0x006ac030 */
-    UINT* sub_006ac040(BYTE); /* 0x006ac040 */
     void sub_006ac090(); /* 0x006ac090 */
-    UINT* sub_006ac0a0(BYTE); /* 0x006ac0a0 */
-    void sub_006ac260(UINT); /* 0x006ac260 */
     void sub_006ac2b0(); /* 0x006ac2b0 */
-    UINT* sub_006ac2c0(BYTE); /* 0x006ac2c0 */
-    UINT sub_006c1300(BYTE); /* 0x006c1300 */
-    UINT sub_006c18e0(BYTE); /* 0x006c18e0 */
-    UINT sub_006c1900(); /* 0x006c1900 */
     /* registered size 0xb0 */
 };
 
@@ -24056,11 +20911,6 @@ struct UFracturedBaseComponent : public UStaticMeshComponent {
     void execGetVisibleFragments(FFrame& Stack, RESULT_DECL); /* 0x00cc6af0 */
     /* other member functions */
     UBOOL sub_007b8070(); /* 0x007b8070 */
-    void sub_007bd910(INT); /* 0x007bd910 */
-    UINT sub_007c2d30(); /* 0x007c2d30 */
-    UINT sub_007c58b0(BYTE); /* 0x007c58b0 */
-    UINT sub_007c5940(BYTE); /* 0x007c5940 */
-    UINT sub_007c59d0(BYTE); /* 0x007c59d0 */
     /* registered size 0x210 */
 };
 
@@ -24145,160 +20995,21 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
     void execGetFragmentGroups(FFrame& Stack, RESULT_DECL); /* 0x00cd2470 */
     /* other member functions */
     void sub_007b1890(); /* 0x007b1890 */
-    INT sub_006077b0(); /* 0x006077b0 */
-    INT sub_006077d0(); /* 0x006077d0 */
-    INT sub_006077f0(); /* 0x006077f0 */
-    INT sub_00607810(); /* 0x00607810 */
-    INT sub_00607830(); /* 0x00607830 */
-    INT sub_00607850(); /* 0x00607850 */
-    INT sub_00607870(); /* 0x00607870 */
-    INT sub_00607880(); /* 0x00607880 */
-    INT sub_00607890(); /* 0x00607890 */
-    INT sub_006078b0(); /* 0x006078b0 */
-    INT sub_006078e0(); /* 0x006078e0 */
-    INT sub_00607900(); /* 0x00607900 */
-    INT sub_00607910(); /* 0x00607910 */
-    INT sub_00607a50(); /* 0x00607a50 */
-    INT sub_00607a60(); /* 0x00607a60 */
-    INT sub_00607a70(INT); /* 0x00607a70 */
-    INT sub_00607aa0(INT); /* 0x00607aa0 */
-    INT sub_00607ad0(INT); /* 0x00607ad0 */
-    INT sub_00607b00(INT); /* 0x00607b00 */
-    INT sub_00607b10(INT); /* 0x00607b10 */
-    INT sub_00607bb0(); /* 0x00607bb0 */
-    INT sub_00607bc0(); /* 0x00607bc0 */
-    INT sub_00607bd0(); /* 0x00607bd0 */
-    INT sub_00607c40(INT); /* 0x00607c40 */
-    INT sub_00607c80(INT); /* 0x00607c80 */
-    INT sub_00607c90(INT); /* 0x00607c90 */
-    INT sub_00607cc0(); /* 0x00607cc0 */
     INT sub_0060baf0(INT); /* 0x0060baf0 */
     void sub_0060bb30(INT*); /* 0x0060bb30 */
-    INT sub_0060bb90(INT); /* 0x0060bb90 */
-    INT sub_0060bbd0(INT); /* 0x0060bbd0 */
-    INT sub_0060bc20(); /* 0x0060bc20 */
-    INT sub_0060bc30(); /* 0x0060bc30 */
-    INT sub_0060bc40(); /* 0x0060bc40 */
-    INT sub_0060bc50(); /* 0x0060bc50 */
-    INT sub_0060bc60(); /* 0x0060bc60 */
-    INT sub_0060bd40(INT); /* 0x0060bd40 */
-    INT sub_0060bd80(INT); /* 0x0060bd80 */
-    INT sub_0060bdc0(); /* 0x0060bdc0 */
-    INT sub_0060bde0(); /* 0x0060bde0 */
-    void sub_0065faf0(INT); /* 0x0065faf0 */
-    void sub_0065fb30(INT); /* 0x0065fb30 */
-    void sub_00672ef0(INT); /* 0x00672ef0 */
-    void sub_007f5bc0(); /* 0x007f5bc0 */
-    INT sub_00805d30(INT); /* 0x00805d30 */
-    INT sub_00805db0(INT); /* 0x00805db0 */
     INT sub_00805dc0(); /* 0x00805dc0 */
-    void sub_00818730(INT); /* 0x00818730 */
-    INT sub_00818b50(INT); /* 0x00818b50 */
-    INT sub_00818b60(INT); /* 0x00818b60 */
     INT sub_0081e880(); /* 0x0081e880 */
-    INT sub_0081e890(); /* 0x0081e890 */
-    void sub_0081e920(); /* 0x0081e920 */
     INT sub_0096df00(INT); /* 0x0096df00 */
     INT sub_00975170(INT); /* 0x00975170 */
-    INT sub_00ac1cf0(INT); /* 0x00ac1cf0 */
-    INT sub_00ac1d00(INT); /* 0x00ac1d00 */
-    INT sub_00ac1d10(INT); /* 0x00ac1d10 */
-    INT sub_00ac1d20(INT); /* 0x00ac1d20 */
-    INT sub_00ac1d30(INT); /* 0x00ac1d30 */
     INT sub_00ac1da0(); /* 0x00ac1da0 */
     INT sub_00ac1e10(); /* 0x00ac1e10 */
     INT sub_00ac1e80(); /* 0x00ac1e80 */
     INT sub_00ac2010(); /* 0x00ac2010 */
     INT sub_00ac2020(); /* 0x00ac2020 */
-    INT sub_00ac8490(INT); /* 0x00ac8490 */
-    INT sub_00ac8540(INT); /* 0x00ac8540 */
-    UINT sub_00ac86c0(); /* 0x00ac86c0 */
-    INT sub_00ac8750(INT); /* 0x00ac8750 */
-    INT sub_00ac8760(INT); /* 0x00ac8760 */
-    INT sub_00ac8770(INT); /* 0x00ac8770 */
-    INT sub_00ac8780(INT); /* 0x00ac8780 */
-    INT sub_00ac8790(INT); /* 0x00ac8790 */
-    INT sub_00ac8850(INT); /* 0x00ac8850 */
-    INT sub_00ac8870(INT); /* 0x00ac8870 */
-    INT sub_00ac8880(); /* 0x00ac8880 */
-    INT sub_00ac88a0(); /* 0x00ac88a0 */
-    INT sub_00ac88b0(); /* 0x00ac88b0 */
-    void sub_00ac8980(); /* 0x00ac8980 */
-    void sub_00ac8a50(); /* 0x00ac8a50 */
-    void sub_00ac8b20(); /* 0x00ac8b20 */
-    void sub_00ac8bf0(); /* 0x00ac8bf0 */
-    void sub_00ac8cc0(); /* 0x00ac8cc0 */
-    INT sub_00ac8ce0(BYTE); /* 0x00ac8ce0 */
-    void sub_00ac8d20(); /* 0x00ac8d20 */
-    INT sub_00ac8db0(INT); /* 0x00ac8db0 */
-    INT sub_00ac8dc0(INT); /* 0x00ac8dc0 */
-    INT sub_00ac8dd0(INT); /* 0x00ac8dd0 */
-    UINT sub_00ac8de0(); /* 0x00ac8de0 */
-    INT sub_00ac8f00(INT); /* 0x00ac8f00 */
-    INT sub_00ac8f80(INT); /* 0x00ac8f80 */
-    INT sub_00ac9000(INT); /* 0x00ac9000 */
-    INT sub_00ac9110(); /* 0x00ac9110 */
-    INT sub_00ac9120(); /* 0x00ac9120 */
-    INT sub_00ac9130(); /* 0x00ac9130 */
-    INT sub_00ac9180(); /* 0x00ac9180 */
-    INT sub_00ac91a0(); /* 0x00ac91a0 */
-    INT sub_00ac91b0(); /* 0x00ac91b0 */
-    INT sub_00ac91c0(); /* 0x00ac91c0 */
-    INT sub_00ac91d0(); /* 0x00ac91d0 */
-    INT sub_00ac91e0(); /* 0x00ac91e0 */
-    INT sub_00ac91f0(); /* 0x00ac91f0 */
-    INT sub_00acce20(); /* 0x00acce20 */
-    INT sub_00acce30(); /* 0x00acce30 */
-    void sub_00acce40(); /* 0x00acce40 */
-    INT sub_00acce50(); /* 0x00acce50 */
-    INT sub_00acce60(); /* 0x00acce60 */
-    INT sub_00acce70(); /* 0x00acce70 */
-    INT sub_00acce90(); /* 0x00acce90 */
-    INT sub_00accea0(); /* 0x00accea0 */
-    INT sub_00acceb0(); /* 0x00acceb0 */
-    INT sub_00acd1a0(INT); /* 0x00acd1a0 */
-    INT sub_00acd470(INT); /* 0x00acd470 */
-    INT sub_00acd6d0(INT); /* 0x00acd6d0 */
-    INT sub_00acd6e0(INT); /* 0x00acd6e0 */
-    INT sub_00acd710(INT); /* 0x00acd710 */
-    INT sub_00acd720(INT); /* 0x00acd720 */
-    INT sub_00acd8c0(); /* 0x00acd8c0 */
-    INT sub_00acd8f0(); /* 0x00acd8f0 */
-    INT sub_00acdb20(INT); /* 0x00acdb20 */
-    void sub_00acdd60(INT); /* 0x00acdd60 */
-    INT sub_00acdda0(INT); /* 0x00acdda0 */
-    INT sub_00acdf10(INT); /* 0x00acdf10 */
-    INT sub_00ace0f0(INT); /* 0x00ace0f0 */
-    void sub_00ad1b90(INT); /* 0x00ad1b90 */
-    INT sub_00ad3b90(INT); /* 0x00ad3b90 */
-    void sub_00ad4160(); /* 0x00ad4160 */
-    INT sub_00ad41b0(); /* 0x00ad41b0 */
-    INT sub_00ad4200(); /* 0x00ad4200 */
-    INT sub_00ad4320(INT); /* 0x00ad4320 */
-    INT sub_00ad43d0(INT); /* 0x00ad43d0 */
-    INT sub_00ad4400(INT); /* 0x00ad4400 */
-    INT sub_00ad9120(INT); /* 0x00ad9120 */
-    INT sub_00ad92e0(INT); /* 0x00ad92e0 */
-    INT sub_00adf540(UINT, UINT); /* 0x00adf540 */
-    void sub_00ae0790(); /* 0x00ae0790 */
-    INT sub_00ae1140(); /* 0x00ae1140 */
-    INT sub_00ae52b0(); /* 0x00ae52b0 */
-    INT sub_00ae5450(); /* 0x00ae5450 */
-    void sub_00ae5680(); /* 0x00ae5680 */
-    INT sub_00ae5c40(); /* 0x00ae5c40 */
-    UINT* sub_00ae5cf0(UINT*); /* 0x00ae5cf0 */
-    INT sub_00ae9010(); /* 0x00ae9010 */
-    void sub_00aec130(); /* 0x00aec130 */
-    INT sub_00aec140(); /* 0x00aec140 */
-    INT sub_00af5590(); /* 0x00af5590 */
-    INT sub_00af5620(); /* 0x00af5620 */
-    void sub_00b269e0(); /* 0x00b269e0 */
-    UINT sub_0111bdf0(BYTE); /* 0x0111bdf0 */
     void sub_011c23a0(INT); /* 0x011c23a0 */
     INT sub_011c23f0(); /* 0x011c23f0 */
     UINT sub_011c46d0(); /* 0x011c46d0 */
     void sub_011d32e0(); /* 0x011d32e0 */
-    void sub_011d5d70(); /* 0x011d5d70 */
     UINT sub_011d6010(BYTE); /* 0x011d6010 */
     /* registered size 0x280 */
 };
@@ -24511,20 +21222,12 @@ struct UGameEngine : public UEngine {
     virtual void vf_18c(); /* 0x18c */
     /* other member functions */
     void sub_007d6e40(); /* 0x007d6e40 */
-    UINT* sub_007d6e50(BYTE); /* 0x007d6e50 */
-    UINT sub_007d6f10(); /* 0x007d6f10 */
     void sub_007d6f50(); /* 0x007d6f50 */
     void sub_007d6f70(); /* 0x007d6f70 */
     void sub_007d6f80(); /* 0x007d6f80 */
-    UINT* sub_007d6f90(BYTE); /* 0x007d6f90 */
-    UINT* sub_007d6fb0(BYTE); /* 0x007d6fb0 */
-    UINT* sub_007d6fd0(BYTE); /* 0x007d6fd0 */
     UBOOL IsPreparingMapChange(); /* 0x007d9c10 */
     UBOOL IsReadyForMapChange(); /* 0x007d9c20 */
     void CancelPendingMapChange(); /* 0x007e19a0 */
-    void sub_007d9c40(FLOAT); /* 0x007d9c40 */
-    UINT sub_007e6c30(BYTE); /* 0x007e6c30 */
-    UINT sub_007f7540(BYTE); /* 0x007f7540 */
     /* registered size 0x554 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x007ff170 */
@@ -24715,7 +21418,6 @@ struct AGameInfo : public AInfo {
     FLOAT eventGetGameTimePlayed(); /* 0x0154abf0 */
     void SwapPlayerControllers(APlayerController* OldPC, APlayerController* NewPC); /* 0x008b0c60 */
     void ForceClearUnpauseDelegates(AActor*); /* 0x008c7500 */
-    void sub_008a9420(); /* 0x008a9420 */
     /* registered size 0x398 */
 };
 
@@ -24860,9 +21562,7 @@ struct UUISceneClient : public UUIRoot, public FExec {
     void execGetInverseCanvasToScreen(FFrame& Stack, RESULT_DECL); /* 0x00ca1af0 */
     FMatrix GetCanvasToScreen(class UUIObject* Widget); /* 0x00dddda0 */
     FMatrix GetInverseCanvasToScreen(class UUIObject* Widget); /* 0x00ddddf0 */
-    UINT sub_00ddde70(BYTE); /* 0x00ddde70 */
     void sub_00dddee0(); /* 0x00dddee0 */
-    UINT* sub_00dddef0(BYTE); /* 0x00dddef0 */
     /* registered size 0xf0 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00dddc90 */
@@ -24978,124 +21678,26 @@ struct UGameUISceneClient : public UUISceneClient {
     class UUIScene* GetNextScene(class UUIScene* SourceScene, UBOOL bRequireMatchingPlayerOwner, UBOOL bIgnoreUnfocusedScenes); /* 0x00de5640 */
     UBOOL sub_00de6e90(DWORD Flags, UUIScene* Scene); /* 0x00de6e90 */
     INT FindSceneIndex(const UUIScene* Scene) const; /* 0x00de2590 */
-    INT sub_00573840(); /* 0x00573840 */
-    INT sub_005741b0(INT); /* 0x005741b0 */
-    INT sub_00574230(); /* 0x00574230 */
-    INT sub_005742c0(INT); /* 0x005742c0 */
-    INT sub_00574340(); /* 0x00574340 */
     INT sub_005744a0(INT); /* 0x005744a0 */
     INT sub_005744b0(); /* 0x005744b0 */
     INT sub_005744c0(); /* 0x005744c0 */
-    INT sub_005775b0(INT); /* 0x005775b0 */
-    INT sub_00577680(INT); /* 0x00577680 */
-    void sub_00577810(INT); /* 0x00577810 */
-    INT sub_005779c0(INT); /* 0x005779c0 */
-    INT sub_005779f0(); /* 0x005779f0 */
-    INT sub_00577a80(); /* 0x00577a80 */
-    INT sub_00577ad0(); /* 0x00577ad0 */
-    UINT sub_00577be0(BYTE); /* 0x00577be0 */
-    void sub_00578300(INT); /* 0x00578300 */
-    INT sub_0057a2b0(INT); /* 0x0057a2b0 */
-    INT sub_0057a3f0(); /* 0x0057a3f0 */
-    INT sub_0057a400(); /* 0x0057a400 */
-    void sub_0057a630(); /* 0x0057a630 */
-    INT sub_0057a680(); /* 0x0057a680 */
-    INT sub_0057a690(INT); /* 0x0057a690 */
-    INT sub_00580c60(); /* 0x00580c60 */
-    INT sub_00580c80(); /* 0x00580c80 */
-    INT sub_00580ca0(); /* 0x00580ca0 */
-    void sub_005819f0(); /* 0x005819f0 */
-    void sub_00581a70(); /* 0x00581a70 */
-    void sub_00581d00(); /* 0x00581d00 */
-    void sub_00581e40(); /* 0x00581e40 */
-    UINT sub_00582190(UINT, UINT); /* 0x00582190 */
-    UINT sub_005821b0(UINT, UINT); /* 0x005821b0 */
-    UINT sub_00582220(UINT, UINT); /* 0x00582220 */
-    UINT sub_00582300(UINT, UINT); /* 0x00582300 */
-    UINT sub_00582320(UINT, UINT); /* 0x00582320 */
-    void sub_00582340(); /* 0x00582340 */
-    UINT sub_00582410(UINT, UINT); /* 0x00582410 */
-    UINT sub_00582430(UINT, UINT); /* 0x00582430 */
-    INT sub_00582450(UINT, UINT); /* 0x00582450 */
-    INT sub_00582470(UINT, UINT); /* 0x00582470 */
-    UINT sub_00582490(UINT, UINT); /* 0x00582490 */
-    INT sub_005824b0(UINT, UINT); /* 0x005824b0 */
-    INT sub_005824d0(UINT, UINT); /* 0x005824d0 */
-    INT sub_005824f0(UINT, UINT); /* 0x005824f0 */
-    INT sub_00582510(UINT, UINT); /* 0x00582510 */
-    INT sub_00582530(UINT, UINT); /* 0x00582530 */
-    INT sub_00582550(UINT, UINT); /* 0x00582550 */
-    INT sub_00582570(UINT, UINT); /* 0x00582570 */
-    INT sub_00582590(); /* 0x00582590 */
-    INT sub_00582610(); /* 0x00582610 */
-    INT sub_00582630(); /* 0x00582630 */
-    INT sub_00583150(UINT, UINT, UINT); /* 0x00583150 */
-    INT sub_005831a0(UINT, UINT, UINT); /* 0x005831a0 */
-    INT sub_00583240(UINT, UINT, UINT); /* 0x00583240 */
-    INT sub_005832d0(UINT, UINT, UINT); /* 0x005832d0 */
-    INT sub_00583320(UINT, UINT, UINT); /* 0x00583320 */
-    INT sub_005833b0(UINT, UINT, UINT); /* 0x005833b0 */
-    INT sub_00583400(UINT, UINT, UINT); /* 0x00583400 */
-    INT sub_00583450(); /* 0x00583450 */
-    INT sub_00583480(); /* 0x00583480 */
-    INT sub_005834a0(); /* 0x005834a0 */
-    void sub_005834c0(); /* 0x005834c0 */
-    INT sub_00586400(); /* 0x00586400 */
-    INT sub_00586470(); /* 0x00586470 */
-    INT sub_00586490(); /* 0x00586490 */
-    void sub_005864b0(); /* 0x005864b0 */
-    INT sub_005acd30(INT); /* 0x005acd30 */
-    INT sub_005acd60(INT); /* 0x005acd60 */
-    UINT sub_005af6e0(INT); /* 0x005af6e0 */
-    void sub_005b7100(); /* 0x005b7100 */
     void sub_00d20b10(INT, INT); /* 0x00d20b10 */
-    UINT sub_00d39100(BYTE); /* 0x00d39100 */
-    INT sub_00d78c50(INT); /* 0x00d78c50 */
-    INT sub_00d78c60(INT); /* 0x00d78c60 */
-    INT sub_00d78d10(INT); /* 0x00d78d10 */
     INT sub_00d78dc0(INT); /* 0x00d78dc0 */
     INT sub_00d78e70(INT); /* 0x00d78e70 */
     INT sub_00d78e80(INT); /* 0x00d78e80 */
     INT sub_00d78f20(INT); /* 0x00d78f20 */
     INT sub_00d78f30(); /* 0x00d78f30 */
     INT sub_00d78f40(); /* 0x00d78f40 */
-    INT sub_00d7c5d0(INT); /* 0x00d7c5d0 */
-    INT sub_00d7c5f0(INT); /* 0x00d7c5f0 */
-    INT sub_00d7c690(INT); /* 0x00d7c690 */
-    INT sub_00d7c720(INT); /* 0x00d7c720 */
-    INT sub_00d7c8a0(INT); /* 0x00d7c8a0 */
     INT sub_00d7c910(INT); /* 0x00d7c910 */
     INT sub_00d7c920(INT); /* 0x00d7c920 */
     INT sub_00d7c930(); /* 0x00d7c930 */
     void sub_00d7c940(); /* 0x00d7c940 */
     void sub_00d7cd00(INT); /* 0x00d7cd00 */
-    INT sub_00d7fbd0(INT); /* 0x00d7fbd0 */
-    INT sub_00d7fc00(INT); /* 0x00d7fc00 */
-    INT sub_00d7fc30(INT); /* 0x00d7fc30 */
-    INT sub_00d7fc80(INT); /* 0x00d7fc80 */
-    INT sub_00d7fcb0(); /* 0x00d7fcb0 */
-    INT sub_00d7fd20(); /* 0x00d7fd20 */
-    UINT sub_00d7fee0(BYTE); /* 0x00d7fee0 */
-    UINT sub_00d7ff00(BYTE); /* 0x00d7ff00 */
     void sub_00d80990(); /* 0x00d80990 */
     void sub_00d809a0(); /* 0x00d809a0 */
-    UINT sub_00d82360(INT); /* 0x00d82360 */
-    INT sub_00d82480(); /* 0x00d82480 */
-    INT sub_00d82490(); /* 0x00d82490 */
-    void sub_00d82750(); /* 0x00d82750 */
-    void sub_00d82770(); /* 0x00d82770 */
-    void sub_00d82790(); /* 0x00d82790 */
-    void sub_00d827b0(); /* 0x00d827b0 */
-    void sub_00d827d0(); /* 0x00d827d0 */
-    UINT sub_00d827f0(BYTE); /* 0x00d827f0 */
-    UINT sub_00d82810(BYTE); /* 0x00d82810 */
-    UINT sub_00d82830(BYTE); /* 0x00d82830 */
-    UINT sub_00d82a90(BYTE); /* 0x00d82a90 */
     INT sub_00d855b0(); /* 0x00d855b0 */
     INT sub_00d85a30(); /* 0x00d85a30 */
     INT sub_00d85a50(); /* 0x00d85a50 */
-    void sub_00d868c0(); /* 0x00d868c0 */
-    void sub_00d86ae0(); /* 0x00d86ae0 */
     UINT sub_00d86c70(UINT, UINT); /* 0x00d86c70 */
     void sub_00d86ce0(); /* 0x00d86ce0 */
     INT sub_00d86ee0(); /* 0x00d86ee0 */
@@ -25106,82 +21708,12 @@ struct UGameUISceneClient : public UUISceneClient {
     INT sub_00d88200(); /* 0x00d88200 */
     INT sub_00d88340(); /* 0x00d88340 */
     INT sub_00d88360(); /* 0x00d88360 */
-    void sub_00d88380(); /* 0x00d88380 */
     INT sub_00d8a830(); /* 0x00d8a830 */
     INT sub_00d8a850(); /* 0x00d8a850 */
-    void sub_00d8a870(); /* 0x00d8a870 */
-    INT sub_00db8910(INT); /* 0x00db8910 */
-    INT sub_00db8940(INT); /* 0x00db8940 */
-    INT sub_00dba3f0(INT); /* 0x00dba3f0 */
     void sub_00dde4f0(); /* 0x00dde4f0 */
     void sub_00dde500(); /* 0x00dde500 */
-    INT sub_00de3d90(INT); /* 0x00de3d90 */
-    INT sub_00de3db0(); /* 0x00de3db0 */
-    INT sub_00de3dc0(); /* 0x00de3dc0 */
-    UINT sub_00de3f50(BYTE); /* 0x00de3f50 */
-    UINT sub_00de3f80(BYTE); /* 0x00de3f80 */
     INT sub_00de6190(); /* 0x00de6190 */
-    INT sub_00de6200(INT); /* 0x00de6200 */
-    INT sub_00de6220(INT); /* 0x00de6220 */
-    INT sub_00de6230(INT); /* 0x00de6230 */
-    INT sub_00de6240(INT); /* 0x00de6240 */
-    INT sub_00de6270(INT); /* 0x00de6270 */
-    INT sub_00de6280(INT); /* 0x00de6280 */
-    INT sub_00de62b0(); /* 0x00de62b0 */
-    INT sub_00de6360(INT); /* 0x00de6360 */
-    INT sub_00de6380(INT); /* 0x00de6380 */
-    INT sub_00de6390(INT); /* 0x00de6390 */
-    INT sub_00de63a0(INT); /* 0x00de63a0 */
-    UINT sub_00de63b0(BYTE); /* 0x00de63b0 */
-    INT sub_00de6b10(); /* 0x00de6b10 */
-    UINT* sub_00de6b80(UINT*); /* 0x00de6b80 */
-    UINT* sub_00de6ba0(UINT*); /* 0x00de6ba0 */
-    INT sub_00de7110(INT); /* 0x00de7110 */
-    INT sub_00de7150(INT); /* 0x00de7150 */
-    UINT* sub_00de7760(UINT*); /* 0x00de7760 */
     UINT* sub_00de7970(UINT*); /* 0x00de7970 */
-    UINT* sub_00de7a20(UINT*); /* 0x00de7a20 */
-    UINT* sub_00de7b30(UINT*); /* 0x00de7b30 */
-    UINT* sub_00de98f0(UINT*); /* 0x00de98f0 */
-    void sub_00de9930(); /* 0x00de9930 */
-    void sub_00de9950(); /* 0x00de9950 */
-    void sub_00de9970(); /* 0x00de9970 */
-    INT sub_00dec730(); /* 0x00dec730 */
-    INT sub_00dec750(); /* 0x00dec750 */
-    INT sub_00dec770(); /* 0x00dec770 */
-    INT sub_00decba0(UINT, UINT); /* 0x00decba0 */
-    INT sub_00decbc0(UINT, UINT); /* 0x00decbc0 */
-    INT sub_00decbe0(UINT, UINT); /* 0x00decbe0 */
-    INT sub_00decc00(UINT, UINT); /* 0x00decc00 */
-    INT sub_00decc20(); /* 0x00decc20 */
-    void sub_00decc40(); /* 0x00decc40 */
-    INT sub_00decc50(); /* 0x00decc50 */
-    void sub_00decc70(); /* 0x00decc70 */
-    INT sub_00decc80(); /* 0x00decc80 */
-    INT sub_00ded3b0(); /* 0x00ded3b0 */
-    void sub_00ded3d0(); /* 0x00ded3d0 */
-    INT sub_00ded3f0(); /* 0x00ded3f0 */
-    void sub_00ded410(); /* 0x00ded410 */
-    INT sub_00ded430(); /* 0x00ded430 */
-    INT sub_00ded6b0(); /* 0x00ded6b0 */
-    void sub_00ded6d0(); /* 0x00ded6d0 */
-    INT sub_00ded6f0(); /* 0x00ded6f0 */
-    void sub_00ded710(); /* 0x00ded710 */
-    INT sub_00ded730(); /* 0x00ded730 */
-    UINT sub_00dee550(BYTE); /* 0x00dee550 */
-    INT sub_00dee580(); /* 0x00dee580 */
-    UINT sub_00dee640(BYTE); /* 0x00dee640 */
-    UINT* sub_00deeab0(UINT*); /* 0x00deeab0 */
-    void sub_00deec60(); /* 0x00deec60 */
-    UINT* sub_00deec80(UINT*); /* 0x00deec80 */
-    UINT* sub_00deeca0(UINT*); /* 0x00deeca0 */
-    INT sub_00deecd0(); /* 0x00deecd0 */
-    INT sub_00deee90(); /* 0x00deee90 */
-    INT sub_00deeef0(); /* 0x00deeef0 */
-    INT sub_00def5e0(); /* 0x00def5e0 */
-    void sub_00e66d70(); /* 0x00e66d70 */
-    INT sub_0111f080(UINT*, INT); /* 0x0111f080 */
-    INT sub_013b6f30(INT); /* 0x013b6f30 */
     /* registered size 0x160 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00de4d10 */
@@ -25251,9 +21783,6 @@ struct UGameViewportClient : public UObject, public FViewportClient, public FExe
     void execIsFullScreenViewport(FFrame& Stack, RESULT_DECL); /* 0x00c8cd10 */
     void GetViewportSize(FVector2D& out_ViewportSize); /* 0x00889880 */
     UBOOL IsFullScreenViewport(); /* 0x008898e0 */
-    UINT sub_0089f7b0(BYTE); /* 0x0089f7b0 */
-    UINT* sub_00e67de0(); /* 0x00e67de0 */
-    UINT* sub_016e5820(); /* 0x016e5820 */
     /* registered size 0xf8 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00889b30 */
@@ -25318,7 +21847,6 @@ struct UGoal_Null : public UPathGoalEvaluator {
     virtual void NotifyExceededMaxPathVisits(class ANavigationPoint* BestGuess); /* 0x118 */
     /* other member functions */
     void sub_008a7710(); /* 0x008a7710 */
-    UINT* sub_008a7720(BYTE); /* 0x008a7720 */
     /* registered size 0x40 */
 };
 
@@ -25926,7 +22454,6 @@ struct UInterpTrackFaceFX : public UInterpTrack {
     virtual class UMaterial* GetTrackIcon() const; /* 0x148 */
     virtual void vf_150(INT, INT); /* 0x150 */
     /* other member functions */
-    UINT sub_00cf87b0(BYTE); /* 0x00cf87b0 */
     /* registered size 0x7c */
 };
 
@@ -26680,7 +23207,6 @@ struct AKActor : public ADynamicSMActor {
     /* other member functions */
     void eventSetPhysicalCollisionProperties(); /* 0x01668770 */
     UPhysicalMaterial* GetKActorPhysMaterial(); /* 0x009d9a90 */
-    void sub_009d99e0(); /* 0x009d99e0 */
     /* registered size 0x2a0 */
 };
 
@@ -26801,314 +23327,31 @@ struct ULensFlare : public UObject {
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    UINT sub_00651a10(BYTE); /* 0x00651a10 */
-    void sub_00653140(); /* 0x00653140 */
-    void sub_00653160(); /* 0x00653160 */
-    void sub_00653270(); /* 0x00653270 */
-    void sub_00653290(); /* 0x00653290 */
-    UINT sub_00653340(BYTE); /* 0x00653340 */
-    UINT sub_00653360(BYTE); /* 0x00653360 */
-    UINT sub_00653380(BYTE); /* 0x00653380 */
-    UINT sub_006533a0(BYTE); /* 0x006533a0 */
-    UINT sub_006533c0(BYTE); /* 0x006533c0 */
-    UINT sub_006533e0(BYTE); /* 0x006533e0 */
-    UINT sub_00653400(BYTE); /* 0x00653400 */
-    UINT sub_00653420(BYTE); /* 0x00653420 */
-    UINT sub_00653440(BYTE); /* 0x00653440 */
-    UINT sub_00653460(BYTE); /* 0x00653460 */
-    UINT sub_00653480(BYTE); /* 0x00653480 */
-    UINT sub_00656330(BYTE); /* 0x00656330 */
-    UINT sub_00656500(BYTE); /* 0x00656500 */
-    UINT sub_00656880(BYTE); /* 0x00656880 */
-    UINT sub_006583d0(BYTE); /* 0x006583d0 */
-    UINT sub_0065b420(BYTE); /* 0x0065b420 */
-    UINT sub_0065b440(BYTE); /* 0x0065b440 */
-    UINT sub_0065b460(BYTE); /* 0x0065b460 */
-    void sub_0065cd60(); /* 0x0065cd60 */
-    void sub_0065f870(); /* 0x0065f870 */
-    void sub_0065f8f0(); /* 0x0065f8f0 */
     FString sub_00663170(); /* 0x00663170 */
-    void sub_006631a0(); /* 0x006631a0 */
-    void sub_00663220(); /* 0x00663220 */
-    void sub_00663270(); /* 0x00663270 */
-    UINT sub_00663350(BYTE); /* 0x00663350 */
-    INT sub_006836c0(); /* 0x006836c0 */
-    INT sub_006836d0(); /* 0x006836d0 */
-    INT sub_006836e0(); /* 0x006836e0 */
-    INT sub_00683700(); /* 0x00683700 */
-    INT sub_00683710(); /* 0x00683710 */
-    INT sub_00683720(); /* 0x00683720 */
-    INT sub_00683740(); /* 0x00683740 */
-    INT sub_00683750(); /* 0x00683750 */
-    INT sub_00683790(); /* 0x00683790 */
-    UINT sub_00689e50(BYTE); /* 0x00689e50 */
-    UINT sub_00689e70(BYTE); /* 0x00689e70 */
-    INT sub_006a6be0(); /* 0x006a6be0 */
-    INT sub_006a6bf0(); /* 0x006a6bf0 */
-    UINT sub_006a6c60(BYTE); /* 0x006a6c60 */
-    UINT sub_006b1ec0(BYTE); /* 0x006b1ec0 */
-    void sub_006b3df0(UINT); /* 0x006b3df0 */
     INT sub_006b3e30(); /* 0x006b3e30 */
     INT sub_006b3e40(); /* 0x006b3e40 */
-    UINT* sub_006b4030(BYTE); /* 0x006b4030 */
     char* sub_006b41d0(); /* 0x006b41d0 */
     char* sub_006b41e0(); /* 0x006b41e0 */
-    void sub_006b4270(UINT); /* 0x006b4270 */
     void sub_006b42d0(); /* 0x006b42d0 */
-    UINT sub_006c7fc0(BYTE); /* 0x006c7fc0 */
-    UINT sub_006f3bd0(BYTE); /* 0x006f3bd0 */
-    UINT sub_006f3ec0(BYTE); /* 0x006f3ec0 */
-    UINT sub_006f3ee0(BYTE); /* 0x006f3ee0 */
-    UINT sub_006f3f70(BYTE); /* 0x006f3f70 */
-    UINT sub_006f4000(BYTE); /* 0x006f4000 */
-    UINT sub_006f4090(BYTE); /* 0x006f4090 */
-    UINT sub_006f4120(BYTE); /* 0x006f4120 */
-    UINT sub_006f4140(BYTE); /* 0x006f4140 */
-    UINT sub_006f4200(BYTE); /* 0x006f4200 */
-    UINT sub_0071b120(BYTE); /* 0x0071b120 */
-    INT* sub_0071fa50(INT*); /* 0x0071fa50 */
-    void sub_0071faa0(); /* 0x0071faa0 */
-    void sub_0071fbc0(); /* 0x0071fbc0 */
-    UINT sub_0071fbe0(BYTE); /* 0x0071fbe0 */
-    UINT sub_007229b0(BYTE); /* 0x007229b0 */
-    UINT sub_00724a80(BYTE); /* 0x00724a80 */
-    UINT sub_00724b40(BYTE); /* 0x00724b40 */
-    UINT sub_00724c10(BYTE); /* 0x00724c10 */
-    UINT sub_00724d00(BYTE); /* 0x00724d00 */
-    UINT sub_00726d80(BYTE); /* 0x00726d80 */
-    UINT sub_00726da0(BYTE); /* 0x00726da0 */
-    UINT sub_0072bb20(BYTE); /* 0x0072bb20 */
-    UINT sub_0072bb40(BYTE); /* 0x0072bb40 */
     void sub_0075f680(); /* 0x0075f680 */
     INT sub_0075f690(); /* 0x0075f690 */
-    UINT sub_0075f6f0(BYTE); /* 0x0075f6f0 */
-    UINT* sub_0075f740(BYTE); /* 0x0075f740 */
-    UINT sub_0075f760(BYTE); /* 0x0075f760 */
-    UINT sub_00766430(BYTE); /* 0x00766430 */
-    UINT sub_0078ea90(BYTE); /* 0x0078ea90 */
-    UINT* sub_007912f0(); /* 0x007912f0 */
-    UINT sub_00791310(BYTE); /* 0x00791310 */
-    UINT sub_00794050(BYTE); /* 0x00794050 */
-    UINT sub_0079d500(BYTE); /* 0x0079d500 */
-    UINT sub_007b33a0(BYTE); /* 0x007b33a0 */
-    UINT sub_007b7770(BYTE); /* 0x007b7770 */
-    void sub_007b78c0(); /* 0x007b78c0 */
-    UINT sub_007b78e0(BYTE); /* 0x007b78e0 */
-    INT sub_007d3db0(); /* 0x007d3db0 */
-    INT sub_007d3dd0(); /* 0x007d3dd0 */
-    INT sub_007d3df0(); /* 0x007d3df0 */
-    UINT sub_007d3e10(BYTE); /* 0x007d3e10 */
-    UINT sub_007d5740(BYTE); /* 0x007d5740 */
-    UINT sub_007d5760(BYTE); /* 0x007d5760 */
-    UINT sub_007d5780(BYTE); /* 0x007d5780 */
-    INT sub_007ea170(); /* 0x007ea170 */
-    INT sub_007ea180(); /* 0x007ea180 */
-    INT sub_007ea2e0(); /* 0x007ea2e0 */
-    UINT sub_007ea360(BYTE); /* 0x007ea360 */
-    UINT sub_00807990(BYTE); /* 0x00807990 */
-    UINT sub_0080ad10(BYTE); /* 0x0080ad10 */
-    UINT sub_00811b70(BYTE); /* 0x00811b70 */
-    UINT sub_008218a0(BYTE); /* 0x008218a0 */
-    UINT sub_00830f30(BYTE); /* 0x00830f30 */
-    UINT sub_008335f0(BYTE); /* 0x008335f0 */
-    UINT sub_00951640(BYTE); /* 0x00951640 */
-    UINT sub_00952b20(BYTE); /* 0x00952b20 */
-    UINT sub_00953c90(BYTE); /* 0x00953c90 */
-    UINT sub_00953ce0(BYTE); /* 0x00953ce0 */
-    UINT sub_00955880(BYTE); /* 0x00955880 */
     UINT sub_00955990(BYTE); /* 0x00955990 */
     UINT sub_00955aa0(BYTE); /* 0x00955aa0 */
-    UINT sub_0097b450(BYTE); /* 0x0097b450 */
-    UINT sub_009a2a60(); /* 0x009a2a60 */
-    UINT sub_009b4b60(BYTE); /* 0x009b4b60 */
-    UINT sub_009b9210(BYTE); /* 0x009b9210 */
-    UINT sub_009d4180(); /* 0x009d4180 */
     UINT sub_009d41a0(BYTE); /* 0x009d41a0 */
-    UINT* sub_009d5b10(BYTE); /* 0x009d5b10 */
-    UINT* sub_009d6d40(INT); /* 0x009d6d40 */
-    void sub_009d6d70(); /* 0x009d6d70 */
-    UINT* sub_009d6d90(UINT); /* 0x009d6d90 */
-    UINT* sub_009dc290(UINT); /* 0x009dc290 */
-    UINT* sub_009dc2e0(UINT); /* 0x009dc2e0 */
-    UINT* sub_009dc340(UINT); /* 0x009dc340 */
-    UINT* sub_009dd0d0(BYTE); /* 0x009dd0d0 */
-    UINT* sub_009dd100(BYTE); /* 0x009dd100 */
-    UINT sub_009e2520(BYTE); /* 0x009e2520 */
-    UINT sub_009e2540(BYTE); /* 0x009e2540 */
-    UINT sub_009e2560(BYTE); /* 0x009e2560 */
-    UINT sub_00a5fae0(BYTE); /* 0x00a5fae0 */
-    UINT sub_00a5fb00(BYTE); /* 0x00a5fb00 */
-    UINT sub_00a5fb90(BYTE); /* 0x00a5fb90 */
-    UINT sub_00a5fbb0(BYTE); /* 0x00a5fbb0 */
-    UINT sub_00a5fbd0(BYTE); /* 0x00a5fbd0 */
-    UINT sub_00a5fbf0(BYTE); /* 0x00a5fbf0 */
-    UINT sub_00a5fc10(BYTE); /* 0x00a5fc10 */
-    UINT sub_00a5fc30(BYTE); /* 0x00a5fc30 */
-    UINT sub_00a5fc50(BYTE); /* 0x00a5fc50 */
-    UINT sub_00a5fc70(BYTE); /* 0x00a5fc70 */
-    UINT sub_00a5fc90(BYTE); /* 0x00a5fc90 */
-    UINT sub_00a5fcb0(BYTE); /* 0x00a5fcb0 */
-    UINT sub_00a62230(BYTE); /* 0x00a62230 */
-    UINT sub_00a62250(BYTE); /* 0x00a62250 */
-    UINT sub_00a649f0(BYTE); /* 0x00a649f0 */
-    UINT sub_00a674e0(BYTE); /* 0x00a674e0 */
-    void sub_00a67510(INT*); /* 0x00a67510 */
-    INT sub_00a678d0(UINT*); /* 0x00a678d0 */
-    UINT sub_00a69810(BYTE); /* 0x00a69810 */
-    UINT sub_00a69850(BYTE); /* 0x00a69850 */
-    void sub_00a71a40(); /* 0x00a71a40 */
-    INT* sub_00ab8400(BYTE); /* 0x00ab8400 */
-    void sub_00ab84a0(); /* 0x00ab84a0 */
-    UINT sub_00ab84c0(BYTE); /* 0x00ab84c0 */
-    UINT sub_00ab84e0(BYTE); /* 0x00ab84e0 */
-    UINT sub_00ab8500(BYTE); /* 0x00ab8500 */
-    UINT sub_00ab8520(BYTE); /* 0x00ab8520 */
-    UINT sub_00ab8540(BYTE); /* 0x00ab8540 */
-    UINT sub_00ab8560(BYTE); /* 0x00ab8560 */
-    UINT sub_00abbeb0(BYTE); /* 0x00abbeb0 */
-    UINT sub_00abc6f0(BYTE); /* 0x00abc6f0 */
     UINT sub_00abc780(BYTE); /* 0x00abc780 */
     UINT sub_00abc810(BYTE); /* 0x00abc810 */
-    UINT sub_00abccb0(BYTE); /* 0x00abccb0 */
-    INT sub_00abce00(); /* 0x00abce00 */
-    INT sub_00abce40(INT*); /* 0x00abce40 */
-    void sub_00abcea0(); /* 0x00abcea0 */
-    INT sub_00abcfe0(UINT*); /* 0x00abcfe0 */
     INT sub_00abd180(); /* 0x00abd180 */
     INT sub_00abd1b0(); /* 0x00abd1b0 */
-    INT sub_00abd1c0(UINT*); /* 0x00abd1c0 */
     INT sub_00abd240(); /* 0x00abd240 */
     INT sub_00abd270(); /* 0x00abd270 */
     INT sub_00abd280(UINT*); /* 0x00abd280 */
-    void sub_00abd2e0(UINT*); /* 0x00abd2e0 */
     INT sub_00abd400(); /* 0x00abd400 */
-    bool sub_00abd410(); /* 0x00abd410 */
-    bool sub_00abd450(); /* 0x00abd450 */
-    INT sub_00abd460(UINT*); /* 0x00abd460 */
-    UINT* sub_00abd4c0(UINT); /* 0x00abd4c0 */
-    void sub_00abd500(UINT*); /* 0x00abd500 */
-    INT sub_00abd520(); /* 0x00abd520 */
-    UINT sub_00ac0200(BYTE); /* 0x00ac0200 */
-    UINT sub_00ac02a0(BYTE); /* 0x00ac02a0 */
-    UINT sub_00ac02e0(BYTE); /* 0x00ac02e0 */
-    UINT sub_00ac0320(BYTE); /* 0x00ac0320 */
-    UINT sub_00ac7d80(BYTE); /* 0x00ac7d80 */
-    void sub_00afc380(); /* 0x00afc380 */
-    UINT sub_00afc3a0(BYTE); /* 0x00afc3a0 */
-    UINT sub_00afc3c0(BYTE); /* 0x00afc3c0 */
-    UINT sub_00afc3e0(BYTE); /* 0x00afc3e0 */
-    UINT sub_00afc400(BYTE); /* 0x00afc400 */
-    UINT sub_00afc420(BYTE); /* 0x00afc420 */
-    UINT sub_00afc440(BYTE); /* 0x00afc440 */
-    UINT sub_00afc460(BYTE); /* 0x00afc460 */
-    UINT sub_00afc480(BYTE); /* 0x00afc480 */
-    UINT sub_00afc4a0(BYTE); /* 0x00afc4a0 */
-    UINT sub_00afc4c0(BYTE); /* 0x00afc4c0 */
-    UINT sub_00afe5c0(BYTE); /* 0x00afe5c0 */
-    UINT sub_00b02ff0(BYTE); /* 0x00b02ff0 */
     UINT sub_00b03080(BYTE); /* 0x00b03080 */
     UINT sub_00b03110(BYTE); /* 0x00b03110 */
     UINT sub_00b031a0(BYTE); /* 0x00b031a0 */
-    UINT sub_00b03370(BYTE); /* 0x00b03370 */
-    UINT sub_00b033b0(BYTE); /* 0x00b033b0 */
-    void sub_00b03790(); /* 0x00b03790 */
-    void sub_00b03860(); /* 0x00b03860 */
-    void sub_00b03980(); /* 0x00b03980 */
-    void sub_00b03a00(); /* 0x00b03a00 */
-    void sub_00b03a80(); /* 0x00b03a80 */
-    UINT sub_00b08c50(BYTE); /* 0x00b08c50 */
-    void sub_00b08d60(); /* 0x00b08d60 */
-    void sub_00b0a400(); /* 0x00b0a400 */
-    UINT sub_00b0afe0(BYTE); /* 0x00b0afe0 */
-    UINT sub_00b0b0c0(); /* 0x00b0b0c0 */
-    UINT sub_00b0b0e0(); /* 0x00b0b0e0 */
-    INT sub_00b0b170(INT); /* 0x00b0b170 */
-    UINT sub_00b0b190(); /* 0x00b0b190 */
-    UINT sub_00b0b1b0(); /* 0x00b0b1b0 */
-    UINT sub_00b0d260(BYTE); /* 0x00b0d260 */
-    UINT sub_00b0d280(BYTE); /* 0x00b0d280 */
-    UINT sub_00b0d2a0(BYTE); /* 0x00b0d2a0 */
-    void sub_00b115e0(INT); /* 0x00b115e0 */
-    void sub_00b11670(INT); /* 0x00b11670 */
-    UINT sub_00b366d0(BYTE); /* 0x00b366d0 */
-    UINT sub_00b39a20(BYTE); /* 0x00b39a20 */
-    UINT sub_00b53bf0(BYTE); /* 0x00b53bf0 */
-    void sub_00b53c10(); /* 0x00b53c10 */
-    UINT* sub_00b53c70(BYTE); /* 0x00b53c70 */
-    void sub_00b53d60(UINT); /* 0x00b53d60 */
-    void sub_00b53dc0(); /* 0x00b53dc0 */
-    UINT* sub_00b53dd0(BYTE); /* 0x00b53dd0 */
-    UINT sub_00b53ff0(BYTE); /* 0x00b53ff0 */
-    void sub_00b54010(); /* 0x00b54010 */
-    UINT* sub_00b54070(BYTE); /* 0x00b54070 */
-    INT sub_00b584d0(UINT*); /* 0x00b584d0 */
-    INT sub_00b58580(INT); /* 0x00b58580 */
-    UINT sub_00b585c0(BYTE); /* 0x00b585c0 */
-    UINT sub_00b58600(BYTE); /* 0x00b58600 */
-    UINT sub_00b58640(BYTE); /* 0x00b58640 */
-    UINT sub_00b58680(BYTE); /* 0x00b58680 */
-    UINT sub_00b84e20(BYTE); /* 0x00b84e20 */
-    UINT* sub_00b84e40(); /* 0x00b84e40 */
-    UINT sub_00b84f50(); /* 0x00b84f50 */
-    INT sub_00b85010(UINT*); /* 0x00b85010 */
-    INT sub_00b85170(INT); /* 0x00b85170 */
-    INT sub_00b85180(INT); /* 0x00b85180 */
-    INT sub_00b85210(INT); /* 0x00b85210 */
-    void sub_00b854c0(); /* 0x00b854c0 */
-    UINT sub_00b85520(BYTE); /* 0x00b85520 */
-    UINT* sub_00b91960(); /* 0x00b91960 */
-    UINT* sub_00b919a0(); /* 0x00b919a0 */
-    UINT* sub_00b919d0(); /* 0x00b919d0 */
-    UINT* sub_00b91a10(); /* 0x00b91a10 */
-    UINT sub_00b91a50(BYTE); /* 0x00b91a50 */
-    UINT sub_00b91a70(BYTE); /* 0x00b91a70 */
-    UINT sub_00b91a90(BYTE); /* 0x00b91a90 */
-    UINT sub_00b91ab0(BYTE); /* 0x00b91ab0 */
-    UINT sub_00b91ad0(BYTE); /* 0x00b91ad0 */
-    UINT sub_00b91af0(BYTE); /* 0x00b91af0 */
-    INT sub_00bb4b50(); /* 0x00bb4b50 */
-    UINT sub_00bb4b70(); /* 0x00bb4b70 */
-    UINT sub_00bb6120(BYTE); /* 0x00bb6120 */
-    UINT sub_00bb69f0(BYTE); /* 0x00bb69f0 */
-    UINT sub_00bb6a10(BYTE); /* 0x00bb6a10 */
-    UINT sub_00bb6a30(BYTE); /* 0x00bb6a30 */
-    UINT* sub_00bb7ca0(); /* 0x00bb7ca0 */
-    void sub_00bb7cd0(); /* 0x00bb7cd0 */
-    UINT* sub_00bb7d10(BYTE); /* 0x00bb7d10 */
-    UINT sub_00bb84c0(BYTE); /* 0x00bb84c0 */
-    UINT sub_00bb8520(BYTE); /* 0x00bb8520 */
-    UINT sub_00bb8580(BYTE); /* 0x00bb8580 */
-    UINT sub_00bb85e0(BYTE); /* 0x00bb85e0 */
-    UINT sub_00bb8640(BYTE); /* 0x00bb8640 */
-    UINT sub_00bb9890(BYTE); /* 0x00bb9890 */
-    UINT sub_00bc0830(BYTE); /* 0x00bc0830 */
-    UINT sub_00bc0850(BYTE); /* 0x00bc0850 */
-    UINT sub_00bc0870(BYTE); /* 0x00bc0870 */
-    UINT sub_00bc0890(BYTE); /* 0x00bc0890 */
-    UINT sub_00bc08b0(BYTE); /* 0x00bc08b0 */
-    UINT sub_00bd1c50(BYTE); /* 0x00bd1c50 */
-    UINT sub_00bd9f10(BYTE); /* 0x00bd9f10 */
     INT sub_00bda350(); /* 0x00bda350 */
     INT sub_00bda360(); /* 0x00bda360 */
-    INT sub_00bda390(INT); /* 0x00bda390 */
-    void sub_00bda3c0(); /* 0x00bda3c0 */
-    INT sub_00bda410(); /* 0x00bda410 */
-    void sub_00bda430(UINT*); /* 0x00bda430 */
-    INT sub_00bda450(INT); /* 0x00bda450 */
-    INT sub_00bda460(); /* 0x00bda460 */
-    INT sub_00bda4d0(); /* 0x00bda4d0 */
-    INT sub_00bda4e0(); /* 0x00bda4e0 */
-    INT sub_00bda500(); /* 0x00bda500 */
-    INT sub_00bda580(); /* 0x00bda580 */
-    INT sub_00bda5a0(); /* 0x00bda5a0 */
-    void sub_00bda950(); /* 0x00bda950 */
-    UINT sub_00bda960(UINT, UINT); /* 0x00bda960 */
-    INT sub_00bda990(UINT, UINT, UINT); /* 0x00bda990 */
-    UINT sub_00bdab50(BYTE); /* 0x00bdab50 */
-    INT sub_00bdaca0(); /* 0x00bdaca0 */
-    UINT sub_00bdb250(BYTE); /* 0x00bdb250 */
     INT sub_00bded00(); /* 0x00bded00 */
-    UINT sub_00bdf160(); /* 0x00bdf160 */
     INT sub_00bdf180(); /* 0x00bdf180 */
     INT sub_00bdf210(); /* 0x00bdf210 */
     INT sub_00bdf220(); /* 0x00bdf220 */
@@ -27121,120 +23364,21 @@ struct ULensFlare : public UObject {
     INT sub_00bdf290(); /* 0x00bdf290 */
     INT sub_00bdf310(); /* 0x00bdf310 */
     INT sub_00bdf320(); /* 0x00bdf320 */
-    INT sub_00bdf330(INT); /* 0x00bdf330 */
-    UINT sub_00bdf470(BYTE); /* 0x00bdf470 */
-    void sub_00bdf8c0(UINT); /* 0x00bdf8c0 */
     void sub_00bdf8f0(); /* 0x00bdf8f0 */
-    UINT* sub_00bdf900(BYTE); /* 0x00bdf900 */
-    UINT sub_00be1ad0(BYTE); /* 0x00be1ad0 */
     UINT sub_00be1da0(BYTE); /* 0x00be1da0 */
     UINT sub_00be1e30(BYTE); /* 0x00be1e30 */
     UINT sub_00be1ec0(BYTE); /* 0x00be1ec0 */
     UINT sub_00be1f50(BYTE); /* 0x00be1f50 */
     UINT sub_00be1fe0(BYTE); /* 0x00be1fe0 */
-    void sub_00be2000(); /* 0x00be2000 */
     void sub_00be20c0(); /* 0x00be20c0 */
-    UINT* sub_00be20d0(BYTE); /* 0x00be20d0 */
-    UINT sub_00be21e0(BYTE); /* 0x00be21e0 */
-    void sub_00be2380(); /* 0x00be2380 */
-    UINT* sub_00be2390(); /* 0x00be2390 */
     char* sub_00be2500(); /* 0x00be2500 */
-    void sub_00be2510(); /* 0x00be2510 */
-    UINT* sub_00be2610(BYTE); /* 0x00be2610 */
-    UINT sub_00be2860(BYTE); /* 0x00be2860 */
-    UINT sub_00be28a0(BYTE); /* 0x00be28a0 */
-    UINT sub_00be28e0(BYTE); /* 0x00be28e0 */
-    void sub_00be57d0(); /* 0x00be57d0 */
-    UINT* sub_00be5810(BYTE); /* 0x00be5810 */
-    UINT* sub_00be58e0(BYTE); /* 0x00be58e0 */
-    UINT sub_00c13720(BYTE); /* 0x00c13720 */
-    UINT sub_00c21040(BYTE); /* 0x00c21040 */
-    UINT sub_00c219f0(BYTE); /* 0x00c219f0 */
-    UINT sub_00c250d0(BYTE); /* 0x00c250d0 */
-    INT sub_00c25110(INT); /* 0x00c25110 */
-    INT sub_00c25120(INT); /* 0x00c25120 */
-    INT sub_00c25130(INT); /* 0x00c25130 */
-    INT sub_00c25140(INT); /* 0x00c25140 */
-    INT sub_00c25150(INT); /* 0x00c25150 */
-    INT sub_00c25160(INT); /* 0x00c25160 */
-    UINT sub_00c261d0(BYTE); /* 0x00c261d0 */
-    UINT sub_00c3ed90(BYTE); /* 0x00c3ed90 */
-    UINT sub_00cb31e0(BYTE); /* 0x00cb31e0 */
-    INT sub_00cb4a50(INT); /* 0x00cb4a50 */
-    INT sub_00cb4a90(UINT*); /* 0x00cb4a90 */
-    bool sub_00cb4af0(); /* 0x00cb4af0 */
-    UINT sub_00cb4b00(BYTE); /* 0x00cb4b00 */
-    UINT sub_00d6ed10(BYTE); /* 0x00d6ed10 */
-    UINT sub_00e47a10(BYTE); /* 0x00e47a10 */
-    UINT sub_00e47a30(BYTE); /* 0x00e47a30 */
-    UINT sub_00e47a50(BYTE); /* 0x00e47a50 */
-    UINT sub_00e47a70(BYTE); /* 0x00e47a70 */
-    UINT sub_00e47a90(BYTE); /* 0x00e47a90 */
-    UINT sub_00e47ab0(BYTE); /* 0x00e47ab0 */
-    UINT sub_00e47ad0(BYTE); /* 0x00e47ad0 */
-    UINT sub_00e47af0(BYTE); /* 0x00e47af0 */
-    UINT sub_00e47b10(BYTE); /* 0x00e47b10 */
-    UINT sub_00e47b30(BYTE); /* 0x00e47b30 */
-    UINT sub_00e47b50(BYTE); /* 0x00e47b50 */
-    INT* sub_00e9d540(INT*); /* 0x00e9d540 */
-    INT* sub_00e9d570(INT*); /* 0x00e9d570 */
     INT sub_00e9d5a0(); /* 0x00e9d5a0 */
-    UINT* sub_00e9d620(INT*, INT); /* 0x00e9d620 */
-    INT* sub_00e9d650(INT*); /* 0x00e9d650 */
-    UINT* sub_00e9d680(INT*, INT); /* 0x00e9d680 */
-    INT* sub_00e9d6c0(INT*); /* 0x00e9d6c0 */
     INT sub_00e9d6f0(); /* 0x00e9d6f0 */
     INT sub_00e9d770(); /* 0x00e9d770 */
-    INT* sub_00e9d7f0(INT*); /* 0x00e9d7f0 */
     INT sub_00e9d820(); /* 0x00e9d820 */
-    INT* sub_00e9d8b0(INT*); /* 0x00e9d8b0 */
     INT sub_00e9d8e0(); /* 0x00e9d8e0 */
     INT sub_00e9d8f0(); /* 0x00e9d8f0 */
-    INT sub_00e9d970(INT); /* 0x00e9d970 */
-    INT* sub_00e9d980(INT*); /* 0x00e9d980 */
     INT sub_00e9d9b0(); /* 0x00e9d9b0 */
-    void sub_00ea0950(); /* 0x00ea0950 */
-    INT* sub_00ea0ab0(); /* 0x00ea0ab0 */
-    INT* sub_00ea0b60(); /* 0x00ea0b60 */
-    INT sub_00ea0cf0(UINT*); /* 0x00ea0cf0 */
-    INT sub_00ea0da0(INT); /* 0x00ea0da0 */
-    INT* sub_00ea0de0(); /* 0x00ea0de0 */
-    INT* sub_00ea0ec0(INT*); /* 0x00ea0ec0 */
-    INT* sub_00ea0ef0(); /* 0x00ea0ef0 */
-    INT sub_00ea0f60(UINT*); /* 0x00ea0f60 */
-    INT* sub_00ea0fc0(); /* 0x00ea0fc0 */
-    INT sub_00ea1030(INT); /* 0x00ea1030 */
-    INT* sub_00ea1110(); /* 0x00ea1110 */
-    INT* sub_00ea11f0(); /* 0x00ea11f0 */
-    INT* sub_00ea1210(); /* 0x00ea1210 */
-    INT* sub_00ea1280(); /* 0x00ea1280 */
-    UINT sub_00ea12a0(BYTE); /* 0x00ea12a0 */
-    UINT sub_00ea12c0(BYTE); /* 0x00ea12c0 */
-    UINT sub_00ea12e0(BYTE); /* 0x00ea12e0 */
-    INT sub_00ea1390(INT); /* 0x00ea1390 */
-    UINT sub_00ea1430(BYTE); /* 0x00ea1430 */
-    UINT sub_00ea21a0(BYTE); /* 0x00ea21a0 */
-    UINT sub_00ea30e0(BYTE); /* 0x00ea30e0 */
-    INT sub_0132be00(); /* 0x0132be00 */
-    INT sub_0132be20(); /* 0x0132be20 */
-    void sub_0132be40(); /* 0x0132be40 */
-    UINT* sub_0132be50(BYTE); /* 0x0132be50 */
-    INT sub_0141e6d0(); /* 0x0141e6d0 */
-    INT sub_0141e6f0(); /* 0x0141e6f0 */
-    void sub_0141e710(); /* 0x0141e710 */
-    UINT* sub_0141e720(BYTE); /* 0x0141e720 */
-    INT sub_01605d80(); /* 0x01605d80 */
-    INT sub_01605d90(); /* 0x01605d90 */
-    UINT sub_01605db0(BYTE); /* 0x01605db0 */
-    UINT sub_01654d90(BYTE); /* 0x01654d90 */
-    UINT sub_0172c240(BYTE); /* 0x0172c240 */
-    INT sub_017352a0(); /* 0x017352a0 */
-    INT sub_017352b0(); /* 0x017352b0 */
-    UINT sub_017352d0(BYTE); /* 0x017352d0 */
-    UINT* sub_0175d150(UINT, UINT); /* 0x0175d150 */
-    UINT sub_0175e240(BYTE); /* 0x0175e240 */
-    UINT sub_0175e260(BYTE); /* 0x0175e260 */
-    UINT sub_0175e280(BYTE); /* 0x0175e280 */
     /* registered size 0x1ec */
 };
 
@@ -27471,8 +23615,6 @@ struct ULineBatchComponent : public UPrimitiveComponent, public FPrimitiveDrawIn
     virtual void Tick(FLOAT DeltaTime); /* 0x124 */
     virtual FPrimitiveSceneProxy* CreateSceneProxy(); /* 0x1fc */
     /* other member functions */
-    UINT sub_007ec8f0(BYTE); /* 0x007ec8f0 */
-    void sub_009c3c90(INT); /* 0x009c3c90 */
     /* registered size 0x1c0 */
     /* FPrimitiveDrawInterface */
     virtual UBOOL IsHitTesting(); /* 0x007ec790 */
@@ -27538,8 +23680,6 @@ struct ULocalPlayer : public UPlayer {
     virtual void FinishDestroy(); /* 0x02c */
     /* other member functions */
     void RebuildPlayerPostProcessChain(); /* 0x0089dea0 */
-    UINT* sub_00ed7f30(); /* 0x00ed7f30 */
-    UINT sub_0089f930(BYTE); /* 0x0089f930 */
     /* registered size 0x1ec */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x008a39f0 */
@@ -27829,8 +23969,6 @@ struct UMaterialExpressionCompound : public UMaterialExpression {
     virtual void SwapReferenceTo(UMaterialExpression* OldExpression,UMaterialExpression* NewExpression = NULL); /* 0x10c */
     virtual FString GetCaption() const; /* 0x128 */
     /* other member functions */
-    INT sub_00c36de0(); /* 0x00c36de0 */
-    UINT sub_00c3ed70(BYTE); /* 0x00c3ed70 */
     /* registered size 0x7c */
 };
 
@@ -28838,22 +24976,9 @@ struct UTextureCube : public UTexture {
     virtual INT GetMaterialType(); /* 0x120 */
     /* other member functions */
     void sub_0075b630(); /* 0x0075b630 */
-    UINT sub_00656470(BYTE); /* 0x00656470 */
-    UINT* sub_007240c0(BYTE); /* 0x007240c0 */
-    UINT* sub_0072b230(BYTE); /* 0x0072b230 */
-    UINT sub_0075bd80(BYTE); /* 0x0075bd80 */
-    UINT sub_007609c0(BYTE); /* 0x007609c0 */
     UINT sub_00760b30(BYTE); /* 0x00760b30 */
     UINT sub_00760b50(BYTE); /* 0x00760b50 */
-    UINT sub_007615b0(BYTE); /* 0x007615b0 */
-    void sub_00761790(); /* 0x00761790 */
     UINT sub_00762340(BYTE); /* 0x00762340 */
-    UINT* sub_008919e0(BYTE); /* 0x008919e0 */
-    UINT* sub_00891a10(BYTE); /* 0x00891a10 */
-    UINT sub_00895a20(BYTE); /* 0x00895a20 */
-    UINT sub_00895a40(BYTE); /* 0x00895a40 */
-    void sub_00e62180(); /* 0x00e62180 */
-    UINT sub_00e621f0(BYTE); /* 0x00e621f0 */
     /* registered size 0xdc */
 };
 
@@ -28971,11 +25096,6 @@ struct UMaterialExpressionWorldPosition : public UMaterialExpression {
     virtual INT Compile(class FMaterialCompiler* Compiler); /* 0x110 */
     virtual FString GetCaption() const; /* 0x128 */
     /* other member functions */
-    UINT sub_00c36eb0(BYTE); /* 0x00c36eb0 */
-    UINT sub_012598f0(BYTE); /* 0x012598f0 */
-    UINT sub_0125d920(BYTE); /* 0x0125d920 */
-    UINT sub_0125da20(BYTE); /* 0x0125da20 */
-    UINT sub_0125dc30(BYTE); /* 0x0125dc30 */
     /* registered size 0x60 */
 };
 
@@ -29031,16 +25151,7 @@ struct UMaterialInstance : public UMaterialInterface {
     /* other member functions */
     void UpdateStaticPermutation(); /* 0x006bbfd0 */
     void sub_006c47c0(const TCHAR* Caller); /* 0x006c47c0 */
-    UINT sub_006aeb10(); /* 0x006aeb10 */
     void sub_006aeb30(); /* 0x006aeb30 */
-    UINT* sub_006aeb40(BYTE); /* 0x006aeb40 */
-    UINT sub_006c47a0(BYTE); /* 0x006c47a0 */
-    UINT sub_006d5b10(BYTE); /* 0x006d5b10 */
-    UINT sub_006d69d0(BYTE); /* 0x006d69d0 */
-    UINT sub_00729050(BYTE); /* 0x00729050 */
-    UINT sub_0072dd00(BYTE); /* 0x0072dd00 */
-    UINT sub_00a49040(BYTE); /* 0x00a49040 */
-    UINT sub_00a4a800(BYTE); /* 0x00a4a800 */
     /* registered size 0x70 */
 };
 
@@ -29081,20 +25192,10 @@ struct UMaterialInstanceConstant : public UMaterialInstance {
     virtual void vf_184(); /* 0x184 */
     /* other member functions */
     void sub_006d89d0(); /* 0x006d89d0 */
-    UINT* sub_006d89e0(BYTE); /* 0x006d89e0 */
     void sub_006d8a60(); /* 0x006d8a60 */
-    UINT* sub_006d8a70(BYTE); /* 0x006d8a70 */
     void sub_006d8ae0(); /* 0x006d8ae0 */
-    UINT* sub_006d8af0(BYTE); /* 0x006d8af0 */
     void sub_006d8b60(); /* 0x006d8b60 */
-    UINT* sub_006d8b70(BYTE); /* 0x006d8b70 */
-    UINT sub_007099e0(BYTE); /* 0x007099e0 */
-    UINT* sub_0070ae20(BYTE); /* 0x0070ae20 */
-    UINT* sub_0070ae60(BYTE); /* 0x0070ae60 */
-    UINT* sub_0070aea0(BYTE); /* 0x0070aea0 */
-    UINT sub_007116b0(BYTE); /* 0x007116b0 */
     void sub_00711880(); /* 0x00711880 */
-    UINT sub_010b0220(BYTE); /* 0x010b0220 */
     /* registered size 0xa0 */
 };
 
@@ -29149,10 +25250,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
     void execSetVectorCurveParameterValue(FFrame& Stack, RESULT_DECL); /* 0x00cd1300 */
     /* other member functions */
     void sub_006d8e10(); /* 0x006d8e10 */
-    UINT* sub_006d8e20(BYTE); /* 0x006d8e20 */
     void sub_006d8e90(); /* 0x006d8e90 */
-    UINT* sub_006d8ea0(BYTE); /* 0x006d8ea0 */
-    UINT sub_00711ac0(BYTE); /* 0x00711ac0 */
     /* registered size 0xa8 */
 };
 
@@ -29240,8 +25338,6 @@ struct UModelComponent : public UPrimitiveComponent {
     INT sub_00804fe0(); /* 0x00804fe0 */
     INT sub_00804ff0(); /* 0x00804ff0 */
     INT sub_008051a0(); /* 0x008051a0 */
-    UINT sub_0081e690(BYTE); /* 0x0081e690 */
-    UINT sub_008235e0(BYTE); /* 0x008235e0 */
     /* registered size 0x1e0 */
 };
 
@@ -29384,61 +25480,17 @@ struct UMorphWeightSequence : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual FString GetDesc(); /* 0x0b8 */
     /* other member functions */
-    UINT sub_0064ce90(UINT); /* 0x0064ce90 */
-    UINT sub_006506e0(UINT); /* 0x006506e0 */
-    UINT sub_006527f0(UINT); /* 0x006527f0 */
-    UINT sub_006528a0(UINT); /* 0x006528a0 */
-    UINT sub_00652ad0(UINT); /* 0x00652ad0 */
-    UINT sub_00688450(UINT); /* 0x00688450 */
-    UINT sub_006a8c90(UINT); /* 0x006a8c90 */
-    UINT sub_00746c20(UINT); /* 0x00746c20 */
-    UINT sub_00746d90(UINT); /* 0x00746d90 */
-    UINT sub_00756620(UINT); /* 0x00756620 */
-    UINT sub_00835160(UINT); /* 0x00835160 */
-    UINT* sub_00835210(UINT); /* 0x00835210 */
     void sub_00839d80(); /* 0x00839d80 */
     void sub_00839d90(); /* 0x00839d90 */
     void sub_00839da0(); /* 0x00839da0 */
     UINT sub_0083a2e0(BYTE); /* 0x0083a2e0 */
     UINT sub_0083a370(BYTE); /* 0x0083a370 */
     UINT sub_0083a400(BYTE); /* 0x0083a400 */
-    UINT* sub_0083a420(BYTE); /* 0x0083a420 */
     UINT sub_00a59240(UINT); /* 0x00a59240 */
     UINT sub_00a59330(UINT); /* 0x00a59330 */
     UINT sub_00a59400(UINT); /* 0x00a59400 */
     UINT* sub_00a59460(UINT); /* 0x00a59460 */
-    UINT sub_00a59530(UINT); /* 0x00a59530 */
-    UINT sub_00a59de0(UINT); /* 0x00a59de0 */
-    UINT sub_00a59eb0(UINT); /* 0x00a59eb0 */
-    UINT sub_00a5ee20(UINT); /* 0x00a5ee20 */
-    UINT sub_00a5eee0(UINT); /* 0x00a5eee0 */
-    void sub_00a745b0(UINT, INT, INT, UINT, UINT); /* 0x00a745b0 */
-    UINT sub_00a82370(UINT); /* 0x00a82370 */
-    UINT sub_00ab2210(UINT); /* 0x00ab2210 */
-    UINT sub_00ab6a00(UINT); /* 0x00ab6a00 */
-    UINT sub_00ab6b70(UINT); /* 0x00ab6b70 */
-    UINT sub_00ab6ce0(UINT); /* 0x00ab6ce0 */
-    UINT sub_00ab6e50(UINT); /* 0x00ab6e50 */
-    UINT sub_00ab6fc0(UINT); /* 0x00ab6fc0 */
-    UINT sub_00ab7130(UINT); /* 0x00ab7130 */
-    UINT sub_00ab72a0(UINT); /* 0x00ab72a0 */
-    UINT sub_00ab7410(UINT); /* 0x00ab7410 */
-    UINT sub_00ab7580(UINT); /* 0x00ab7580 */
-    UINT sub_00ab76f0(UINT); /* 0x00ab76f0 */
-    UINT sub_00ab7860(UINT); /* 0x00ab7860 */
-    UINT sub_00ab79d0(UINT); /* 0x00ab79d0 */
-    UINT sub_00ab7b40(UINT); /* 0x00ab7b40 */
-    UINT sub_00ab7cb0(UINT); /* 0x00ab7cb0 */
-    UINT sub_00ab7e20(UINT); /* 0x00ab7e20 */
-    UINT sub_00ab7f90(UINT); /* 0x00ab7f90 */
-    UINT sub_00afae50(INT); /* 0x00afae50 */
     INT sub_00afb350(); /* 0x00afb350 */
-    UINT* sub_00afb390(UINT); /* 0x00afb390 */
-    UINT sub_00afb5c0(UINT); /* 0x00afb5c0 */
-    UINT sub_00b0ffb0(UINT); /* 0x00b0ffb0 */
-    UINT sub_00c1bc20(UINT); /* 0x00c1bc20 */
-    UINT sub_00deff40(UINT); /* 0x00deff40 */
-    UINT sub_00df01f0(UINT); /* 0x00df01f0 */
     UINT sub_00df65f0(BYTE); /* 0x00df65f0 */
     /* registered size 0x30 */
 };
@@ -29457,7 +25509,6 @@ struct UMotionBlurEffect : public UPostProcessEffect {
     virtual class FPostProcessSceneProxy* CreateSceneProxy(const FPostProcessSettings* WorldSettings); /* 0x10c */
     virtual UBOOL IsShown(const FSceneView* View) const; /* 0x110 */
     /* other member functions */
-    UINT* sub_00833de0(BYTE); /* 0x00833de0 */
     /* registered size 0x6c */
 };
 
@@ -29538,7 +25589,6 @@ struct ANxForceField : public AActor {
     virtual void InitRBPhys(); /* 0x238 */
     virtual void TermRBPhys(FRBPhysScene* Scene); /* 0x23c */
     /* other member functions */
-    UINT sub_00d6b770(BYTE); /* 0x00d6b770 */
     /* registered size 0x1e8 */
 };
 
@@ -30096,12 +26146,6 @@ struct USettings : public UObject {
     void SetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& Blob); /* 0x00d742e0 */
     void SetSettingsData(FSettingsData& Data, FSettingsData& Data2Copy); /* 0x00d74300 */
     void GetSettingsDataBlob(FSettingsData& Data, TArray<BYTE>& OutBlob); /* 0x00d799d0 */
-    void sub_00d67b40(UINT*); /* 0x00d67b40 */
-    void sub_00d67b60(UINT*); /* 0x00d67b60 */
-    void sub_00d67bb0(UINT*, UINT*); /* 0x00d67bb0 */
-    void sub_00d67c00(UINT*, UINT*); /* 0x00d67c00 */
-    UINT sub_00d67d50(FLOAT); /* 0x00d67d50 */
-    UINT sub_00d67e00(double); /* 0x00d67e00 */
     INT sub_00d88680(); /* 0x00d88680 */
     void sub_00d88690(); /* 0x00d88690 */
     /* registered size 0x78 */
@@ -30214,7 +26258,6 @@ struct UOnlinePlaylistManager : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT* sub_00d67180(BYTE); /* 0x00d67180 */
     /* registered size 0x30 */
 };
 
@@ -30373,7 +26416,6 @@ struct UOnlineStatsRead : public UOnlineStats {
     void execGetRankForPlayer(FFrame& Stack, RESULT_DECL); /* 0x00c8d340 */
     void execAddPlayer(FFrame& Stack, RESULT_DECL); /* 0x00cb8500 */
     /* other member functions */
-    void sub_00d419b0(UINT); /* 0x00d419b0 */
     /* registered size 0x7c */
 };
 
@@ -30453,9 +26495,6 @@ struct UOnlineSubsystem : public UObject, public FTickableObject {
     UBOOL eventSetPlayerInterface(UObject* NewInterface); /* 0x00e85d80 */
     UBOOL eventSetAccountInterface(UObject* NewInterface); /* 0x00e85dd0 */
     INT GetBuildUniqueId(); /* 0x00d67980 */
-    UINT* sub_00e3f620(); /* 0x00e3f620 */
-    UINT* sub_00e995b0(); /* 0x00e995b0 */
-    UINT sub_00d88980(BYTE); /* 0x00d88980 */
     /* registered size 0xc0 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00d88660 */
@@ -30528,7 +26567,6 @@ struct UParticleEmitter : public UObject {
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    void sub_00b519d0(UINT, UINT); /* 0x00b519d0 */
     char* sub_00b519f0(); /* 0x00b519f0 */
     /* registered size 0xd0 */
 };
@@ -31390,32 +27428,6 @@ struct UParticleModuleParameterDynamic : public UParticleModuleParameterBase {
     virtual void GetParticleParametersUtilized(TArray<FString>& ParticleParameterList); /* 0x160 */
     virtual void RefreshModule(UInterpCurveEdSetup* EdSetup, UParticleEmitter* InEmitter, INT InLODLevel); /* 0x164 */
     /* other member functions */
-    INT sub_00b3c6f0(INT); /* 0x00b3c6f0 */
-    INT sub_00b3f830(INT); /* 0x00b3f830 */
-    INT sub_00b3f860(); /* 0x00b3f860 */
-    INT sub_00b3f880(); /* 0x00b3f880 */
-    UINT sub_00b3f890(BYTE); /* 0x00b3f890 */
-    INT sub_00b3f8b0(INT); /* 0x00b3f8b0 */
-    INT sub_00b3f8c0(INT); /* 0x00b3f8c0 */
-    INT sub_00b3fcb0(INT); /* 0x00b3fcb0 */
-    INT sub_00b426c0(); /* 0x00b426c0 */
-    INT sub_00b426e0(); /* 0x00b426e0 */
-    INT sub_00b42f40(INT); /* 0x00b42f40 */
-    INT sub_00b4b9a0(); /* 0x00b4b9a0 */
-    void sub_00b4bd20(); /* 0x00b4bd20 */
-    UINT sub_00b4beb0(UINT, UINT); /* 0x00b4beb0 */
-    INT sub_00b4bed0(UINT, UINT); /* 0x00b4bed0 */
-    INT sub_00b4bef0(UINT, UINT); /* 0x00b4bef0 */
-    INT sub_00b4bf70(); /* 0x00b4bf70 */
-    INT sub_00b4c120(UINT); /* 0x00b4c120 */
-    INT sub_00b4c360(UINT, UINT, UINT); /* 0x00b4c360 */
-    INT sub_00b4c3c0(); /* 0x00b4c3c0 */
-    void sub_00b4c610(); /* 0x00b4c610 */
-    INT sub_00b4c620(); /* 0x00b4c620 */
-    UINT sub_00b4c960(); /* 0x00b4c960 */
-    void sub_00b4cf30(); /* 0x00b4cf30 */
-    void sub_00b4cfb0(); /* 0x00b4cfb0 */
-    UINT sub_016c7750(BYTE); /* 0x016c7750 */
     /* registered size 0x54 */
 };
 
@@ -31798,7 +27810,6 @@ struct UParticleModuleTypeDataBeam : public UParticleModuleTypeDataBase {
     virtual void vf_16c(); /* 0x16c */
     virtual void PreUpdate(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x174 */
     /* other member functions */
-    UINT* sub_00b74c10(); /* 0x00b74c10 */
     /* registered size 0xe4 */
 };
 
@@ -31878,7 +27889,6 @@ struct UParticleModuleTypeDataMeshPhysX : public UParticleModuleTypeDataMesh {
     virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
-    UINT sub_00b33d90(BYTE); /* 0x00b33d90 */
     /* registered size 0x74 */
 };
 
@@ -31916,7 +27926,6 @@ struct UParticleModuleTypeDataTrail : public UParticleModuleTypeDataBase {
     virtual FParticleEmitterInstance* CreateInstance(UParticleEmitter* InEmitterParent, UParticleSystemComponent* InComponent); /* 0x168 */
     virtual void vf_16c(); /* 0x16c */
     /* other member functions */
-    UINT* sub_00b74b00(); /* 0x00b74b00 */
     /* registered size 0x78 */
 };
 
@@ -31980,11 +27989,9 @@ struct UParticleModuleUberLTISIVCL : public UParticleModuleUberBase {
     virtual void Update(FParticleEmitterInstance* Owner, INT Offset, FLOAT DeltaTime); /* 0x110 */
     virtual UBOOL ConvertToUberModule(UParticleEmitter* InputEmitter); /* 0x16c */
     /* other member functions */
-    UINT* sub_00b31090(BYTE); /* 0x00b31090 */
     void sub_00b310d0(); /* 0x00b310d0 */
     INT sub_00b310e0(); /* 0x00b310e0 */
     char* sub_00ba2850(); /* 0x00ba2850 */
-    UINT sub_00ba6fa0(BYTE); /* 0x00ba6fa0 */
     /* registered size 0xfc */
 };
 
@@ -32751,7 +28758,6 @@ struct APawn : public AActor {
     UBOOL IsLocallyControlled(); /* 0x008650a0 */
     void SetRemoteViewPitch(INT); /* 0x00865220 */
     UBOOL ValidAnchor(); /* 0x008a65e0 */
-    UINT sub_008a66c0(); /* 0x008a66c0 */
     ETestMoveResult sub_008660b0(AActor* GoalActor); /* 0x008660b0 */
     FLOAT sub_008ce4d0(AActor* goal, FVector GoalLocation, NodeEvaluator NodeEval, FLOAT BestWeight, UBOOL bWeightDetours, INT MaxPathLength, UBOOL bReturnPartial, INT SoftMaxNodes); /* 0x008ce4d0 */
     /* registered size 0x3b8 */
@@ -32816,9 +28822,6 @@ struct UPhysicalMaterial : public UObject {
     void execCalculateImpactStrength(FFrame& Stack, RESULT_DECL); /* 0x00c941e0 */
     void execCalculateSlideStrength(FFrame& Stack, RESULT_DECL); /* 0x00c94250 */
     /* other member functions */
-    INT sub_009e3cd0(void*, UINT); /* 0x009e3cd0 */
-    UINT* sub_00a03d30(BYTE); /* 0x00a03d30 */
-    UINT* sub_00a046e0(BYTE); /* 0x00a046e0 */
     /* registered size 0xd4 */
 };
 
@@ -32861,7 +28864,6 @@ struct UPhysicsAsset : public UObject {
     void UpdateBoundsBodiesArray(); /* 0x00a17a10 */
     void UpdateBodySetupIndexMap(); /* 0x00a2c950 */
     INT FindBodyIndex(FName); /* 0x00a231b0 */
-    UINT sub_00a2cfc0(BYTE); /* 0x00a2cfc0 */
     /* registered size 0x98 */
 };
 
@@ -32926,7 +28928,6 @@ struct UPhysicsAssetInstance : public UObject {
     void SetAllMotorsAngularVelocityDrive(UBOOL bEnableSwingDrive, UBOOL bEnableTwistDrive, USkeletalMeshComponent* SkelMeshComp, UBOOL bSkipFullAnimWeightBodies); /* 0x00a23350 */
     void SetAllMotorsAngularDriveParams(FLOAT InSpring, FLOAT InDamping, FLOAT InForceLimit, USkeletalMeshComponent* SkelMesh, UBOOL bSkipFullAnimWeightBodies); /* 0x00a234a0 */
     URB_BodyInstance* FindBodyInstance(FName BodyName, UPhysicsAsset* InAsset); /* 0x00a23610 */
-    UINT sub_00a2e070(BYTE); /* 0x00a2e070 */
     /* registered size 0xac */
 };
 
@@ -32993,7 +28994,6 @@ struct UPhysXParticleSystem : public UObject {
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    void sub_00e0cc80(INT); /* 0x00e0cc80 */
     /* registered size 0x88 */
 };
 
@@ -33179,7 +29179,6 @@ struct UPointLightComponent : public ULightComponent {
     void UpdatePreviewLightRadius(); /* 0x006da950 */
     void SetTranslation(FVector); /* 0x006e9f10 */
     void sub_006da900(); /* 0x006da900 */
-    UINT* sub_006da910(BYTE); /* 0x006da910 */
     /* registered size 0x1d0 */
 };
 
@@ -33483,14 +29482,6 @@ struct APrefabInstance : public AActor {
     virtual struct FObjectInstancingGraph* GetCustomPostLoadInstanceGraph(); /* 0x098 */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
-    INT sub_0054d610(INT); /* 0x0054d610 */
-    INT sub_00551a80(INT); /* 0x00551a80 */
-    INT sub_0055b220(); /* 0x0055b220 */
-    INT sub_0055c7c0(); /* 0x0055c7c0 */
-    INT sub_0055d880(); /* 0x0055d880 */
-    INT sub_0055ee70(); /* 0x0055ee70 */
-    INT sub_00577630(INT); /* 0x00577630 */
-    UINT sub_00d42290(BYTE); /* 0x00d42290 */
     /* registered size 0x264 */
 };
 
@@ -33554,7 +29545,6 @@ struct USequenceOp : public USequenceObject {
     UBOOL HasLinkedOps(UBOOL bConsiderInputLinks) const; /* 0x008bd840 */
     void ForceActivateInput(INT); /* 0x008be490 */
     void GetLinkedObjects(TArray<USequenceObject*>& out_Objects, UClass* ObjectType, UBOOL bRecurse); /* 0x008ca300 */
-    UINT sub_008f7e80(); /* 0x008f7e80 */
     void GetIntVars(TArray<INT*>& outInts, const TCHAR* inDesc = NULL); /* 0x008d6a00 */
     /* registered size 0xbc */
 };
@@ -33780,7 +29770,6 @@ struct URB_BodyInstance : public UObject {
     INT sub_009f9b40(); /* 0x009f9b40 */
     UINT GetPhysicsAssetInstance(); /* 0x00a051a0 */
     void SetDampingRampupProportion(FLOAT); /* 0x00a0acb0 */
-    void sub_00a207c0(UINT); /* 0x00a207c0 */
     /* registered size 0x9c */
 };
 
@@ -34371,31 +30360,8 @@ struct URFMODSound : public UObject {
     virtual INT GetResourceSize(); /* 0x0d4 */
     virtual UBOOL IsLocalizedResource(); /* 0x0dc */
     /* other member functions */
-    INT sub_00439b80(); /* 0x00439b80 */
     INT sub_00544c70(); /* 0x00544c70 */
     void* sub_00544ca0(INT); /* 0x00544ca0 */
-    INT sub_00551b50(INT); /* 0x00551b50 */
-    INT sub_005554f0(INT); /* 0x005554f0 */
-    void sub_005a1420(INT); /* 0x005a1420 */
-    INT sub_00604670(INT); /* 0x00604670 */
-    INT sub_007f0910(INT); /* 0x007f0910 */
-    UINT sub_00bf43f0(BYTE); /* 0x00bf43f0 */
-    INT sub_0101e6f0(INT); /* 0x0101e6f0 */
-    INT sub_01032600(INT); /* 0x01032600 */
-    INT sub_010c7b10(INT); /* 0x010c7b10 */
-    UINT sub_010eea10(INT); /* 0x010eea10 */
-    INT sub_013b0070(INT); /* 0x013b0070 */
-    INT sub_013d17a0(INT); /* 0x013d17a0 */
-    INT sub_0142cbe0(INT); /* 0x0142cbe0 */
-    UINT sub_0143c9c0(INT); /* 0x0143c9c0 */
-    INT sub_0145d840(INT); /* 0x0145d840 */
-    INT sub_0147f230(INT); /* 0x0147f230 */
-    INT sub_0148bcb0(INT); /* 0x0148bcb0 */
-    INT sub_01516700(INT); /* 0x01516700 */
-    INT sub_01516850(INT); /* 0x01516850 */
-    INT sub_015644e0(INT); /* 0x015644e0 */
-    INT sub_01741330(INT); /* 0x01741330 */
-    UINT sub_0174c850(INT); /* 0x0174c850 */
     /* registered size 0x13c */
 };
 
@@ -34729,7 +30695,6 @@ struct UTextureRenderTarget : public UTexture {
     virtual void vf_11c(); /* 0x11c */
     virtual INT GetMaterialType(); /* 0x120 */
     /* other member functions */
-    INT sub_00755d00(); /* 0x00755d00 */
     /* registered size 0xb4 */
 };
 
@@ -34779,10 +30744,6 @@ struct UScriptedTexture : public UTextureRenderTarget2D {
     void sub_00755fb0(); /* 0x00755fb0 */
     void sub_00755fc0(); /* 0x00755fc0 */
     void sub_00755fd0(); /* 0x00755fd0 */
-    UINT* sub_00755fe0(BYTE); /* 0x00755fe0 */
-    UINT* sub_00756000(BYTE); /* 0x00756000 */
-    UINT* sub_00756020(BYTE); /* 0x00756020 */
-    UINT sub_00762710(BYTE); /* 0x00762710 */
     /* registered size 0xe0 */
 };
 
@@ -35825,7 +31786,6 @@ struct USeqAct_Switch : public USequenceAction {
     virtual void Activated(); /* 0x174 */
     virtual void DeActivated(); /* 0x178 */
     /* other member functions */
-    UINT sub_008eed30(UINT); /* 0x008eed30 */
     /* registered size 0xec */
 };
 
@@ -37051,11 +33011,6 @@ struct USeqVar_Union : public USequenceVariable {
     /* other member functions */
     FLOAT sub_008c5b70(); /* 0x008c5b70 */
     FLOAT sub_008c5b80(); /* 0x008c5b80 */
-    UINT sub_008cde50(BYTE); /* 0x008cde50 */
-    UINT sub_008d24b0(BYTE); /* 0x008d24b0 */
-    UINT sub_008d24d0(BYTE); /* 0x008d24d0 */
-    UINT sub_008d24f0(BYTE); /* 0x008d24f0 */
-    UINT sub_008d2510(BYTE); /* 0x008d2510 */
     /* registered size 0xb4 */
 };
 
@@ -37134,7 +33089,6 @@ struct UShadowMapTexture2D : public UTexture2D {
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
-    UINT sub_00936860(BYTE); /* 0x00936860 */
     /* registered size 0x100 */
 };
 
@@ -37564,7 +33518,6 @@ struct USkeletalMesh : public UObject {
     void InitNameIndexMap(); /* 0x0097eb90 */
     UBOOL BoneIsChildOf(INT ChildBoneIndex, INT ParentBoneIndex) const; /* 0x00d49ed0 */
     void CalculateInvRefMatrices(); /* 0x00d4d440 */
-    UINT sub_0097fe40(BYTE); /* 0x0097fe40 */
     /* registered size 0x34c */
     INT MatchRefBone(FName BoneName) const; /* 0x00976be0 */
 };
@@ -37681,12 +33634,8 @@ struct USkeletalMeshSocket : public UObject {
     INT sub_00567ca0(INT Object, INT Array, INT Index); /* 0x00567ca0 */
     INT sub_00943b60(); /* 0x00943b60 */
     INT sub_00943b70(); /* 0x00943b70 */
-    INT sub_00943b80(); /* 0x00943b80 */
     INT sub_00943b90(); /* 0x00943b90 */
-    INT sub_00943ba0(); /* 0x00943ba0 */
     void sub_00943bf0(); /* 0x00943bf0 */
-    UINT* sub_00943c00(BYTE); /* 0x00943c00 */
-    void sub_0094b8e0(INT); /* 0x0094b8e0 */
     /* registered size 0x7c */
 };
 
@@ -37932,7 +33881,6 @@ struct USoundNodeRandom : public USoundNode {
     /* UnrealScript natives */
     void execPickNextNodeInAdvance(FFrame& Stack, RESULT_DECL); /* 0x00c92ec0 */
     /* other member functions */
-    void sub_00cc3340(); /* 0x00cc3340 */
     void sub_00cc6500(); /* 0x00cc6500 */
     /* registered size 0x68 */
 };
@@ -38007,12 +33955,8 @@ struct USoundNodeWave : public USoundNode {
     virtual INT GetMaxChildNodes( void ); /* 0x128 */
     virtual const FString GetEdHelperClassName( void ) const; /* 0x134 */
     /* other member functions */
-    void sub_00c931f0(); /* 0x00c931f0 */
-    void sub_00f56490(); /* 0x00f56490 */
     void sub_0129d670(INT); /* 0x0129d670 */
-    UINT sub_012a23b0(BYTE); /* 0x012a23b0 */
     UINT sub_014c8a10(BYTE); /* 0x014c8a10 */
-    UINT sub_00cdbd90(BYTE); /* 0x00cdbd90 */
     /* registered size 0x1f8 */
 };
 
@@ -38053,29 +33997,8 @@ struct USpeechRecognition : public UObject {
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     virtual INT GetResourceSize(); /* 0x0d4 */
     /* other member functions */
-    INT sub_006d1580(); /* 0x006d1580 */
-    INT sub_006d2db0(); /* 0x006d2db0 */
-    INT sub_006d3f20(); /* 0x006d3f20 */
-    INT sub_006d5d10(); /* 0x006d5d10 */
-    INT sub_006d66b0(); /* 0x006d66b0 */
-    INT sub_006d6f40(); /* 0x006d6f40 */
-    INT sub_00c432e0(); /* 0x00c432e0 */
-    void sub_00c44130(); /* 0x00c44130 */
-    UINT sub_00c44140(UINT, UINT); /* 0x00c44140 */
-    void sub_00c44160(); /* 0x00c44160 */
-    UINT sub_00c44170(UINT, UINT); /* 0x00c44170 */
-    INT sub_00c442c0(); /* 0x00c442c0 */
-    INT sub_00c44860(UINT, UINT, UINT); /* 0x00c44860 */
-    INT sub_00c448b0(UINT, UINT, UINT); /* 0x00c448b0 */
     void sub_00c448e0(); /* 0x00c448e0 */
     INT sub_00c44910(); /* 0x00c44910 */
-    UINT sub_00c449b0(BYTE); /* 0x00c449b0 */
-    INT sub_00c449d0(); /* 0x00c449d0 */
-    INT sub_00c45130(); /* 0x00c45130 */
-    INT sub_00c45220(); /* 0x00c45220 */
-    INT sub_00c453e0(); /* 0x00c453e0 */
-    INT sub_00c45450(); /* 0x00c45450 */
-    UINT sub_00c455c0(BYTE); /* 0x00c455c0 */
     /* registered size 0xb8 */
 };
 
@@ -38132,18 +34055,11 @@ struct USpeedTree : public UObject {
     virtual INT GetResourceSize(); /* 0x0d4 */
     /* other member functions */
     void sub_00bab160(); /* 0x00bab160 */
-    UINT* sub_00bab170(BYTE); /* 0x00bab170 */
     void sub_00bab4d0(); /* 0x00bab4d0 */
-    UINT* sub_00bab4e0(BYTE); /* 0x00bab4e0 */
     void sub_00bab5c0(); /* 0x00bab5c0 */
     void sub_00bab5d0(); /* 0x00bab5d0 */
     void sub_00bab5e0(); /* 0x00bab5e0 */
     void sub_00bab5f0(); /* 0x00bab5f0 */
-    UINT* sub_00bab600(BYTE); /* 0x00bab600 */
-    UINT* sub_00bab620(BYTE); /* 0x00bab620 */
-    UINT* sub_00bab640(BYTE); /* 0x00bab640 */
-    UINT* sub_00bab660(BYTE); /* 0x00bab660 */
-    UINT sub_00bab860(); /* 0x00bab860 */
     /* registered size 0xb8 */
 };
 
@@ -38243,7 +34159,6 @@ struct USphericalHarmonicLightComponent : public ULightComponent {
     virtual FVector4 GetPosition() const; /* 0x15c */
     virtual INT GetLightType(); /* 0x160 */
     /* other member functions */
-    UINT sub_0073bce0(BYTE); /* 0x0073bce0 */
     /* registered size 0x210 */
 };
 
@@ -38574,9 +34489,6 @@ struct ATerrain : public AInfo {
     const BYTE* GetInfoData(INT X, INT Y) const; /* 0x0098baf0 */
     void CalcLayerBounds(); /* 0x00997960 */
     INT sub_00982070(); /* 0x00982070 */
-    void sub_00982080(); /* 0x00982080 */
-    INT sub_009820b0(INT); /* 0x009820b0 */
-    UINT sub_009a41f0(BYTE); /* 0x009a41f0 */
     FVector GetLocalVertex(INT X, INT Y) const; /* 0x0098bfb0 */
     UBOOL IsTerrainQuadVisible(INT X, INT Y) const; /* 0x0098bb70 */
     void ClampVertex(INT& X, INT& Y) const; /* 0x00986e90 */
@@ -38641,8 +34553,6 @@ struct UTerrainComponent : public UPrimitiveComponent {
     virtual UINT vf_208(); /* 0x208 */
     /* other member functions */
     void sub_009a65f0(); /* 0x009a65f0 */
-    UINT sub_00997680(BYTE); /* 0x00997680 */
-    void sub_009aa040(UINT, UINT, UINT, UINT, UINT, UINT); /* 0x009aa040 */
     /* registered size 0x240 */
 };
 
@@ -38661,7 +34571,6 @@ struct UTerrainLayerSetup : public UObject {
     void execSetMaterials(FFrame& Stack, RESULT_DECL); /* 0x00cc6a40 */
     /* other member functions */
     void SetMaterials(const FTerrainFilteredMaterialArray& NewMaterials); /* 0x009a9810 */
-    UINT sub_009861f0(); /* 0x009861f0 */
     INT sub_00989d80(UINT); /* 0x00989d80 */
     /* registered size 0x3c */
 };
@@ -38702,7 +34611,6 @@ struct UTerrainWeightMapTexture : public UTexture2D {
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
-    UINT sub_00997770(BYTE); /* 0x00997770 */
     /* registered size 0x110 */
 };
 
@@ -38726,32 +34634,14 @@ struct UTexture2DComposite : public UTexture {
     /* other member functions */
     UBOOL SourceTexturesFullyStreamedIn(); /* 0x00722360 */
     void UpdateCompositeTexture(INT); /* 0x00733600 */
-    UINT sub_006565d0(BYTE); /* 0x006565d0 */
-    UINT sub_00673520(BYTE); /* 0x00673520 */
     void sub_00715e40(INT); /* 0x00715e40 */
-    void sub_00725ba0(); /* 0x00725ba0 */
-    UINT sub_007291e0(BYTE); /* 0x007291e0 */
     void sub_00729250(); /* 0x00729250 */
-    UINT sub_00729270(BYTE); /* 0x00729270 */
-    UINT* sub_00729500(UINT); /* 0x00729500 */
     void sub_00729590(); /* 0x00729590 */
     void sub_00729600(); /* 0x00729600 */
     UINT sub_0072f070(BYTE); /* 0x0072f070 */
     UINT sub_0072f190(BYTE); /* 0x0072f190 */
     UINT sub_0072f210(BYTE); /* 0x0072f210 */
-    UINT sub_0078ed80(BYTE); /* 0x0078ed80 */
-    UINT sub_00791e20(BYTE); /* 0x00791e20 */
-    UINT sub_0081e7b0(BYTE); /* 0x0081e7b0 */
     INT sub_00831840(); /* 0x00831840 */
-    INT sub_008318a0(INT); /* 0x008318a0 */
-    UINT sub_00831d80(BYTE); /* 0x00831d80 */
-    UINT sub_00952b70(BYTE); /* 0x00952b70 */
-    UINT sub_0096e670(BYTE); /* 0x0096e670 */
-    UINT sub_009b4b80(BYTE); /* 0x009b4b80 */
-    UINT sub_009bec30(BYTE); /* 0x009bec30 */
-    UINT sub_009bed80(BYTE); /* 0x009bed80 */
-    UINT sub_00ac0340(BYTE); /* 0x00ac0340 */
-    UINT sub_00ac7da0(BYTE); /* 0x00ac7da0 */
     /* registered size 0xc0 */
 };
 
@@ -38776,8 +34666,6 @@ struct UTexture2DDynamic : public UTexture {
     void execInit(FFrame& Stack, RESULT_DECL); /* 0x00c8f620 */
     /* other member functions */
     void Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget); /* 0x00754ed0 */
-    UINT sub_00754eb0(); /* 0x00754eb0 */
-    UINT sub_00754ec0(); /* 0x00754ec0 */
     /* registered size 0xc4 */
 };
 
@@ -38826,7 +34714,6 @@ struct UTextureFlipBook : public UTexture2D, public FTickableObject {
     virtual FLOAT vf_12c(); /* 0x12c */
     virtual void vf_130(); /* 0x130 */
     /* other member functions */
-    UINT sub_0076eb40(BYTE); /* 0x0076eb40 */
     /* registered size 0x140 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00767450 */
@@ -38878,17 +34765,10 @@ struct UTextureMovie : public UTexture {
     void execStop(FFrame& Stack, RESULT_DECL); /* 0x00c8f7a0 */
     /* other member functions */
     void sub_007558e0(); /* 0x007558e0 */
-    UINT* sub_007558f0(BYTE); /* 0x007558f0 */
     void sub_00755960(); /* 0x00755960 */
-    UINT* sub_00755970(BYTE); /* 0x00755970 */
     void sub_00755a10(); /* 0x00755a10 */
-    UINT* sub_00755a20(BYTE); /* 0x00755a20 */
     void sub_00755a90(); /* 0x00755a90 */
-    UINT* sub_00755aa0(BYTE); /* 0x00755aa0 */
     void sub_00755b20(); /* 0x00755b20 */
-    UINT* sub_00755b30(BYTE); /* 0x00755b30 */
-    INT sub_00755b50(); /* 0x00755b50 */
-    UINT sub_00761170(BYTE); /* 0x00761170 */
     /* registered size 0x100 */
 };
 
@@ -39164,7 +35044,6 @@ struct UUISkin : public UUIDataStore {
     UBOOL RemoveUISoundCue(FName SoundCueName); /* 0x00dd4ee0 */
     UBOOL AddUISoundCue(FName SoundCueName, USoundCue* SoundToPlay); /* 0x00dd69c0 */
     UUITexture* GetCursorResource(FName CursorName); /* 0x00dd98b0 */
-    UINT sub_00dd8e00(BYTE); /* 0x00dd8e00 */
     /* registered size 0x1c8 */
 };
 
@@ -39341,7 +35220,6 @@ struct UUIDataStore_InputAlias : public UUIDataStore_StringBase {
     FString GetAliasFontMarkup(FName DesiredAlias, BYTE OverridePlatform); /* 0x00d9fa10 */
     FName GetAliasInputKeyName(FName DesiredAlias, BYTE OverridePlatform); /* 0x00d9fb00 */
     UBOOL GetAliasInputKeyData(FRawInputKeyEventData& out_InputKeyData, FName DesiredAlias, BYTE OverridePlatform); /* 0x00d9fbb0 */
-    UINT sub_00da36f0(BYTE); /* 0x00da36f0 */
     /* registered size 0xb4 */
 };
 
@@ -39464,7 +35342,6 @@ struct UUIDataStorePublisher : public UUIDataStoreSubscriber {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_00d8f4a0(); /* 0x00d8f4a0 */
-    UINT* sub_00d8f4b0(BYTE); /* 0x00d8f4b0 */
     /* registered size 0x30 */
 };
 
@@ -39519,7 +35396,6 @@ struct UUIEvent_ProcessInput : public UUIEvent {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     virtual void DrawSeqObj(FCanvas* Canvas, UBOOL bSelected, UBOOL bMouseOver, INT MouseOverConnType, INT MouseOverConnIndex, FLOAT MouseOverTime); /* 0x114 */
     /* other member functions */
-    UINT sub_00dc9640(BYTE); /* 0x00dc9640 */
     /* registered size 0x134 */
 };
 
@@ -39826,9 +35702,7 @@ struct UUIScene : public UUIScreenObject {
     void RebuildDockingStack(); /* 0x00dc3f10 */
     void ResolveScenePositions(); /* 0x00dc6400 */
     void ForceImmediateSceneUpdate(); /* 0x00dc9220 */
-    UINT sub_00da9dc0(); /* 0x00da9dc0 */
     class USceneDataStore* GetSceneDataStore(); /* 0x00db0a70 */
-    UINT sub_00dc5370(BYTE); /* 0x00dc5370 */
     /* registered size 0x458 */
 };
 
@@ -39919,7 +35793,6 @@ struct UUIState_Enabled : public UUIState {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_00ddd450(); /* 0x00ddd450 */
-    UINT* sub_00ddd460(BYTE); /* 0x00ddd460 */
     /* registered size 0x34 */
 };
 
@@ -40000,27 +35873,6 @@ struct UUIStyle : public UUIRoot {
     UUIStyle_Data* GetArchetypeStyleForState(UUIState* StateObject) const; /* 0x00ddb7a0 */
     UUIStyle_Data* GetStyleForState(UUIState*); /* 0x00ddaa80 */
     UUIStyle_Data* GetStyleForStateByClass(UClass*); /* 0x00ddac00 */
-    INT sub_00dd4ae0(); /* 0x00dd4ae0 */
-    INT sub_00dd4b00(); /* 0x00dd4b00 */
-    INT sub_00dd4b20(); /* 0x00dd4b20 */
-    INT sub_00dd4b40(); /* 0x00dd4b40 */
-    INT sub_00dd4b60(); /* 0x00dd4b60 */
-    INT sub_00dd60c0(); /* 0x00dd60c0 */
-    INT sub_00dd60e0(); /* 0x00dd60e0 */
-    INT sub_00dd6100(); /* 0x00dd6100 */
-    INT sub_00dd6180(); /* 0x00dd6180 */
-    INT sub_00dd61a0(); /* 0x00dd61a0 */
-    INT sub_00dd66b0(); /* 0x00dd66b0 */
-    INT sub_00dd66d0(); /* 0x00dd66d0 */
-    INT sub_00dd66f0(); /* 0x00dd66f0 */
-    INT sub_00dd67a0(); /* 0x00dd67a0 */
-    INT sub_00dd67c0(); /* 0x00dd67c0 */
-    INT sub_00dd7380(); /* 0x00dd7380 */
-    INT sub_00dd73a0(); /* 0x00dd73a0 */
-    INT sub_00dd73c0(); /* 0x00dd73c0 */
-    INT sub_00dd74a0(); /* 0x00dd74a0 */
-    INT sub_00dd74c0(); /* 0x00dd74c0 */
-    UINT sub_00dd8ce0(BYTE); /* 0x00dd8ce0 */
     /* registered size 0xa0 */
 };
 
@@ -40143,7 +35995,6 @@ struct UUITexture : public UUIRoot {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00de0280(BYTE); /* 0x00de0280 */
     /* registered size 0x30 */
 };
 
@@ -40166,7 +36017,6 @@ struct UUITickableObjectProxy : public UUIRoot, public IUITickableObject {
     /* other member functions */
     void eventScriptTick(FLOAT DeltaTime); /* 0x00ddd860 */
     void delegateOnScriptTick(class UUITickableObjectProxy* Sender, FLOAT DeltaTime); /* 0x00ddd8a0 */
-    UINT sub_00de02c0(); /* 0x00de02c0 */
     /* registered size 0x40 */
     /* IUITickableObject */
     virtual class UObject* GetUObjectInterfaceUITickableObject(); /* 0x00ddfac0 */
@@ -40522,7 +36372,6 @@ struct AWorldInfo : public AZoneInfo {
     void SetMapInfo(UMapInfo*); /* 0x009c9a20 */
     void SetSeamlessTravelMidpointPause(UBOOL); /* 0x009cec40 */
     void SetLevelRBGravity(FVector); /* 0x00a3b3e0 */
-    UINT sub_00781f20(BYTE); /* 0x00781f20 */
     /* registered size 0x584 */
 };
 
@@ -40654,45 +36503,14 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     INT sub_018f6ca0(INT); /* 0x018f6ca0 */
     INT sub_018f6cc0(INT); /* 0x018f6cc0 */
     void* sub_01903a10(); /* 0x01903a10 */
-    INT sub_01903a40(); /* 0x01903a40 */
-    UINT sub_01903ae0(); /* 0x01903ae0 */
-    UINT sub_01903af0(); /* 0x01903af0 */
     INT sub_01903b10(); /* 0x01903b10 */
-    INT sub_01903bc0(INT); /* 0x01903bc0 */
-    void sub_01903c20(UINT, UINT); /* 0x01903c20 */
-    void sub_01903c30(UINT*); /* 0x01903c30 */
-    INT sub_01903c70(INT); /* 0x01903c70 */
-    UINT sub_01903ca0(INT); /* 0x01903ca0 */
-    INT sub_01903cb0(); /* 0x01903cb0 */
-    INT sub_01903cc0(); /* 0x01903cc0 */
     INT sub_01903cd0(); /* 0x01903cd0 */
-    bool sub_01903ce0(); /* 0x01903ce0 */
-    void sub_01903dc0(); /* 0x01903dc0 */
-    BYTE sub_01903dd0(); /* 0x01903dd0 */
-    bool sub_01903de0(); /* 0x01903de0 */
-    void sub_01903df0(); /* 0x01903df0 */
-    void sub_01903e00(BYTE); /* 0x01903e00 */
-    void sub_01903e10(UINT*); /* 0x01903e10 */
-    void sub_01903e20(); /* 0x01903e20 */
-    BYTE sub_01903e30(); /* 0x01903e30 */
-    void sub_01903e50(); /* 0x01903e50 */
-    BYTE sub_01903e60(); /* 0x01903e60 */
-    void sub_01903e80(); /* 0x01903e80 */
-    BYTE sub_01903e90(); /* 0x01903e90 */
     char* sub_01903ef0(); /* 0x01903ef0 */
-    void sub_01903f30(UINT); /* 0x01903f30 */
-    void sub_01903f40(WORD); /* 0x01903f40 */
-    void sub_01903f60(WORD); /* 0x01903f60 */
-    void sub_01903f80(WORD); /* 0x01903f80 */
-    void sub_01903fa0(WORD); /* 0x01903fa0 */
     INT sub_01903fd0(); /* 0x01903fd0 */
     INT sub_01903fe0(); /* 0x01903fe0 */
     INT sub_01904010(); /* 0x01904010 */
     INT sub_01904020(); /* 0x01904020 */
     INT sub_01904030(); /* 0x01904030 */
-    void sub_01904070(); /* 0x01904070 */
-    BYTE sub_01904080(); /* 0x01904080 */
-    INT sub_01904150(INT); /* 0x01904150 */
     INT sub_01904190(); /* 0x01904190 */
     void sub_0190a040(UINT*); /* 0x0190a040 */
     UINT sub_0190a050(INT*); /* 0x0190a050 */
@@ -40712,26 +36530,15 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     UINT* sub_01912990(UINT); /* 0x01912990 */
     UINT* sub_019129b0(UINT); /* 0x019129b0 */
     INT sub_01919e40(INT); /* 0x01919e40 */
-    UINT sub_01921d00(); /* 0x01921d00 */
-    UINT sub_01921d10(); /* 0x01921d10 */
     UINT sub_01921d20(); /* 0x01921d20 */
     UINT sub_01921d30(); /* 0x01921d30 */
-    UINT sub_01921d40(); /* 0x01921d40 */
-    void sub_01921d50(UINT); /* 0x01921d50 */
     UINT sub_01921d70(); /* 0x01921d70 */
     UINT sub_01921d80(); /* 0x01921d80 */
-    UINT sub_01921d90(); /* 0x01921d90 */
-    void sub_01921da0(UINT); /* 0x01921da0 */
-    UINT sub_01921dc0(); /* 0x01921dc0 */
     UINT sub_01921e10(); /* 0x01921e10 */
     UINT sub_01921e20(); /* 0x01921e20 */
-    UINT sub_01921e30(); /* 0x01921e30 */
-    void sub_01921e40(UINT); /* 0x01921e40 */
     INT sub_01922040(); /* 0x01922040 */
     INT sub_019220e0(); /* 0x019220e0 */
     INT sub_01922110(); /* 0x01922110 */
-    UINT sub_01922140(); /* 0x01922140 */
-    UINT* sub_01929350(); /* 0x01929350 */
     INT sub_01929370(); /* 0x01929370 */
     INT sub_0192eab0(INT); /* 0x0192eab0 */
     INT sub_0192eac0(INT); /* 0x0192eac0 */
@@ -40743,7 +36550,6 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     UINT sub_0192eb20(); /* 0x0192eb20 */
     void sub_0192eb30(UINT); /* 0x0192eb30 */
     UINT sub_0192ed50(); /* 0x0192ed50 */
-    void sub_0192f240(UINT*); /* 0x0192f240 */
     UINT sub_01950020(UINT); /* 0x01950020 */
     UINT sub_01951c40(INT*); /* 0x01951c40 */
     UINT sub_01951c70(INT*); /* 0x01951c70 */
@@ -40759,8 +36565,6 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     void sub_01955570(); /* 0x01955570 */
     void sub_019555a0(); /* 0x019555a0 */
     void sub_01955910(); /* 0x01955910 */
-    INT sub_01962440(); /* 0x01962440 */
-    void sub_019635a0(); /* 0x019635a0 */
     void sub_01963ce0(); /* 0x01963ce0 */
     void sub_01963d80(); /* 0x01963d80 */
     void sub_01964300(); /* 0x01964300 */
@@ -40824,30 +36628,9 @@ struct UGFxDataStoreSubscriber : public UObject, public IUIDataStorePublisher {
     void* sub_019920c0(); /* 0x019920c0 */
     void* sub_01992240(); /* 0x01992240 */
     void* sub_019928e0(); /* 0x019928e0 */
-    INT sub_01999630(); /* 0x01999630 */
-    UINT sub_0199adf0(UINT); /* 0x0199adf0 */
-    UINT sub_0199b070(UINT); /* 0x0199b070 */
-    UINT sub_0199bb80(UINT); /* 0x0199bb80 */
-    UINT sub_0199bc30(INT*); /* 0x0199bc30 */
-    UINT sub_0199bc60(INT*); /* 0x0199bc60 */
     UINT* sub_0199c8a0(UINT); /* 0x0199c8a0 */
-    UINT sub_0199cef0(UINT*); /* 0x0199cef0 */
-    UINT sub_0199cfd0(INT*); /* 0x0199cfd0 */
-    UINT* sub_0199f3a0(UINT); /* 0x0199f3a0 */
-    void sub_019aa630(char); /* 0x019aa630 */
-    void sub_019aa650(char); /* 0x019aa650 */
-    INT sub_019aa680(UINT*); /* 0x019aa680 */
-    void sub_019aa6b0(UINT, UINT); /* 0x019aa6b0 */
-    UINT sub_019d1840(); /* 0x019d1840 */
-    bool sub_019e6030(INT); /* 0x019e6030 */
     void sub_019e6040(INT); /* 0x019e6040 */
-    UINT sub_019e6060(); /* 0x019e6060 */
-    bool sub_019e6070(); /* 0x019e6070 */
-    void sub_019e6080(char); /* 0x019e6080 */
-    void sub_019e60a0(); /* 0x019e60a0 */
     INT sub_019e60b0(); /* 0x019e60b0 */
-    UINT sub_019e60e0(); /* 0x019e60e0 */
-    INT sub_019e61d0(INT); /* 0x019e61d0 */
     UINT sub_019e6200(); /* 0x019e6200 */
     void sub_019f1590(UINT*); /* 0x019f1590 */
     INT sub_019f16a0(INT); /* 0x019f16a0 */
@@ -40876,7 +36659,6 @@ struct UGFxEngine : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void FinishDestroy(); /* 0x02c */
     /* other member functions */
-    UINT sub_00e5d2d0(BYTE); /* 0x00e5d2d0 */
     /* registered size 0x40 */
 };
 
@@ -40900,7 +36682,6 @@ struct UGFxFSCmdHandler : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     UBOOL eventFSCommand(class UGFxMovie* Movie, const FString& cmd, const FString& arg); /* 0x00e58af0 */
-    UINT* sub_00e422d0(BYTE); /* 0x00e422d0 */
     void sub_00e48460(); /* 0x00e48460 */
     /* registered size 0x30 */
 };
@@ -40920,8 +36701,6 @@ struct UGFxFSCmdHandler_Kismet : public UGFxFSCmdHandler {
     void execFSCommand(FFrame& Stack, RESULT_DECL); /* 0x00e51d10 */
     /* other member functions */
     void RegisterFSCommand(UGFxEvent_FsCommand* Event); /* 0x00e68ac0 */
-    UINT sub_00e6be90(BYTE); /* 0x00e6be90 */
-    UINT sub_00e6beb0(BYTE); /* 0x00e6beb0 */
     /* registered size 0x6c */
 };
 
@@ -41060,15 +36839,6 @@ struct UGFxMovie : public UObject {
     void SetFocus(UBOOL captureInput, UBOOL Focus); /* 0x00e68b40 */
     void Close(UBOOL); /* 0x00e64310 */
     void AddCaptureKey(FName); /* 0x00e67ad0 */
-    UINT sub_00e67ab0(BYTE); /* 0x00e67ab0 */
-    UINT* sub_016e1790(); /* 0x016e1790 */
-    UINT* sub_016e17e0(); /* 0x016e17e0 */
-    UINT* sub_016e1890(); /* 0x016e1890 */
-    UINT* sub_016e1940(); /* 0x016e1940 */
-    UINT* sub_016e1a00(); /* 0x016e1a00 */
-    UINT* sub_016e1ab0(); /* 0x016e1ab0 */
-    UINT* sub_016e1b60(); /* 0x016e1b60 */
-    UINT* sub_016e1c10(); /* 0x016e1c10 */
     /* registered size 0x7c */
 };
 
@@ -41103,9 +36873,6 @@ struct UMCPBase : public UObject, public FTickableObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     UINT sub_00e34760(BYTE); /* 0x00e34760 */
-    UINT* sub_00e3cea0(); /* 0x00e3cea0 */
-    UINT* sub_00e3cfc0(); /* 0x00e3cfc0 */
-    UINT* sub_00e3d090(); /* 0x00e3d090 */
     /* registered size 0x34 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e34730 */
@@ -41300,9 +37067,7 @@ struct UPartyBeacon : public UObject, public FTickableObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     UINT sub_00e348e0(BYTE); /* 0x00e348e0 */
-    UINT* sub_00e38150(); /* 0x00e38150 */
     void sub_00e38190(); /* 0x00e38190 */
-    UINT* sub_00e3cdb0(); /* 0x00e3cdb0 */
     /* registered size 0x50 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x00e2cb50 */
@@ -41377,37 +37142,8 @@ struct UPartyBeaconHost : public UPartyBeacon {
     void delegateOnClientCancellationReceived(FUniqueNetId PartyLeader); /* 0x00e298c0 */
     void delegateOnReservationsFull(); /* 0x00e29900 */
     void delegateOnReservationChange(); /* 0x00e29930 */
-    void sub_00e2fb60(INT); /* 0x00e2fb60 */
-    void sub_00e2fba0(INT); /* 0x00e2fba0 */
-    void sub_00e333c0(INT); /* 0x00e333c0 */
-    void sub_00e33400(INT); /* 0x00e33400 */
     INT sub_00e33440(); /* 0x00e33440 */
-    void sub_00e335f0(INT); /* 0x00e335f0 */
     UINT* sub_00e338f0(INT*); /* 0x00e338f0 */
-    INT sub_00e33940(INT); /* 0x00e33940 */
-    INT sub_00e33950(UINT); /* 0x00e33950 */
-    INT sub_00e33a00(INT); /* 0x00e33a00 */
-    INT sub_00e33a10(); /* 0x00e33a10 */
-    INT sub_00e33a30(); /* 0x00e33a30 */
-    INT sub_00e33a50(INT); /* 0x00e33a50 */
-    INT sub_00e33a60(INT); /* 0x00e33a60 */
-    INT sub_00e33a70(); /* 0x00e33a70 */
-    INT sub_00e33a80(); /* 0x00e33a80 */
-    INT sub_00e33a90(); /* 0x00e33a90 */
-    INT sub_00e33aa0(); /* 0x00e33aa0 */
-    INT sub_00e37aa0(INT); /* 0x00e37aa0 */
-    INT sub_00e37ab0(INT); /* 0x00e37ab0 */
-    INT sub_00e37ae0(); /* 0x00e37ae0 */
-    INT sub_00e37b00(); /* 0x00e37b00 */
-    UINT sub_00e37b10(BYTE); /* 0x00e37b10 */
-    UINT sub_00e37b40(BYTE); /* 0x00e37b40 */
-    UINT sub_00e37b70(BYTE); /* 0x00e37b70 */
-    UINT sub_00e37b90(BYTE); /* 0x00e37b90 */
-    INT sub_00e37c30(INT); /* 0x00e37c30 */
-    INT sub_00e37ca0(INT); /* 0x00e37ca0 */
-    UINT sub_00e37cb0(BYTE); /* 0x00e37cb0 */
-    INT sub_00e395c0(); /* 0x00e395c0 */
-    INT sub_00e395e0(); /* 0x00e395e0 */
     INT sub_00e395f0(INT); /* 0x00e395f0 */
     INT sub_00e3ac20(INT); /* 0x00e3ac20 */
     void sub_00e3b280(); /* 0x00e3b280 */
@@ -41804,7 +37540,6 @@ struct URFlagManager : public UObject {
     /* other member functions */
     void SetFlagList(TArray<FString>& flagsList); /* 0x01548200 */
     void SetFlagListForChallengeMode(TArray<FString>& flagsList); /* 0x015483c0 */
-    UINT sub_0154a7b0(BYTE); /* 0x0154a7b0 */
     /* registered size 0x78 */
 };
 
@@ -41890,7 +37625,6 @@ struct URInteractionManager : public UComponent {
     void execRegisterNewActor(FFrame& Stack, RESULT_DECL); /* 0x0150d010 */
     void execUnRegisterActor(FFrame& Stack, RESULT_DECL); /* 0x0150d080 */
     /* other member functions */
-    UINT sub_0154a370(BYTE); /* 0x0154a370 */
     /* registered size 0x84 */
 };
 
@@ -42549,7 +38283,6 @@ struct UOnlineGameInterfaceSteamworks : public UOnlineGameInterfaceImpl {
     INT sub_00e89740(); /* 0x00e89740 */
     INT sub_00e89750(); /* 0x00e89750 */
     INT sub_00e89770(); /* 0x00e89770 */
-    UINT sub_00e89880(); /* 0x00e89880 */
     /* registered size 0x1d0 */
 };
 
@@ -42756,26 +38489,6 @@ struct UOnlineSubsystemSteamworks : public UOnlineSubsystemCommonImpl {
     virtual void FinishDestroy(); /* 0x02c */
     virtual UBOOL Init(); /* 0x10c */
     /* other member functions */
-    INT sub_00e92e80(INT); /* 0x00e92e80 */
-    UINT sub_00e92f20(BYTE); /* 0x00e92f20 */
-    INT sub_00e954f0(INT, UINT); /* 0x00e954f0 */
-    INT sub_00e967c0(INT, UINT); /* 0x00e967c0 */
-    void sub_00e96800(); /* 0x00e96800 */
-    void sub_00e96830(); /* 0x00e96830 */
-    UINT sub_00e96850(BYTE); /* 0x00e96850 */
-    UINT sub_00e97420(BYTE); /* 0x00e97420 */
-    INT sub_00e98df0(); /* 0x00e98df0 */
-    INT sub_00e98e10(); /* 0x00e98e10 */
-    void sub_00e991e0(); /* 0x00e991e0 */
-    UINT sub_00e992f0(UINT, UINT); /* 0x00e992f0 */
-    INT sub_00e99310(UINT, UINT, UINT); /* 0x00e99310 */
-    INT sub_00e99340(); /* 0x00e99340 */
-    INT sub_00e99360(); /* 0x00e99360 */
-    INT sub_00e99520(UINT, UINT, UINT); /* 0x00e99520 */
-    INT sub_00e99570(); /* 0x00e99570 */
-    INT sub_00e99590(); /* 0x00e99590 */
-    INT sub_00e9a000(); /* 0x00e9a000 */
-    INT sub_00e9a020(); /* 0x00e9a020 */
     void sub_00e9a170(); /* 0x00e9a170 */
     /* registered size 0x588 */
     /* FTickableObject */
@@ -43256,7 +38969,6 @@ struct AR3rdPersonCamera : public ACamera {
     void TransitionInterpolate(FLOAT); /* 0x0168ec60 */
     void UpdateZoomFocus(FLOAT); /* 0x016a03c0 */
     void HideClippingObjects(FTPOV&); /* 0x016a4b10 */
-    UINT sub_0168a610(); /* 0x0168a610 */
     /* registered size 0x1df4 */
 };
 
@@ -43794,7 +39506,6 @@ struct URAnimNode_Cape : public UAnimNodeBlendBase {
     FLOAT GetAnimTreeNodeBlendValue(FName); /* 0x01562440 */
     void sub_01569870(FMatrix& OutLocalToWorld); /* 0x01569870 */
     void* GetStateAnimNode(FName); /* 0x01575620 */
-    UINT sub_0155cf50(); /* 0x0155cf50 */
     UINT sub_01562420(); /* 0x01562420 */
     UINT GetCurrentCapeAnimNode(); /* 0x01579fb0 */
     FName GetNewCapeAnimName(); /* 0x0155cff0 */
@@ -43975,19 +39686,6 @@ struct URAnimNode_Pose : public UAnimNodeBlendBase, public FTickableObject {
     virtual void HandleSliderMove(INT SliderIndex, INT ValueIndex, FLOAT NewSliderValue); /* 0x17c */
     virtual FString GetSliderDrawValue(INT SliderIndex); /* 0x180 */
     /* other member functions */
-    UINT sub_015a4270(INT); /* 0x015a4270 */
-    void sub_015a7730(INT); /* 0x015a7730 */
-    void sub_015a7770(INT); /* 0x015a7770 */
-    UINT sub_015afa20(BYTE); /* 0x015afa20 */
-    INT sub_015afa40(); /* 0x015afa40 */
-    INT sub_015b3d10(); /* 0x015b3d10 */
-    INT sub_015b3de0(); /* 0x015b3de0 */
-    INT sub_015b5d00(); /* 0x015b5d00 */
-    INT sub_015b5d10(); /* 0x015b5d10 */
-    UINT sub_015b5d60(BYTE); /* 0x015b5d60 */
-    UINT sub_015b7980(UINT, UINT); /* 0x015b7980 */
-    INT sub_015b8cb0(UINT, UINT, UINT); /* 0x015b8cb0 */
-    UINT sub_015b9190(BYTE); /* 0x015b9190 */
     /* registered size 0x5070 */
     /* FTickableObject */
     virtual void Tick(FLOAT DeltaTime); /* 0x015b6260 */
@@ -44727,8 +40425,6 @@ struct URConstrainingComponent : public UActorComponent {
     /* other member functions */
     void AddRBConstraint(URB_ConstraintSetup*); /* 0x016d6ef0 */
     UBOOL UpdateRBConstraints(UBOOL); /* 0x016d9eb0 */
-    UINT sub_016d4840(); /* 0x016d4840 */
-    void sub_016d9e80(); /* 0x016d9e80 */
     /* registered size 0x6c */
 };
 
@@ -45205,7 +40901,6 @@ struct ARBatarang : public ARInventoryGadget {
     UBOOL eventCheckOverrideTarget(class AActor* BatarangTarget, FVector& BatarangTargetPosition); /* 0x01638a00 */
     FVector FindInterceptDirection(FVector BatarangStartPos, FLOAT BatarangSpeed, FVector BatarangTargetPosition, FVector BatarangTargetVelocity); /* 0x016390a0 */
     void UpdateAliveProjectiles(ARBatarangProjectile*); /* 0x01640960 */
-    UINT sub_01655fc0(BYTE); /* 0x01655fc0 */
     /* registered size 0x3a8 */
 };
 
@@ -45956,7 +41651,6 @@ struct URBMBehaviour : public USeqAct_Latent {
     UBOOL eventCanLookAtPlayer(); /* 0x015d96a0 */
     void eventInterruptedTick(FLOAT DeltaTime); /* 0x015d96e0 */
     void eventUpdateTimers(FLOAT DeltaTime); /* 0x015d9720 */
-    void sub_015debe0(UINT, FLOAT*); /* 0x015debe0 */
     /* registered size 0x18c */
 };
 
@@ -48544,7 +44238,6 @@ struct ARPawnCombat : public ARPawnCharacter {
     void SetDestHeading(FVector); /* 0x01673b20 */
     void FacePos(FVector); /* 0x01676b70 */
     void FacePawn(ARPawnCombat*); /* 0x0167bba0 */
-    UINT sub_0166d710(); /* 0x0166d710 */
     /* registered size 0x5b4 */
 };
 
@@ -49567,7 +45260,6 @@ struct ARBMWeaponStunStickBase : public ARBMWeaponMelee {
     /* UnrealScript natives */
     void execIsOn(FFrame& Stack, RESULT_DECL); /* 0x01703d10 */
     /* other member functions */
-    UINT sub_01557dd0(); /* 0x01557dd0 */
     /* registered size 0x2a4 */
 };
 
@@ -49753,16 +45445,9 @@ struct URCapeStateController : public UObject {
     void UpdatePauseState(); /* 0x016e7610 */
     void Initialise(FName); /* 0x016e7ba0 */
     void Update(FLOAT); /* 0x016e7ce0 */
-    UINT sub_016cebf0(); /* 0x016cebf0 */
     void sub_016cec10(); /* 0x016cec10 */
     void sub_016cec20(); /* 0x016cec20 */
-    UINT sub_016cec40(); /* 0x016cec40 */
-    UINT sub_016cec70(); /* 0x016cec70 */
     void sub_016ced50(INT); /* 0x016ced50 */
-    void sub_016d5990(INT); /* 0x016d5990 */
-    INT sub_016e01a0(); /* 0x016e01a0 */
-    INT sub_016e0200(); /* 0x016e0200 */
-    UINT sub_016e6ed0(BYTE); /* 0x016e6ed0 */
     INT FindBoneStateCacheIndex(URCapeStateBoneConfig* BoneConfig) const; /* 0x016d6050 */
     /* registered size 0x1c0 */
 };
@@ -49900,23 +45585,7 @@ struct URCapeComponent : public UActorComponent {
     void CalculateWindProperties(FCapeWindAudioProperties&); /* 0x016be930 */
     void InitEnable(BYTE Mode, UBOOL bEnable); /* 0x016cd7b0 */
     bool sub_016ae4d0(); /* 0x016ae4d0 */
-    void sub_016ae8c0(); /* 0x016ae8c0 */
-    void sub_016ae8e0(); /* 0x016ae8e0 */
     void AddCinematicAnimSet(UINT); /* 0x016ae940 */
-    INT sub_016aea90(); /* 0x016aea90 */
-    INT sub_016aeac0(); /* 0x016aeac0 */
-    INT sub_016aeaf0(); /* 0x016aeaf0 */
-    INT sub_016aeb20(); /* 0x016aeb20 */
-    INT sub_016aeb50(); /* 0x016aeb50 */
-    INT sub_016aeb80(); /* 0x016aeb80 */
-    INT sub_016aebb0(); /* 0x016aebb0 */
-    INT sub_016aebe0(); /* 0x016aebe0 */
-    UINT sub_016aec10(); /* 0x016aec10 */
-    UINT sub_016aec50(); /* 0x016aec50 */
-    UINT sub_016aec90(); /* 0x016aec90 */
-    INT sub_016aed50(); /* 0x016aed50 */
-    INT sub_016b20d0(); /* 0x016b20d0 */
-    UINT sub_016cd630(BYTE); /* 0x016cd630 */
     UBOOL GetBoneCollisionWithWorld(INT StateIndex, INT BoneIndex) const; /* 0x016ba4a0 */
     UBOOL sub_016b21c0(); /* 0x016b21c0 */
     UBOOL sub_016b2200(); /* 0x016b2200 */
@@ -49984,7 +45653,6 @@ struct URCapeConfig : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_016ccf60(); /* 0x016ccf60 */
     /* registered size 0x190 */
 };
 
@@ -51369,7 +47037,6 @@ struct ARControllableChatteringTeethBase : public APawn {
     void sub_01714fa0(FLOAT DeltaTime); /* 0x01714fa0 */
     void sub_0171a4b0(FLOAT DeltaTime); /* 0x0171a4b0 */
     UBOOL sub_0171f1a0(); /* 0x0171f1a0 */
-    void sub_01715120(FLOAT); /* 0x01715120 */
     /* registered size 0x4cc */
 };
 
@@ -51550,7 +47217,6 @@ struct URCrimeSceneAsset : public URConfig {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT* sub_01668d50(BYTE); /* 0x01668d50 */
     /* registered size 0x38 */
 };
 
@@ -52619,7 +48285,6 @@ struct UREvidenceInterface : public UInterface {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_0154ae60(); /* 0x0154ae60 */
-    UINT* sub_0154ae80(BYTE); /* 0x0154ae80 */
     /* registered size 0x30 */
 };
 
@@ -52950,7 +48615,6 @@ struct URForceField : public UObject {
     void execFinalise(FFrame& Stack, RESULT_DECL); /* 0x01703120 */
     /* other member functions */
     void sub_016d2960(); /* 0x016d2960 */
-    UINT* sub_016d2970(BYTE); /* 0x016d2970 */
     /* registered size 0x44 */
 };
 
@@ -54138,7 +49802,6 @@ struct URRopeComponentBase : public UPrimitiveComponent {
     void DetachRopeEnd2(); /* 0x0163f410 */
     void StopCurrentRopeLengthChange(); /* 0x0163f4c0 */
     UBOOL GetIsRopeInitialised(); /* 0x0163f500 */
-    void sub_0163f390(); /* 0x0163f390 */
     void SetAutoLength(BYTE); /* 0x0163f480 */
     void SetContinuousAutoLength(BYTE); /* 0x0163f4a0 */
     /* registered size 0x230 */
@@ -54172,7 +49835,6 @@ struct URSimpleRopeComponent : public URRopeComponentBase {
     void sub_016857b0(); /* 0x016857b0 */
     UINT sub_0163f890(); /* 0x0163f890 */
     void sub_0166a9d0(); /* 0x0166a9d0 */
-    UINT* sub_0166a9e0(BYTE); /* 0x0166a9e0 */
     /* registered size 0x240 */
 };
 
@@ -54554,8 +50216,6 @@ struct ARSmashableProp : public ARKActorSpawnable {
     void sub_0167aab0(); /* 0x0167aab0 */
     void SetIsStatic(UBOOL); /* 0x0166b2e0 */
     void* GetDecalMaterialInstance(FName); /* 0x016751c0 */
-    UINT sub_01672810(); /* 0x01672810 */
-    UINT sub_01672830(); /* 0x01672830 */
     INT sub_01675050(FName DecalName); /* 0x01675050 */
     /* registered size 0x33c */
 };
@@ -54985,7 +50645,6 @@ struct ARInventoryManager : public AInventoryManager {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_016565e0(BYTE); /* 0x016565e0 */
     /* registered size 0x29c */
 };
 
@@ -55172,7 +50831,6 @@ struct ARJokerGunGadgetBase : public ARInventoryGadget {
     void execGetShouldKnockHelmetOff(FFrame& Stack, RESULT_DECL); /* 0x017078b0 */
     void execCalculateFireGunHitResult(FFrame& Stack, RESULT_DECL); /* 0x01723050 */
     /* other member functions */
-    UINT sub_01731f80(BYTE); /* 0x01731f80 */
     /* registered size 0x3b8 */
 };
 
@@ -56288,7 +51946,6 @@ struct ARPawnBossIvyBase : public ARBMPawnAI {
     /* UnrealScript natives */
     void execSpawnPawn(FFrame& Stack, RESULT_DECL); /* 0x0170abc0 */
     /* other member functions */
-    UINT sub_015fe9a0(BYTE); /* 0x015fe9a0 */
     /* registered size 0xc50 */
 };
 
@@ -56674,10 +52331,6 @@ struct ARPawnPlayer : public ARPawnPlayerCombat, public IRSpotableInterface {
     void sub_0169bc40(); /* 0x0169bc40 */
     void sub_016a5440(FLOAT A, FLOAT B, FLOAT C); /* 0x016a5440 */
     void sub_0168d8b0(); /* 0x0168d8b0 */
-    UINT sub_0169e2e0(BYTE); /* 0x0169e2e0 */
-    UINT* sub_0169e3b0(); /* 0x0169e3b0 */
-    UINT* sub_0169e4a0(); /* 0x0169e4a0 */
-    UINT* sub_0169e5a0(); /* 0x0169e5a0 */
     /* registered size 0xa8c */
     /* IRSpotableInterface */
     virtual class UObject* GetUObjectInterfaceRSpotableInterface(); /* 0x0169e2b0 */
@@ -58025,11 +53678,8 @@ struct ARPlayerController : public ARPlayerControllerBase {
     void CheckForGlassAttackTarget(); /* 0x016192a0 */
     ARPawnVillain* GetFallingAttackTarget(); /* 0x01623fd0 */
     void DoGrappleMovement(FLOAT); /* 0x01636e40 */
-    UINT sub_01614f10(); /* 0x01614f10 */
     void SpecialMoveFinished(INT); /* 0x01615440 */
     void SetUsingGamepad(UINT); /* 0x01615460 */
-    void sub_01619e30(); /* 0x01619e30 */
-    UINT sub_01632340(BYTE); /* 0x01632340 */
     /* registered size 0xc80 */
 };
 
@@ -58116,7 +53766,6 @@ struct ARPlayerControllerCombat : public ARPlayerController {
     /* other member functions */
     UBOOL eventIsBatarangPrimed(); /* 0x015d9ee0 */
     FVector eventInputHeading(UBOOL bCanBeZero); /* 0x016127f0 */
-    UINT sub_016324a0(BYTE); /* 0x016324a0 */
     /* registered size 0xe08 */
 };
 
@@ -62261,7 +57910,6 @@ struct ARSpecialMoveInstance_HoleGrab : public ARSpecialMoveInstance_RelativeAni
     /* UnrealScript natives */
     void execCalculateRotation(FFrame& Stack, RESULT_DECL); /* 0x0170b1a0 */
     /* other member functions */
-    UINT sub_016c9df0(BYTE); /* 0x016c9df0 */
     /* registered size 0x238 */
 };
 
@@ -62528,7 +58176,6 @@ struct URSpotableInterface : public UInterface {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_015d8300(); /* 0x015d8300 */
-    UINT* sub_015d8320(BYTE); /* 0x015d8320 */
     /* registered size 0x30 */
 };
 
@@ -63142,7 +58789,6 @@ struct UActorChannel : public UChannel {
     virtual FString Describe(); /* 0x118 */
     virtual void CleanUp(); /* 0x128 */
     /* other member functions */
-    UINT sub_00e07190(BYTE); /* 0x00e07190 */
     /* registered size 0xc0 */
 };
 
@@ -63156,7 +58802,6 @@ struct UAnalyzeContentCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e2ba0(BYTE); /* 0x010e2ba0 */
     /* registered size 0x70 */
 };
 
@@ -63174,7 +58819,6 @@ struct UAnalyzeCookedContentCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0104a010(BYTE); /* 0x0104a010 */
     /* registered size 0x88 */
 };
 
@@ -63188,7 +58832,6 @@ struct UAnalyzeCookedPackagesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e2c80(BYTE); /* 0x010e2c80 */
     /* registered size 0x70 */
 };
 
@@ -63204,24 +58847,6 @@ struct UAnalyzeFallbackMaterialsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    INT sub_010c6ea0(INT); /* 0x010c6ea0 */
-    INT sub_010c6f40(); /* 0x010c6f40 */
-    INT sub_010c6fe0(INT); /* 0x010c6fe0 */
-    INT sub_010c7200(INT); /* 0x010c7200 */
-    INT sub_010c7210(INT); /* 0x010c7210 */
-    INT sub_010c72a0(INT); /* 0x010c72a0 */
-    INT sub_010c72b0(); /* 0x010c72b0 */
-    INT sub_010c7360(INT); /* 0x010c7360 */
-    INT sub_010c7370(); /* 0x010c7370 */
-    INT sub_010c7400(INT); /* 0x010c7400 */
-    INT sub_010c7490(INT); /* 0x010c7490 */
-    INT sub_010c74b0(INT); /* 0x010c74b0 */
-    INT sub_010c74c0(INT); /* 0x010c74c0 */
-    INT sub_010c74d0(); /* 0x010c74d0 */
-    INT sub_010c74f0(); /* 0x010c74f0 */
-    INT sub_010c7500(); /* 0x010c7500 */
-    INT sub_010c7520(); /* 0x010c7520 */
-    INT sub_010c7530(); /* 0x010c7530 */
     INT sub_010ca5f0(); /* 0x010ca5f0 */
     INT sub_010ca650(); /* 0x010ca650 */
     INT sub_010ca6b0(); /* 0x010ca6b0 */
@@ -63233,66 +58858,9 @@ struct UAnalyzeFallbackMaterialsCommandlet : public UCommandlet {
     INT sub_010ca7a0(); /* 0x010ca7a0 */
     INT sub_010ca7c0(); /* 0x010ca7c0 */
     INT sub_010ca7d0(); /* 0x010ca7d0 */
-    INT sub_010ca970(INT); /* 0x010ca970 */
-    INT sub_010caa20(); /* 0x010caa20 */
-    INT sub_010caa60(INT); /* 0x010caa60 */
-    INT sub_010caae0(); /* 0x010caae0 */
-    INT sub_010caaf0(INT); /* 0x010caaf0 */
-    INT sub_010cab00(); /* 0x010cab00 */
-    INT sub_010cab10(INT); /* 0x010cab10 */
-    INT sub_010cac60(); /* 0x010cac60 */
-    INT sub_010cae70(INT); /* 0x010cae70 */
-    INT sub_010caf20(INT); /* 0x010caf20 */
-    UINT sub_010caf70(BYTE); /* 0x010caf70 */
-    UINT sub_010d11f0(INT); /* 0x010d11f0 */
-    UINT* sub_010d1230(UINT*); /* 0x010d1230 */
-    INT sub_010d1260(INT); /* 0x010d1260 */
-    INT sub_010d1640(INT); /* 0x010d1640 */
-    INT sub_010d1690(INT); /* 0x010d1690 */
-    UINT* sub_010d1a30(UINT*); /* 0x010d1a30 */
-    UINT* sub_010d1b40(UINT*); /* 0x010d1b40 */
-    INT sub_010dd980(INT); /* 0x010dd980 */
-    INT sub_010ddf30(INT); /* 0x010ddf30 */
-    INT sub_010ddf90(INT); /* 0x010ddf90 */
-    void sub_010de060(); /* 0x010de060 */
-    void sub_010de080(); /* 0x010de080 */
-    UINT sub_010de0a0(BYTE); /* 0x010de0a0 */
-    INT sub_010e8890(); /* 0x010e8890 */
-    INT sub_010e88b0(); /* 0x010e88b0 */
-    INT sub_010e88d0(); /* 0x010e88d0 */
-    INT sub_010eec10(); /* 0x010eec10 */
-    void sub_010eef90(); /* 0x010eef90 */
-    void sub_010ef130(); /* 0x010ef130 */
     UINT sub_010ef280(UINT, UINT); /* 0x010ef280 */
-    void sub_010ef570(); /* 0x010ef570 */
-    void sub_010ef5e0(); /* 0x010ef5e0 */
-    UINT sub_010ef680(UINT, UINT); /* 0x010ef680 */
-    void sub_010ef6a0(); /* 0x010ef6a0 */
-    UINT sub_010ef6b0(UINT, UINT); /* 0x010ef6b0 */
-    UINT sub_010ef7a0(UINT, UINT); /* 0x010ef7a0 */
-    INT sub_010ef7c0(UINT, UINT); /* 0x010ef7c0 */
-    INT sub_010ef7e0(UINT, UINT); /* 0x010ef7e0 */
-    INT sub_010ef800(UINT, UINT); /* 0x010ef800 */
-    INT sub_010ef820(UINT, UINT); /* 0x010ef820 */
-    UINT sub_010ef840(UINT, UINT); /* 0x010ef840 */
-    INT sub_010ef860(UINT, UINT); /* 0x010ef860 */
-    INT sub_010ef880(UINT, UINT); /* 0x010ef880 */
-    INT sub_010ef8a0(); /* 0x010ef8a0 */
-    INT sub_010ef8c0(); /* 0x010ef8c0 */
-    INT sub_010ef8e0(); /* 0x010ef8e0 */
     INT sub_010f2840(UINT, UINT, UINT); /* 0x010f2840 */
     UINT sub_010f2d90(BYTE); /* 0x010f2d90 */
-    INT sub_010f3090(UINT, UINT, UINT); /* 0x010f3090 */
-    INT sub_010f30e0(UINT, UINT, UINT); /* 0x010f30e0 */
-    INT sub_010f3170(UINT, UINT, UINT); /* 0x010f3170 */
-    INT sub_010f31d0(); /* 0x010f31d0 */
-    INT sub_010f31f0(); /* 0x010f31f0 */
-    INT sub_010f3210(); /* 0x010f3210 */
-    INT sub_010f62a0(); /* 0x010f62a0 */
-    INT sub_010f62c0(); /* 0x010f62c0 */
-    INT sub_010f8220(); /* 0x010f8220 */
-    UINT sub_010f8240(BYTE); /* 0x010f8240 */
-    UINT sub_01100080(BYTE); /* 0x01100080 */
     /* registered size 0xac */
 };
 
@@ -63311,7 +58879,6 @@ struct UAnalyzeReferencedContentCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01059700(BYTE); /* 0x01059700 */
     /* registered size 0x4a4 */
 };
 
@@ -63325,7 +58892,6 @@ struct UAnalyzeScriptCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01032d20(BYTE); /* 0x01032d20 */
     /* registered size 0x70 */
 };
 
@@ -63394,78 +58960,7 @@ struct UFactory : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT* sub_005b3730(); /* 0x005b3730 */
     INT sub_005fbdd0(); /* 0x005fbdd0 */
-    UINT* sub_00f31ba0(); /* 0x00f31ba0 */
-    UINT* sub_00f31c40(); /* 0x00f31c40 */
-    UINT* sub_00f31ce0(); /* 0x00f31ce0 */
-    UINT* sub_00f31d80(); /* 0x00f31d80 */
-    UINT* sub_00f31e20(); /* 0x00f31e20 */
-    UINT* sub_00f31ec0(); /* 0x00f31ec0 */
-    UINT* sub_00f321a0(); /* 0x00f321a0 */
-    UINT* sub_00f32240(); /* 0x00f32240 */
-    UINT* sub_00f322e0(); /* 0x00f322e0 */
-    UINT* sub_00f32380(); /* 0x00f32380 */
-    UINT* sub_00f32420(); /* 0x00f32420 */
-    UINT* sub_00f324c0(); /* 0x00f324c0 */
-    UINT* sub_00f32560(); /* 0x00f32560 */
-    UINT* sub_00f32600(); /* 0x00f32600 */
-    UINT* sub_00f326a0(); /* 0x00f326a0 */
-    UINT* sub_00f32740(); /* 0x00f32740 */
-    UINT* sub_00f327e0(); /* 0x00f327e0 */
-    UINT* sub_00f32880(); /* 0x00f32880 */
-    UINT* sub_00f32920(); /* 0x00f32920 */
-    UINT* sub_00f329c0(); /* 0x00f329c0 */
-    UINT* sub_00f32a60(); /* 0x00f32a60 */
-    UINT* sub_00f32b00(); /* 0x00f32b00 */
-    UINT* sub_00f32ba0(); /* 0x00f32ba0 */
-    UINT* sub_00f32bc0(); /* 0x00f32bc0 */
-    UINT* sub_00f32c60(); /* 0x00f32c60 */
-    UINT* sub_00f32d00(); /* 0x00f32d00 */
-    UINT* sub_00f32da0(); /* 0x00f32da0 */
-    UINT* sub_00f32e40(); /* 0x00f32e40 */
-    UINT* sub_00f32ee0(); /* 0x00f32ee0 */
-    UINT* sub_00f32f80(); /* 0x00f32f80 */
-    UINT* sub_00f33020(); /* 0x00f33020 */
-    UINT* sub_00f330c0(); /* 0x00f330c0 */
-    UINT* sub_00f33160(); /* 0x00f33160 */
-    UINT* sub_00f33240(); /* 0x00f33240 */
-    UINT* sub_00f332e0(); /* 0x00f332e0 */
-    UINT* sub_00f623d0(); /* 0x00f623d0 */
-    UINT* sub_00f62720(); /* 0x00f62720 */
-    UINT* sub_00ffd560(); /* 0x00ffd560 */
-    UINT* sub_00ffd600(); /* 0x00ffd600 */
-    UINT* sub_0110a3d0(); /* 0x0110a3d0 */
-    UINT* sub_014b3780(); /* 0x014b3780 */
-    UINT* sub_014b37a0(); /* 0x014b37a0 */
-    UINT* sub_014b3840(); /* 0x014b3840 */
-    UINT* sub_0152c2a0(); /* 0x0152c2a0 */
-    UINT* sub_0152c340(); /* 0x0152c340 */
-    UINT* sub_01571bf0(); /* 0x01571bf0 */
-    UINT* sub_01571c90(); /* 0x01571c90 */
-    UINT* sub_01571d30(); /* 0x01571d30 */
-    UINT* sub_01571dd0(); /* 0x01571dd0 */
-    UINT* sub_01571e70(); /* 0x01571e70 */
-    UINT* sub_01571f10(); /* 0x01571f10 */
-    UINT* sub_01571fb0(); /* 0x01571fb0 */
-    UINT* sub_016265a0(); /* 0x016265a0 */
-    UINT* sub_01626640(); /* 0x01626640 */
-    UINT* sub_016266e0(); /* 0x016266e0 */
-    UINT* sub_01626780(); /* 0x01626780 */
-    UINT* sub_01626820(); /* 0x01626820 */
-    UINT* sub_016268c0(); /* 0x016268c0 */
-    UINT* sub_01680550(); /* 0x01680550 */
-    UINT* sub_016805f0(); /* 0x016805f0 */
-    UINT* sub_01680690(); /* 0x01680690 */
-    UINT* sub_01680730(); /* 0x01680730 */
-    UINT* sub_0169cd20(); /* 0x0169cd20 */
-    UINT* sub_016c6c20(); /* 0x016c6c20 */
-    UINT* sub_016c6cc0(); /* 0x016c6cc0 */
-    UINT* sub_016dbdd0(); /* 0x016dbdd0 */
-    UINT* sub_016dbe70(); /* 0x016dbe70 */
-    UINT* sub_016dbf10(); /* 0x016dbf10 */
-    UINT* sub_016dbfb0(); /* 0x016dbfb0 */
-    UINT* sub_01729c30(); /* 0x01729c30 */
     /* registered size 0x64 */
 };
 
@@ -63674,7 +59169,6 @@ struct UField : public UObject {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void Register(); /* 0x080 */
     /* other member functions */
-    UINT* sub_00566260(); /* 0x00566260 */
     /* registered size 0x38 */
 };
 
@@ -63765,15 +59259,11 @@ struct UArrayProperty : public UProperty {
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
     virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* other member functions */
-    INT sub_005faa80(); /* 0x005faa80 */
     INT sub_005faaa0(); /* 0x005faaa0 */
     INT sub_005faac0(); /* 0x005faac0 */
     INT sub_005faad0(); /* 0x005faad0 */
     INT sub_005faae0(); /* 0x005faae0 */
     INT sub_005faaf0(); /* 0x005faaf0 */
-    INT sub_005fab00(INT); /* 0x005fab00 */
-    UINT sub_005fe2c0(BYTE); /* 0x005fe2c0 */
-    INT* sub_0062ec40(BYTE); /* 0x0062ec40 */
     /* registered size 0x74 */
 };
 
@@ -63787,7 +59277,6 @@ struct UBatchExportCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01071ed0(BYTE); /* 0x01071ed0 */
     /* registered size 0x70 */
 };
 
@@ -63940,17 +59429,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void vf_188(); /* 0x188 */
     virtual void vf_18c(); /* 0x18c */
     /* other member functions */
-    INT sub_00f65de0(); /* 0x00f65de0 */
-    INT sub_00f65e00(); /* 0x00f65e00 */
-    INT sub_00f66290(); /* 0x00f66290 */
-    INT sub_00f662b0(); /* 0x00f662b0 */
-    INT sub_00f67da0(); /* 0x00f67da0 */
-    INT sub_00f67dc0(); /* 0x00f67dc0 */
     UINT sub_00f683a0(BYTE); /* 0x00f683a0 */
-    INT sub_00f68460(); /* 0x00f68460 */
-    INT sub_00f68480(); /* 0x00f68480 */
-    UINT sub_00f684d0(BYTE); /* 0x00f684d0 */
-    UINT sub_00f6aab0(BYTE); /* 0x00f6aab0 */
     /* registered size 0x620 */
     /* FCallbackEventDevice */
     virtual void Send(ECallbackEventType InType, DWORD InFlag); /* 0x00ed9c20 */
@@ -64055,155 +59534,41 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     virtual void SentinelInputKey(FEditorLevelViewportClient* ViewportClient, FName Key,EInputEvent Event); /* 0x310 */
     /* other member functions */
     FLinearColor* sub_012c0300(FLinearColor* OutColor); /* 0x012c0300 */
-    UINT sub_0040f070(BYTE); /* 0x0040f070 */
     INT sub_00551c40(INT); /* 0x00551c40 */
     INT sub_00551c70(INT); /* 0x00551c70 */
     INT sub_00555610(INT); /* 0x00555610 */
     INT sub_00555650(INT); /* 0x00555650 */
-    void sub_005dc140(); /* 0x005dc140 */
-    UINT* sub_006d85e0(UINT); /* 0x006d85e0 */
-    UINT* sub_006d8660(UINT, UINT); /* 0x006d8660 */
-    UINT* sub_008314d0(UINT); /* 0x008314d0 */
     void sub_00946da0(INT); /* 0x00946da0 */
-    void sub_009583d0(INT); /* 0x009583d0 */
-    UINT* sub_00c927b0(UINT); /* 0x00c927b0 */
-    UINT* sub_00c92860(UINT, UINT); /* 0x00c92860 */
-    UINT* sub_00d1ec70(UINT, UINT, UINT); /* 0x00d1ec70 */
-    UINT* sub_00ddcda0(UINT); /* 0x00ddcda0 */
-    UINT* sub_00dddb10(UINT); /* 0x00dddb10 */
     UINT sub_00ec4700(); /* 0x00ec4700 */
-    UINT* sub_00f4dbf0(UINT, UINT); /* 0x00f4dbf0 */
-    UINT* sub_00f4e200(UINT, UINT); /* 0x00f4e200 */
-    UINT* sub_00f4e2b0(UINT, UINT); /* 0x00f4e2b0 */
-    UINT* sub_00f4e360(UINT, UINT); /* 0x00f4e360 */
-    UINT* sub_00f72010(UINT, UINT, UINT); /* 0x00f72010 */
-    UINT* sub_010149f0(UINT); /* 0x010149f0 */
-    UINT* sub_01116740(UINT, UINT, UINT); /* 0x01116740 */
-    UINT* sub_01119ba0(UINT); /* 0x01119ba0 */
-    UINT* sub_01119c30(UINT); /* 0x01119c30 */
-    UINT* sub_01119cc0(UINT, UINT, UINT); /* 0x01119cc0 */
-    UINT* sub_01119e10(UINT, UINT); /* 0x01119e10 */
-    UINT* sub_01119e60(); /* 0x01119e60 */
-    UINT* sub_01119f40(UINT, UINT); /* 0x01119f40 */
     UINT* sub_0111b3b0(BYTE); /* 0x0111b3b0 */
     UINT sub_01120400(BYTE); /* 0x01120400 */
     UINT sub_011367d0(BYTE); /* 0x011367d0 */
     UINT sub_0114a280(BYTE); /* 0x0114a280 */
     UINT sub_011765d0(BYTE); /* 0x011765d0 */
     UINT sub_011ba770(BYTE); /* 0x011ba770 */
-    UINT* sub_011f3b00(UINT); /* 0x011f3b00 */
     UINT sub_0120cdd0(BYTE); /* 0x0120cdd0 */
     void sub_012202f0(); /* 0x012202f0 */
     INT sub_01220310(); /* 0x01220310 */
-    UINT* sub_01220320(UINT); /* 0x01220320 */
-    INT sub_0122ebc0(INT); /* 0x0122ebc0 */
-    INT sub_01232b70(); /* 0x01232b70 */
-    INT sub_01232b90(); /* 0x01232b90 */
-    INT sub_01232ba0(); /* 0x01232ba0 */
     UINT sub_01233140(BYTE); /* 0x01233140 */
-    INT sub_01240900(); /* 0x01240900 */
     UINT sub_01241200(BYTE); /* 0x01241200 */
     void sub_01241220(UINT); /* 0x01241220 */
-    void sub_012426e0(); /* 0x012426e0 */
-    UINT sub_01242820(UINT, UINT); /* 0x01242820 */
-    INT sub_01242840(UINT, UINT); /* 0x01242840 */
-    INT sub_01242870(); /* 0x01242870 */
     UINT sub_01242c50(BYTE); /* 0x01242c50 */
-    INT sub_01243110(UINT, UINT, UINT); /* 0x01243110 */
-    INT sub_01243160(); /* 0x01243160 */
-    UINT sub_01243180(BYTE); /* 0x01243180 */
-    INT sub_012449f0(); /* 0x012449f0 */
     UINT sub_0124a550(BYTE); /* 0x0124a550 */
-    UINT* sub_0124b490(UINT, UINT); /* 0x0124b490 */
-    UINT sub_0124d8f0(); /* 0x0124d8f0 */
     UINT sub_0125f5a0(BYTE); /* 0x0125f5a0 */
-    void sub_0127e2e0(UINT, UINT, UINT); /* 0x0127e2e0 */
-    void sub_01283f50(INT); /* 0x01283f50 */
-    void sub_012842e0(INT); /* 0x012842e0 */
-    void sub_01284320(INT); /* 0x01284320 */
-    INT sub_01284360(INT); /* 0x01284360 */
-    INT sub_01284370(INT); /* 0x01284370 */
-    INT sub_01284380(); /* 0x01284380 */
-    INT sub_012843a0(); /* 0x012843a0 */
-    INT sub_012843c0(INT); /* 0x012843c0 */
-    INT sub_01284430(INT); /* 0x01284430 */
-    INT sub_01284520(INT); /* 0x01284520 */
-    INT sub_01284620(INT); /* 0x01284620 */
-    INT sub_0128bbf0(); /* 0x0128bbf0 */
-    INT sub_0128bc10(); /* 0x0128bc10 */
-    INT sub_0128bce0(INT); /* 0x0128bce0 */
-    INT sub_0128bd10(INT); /* 0x0128bd10 */
-    INT sub_0128bd40(INT); /* 0x0128bd40 */
     UINT sub_0128c6b0(BYTE); /* 0x0128c6b0 */
     UINT sub_0128c710(BYTE); /* 0x0128c710 */
     UINT sub_0128c770(BYTE); /* 0x0128c770 */
-    UINT sub_0128c7d0(BYTE); /* 0x0128c7d0 */
     UINT sub_0128eb30(BYTE); /* 0x0128eb30 */
-    INT sub_0128f8c0(INT); /* 0x0128f8c0 */
-    INT sub_0128f900(); /* 0x0128f900 */
-    INT sub_01291ff0(); /* 0x01291ff0 */
-    INT sub_01292010(); /* 0x01292010 */
-    void sub_01292210(); /* 0x01292210 */
-    UINT sub_012922e0(UINT, UINT); /* 0x012922e0 */
-    INT sub_012923c0(UINT, UINT); /* 0x012923c0 */
-    INT sub_012923e0(UINT, UINT); /* 0x012923e0 */
-    INT sub_01292400(UINT, UINT); /* 0x01292400 */
-    INT sub_01292420(); /* 0x01292420 */
-    INT sub_01292440(); /* 0x01292440 */
-    INT sub_01292750(UINT, UINT, UINT); /* 0x01292750 */
-    INT sub_012927e0(); /* 0x012927e0 */
-    INT sub_01292800(); /* 0x01292800 */
-    UINT sub_012929b0(BYTE); /* 0x012929b0 */
-    INT sub_01294c90(); /* 0x01294c90 */
-    INT sub_01294cb0(); /* 0x01294cb0 */
     UINT* sub_012a06a0(BYTE); /* 0x012a06a0 */
     UINT sub_012b7360(BYTE); /* 0x012b7360 */
-    UINT* sub_012bfa50(UINT); /* 0x012bfa50 */
-    UINT* sub_012bfa80(UINT, UINT); /* 0x012bfa80 */
-    UINT* sub_012bfac0(UINT); /* 0x012bfac0 */
-    UINT* sub_012bfaf0(UINT, UINT); /* 0x012bfaf0 */
-    UINT* sub_012bfb30(UINT, UINT); /* 0x012bfb30 */
-    UINT* sub_012bfb70(UINT, UINT); /* 0x012bfb70 */
-    UINT* sub_012bfbb0(UINT, UINT); /* 0x012bfbb0 */
-    UINT* sub_012bfbf0(UINT, UINT); /* 0x012bfbf0 */
     UINT sub_012bfcb0(); /* 0x012bfcb0 */
     void sub_012c0330(UINT); /* 0x012c0330 */
     UINT sub_012c5550(BYTE); /* 0x012c5550 */
     UINT* sub_012c5c00(BYTE); /* 0x012c5c00 */
-    UINT* sub_012de590(); /* 0x012de590 */
-    UINT* sub_012de5c0(UINT); /* 0x012de5c0 */
-    UINT* sub_012de5f0(UINT); /* 0x012de5f0 */
-    UINT* sub_012de620(UINT); /* 0x012de620 */
-    UINT* sub_012de650(UINT, UINT); /* 0x012de650 */
-    UINT* sub_012de690(UINT, UINT); /* 0x012de690 */
-    UINT* sub_012de6d0(UINT, UINT); /* 0x012de6d0 */
-    UINT* sub_012de710(UINT, UINT); /* 0x012de710 */
-    UINT* sub_012de750(UINT, UINT, UINT); /* 0x012de750 */
-    UINT* sub_012de790(); /* 0x012de790 */
-    UINT* sub_012de7c0(); /* 0x012de7c0 */
-    UINT* sub_012de7f0(); /* 0x012de7f0 */
-    UINT* sub_012de820(UINT); /* 0x012de820 */
-    UINT* sub_012de850(UINT); /* 0x012de850 */
     INT sub_012de880(); /* 0x012de880 */
     INT sub_012de9f0(); /* 0x012de9f0 */
     void sub_012dea00(INT); /* 0x012dea00 */
     char* sub_012dea10(); /* 0x012dea10 */
-    UINT sub_012e3fa0(BYTE); /* 0x012e3fa0 */
-    UINT* sub_0130d3f0(UINT, UINT, UINT); /* 0x0130d3f0 */
-    UINT* sub_0130d430(UINT); /* 0x0130d430 */
-    UINT* sub_0130d460(UINT); /* 0x0130d460 */
-    UINT* sub_0130d490(UINT); /* 0x0130d490 */
-    void sub_0130d820(INT); /* 0x0130d820 */
-    UINT sub_0130d900(); /* 0x0130d900 */
-    UINT sub_0130d930(); /* 0x0130d930 */
-    UINT sub_0130d960(); /* 0x0130d960 */
-    void sub_0130d990(UINT); /* 0x0130d990 */
-    void sub_0130d9d0(UINT); /* 0x0130d9d0 */
-    void sub_0130da10(UINT); /* 0x0130da10 */
-    UINT* sub_0130e940(UINT); /* 0x0130e940 */
-    UINT* sub_0130e970(UINT); /* 0x0130e970 */
-    UINT sub_0130ec00(); /* 0x0130ec00 */
-    UINT sub_0130f680(BYTE); /* 0x0130f680 */
     INT sub_01311e60(INT); /* 0x01311e60 */
     const void* sub_01311e90(INT) const; /* 0x01311e90 */
     QWORD* sub_01311ee0(INT); /* 0x01311ee0 */
@@ -64219,53 +59584,15 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     INT sub_0131e7c0(INT); /* 0x0131e7c0 */
     INT sub_013216f0(INT); /* 0x013216f0 */
     INT sub_01321730(INT); /* 0x01321730 */
-    void sub_01325e40(); /* 0x01325e40 */
-    void sub_01325e60(); /* 0x01325e60 */
-    void sub_01325e80(); /* 0x01325e80 */
-    INT sub_01328390(); /* 0x01328390 */
-    INT sub_013283b0(); /* 0x013283b0 */
-    INT sub_013283d0(); /* 0x013283d0 */
-    void sub_01328a70(); /* 0x01328a70 */
-    void sub_01328bd0(); /* 0x01328bd0 */
-    UINT sub_01328ca0(UINT, UINT); /* 0x01328ca0 */
-    UINT sub_01328cc0(UINT, UINT); /* 0x01328cc0 */
-    INT sub_01328ce0(UINT, UINT); /* 0x01328ce0 */
-    INT sub_01328d00(UINT, UINT); /* 0x01328d00 */
-    INT sub_01328d20(UINT, UINT); /* 0x01328d20 */
-    INT sub_01328d40(); /* 0x01328d40 */
-    INT sub_01328d60(); /* 0x01328d60 */
-    INT sub_01328d80(); /* 0x01328d80 */
-    INT sub_01329f70(UINT, UINT, UINT); /* 0x01329f70 */
-    INT sub_01329fc0(UINT, UINT, UINT); /* 0x01329fc0 */
-    INT sub_0132a010(); /* 0x0132a010 */
-    INT sub_0132a030(); /* 0x0132a030 */
-    INT sub_0132a050(); /* 0x0132a050 */
-    UINT sub_0132c040(BYTE); /* 0x0132c040 */
-    INT sub_0132c060(); /* 0x0132c060 */
-    INT sub_0132c080(); /* 0x0132c080 */
-    INT sub_0132c0a0(); /* 0x0132c0a0 */
     UINT sub_0132d630(BYTE); /* 0x0132d630 */
     UINT sub_01333c20(BYTE); /* 0x01333c20 */
     UINT* sub_013381a0(BYTE); /* 0x013381a0 */
-    INT sub_0133a520(UINT*); /* 0x0133a520 */
-    INT sub_0133a5d0(UINT*); /* 0x0133a5d0 */
-    INT sub_0133a640(INT); /* 0x0133a640 */
-    INT sub_0133a680(INT); /* 0x0133a680 */
-    INT sub_0133a6c0(INT); /* 0x0133a6c0 */
-    INT sub_0133a6f0(UINT*); /* 0x0133a6f0 */
-    INT sub_0133a760(UINT*); /* 0x0133a760 */
-    INT sub_0133a820(INT); /* 0x0133a820 */
-    INT sub_0133a860(INT); /* 0x0133a860 */
     UINT sub_01353870(BYTE); /* 0x01353870 */
-    INT sub_01358290(INT); /* 0x01358290 */
-    void sub_0135d0c0(); /* 0x0135d0c0 */
     FLOAT sub_01367a80(); /* 0x01367a80 */
     void sub_01367a90(INT); /* 0x01367a90 */
     INT sub_01367aa0(); /* 0x01367aa0 */
     INT sub_01367ab0(); /* 0x01367ab0 */
     void sub_01367ac0(INT); /* 0x01367ac0 */
-    void sub_01367b00(); /* 0x01367b00 */
-    void sub_01367b10(); /* 0x01367b10 */
     INT sub_01367b40(); /* 0x01367b40 */
     INT sub_01367b70(); /* 0x01367b70 */
     char* sub_01367c40(); /* 0x01367c40 */
@@ -64276,35 +59603,21 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     INT sub_01367c90(); /* 0x01367c90 */
     char* sub_01367cb0(); /* 0x01367cb0 */
     char* sub_01367cc0(); /* 0x01367cc0 */
-    UINT sub_013690f0(BYTE); /* 0x013690f0 */
     UINT sub_0137e440(BYTE); /* 0x0137e440 */
     UINT sub_01387400(BYTE); /* 0x01387400 */
     UINT sub_01396610(BYTE); /* 0x01396610 */
-    void sub_013a2fe0(INT); /* 0x013a2fe0 */
     INT sub_013a3160(); /* 0x013a3160 */
-    void sub_013a3390(INT); /* 0x013a3390 */
-    void sub_013a33d0(); /* 0x013a33d0 */
-    void sub_013a33e0(); /* 0x013a33e0 */
-    void sub_013a3480(); /* 0x013a3480 */
-    void sub_013a34b0(); /* 0x013a34b0 */
     void sub_013a3740(); /* 0x013a3740 */
-    UINT* sub_013abe40(); /* 0x013abe40 */
     void sub_013abe80(); /* 0x013abe80 */
     void sub_013abe90(); /* 0x013abe90 */
-    UINT sub_013aee40(BYTE); /* 0x013aee40 */
     UINT sub_013b2fc0(BYTE); /* 0x013b2fc0 */
     UINT sub_013b9590(BYTE); /* 0x013b9590 */
     UINT sub_013baae0(BYTE); /* 0x013baae0 */
     UINT sub_013bad90(BYTE); /* 0x013bad90 */
     void sub_013d2770(INT); /* 0x013d2770 */
     UINT sub_013d3930(BYTE); /* 0x013d3930 */
-    UINT* sub_013dcd30(UINT, UINT); /* 0x013dcd30 */
-    UINT* sub_013dcdd0(UINT, UINT); /* 0x013dcdd0 */
-    UINT* sub_013dd690(UINT, UINT); /* 0x013dd690 */
     UINT sub_0141b390(BYTE); /* 0x0141b390 */
     UINT sub_0141b950(BYTE); /* 0x0141b950 */
-    UINT sub_014225c0(BYTE); /* 0x014225c0 */
-    UINT* sub_01426480(UINT); /* 0x01426480 */
     UINT sub_0144a340(BYTE); /* 0x0144a340 */
     void sub_0144eb40(UINT); /* 0x0144eb40 */
     INT sub_0144efe0(); /* 0x0144efe0 */
@@ -64314,17 +59627,12 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     INT sub_0144f020(); /* 0x0144f020 */
     INT sub_0144f050(); /* 0x0144f050 */
     INT sub_0144f0f0(); /* 0x0144f0f0 */
-    UINT* sub_0144f320(UINT, UINT); /* 0x0144f320 */
-    UINT* sub_0144f3c0(UINT, UINT); /* 0x0144f3c0 */
-    UINT* sub_0144f460(UINT, UINT); /* 0x0144f460 */
     UINT sub_01460630(BYTE); /* 0x01460630 */
     UINT sub_01470590(BYTE); /* 0x01470590 */
     UINT sub_014753b0(BYTE); /* 0x014753b0 */
-    UINT sub_01484390(BYTE); /* 0x01484390 */
     UINT* sub_014c97c0(BYTE); /* 0x014c97c0 */
     UINT sub_014dc0d0(BYTE); /* 0x014dc0d0 */
     UINT sub_01745700(BYTE); /* 0x01745700 */
-    UINT* sub_0175ef80(); /* 0x0175ef80 */
     /* registered size 0x690 */
     /* FNotifyHook */
     virtual void NotifyDestroy(void* Src); /* 0x011368d0 */
@@ -64437,7 +59745,6 @@ struct UBuildContentTagIndexCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010734b0(BYTE); /* 0x010734b0 */
     /* registered size 0x70 */
 };
 
@@ -64510,7 +59817,6 @@ struct UCascadeOptions : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    void sub_012bd940(); /* 0x012bd940 */
     /* registered size 0xfc */
 };
 
@@ -64564,7 +59870,6 @@ struct UResavePackagesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0107a010(BYTE); /* 0x0107a010 */
     /* registered size 0xc0 */
 };
 
@@ -64578,7 +59883,6 @@ struct UChangePrefabSequenceClassCommandlet : public UResavePackagesCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_118(INT, INT); /* 0x118 */
     virtual INT vf_11c(INT, INT); /* 0x11c */
-    UINT sub_0107a100(BYTE); /* 0x0107a100 */
     /* registered size 0xc0 */
 };
 
@@ -64622,9 +59926,6 @@ struct UChannelDownload : public UDownload {
     virtual UBOOL TrySkipFile(); /* 0x10c */
     virtual void ReceiveFile( UNetConnection* InConnection, INT PackageIndex, const TCHAR *Params=NULL, UBOOL InCompression=0 ); /* 0x110 */
     /* other member functions */
-    UINT sub_00e06020(BYTE); /* 0x00e06020 */
-    UINT* sub_00e06040(BYTE); /* 0x00e06040 */
-    UINT* sub_00e06130(BYTE); /* 0x00e06130 */
     /* registered size 0xa68 */
 };
 
@@ -64716,9 +60017,6 @@ struct UNetConnection : public UPlayer, public FOutputDevice {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_00c1a270(BYTE); /* 0x00c1a270 */
-    UINT* sub_00c1a2a0(); /* 0x00c1a2a0 */
-    UINT* sub_00e14ba0(); /* 0x00e14ba0 */
     /* registered size 0x4fb8 */
     /* FOutputDevice */
     virtual void Serialize(const TCHAR* V, EName Event); /* 0x00df3dc0 */
@@ -64809,122 +60107,11 @@ struct UState : public UStruct {
     virtual UBOOL MergeBools(); /* 0x110 */
     virtual UStruct* GetInheritanceSuper() const; /* 0x11c */
     /* other member functions */
-    UINT* sub_00567ed0(UINT, UINT, UINT, UINT, UINT); /* 0x00567ed0 */
-    INT sub_005711e0(INT); /* 0x005711e0 */
-    INT sub_005759d0(INT); /* 0x005759d0 */
-    INT sub_00575a60(INT); /* 0x00575a60 */
-    INT sub_00578d60(INT); /* 0x00578d60 */
-    INT sub_0057c400(INT); /* 0x0057c400 */
-    void sub_0057c440(); /* 0x0057c440 */
-    void sub_0057c460(); /* 0x0057c460 */
-    INT sub_00580cc0(); /* 0x00580cc0 */
-    INT sub_00580ce0(); /* 0x00580ce0 */
-    void sub_00580ee0(); /* 0x00580ee0 */
-    INT sub_00581330(UINT, UINT); /* 0x00581330 */
-    INT sub_00581350(UINT, UINT); /* 0x00581350 */
-    INT sub_005813d0(); /* 0x005813d0 */
-    INT sub_00582650(); /* 0x00582650 */
-    INT sub_00582670(); /* 0x00582670 */
-    INT sub_00582690(); /* 0x00582690 */
     void sub_005828b0(); /* 0x005828b0 */
-    UINT sub_00582a90(UINT, UINT); /* 0x00582a90 */
-    INT sub_00582ab0(); /* 0x00582ab0 */
-    INT sub_005834e0(); /* 0x005834e0 */
-    INT sub_00583500(); /* 0x00583500 */
-    INT sub_00583520(); /* 0x00583520 */
-    INT sub_00584a30(UINT, UINT, UINT); /* 0x00584a30 */
-    UINT sub_00584c20(BYTE); /* 0x00584c20 */
-    INT sub_00584c40(); /* 0x00584c40 */
-    INT sub_005864d0(); /* 0x005864d0 */
-    INT sub_005864f0(); /* 0x005864f0 */
-    INT sub_00586510(); /* 0x00586510 */
-    UINT sub_00586530(UINT); /* 0x00586530 */
-    UINT sub_00586760(BYTE); /* 0x00586760 */
-    INT sub_00586780(); /* 0x00586780 */
-    INT sub_00586d40(); /* 0x00586d40 */
     UINT sub_00587200(BYTE); /* 0x00587200 */
     INT sub_00587300(); /* 0x00587300 */
-    UINT sub_005873f0(BYTE); /* 0x005873f0 */
-    UINT sub_00587b90(BYTE); /* 0x00587b90 */
-    UINT sub_005885c0(BYTE); /* 0x005885c0 */
     void sub_00588900(INT); /* 0x00588900 */
     INT sub_00588910(); /* 0x00588910 */
-    UINT sub_00588920(); /* 0x00588920 */
-    void sub_00588930(void*, UINT); /* 0x00588930 */
-    UINT sub_00588a50(BYTE); /* 0x00588a50 */
-    INT sub_006bd4a0(INT); /* 0x006bd4a0 */
-    void sub_006d2aa0(); /* 0x006d2aa0 */
-    INT sub_0072bc70(INT); /* 0x0072bc70 */
-    INT sub_007eac40(INT); /* 0x007eac40 */
-    INT sub_009963f0(INT); /* 0x009963f0 */
-    INT sub_0099a860(INT); /* 0x0099a860 */
-    INT sub_009b73d0(INT); /* 0x009b73d0 */
-    INT sub_009b74d0(INT); /* 0x009b74d0 */
-    INT sub_009bd160(INT); /* 0x009bd160 */
-    INT sub_009bd250(INT); /* 0x009bd250 */
-    UINT* sub_009bd260(UINT*); /* 0x009bd260 */
-    UINT* sub_009bd280(UINT*); /* 0x009bd280 */
-    INT sub_009bd330(INT); /* 0x009bd330 */
-    INT sub_009bd340(INT); /* 0x009bd340 */
-    INT sub_009bd350(INT); /* 0x009bd350 */
-    INT sub_009bd360(); /* 0x009bd360 */
-    INT sub_009c0c20(INT); /* 0x009c0c20 */
-    INT sub_009c0c50(INT); /* 0x009c0c50 */
-    INT sub_009c2e80(INT); /* 0x009c2e80 */
-    INT sub_009c2f80(INT); /* 0x009c2f80 */
-    INT sub_009c7550(UINT, UINT); /* 0x009c7550 */
-    INT sub_009c7570(UINT, UINT); /* 0x009c7570 */
-    INT sub_009c7590(UINT, UINT); /* 0x009c7590 */
-    INT sub_009c75b0(UINT, UINT); /* 0x009c75b0 */
-    INT sub_00bcc8c0(INT); /* 0x00bcc8c0 */
-    INT sub_00dcf0e0(INT); /* 0x00dcf0e0 */
-    UINT sub_00dd03e0(INT); /* 0x00dd03e0 */
-    INT sub_00f7dd20(INT); /* 0x00f7dd20 */
-    INT sub_00f7dda0(INT); /* 0x00f7dda0 */
-    INT sub_00f7de20(INT); /* 0x00f7de20 */
-    INT sub_00f7df20(INT); /* 0x00f7df20 */
-    INT sub_00f7e040(INT); /* 0x00f7e040 */
-    INT sub_00f7e0c0(INT); /* 0x00f7e0c0 */
-    INT sub_00f7e160(INT); /* 0x00f7e160 */
-    INT sub_00f81f10(INT); /* 0x00f81f10 */
-    INT sub_00f81f40(INT); /* 0x00f81f40 */
-    INT sub_00f81f70(INT); /* 0x00f81f70 */
-    INT sub_00f81fa0(INT); /* 0x00f81fa0 */
-    INT sub_00f884d0(INT); /* 0x00f884d0 */
-    UINT sub_00f8d3f0(INT); /* 0x00f8d3f0 */
-    void sub_00f8d490(); /* 0x00f8d490 */
-    void sub_00f8d4b0(); /* 0x00f8d4b0 */
-    void sub_00f8d4d0(); /* 0x00f8d4d0 */
-    void sub_00f8d4f0(); /* 0x00f8d4f0 */
-    INT sub_00f8f1d0(); /* 0x00f8f1d0 */
-    INT sub_00f8f1f0(); /* 0x00f8f1f0 */
-    INT sub_00f8f210(); /* 0x00f8f210 */
-    INT sub_00f8f230(); /* 0x00f8f230 */
-    INT sub_00f8f250(); /* 0x00f8f250 */
-    void sub_00f8f700(); /* 0x00f8f700 */
-    UINT sub_00f8f7d0(UINT, UINT); /* 0x00f8f7d0 */
-    INT sub_00f8fb30(UINT, UINT); /* 0x00f8fb30 */
-    INT sub_00f8fb50(UINT, UINT); /* 0x00f8fb50 */
-    INT sub_00f8fb70(UINT, UINT); /* 0x00f8fb70 */
-    INT sub_00f8fb90(UINT, UINT); /* 0x00f8fb90 */
-    UINT sub_00f8fbb0(UINT, UINT); /* 0x00f8fbb0 */
-    INT sub_00f8fbd0(); /* 0x00f8fbd0 */
-    INT sub_00f8fbf0(); /* 0x00f8fbf0 */
-    INT sub_00f8fc10(); /* 0x00f8fc10 */
-    INT sub_00f8fc90(); /* 0x00f8fc90 */
-    INT sub_00f8fcb0(); /* 0x00f8fcb0 */
-    INT sub_00f91900(UINT, UINT, UINT); /* 0x00f91900 */
-    INT sub_00f91ce0(); /* 0x00f91ce0 */
-    INT sub_00f91d00(); /* 0x00f91d00 */
-    INT sub_00f91d20(); /* 0x00f91d20 */
-    INT sub_00f91d50(); /* 0x00f91d50 */
-    INT sub_00f91d70(); /* 0x00f91d70 */
-    INT sub_00f94540(); /* 0x00f94540 */
-    INT sub_00f94560(); /* 0x00f94560 */
-    INT sub_00f94580(); /* 0x00f94580 */
-    void sub_00f945a0(); /* 0x00f945a0 */
-    INT sub_00f945b0(); /* 0x00f945b0 */
-    INT sub_00f945d0(); /* 0x00f945d0 */
     /* registered size 0xd8 */
 };
 
@@ -64987,7 +60174,6 @@ struct UClass : public UState {
     void EmitObjectArrayReference(DWORD Offset); /* 0x005f2c70 */
     DWORD EmitStructArrayBegin(DWORD Offset, DWORD StructSize); /* 0x005f2cf0: returns the skip index index */
     void EmitStructArrayEnd(DWORD SkipIndexIndex); /* 0x005f2d90 */
-    UINT sub_00587ec0(BYTE); /* 0x00587ec0 */
     /* registered size 0x1dc */
 };
 
@@ -65017,37 +60203,6 @@ struct UExporter : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    bool sub_00ef0540(); /* 0x00ef0540 */
-    UINT* sub_00f0af30(); /* 0x00f0af30 */
-    UINT* sub_00f0afd0(); /* 0x00f0afd0 */
-    UINT* sub_00f0b070(); /* 0x00f0b070 */
-    UINT* sub_00f0b110(); /* 0x00f0b110 */
-    UINT* sub_00f0b1b0(); /* 0x00f0b1b0 */
-    UINT* sub_00f0b250(); /* 0x00f0b250 */
-    UINT* sub_00f0b2f0(); /* 0x00f0b2f0 */
-    UINT* sub_00f0b390(); /* 0x00f0b390 */
-    UINT* sub_00f0b430(); /* 0x00f0b430 */
-    UINT* sub_00f0b4d0(); /* 0x00f0b4d0 */
-    UINT* sub_00f0b570(); /* 0x00f0b570 */
-    UINT* sub_00f0b610(); /* 0x00f0b610 */
-    UINT* sub_00f0b6b0(); /* 0x00f0b6b0 */
-    UINT sub_00f0b730(BYTE); /* 0x00f0b730 */
-    UINT* sub_00f0b750(); /* 0x00f0b750 */
-    UINT* sub_00f0b880(); /* 0x00f0b880 */
-    UINT* sub_00f0b8a0(); /* 0x00f0b8a0 */
-    UINT* sub_00f0b940(); /* 0x00f0b940 */
-    UINT* sub_00f0b9e0(); /* 0x00f0b9e0 */
-    UINT* sub_00f31560(); /* 0x00f31560 */
-    UINT* sub_00f31600(); /* 0x00f31600 */
-    UINT* sub_00f316a0(); /* 0x00f316a0 */
-    UINT* sub_00f31740(); /* 0x00f31740 */
-    UINT* sub_00f317e0(); /* 0x00f317e0 */
-    UINT* sub_00f31880(); /* 0x00f31880 */
-    UINT* sub_00f319a0(); /* 0x00f319a0 */
-    UINT* sub_00f319c0(); /* 0x00f319c0 */
-    UINT* sub_00f31a60(); /* 0x00f31a60 */
-    UINT* sub_00f31b00(); /* 0x00f31b00 */
-    UINT* sub_014b38e0(); /* 0x014b38e0 */
     /* registered size 0x58 */
 };
 
@@ -65102,7 +60257,6 @@ struct UObjectProperty : public UProperty {
     virtual void InstanceSubobjects( void* Value, void* DefaultValue, UObject* OwnerObject, struct FObjectInstancingGraph* InstanceGraph=NULL ) const; /* 0x174 */
     virtual void EmitReferenceInfo( struct FGCReferenceTokenStream* ReferenceTokenStream, INT BaseOffset ); /* 0x178 */
     /* other member functions */
-    UINT* sub_0062c130(BYTE); /* 0x0062c130 */
     /* registered size 0x74 */
 };
 
@@ -65182,13 +60336,8 @@ struct UCodecMovieBink : public UCodecMovie {
     virtual void Stop(); /* 0x140 */
     virtual void ReleaseDynamicResources(); /* 0x144 */
     /* other member functions */
-    UINT* sub_00c97a50(UINT); /* 0x00c97a50 */
-    void sub_00c97bb0(); /* 0x00c97bb0 */
-    void sub_00c97bc0(); /* 0x00c97bc0 */
     void sub_00c97d60(); /* 0x00c97d60 */
-    UINT* sub_00c97d70(BYTE); /* 0x00c97d70 */
     void sub_00c97f40(); /* 0x00c97f40 */
-    UINT* sub_00c97f50(BYTE); /* 0x00c97f50 */
     /* registered size 0x58 */
 };
 
@@ -65237,7 +60386,6 @@ struct UCompressAnimationsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3700(BYTE); /* 0x010e3700 */
     /* registered size 0x70 */
 };
 
@@ -65251,7 +60399,6 @@ struct UConformCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01071fb0(BYTE); /* 0x01071fb0 */
     /* registered size 0x70 */
 };
 
@@ -65280,112 +60427,7 @@ struct UContentTagIndex : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    INT sub_006f50a0(INT); /* 0x006f50a0 */
-    INT sub_00faa780(INT); /* 0x00faa780 */
-    INT sub_00faa810(INT); /* 0x00faa810 */
-    INT sub_00fb3130(INT); /* 0x00fb3130 */
-    INT sub_00fb3220(INT); /* 0x00fb3220 */
-    INT sub_00fb5e40(INT); /* 0x00fb5e40 */
-    INT sub_00fb5e70(INT); /* 0x00fb5e70 */
-    INT sub_00fb5f00(INT); /* 0x00fb5f00 */
-    void sub_00fbdba0(); /* 0x00fbdba0 */
-    void sub_00fbdbb0(); /* 0x00fbdbb0 */
-    UINT* sub_00fe47c0(UINT*); /* 0x00fe47c0 */
-    UINT* sub_00fe4960(UINT*); /* 0x00fe4960 */
-    UINT* sub_00fe4b50(UINT*); /* 0x00fe4b50 */
-    UINT* sub_00fe4d80(UINT*); /* 0x00fe4d80 */
-    void sub_00fe4ff0(); /* 0x00fe4ff0 */
-    void sub_00fe5010(); /* 0x00fe5010 */
-    INT sub_00fe5030(); /* 0x00fe5030 */
-    INT sub_00fe5050(); /* 0x00fe5050 */
-    INT sub_00fe53f0(); /* 0x00fe53f0 */
-    INT sub_00fe5410(); /* 0x00fe5410 */
-    INT sub_00fe66b0(); /* 0x00fe66b0 */
-    INT sub_00fe66d0(); /* 0x00fe66d0 */
-    INT sub_00fea010(); /* 0x00fea010 */
-    INT sub_00fea030(); /* 0x00fea030 */
-    UINT sub_00feb6c0(BYTE); /* 0x00feb6c0 */
-    UINT sub_00feb780(BYTE); /* 0x00feb780 */
-    UINT* sub_00feba40(UINT*); /* 0x00feba40 */
-    void sub_00feba60(); /* 0x00feba60 */
-    UINT* sub_00feba80(UINT*); /* 0x00feba80 */
-    INT sub_010603f0(INT); /* 0x010603f0 */
-    INT sub_010604a0(INT); /* 0x010604a0 */
-    INT sub_010604b0(); /* 0x010604b0 */
-    INT sub_010604c0(); /* 0x010604c0 */
-    INT sub_010604d0(); /* 0x010604d0 */
-    INT sub_01060560(INT); /* 0x01060560 */
-    INT sub_01062da0(INT); /* 0x01062da0 */
-    INT sub_01062dd0(INT); /* 0x01062dd0 */
-    INT sub_01062de0(INT); /* 0x01062de0 */
-    INT sub_01062df0(); /* 0x01062df0 */
-    INT sub_01062e00(); /* 0x01062e00 */
-    INT sub_01062ed0(INT); /* 0x01062ed0 */
-    INT sub_01062f00(); /* 0x01062f00 */
-    INT sub_01062f10(INT); /* 0x01062f10 */
-    INT sub_010630f0(INT); /* 0x010630f0 */
-    INT sub_01063180(INT); /* 0x01063180 */
-    void sub_01063690(INT); /* 0x01063690 */
-    INT sub_010686d0(INT); /* 0x010686d0 */
-    INT sub_010688f0(); /* 0x010688f0 */
-    INT sub_01068a40(INT); /* 0x01068a40 */
-    INT sub_01068b30(INT); /* 0x01068b30 */
-    void sub_01071560(); /* 0x01071560 */
-    void sub_01071580(); /* 0x01071580 */
-    INT sub_010745d0(); /* 0x010745d0 */
-    INT sub_010745f0(); /* 0x010745f0 */
-    INT sub_01074610(); /* 0x01074610 */
-    void sub_010768f0(); /* 0x010768f0 */
-    UINT sub_01076a30(UINT, UINT); /* 0x01076a30 */
-    void sub_01076a50(); /* 0x01076a50 */
-    void sub_01076a60(); /* 0x01076a60 */
-    UINT sub_01076a70(UINT, UINT); /* 0x01076a70 */
-    UINT sub_01076a90(UINT, UINT); /* 0x01076a90 */
-    void sub_01076ab0(); /* 0x01076ab0 */
-    UINT sub_01076ac0(UINT, UINT); /* 0x01076ac0 */
-    void sub_01076ae0(); /* 0x01076ae0 */
-    UINT sub_01076bb0(UINT, UINT); /* 0x01076bb0 */
-    INT sub_01076bd0(UINT, UINT); /* 0x01076bd0 */
-    INT sub_01076bf0(UINT, UINT); /* 0x01076bf0 */
-    INT sub_01076c10(UINT, UINT); /* 0x01076c10 */
-    INT sub_01076c30(UINT, UINT); /* 0x01076c30 */
-    INT sub_01076c50(); /* 0x01076c50 */
-    INT sub_01076c70(); /* 0x01076c70 */
-    INT sub_01076c90(); /* 0x01076c90 */
-    INT sub_01076db0(UINT, UINT, UINT); /* 0x01076db0 */
-    INT sub_01076e00(UINT, UINT, UINT); /* 0x01076e00 */
-    INT sub_01076e50(UINT, UINT, UINT); /* 0x01076e50 */
-    INT sub_01076ea0(UINT, UINT, UINT); /* 0x01076ea0 */
-    INT sub_01076f30(UINT, UINT, UINT); /* 0x01076f30 */
-    INT sub_01076f80(); /* 0x01076f80 */
-    void sub_01076fa0(); /* 0x01076fa0 */
-    void sub_01076fc0(); /* 0x01076fc0 */
-    void sub_01076fe0(); /* 0x01076fe0 */
-    INT sub_01077000(); /* 0x01077000 */
-    INT sub_01077020(); /* 0x01077020 */
-    INT sub_01079e10(); /* 0x01079e10 */
-    void sub_01079e30(); /* 0x01079e30 */
-    void sub_01079e50(); /* 0x01079e50 */
-    void sub_01079e70(); /* 0x01079e70 */
-    INT sub_01079e90(); /* 0x01079e90 */
-    INT sub_01079eb0(); /* 0x01079eb0 */
-    INT sub_0107ea60(); /* 0x0107ea60 */
-    INT sub_0107ed80(); /* 0x0107ed80 */
     UINT sub_01083ab0(BYTE); /* 0x01083ab0 */
-    INT sub_010848c0(); /* 0x010848c0 */
-    INT sub_010848e0(); /* 0x010848e0 */
-    INT sub_01084df0(); /* 0x01084df0 */
-    INT sub_01084e10(); /* 0x01084e10 */
-    INT sub_01084fc0(); /* 0x01084fc0 */
-    INT sub_01084fe0(); /* 0x01084fe0 */
-    INT sub_01085650(); /* 0x01085650 */
-    INT sub_01085670(); /* 0x01085670 */
-    INT sub_0108a190(); /* 0x0108a190 */
-    INT sub_0108a220(); /* 0x0108a220 */
-    INT sub_0108a250(); /* 0x0108a250 */
-    INT sub_0108a280(); /* 0x0108a280 */
-    INT sub_0108a2b0(); /* 0x0108a2b0 */
-    INT sub_0108a2f0(BYTE); /* 0x0108a2f0 */
     /* registered size 0x4c */
 };
 
@@ -65453,8 +60495,6 @@ struct UCookPackagesCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     virtual void CreateCustomEngine(); /* 0x110 */
     /* other member functions */
-    void sub_01090f80(); /* 0x01090f80 */
-    UINT sub_010b5df0(BYTE); /* 0x010b5df0 */
     /* registered size 0x1114 */
 };
 
@@ -65469,7 +60509,6 @@ struct UCreateDefaultStyleCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072b10(BYTE); /* 0x01072b10 */
     /* registered size 0x74 */
 };
 
@@ -65647,7 +60686,6 @@ struct UCustomPropertyItemBindings : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     void sub_011ee2c0(); /* 0x011ee2c0 */
-    UINT sub_011ef8b0(BYTE); /* 0x011ef8b0 */
     /* registered size 0x78 */
 };
 
@@ -65662,7 +60700,6 @@ struct UCutDownContentCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     virtual void CreateCustomEngine(); /* 0x110 */
     /* other member functions */
-    UINT sub_010725d0(BYTE); /* 0x010725d0 */
     /* registered size 0x70 */
 };
 
@@ -65734,7 +60771,6 @@ struct ULevelBase : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_007eca10(BYTE); /* 0x007eca10 */
     /* registered size 0x84 */
 };
 
@@ -65762,9 +60798,6 @@ struct UPendingLevel : public ULevelBase, public FNetworkNotify {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_00c14a00(BYTE); /* 0x00c14a00 */
-    UINT* sub_00c14a30(); /* 0x00c14a30 */
-    UINT* sub_00e1d6e0(); /* 0x00e1d6e0 */
     /* registered size 0xb4 */
     /* FNetworkNotify */
     virtual void NotifyProgress(const TCHAR* Str1, const TCHAR* Str2, FLOAT Seconds); /* 0x00c14900 */
@@ -65927,7 +60960,6 @@ struct UDiffPackagesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01032ee0(BYTE); /* 0x01032ee0 */
     /* registered size 0x88 */
 };
 
@@ -65941,7 +60973,6 @@ struct UDoWithAnimationsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e37e0(BYTE); /* 0x010e37e0 */
     /* registered size 0x70 */
 };
 
@@ -65955,7 +60986,6 @@ struct UDumpEmittersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072090(BYTE); /* 0x01072090 */
     /* registered size 0x70 */
 };
 
@@ -65969,7 +60999,6 @@ struct UDumpLightmapInfoCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3c80(BYTE); /* 0x010e3c80 */
     /* registered size 0x70 */
 };
 
@@ -65985,7 +61014,6 @@ struct UDumpShadersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0110f680(BYTE); /* 0x0110f680 */
     /* registered size 0x7c */
 };
 
@@ -66122,7 +61150,6 @@ struct UExamineOutersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072bf0(BYTE); /* 0x01072bf0 */
     /* registered size 0x70 */
 };
 
@@ -66136,7 +61163,6 @@ struct UExportLocCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01032e00(BYTE); /* 0x01032e00 */
     /* registered size 0x70 */
 };
 
@@ -66223,55 +61249,8 @@ struct UFMODAudioDevice : public UAudioDevice {
     virtual INT vf_1d4(); /* 0x1d4 */
     virtual void vf_1d8(); /* 0x1d8 */
     /* other member functions */
-    INT sub_00551c00(INT); /* 0x00551c00 */
-    INT sub_005555b0(INT); /* 0x005555b0 */
-    INT sub_0055b2a0(); /* 0x0055b2a0 */
-    INT sub_0055c840(); /* 0x0055c840 */
-    INT sub_0055d900(); /* 0x0055d900 */
-    INT sub_0055eef0(); /* 0x0055eef0 */
     void sub_00e70cf0(); /* 0x00e70cf0 */
-    INT sub_00e74800(INT); /* 0x00e74800 */
-    INT sub_00e74810(INT); /* 0x00e74810 */
-    INT sub_00e748b0(INT); /* 0x00e748b0 */
-    INT sub_00e748c0(INT); /* 0x00e748c0 */
     INT sub_00e75420(); /* 0x00e75420 */
-    INT sub_00e754f0(INT); /* 0x00e754f0 */
-    INT sub_00e75500(INT); /* 0x00e75500 */
-    INT sub_00e75510(INT); /* 0x00e75510 */
-    INT sub_00e75520(); /* 0x00e75520 */
-    INT sub_00e75540(); /* 0x00e75540 */
-    INT sub_00e755b0(INT); /* 0x00e755b0 */
-    INT sub_00e75620(INT); /* 0x00e75620 */
-    INT sub_00e75690(INT); /* 0x00e75690 */
-    INT sub_00e7aed0(INT); /* 0x00e7aed0 */
-    INT sub_00e7af00(INT); /* 0x00e7af00 */
-    INT sub_00e7af30(INT); /* 0x00e7af30 */
-    INT sub_00e7af60(INT); /* 0x00e7af60 */
-    INT sub_00e7af90(INT); /* 0x00e7af90 */
-    UINT sub_00e7c020(INT); /* 0x00e7c020 */
-    void sub_00e7c200(); /* 0x00e7c200 */
-    void sub_00e7c220(); /* 0x00e7c220 */
-    void sub_00e7c240(); /* 0x00e7c240 */
-    INT sub_00e7e4f0(); /* 0x00e7e4f0 */
-    INT sub_00e7e510(); /* 0x00e7e510 */
-    INT sub_00e7e530(); /* 0x00e7e530 */
-    void sub_00e7f870(); /* 0x00e7f870 */
-    UINT sub_00e7f880(UINT, UINT); /* 0x00e7f880 */
-    INT sub_00e7f8a0(UINT, UINT); /* 0x00e7f8a0 */
-    INT sub_00e7f8c0(UINT, UINT); /* 0x00e7f8c0 */
-    INT sub_00e7f8e0(UINT, UINT); /* 0x00e7f8e0 */
-    INT sub_00e7f900(); /* 0x00e7f900 */
-    INT sub_00e7f920(); /* 0x00e7f920 */
-    INT sub_00e7f940(); /* 0x00e7f940 */
-    UINT sub_00e7f990(BYTE); /* 0x00e7f990 */
-    INT sub_00e7fa80(UINT, UINT, UINT); /* 0x00e7fa80 */
-    INT sub_00e7fad0(); /* 0x00e7fad0 */
-    INT sub_00e7faf0(); /* 0x00e7faf0 */
-    INT sub_00e7fb10(); /* 0x00e7fb10 */
-    INT sub_00e80ad0(); /* 0x00e80ad0 */
-    INT sub_00e80af0(); /* 0x00e80af0 */
-    INT sub_00e80b10(); /* 0x00e80b10 */
-    UINT sub_00e80f40(BYTE); /* 0x00e80f40 */
     /* registered size 0x35c */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00e80f70 */
@@ -66285,10 +61264,7 @@ struct UFMODReverbLabelRenderer : public UThumbnailLabelRenderer {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void BuildLabelList(INT, INT, INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01476ca0(); /* 0x01476ca0 */
     void sub_01476cd0(); /* 0x01476cd0 */
-    void sub_01477c20(); /* 0x01477c20 */
-    UINT sub_014839a0(BYTE); /* 0x014839a0 */
     /* registered size 0x30 */
 };
 
@@ -66354,7 +61330,6 @@ struct UFindDuplicateKismetObjectsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072cd0(BYTE); /* 0x01072cd0 */
     /* registered size 0x70 */
 };
 
@@ -66368,7 +61343,6 @@ struct UFindEmitterMismatchedLODsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072250(BYTE); /* 0x01072250 */
     /* registered size 0x70 */
 };
 
@@ -66382,7 +61356,6 @@ struct UFindEmitterModifiedLODsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072330(BYTE); /* 0x01072330 */
     /* registered size 0x70 */
 };
 
@@ -66396,7 +61369,6 @@ struct UFindEmitterModuleLODErrorsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072410(BYTE); /* 0x01072410 */
     /* registered size 0x70 */
 };
 
@@ -66410,7 +61382,6 @@ struct UFindQuestionableTexturesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3540(BYTE); /* 0x010e3540 */
     /* registered size 0x70 */
 };
 
@@ -66430,7 +61401,6 @@ struct UPerformMapCheckCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3b90(BYTE); /* 0x010e3b90 */
     /* registered size 0x88 */
 };
 
@@ -66448,7 +61418,6 @@ struct UFindRenamedPrefabSequencesCommandlet : public UPerformMapCheckCommandlet
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     /* other member functions */
-    UINT sub_010f65f0(BYTE); /* 0x010f65f0 */
     /* registered size 0xd0 */
 };
 
@@ -66469,7 +61438,6 @@ struct UFindStaticActorsRefsCommandlet : public UPerformMapCheckCommandlet {
     virtual INT vf_118(INT); /* 0x118 */
     virtual INT vf_11c(); /* 0x11c */
     /* other member functions */
-    UINT sub_010f83a0(BYTE); /* 0x010f83a0 */
     /* registered size 0x128 */
 };
 
@@ -66483,7 +61451,6 @@ struct UFindTexturesWithMissingPhysicalMaterialsCommandlet : public UCommandlet 
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3460(BYTE); /* 0x010e3460 */
     /* registered size 0x70 */
 };
 
@@ -66507,7 +61474,6 @@ struct UFixAmbiguousMaterialParametersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072e90(BYTE); /* 0x01072e90 */
     /* registered size 0x70 */
 };
 
@@ -66521,7 +61487,6 @@ struct UFixupEmittersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072170(BYTE); /* 0x01072170 */
     /* registered size 0x70 */
 };
 
@@ -66536,7 +61501,6 @@ struct UFixupRedirectsCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     virtual void CreateCustomEngine(); /* 0x110 */
     /* other member functions */
-    UINT sub_010e2f20(BYTE); /* 0x010e2f20 */
     /* registered size 0x70 */
 };
 
@@ -66557,7 +61521,6 @@ struct UFixupSourceUVsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010724f0(BYTE); /* 0x010724f0 */
     /* registered size 0x70 */
 };
 
@@ -66644,7 +61607,6 @@ struct UFontFactory : public UTextureFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateBinary( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const BYTE*& Buffer, const BYTE* BufferEnd, FFeedbackContext* Warn ); /* 0x114 */
     /* other member functions */
-    UINT* sub_00ed9d70(); /* 0x00ed9d70 */
     /* registered size 0xb0 */
 };
 
@@ -66726,7 +61688,6 @@ struct UStaticMesh : public UObject {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
     void sub_00963100(INT); /* 0x00963100 */
-    UINT sub_007ca4e0(BYTE); /* 0x007ca4e0 */
     /* registered size 0x128 */
 };
 
@@ -66825,7 +61786,6 @@ struct UGFxMovieFactory : public UFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateBinary( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const BYTE*& Buffer, const BYTE* BufferEnd, FFeedbackContext* Warn ); /* 0x114 */
-    UINT sub_014fd230(BYTE); /* 0x014fd230 */
     /* registered size 0x78 */
 };
 
@@ -66981,7 +61941,6 @@ struct UGenericBrowserType : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
     INT sub_0115a480(); /* 0x0115a480 */
-    UINT sub_01181670(BYTE); /* 0x01181670 */
     /* registered size 0x4c */
 };
 
@@ -67719,15 +62678,7 @@ struct UGuidCache : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    INT sub_00e121e0(); /* 0x00e121e0 */
-    INT sub_00e12fa0(); /* 0x00e12fa0 */
-    UINT sub_00e139e0(); /* 0x00e139e0 */
-    INT sub_00e13c00(); /* 0x00e13c00 */
-    UINT sub_00e13df0(); /* 0x00e13df0 */
-    void sub_00e13e60(UINT, UINT, UINT, BYTE); /* 0x00e13e60 */
     void sub_00e13ea0(DWORD, DWORD, FLOAT, BYTE); /* 0x00e13ea0 */
-    UINT sub_00e14b70(BYTE); /* 0x00e14b70 */
-    INT sub_00e14e10(); /* 0x00e14e10 */
     /* registered size 0x78 */
 };
 
@@ -67751,10 +62702,6 @@ struct UHTTPDownload : public UDownload {
     virtual void ReceiveFile( UNetConnection* InConnection, INT PackageIndex, const TCHAR *Params=NULL, UBOOL InCompression=0 ); /* 0x110 */
     virtual void Tick(); /* 0x118 */
     /* other member functions */
-    UINT sub_00e3a140(BYTE); /* 0x00e3a140 */
-    UINT sub_00e3a170(BYTE); /* 0x00e3a170 */
-    UINT sub_00e3c670(BYTE); /* 0x00e3c670 */
-    UINT sub_00e3c690(BYTE); /* 0x00e3c690 */
     void sub_00e3cdd0(); /* 0x00e3cdd0 */
     /* registered size 0xb5c */
 };
@@ -67876,7 +62823,6 @@ struct UTransBuffer : public UTransactor {
     virtual UINT CreateInternalTransaction(); /* 0x138 */
     /* other member functions */
     void sub_00f734e0(); /* 0x00f734e0 */
-    UINT* sub_012db720(UINT); /* 0x012db720 */
     /* registered size 0x54 */
 };
 
@@ -68093,7 +63039,6 @@ struct ULensFlareEditorPropertyWrapper : public UObject {
     virtual void PreEditChange(class UProperty* PropertyAboutToChange); /* 0x044 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    UINT sub_0146f7b0(BYTE); /* 0x0146f7b0 */
     /* registered size 0x178 */
 };
 
@@ -68177,7 +63122,6 @@ struct ULevel : public ULevelBase {
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
     AWorldInfo* GetWorldInfo(); /* 0x007de2b0 */
-    UINT sub_007f8b10(BYTE); /* 0x007f8b10 */
     /* registered size 0x224 */
 };
 
@@ -68239,8 +63183,6 @@ struct ULightMapTexture2D : public UTexture2D {
     virtual FString GetDesc(); /* 0x0b8 */
     virtual FString GetDetailedDescription(INT InIndex); /* 0x0bc */
     /* other member functions */
-    void sub_00d1f450(FLOAT*, FLOAT); /* 0x00d1f450 */
-    UINT sub_00d3ae00(BYTE); /* 0x00d3ae00 */
     /* registered size 0x100 */
 };
 
@@ -68255,9 +63197,6 @@ struct ULightingChannelsObject : public UObject {
     char* sub_00f4ded0(); /* 0x00f4ded0 */
     INT sub_00f4dee0(); /* 0x00f4dee0 */
     void sub_00f4df10(); /* 0x00f4df10 */
-    UINT* sub_00f4df20(BYTE); /* 0x00f4df20 */
-    UINT* sub_00f51ba0(BYTE); /* 0x00f51ba0 */
-    UINT* sub_00f51bc0(BYTE); /* 0x00f51bc0 */
     /* registered size 0x34 */
 };
 
@@ -68283,7 +63222,6 @@ struct ULinker : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_005b3cf0(BYTE); /* 0x005b3cf0 */
     /* registered size 0xe8 */
 };
 
@@ -68313,36 +63251,8 @@ struct ULinkerLoad : public ULinker {
     INT Ver() const { return ArVer; } /* FArchive::Ver */
     /* other member functions */
     void sub_0059a560(); /* 0x0059a560 */
-    INT sub_005a06a0(INT); /* 0x005a06a0 */
-    INT sub_005a06e0(INT); /* 0x005a06e0 */
-    INT sub_005a0750(INT); /* 0x005a0750 */
-    INT sub_005a0790(INT); /* 0x005a0790 */
-    INT sub_005a9c50(INT); /* 0x005a9c50 */
-    INT sub_005ace20(INT); /* 0x005ace20 */
-    INT sub_005ace50(INT); /* 0x005ace50 */
-    INT sub_005ace80(INT); /* 0x005ace80 */
-    INT sub_005af9d0(INT); /* 0x005af9d0 */
-    INT sub_005afa20(INT); /* 0x005afa20 */
-    INT sub_005b21f0(INT); /* 0x005b21f0 */
-    void sub_005b7470(); /* 0x005b7470 */
-    UINT sub_005b7580(UINT, UINT); /* 0x005b7580 */
-    UINT sub_005b75a0(UINT, UINT); /* 0x005b75a0 */
-    UINT sub_005b75c0(UINT, UINT); /* 0x005b75c0 */
-    INT sub_005b75e0(UINT, UINT); /* 0x005b75e0 */
-    INT sub_005b7600(UINT, UINT); /* 0x005b7600 */
-    INT sub_005b7620(UINT, UINT); /* 0x005b7620 */
-    INT sub_005b7640(UINT, UINT); /* 0x005b7640 */
-    INT sub_005b7660(UINT, UINT); /* 0x005b7660 */
-    INT sub_005b7680(UINT, UINT); /* 0x005b7680 */
-    INT sub_005b76a0(UINT, UINT); /* 0x005b76a0 */
-    INT sub_005b76c0(UINT, UINT); /* 0x005b76c0 */
-    INT sub_005b82f0(UINT, UINT, UINT); /* 0x005b82f0 */
-    INT sub_005b8340(UINT, UINT, UINT); /* 0x005b8340 */
-    INT sub_005b8390(UINT, UINT, UINT); /* 0x005b8390 */
     UINT sub_005bb330(BYTE); /* 0x005bb330 */
-    UINT sub_005bb590(BYTE); /* 0x005bb590 */
     void sub_005bfa70(); /* 0x005bfa70 */
-    INT sub_005c01c0(); /* 0x005c01c0 */
     /* registered size 0x690 */
 };
 
@@ -68360,7 +63270,6 @@ struct ULinkerSave : public ULinker {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void BeginDestroy(); /* 0x020 */
-    UINT sub_005b3f50(BYTE); /* 0x005b3f50 */
     /* registered size 0x180 */
 };
 
@@ -68374,7 +63283,6 @@ struct UListCorruptedComponentsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3380(BYTE); /* 0x010e3380 */
     /* registered size 0x70 */
 };
 
@@ -68388,7 +63296,6 @@ struct UListDistanceCrossFadeNodesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010732f0(BYTE); /* 0x010732f0 */
     /* registered size 0x70 */
 };
 
@@ -68402,7 +63309,6 @@ struct UListEmittersUsingModuleCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e4000(BYTE); /* 0x010e4000 */
     /* registered size 0x70 */
 };
 
@@ -68416,7 +63322,6 @@ struct UListLoopingEmittersCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01073130(BYTE); /* 0x01073130 */
     /* registered size 0x70 */
 };
 
@@ -68430,7 +63335,6 @@ struct UListPSysFixedBoundSettingCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3f20(BYTE); /* 0x010e3f20 */
     /* registered size 0x70 */
 };
 
@@ -68444,7 +63348,6 @@ struct UListPackagesReferencingCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3000(BYTE); /* 0x010e3000 */
     /* registered size 0x70 */
 };
 
@@ -68458,7 +63361,6 @@ struct UListScriptReferencedContentCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e38c0(BYTE); /* 0x010e38c0 */
     /* registered size 0x70 */
 };
 
@@ -68472,11 +63374,6 @@ struct UListSoundNodeWavesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e41c0(BYTE); /* 0x010e41c0 */
-    INT sub_010e4290(); /* 0x010e4290 */
-    UINT sub_010e48e0(BYTE); /* 0x010e48e0 */
-    INT sub_010ecf40(); /* 0x010ecf40 */
-    INT sub_010efb50(); /* 0x010efb50 */
     /* registered size 0x70 */
 };
 
@@ -68490,7 +63387,6 @@ struct ULoadPackageCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e2e40(BYTE); /* 0x010e2e40 */
     /* registered size 0x70 */
 };
 
@@ -68504,7 +63400,6 @@ struct ULocSoundInfoCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010733d0(BYTE); /* 0x010733d0 */
     /* registered size 0x70 */
 };
 
@@ -68519,7 +63414,6 @@ struct UMakeCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     virtual void CreateCustomEngine(); /* 0x110 */
     /* other member functions */
-    UINT sub_01072a30(BYTE); /* 0x01072a30 */
     /* registered size 0x70 */
 };
 
@@ -68595,11 +63489,8 @@ struct UMaterialEditorInstanceConstant : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void PostEditChange(class UProperty* PropertyThatChanged); /* 0x04c */
     /* other member functions */
-    UINT sub_0141c030(BYTE); /* 0x0141c030 */
-    UINT* sub_0141c400(UINT); /* 0x0141c400 */
     void sub_0141c420(); /* 0x0141c420 */
     UINT sub_0141c440(BYTE); /* 0x0141c440 */
-    void sub_0141f900(INT); /* 0x0141f900 */
     /* registered size 0x90 */
 };
 
@@ -68772,7 +63663,6 @@ struct UMergePackagesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072950(BYTE); /* 0x01072950 */
     /* registered size 0x70 */
 };
 
@@ -68787,7 +63677,6 @@ struct UMetaData : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_005c0800(BYTE); /* 0x005c0800 */
     /* registered size 0x6c */
 };
 
@@ -68801,7 +63690,6 @@ struct UMineCookedPackagesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e2d60(BYTE); /* 0x010e2d60 */
     /* registered size 0x70 */
 };
 
@@ -68864,8 +63752,6 @@ struct UModel : public UObject {
     virtual void StripData(UE3::EPlatformType TargetPlatform); /* 0x0b4 */
     /* other member functions */
     void BuildBound(); /* 0x0081ced0 */
-    void sub_00815c40(); /* 0x00815c40 */
-    UINT sub_0082ae20(BYTE); /* 0x0082ae20 */
     /* registered size 0xbb8 */
 };
 
@@ -68925,8 +63811,6 @@ struct UNetPendingLevel : public UPendingLevel {
     virtual void SendJoin(); /* 0x114 */
     virtual INT TrySkipFile(); /* 0x118 */
     /* other member functions */
-    INT sub_007e4860(INT); /* 0x007e4860 */
-    void sub_007f60a0(); /* 0x007f60a0 */
     INT sub_00e17610(); /* 0x00e17610 */
     INT sub_00e17620(); /* 0x00e17620 */
     INT sub_00e17630(); /* 0x00e17630 */
@@ -68938,7 +63822,6 @@ struct UNetPendingLevel : public UPendingLevel {
     INT sub_00e176c0(); /* 0x00e176c0 */
     INT sub_00e176d0(); /* 0x00e176d0 */
     INT sub_00e176e0(); /* 0x00e176e0 */
-    void sub_00e176f0(); /* 0x00e176f0 */
     INT sub_00e17700(); /* 0x00e17700 */
     INT sub_00e17710(); /* 0x00e17710 */
     INT sub_00e17720(); /* 0x00e17720 */
@@ -68949,11 +63832,6 @@ struct UNetPendingLevel : public UPendingLevel {
     void sub_00e178c0(); /* 0x00e178c0 */
     void sub_00e17b60(); /* 0x00e17b60 */
     void sub_00e17bb0(); /* 0x00e17bb0 */
-    void sub_00e17d70(UINT); /* 0x00e17d70 */
-    void sub_00e17df0(UINT); /* 0x00e17df0 */
-    void sub_00e17e10(); /* 0x00e17e10 */
-    void sub_00e17e30(UINT); /* 0x00e17e30 */
-    void sub_00e17e50(UINT); /* 0x00e17e50 */
     void sub_00e182b0(INT); /* 0x00e182b0 */
     INT sub_00e18380(); /* 0x00e18380 */
     INT sub_00e183a0(); /* 0x00e183a0 */
@@ -68964,79 +63842,19 @@ struct UNetPendingLevel : public UPendingLevel {
     INT sub_00e184b0(); /* 0x00e184b0 */
     INT sub_00e184c0(); /* 0x00e184c0 */
     INT sub_00e184d0(); /* 0x00e184d0 */
-    INT sub_00e184e0(INT); /* 0x00e184e0 */
-    INT sub_00e18520(INT); /* 0x00e18520 */
     INT sub_00e18530(); /* 0x00e18530 */
-    INT sub_00e18540(); /* 0x00e18540 */
-    INT sub_00e18570(); /* 0x00e18570 */
     INT sub_00e18580(); /* 0x00e18580 */
     INT sub_00e18590(); /* 0x00e18590 */
     INT sub_00e185a0(); /* 0x00e185a0 */
-    INT sub_00e18630(INT); /* 0x00e18630 */
     INT sub_00e18640(); /* 0x00e18640 */
     INT sub_00e18650(); /* 0x00e18650 */
-    void sub_00e188b0(UINT); /* 0x00e188b0 */
-    UINT* sub_00e188f0(BYTE); /* 0x00e188f0 */
-    UINT* sub_00e189b0(BYTE); /* 0x00e189b0 */
-    UINT sub_00e189d0(BYTE); /* 0x00e189d0 */
-    UINT sub_00e19800(); /* 0x00e19800 */
-    UINT sub_00e19840(); /* 0x00e19840 */
-    INT sub_00e19880(); /* 0x00e19880 */
-    UINT* sub_00e1a680(UINT, UINT); /* 0x00e1a680 */
-    void sub_00e1a6a0(); /* 0x00e1a6a0 */
-    UINT* sub_00e1aac0(UINT); /* 0x00e1aac0 */
     void sub_00e1aaf0(); /* 0x00e1aaf0 */
-    UINT* sub_00e1ab00(BYTE); /* 0x00e1ab00 */
-    UINT* sub_00e1ab50(UINT); /* 0x00e1ab50 */
     void sub_00e1ab90(); /* 0x00e1ab90 */
-    UINT* sub_00e1aba0(BYTE); /* 0x00e1aba0 */
-    UINT* sub_00e1abc0(UINT); /* 0x00e1abc0 */
-    UINT* sub_00e1abf0(BYTE); /* 0x00e1abf0 */
-    UINT* sub_00e1ac40(UINT); /* 0x00e1ac40 */
     void sub_00e1ac70(); /* 0x00e1ac70 */
-    UINT* sub_00e1ac80(BYTE); /* 0x00e1ac80 */
-    UINT* sub_00e1aca0(UINT); /* 0x00e1aca0 */
     void sub_00e1acd0(); /* 0x00e1acd0 */
-    UINT* sub_00e1ace0(BYTE); /* 0x00e1ace0 */
-    UINT* sub_00e1ad30(UINT); /* 0x00e1ad30 */
     void sub_00e1ad60(); /* 0x00e1ad60 */
-    UINT* sub_00e1ad70(BYTE); /* 0x00e1ad70 */
-    UINT* sub_00e1adc0(UINT, UINT); /* 0x00e1adc0 */
     void sub_00e1adf0(); /* 0x00e1adf0 */
-    UINT* sub_00e1ae00(BYTE); /* 0x00e1ae00 */
-    void sub_00e1bee0(INT); /* 0x00e1bee0 */
-    void sub_00e1bf20(INT); /* 0x00e1bf20 */
-    INT sub_00e1bf70(INT); /* 0x00e1bf70 */
-    INT sub_00e1bfb0(INT); /* 0x00e1bfb0 */
-    INT sub_00e1c030(INT); /* 0x00e1c030 */
-    INT sub_00e1c040(); /* 0x00e1c040 */
-    UINT sub_00e1c3f0(BYTE); /* 0x00e1c3f0 */
-    UINT sub_00e1c410(BYTE); /* 0x00e1c410 */
-    UINT* sub_00e1c4b0(BYTE); /* 0x00e1c4b0 */
-    INT sub_00e1cb70(INT); /* 0x00e1cb70 */
-    INT sub_00e1cbc0(); /* 0x00e1cbc0 */
-    INT sub_00e1cbd0(); /* 0x00e1cbd0 */
-    UINT sub_00e1cbe0(BYTE); /* 0x00e1cbe0 */
-    UINT sub_00e1cc10(BYTE); /* 0x00e1cc10 */
-    INT sub_00e1ccb0(INT); /* 0x00e1ccb0 */
-    UINT sub_00e1cf00(); /* 0x00e1cf00 */
-    INT sub_00e1d4f0(INT); /* 0x00e1d4f0 */
-    void sub_00e1e2a0(); /* 0x00e1e2a0 */
-    void sub_00e1eba0(); /* 0x00e1eba0 */
-    UINT* sub_00e1ec70(UINT, UINT); /* 0x00e1ec70 */
-    UINT sub_00e1eca0(BYTE); /* 0x00e1eca0 */
-    INT sub_00e1f4b0(); /* 0x00e1f4b0 */
-    UINT sub_00e20240(BYTE); /* 0x00e20240 */
-    UINT sub_00e20ed0(UINT, UINT); /* 0x00e20ed0 */
-    INT sub_00e20ef0(UINT, UINT); /* 0x00e20ef0 */
-    INT sub_00e20f10(); /* 0x00e20f10 */
-    UINT sub_00e20f30(BYTE); /* 0x00e20f30 */
-    INT sub_00e21590(); /* 0x00e21590 */
     void sub_00e21970(); /* 0x00e21970 */
-    INT sub_00e224a0(); /* 0x00e224a0 */
-    UINT sub_00e224c0(BYTE); /* 0x00e224c0 */
-    bool sub_00e233d0(); /* 0x00e233d0 */
-    bool sub_00e23530(); /* 0x00e23530 */
     /* registered size 0xb4 */
     /* FNetworkNotify */
     virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x00e17420 */
@@ -69211,9 +64029,6 @@ struct UOptionsDupObject : public UOptionsProxy {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void InitFields(); /* 0x10c */
     /* other member functions */
-    UINT sub_01181070(BYTE); /* 0x01181070 */
-    UINT sub_015081b0(BYTE); /* 0x015081b0 */
-    UINT sub_0175d930(BYTE); /* 0x0175d930 */
     /* registered size 0x48 */
 };
 
@@ -69241,7 +64056,6 @@ struct UPIEToNormalCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072f70(BYTE); /* 0x01072f70 */
     /* registered size 0x70 */
 };
 
@@ -69260,7 +64074,6 @@ struct UPackage : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_005aa9b0(BYTE); /* 0x005aa9b0 */
     /* registered size 0x7c */
 };
 
@@ -69322,43 +64135,8 @@ struct UPackageMap : public UObject {
     void* sub_00623550(void* Obj); /* 0x00623550 */
     void* sub_00622120(void* Obj, INT B); /* 0x00622120 */
     INT sub_0053f590(); /* 0x0053f590 */
-    INT sub_00547ed0(INT); /* 0x00547ed0 */
-    INT sub_00547ee0(INT); /* 0x00547ee0 */
-    INT sub_00547ef0(); /* 0x00547ef0 */
-    INT sub_00547f10(INT); /* 0x00547f10 */
     INT sub_0054d690(); /* 0x0054d690 */
-    INT sub_00551a20(INT); /* 0x00551a20 */
-    INT sub_00551a50(INT); /* 0x00551a50 */
-    INT sub_00551ab0(INT); /* 0x00551ab0 */
-    INT sub_00551b90(INT); /* 0x00551b90 */
-    INT sub_00551bd0(INT); /* 0x00551bd0 */
-    INT sub_005551e0(INT); /* 0x005551e0 */
     INT sub_00555530(INT); /* 0x00555530 */
-    INT sub_00555570(INT); /* 0x00555570 */
-    void sub_00558160(); /* 0x00558160 */
-    void sub_00558180(); /* 0x00558180 */
-    void sub_005581a0(); /* 0x005581a0 */
-    void sub_005581c0(); /* 0x005581c0 */
-    void sub_005581e0(); /* 0x005581e0 */
-    void sub_00558200(); /* 0x00558200 */
-    void sub_00558220(); /* 0x00558220 */
-    INT sub_0055a5b0(); /* 0x0055a5b0 */
-    INT sub_0055b200(); /* 0x0055b200 */
-    void sub_0055bc80(); /* 0x0055bc80 */
-    INT sub_0055beb0(); /* 0x0055beb0 */
-    void sub_0055c010(); /* 0x0055c010 */
-    UINT sub_0055c0e0(UINT, UINT); /* 0x0055c0e0 */
-    void sub_0055c200(); /* 0x0055c200 */
-    UINT sub_0055c310(UINT, UINT); /* 0x0055c310 */
-    INT sub_0055c7a0(); /* 0x0055c7a0 */
-    INT sub_0055caa0(); /* 0x0055caa0 */
-    INT sub_0055cbc0(UINT, UINT, UINT); /* 0x0055cbc0 */
-    INT sub_0055ccb0(UINT, UINT, UINT); /* 0x0055ccb0 */
-    INT sub_0055d860(); /* 0x0055d860 */
-    INT sub_0055ee50(); /* 0x0055ee50 */
-    INT sub_005775e0(INT); /* 0x005775e0 */
-    void sub_00581c10(); /* 0x00581c10 */
-    void sub_00586420(INT); /* 0x00586420 */
     void sub_005fb100(); /* 0x005fb100 */
     void sub_005fb110(); /* 0x005fb110 */
     INT sub_005fb120(); /* 0x005fb120 */
@@ -69376,344 +64154,24 @@ struct UPackageMap : public UObject {
     INT sub_005fc6e0(); /* 0x005fc6e0 */
     UBOOL sub_005fc6f0(INT); /* 0x005fc6f0 */
     void sub_005fc710(INT, INT); /* 0x005fc710 */
-    void sub_005fed30(INT); /* 0x005fed30 */
-    INT sub_005fedc0(UINT*); /* 0x005fedc0 */
-    INT sub_005fee20(INT); /* 0x005fee20 */
-    INT sub_005fee30(INT); /* 0x005fee30 */
     INT sub_005fee50(); /* 0x005fee50 */
-    INT sub_005fee60(INT); /* 0x005fee60 */
     INT sub_005fee70(); /* 0x005fee70 */
-    INT sub_005fee80(INT); /* 0x005fee80 */
-    INT sub_005fee90(INT); /* 0x005fee90 */
-    INT sub_005feea0(INT); /* 0x005feea0 */
-    INT sub_005feec0(INT); /* 0x005feec0 */
-    INT sub_005feed0(INT); /* 0x005feed0 */
-    INT sub_005feee0(INT); /* 0x005feee0 */
-    INT sub_005feef0(INT); /* 0x005feef0 */
-    INT sub_005fef00(INT); /* 0x005fef00 */
-    INT sub_005fef20(); /* 0x005fef20 */
-    void sub_005fef40(); /* 0x005fef40 */
-    INT sub_005fefe0(INT); /* 0x005fefe0 */
-    INT sub_005ff000(INT); /* 0x005ff000 */
-    INT sub_005ff0d0(INT); /* 0x005ff0d0 */
-    INT sub_005ff0e0(INT); /* 0x005ff0e0 */
     INT sub_005ff2a0(); /* 0x005ff2a0 */
-    INT sub_005ff2b0(); /* 0x005ff2b0 */
-    INT sub_005ff360(); /* 0x005ff360 */
-    INT sub_005ff390(); /* 0x005ff390 */
-    INT sub_005ff3b0(); /* 0x005ff3b0 */
-    INT sub_005ff3d0(); /* 0x005ff3d0 */
-    INT sub_005ff3f0(); /* 0x005ff3f0 */
-    INT sub_005ff410(); /* 0x005ff410 */
-    INT sub_005ff420(INT); /* 0x005ff420 */
-    INT sub_005ff450(INT); /* 0x005ff450 */
-    INT sub_005ff470(INT); /* 0x005ff470 */
     INT sub_005ff4a0(); /* 0x005ff4a0 */
-    INT sub_005ff4b0(); /* 0x005ff4b0 */
-    INT sub_005ff4e0(INT); /* 0x005ff4e0 */
-    INT sub_005ff4f0(); /* 0x005ff4f0 */
-    INT sub_005ff510(); /* 0x005ff510 */
-    INT sub_005ff530(); /* 0x005ff530 */
-    UINT* sub_006019d0(UINT, UINT); /* 0x006019d0 */
-    void sub_006021a0(INT); /* 0x006021a0 */
     INT sub_006021e0(); /* 0x006021e0 */
     INT sub_006021f0(); /* 0x006021f0 */
     INT sub_00602200(); /* 0x00602200 */
-    INT sub_00602450(); /* 0x00602450 */
-    INT sub_006025d0(INT); /* 0x006025d0 */
-    INT sub_00602600(INT); /* 0x00602600 */
     INT sub_00602640(); /* 0x00602640 */
-    void sub_00602660(INT); /* 0x00602660 */
-    INT sub_006026a0(); /* 0x006026a0 */
-    INT sub_006026c0(); /* 0x006026c0 */
-    INT sub_006026e0(); /* 0x006026e0 */
-    INT sub_00602700(); /* 0x00602700 */
-    INT sub_00602720(); /* 0x00602720 */
-    INT sub_00602740(); /* 0x00602740 */
-    INT sub_00602760(); /* 0x00602760 */
-    INT sub_00602770(INT); /* 0x00602770 */
-    INT sub_00602790(INT); /* 0x00602790 */
-    INT sub_006027a0(INT); /* 0x006027a0 */
-    INT sub_006027c0(); /* 0x006027c0 */
-    INT sub_006027e0(INT); /* 0x006027e0 */
-    INT sub_006027f0(); /* 0x006027f0 */
-    INT sub_00602810(); /* 0x00602810 */
-    INT sub_00602830(); /* 0x00602830 */
-    INT sub_00602840(INT); /* 0x00602840 */
-    INT sub_00602850(INT); /* 0x00602850 */
-    INT sub_00602860(); /* 0x00602860 */
-    INT sub_00602b20(INT); /* 0x00602b20 */
-    INT sub_00602e10(INT); /* 0x00602e10 */
-    INT sub_00602f50(INT); /* 0x00602f50 */
-    UINT sub_00605000(BYTE); /* 0x00605000 */
-    UINT sub_00605580(BYTE); /* 0x00605580 */
     INT sub_00607610(); /* 0x00607610 */
     INT sub_00607620(); /* 0x00607620 */
-    INT sub_00607d90(INT); /* 0x00607d90 */
-    INT sub_00607e20(INT); /* 0x00607e20 */
-    INT sub_00607e50(INT); /* 0x00607e50 */
-    void sub_00608a10(INT); /* 0x00608a10 */
-    void sub_00608b30(INT); /* 0x00608b30 */
-    void sub_00608b70(INT); /* 0x00608b70 */
-    INT sub_0060a290(INT); /* 0x0060a290 */
-    INT sub_0060c160(INT); /* 0x0060c160 */
-    INT sub_0060c190(INT); /* 0x0060c190 */
-    INT sub_0060c220(); /* 0x0060c220 */
-    INT sub_0060c230(); /* 0x0060c230 */
-    INT sub_0060c240(INT); /* 0x0060c240 */
-    INT sub_0060c2d0(INT); /* 0x0060c2d0 */
-    INT sub_0060c300(); /* 0x0060c300 */
-    INT sub_0060c310(INT); /* 0x0060c310 */
-    void sub_0060c360(); /* 0x0060c360 */
-    UINT sub_0060dd00(BYTE); /* 0x0060dd00 */
-    INT sub_0060ed90(INT); /* 0x0060ed90 */
-    UINT sub_0060ee20(BYTE); /* 0x0060ee20 */
-    UINT sub_0060fa70(INT, UINT*); /* 0x0060fa70 */
-    INT sub_0060fc10(); /* 0x0060fc10 */
-    INT sub_0060fc20(); /* 0x0060fc20 */
-    INT sub_0060fc30(); /* 0x0060fc30 */
-    INT sub_0060fc40(); /* 0x0060fc40 */
-    INT sub_0060fda0(); /* 0x0060fda0 */
-    INT sub_0060fe10(INT); /* 0x0060fe10 */
-    void sub_00610020(); /* 0x00610020 */
-    void sub_00610040(); /* 0x00610040 */
-    void sub_00610060(); /* 0x00610060 */
-    void sub_00610080(); /* 0x00610080 */
-    void sub_006100a0(); /* 0x006100a0 */
-    void sub_006100c0(); /* 0x006100c0 */
-    void sub_006100e0(); /* 0x006100e0 */
-    void sub_00610100(); /* 0x00610100 */
-    UINT sub_00612820(BYTE); /* 0x00612820 */
-    INT sub_006137f0(); /* 0x006137f0 */
-    INT sub_00614780(); /* 0x00614780 */
-    INT sub_006147a0(); /* 0x006147a0 */
-    INT sub_00614940(); /* 0x00614940 */
-    INT sub_00614960(); /* 0x00614960 */
-    INT sub_00614980(); /* 0x00614980 */
-    INT sub_006149a0(); /* 0x006149a0 */
-    INT sub_006149c0(); /* 0x006149c0 */
-    INT sub_00614d00(); /* 0x00614d00 */
-    void sub_00616080(); /* 0x00616080 */
-    void sub_006161b0(); /* 0x006161b0 */
-    void sub_00616340(); /* 0x00616340 */
-    void sub_00616350(); /* 0x00616350 */
-    void sub_00616360(); /* 0x00616360 */
-    UINT sub_00616410(UINT, UINT); /* 0x00616410 */
-    INT sub_00616430(); /* 0x00616430 */
-    UINT sub_006164a0(UINT, UINT); /* 0x006164a0 */
-    UINT sub_006164c0(UINT, UINT); /* 0x006164c0 */
-    UINT sub_00616ae0(UINT, UINT); /* 0x00616ae0 */
-    UINT sub_00616e00(UINT, UINT); /* 0x00616e00 */
-    INT sub_00616e20(UINT, UINT); /* 0x00616e20 */
-    INT sub_00616e40(UINT, UINT); /* 0x00616e40 */
-    INT sub_00616e60(UINT, UINT); /* 0x00616e60 */
-    INT sub_00616e80(UINT, UINT); /* 0x00616e80 */
-    INT sub_00616ea0(UINT, UINT); /* 0x00616ea0 */
-    INT sub_00616ec0(UINT, UINT); /* 0x00616ec0 */
-    void sub_00616ee0(); /* 0x00616ee0 */
-    INT sub_00616f00(UINT, UINT); /* 0x00616f00 */
-    INT sub_00616f20(UINT, UINT); /* 0x00616f20 */
-    INT sub_00616f40(UINT, UINT); /* 0x00616f40 */
-    INT sub_00616f60(UINT, UINT); /* 0x00616f60 */
-    INT sub_00616f80(UINT, UINT); /* 0x00616f80 */
-    INT sub_00616fa0(UINT, UINT); /* 0x00616fa0 */
-    INT sub_00616fc0(UINT, UINT); /* 0x00616fc0 */
-    INT sub_00616fe0(); /* 0x00616fe0 */
-    INT sub_00617060(); /* 0x00617060 */
-    INT sub_00617100(); /* 0x00617100 */
-    INT sub_00617120(); /* 0x00617120 */
-    INT sub_00617140(); /* 0x00617140 */
-    INT sub_00617160(); /* 0x00617160 */
-    INT sub_00617180(); /* 0x00617180 */
-    INT sub_006173c0(); /* 0x006173c0 */
-    INT sub_006176d0(UINT, UINT, UINT); /* 0x006176d0 */
-    INT sub_00617720(); /* 0x00617720 */
-    INT sub_00617790(UINT, UINT, UINT); /* 0x00617790 */
-    INT sub_006177e0(UINT, UINT, UINT); /* 0x006177e0 */
-    INT sub_006179f0(UINT, UINT, UINT); /* 0x006179f0 */
-    INT sub_00617b10(UINT, UINT, UINT); /* 0x00617b10 */
-    INT sub_00617b60(); /* 0x00617b60 */
-    INT sub_00617b90(); /* 0x00617b90 */
-    void sub_00617bb0(); /* 0x00617bb0 */
-    void sub_00617bd0(); /* 0x00617bd0 */
-    void sub_00617bf0(); /* 0x00617bf0 */
-    INT sub_00617c10(); /* 0x00617c10 */
-    INT sub_00617c30(); /* 0x00617c30 */
-    INT sub_00617c50(); /* 0x00617c50 */
-    INT sub_00617c70(); /* 0x00617c70 */
-    INT sub_00617c90(); /* 0x00617c90 */
-    void sub_00617cb0(); /* 0x00617cb0 */
-    INT sub_00617e60(); /* 0x00617e60 */
-    void sub_0061a470(); /* 0x0061a470 */
-    INT sub_0061a8b0(); /* 0x0061a8b0 */
-    void sub_0061aa40(); /* 0x0061aa40 */
-    INT sub_0061aa50(); /* 0x0061aa50 */
-    void sub_0061aa70(); /* 0x0061aa70 */
-    void sub_0061aa90(); /* 0x0061aa90 */
-    void sub_0061aab0(); /* 0x0061aab0 */
-    INT sub_0061ab10(); /* 0x0061ab10 */
-    INT sub_0061ab30(); /* 0x0061ab30 */
-    INT sub_0061ab50(); /* 0x0061ab50 */
-    INT sub_0061ab70(); /* 0x0061ab70 */
-    INT sub_0061ab90(); /* 0x0061ab90 */
-    UINT sub_0061abb0(UINT); /* 0x0061abb0 */
-    INT sub_0061ac20(); /* 0x0061ac20 */
-    UINT sub_0061bbb0(BYTE); /* 0x0061bbb0 */
-    INT sub_0061bc70(); /* 0x0061bc70 */
-    UINT sub_0061d6c0(BYTE); /* 0x0061d6c0 */
-    UINT sub_0061d820(BYTE); /* 0x0061d820 */
-    UINT sub_0061db00(BYTE); /* 0x0061db00 */
-    INT sub_0061e460(INT); /* 0x0061e460 */
-    INT sub_0061e490(); /* 0x0061e490 */
-    INT sub_0061e8a0(); /* 0x0061e8a0 */
-    void sub_0061e9b0(); /* 0x0061e9b0 */
-    INT sub_0061eb50(); /* 0x0061eb50 */
-    INT sub_0061ee20(); /* 0x0061ee20 */
-    INT sub_00621110(); /* 0x00621110 */
-    INT sub_006212d0(); /* 0x006212d0 */
-    INT sub_00621ad0(); /* 0x00621ad0 */
-    INT sub_00621d60(); /* 0x00621d60 */
-    INT sub_00622070(); /* 0x00622070 */
-    INT sub_006258a0(); /* 0x006258a0 */
-    UINT sub_0062d860(BYTE); /* 0x0062d860 */
-    INT sub_00639960(INT); /* 0x00639960 */
-    void sub_0099ecd0(); /* 0x0099ecd0 */
-    INT sub_00af5bc0(); /* 0x00af5bc0 */
-    void sub_00c171a0(); /* 0x00c171a0 */
-    INT sub_00dcce60(INT); /* 0x00dcce60 */
-    INT sub_00dcce70(INT); /* 0x00dcce70 */
-    INT sub_00dccf80(INT); /* 0x00dccf80 */
-    INT sub_00dcda00(INT); /* 0x00dcda00 */
-    INT sub_00dcda40(INT); /* 0x00dcda40 */
-    INT sub_00dcda50(); /* 0x00dcda50 */
-    INT sub_00dcda70(); /* 0x00dcda70 */
-    INT sub_00dcdaf0(); /* 0x00dcdaf0 */
-    INT sub_00dcdb10(); /* 0x00dcdb10 */
-    INT sub_00dcdb30(); /* 0x00dcdb30 */
-    INT sub_00dcdb50(); /* 0x00dcdb50 */
-    INT sub_00dcdb70(); /* 0x00dcdb70 */
-    INT sub_00dcdb90(); /* 0x00dcdb90 */
-    INT sub_00dcdba0(); /* 0x00dcdba0 */
-    INT sub_00dcdbc0(); /* 0x00dcdbc0 */
-    INT sub_00dcdbd0(); /* 0x00dcdbd0 */
-    INT sub_00dcdbf0(); /* 0x00dcdbf0 */
-    INT sub_00dcddf0(INT); /* 0x00dcddf0 */
-    INT sub_00dcde00(INT); /* 0x00dcde00 */
-    INT sub_00dcde10(INT); /* 0x00dcde10 */
-    INT sub_00dcdeb0(INT); /* 0x00dcdeb0 */
-    INT sub_00dcdf10(); /* 0x00dcdf10 */
-    INT sub_00dcef10(INT); /* 0x00dcef10 */
-    INT sub_00dcef50(); /* 0x00dcef50 */
-    INT sub_00dcef70(); /* 0x00dcef70 */
-    INT sub_00dcef90(); /* 0x00dcef90 */
-    INT sub_00dcefb0(); /* 0x00dcefb0 */
-    INT sub_00dcefd0(); /* 0x00dcefd0 */
-    INT sub_00dceff0(); /* 0x00dceff0 */
-    INT sub_00dcf010(); /* 0x00dcf010 */
-    INT sub_00dcf030(); /* 0x00dcf030 */
-    INT sub_00dcf050(); /* 0x00dcf050 */
-    INT sub_00dcf060(); /* 0x00dcf060 */
-    INT sub_00dcf070(); /* 0x00dcf070 */
-    INT sub_00dcf090(); /* 0x00dcf090 */
-    INT sub_00dcf0a0(); /* 0x00dcf0a0 */
-    INT sub_00dcf0b0(INT); /* 0x00dcf0b0 */
-    INT sub_00dcf120(INT); /* 0x00dcf120 */
-    INT sub_00dcf150(INT); /* 0x00dcf150 */
-    INT sub_00dcf180(INT); /* 0x00dcf180 */
-    INT sub_00dcf1d0(INT); /* 0x00dcf1d0 */
-    UINT sub_00dcf310(); /* 0x00dcf310 */
-    INT sub_00dcf320(); /* 0x00dcf320 */
-    INT sub_00dd0420(INT); /* 0x00dd0420 */
-    UINT sub_00dd0460(INT); /* 0x00dd0460 */
-    INT sub_00dd04a0(INT); /* 0x00dd04a0 */
-    UINT sub_00dd04e0(INT); /* 0x00dd04e0 */
-    INT sub_00dd0540(INT); /* 0x00dd0540 */
-    void sub_00dd08c0(); /* 0x00dd08c0 */
-    void sub_00dd08f0(); /* 0x00dd08f0 */
-    void sub_00dd0910(); /* 0x00dd0910 */
-    void sub_00dd0930(); /* 0x00dd0930 */
-    void sub_00dd0970(); /* 0x00dd0970 */
-    void sub_00dd0990(); /* 0x00dd0990 */
-    void sub_00dd11b0(); /* 0x00dd11b0 */
     void sub_00dd3ec0(); /* 0x00dd3ec0 */
     void sub_00dd4310(); /* 0x00dd4310 */
-    void sub_00dd5740(); /* 0x00dd5740 */
-    void sub_00dd58e0(); /* 0x00dd58e0 */
-    void sub_00dd5c00(); /* 0x00dd5c00 */
-    UINT sub_00dd5f20(UINT, UINT); /* 0x00dd5f20 */
-    UINT sub_00dd5f40(UINT, UINT); /* 0x00dd5f40 */
-    UINT sub_00dd6000(UINT, UINT); /* 0x00dd6000 */
-    INT sub_00dd6020(UINT, UINT); /* 0x00dd6020 */
-    INT sub_00dd6040(UINT, UINT); /* 0x00dd6040 */
-    INT sub_00dd6060(UINT, UINT); /* 0x00dd6060 */
-    INT sub_00dd6080(UINT, UINT); /* 0x00dd6080 */
-    INT sub_00dd60a0(UINT, UINT); /* 0x00dd60a0 */
-    INT sub_00dd61c0(UINT, UINT); /* 0x00dd61c0 */
-    UINT sub_00dd6270(INT, UINT*); /* 0x00dd6270 */
-    INT sub_00dd6520(UINT, UINT, UINT); /* 0x00dd6520 */
-    INT sub_00dd6570(UINT, UINT, UINT); /* 0x00dd6570 */
-    INT sub_00dd6660(UINT, UINT, UINT); /* 0x00dd6660 */
-    UINT* sub_00e14920(); /* 0x00e14920 */
-    UINT* sub_00e14990(); /* 0x00e14990 */
-    INT sub_00e952f0(INT); /* 0x00e952f0 */
-    INT sub_00f0eeb0(INT); /* 0x00f0eeb0 */
-    INT sub_00f61a80(INT); /* 0x00f61a80 */
-    INT sub_00f65140(INT); /* 0x00f65140 */
-    void sub_00f66130(); /* 0x00f66130 */
-    void sub_00f706c0(); /* 0x00f706c0 */
-    INT sub_00f706e0(); /* 0x00f706e0 */
-    INT sub_00f707b0(); /* 0x00f707b0 */
-    INT sub_00f70b80(); /* 0x00f70b80 */
-    INT sub_00f70bb0(); /* 0x00f70bb0 */
-    void sub_00ff1b60(INT, INT); /* 0x00ff1b60 */
-    UINT sub_01365320(BYTE); /* 0x01365320 */
     INT sub_013a7e80(INT); /* 0x013a7e80 */
     INT sub_013a7e90(); /* 0x013a7e90 */
     INT sub_013a7eb0(); /* 0x013a7eb0 */
-    INT sub_013aeef0(INT); /* 0x013aeef0 */
-    INT sub_013aef70(INT); /* 0x013aef70 */
-    INT sub_013af060(INT); /* 0x013af060 */
-    INT sub_013af160(INT); /* 0x013af160 */
-    INT sub_013af200(INT); /* 0x013af200 */
-    INT sub_013af210(INT); /* 0x013af210 */
-    INT sub_013af2a0(INT); /* 0x013af2a0 */
     INT sub_013af320(INT); /* 0x013af320 */
     INT sub_013af3a0(INT); /* 0x013af3a0 */
-    INT sub_013b7020(INT); /* 0x013b7020 */
-    INT sub_013b7070(INT); /* 0x013b7070 */
-    INT sub_013b70a0(INT); /* 0x013b70a0 */
-    INT sub_013b70d0(INT); /* 0x013b70d0 */
-    INT sub_013b7210(); /* 0x013b7210 */
-    INT sub_013b7340(); /* 0x013b7340 */
-    UINT sub_013b7350(BYTE); /* 0x013b7350 */
-    INT sub_013bd7e0(INT); /* 0x013bd7e0 */
-    INT sub_013bd900(INT); /* 0x013bd900 */
-    INT sub_013bd9d0(INT); /* 0x013bd9d0 */
-    INT sub_013bda00(INT); /* 0x013bda00 */
-    INT sub_013c44e0(INT); /* 0x013c44e0 */
-    INT sub_013c45c0(INT); /* 0x013c45c0 */
-    INT sub_013c4600(INT); /* 0x013c4600 */
-    void sub_013c47c0(); /* 0x013c47c0 */
-    void sub_013c47d0(); /* 0x013c47d0 */
-    void sub_013c47f0(); /* 0x013c47f0 */
-    void sub_013c4810(); /* 0x013c4810 */
-    void sub_013c4830(); /* 0x013c4830 */
     UINT* sub_013c5c90(UINT*); /* 0x013c5c90 */
-    INT sub_013c8560(); /* 0x013c8560 */
-    INT sub_013c8580(); /* 0x013c8580 */
-    INT sub_013c85a0(); /* 0x013c85a0 */
-    INT sub_013c85c0(); /* 0x013c85c0 */
-    INT sub_013c85e0(); /* 0x013c85e0 */
-    void sub_013c9480(); /* 0x013c9480 */
-    UINT sub_013c9580(UINT, UINT); /* 0x013c9580 */
-    void sub_013c95a0(); /* 0x013c95a0 */
-    UINT sub_013c95b0(UINT, UINT); /* 0x013c95b0 */
-    void sub_013c95d0(); /* 0x013c95d0 */
-    void sub_013c9640(); /* 0x013c9640 */
-    UINT sub_013c9750(UINT, UINT); /* 0x013c9750 */
-    void sub_013c97d0(); /* 0x013c97d0 */
-    UINT sub_013c98e0(UINT, UINT); /* 0x013c98e0 */
-    UINT sub_013c9900(UINT, UINT); /* 0x013c9900 */
     void sub_013c99b0(); /* 0x013c99b0 */
     void sub_013c99c0(); /* 0x013c99c0 */
     UINT sub_013c99d0(UINT, UINT); /* 0x013c99d0 */
@@ -69727,34 +64185,16 @@ struct UPackageMap : public UObject {
     INT sub_013c9ad0(UINT, UINT); /* 0x013c9ad0 */
     UINT sub_013c9af0(UINT, UINT); /* 0x013c9af0 */
     INT sub_013c9b10(); /* 0x013c9b10 */
-    void sub_013c9b30(); /* 0x013c9b30 */
     INT sub_013c9b40(); /* 0x013c9b40 */
     INT sub_013c9b60(); /* 0x013c9b60 */
-    INT sub_013c9b80(); /* 0x013c9b80 */
-    INT sub_013c9ba0(); /* 0x013c9ba0 */
-    INT sub_013c9f80(UINT, UINT, UINT); /* 0x013c9f80 */
-    INT sub_013c9fd0(UINT, UINT, UINT); /* 0x013c9fd0 */
-    INT sub_013ca080(UINT, UINT, UINT); /* 0x013ca080 */
-    INT sub_013ca120(UINT, UINT, UINT); /* 0x013ca120 */
-    INT sub_013ca170(UINT, UINT, UINT); /* 0x013ca170 */
     INT sub_013ca470(UINT, UINT, UINT); /* 0x013ca470 */
     INT sub_013ca4c0(UINT, UINT, UINT); /* 0x013ca4c0 */
     INT sub_013ca510(); /* 0x013ca510 */
-    void sub_013ca530(); /* 0x013ca530 */
     INT sub_013ca550(); /* 0x013ca550 */
     INT sub_013ca570(); /* 0x013ca570 */
-    void sub_013ca590(); /* 0x013ca590 */
-    INT sub_013ca5b0(); /* 0x013ca5b0 */
-    INT sub_013ca5d0(); /* 0x013ca5d0 */
     INT sub_013d17e0(); /* 0x013d17e0 */
-    void sub_013d1800(); /* 0x013d1800 */
     INT sub_013d1820(); /* 0x013d1820 */
     INT sub_013d1840(); /* 0x013d1840 */
-    void sub_013d1860(); /* 0x013d1860 */
-    INT sub_013d1880(); /* 0x013d1880 */
-    INT sub_013d18a0(); /* 0x013d18a0 */
-    void sub_013d79f0(); /* 0x013d79f0 */
-    void sub_013d7a10(); /* 0x013d7a10 */
     INT sub_013d7a30(); /* 0x013d7a30 */
     INT sub_013d7a50(); /* 0x013d7a50 */
     INT sub_013d7c70(); /* 0x013d7c70 */
@@ -69775,12 +64215,6 @@ struct UPackageMap : public UObject {
     UINT* sub_013d8b90(UINT*); /* 0x013d8b90 */
     UINT* sub_013d8bb0(UINT*); /* 0x013d8bb0 */
     UINT sub_013d8be0(BYTE); /* 0x013d8be0 */
-    void sub_013d9090(); /* 0x013d9090 */
-    INT sub_013d90b0(); /* 0x013d90b0 */
-    INT sub_013d9210(); /* 0x013d9210 */
-    INT sub_013d9d10(); /* 0x013d9d10 */
-    INT sub_013d9d40(); /* 0x013d9d40 */
-    INT sub_014e85f0(INT); /* 0x014e85f0 */
     /* registered size 0xb4 */
 };
 
@@ -69814,7 +64248,6 @@ struct UPackageMapSeekFree : public UPackageMapLevel {
     virtual INT ObjectToIndex( UObject* Object ); /* 0x134 */
     virtual UObject* IndexToObject( INT InIndex, UBOOL Load ); /* 0x138 */
     /* other member functions */
-    UINT* sub_00e14a90(UINT); /* 0x00e14a90 */
     /* registered size 0xb8 */
 };
 
@@ -69865,7 +64298,6 @@ struct UPatchScriptCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3e40(BYTE); /* 0x010e3e40 */
     /* registered size 0x74 */
 };
 
@@ -69879,7 +64311,6 @@ struct UPerformTerrainMaterialDumpCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3d60(BYTE); /* 0x010e3d60 */
     /* registered size 0x70 */
 };
 
@@ -69905,7 +64336,6 @@ struct UPersistentCookerData : public UObject {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_010af490(BYTE); /* 0x010af490 */
     /* registered size 0x13c */
 };
 
@@ -69980,7 +64410,6 @@ struct UPkgInfoCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e30e0(BYTE); /* 0x010e30e0 */
     /* registered size 0x70 */
 };
 
@@ -70060,7 +64489,6 @@ struct UPolys : public UObject {
     virtual UBOOL Modify(UBOOL bAlwaysMarkDirty = FALSE); /* 0x018 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_00694300(BYTE); /* 0x00694300 */
     /* registered size 0x40 */
 };
 
@@ -70119,7 +64547,6 @@ struct UPrecompileShadersCommandlet : public UCommandlet {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
-    UINT sub_0110f570(BYTE); /* 0x0110f570 */
     /* registered size 0x88 */
 };
 
@@ -70291,7 +64718,6 @@ struct UPropertyInputText : public UPropertyInputArrayItemBase {
     virtual void vf_13c(INT, INT); /* 0x13c */
     virtual void RefreshControlValue( UProperty* InProperty, BYTE* InData ); /* 0x140 */
     /* other member functions */
-    UINT* sub_01202cb0(); /* 0x01202cb0 */
     /* registered size 0x4c */
 };
 
@@ -70359,7 +64785,6 @@ struct UPropertyWindowManager : public UObject {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void AddReferencedObjects(TArray<class UObject*>& ObjectArray); /* 0x0e8 */
     /* other member functions */
-    UINT sub_012066b0(BYTE); /* 0x012066b0 */
     /* registered size 0xd0 */
 };
 
@@ -70726,7 +65151,6 @@ struct URReimportFMODSoundFactory : public URFMODSoundFactory {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    UINT sub_0110edd0(BYTE); /* 0x0110edd0 */
     /* registered size 0x6c */
 };
 
@@ -70740,8 +65164,6 @@ struct URScriptConversationFactoryNew : public UFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual class UObject* FactoryCreateNew(class UClass* InClass, class UObject* InParent, FName InName, QWORD Flags, class UObject* Context, FFeedbackContext* Warn); /* 0x118 */
     /* other member functions */
-    bool sub_0150f2d0(); /* 0x0150f2d0 */
-    UINT sub_0152c3c0(BYTE); /* 0x0152c3c0 */
     /* registered size 0x64 */
 };
 
@@ -70804,7 +65226,6 @@ struct URebuildMapCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072790(BYTE); /* 0x01072790 */
     /* registered size 0x70 */
 };
 
@@ -70847,9 +65268,7 @@ struct UReimportSkeletalMeshFactory : public USkeletalMeshFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00f33790(BYTE); /* 0x00f33790 */
     void sub_00f33840(); /* 0x00f33840 */
-    UINT* sub_00fb8890(UINT); /* 0x00fb8890 */
     /* registered size 0x78 */
 };
 
@@ -70880,7 +65299,6 @@ struct UReimportSoundFactory : public USoundFactory {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    UINT sub_00f338f0(BYTE); /* 0x00f338f0 */
     /* registered size 0x78 */
 };
 
@@ -70913,7 +65331,6 @@ struct UReimportStaticMeshFactory : public UStaticMeshFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00f33630(BYTE); /* 0x00f33630 */
     void sub_00f336e0(); /* 0x00f336e0 */
     /* registered size 0x7c */
 };
@@ -70929,7 +65346,6 @@ struct UReimportTextureFactory : public UTextureFactory {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UTexture2D* CreateTexture( UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags ); /* 0x128 */
-    UINT sub_00f334d0(BYTE); /* 0x00f334d0 */
     /* registered size 0xb8 */
 };
 
@@ -70968,7 +65384,6 @@ struct UReplaceActorCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e40e0(BYTE); /* 0x010e40e0 */
     /* registered size 0x70 */
 };
 
@@ -70982,7 +65397,6 @@ struct UScaleAudioVolumeCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010726b0(BYTE); /* 0x010726b0 */
     /* registered size 0x70 */
 };
 
@@ -71020,7 +65434,6 @@ struct UScriptStruct : public UStruct {
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     virtual void PropagateStructDefaults(); /* 0x12c */
     /* other member functions */
-    UINT sub_00575600(BYTE); /* 0x00575600 */
     /* registered size 0xa0 */
 };
 
@@ -71089,8 +65502,6 @@ struct USequenceObjectHelper : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    INT sub_01194680(INT); /* 0x01194680 */
-    INT sub_01194690(INT); /* 0x01194690 */
     /* registered size 0x30 */
 };
 
@@ -71115,7 +65526,6 @@ struct UServerCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_00cccdf0(BYTE); /* 0x00cccdf0 */
     /* registered size 0x70 */
 };
 
@@ -71129,7 +65539,6 @@ struct USetMaterialUsageCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0110f840(BYTE); /* 0x0110f840 */
     /* registered size 0x70 */
 };
 
@@ -71143,7 +65552,6 @@ struct USetPackageFlagsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3a80(BYTE); /* 0x010e3a80 */
     /* registered size 0x70 */
 };
 
@@ -71157,7 +65565,6 @@ struct USetTextureLODGroupCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e3620(BYTE); /* 0x010e3620 */
     /* registered size 0x70 */
 };
 
@@ -71178,19 +65585,6 @@ struct UShaderCache : public UObject {
     virtual void FinishDestroy(); /* 0x02c */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_0073d980(BYTE); /* 0x0073d980 */
-    UINT* sub_00740510(BYTE); /* 0x00740510 */
-    UINT* sub_00740550(BYTE); /* 0x00740550 */
-    UINT* sub_00740590(BYTE); /* 0x00740590 */
-    void sub_00746050(); /* 0x00746050 */
-    void sub_00746290(); /* 0x00746290 */
-    void sub_007464d0(); /* 0x007464d0 */
-    UINT* sub_00748600(BYTE); /* 0x00748600 */
-    UINT* sub_00748640(BYTE); /* 0x00748640 */
-    UINT* sub_00748680(BYTE); /* 0x00748680 */
-    void sub_0074e170(); /* 0x0074e170 */
-    void sub_0074e3b0(); /* 0x0074e3b0 */
-    void sub_0074e5f0(); /* 0x0074e5f0 */
     /* registered size 0xec */
 };
 
@@ -71207,7 +65601,6 @@ struct UShadowMap1D : public UObject, public FShadowMapVertexBufferBase {
     virtual UBOOL IsReadyForFinishDestroy(); /* 0x024 */
     virtual void Serialize(FArchive& Ar); /* 0x030 */
     /* other member functions */
-    UINT sub_00936980(BYTE); /* 0x00936980 */
     /* registered size 0x64 */
 };
 
@@ -71221,7 +65614,6 @@ struct UShowObjectCountCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e31c0(BYTE); /* 0x010e31c0 */
     /* registered size 0x70 */
 };
 
@@ -71235,7 +65627,6 @@ struct UShowStylesCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e32a0(BYTE); /* 0x010e32a0 */
     /* registered size 0x70 */
 };
 
@@ -71252,7 +65643,6 @@ struct UShowTaggedPropsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010f64c0(BYTE); /* 0x010f64c0 */
     /* registered size 0x100 */
 };
 
@@ -71286,7 +65676,6 @@ struct USmokeTestCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_00ccced0(BYTE); /* 0x00ccced0 */
     /* registered size 0x70 */
 };
 
@@ -71323,7 +65712,6 @@ struct USoundGroupInfoCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01073210(BYTE); /* 0x01073210 */
     /* registered size 0x70 */
 };
 
@@ -71485,26 +65873,7 @@ struct UStrProperty : public UProperty {
     virtual UBOOL RequiresInit() const; /* 0x160 */
     virtual INT GetMinAlignment() const; /* 0x168 */
     /* other member functions */
-    UINT* sub_005fa850(); /* 0x005fa850 */
-    UINT* sub_005fa8d0(UINT, UINT, UINT, UINT, UINT); /* 0x005fa8d0 */
-    UINT* sub_005fa990(UINT, UINT, UINT, UINT, UINT); /* 0x005fa990 */
     UINT* sub_0062dc20(); /* 0x0062dc20 */
-    UINT* sub_0062f190(); /* 0x0062f190 */
-    UINT* sub_0062f240(); /* 0x0062f240 */
-    UINT* sub_0062f2f0(UINT, UINT, UINT, UINT, UINT); /* 0x0062f2f0 */
-    UINT* sub_0062f320(); /* 0x0062f320 */
-    UINT* sub_0062f3d0(); /* 0x0062f3d0 */
-    UINT* sub_0062f480(UINT, UINT, UINT, UINT, UINT); /* 0x0062f480 */
-    UINT* sub_0062f4b0(); /* 0x0062f4b0 */
-    UINT* sub_0062f4e0(); /* 0x0062f4e0 */
-    UINT* sub_0062f5b0(); /* 0x0062f5b0 */
-    UINT* sub_0062f680(); /* 0x0062f680 */
-    UINT* sub_0062f740(); /* 0x0062f740 */
-    UINT* sub_0062f7f0(); /* 0x0062f7f0 */
-    UINT* sub_0062f820(); /* 0x0062f820 */
-    UINT* sub_0062f920(); /* 0x0062f920 */
-    UINT* sub_0062f9f0(); /* 0x0062f9f0 */
-    UINT* sub_00943650(UINT, UINT, UINT, UINT, UINT); /* 0x00943650 */
     /* registered size 0x70 */
 };
 
@@ -71518,7 +65887,6 @@ struct UStripSourceCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0110f760(BYTE); /* 0x0110f760 */
     /* registered size 0x70 */
 };
 
@@ -71581,7 +65949,6 @@ struct USystem : public USubsystem {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_00642fb0(BYTE); /* 0x00642fb0 */
     /* registered size 0xf0 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00645b20 */
@@ -71716,21 +66083,7 @@ struct UTerrainFactory : public UFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateText( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const TCHAR*& Buffer, const TCHAR* BufferEnd, FFeedbackContext* Warn ); /* 0x110 */
     /* other member functions */
-    void sub_00f4d080(); /* 0x00f4d080 */
-    void sub_00f4d0c0(); /* 0x00f4d0c0 */
     INT sub_00f4d190(); /* 0x00f4d190 */
-    bool sub_00f4eca0(); /* 0x00f4eca0 */
-    UINT sub_00f4f520(); /* 0x00f4f520 */
-    UINT sub_00f50030(); /* 0x00f50030 */
-    void sub_00f5d280(); /* 0x00f5d280 */
-    UINT sub_00f5f0b0(BYTE); /* 0x00f5f0b0 */
-    UINT sub_00f5f1b0(BYTE); /* 0x00f5f1b0 */
-    UINT sub_00f5f310(BYTE); /* 0x00f5f310 */
-    UINT sub_00f5fe50(BYTE); /* 0x00f5fe50 */
-    UINT* sub_00f5fee0(BYTE); /* 0x00f5fee0 */
-    UINT sub_00f627a0(BYTE); /* 0x00f627a0 */
-    UINT sub_00f64b60(BYTE); /* 0x00f64b60 */
-    UINT* sub_0127a180(BYTE); /* 0x0127a180 */
     /* registered size 0x68 */
 };
 
@@ -71747,8 +66100,6 @@ struct UTerrainHeightMapExporter : public UExporter {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
-    bool sub_00f1eae0(); /* 0x00f1eae0 */
-    UINT sub_00f31b80(BYTE); /* 0x00f31b80 */
     /* registered size 0x58 */
 };
 
@@ -71865,7 +66216,6 @@ struct UTestCompressionCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072870(BYTE); /* 0x01072870 */
     /* registered size 0x70 */
 };
 
@@ -71879,7 +66229,6 @@ struct UTestWordWrapCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_010e39a0(BYTE); /* 0x010e39a0 */
     /* registered size 0x70 */
 };
 
@@ -71896,8 +66245,6 @@ struct UTexAligner : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_012a3410(BYTE); /* 0x012a3410 */
-    UINT sub_012ac2c0(BYTE); /* 0x012ac2c0 */
     /* registered size 0x50 */
 };
 
@@ -71911,7 +66258,6 @@ struct UTexAlignerBox : public UTexAligner {
     virtual INT vf_10c(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
-    UINT sub_012abe10(BYTE); /* 0x012abe10 */
     /* registered size 0x50 */
 };
 
@@ -71925,7 +66271,6 @@ struct UTexAlignerDefault : public UTexAligner {
     virtual INT vf_10c(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
-    UINT sub_012abcc0(BYTE); /* 0x012abcc0 */
     /* registered size 0x50 */
 };
 
@@ -71939,7 +66284,6 @@ struct UTexAlignerFit : public UTexAligner {
     virtual INT vf_10c(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
     /* other member functions */
-    UINT sub_012abf60(BYTE); /* 0x012abf60 */
     /* registered size 0x50 */
 };
 
@@ -71952,7 +66296,6 @@ struct UTexAlignerPlanar : public UTexAligner {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT vf_10c(); /* 0x10c */
     virtual void AlignSurf( ETexAlign InTexAlignType, UModel* InModel, FBspSurfIdx* InSurfIdx, FPoly* InPoly, FVector* InNormal ); /* 0x110 */
-    UINT sub_012abb70(BYTE); /* 0x012abb70 */
     /* registered size 0x50 */
 };
 
@@ -71994,12 +66337,10 @@ struct UTextBufferFactory : public UFactory {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UObject* FactoryCreateText( UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, const TCHAR* Type, const TCHAR*& Buffer, const TCHAR* BufferEnd, FFeedbackContext* Warn ); /* 0x110 */
     /* other member functions */
-    bool sub_0053ea30(); /* 0x0053ea30 */
     FString sub_005749e0(); /* 0x005749e0 */
     void sub_0059a640(INT); /* 0x0059a640 */
     void sub_0059a650(); /* 0x0059a650 */
     void sub_0059a660(INT); /* 0x0059a660 */
-    INT sub_005b3d80(); /* 0x005b3d80 */
     void sub_005b3d90(); /* 0x005b3d90 */
     /* registered size 0x64 */
 };
@@ -72058,7 +66399,6 @@ struct UTextureExporterT3D : public UExporterT3DX {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL ExportText(const struct FExportObjectInnerContext* Context, class UObject* Object, const TCHAR* Type, FOutputDevice& Ar, FFeedbackContext* Warn, DWORD PortFlags = 0); /* 0x10c */
     /* other member functions */
-    void sub_00f04ce0(UINT, UINT, UINT, UINT); /* 0x00f04ce0 */
     /* registered size 0x58 */
 };
 
@@ -72150,7 +66490,6 @@ struct UThumbnailsCommandlet : public UCommandlet {
     virtual INT Main(INT); /* 0x10c */
     virtual void CreateCustomEngine(); /* 0x110 */
     /* other member functions */
-    UINT sub_0174aa80(BYTE); /* 0x0174aa80 */
     /* registered size 0x70 */
 };
 
@@ -72196,7 +66535,6 @@ struct UUIEditorOptions : public UUIRoot {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_014a1bc0(BYTE); /* 0x014a1bc0 */
     /* registered size 0x6c */
 };
 
@@ -72436,7 +66774,6 @@ struct UUT3MapStatsCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01073050(BYTE); /* 0x01073050 */
     /* registered size 0x70 */
 };
 
@@ -72466,7 +66803,6 @@ struct UUnrealEdOptions : public UObject {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    UINT sub_01294dd0(BYTE); /* 0x01294dd0 */
     /* registered size 0x88 */
 };
 
@@ -72480,7 +66816,6 @@ struct UVerifySourceControlCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_0174a9a0(BYTE); /* 0x0174a9a0 */
     /* registered size 0x70 */
 };
 
@@ -72548,17 +66883,8 @@ struct UWindowsClient : public UClient {
     INT sub_00ebb310(INT); /* 0x00ebb310 */
     void sub_00ebb3d0(); /* 0x00ebb3d0 */
     void sub_00ebb3f0(); /* 0x00ebb3f0 */
-    INT sub_00ebcbe0(); /* 0x00ebcbe0 */
-    INT sub_00ebcc00(); /* 0x00ebcc00 */
     INT sub_00ebd090(UINT, UINT); /* 0x00ebd090 */
     INT sub_00ebd0b0(UINT, UINT); /* 0x00ebd0b0 */
-    INT sub_00ebd0d0(); /* 0x00ebd0d0 */
-    INT sub_00ebd0f0(); /* 0x00ebd0f0 */
-    INT sub_00ebe960(); /* 0x00ebe960 */
-    INT sub_00ebe980(); /* 0x00ebe980 */
-    INT sub_00ebebd0(); /* 0x00ebebd0 */
-    INT sub_00ebebf0(); /* 0x00ebebf0 */
-    UINT sub_00ec0210(BYTE); /* 0x00ec0210 */
     /* registered size 0x1d0 */
     /* FExec */
     virtual UBOOL Exec(const TCHAR* Cmd, FOutputDevice& Ar); /* 0x00eb5ef0 */
@@ -72672,7 +66998,6 @@ struct UWorld : public UObject, public FNetworkNotify {
     void sub_00a47a90(URB_ConstraintInstance* Constraint); /* 0x00a47a90 */
     UBOOL DestroyActor(AActor* Actor, UBOOL bNetForce = FALSE, UBOOL bShouldModifyLevel = TRUE); /* 0x007e72a0 */
     URB_BodyInstance* sub_00a49820(UPrimitiveComponent* Owner); /* 0x00a49820 */
-    UINT sub_009c69f0(BYTE); /* 0x009c69f0 */
     /* registered size 0x278 */
     /* FNetworkNotify */
     virtual EAcceptConnection NotifyAcceptingConnection(); /* 0x009c6d40 */
@@ -72695,7 +67020,6 @@ struct UWrangleContentCommandlet : public UCommandlet {
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual INT Main(INT); /* 0x10c */
     /* other member functions */
-    UINT sub_01072db0(BYTE); /* 0x01072db0 */
     /* registered size 0x70 */
 };
 
@@ -72709,7 +67033,6 @@ struct UXnaForceFeedbackManager : public UForceFeedbackManager {
     virtual void ApplyForceFeedback(INT DeviceID,FLOAT DeltaTime); /* 0x110 */
     virtual void ForceClearWaveformData(INT DeviceID); /* 0x114 */
     /* other member functions */
-    UINT* sub_00eb5510(BYTE); /* 0x00eb5510 */
     /* registered size 0x44 */
 };
 

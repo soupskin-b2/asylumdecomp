@@ -40,8 +40,9 @@ void C::sub_012ae440(int) { sub_012a9ad0(); }
 
 int sub_006f7810(void);
 extern undefined * g_02225350;
+struct C_012b0f10 { undefined4 * sub_012b0f10(void); };
 // @baa 0x012b0f10
-undefined4 * UPrimitiveComponent::sub_012b0f10(void)
+undefined4 * C_012b0f10::sub_012b0f10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -55,8 +56,9 @@ IMPLEMENT_CLASS_AT(UCascadePreviewComponent, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x012b0f90
 extern undefined * g_022255a8;
+struct C_012b0fc0 { undefined4 * sub_012b0fc0(void); };
 // @baa 0x012b0fc0
-undefined4 * UPrimitiveComponent::sub_012b0fc0(void)
+undefined4 * C_012b0fc0::sub_012b0fc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

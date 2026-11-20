@@ -18,8 +18,9 @@ void sub_00f4cb20(undefined4 * param_1)
 
 int sub_005c7a20(void);
 extern undefined * g_021586e8;
+struct C_00f4cb70 { undefined4 * sub_00f4cb70(void); };
 // @baa 0x00f4cb70
-undefined4 * UObject::sub_00f4cb70(void)
+undefined4 * C_00f4cb70::sub_00f4cb70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -38,8 +39,9 @@ UBOOL UTerrainHeightMapFactory::ImportHeightDataFromText(ATerrain* a0, const TCH
 UBOOL UTerrainHeightMapFactory::ImportHeightDataFromBinary(ATerrain* a0, const BYTE*& a1, const BYTE* a2, FFeedbackContext* a3, UBOOL a4) { return 0; }
 
 extern undefined * g_02158920;
+struct C_00f4cbc0 { undefined4 * sub_00f4cbc0(void); };
 // @baa 0x00f4cbc0
-undefined4 * UObject::sub_00f4cbc0(void)
+undefined4 * C_00f4cbc0::sub_00f4cbc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -59,8 +61,9 @@ void sub_00f4cc60(void)
 }
 
 extern undefined * g_02158800;
+struct C_00f4cc70 { undefined4 * sub_00f4cc70(void); };
 // @baa 0x00f4cc70
-undefined4 * UObject::sub_00f4cc70(void)
+undefined4 * C_00f4cc70::sub_00f4cc70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -73,8 +76,9 @@ undefined4 * UObject::sub_00f4cc70(void)
 void sub_00f4cc90(void) {  }
 
 extern undefined * g_02158a38;
+struct C_00f4cca0 { undefined4 * sub_00f4cca0(void); };
 // @baa 0x00f4cca0
-undefined4 * UObject::sub_00f4cca0(void)
+undefined4 * C_00f4cca0::sub_00f4cca0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

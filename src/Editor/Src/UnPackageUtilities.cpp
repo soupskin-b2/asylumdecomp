@@ -2789,8 +2789,9 @@ int C_010c6b60::sub_010c6b60(void)
 }
 
 int sub_010c48e0(void);
+struct C_010c6b70 { undefined4 sub_010c6b70(byte param_2); };
 // @baa 0x010c6b70
-undefined4 UObject::sub_010c6b70(byte param_2)
+undefined4 C_010c6b70::sub_010c6b70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2802,8 +2803,9 @@ undefined4 UObject::sub_010c6b70(byte param_2)
 }
 
 int sub_0040fcc0(void);
+struct C_010c6c60 { undefined4 sub_010c6c60(byte param_2); };
 // @baa 0x010c6c60
-undefined4 UObject::sub_010c6c60(byte param_2)
+undefined4 C_010c6c60::sub_010c6c60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2830,8 +2832,9 @@ struct C_view {
     int sub_010c6e20(int, int);
 };
 
+struct C_010c6ea0 { int sub_010c6ea0(int param_2); };
 // @baa 0x010c6ea0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c6ea0(int param_2)
+int C_010c6ea0::sub_010c6ea0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_010c6e20((int)(&param_2), param_2);
@@ -2841,80 +2844,90 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010c6ea0(int param_2)
   return 0;
 }
 
+struct C_010c6f40 { int sub_010c6f40(void); };
 // @baa 0x010c6f40
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c6f40(void)
+int C_010c6f40::sub_010c6f40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x44;
 }
 
+struct C_010c6fe0 { int sub_010c6fe0(int param_2); };
 // @baa 0x010c6fe0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c6fe0(int param_2)
+int C_010c6fe0::sub_010c6fe0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_010c70e0 { int sub_010c70e0(int param_2); };
 // @baa 0x010c70e0
-int UTexture2D::sub_010c70e0(int param_2)
+int C_010c70e0::sub_010c70e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_010c7200 { int sub_010c7200(int param_2); };
 // @baa 0x010c7200
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7200(int param_2)
+int C_010c7200::sub_010c7200(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010c7210 { int sub_010c7210(int param_2); };
 // @baa 0x010c7210
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7210(int param_2)
+int C_010c7210::sub_010c7210(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_010c72a0 { int sub_010c72a0(int param_2); };
 // @baa 0x010c72a0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c72a0(int param_2)
+int C_010c72a0::sub_010c72a0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_010c72b0 { int sub_010c72b0(void); };
 // @baa 0x010c72b0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c72b0(void)
+int C_010c72b0::sub_010c72b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x30 + *(int *)*param_1;
 }
 
+struct C_010c7360 { int sub_010c7360(int param_2); };
 // @baa 0x010c7360
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7360(int param_2)
+int C_010c7360::sub_010c7360(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010c7370 { int sub_010c7370(void); };
 // @baa 0x010c7370
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7370(void)
+int C_010c7370::sub_010c7370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x30 + *(int *)*param_1;
 }
 
+struct C_010c7400 { int sub_010c7400(int param_2); };
 // @baa 0x010c7400
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7400(int param_2)
+int C_010c7400::sub_010c7400(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -2928,32 +2941,36 @@ struct C_010c7480 { char pad[8]; M_010c7480 m; void sub_010c7480(); };
 // @baa 0x010c7480
 void C_010c7480::sub_010c7480() { m.sub_0040fcc0(); }
 
+struct C_010c7490 { int sub_010c7490(int param_2); };
 // @baa 0x010c7490
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7490(int param_2)
+int C_010c7490::sub_010c7490(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x44;
 }
 
+struct C_010c74b0 { int sub_010c74b0(int param_2); };
 // @baa 0x010c74b0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c74b0(int param_2)
+int C_010c74b0::sub_010c74b0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010c74c0 { int sub_010c74c0(int param_2); };
 // @baa 0x010c74c0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c74c0(int param_2)
+int C_010c74c0::sub_010c74c0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010c74d0 { int sub_010c74d0(void); };
 // @baa 0x010c74d0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c74d0(void)
+int C_010c74d0::sub_010c74d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2964,32 +2981,36 @@ void sub_010c6be0();
 // @baa 0x010c74e0
 void sub_010c74e0(void) { sub_010c6be0(); }
 
+struct C_010c74f0 { int sub_010c74f0(void); };
 // @baa 0x010c74f0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c74f0(void)
+int C_010c74f0::sub_010c74f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x30 + *(int *)*param_1;
 }
 
+struct C_010c7500 { int sub_010c7500(void); };
 // @baa 0x010c7500
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7500(void)
+int C_010c7500::sub_010c7500(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x44;
 }
 
+struct C_010c7520 { int sub_010c7520(void); };
 // @baa 0x010c7520
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7520(void)
+int C_010c7520::sub_010c7520(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x30 + *(int *)*param_1;
 }
 
+struct C_010c7530 { int sub_010c7530(void); };
 // @baa 0x010c7530
-int UAnalyzeFallbackMaterialsCommandlet::sub_010c7530(void)
+int C_010c7530::sub_010c7530(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3016,8 +3037,9 @@ struct C_view_010c7b10 {
     int sub_00547da0(int);
 };
 
+struct C_010c7b10 { int sub_010c7b10(int param_2); };
 // @baa 0x010c7b10
-int URFMODSound::sub_010c7b10(int param_2)
+int C_010c7b10::sub_010c7b10(int param_2)
 {
     int param_1 = (int)this;
   ((C_view_010c7b10 *)(this))->sub_00547da0(param_2);
@@ -3253,8 +3275,9 @@ struct C_view_010ca970 {
     int sub_010c6f60(int, int);
 };
 
+struct C_010ca970 { int sub_010ca970(int param_2); };
 // @baa 0x010ca970
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ca970(int param_2)
+int C_010ca970::sub_010ca970(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_010ca970 *)(this))->sub_010c6f60((int)(&param_2), param_2);
@@ -3288,8 +3311,9 @@ FSparseArrayConstIt_010caa00& FSparseArrayConstIt_010caa00::operator++()
     return *this;
 }
 
+struct C_010caa20 { int sub_010caa20(void); };
 // @baa 0x010caa20
-int UAnalyzeFallbackMaterialsCommandlet::sub_010caa20(void)
+int C_010caa20::sub_010caa20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3308,32 +3332,36 @@ FSparseArrayConstIt_010caa40& FSparseArrayConstIt_010caa40::operator++()
     return *this;
 }
 
+struct C_010caa60 { int sub_010caa60(int param_2); };
 // @baa 0x010caa60
-int UAnalyzeFallbackMaterialsCommandlet::sub_010caa60(int param_2)
+int C_010caa60::sub_010caa60(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010caae0 { int sub_010caae0(void); };
 // @baa 0x010caae0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010caae0(void)
+int C_010caae0::sub_010caae0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x30 + *(int *)*param_1;
 }
 
+struct C_010caaf0 { int sub_010caaf0(int param_2); };
 // @baa 0x010caaf0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010caaf0(int param_2)
+int C_010caaf0::sub_010caaf0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_010cab00 { int sub_010cab00(void); };
 // @baa 0x010cab00
-int UAnalyzeFallbackMaterialsCommandlet::sub_010cab00(void)
+int C_010cab00::sub_010cab00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3344,8 +3372,9 @@ struct C_view_010cab10 {
     int sub_010c7380(int, int);
 };
 
+struct C_010cab10 { int sub_010cab10(int param_2); };
 // @baa 0x010cab10
-int UAnalyzeFallbackMaterialsCommandlet::sub_010cab10(int param_2)
+int C_010cab10::sub_010cab10(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_010cab10 *)(this))->sub_010c7380((int)(&param_2), param_2);
@@ -3355,8 +3384,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010cab10(int param_2)
   return 0;
 }
 
+struct C_010cac60 { int sub_010cac60(void); };
 // @baa 0x010cac60
-int UAnalyzeFallbackMaterialsCommandlet::sub_010cac60(void)
+int C_010cac60::sub_010cac60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3404,8 +3434,9 @@ undefined4 C_010cacf0::sub_010cacf0(byte param_2)
 }
 
 int sub_010c6d00(void);
+struct C_010cad20 { undefined4 sub_010cad20(byte param_2); };
 // @baa 0x010cad20
-undefined4 UObject::sub_010cad20(byte param_2)
+undefined4 C_010cad20::sub_010cad20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3428,8 +3459,9 @@ FSparseArrayConstIt_010cadd0& FSparseArrayConstIt_010cadd0::operator++()
     return *this;
 }
 
+struct C_010cae70 { int sub_010cae70(int param_2); };
 // @baa 0x010cae70
-int UAnalyzeFallbackMaterialsCommandlet::sub_010cae70(int param_2)
+int C_010cae70::sub_010cae70(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -3448,8 +3480,9 @@ FSparseArrayConstIt_010cae80& FSparseArrayConstIt_010cae80::operator++()
     return *this;
 }
 
+struct C_010caf20 { int sub_010caf20(int param_2); };
 // @baa 0x010caf20
-int UAnalyzeFallbackMaterialsCommandlet::sub_010caf20(int param_2)
+int C_010caf20::sub_010caf20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -3484,8 +3517,9 @@ struct C_view_010caf70 {
     int sub_0040fcc0();
 };
 
+struct C_010caf70 { undefined4 sub_010caf70(byte param_2); };
 // @baa 0x010caf70
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010caf70(byte param_2)
+undefined4 C_010caf70::sub_010caf70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010caf70 *)(((char *)this + 8)))->sub_0040fcc0();
@@ -3984,8 +4018,9 @@ struct C_view_010d11f0 {
     int sub_010c7380(int, int);
 };
 
+struct C_010d11f0 { undefined4 sub_010d11f0(int param_2); };
 // @baa 0x010d11f0
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010d11f0(int param_2)
+undefined4 C_010d11f0::sub_010d11f0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -4000,8 +4035,9 @@ struct C_view_010d1230 {
     int sub_010ca910(int);
 };
 
+struct C_010d1230 { undefined4 * sub_010d1230(undefined4 * param_2); };
 // @baa 0x010d1230
-undefined4 * UAnalyzeFallbackMaterialsCommandlet::sub_010d1230(undefined4 * param_2)
+undefined4 * C_010d1230::sub_010d1230(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -4014,8 +4050,9 @@ struct C_view_010d1260 {
     int sub_010cad40(int, int);
 };
 
+struct C_010d1260 { int sub_010d1260(int param_2); };
 // @baa 0x010d1260
-int UAnalyzeFallbackMaterialsCommandlet::sub_010d1260(int param_2)
+int C_010d1260::sub_010d1260(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_010d1260 *)(this))->sub_010cad40((int)(&param_2), param_2);
@@ -4041,8 +4078,9 @@ struct C_view_010d1640 {
     int sub_010cadf0(int, int);
 };
 
+struct C_010d1640 { int sub_010d1640(int param_2); };
 // @baa 0x010d1640
-int UAnalyzeFallbackMaterialsCommandlet::sub_010d1640(int param_2)
+int C_010d1640::sub_010d1640(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_010d1640 *)(this))->sub_010cadf0((int)(&param_2), param_2);
@@ -4068,8 +4106,9 @@ struct C_view_010d1690 {
     int sub_010caea0(int, int);
 };
 
+struct C_010d1690 { int sub_010d1690(int param_2); };
 // @baa 0x010d1690
-int UAnalyzeFallbackMaterialsCommandlet::sub_010d1690(int param_2)
+int C_010d1690::sub_010d1690(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_010d1690 *)(this))->sub_010caea0((int)(&param_2), param_2);
@@ -4118,8 +4157,9 @@ struct C_view_010d1a30 {
     int sub_010ca910(int);
 };
 
+struct C_010d1a30 { undefined4 * sub_010d1a30(undefined4 * param_2); };
 // @baa 0x010d1a30
-undefined4 * UAnalyzeFallbackMaterialsCommandlet::sub_010d1a30(undefined4 * param_2)
+undefined4 * C_010d1a30::sub_010d1a30(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -4135,8 +4175,9 @@ struct C_view_010d1b40 {
     int sub_010ca910(int);
 };
 
+struct C_010d1b40 { undefined4 * sub_010d1b40(undefined4 * param_2); };
 // @baa 0x010d1b40
-undefined4 * UAnalyzeFallbackMaterialsCommandlet::sub_010d1b40(undefined4 * param_2)
+undefined4 * C_010d1b40::sub_010d1b40(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -4380,8 +4421,9 @@ struct C_view_010dd980 {
     int sub_010cad40(int, int);
 };
 
+struct C_010dd980 { int sub_010dd980(int param_2); };
 // @baa 0x010dd980
-int UAnalyzeFallbackMaterialsCommandlet::sub_010dd980(int param_2)
+int C_010dd980::sub_010dd980(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -4413,8 +4455,9 @@ struct C_view_010ddf30 {
     int sub_010cadf0(int, int);
 };
 
+struct C_010ddf30 { int sub_010ddf30(int param_2); };
 // @baa 0x010ddf30
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ddf30(int param_2)
+int C_010ddf30::sub_010ddf30(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -4441,8 +4484,9 @@ struct C_view_010ddf90 {
     int sub_010caea0(int, int);
 };
 
+struct C_010ddf90 { int sub_010ddf90(int param_2); };
 // @baa 0x010ddf90
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ddf90(int param_2)
+int C_010ddf90::sub_010ddf90(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -4492,8 +4536,9 @@ struct C_view_010de060 {
     int sub_010d1b80(int);
 };
 
+struct C_010de060 { void sub_010de060(void); };
 // @baa 0x010de060
-void UAnalyzeFallbackMaterialsCommandlet::sub_010de060(void)
+void C_010de060::sub_010de060(void)
 {
     int param_1 = (int)this;
   ((C_view_010de060 *)((*(char **)((char *)this + 0x10))))->sub_010d1b80(*(undefined4 *)(param_1 + 8));
@@ -4505,8 +4550,9 @@ struct C_view_010de080 {
     int sub_010d1fb0(int);
 };
 
+struct C_010de080 { void sub_010de080(void); };
 // @baa 0x010de080
-void UAnalyzeFallbackMaterialsCommandlet::sub_010de080(void)
+void C_010de080::sub_010de080(void)
 {
     int param_1 = (int)this;
   ((C_view_010de080 *)((*(char **)((char *)this + 0x10))))->sub_010d1fb0(*(undefined4 *)(param_1 + 8));
@@ -4515,8 +4561,9 @@ void UAnalyzeFallbackMaterialsCommandlet::sub_010de080(void)
 }
 
 int sub_010d17a0(void);
+struct C_010de0a0 { undefined4 sub_010de0a0(byte param_2); };
 // @baa 0x010de0a0
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010de0a0(byte param_2)
+undefined4 C_010de0a0::sub_010de0a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4586,8 +4633,9 @@ FSparseArrayConstIt_010df340::FSparseArrayConstIt_010df340(const TSparseArray<IN
 }
 
 int sub_010d33d0(void);
+struct C_010e0010 { undefined4 sub_010e0010(byte param_2); };
 // @baa 0x010e0010
-undefined4 UObject::sub_010e0010(byte param_2)
+undefined4 C_010e0010::sub_010e0010(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4632,8 +4680,9 @@ UAnalyzeContentCommandlet::UAnalyzeContentCommandlet()
 // @baa 0x010e2b40
 int sub_010e2b40(void);
 int sub_005c7a70(...);
+struct C_010e2ba0 { undefined4 sub_010e2ba0(byte param_2); };
 // @baa 0x010e2ba0
-undefined4 UAnalyzeContentCommandlet::sub_010e2ba0(byte param_2)
+undefined4 C_010e2ba0::sub_010e2ba0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4652,8 +4701,9 @@ UAnalyzeCookedPackagesCommandlet::UAnalyzeCookedPackagesCommandlet()
 
 // @baa 0x010e2c20
 int sub_010e2c20(void);
+struct C_010e2c80 { undefined4 sub_010e2c80(byte param_2); };
 // @baa 0x010e2c80
-undefined4 UAnalyzeCookedPackagesCommandlet::sub_010e2c80(byte param_2)
+undefined4 C_010e2c80::sub_010e2c80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4672,8 +4722,9 @@ UMineCookedPackagesCommandlet::UMineCookedPackagesCommandlet()
 
 // @baa 0x010e2d00
 int sub_010e2d00(void);
+struct C_010e2d60 { undefined4 sub_010e2d60(byte param_2); };
 // @baa 0x010e2d60
-undefined4 UMineCookedPackagesCommandlet::sub_010e2d60(byte param_2)
+undefined4 C_010e2d60::sub_010e2d60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4692,8 +4743,9 @@ ULoadPackageCommandlet::ULoadPackageCommandlet()
 
 // @baa 0x010e2de0
 int sub_010e2de0(void);
+struct C_010e2e40 { undefined4 sub_010e2e40(byte param_2); };
 // @baa 0x010e2e40
-undefined4 ULoadPackageCommandlet::sub_010e2e40(byte param_2)
+undefined4 C_010e2e40::sub_010e2e40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4712,8 +4764,9 @@ UFixupRedirectsCommandlet::UFixupRedirectsCommandlet()
 
 // @baa 0x010e2ec0
 int sub_010e2ec0(void);
+struct C_010e2f20 { undefined4 sub_010e2f20(byte param_2); };
 // @baa 0x010e2f20
-undefined4 UFixupRedirectsCommandlet::sub_010e2f20(byte param_2)
+undefined4 C_010e2f20::sub_010e2f20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4732,8 +4785,9 @@ UListPackagesReferencingCommandlet::UListPackagesReferencingCommandlet()
 
 // @baa 0x010e2fa0
 int sub_010e2fa0(void);
+struct C_010e3000 { undefined4 sub_010e3000(byte param_2); };
 // @baa 0x010e3000
-undefined4 UListPackagesReferencingCommandlet::sub_010e3000(byte param_2)
+undefined4 C_010e3000::sub_010e3000(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4752,8 +4806,9 @@ UPkgInfoCommandlet::UPkgInfoCommandlet()
 
 // @baa 0x010e3080
 int sub_010e3080(void);
+struct C_010e30e0 { undefined4 sub_010e30e0(byte param_2); };
 // @baa 0x010e30e0
-undefined4 UPkgInfoCommandlet::sub_010e30e0(byte param_2)
+undefined4 C_010e30e0::sub_010e30e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4772,8 +4827,9 @@ UShowObjectCountCommandlet::UShowObjectCountCommandlet()
 
 // @baa 0x010e3160
 int sub_010e3160(void);
+struct C_010e31c0 { undefined4 sub_010e31c0(byte param_2); };
 // @baa 0x010e31c0
-undefined4 UShowObjectCountCommandlet::sub_010e31c0(byte param_2)
+undefined4 C_010e31c0::sub_010e31c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4792,8 +4848,9 @@ UShowStylesCommandlet::UShowStylesCommandlet()
 
 // @baa 0x010e3240
 int sub_010e3240(void);
+struct C_010e32a0 { undefined4 sub_010e32a0(byte param_2); };
 // @baa 0x010e32a0
-undefined4 UShowStylesCommandlet::sub_010e32a0(byte param_2)
+undefined4 C_010e32a0::sub_010e32a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4812,8 +4869,9 @@ UListCorruptedComponentsCommandlet::UListCorruptedComponentsCommandlet()
 
 // @baa 0x010e3320
 int sub_010e3320(void);
+struct C_010e3380 { undefined4 sub_010e3380(byte param_2); };
 // @baa 0x010e3380
-undefined4 UListCorruptedComponentsCommandlet::sub_010e3380(byte param_2)
+undefined4 C_010e3380::sub_010e3380(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4832,8 +4890,9 @@ UFindTexturesWithMissingPhysicalMaterialsCommandlet::UFindTexturesWithMissingPhy
 
 // @baa 0x010e3400
 int sub_010e3400(void);
+struct C_010e3460 { undefined4 sub_010e3460(byte param_2); };
 // @baa 0x010e3460
-undefined4 UFindTexturesWithMissingPhysicalMaterialsCommandlet::sub_010e3460(byte param_2)
+undefined4 C_010e3460::sub_010e3460(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4852,8 +4911,9 @@ UFindQuestionableTexturesCommandlet::UFindQuestionableTexturesCommandlet()
 
 // @baa 0x010e34e0
 int sub_010e34e0(void);
+struct C_010e3540 { undefined4 sub_010e3540(byte param_2); };
 // @baa 0x010e3540
-undefined4 UFindQuestionableTexturesCommandlet::sub_010e3540(byte param_2)
+undefined4 C_010e3540::sub_010e3540(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4872,8 +4932,9 @@ USetTextureLODGroupCommandlet::USetTextureLODGroupCommandlet()
 
 // @baa 0x010e35c0
 int sub_010e35c0(void);
+struct C_010e3620 { undefined4 sub_010e3620(byte param_2); };
 // @baa 0x010e3620
-undefined4 USetTextureLODGroupCommandlet::sub_010e3620(byte param_2)
+undefined4 C_010e3620::sub_010e3620(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4892,8 +4953,9 @@ UCompressAnimationsCommandlet::UCompressAnimationsCommandlet()
 
 // @baa 0x010e36a0
 int sub_010e36a0(void);
+struct C_010e3700 { undefined4 sub_010e3700(byte param_2); };
 // @baa 0x010e3700
-undefined4 UCompressAnimationsCommandlet::sub_010e3700(byte param_2)
+undefined4 C_010e3700::sub_010e3700(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4912,8 +4974,9 @@ UDoWithAnimationsCommandlet::UDoWithAnimationsCommandlet()
 
 // @baa 0x010e3780
 int sub_010e3780(void);
+struct C_010e37e0 { undefined4 sub_010e37e0(byte param_2); };
 // @baa 0x010e37e0
-undefined4 UDoWithAnimationsCommandlet::sub_010e37e0(byte param_2)
+undefined4 C_010e37e0::sub_010e37e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4932,8 +4995,9 @@ UListScriptReferencedContentCommandlet::UListScriptReferencedContentCommandlet()
 
 // @baa 0x010e3860
 int sub_010e3860(void);
+struct C_010e38c0 { undefined4 sub_010e38c0(byte param_2); };
 // @baa 0x010e38c0
-undefined4 UListScriptReferencedContentCommandlet::sub_010e38c0(byte param_2)
+undefined4 C_010e38c0::sub_010e38c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4952,8 +5016,9 @@ UTestWordWrapCommandlet::UTestWordWrapCommandlet()
 
 // @baa 0x010e3940
 int sub_010e3940(void);
+struct C_010e39a0 { undefined4 sub_010e39a0(byte param_2); };
 // @baa 0x010e39a0
-undefined4 UTestWordWrapCommandlet::sub_010e39a0(byte param_2)
+undefined4 C_010e39a0::sub_010e39a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4972,8 +5037,9 @@ USetPackageFlagsCommandlet::USetPackageFlagsCommandlet()
 
 // @baa 0x010e3a20
 int sub_010e3a20(void);
+struct C_010e3a80 { undefined4 sub_010e3a80(byte param_2); };
 // @baa 0x010e3a80
-undefined4 USetPackageFlagsCommandlet::sub_010e3a80(byte param_2)
+undefined4 C_010e3a80::sub_010e3a80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4988,8 +5054,9 @@ undefined4 USetPackageFlagsCommandlet::sub_010e3a80(byte param_2)
 int UPerformMapCheckCommandlet::vf_11c(void) { return 0; }
 
 int sub_010e3aa0(void);
+struct C_010e3b90 { undefined4 sub_010e3b90(byte param_2); };
 // @baa 0x010e3b90
-undefined4 UPerformMapCheckCommandlet::sub_010e3b90(byte param_2)
+undefined4 C_010e3b90::sub_010e3b90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5008,8 +5075,9 @@ UDumpLightmapInfoCommandlet::UDumpLightmapInfoCommandlet()
 
 // @baa 0x010e3c20
 int sub_010e3c20(void);
+struct C_010e3c80 { undefined4 sub_010e3c80(byte param_2); };
 // @baa 0x010e3c80
-undefined4 UDumpLightmapInfoCommandlet::sub_010e3c80(byte param_2)
+undefined4 C_010e3c80::sub_010e3c80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5028,8 +5096,9 @@ UPerformTerrainMaterialDumpCommandlet::UPerformTerrainMaterialDumpCommandlet()
 
 // @baa 0x010e3d00
 int sub_010e3d00(void);
+struct C_010e3d60 { undefined4 sub_010e3d60(byte param_2); };
 // @baa 0x010e3d60
-undefined4 UPerformTerrainMaterialDumpCommandlet::sub_010e3d60(byte param_2)
+undefined4 C_010e3d60::sub_010e3d60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5048,8 +5117,9 @@ UPatchScriptCommandlet::UPatchScriptCommandlet()
 
 // @baa 0x010e3de0
 int sub_010e3de0(void);
+struct C_010e3e40 { undefined4 sub_010e3e40(byte param_2); };
 // @baa 0x010e3e40
-undefined4 UPatchScriptCommandlet::sub_010e3e40(byte param_2)
+undefined4 C_010e3e40::sub_010e3e40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5068,8 +5138,9 @@ UListPSysFixedBoundSettingCommandlet::UListPSysFixedBoundSettingCommandlet()
 
 // @baa 0x010e3ec0
 int sub_010e3ec0(void);
+struct C_010e3f20 { undefined4 sub_010e3f20(byte param_2); };
 // @baa 0x010e3f20
-undefined4 UListPSysFixedBoundSettingCommandlet::sub_010e3f20(byte param_2)
+undefined4 C_010e3f20::sub_010e3f20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5088,8 +5159,9 @@ UListEmittersUsingModuleCommandlet::UListEmittersUsingModuleCommandlet()
 
 // @baa 0x010e3fa0
 int sub_010e3fa0(void);
+struct C_010e4000 { undefined4 sub_010e4000(byte param_2); };
 // @baa 0x010e4000
-undefined4 UListEmittersUsingModuleCommandlet::sub_010e4000(byte param_2)
+undefined4 C_010e4000::sub_010e4000(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5108,8 +5180,9 @@ UReplaceActorCommandlet::UReplaceActorCommandlet()
 
 // @baa 0x010e4080
 int sub_010e4080(void);
+struct C_010e40e0 { undefined4 sub_010e40e0(byte param_2); };
 // @baa 0x010e40e0
-undefined4 UReplaceActorCommandlet::sub_010e40e0(byte param_2)
+undefined4 C_010e40e0::sub_010e40e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5128,8 +5201,9 @@ UListSoundNodeWavesCommandlet::UListSoundNodeWavesCommandlet()
 
 // @baa 0x010e4160
 int sub_010e4160(void);
+struct C_010e41c0 { undefined4 sub_010e41c0(byte param_2); };
 // @baa 0x010e41c0
-undefined4 UListSoundNodeWavesCommandlet::sub_010e41c0(byte param_2)
+undefined4 C_010e41c0::sub_010e41c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5177,8 +5251,9 @@ struct C_view_010e7a80 {
     int sub_010de4a0(int, int);
 };
 
+struct C_010e7a80 { undefined4 sub_010e7a80(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010e7a80
-undefined4 UObject::sub_010e7a80(undefined4 param_2, undefined4 param_3)
+undefined4 C_010e7a80::sub_010e7a80(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010e7a80 *)(this))->sub_010de4a0(param_2, param_3);
@@ -5189,8 +5264,9 @@ struct C_view_010e7aa0 {
     int sub_010de500(int, int);
 };
 
+struct C_010e7aa0 { undefined4 sub_010e7aa0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010e7aa0
-undefined4 UObject::sub_010e7aa0(undefined4 param_2, undefined4 param_3)
+undefined4 C_010e7aa0::sub_010e7aa0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010e7aa0 *)(this))->sub_010de500(param_2, param_3);
@@ -5226,8 +5302,9 @@ void C_010e7cf0::sub_010e7cf0(void)
 }
 
 int sub_010d26f0(void);
+struct C_010e8890 { int sub_010e8890(void); };
 // @baa 0x010e8890
-int UAnalyzeFallbackMaterialsCommandlet::sub_010e8890(void)
+int C_010e8890::sub_010e8890(void)
 {
     int param_1 = (int)this;
 
@@ -5238,8 +5315,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010e8890(void)
 }
 
 int sub_010d2750(void);
+struct C_010e88b0 { int sub_010e88b0(void); };
 // @baa 0x010e88b0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010e88b0(void)
+int C_010e88b0::sub_010e88b0(void)
 {
     int param_1 = (int)this;
 
@@ -5250,8 +5328,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010e88b0(void)
 }
 
 int sub_010d27b0(void);
+struct C_010e88d0 { int sub_010e88d0(void); };
 // @baa 0x010e88d0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010e88d0(void)
+int C_010e88d0::sub_010e88d0(void)
 {
     int param_1 = (int)this;
 
@@ -5344,8 +5423,9 @@ int C_010e8910::sub_010e8910(void)
 // @baa 0x010ee5e0
 // @baa 0x010ee760
 int sub_010d1430(void);
+struct C_010eec10 { int sub_010eec10(void); };
 // @baa 0x010eec10
-int UAnalyzeFallbackMaterialsCommandlet::sub_010eec10(void)
+int C_010eec10::sub_010eec10(void)
 {
     int param_1 = (int)this;
 
@@ -5359,8 +5439,9 @@ struct C_view_010eedd0 {
     int sub_010de4a0(int, int);
 };
 
+struct C_010eedd0 { int sub_010eedd0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x010eedd0
-int UObject::sub_010eedd0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_010eedd0::sub_010eedd0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_010eedd0 *)(this))->sub_010de4a0(param_2, param_4);
@@ -5374,8 +5455,9 @@ struct C_view_010eee00 {
     int sub_010de500(int, int);
 };
 
+struct C_010eee00 { int sub_010eee00(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x010eee00
-int UObject::sub_010eee00(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_010eee00::sub_010eee00(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_010eee00 *)(this))->sub_010de500(param_2, param_4);
@@ -5389,8 +5471,9 @@ struct C_view_010eef80 {
     int sub_0093ce00(int, int);
 };
 
+struct C_010eef80 { void sub_010eef80(void); };
 // @baa 0x010eef80
-void USkeletalMeshComponent::sub_010eef80(void)
+void C_010eef80::sub_010eef80(void)
 {
     int param_1 = (int)this;
   ((C_view_010eef80 *)(this))->sub_0093ce00(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5401,8 +5484,9 @@ struct C_view_010eef90 {
     int sub_010e7d10(int, int);
 };
 
+struct C_010eef90 { void sub_010eef90(void); };
 // @baa 0x010eef90
-void UAnalyzeFallbackMaterialsCommandlet::sub_010eef90(void)
+void C_010eef90::sub_010eef90(void)
 {
     int param_1 = (int)this;
   ((C_view_010eef90 *)(this))->sub_010e7d10(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5413,8 +5497,9 @@ struct C_view_010ef130 {
     int sub_010e7e90(int, int);
 };
 
+struct C_010ef130 { void sub_010ef130(void); };
 // @baa 0x010ef130
-void UAnalyzeFallbackMaterialsCommandlet::sub_010ef130(void)
+void C_010ef130::sub_010ef130(void)
 {
     int param_1 = (int)this;
   ((C_view_010ef130 *)(this))->sub_010e7e90(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5438,8 +5523,9 @@ struct C_view_010ef570 {
     int sub_010e8070(int, int);
 };
 
+struct C_010ef570 { void sub_010ef570(void); };
 // @baa 0x010ef570
-void UAnalyzeFallbackMaterialsCommandlet::sub_010ef570(void)
+void C_010ef570::sub_010ef570(void)
 {
     int param_1 = (int)this;
   ((C_view_010ef570 *)(this))->sub_010e8070(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5450,8 +5536,9 @@ struct C_view_010ef5e0 {
     int sub_010e81b0(int, int);
 };
 
+struct C_010ef5e0 { void sub_010ef5e0(void); };
 // @baa 0x010ef5e0
-void UAnalyzeFallbackMaterialsCommandlet::sub_010ef5e0(void)
+void C_010ef5e0::sub_010ef5e0(void)
 {
     int param_1 = (int)this;
   ((C_view_010ef5e0 *)(this))->sub_010e81b0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5462,8 +5549,9 @@ struct C_view_010ef680 {
     int sub_010e8270(int, int);
 };
 
+struct C_010ef680 { undefined4 sub_010ef680(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef680
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010ef680(undefined4 param_2, undefined4 param_3)
+undefined4 C_010ef680::sub_010ef680(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010ef680 *)(this))->sub_010e8270(param_2, param_3);
@@ -5474,8 +5562,9 @@ struct C_view_010ef6a0 {
     int sub_010e82d0(int, int);
 };
 
+struct C_010ef6a0 { void sub_010ef6a0(void); };
 // @baa 0x010ef6a0
-void UAnalyzeFallbackMaterialsCommandlet::sub_010ef6a0(void)
+void C_010ef6a0::sub_010ef6a0(void)
 {
     int param_1 = (int)this;
   ((C_view_010ef6a0 *)(this))->sub_010e82d0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5486,8 +5575,9 @@ struct C_view_010ef6b0 {
     int sub_010e8390(int, int);
 };
 
+struct C_010ef6b0 { undefined4 sub_010ef6b0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef6b0
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010ef6b0(undefined4 param_2, undefined4 param_3)
+undefined4 C_010ef6b0::sub_010ef6b0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010ef6b0 *)(this))->sub_010e8390(param_2, param_3);
@@ -5498,8 +5588,9 @@ struct C_view_010ef7a0 {
     int sub_010e84b0(int, int);
 };
 
+struct C_010ef7a0 { undefined4 sub_010ef7a0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef7a0
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010ef7a0(undefined4 param_2, undefined4 param_3)
+undefined4 C_010ef7a0::sub_010ef7a0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010ef7a0 *)(this))->sub_010e84b0(param_2, param_3);
@@ -5510,8 +5601,9 @@ struct C_view_010ef7c0 {
     int sub_010e8510(int, int);
 };
 
+struct C_010ef7c0 { int sub_010ef7c0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef7c0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef7c0(undefined4 param_2, undefined4 param_3)
+int C_010ef7c0::sub_010ef7c0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef7c0 *)(this))->sub_010e8510(param_2, param_3);
@@ -5523,8 +5615,9 @@ struct C_view_010ef7e0 {
     int sub_010e8590(int, int);
 };
 
+struct C_010ef7e0 { int sub_010ef7e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef7e0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef7e0(undefined4 param_2, undefined4 param_3)
+int C_010ef7e0::sub_010ef7e0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef7e0 *)(this))->sub_010e8590(param_2, param_3);
@@ -5536,8 +5629,9 @@ struct C_view_010ef800 {
     int sub_010e8610(int, int);
 };
 
+struct C_010ef800 { int sub_010ef800(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef800
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef800(undefined4 param_2, undefined4 param_3)
+int C_010ef800::sub_010ef800(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef800 *)(this))->sub_010e8610(param_2, param_3);
@@ -5549,8 +5643,9 @@ struct C_view_010ef820 {
     int sub_010e8690(int, int);
 };
 
+struct C_010ef820 { int sub_010ef820(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef820
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef820(undefined4 param_2, undefined4 param_3)
+int C_010ef820::sub_010ef820(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef820 *)(this))->sub_010e8690(param_2, param_3);
@@ -5562,8 +5657,9 @@ struct C_view_010ef840 {
     int sub_010e8710(int, int);
 };
 
+struct C_010ef840 { undefined4 sub_010ef840(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef840
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010ef840(undefined4 param_2, undefined4 param_3)
+undefined4 C_010ef840::sub_010ef840(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_010ef840 *)(this))->sub_010e8710(param_2, param_3);
@@ -5574,8 +5670,9 @@ struct C_view_010ef860 {
     int sub_010e8790(int, int);
 };
 
+struct C_010ef860 { int sub_010ef860(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef860
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef860(undefined4 param_2, undefined4 param_3)
+int C_010ef860::sub_010ef860(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef860 *)(this))->sub_010e8790(param_2, param_3);
@@ -5587,8 +5684,9 @@ struct C_view_010ef880 {
     int sub_010e8810(int, int);
 };
 
+struct C_010ef880 { int sub_010ef880(undefined4 param_2, undefined4 param_3); };
 // @baa 0x010ef880
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef880(undefined4 param_2, undefined4 param_3)
+int C_010ef880::sub_010ef880(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_010ef880 *)(this))->sub_010e8810(param_2, param_3);
@@ -5596,8 +5694,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010ef880(undefined4 param_2, undefi
   return param_1;
 }
 
+struct C_010ef8a0 { int sub_010ef8a0(void); };
 // @baa 0x010ef8a0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef8a0(void)
+int C_010ef8a0::sub_010ef8a0(void)
 {
     int param_1 = (int)this;
 
@@ -5607,8 +5706,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010ef8a0(void)
   return param_1;
 }
 
+struct C_010ef8c0 { int sub_010ef8c0(void); };
 // @baa 0x010ef8c0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef8c0(void)
+int C_010ef8c0::sub_010ef8c0(void)
 {
     int param_1 = (int)this;
 
@@ -5618,8 +5718,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010ef8c0(void)
   return param_1;
 }
 
+struct C_010ef8e0 { int sub_010ef8e0(void); };
 // @baa 0x010ef8e0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010ef8e0(void)
+int C_010ef8e0::sub_010ef8e0(void)
 {
     int param_1 = (int)this;
 
@@ -5668,8 +5769,9 @@ void sub_010eced0();
 void sub_010efb40(void) { sub_010eced0(); }
 
 int sub_010cbc60(void);
+struct C_010efb50 { int sub_010efb50(void); };
 // @baa 0x010efb50
-int UListSoundNodeWavesCommandlet::sub_010efb50(void)
+int C_010efb50::sub_010efb50(void)
 {
     int param_1 = (int)this;
 
@@ -5866,8 +5968,9 @@ FString C_010f2990::sub_010f2990()
 }
 
 int sub_010ee6a0(void);
+struct C_010f2b00 { undefined4 sub_010f2b00(byte param_2); };
 // @baa 0x010f2b00
-undefined4 UTexture2D::sub_010f2b00(byte param_2)
+undefined4 C_010f2b00::sub_010f2b00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -5913,8 +6016,9 @@ struct C_view_010f3090 {
     int sub_010e8270(int, int);
 };
 
+struct C_010f3090 { int sub_010f3090(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x010f3090
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f3090(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_010f3090::sub_010f3090(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_010f3090 *)(this))->sub_010e8270(param_2, param_4);
@@ -5969,8 +6073,9 @@ struct C_view_010f30e0 {
     int sub_010e8390(int, int);
 };
 
+struct C_010f30e0 { int sub_010f30e0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x010f30e0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f30e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_010f30e0::sub_010f30e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_010f30e0 *)(this))->sub_010e8390(param_2, param_4);
@@ -6025,8 +6130,9 @@ struct C_view_010f3170 {
     int sub_010e84b0(int, int);
 };
 
+struct C_010f3170 { int sub_010f3170(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x010f3170
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f3170(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_010f3170::sub_010f3170(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_010f3170 *)(this))->sub_010e84b0(param_2, param_4);
@@ -6081,8 +6187,9 @@ void sub_010ef500();
 // @baa 0x010f31c0
 void sub_010f31c0(void) { sub_010ef500(); }
 
+struct C_010f31d0 { int sub_010f31d0(void); };
 // @baa 0x010f31d0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f31d0(void)
+int C_010f31d0::sub_010f31d0(void)
 {
     int param_1 = (int)this;
 
@@ -6092,8 +6199,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010f31d0(void)
   return param_1;
 }
 
+struct C_010f31f0 { int sub_010f31f0(void); };
 // @baa 0x010f31f0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f31f0(void)
+int C_010f31f0::sub_010f31f0(void)
 {
     int param_1 = (int)this;
 
@@ -6103,8 +6211,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010f31f0(void)
   return param_1;
 }
 
+struct C_010f3210 { int sub_010f3210(void); };
 // @baa 0x010f3210
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f3210(void)
+int C_010f3210::sub_010f3210(void)
 {
     int param_1 = (int)this;
 
@@ -6163,8 +6272,9 @@ int C_010f3610::sub_010f3610(void)
 // @baa 0x010f5b10
 void sub_010f5b10(void) { sub_010eed60(); }
 
+struct C_010f62a0 { int sub_010f62a0(void); };
 // @baa 0x010f62a0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f62a0(void)
+int C_010f62a0::sub_010f62a0(void)
 {
     int param_1 = (int)this;
 
@@ -6174,8 +6284,9 @@ int UAnalyzeFallbackMaterialsCommandlet::sub_010f62a0(void)
   return param_1;
 }
 
+struct C_010f62c0 { int sub_010f62c0(void); };
 // @baa 0x010f62c0
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f62c0(void)
+int C_010f62c0::sub_010f62c0(void)
 {
     int param_1 = (int)this;
 
@@ -6236,8 +6347,9 @@ void C_010f6340::sub_010f6340(void)
 }
 
 int sub_010f6440(void);
+struct C_010f64c0 { undefined4 sub_010f64c0(byte param_2); };
 // @baa 0x010f64c0
-undefined4 UShowTaggedPropsCommandlet::sub_010f64c0(byte param_2)
+undefined4 C_010f64c0::sub_010f64c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6249,8 +6361,9 @@ undefined4 UShowTaggedPropsCommandlet::sub_010f64c0(byte param_2)
 }
 
 int sub_010f6580(void);
+struct C_010f65f0 { undefined4 sub_010f65f0(byte param_2); };
 // @baa 0x010f65f0
-undefined4 UFindRenamedPrefabSequencesCommandlet::sub_010f65f0(byte param_2)
+undefined4 C_010f65f0::sub_010f65f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6288,8 +6401,9 @@ void sub_010f80f0(void) { sub_010eeea0(); }
 // @baa 0x010f8100
 void sub_010f8100(void) { sub_010eef10(); }
 
+struct C_010f8220 { int sub_010f8220(void); };
 // @baa 0x010f8220
-int UAnalyzeFallbackMaterialsCommandlet::sub_010f8220(void)
+int C_010f8220::sub_010f8220(void)
 {
     int param_1 = (int)this;
 
@@ -6305,8 +6419,9 @@ void sub_010f8260(void) { sub_010f6620(); }
 
 // @baa 0x010f8270
 int sub_010f8320(void);
+struct C_010f83a0 { undefined4 sub_010f83a0(byte param_2); };
 // @baa 0x010f83a0
-undefined4 UFindStaticActorsRefsCommandlet::sub_010f83a0(byte param_2)
+undefined4 C_010f83a0::sub_010f83a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6359,8 +6474,9 @@ int C_010fd350::sub_010fd350(void)
 void sub_010ff0c0(void) { sub_010f6620(); }
 
 int sub_010fe9e0(void);
+struct C_010ffc50 { undefined4 sub_010ffc50(byte param_2); };
 // @baa 0x010ffc50
-undefined4 UObject::sub_010ffc50(byte param_2)
+undefined4 C_010ffc50::sub_010ffc50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6375,8 +6491,9 @@ struct C_view_010ffd00 {
     int sub_010ffc70(int);
 };
 
+struct C_010ffd00 { int sub_010ffd00(undefined4 param_2); };
 // @baa 0x010ffd00
-int UObject::sub_010ffd00(undefined4 param_2)
+int C_010ffd00::sub_010ffd00(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view_010ffd00 *)(this))->sub_010ffc70(param_2);
@@ -6385,8 +6502,9 @@ int UObject::sub_010ffd00(undefined4 param_2)
 }
 
 int sub_010fee60(void);
+struct C_010ffd20 { undefined4 sub_010ffd20(byte param_2); };
 // @baa 0x010ffd20
-undefined4 UObject::sub_010ffd20(byte param_2)
+undefined4 C_010ffd20::sub_010ffd20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6398,8 +6516,9 @@ undefined4 UObject::sub_010ffd20(byte param_2)
 }
 
 int sub_01100010(void);
+struct C_01100080 { undefined4 sub_01100080(byte param_2); };
 // @baa 0x01100080
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_01100080(byte param_2)
+undefined4 C_01100080::sub_01100080(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

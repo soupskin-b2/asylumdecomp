@@ -12,8 +12,9 @@ UTestCompressionCommandlet::UTestCompressionCommandlet()
 // @baa 0x01072810
 int sub_01072810(void);
 int sub_005c7a70(...);
+struct C_01072870 { undefined4 sub_01072870(byte param_2); };
 // @baa 0x01072870
-undefined4 UTestCompressionCommandlet::sub_01072870(byte param_2)
+undefined4 C_01072870::sub_01072870(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -32,8 +33,9 @@ UMergePackagesCommandlet::UMergePackagesCommandlet()
 
 // @baa 0x010728f0
 int sub_010728f0(void);
+struct C_01072950 { undefined4 sub_01072950(byte param_2); };
 // @baa 0x01072950
-undefined4 UMergePackagesCommandlet::sub_01072950(byte param_2)
+undefined4 C_01072950::sub_01072950(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -52,8 +54,9 @@ UCreateDefaultStyleCommandlet::UCreateDefaultStyleCommandlet()
 
 // @baa 0x01072ab0
 int sub_01072ab0(void);
+struct C_01072b10 { undefined4 sub_01072b10(byte param_2); };
 // @baa 0x01072b10
-undefined4 UCreateDefaultStyleCommandlet::sub_01072b10(byte param_2)
+undefined4 C_01072b10::sub_01072b10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -72,8 +75,9 @@ UExamineOutersCommandlet::UExamineOutersCommandlet()
 
 // @baa 0x01072b90
 int sub_01072b90(void);
+struct C_01072bf0 { undefined4 sub_01072bf0(byte param_2); };
 // @baa 0x01072bf0
-undefined4 UExamineOutersCommandlet::sub_01072bf0(byte param_2)
+undefined4 C_01072bf0::sub_01072bf0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -92,8 +96,9 @@ UFindDuplicateKismetObjectsCommandlet::UFindDuplicateKismetObjectsCommandlet()
 
 // @baa 0x01072c70
 int sub_01072c70(void);
+struct C_01072cd0 { undefined4 sub_01072cd0(byte param_2); };
 // @baa 0x01072cd0
-undefined4 UFindDuplicateKismetObjectsCommandlet::sub_01072cd0(byte param_2)
+undefined4 C_01072cd0::sub_01072cd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -125,8 +130,9 @@ void sub_010792d0(void) { sub_01076810(); }
 // @baa 0x01079a40
 void sub_01079a40(void) { sub_01076880(); }
 
+struct C_01079e10 { int sub_01079e10(void); };
 // @baa 0x01079e10
-int UContentTagIndex::sub_01079e10(void)
+int C_01079e10::sub_01079e10(void)
 {
     int param_1 = (int)this;
 
@@ -141,8 +147,9 @@ struct C_view_01079e30 {
     int sub_00fbc640(int, int);
 };
 
+struct C_01079e30 { void sub_01079e30(void); };
 // @baa 0x01079e30
-void UContentTagIndex::sub_01079e30(void)
+void C_01079e30::sub_01079e30(void)
 {
     int param_1 = (int)this;
   ((C_view_01079e30 *)(this))->sub_01068fb0();
@@ -155,8 +162,9 @@ struct C_view_01079e50 {
     int sub_00fbc700(int, int);
 };
 
+struct C_01079e50 { void sub_01079e50(void); };
 // @baa 0x01079e50
-void UContentTagIndex::sub_01079e50(void)
+void C_01079e50::sub_01079e50(void)
 {
     int param_1 = (int)this;
   ((C_view_01079e50 *)(this))->sub_010690b0();
@@ -169,8 +177,9 @@ struct C_view_01079e70 {
     int sub_00fbc7c0(int, int);
 };
 
+struct C_01079e70 { void sub_01079e70(void); };
 // @baa 0x01079e70
-void UContentTagIndex::sub_01079e70(void)
+void C_01079e70::sub_01079e70(void)
 {
     int param_1 = (int)this;
   ((C_view_01079e70 *)(this))->sub_010691b0();
@@ -178,8 +187,9 @@ void UContentTagIndex::sub_01079e70(void)
   return;
 }
 
+struct C_01079e90 { int sub_01079e90(void); };
 // @baa 0x01079e90
-int UContentTagIndex::sub_01079e90(void)
+int C_01079e90::sub_01079e90(void)
 {
     int param_1 = (int)this;
 
@@ -189,8 +199,9 @@ int UContentTagIndex::sub_01079e90(void)
   return param_1;
 }
 
+struct C_01079eb0 { int sub_01079eb0(void); };
 // @baa 0x01079eb0
-int UContentTagIndex::sub_01079eb0(void)
+int C_01079eb0::sub_01079eb0(void)
 {
     int param_1 = (int)this;
 
@@ -214,8 +225,9 @@ void sub_0107a140(void) { sub_010767a0(); }
 // @baa 0x0107a2f0
 void sub_0107a2f0(void) { sub_01076810(); }
 
+struct C_0107ea60 { int sub_0107ea60(void); };
 // @baa 0x0107ea60
-int UContentTagIndex::sub_0107ea60(void)
+int C_0107ea60::sub_0107ea60(void)
 {
     int param_1 = (int)this;
 

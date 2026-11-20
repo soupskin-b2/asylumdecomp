@@ -69,8 +69,9 @@ struct C_view {
     int sub_00f7dca0(int, int);
 };
 
+struct C_00f81f10 { int sub_00f81f10(int param_2); };
 // @baa 0x00f81f10
-int UState::sub_00f81f10(int param_2)
+int C_00f81f10::sub_00f81f10(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00f7dca0((int)(&param_2), param_2);
@@ -84,8 +85,9 @@ struct C_view_00f81f40 {
     int sub_009b74e0(int, int);
 };
 
+struct C_00f81f40 { int sub_00f81f40(int param_2); };
 // @baa 0x00f81f40
-int UState::sub_00f81f40(int param_2)
+int C_00f81f40::sub_00f81f40(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00f81f40 *)(this))->sub_009b74e0((int)(&param_2), param_2);
@@ -99,8 +101,9 @@ struct C_view_00f81f70 {
     int sub_00f7de30(int, int);
 };
 
+struct C_00f81f70 { int sub_00f81f70(int param_2); };
 // @baa 0x00f81f70
-int UState::sub_00f81f70(int param_2)
+int C_00f81f70::sub_00f81f70(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00f81f70 *)(this))->sub_00f7de30((int)(&param_2), param_2);
@@ -114,8 +117,9 @@ struct C_view_00f81fa0 {
     int sub_00f7dfc0(int, int);
 };
 
+struct C_00f81fa0 { int sub_00f81fa0(int param_2); };
 // @baa 0x00f81fa0
-int UState::sub_00f81fa0(int param_2)
+int C_00f81fa0::sub_00f81fa0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00f81fa0 *)(this))->sub_00f7dfc0((int)(&param_2), param_2);

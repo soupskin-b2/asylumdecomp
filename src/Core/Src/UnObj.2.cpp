@@ -5,8 +5,9 @@
 
 int sub_0053d240(...);
 int sub_0053df70(...);
+struct C_005c8270 { int sub_005c8270(undefined4*param_2); };
 // @baa 0x005c8270
-int UObject::sub_005c8270(undefined4*param_2)
+int C_005c8270::sub_005c8270(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -100,8 +101,9 @@ return iVar2;
 
 int sub_0053dfa0(...);
 int sub_00549160(void);
+struct C_005d4060 { undefined4 sub_005d4060(byte param_2); };
 // @baa 0x005d4060
-undefined4 UObject::sub_005d4060(byte param_2)
+undefined4 C_005d4060::sub_005d4060(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

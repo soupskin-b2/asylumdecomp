@@ -16,8 +16,9 @@ struct C_view {
 };
 
 extern undefined4 g_020a7ad0;
+struct C_00d1ec70 { undefined4 * sub_00d1ec70(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00d1ec70
-undefined4 * UUnrealEdEngine::sub_00d1ec70(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+undefined4 * C_00d1ec70::sub_00d1ec70(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

@@ -22,8 +22,9 @@ undefined4 C::sub_012b02d0(byte param_2)
 }
 
 int sub_012b1110(void);
+struct C_012b44f0 { undefined4 sub_012b44f0(byte param_2); };
 // @baa 0x012b44f0
-undefined4 UObject::sub_012b44f0(byte param_2)
+undefined4 C_012b44f0::sub_012b44f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -91,8 +92,9 @@ struct C_view {
 };
 
 extern undefined4 g_0223039c;
+struct C_012bfa50 { undefined4 * sub_012bfa50(undefined4 param_2); };
 // @baa 0x012bfa50
-undefined4 * UUnrealEdEngine::sub_012bfa50(undefined4 param_2)
+undefined4 * C_012bfa50::sub_012bfa50(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -106,8 +108,9 @@ void sub_00c38ac0();
 void sub_012bfa70(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303ac;
+struct C_012bfa80 { undefined4 * sub_012bfa80(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfa80
-undefined4 * UUnrealEdEngine::sub_012bfa80(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfa80::sub_012bfa80(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -121,8 +124,9 @@ undefined4 * UUnrealEdEngine::sub_012bfa80(undefined4 param_2, undefined4 param_
 void sub_012bfab0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303bc;
+struct C_012bfac0 { undefined4 * sub_012bfac0(undefined4 param_2); };
 // @baa 0x012bfac0
-undefined4 * UUnrealEdEngine::sub_012bfac0(undefined4 param_2)
+undefined4 * C_012bfac0::sub_012bfac0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -135,8 +139,9 @@ undefined4 * UUnrealEdEngine::sub_012bfac0(undefined4 param_2)
 void sub_012bfae0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303cc;
+struct C_012bfaf0 { undefined4 * sub_012bfaf0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfaf0
-undefined4 * UUnrealEdEngine::sub_012bfaf0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfaf0::sub_012bfaf0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -150,8 +155,9 @@ undefined4 * UUnrealEdEngine::sub_012bfaf0(undefined4 param_2, undefined4 param_
 void sub_012bfb20(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303dc;
+struct C_012bfb30 { undefined4 * sub_012bfb30(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfb30
-undefined4 * UUnrealEdEngine::sub_012bfb30(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfb30::sub_012bfb30(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -165,8 +171,9 @@ undefined4 * UUnrealEdEngine::sub_012bfb30(undefined4 param_2, undefined4 param_
 void sub_012bfb60(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303ec;
+struct C_012bfb70 { undefined4 * sub_012bfb70(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfb70
-undefined4 * UUnrealEdEngine::sub_012bfb70(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfb70::sub_012bfb70(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -180,8 +187,9 @@ undefined4 * UUnrealEdEngine::sub_012bfb70(undefined4 param_2, undefined4 param_
 void sub_012bfba0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_022303fc;
+struct C_012bfbb0 { undefined4 * sub_012bfbb0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfbb0
-undefined4 * UUnrealEdEngine::sub_012bfbb0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfbb0::sub_012bfbb0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -195,8 +203,9 @@ undefined4 * UUnrealEdEngine::sub_012bfbb0(undefined4 param_2, undefined4 param_
 void sub_012bfbe0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223040c;
+struct C_012bfbf0 { undefined4 * sub_012bfbf0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012bfbf0
-undefined4 * UUnrealEdEngine::sub_012bfbf0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012bfbf0::sub_012bfbf0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

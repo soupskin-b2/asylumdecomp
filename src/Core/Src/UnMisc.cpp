@@ -138,8 +138,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00637630 { undefined4 * sub_00637630(undefined4 * param_2); };
 // @baa 0x00637630
-undefined4 * UObject::sub_00637630(undefined4 * param_2)
+undefined4 * C_00637630::sub_00637630(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -253,8 +254,9 @@ IMPLEMENT_CLASS_AT(USystem, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Dev
 
 int sub_005c7a70(...);
 int sub_00642e60(void);
+struct C_00642fb0 { undefined4 sub_00642fb0(byte param_2); };
 // @baa 0x00642fb0
-undefined4 USystem::sub_00642fb0(byte param_2)
+undefined4 C_00642fb0::sub_00642fb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

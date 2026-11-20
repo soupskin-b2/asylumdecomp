@@ -30,40 +30,45 @@ C_014821f0::C_014821f0(const M0& Other) : a(0), b(0)
     m0.sub_0147f040(Other);
 }
 
+struct C_01482250 { int sub_01482250(void); };
 // @baa 0x01482250
-int UObject::sub_01482250(void)
+int C_01482250::sub_01482250(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_01482270 { int sub_01482270(void); };
 // @baa 0x01482270
-int UObject::sub_01482270(void)
+int C_01482270::sub_01482270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + 0xc + param_1[5] * 0x28;
 }
 
+struct C_01482280 { int sub_01482280(void); };
 // @baa 0x01482280
-int UObject::sub_01482280(void)
+int C_01482280::sub_01482280(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_014822a0 { int sub_014822a0(void); };
 // @baa 0x014822a0
-int UObject::sub_014822a0(void)
+int C_014822a0::sub_014822a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + 0xc + param_1[5] * 0x28;
 }
 
+struct C_014822b0 { int sub_014822b0(int param_2); };
 // @baa 0x014822b0
-int UObject::sub_014822b0(int param_2)
+int C_014822b0::sub_014822b0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -72,8 +77,9 @@ int UObject::sub_014822b0(int param_2)
 
 int sub_0053dfa0(...);
 int sub_0147e650(void);
+struct C_01482530 { undefined4 sub_01482530(byte param_2); };
 // @baa 0x01482530
-undefined4 UObject::sub_01482530(byte param_2)
+undefined4 C_01482530::sub_01482530(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -84,8 +90,9 @@ undefined4 UObject::sub_01482530(byte param_2)
   return param_1;
 }
 
+struct C_01482550 { int sub_01482550(int param_2); };
 // @baa 0x01482550
-int UObject::sub_01482550(int param_2)
+int C_01482550::sub_01482550(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -96,8 +103,9 @@ struct C_view {
     int sub_0147ea40(int);
 };
 
+struct C_01482560 { undefined4 * sub_01482560(undefined4 * param_2); };
 // @baa 0x01482560
-undefined4 * UObject::sub_01482560(undefined4 * param_2)
+undefined4 * C_01482560::sub_01482560(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;

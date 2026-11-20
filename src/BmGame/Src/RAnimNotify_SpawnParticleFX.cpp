@@ -17,8 +17,9 @@ int sub_01592340(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_0231b920;
+struct C_015923d0 { undefined4 * sub_015923d0(void); };
 // @baa 0x015923d0
-undefined4 * UObject::sub_015923d0(void)
+undefined4 * C_015923d0::sub_015923d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -31,8 +32,9 @@ undefined4 * UObject::sub_015923d0(void)
 int sub_015923f0(int a0, int a1) { return a1; }
 
 extern undefined * g_0231ba38;
+struct C_01592400 { undefined4 * sub_01592400(void); };
 // @baa 0x01592400
-undefined4 * UObject::sub_01592400(void)
+undefined4 * C_01592400::sub_01592400(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

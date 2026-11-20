@@ -16,8 +16,9 @@ UBOOL UDecalComponent::HasParentClassChanged() const
 }
 
 extern undefined4 g_025d74f0;
+struct C_0064e000 { void sub_0064e000(void); };
 // @baa 0x0064e000
-void UDecalComponent::sub_0064e000(void)
+void C_0064e000::sub_0064e000(void)
 {
     int param_1 = (int)this;
 
@@ -54,8 +55,9 @@ extern char g_01ebb554[];
 void UDecalComponent::sub_0064e050(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_0064e060 { undefined4 * sub_0064e060(byte param_2); };
 // @baa 0x0064e060
-undefined4 * UDecalComponent::sub_0064e060(byte param_2)
+undefined4 * C_0064e060::sub_0064e060(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -160,8 +162,9 @@ void C_006671d0::sub_006671d0() {
 }
 
 int sub_00674b00(void);
+struct C_006858e0 { undefined4 sub_006858e0(byte param_2); };
 // @baa 0x006858e0
-undefined4 UDecalComponent::sub_006858e0(byte param_2)
+undefined4 C_006858e0::sub_006858e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -218,8 +221,9 @@ uint UMaterial::vf_15c(void)
 
 int sub_005c7a70(...);
 int sub_0069b750(void);
+struct C_0069b820 { undefined4 sub_0069b820(byte param_2); };
 // @baa 0x0069b820
-undefined4 UMaterial::sub_0069b820(byte param_2)
+undefined4 C_0069b820::sub_0069b820(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -232,8 +236,9 @@ undefined4 UMaterial::sub_0069b820(byte param_2)
 
 int sub_006d6440(void);
 extern undefined * g_01ec10c0;
+struct C_0069b9d0 { undefined4 * sub_0069b9d0(void); };
 // @baa 0x0069b9d0
-undefined4 * UMaterial::sub_0069b9d0(void)
+undefined4 * C_0069b9d0::sub_0069b9d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -249,16 +254,18 @@ IMPLEMENT_CLASS_AT(UDecalMaterial, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 // @baa 0x006a6bd0
 int sub_006a6bd0(void) { return 1689; }
 
+struct C_006a6be0 { int sub_006a6be0(void); };
 // @baa 0x006a6be0
-int ULensFlare::sub_006a6be0(void)
+int C_006a6be0::sub_006a6be0(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x84) * 4;
 }
 
+struct C_006a6bf0 { int sub_006a6bf0(void); };
 // @baa 0x006a6bf0
-int ULensFlare::sub_006a6bf0(void)
+int C_006a6bf0::sub_006a6bf0(void)
 {
     int param_1 = (int)this;
 
@@ -266,8 +273,9 @@ int ULensFlare::sub_006a6bf0(void)
 }
 
 int sub_006a6c00(void);
+struct C_006a6c60 { undefined4 sub_006a6c60(byte param_2); };
 // @baa 0x006a6c60
-undefined4 ULensFlare::sub_006a6c60(byte param_2)
+undefined4 C_006a6c60::sub_006a6c60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

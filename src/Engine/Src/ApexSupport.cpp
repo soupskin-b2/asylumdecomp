@@ -631,8 +631,9 @@ void UApexAsset::OnApexAssetReset() {  }
 // @baa 0x009e92c0
 int sub_005c7a20(void);
 extern undefined * g_01fa45a0;
+struct C_009e92e0 { undefined4 * sub_009e92e0(void); };
 // @baa 0x009e92e0
-undefined4 * UObject::sub_009e92e0(void)
+undefined4 * C_009e92e0::sub_009e92e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -642,8 +643,9 @@ undefined4 * UObject::sub_009e92e0(void)
 }
 
 extern undefined * g_01fa46c0;
+struct C_009e9300 { undefined4 * sub_009e9300(void); };
 // @baa 0x009e9300
-undefined4 * UObject::sub_009e9300(void)
+undefined4 * C_009e9300::sub_009e9300(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -660,8 +662,9 @@ IMPLEMENT_CLASS_AT(UApexDestructibleAsset, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x009e9420
 extern undefined * g_01fa47e8;
+struct C_009e9440 { undefined4 * sub_009e9440(void); };
 // @baa 0x009e9440
-undefined4 * UObject::sub_009e9440(void)
+undefined4 * C_009e9440::sub_009e9440(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -675,8 +678,9 @@ IMPLEMENT_CLASS_AT(UApexMeshParticleFactoryAsset, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x009e94d0
 extern undefined * g_01fa4908;
+struct C_009e94f0 { undefined4 * sub_009e94f0(void); };
 // @baa 0x009e94f0
-undefined4 * UObject::sub_009e94f0(void)
+undefined4 * C_009e94f0::sub_009e94f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -690,8 +694,9 @@ IMPLEMENT_CLASS_AT(UApexParticleSystemAsset, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x009e9570
 extern undefined * g_01fa4a28;
+struct C_009e9590 { undefined4 * sub_009e9590(void); };
 // @baa 0x009e9590
-undefined4 * UObject::sub_009e9590(void)
+undefined4 * C_009e9590::sub_009e9590(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1197,8 +1202,9 @@ void AApexDestructibleActor::SyncActorToRBPhysics() {  }
 
 int sub_006efb40(void);
 extern undefined * g_01fa3f70;
+struct C_009dd0d0 { undefined4 * sub_009dd0d0(byte param_2); };
 // @baa 0x009dd0d0
-undefined4 * ULensFlare::sub_009dd0d0(byte param_2)
+undefined4 * C_009dd0d0::sub_009dd0d0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1210,8 +1216,9 @@ undefined4 * ULensFlare::sub_009dd0d0(byte param_2)
   return param_1;
 }
 
+struct C_009dd100 { undefined4 * sub_009dd100(byte param_2); };
 // @baa 0x009dd100
-undefined4 * ULensFlare::sub_009dd100(byte param_2)
+undefined4 * C_009dd100::sub_009dd100(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

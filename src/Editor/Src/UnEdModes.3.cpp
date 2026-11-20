@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00f5bbb0(void);
+struct C_00f5f1b0 { undefined4 sub_00f5f1b0(byte param_2); };
 // @baa 0x00f5f1b0
-undefined4 UTerrainFactory::sub_00f5f1b0(byte param_2)
+undefined4 C_00f5f1b0::sub_00f5f1b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UTerrainFactory::sub_00f5f1b0(byte param_2)
 }
 
 extern undefined * g_021591c0;
+struct C_00f5fee0 { undefined4 * sub_00f5fee0(byte param_2); };
 // @baa 0x00f5fee0
-undefined4 * UTerrainFactory::sub_00f5fee0(byte param_2)
+undefined4 * C_00f5fee0::sub_00f5fee0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -32,8 +34,9 @@ undefined4 * UTerrainFactory::sub_00f5fee0(byte param_2)
 }
 
 extern undefined * g_022170c8;
+struct C_0127a180 { undefined4 * sub_0127a180(byte param_2); };
 // @baa 0x0127a180
-undefined4 * UTerrainFactory::sub_0127a180(byte param_2)
+undefined4 * C_0127a180::sub_0127a180(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

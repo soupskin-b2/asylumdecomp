@@ -3,24 +3,27 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_005cbec0 { int sub_005cbec0(int param_2); };
 // @baa 0x005cbec0
-int UObject::sub_005cbec0(int param_2)
+int C_005cbec0::sub_005cbec0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_005cbed0 { int sub_005cbed0(int param_2); };
 // @baa 0x005cbed0
-int UObject::sub_005cbed0(int param_2)
+int C_005cbed0::sub_005cbed0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_005cc050 { int sub_005cc050(int param_2); };
 // @baa 0x005cc050
-int UObject::sub_005cc050(int param_2)
+int C_005cc050::sub_005cc050(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -31,8 +34,9 @@ struct C_view {
     int sub_005cbfb0(int);
 };
 
+struct C_005cc060 { int sub_005cc060(undefined4 param_2); };
 // @baa 0x005cc060
-int UObject::sub_005cc060(undefined4 param_2)
+int C_005cc060::sub_005cc060(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_005cbfb0(param_2);
@@ -40,96 +44,108 @@ int UObject::sub_005cc060(undefined4 param_2)
   return param_1;
 }
 
+struct C_005cc080 { int sub_005cc080(void); };
 // @baa 0x005cc080
-int UObject::sub_005cc080(void)
+int C_005cc080::sub_005cc080(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_005cc090 { int sub_005cc090(void); };
 // @baa 0x005cc090
-int UObject::sub_005cc090(void)
+int C_005cc090::sub_005cc090(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc0b0 { int sub_005cc0b0(void); };
 // @baa 0x005cc0b0
-int UObject::sub_005cc0b0(void)
+int C_005cc0b0::sub_005cc0b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_005cc0f0 { int sub_005cc0f0(int param_2); };
 // @baa 0x005cc0f0
-int UObject::sub_005cc0f0(int param_2)
+int C_005cc0f0::sub_005cc0f0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_005cc110 { int sub_005cc110(int param_2); };
 // @baa 0x005cc110
-int UObject::sub_005cc110(int param_2)
+int C_005cc110::sub_005cc110(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_005cc120 { int sub_005cc120(int param_2); };
 // @baa 0x005cc120
-int UObject::sub_005cc120(int param_2)
+int C_005cc120::sub_005cc120(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_005cc130 { int sub_005cc130(void); };
 // @baa 0x005cc130
-int UObject::sub_005cc130(void)
+int C_005cc130::sub_005cc130(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_005cc140 { int sub_005cc140(void); };
 // @baa 0x005cc140
-int UObject::sub_005cc140(void)
+int C_005cc140::sub_005cc140(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc160 { int sub_005cc160(void); };
 // @baa 0x005cc160
-int UObject::sub_005cc160(void)
+int C_005cc160::sub_005cc160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x1c;
 }
 
+struct C_005cc180 { int sub_005cc180(void); };
 // @baa 0x005cc180
-int UObject::sub_005cc180(void)
+int C_005cc180::sub_005cc180(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc1a0 { int sub_005cc1a0(void); };
 // @baa 0x005cc1a0
-int UObject::sub_005cc1a0(void)
+int C_005cc1a0::sub_005cc1a0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc1c0 { int sub_005cc1c0(void); };
 // @baa 0x005cc1c0
-int UObject::sub_005cc1c0(void)
+int C_005cc1c0::sub_005cc1c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -140,48 +156,54 @@ void sub_005cbd70();
 // @baa 0x005cc1d0
 void sub_005cc1d0(void) { sub_005cbd70(); }
 
+struct C_005cc1e0 { int sub_005cc1e0(void); };
 // @baa 0x005cc1e0
-int UObject::sub_005cc1e0(void)
+int C_005cc1e0::sub_005cc1e0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc200 { int sub_005cc200(void); };
 // @baa 0x005cc200
-int UObject::sub_005cc200(void)
+int C_005cc200::sub_005cc200(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x1c;
 }
 
+struct C_005cc220 { int sub_005cc220(void); };
 // @baa 0x005cc220
-int UObject::sub_005cc220(void)
+int C_005cc220::sub_005cc220(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc240 { int sub_005cc240(void); };
 // @baa 0x005cc240
-int UObject::sub_005cc240(void)
+int C_005cc240::sub_005cc240(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x14;
 }
 
+struct C_005cc250 { int sub_005cc250(void); };
 // @baa 0x005cc250
-int UObject::sub_005cc250(void)
+int C_005cc250::sub_005cc250(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_005cc270 { int sub_005cc270(void); };
 // @baa 0x005cc270
-int UObject::sub_005cc270(void)
+int C_005cc270::sub_005cc270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

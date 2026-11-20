@@ -89,8 +89,9 @@ struct C_view {
     int sub_009b73e0(int, int);
 };
 
+struct C_00bcc8c0 { int sub_00bcc8c0(int param_2); };
 // @baa 0x00bcc8c0
-int UState::sub_00bcc8c0(int param_2)
+int C_00bcc8c0::sub_00bcc8c0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_009b73e0((int)(&param_2), param_2);

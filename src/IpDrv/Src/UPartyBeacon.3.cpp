@@ -38,8 +38,9 @@ return iVar2;
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_00e33f40 { undefined4 sub_00e33f40(byte param_2); };
 // @baa 0x00e33f40
-undefined4 UObject::sub_00e33f40(byte param_2)
+undefined4 C_00e33f40::sub_00e33f40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -50,8 +51,9 @@ undefined4 UObject::sub_00e33f40(byte param_2)
   return param_1;
 }
 
+struct C_00e37cb0 { undefined4 sub_00e37cb0(byte param_2); };
 // @baa 0x00e37cb0
-undefined4 UPartyBeaconHost::sub_00e37cb0(byte param_2)
+undefined4 C_00e37cb0::sub_00e37cb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

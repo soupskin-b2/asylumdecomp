@@ -1037,8 +1037,9 @@ struct C_view {
     int sub_014acd80(int, int);
 };
 
+struct C_014d8810 { int sub_014d8810(int param_2); };
 // @baa 0x014d8810
-int UTexture2D::sub_014d8810(int param_2)
+int C_014d8810::sub_014d8810(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -1149,8 +1150,9 @@ int C_014d9a50::sub_014d9a50(void)
 void sub_014d9aa0(void) { sub_014d90d0(); }
 
 int sub_014b33e0(void);
+struct C_014d9ae0 { int sub_014d9ae0(void); };
 // @baa 0x014d9ae0
-int UTexture2D::sub_014d9ae0(void)
+int C_014d9ae0::sub_014d9ae0(void)
 {
     int param_1 = (int)this;
 
@@ -1168,8 +1170,9 @@ struct C_014dae60 { void sub_014dad00(); void sub_014dae60(int); };
 void C_014dae60::sub_014dae60(int) { sub_014dad00(); }
 
 int sub_014d7a80(void);
+struct C_014db190 { int sub_014db190(void); };
 // @baa 0x014db190
-int UTexture2D::sub_014db190(void)
+int C_014db190::sub_014db190(void)
 {
     int param_1 = (int)this;
 
@@ -1183,8 +1186,9 @@ void sub_014db0a0();
 // @baa 0x014db1b0
 void sub_014db1b0(void) { sub_014db0a0(); }
 
+struct C_014db230 { int sub_014db230(void); };
 // @baa 0x014db230
-int UTexture2D::sub_014db230(void)
+int C_014db230::sub_014db230(void)
 {
     int param_1 = (int)this;
 
@@ -1392,8 +1396,9 @@ int sub_014c7270(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_022b9d90;
+struct C_014c7280 { undefined4 * sub_014c7280(void); };
 // @baa 0x014c7280
-undefined4 * UObject::sub_014c7280(void)
+undefined4 * C_014c7280::sub_014c7280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1403,8 +1408,9 @@ undefined4 * UObject::sub_014c7280(void)
 }
 
 extern undefined * g_022b9ea8;
+struct C_014c7330 { undefined4 * sub_014c7330(void); };
 // @baa 0x014c7330
-undefined4 * UObject::sub_014c7330(void)
+undefined4 * C_014c7330::sub_014c7330(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1414,8 +1420,9 @@ undefined4 * UObject::sub_014c7330(void)
 }
 
 extern undefined * g_022b9fc0;
+struct C_014c73e0 { undefined4 * sub_014c73e0(void); };
 // @baa 0x014c73e0
-undefined4 * UObject::sub_014c73e0(void)
+undefined4 * C_014c73e0::sub_014c73e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

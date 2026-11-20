@@ -40,8 +40,9 @@ UBOOL USoundNodeDistanceCrossFade::HasUniqueStaticConfigName() const { return 1;
 int __stdcall sub_00c931a0(int a0) { return 0; }
 
 int sub_0053dfa0(...);
+struct C_00c931f0 { void sub_00c931f0(void); };
 // @baa 0x00c931f0
-void USoundNodeWave::sub_00c931f0(void)
+void C_00c931f0::sub_00c931f0(void)
 {
     int param_1 = (int)this;
 
@@ -238,8 +239,9 @@ void USoundNodeRandom::PickNextNodeInAdvance()
 }
 
 extern undefined4*g_026b0d94;
+struct C_00cc3340 { void sub_00cc3340(void); };
 // @baa 0x00cc3340
-void USoundNodeRandom::sub_00cc3340(void)
+void C_00cc3340::sub_00cc3340(void)
 {
 int param_1=(int)this;
 
@@ -280,8 +282,9 @@ const FString USoundNode::GetEdHelperClassName() const
 // @baa 0x00cc5bf0
 int sub_005c7a20(void);
 extern undefined * g_020869a0;
+struct C_00cc5c10 { undefined4 * sub_00cc5c10(void); };
 // @baa 0x00cc5c10
-undefined4 * UObject::sub_00cc5c10(void)
+undefined4 * C_00cc5c10::sub_00cc5c10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -306,8 +309,9 @@ FLOAT USoundNodeAmbient::GetDuration() {
 
 // @baa 0x00cc5d20
 extern undefined * g_02086c60;
+struct C_00cc5d50 { undefined4 * sub_00cc5d50(void); };
 // @baa 0x00cc5d50
-undefined4 * UObject::sub_00cc5d50(void)
+undefined4 * C_00cc5d50::sub_00cc5d50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -326,8 +330,9 @@ IMPLEMENT_CLASS_AT(USoundNodeConcatenator, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00cc5df0
 extern undefined * g_02086da8;
+struct C_00cc5e10 { undefined4 * sub_00cc5e10(void); };
 // @baa 0x00cc5e10
-undefined4 * UObject::sub_00cc5e10(void)
+undefined4 * C_00cc5e10::sub_00cc5e10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -341,8 +346,9 @@ IMPLEMENT_CLASS_AT(USoundNodeMature, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00cc5e90
 extern undefined * g_02086ef0;
+struct C_00cc5eb0 { undefined4 * sub_00cc5eb0(void); };
 // @baa 0x00cc5eb0
-undefined4 * UObject::sub_00cc5eb0(void)
+undefined4 * C_00cc5eb0::sub_00cc5eb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -361,8 +367,9 @@ IMPLEMENT_CLASS_AT(USoundNodeMixer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00cc5f50
 extern undefined * g_02087038;
+struct C_00cc5f70 { undefined4 * sub_00cc5f70(void); };
 // @baa 0x00cc5f70
-undefined4 * UObject::sub_00cc5f70(void)
+undefined4 * C_00cc5f70::sub_00cc5f70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -381,8 +388,9 @@ IMPLEMENT_CLASS_AT(USoundNodeRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00cc6020
 extern undefined * g_02087180;
+struct C_00cc6040 { undefined4 * sub_00cc6040(void); };
 // @baa 0x00cc6040
-undefined4 * UObject::sub_00cc6040(void)
+undefined4 * C_00cc6040::sub_00cc6040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -484,8 +492,9 @@ FSparseArrayConstIt_00cc7ff0::FSparseArrayConstIt_00cc7ff0(const TSparseArray<IN
 
 // @baa 0x00cca350
 extern undefined * g_02087380;
+struct C_00cca370 { undefined4 * sub_00cca370(void); };
 // @baa 0x00cca370
-undefined4 * UObject::sub_00cca370(void)
+undefined4 * C_00cca370::sub_00cca370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -499,8 +508,9 @@ IMPLEMENT_CLASS_AT(USoundNodeAttenuation, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00cca430
 extern undefined * g_02086b18;
+struct C_00cca460 { undefined4 * sub_00cca460(void); };
 // @baa 0x00cca460
-undefined4 * UObject::sub_00cca460(void)
+undefined4 * C_00cca460::sub_00cca460(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -510,8 +520,9 @@ undefined4 * UObject::sub_00cca460(void)
 }
 
 extern undefined * g_020874c8;
+struct C_00cca480 { undefined4 * sub_00cca480(void); };
 // @baa 0x00cca480
-undefined4 * UObject::sub_00cca480(void)
+undefined4 * C_00cca480::sub_00cca480(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -533,8 +544,9 @@ IMPLEMENT_CLASS_AT(USoundNodeAmbientNonLoop, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00cca530
 // @baa 0x00cca560
 extern undefined * g_02087610;
+struct C_00cca580 { undefined4 * sub_00cca580(void); };
 // @baa 0x00cca580
-undefined4 * UObject::sub_00cca580(void)
+undefined4 * C_00cca580::sub_00cca580(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -548,8 +560,9 @@ IMPLEMENT_CLASS_AT(USoundNodeDelay, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00cca610
 extern undefined * g_02087758;
+struct C_00cca630 { undefined4 * sub_00cca630(void); };
 // @baa 0x00cca630
-undefined4 * UObject::sub_00cca630(void)
+undefined4 * C_00cca630::sub_00cca630(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -565,8 +578,9 @@ IMPLEMENT_CLASS_AT(USoundNodeLooping, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x00cca6e0
 // @baa 0x00cca700
 extern undefined * g_020878a0;
+struct C_00cca720 { undefined4 * sub_00cca720(void); };
 // @baa 0x00cca720
-undefined4 * UObject::sub_00cca720(void)
+undefined4 * C_00cca720::sub_00cca720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -580,8 +594,9 @@ IMPLEMENT_CLASS_AT(USoundNodeModulator, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00cca7c0
 extern undefined * g_020879e8;
+struct C_00cca7e0 { undefined4 * sub_00cca7e0(void); };
 // @baa 0x00cca7e0
-undefined4 * UObject::sub_00cca7e0(void)
+undefined4 * C_00cca7e0::sub_00cca7e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -595,8 +610,9 @@ IMPLEMENT_CLASS_AT(USoundNodeModulatorContinuous, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00cca880
 extern undefined * g_02087b30;
+struct C_00cca8a0 { undefined4 * sub_00cca8a0(void); };
 // @baa 0x00cca8a0
-undefined4 * UObject::sub_00cca8a0(void)
+undefined4 * C_00cca8a0::sub_00cca8a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -821,8 +837,9 @@ struct C_view_00cd1b60 {
     int sub_00ccf690(int, int);
 };
 
+struct C_00cd1b60 { void sub_00cd1b60(void); };
 // @baa 0x00cd1b60
-void UBrushComponent::sub_00cd1b60(void)
+void C_00cd1b60::sub_00cd1b60(void)
 {
     int param_1 = (int)this;
   ((C_view_00cd1b60 *)(this))->sub_00ccf690(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -851,8 +868,9 @@ struct C_view_00cd26c0 {
     int sub_00ccf750(int, int);
 };
 
+struct C_00cd26c0 { int sub_00cd26c0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00cd26c0
-int UBrushComponent::sub_00cd26c0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00cd26c0::sub_00cd26c0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00cd26c0 *)(this))->sub_00ccf750(param_2, param_4);
@@ -931,8 +949,9 @@ struct C_00cd27b0 { C_00cd27b0* sub_00cd27b0(void); };
 C_00cd27b0* C_00cd27b0::sub_00cd27b0(void) { return this; }
 
 int sub_00cc8150(void);
+struct C_00cd2830 { int sub_00cd2830(void); };
 // @baa 0x00cd2830
-int UBrushComponent::sub_00cd2830(void)
+int C_00cd2830::sub_00cd2830(void)
 {
     int param_1 = (int)this;
 
@@ -946,8 +965,9 @@ struct C_view_00cd28b0 {
     int sub_00cd1df0(int, int);
 };
 
+struct C_00cd28b0 { undefined4 sub_00cd28b0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00cd28b0
-undefined4 UBrushComponent::sub_00cd28b0(undefined4 param_2, undefined4 param_3)
+undefined4 C_00cd28b0::sub_00cd28b0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00cd28b0 *)(this))->sub_00cd1df0(param_2, param_3);
@@ -958,8 +978,9 @@ struct C_view_00cd28d0 {
     int sub_00cd1e70(int, int);
 };
 
+struct C_00cd28d0 { int sub_00cd28d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00cd28d0
-int UBrushComponent::sub_00cd28d0(undefined4 param_2, undefined4 param_3)
+int C_00cd28d0::sub_00cd28d0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00cd28d0 *)(this))->sub_00cd1e70(param_2, param_3);
@@ -1015,8 +1036,9 @@ int sub_00cd2970(void)
 }
 
 extern undefined * g_020888b8;
+struct C_00cd29a0 { undefined4 * sub_00cd29a0(void); };
 // @baa 0x00cd29a0
-undefined4 * UObject::sub_00cd29a0(void)
+undefined4 * C_00cd29a0::sub_00cd29a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1030,10 +1052,11 @@ INT USoundNodeDistanceCrossFade::GetMaxChildNodes() {
   return 0xffffffff;
 }
 
+struct C_00cd9940 { int sub_00cd9940(void); };
 // @baa 0x00cd29d0
 // @baa 0x00cd2a40
 // @baa 0x00cd9940
-int UBrushComponent::sub_00cd9940(void)
+int C_00cd9940::sub_00cd9940(void)
 {
     int param_1 = (int)this;
 
@@ -1063,8 +1086,9 @@ void sub_00cd9c80(void) { sub_00cd9970(); }
 // @baa 0x00cdbad0
 int sub_005c7a70(...);
 int sub_00cdba20(void);
+struct C_00cdbae0 { undefined4 sub_00cdbae0(byte param_2); };
 // @baa 0x00cdbae0
-undefined4 USoundCue::sub_00cdbae0(byte param_2)
+undefined4 C_00cdbae0::sub_00cdbae0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1098,8 +1122,9 @@ const FString USoundNodeWave::GetEdHelperClassName() const
 }
 
 int sub_00cdbc30(void);
+struct C_00cdbd90 { undefined4 sub_00cdbd90(byte param_2); };
 // @baa 0x00cdbd90
-undefined4 USoundNodeWave::sub_00cdbd90(byte param_2)
+undefined4 C_00cdbd90::sub_00cdbd90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1146,8 +1171,9 @@ void USoundCueFactoryNew::InitializeIntrinsicPropertyValues()
 
 int sub_00ece430(...);
 int sub_00f56370(...);
+struct C_00f56490 { void sub_00f56490(void); };
 // @baa 0x00f56490
-void USoundNodeWave::sub_00f56490(void)
+void C_00f56490::sub_00f56490(void)
 {
     int param_1 = (int)this;
 

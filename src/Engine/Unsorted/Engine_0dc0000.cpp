@@ -100,8 +100,9 @@ int sub_00dc98c0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_020cfad0;
+struct C_00dc98d0 { undefined4 * sub_00dc98d0(void); };
 // @baa 0x00dc98d0
-undefined4 * UObject::sub_00dc98d0(void)
+undefined4 * C_00dc98d0::sub_00dc98d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

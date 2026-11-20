@@ -4,8 +4,9 @@
 #include "ue3/Implement.h"
 
 int sub_0053df70(...);
+struct C_005a8f10 { void sub_005a8f10(int param_2); };
 // @baa 0x005a8f10
-void UObject::sub_005a8f10(int param_2)
+void C_005a8f10::sub_005a8f10(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -22,8 +23,9 @@ void UObject::sub_005a8f10(int param_2)
   return;
 }
 
+struct C_005a90b0 { void sub_005a90b0(int param_2); };
 // @baa 0x005a90b0
-void UObject::sub_005a90b0(int param_2)
+void C_005a90b0::sub_005a90b0(int param_2)
 {
     int * param_1 = (int *)this;
 

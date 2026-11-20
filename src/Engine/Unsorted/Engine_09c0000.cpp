@@ -8,8 +8,9 @@ struct C_view {
     int sub_009bd1f0(int, int);
 };
 
+struct C_009c0c20 { int sub_009c0c20(int param_2); };
 // @baa 0x009c0c20
-int UState::sub_009c0c20(int param_2)
+int C_009c0c20::sub_009c0c20(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_009bd1f0((int)(&param_2), param_2);
@@ -23,8 +24,9 @@ struct C_view_009c0c50 {
     int sub_009bd2b0(int, int);
 };
 
+struct C_009c0c50 { int sub_009c0c50(int param_2); };
 // @baa 0x009c0c50
-int UState::sub_009c0c50(int param_2)
+int C_009c0c50::sub_009c0c50(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_009c0c50 *)(this))->sub_009bd2b0((int)(&param_2), param_2);
@@ -264,8 +266,9 @@ struct C_view_009c3c90 {
     int sub_009c2d90();
 };
 
+struct C_009c3c90 { void sub_009c3c90(int param_2); };
 // @baa 0x009c3c90
-void ULineBatchComponent::sub_009c3c90(int param_2)
+void C_009c3c90::sub_009c3c90(int param_2)
 {
     int param_1 = (int)this;
   if (param_2 != *(int *)(param_1 + 0x48)) {

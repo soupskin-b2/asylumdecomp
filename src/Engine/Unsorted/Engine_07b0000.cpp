@@ -429,8 +429,9 @@ int C_007b3360::sub_007b3360(int param_2)
 
 int sub_0053dfa0(...);
 int sub_007b2830(void);
+struct C_007b33a0 { undefined4 sub_007b33a0(byte param_2); };
 // @baa 0x007b33a0
-undefined4 ULensFlare::sub_007b33a0(byte param_2)
+undefined4 C_007b33a0::sub_007b33a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -999,8 +1000,9 @@ void AController::RouteCache_InsertItem(ANavigationPoint* param_2, INT param_3)
 }
 
 extern undefined4*g_026b0d94;
+struct C_007b78c0 { void sub_007b78c0(void); };
 // @baa 0x007b78c0
-void ULensFlare::sub_007b78c0(void)
+void C_007b78c0::sub_007b78c0(void)
 {
 int param_1=(int)this;
 

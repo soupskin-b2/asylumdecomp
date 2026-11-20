@@ -21,8 +21,9 @@ struct C_view {
     int sub_00ae0870(int, int);
 };
 
+struct C_00b269e0 { void sub_00b269e0(void); };
 // @baa 0x00b269e0
-void UFracturedStaticMeshComponent::sub_00b269e0(void)
+void C_00b269e0::sub_00b269e0(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00ae0870(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -33,8 +34,9 @@ struct C_view_00b269f0 {
     int sub_00b23050(int, int);
 };
 
+struct C_00b269f0 { undefined4 sub_00b269f0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00b269f0
-undefined4 UTexture2D::sub_00b269f0(undefined4 param_2, undefined4 param_3)
+undefined4 C_00b269f0::sub_00b269f0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00b269f0 *)(this))->sub_00b23050(param_2, param_3);
@@ -45,8 +47,9 @@ struct C_view_00b26a10 {
     int sub_00b230b0(int, int);
 };
 
+struct C_00b26a10 { int sub_00b26a10(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00b26a10
-int UTexture2D::sub_00b26a10(undefined4 param_2, undefined4 param_3)
+int C_00b26a10::sub_00b26a10(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00b26a10 *)(this))->sub_00b230b0(param_2, param_3);
@@ -62,8 +65,9 @@ struct C_view_00b27810 {
     int sub_00b23050(int, int);
 };
 
+struct C_00b27810 { int sub_00b27810(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00b27810
-int UTexture2D::sub_00b27810(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00b27810::sub_00b27810(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00b27810 *)(this))->sub_00b23050(param_2, param_4);
@@ -173,8 +177,9 @@ void C_00b29320::sub_00b29320()
 }
 
 int sub_00b116e0(void);
+struct C_00b29a10 { int sub_00b29a10(void); };
 // @baa 0x00b29a10
-int UTexture2D::sub_00b29a10(void)
+int C_00b29a10::sub_00b29a10(void)
 {
     int param_1 = (int)this;
 

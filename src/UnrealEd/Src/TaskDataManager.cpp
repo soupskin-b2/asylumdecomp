@@ -8,8 +8,9 @@ struct C_view {
     int sub_014860e0(int);
 };
 
+struct C_01486260 { int sub_01486260(undefined4 param_2); };
 // @baa 0x01486260
-int UObject::sub_01486260(undefined4 param_2)
+int C_01486260::sub_01486260(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_014860e0(param_2);
@@ -19,8 +20,9 @@ int UObject::sub_01486260(undefined4 param_2)
 
 int sub_0053dfa0(...);
 int sub_014824d0(void);
+struct C_01486370 { undefined4 sub_01486370(byte param_2); };
 // @baa 0x01486370
-undefined4 UObject::sub_01486370(byte param_2)
+undefined4 C_01486370::sub_01486370(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

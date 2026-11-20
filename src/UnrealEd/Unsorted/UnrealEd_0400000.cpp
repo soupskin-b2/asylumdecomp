@@ -1376,8 +1376,9 @@ void C_0040cdb0::sub_0040cdb0(void)
 }
 
 int sub_00404da0(void);
+struct C_0040f070 { undefined4 sub_0040f070(byte param_2); };
 // @baa 0x0040f070
-undefined4 UUnrealEdEngine::sub_0040f070(byte param_2)
+undefined4 C_0040f070::sub_0040f070(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

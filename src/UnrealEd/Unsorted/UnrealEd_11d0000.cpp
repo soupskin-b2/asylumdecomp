@@ -253,8 +253,9 @@ struct C_view {
     int sub_01021050(int, int);
 };
 
+struct C_011d5d70 { void sub_011d5d70(void); };
 // @baa 0x011d5d70
-void UFracturedStaticMeshComponent::sub_011d5d70(void)
+void C_011d5d70::sub_011d5d70(void)
 {
     int param_1 = (int)this;
   int iVar1;

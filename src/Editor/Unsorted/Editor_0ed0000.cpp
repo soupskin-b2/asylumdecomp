@@ -339,8 +339,9 @@ int C_00ed1c10::sub_00ed1c10(int param_2)
 void __stdcall sub_00ed1c30(int a0, int a1) {  }
 
 int sub_00549160(void);
+struct C_00ed1d20 { undefined4 sub_00ed1d20(byte param_2); };
 // @baa 0x00ed1d20
-undefined4 UObject::sub_00ed1d20(byte param_2)
+undefined4 C_00ed1d20::sub_00ed1d20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

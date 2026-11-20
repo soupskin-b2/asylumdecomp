@@ -45,8 +45,9 @@ void C_00c1a1c0::sub_00c1a270() {}
 
 int sub_005c7a70(...);
 int sub_00c19ff0(void);
+struct C_00c1a270 { undefined4 sub_00c1a270(byte param_2); };
 // @baa 0x00c1a270
-undefined4 UNetConnection::sub_00c1a270(byte param_2)
+undefined4 C_00c1a270::sub_00c1a270(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -61,8 +62,9 @@ int sub_00e135b0(void);
 extern undefined4 g_02031d60;
 extern undefined4 g_02031d70;
 extern undefined * g_02031d78;
+struct C_00c1a2a0 { undefined4 * sub_00c1a2a0(void); };
 // @baa 0x00c1a2a0
-undefined4 * UNetConnection::sub_00c1a2a0(void)
+undefined4 * C_00c1a2a0::sub_00c1a2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -126,8 +128,9 @@ int C_00e0c0f0::sub_00e0c0f0(int param_2)
 IMPLEMENT_CLASS_AT(UGuidCache, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnConn.cpp", 148);
 
 int sub_00e14ae0(void);
+struct C_00e14b70 { undefined4 sub_00e14b70(byte param_2); };
 // @baa 0x00e14b70
-undefined4 UGuidCache::sub_00e14b70(byte param_2)
+undefined4 C_00e14b70::sub_00e14b70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   sub_00e14ae0();
@@ -141,8 +144,9 @@ undefined4 UGuidCache::sub_00e14b70(byte param_2)
 extern undefined4 g_020e436c;
 extern undefined4 g_020e437c;
 extern undefined * g_020e4380;
+struct C_00e14ba0 { undefined4 * sub_00e14ba0(void); };
 // @baa 0x00e14ba0
-undefined4 * UNetConnection::sub_00e14ba0(void)
+undefined4 * C_00e14ba0::sub_00e14ba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -174,8 +178,9 @@ void C_00e14c40::sub_00e14d20() {}
 // @baa 0x00e14d20
 // @baa 0x00e14d50
 int sub_00e08f00(void);
+struct C_00e14e10 { int sub_00e14e10(void); };
 // @baa 0x00e14e10
-int UGuidCache::sub_00e14e10(void)
+int C_00e14e10::sub_00e14e10(void)
 {
     int param_1 = (int)this;
 

@@ -56,8 +56,9 @@ UShadowMapTexture2D::UShadowMapTexture2D()
 
 int sub_005c7a70(...);
 int sub_00936800(void);
+struct C_00936860 { undefined4 sub_00936860(byte param_2); };
 // @baa 0x00936860
-undefined4 UShadowMapTexture2D::sub_00936860(byte param_2)
+undefined4 C_00936860::sub_00936860(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

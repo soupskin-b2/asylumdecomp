@@ -18,8 +18,9 @@ int sub_0053dfa0(...);
 
 int sub_005c7a70(...);
 int sub_01206570(void);
+struct C_012066b0 { undefined4 sub_012066b0(byte param_2); };
 // @baa 0x012066b0
-undefined4 UPropertyWindowManager::sub_012066b0(byte param_2)
+undefined4 C_012066b0::sub_012066b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -233,8 +234,9 @@ int C_012089a0::sub_012089a0(int param_2)
 }
 
 int sub_01201090(void);
+struct C_01208ba0 { undefined4 sub_01208ba0(byte param_2); };
 // @baa 0x01208ba0
-undefined4 UObject::sub_01208ba0(byte param_2)
+undefined4 C_01208ba0::sub_01208ba0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -274,8 +276,9 @@ FSparseArrayConstIt_01208be0& FSparseArrayConstIt_01208be0::operator++()
 }
 
 int sub_0040fcc0(void);
+struct C_01208c00 { undefined4 sub_01208c00(byte param_2); };
 // @baa 0x01208c00
-undefined4 UObject::sub_01208c00(byte param_2)
+undefined4 C_01208c00::sub_01208c00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -286,8 +289,9 @@ undefined4 UObject::sub_01208c00(byte param_2)
   return param_1;
 }
 
+struct C_01208c20 { undefined4 sub_01208c20(byte param_2); };
 // @baa 0x01208c20
-undefined4 UObject::sub_01208c20(byte param_2)
+undefined4 C_01208c20::sub_01208c20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -298,8 +302,9 @@ undefined4 UObject::sub_01208c20(byte param_2)
   return param_1;
 }
 
+struct C_01208c40 { undefined4 sub_01208c40(byte param_2); };
 // @baa 0x01208c40
-undefined4 UObject::sub_01208c40(byte param_2)
+undefined4 C_01208c40::sub_01208c40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

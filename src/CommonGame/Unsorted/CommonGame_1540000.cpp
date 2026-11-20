@@ -14,8 +14,9 @@ IMPLEMENT_CLASS_AT(URSeqVar_RandomVector, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x015400d0
 extern undefined * g_022e5ab8;
+struct C_01540570 { undefined4 * sub_01540570(void); };
 // @baa 0x01540570
-undefined4 * UObject::sub_01540570(void)
+undefined4 * C_01540570::sub_01540570(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -411,8 +412,9 @@ int C_01546910::sub_01546910(void)
 void sub_01546b70(void) { sub_01545f40(); }
 
 extern undefined * g_022e8270;
+struct C_01546c60 { undefined4 * sub_01546c60(void); };
 // @baa 0x01546c60
-undefined4 * UObject::sub_01546c60(void)
+undefined4 * C_01546c60::sub_01546c60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -435,8 +437,9 @@ UBOOL ARBreakablePropStatic::HasParentClassChanged() const
 }
 
 extern undefined * g_022e8398;
+struct C_01546e80 { undefined4 * sub_01546e80(void); };
 // @baa 0x01546e80
-undefined4 * UObject::sub_01546e80(void)
+undefined4 * C_01546e80::sub_01546e80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -474,8 +477,9 @@ IMPLEMENT_CLASS_AT(URSeqCond_VisibleLastFrame, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x015478f0
 extern undefined * g_022e8d70;
+struct C_01547920 { undefined4 * sub_01547920(void); };
 // @baa 0x01547920
-undefined4 * UObject::sub_01547920(void)
+undefined4 * C_01547920::sub_01547920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

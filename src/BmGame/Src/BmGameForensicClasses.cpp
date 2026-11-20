@@ -139,8 +139,9 @@ UBOOL ARForensicsDevice::IsUsingFilterView()
 
 int sub_005c7a20(void);
 extern undefined * g_023763e0;
+struct C_016752e0 { undefined4 * sub_016752e0(void); };
 // @baa 0x016752e0
-undefined4 * UObject::sub_016752e0(void)
+undefined4 * C_016752e0::sub_016752e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -150,8 +151,9 @@ undefined4 * UObject::sub_016752e0(void)
 }
 
 extern undefined * g_02376508;
+struct C_01675380 { undefined4 * sub_01675380(void); };
 // @baa 0x01675380
-undefined4 * UObject::sub_01675380(void)
+undefined4 * C_01675380::sub_01675380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -161,8 +163,9 @@ undefined4 * UObject::sub_01675380(void)
 }
 
 extern undefined * g_02376630;
+struct C_016754b0 { undefined4 * sub_016754b0(void); };
 // @baa 0x016754b0
-undefined4 * UObject::sub_016754b0(void)
+undefined4 * C_016754b0::sub_016754b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -172,8 +175,9 @@ undefined4 * UObject::sub_016754b0(void)
 }
 
 extern undefined * g_02376758;
+struct C_016754d0 { undefined4 * sub_016754d0(void); };
 // @baa 0x016754d0
-undefined4 * UObject::sub_016754d0(void)
+undefined4 * C_016754d0::sub_016754d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

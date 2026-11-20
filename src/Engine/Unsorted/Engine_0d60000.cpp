@@ -345,8 +345,9 @@ struct V_00d6b760 {
 // @baa 0x00d6b760
 void V_00d6b760::sub_00d6b760() { g(); }
 
+struct C_00d6b770 { undefined4 sub_00d6b770(byte param_2); };
 // @baa 0x00d6b770
-undefined4 ANxForceField::sub_00d6b770(byte param_2)
+undefined4 C_00d6b770::sub_00d6b770(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

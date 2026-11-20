@@ -131,8 +131,9 @@ struct C_00e422c0 { C_00e422c0* sub_00e422c0(void); };
 C_00e422c0* C_00e422c0::sub_00e422c0(void) { *(int*)((char*)this + 0) = (int)g_02106094; return this; }
 
 int sub_0053dfa0(...);
+struct C_00e422d0 { undefined4 * sub_00e422d0(byte param_2); };
 // @baa 0x00e422d0
-undefined4 * UGFxFSCmdHandler::sub_00e422d0(byte param_2)
+undefined4 * C_00e422d0::sub_00e422d0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -685,8 +686,9 @@ void sub_00e679e0(void) { sub_00e66c90(); }
 
 // @baa 0x00e679f0
 int sub_00693af0(void);
+struct C_00e67ab0 { undefined4 sub_00e67ab0(byte param_2); };
 // @baa 0x00e67ab0
-undefined4 UGFxMovie::sub_00e67ab0(byte param_2)
+undefined4 C_00e67ab0::sub_00e67ab0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -712,8 +714,9 @@ int sub_00e67f10(void)
 
 int sub_005c7a20(void);
 extern undefined * g_021076f8;
+struct C_00e67f40 { undefined4 * sub_00e67f40(void); };
 // @baa 0x00e67f40
-undefined4 * UObject::sub_00e67f40(void)
+undefined4 * C_00e67f40::sub_00e67f40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -727,8 +730,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_CloseMovie, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00e67fc0
 extern undefined * g_02107898;
+struct C_00e67ff0 { undefined4 * sub_00e67ff0(void); };
 // @baa 0x00e67ff0
-undefined4 * UObject::sub_00e67ff0(void)
+undefined4 * C_00e67ff0::sub_00e67ff0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -742,8 +746,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_GetVariable, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00e68080
 extern undefined * g_02107a38;
+struct C_00e680b0 { undefined4 * sub_00e680b0(void); };
 // @baa 0x00e680b0
-undefined4 * UObject::sub_00e680b0(void)
+undefined4 * C_00e680b0::sub_00e680b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -757,8 +762,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_Invoke, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x00e68150
 extern undefined * g_02107bd8;
+struct C_00e68180 { undefined4 * sub_00e68180(void); };
 // @baa 0x00e68180
-undefined4 * UObject::sub_00e68180(void)
+undefined4 * C_00e68180::sub_00e68180(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -772,8 +778,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_OpenMovie, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00e68200
 extern undefined * g_02107d78;
+struct C_00e68230 { undefined4 * sub_00e68230(void); };
 // @baa 0x00e68230
-undefined4 * UObject::sub_00e68230(void)
+undefined4 * C_00e68230::sub_00e68230(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -787,8 +794,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_SetCaptureKeys, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00e682c0
 extern undefined * g_02107f18;
+struct C_00e682f0 { undefined4 * sub_00e682f0(void); };
 // @baa 0x00e682f0
-undefined4 * UObject::sub_00e682f0(void)
+undefined4 * C_00e682f0::sub_00e682f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -802,8 +810,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_SetFocus, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00e68370
 extern undefined * g_021080b8;
+struct C_00e683a0 { undefined4 * sub_00e683a0(void); };
 // @baa 0x00e683a0
-undefined4 * UObject::sub_00e683a0(void)
+undefined4 * C_00e683a0::sub_00e683a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -817,8 +826,9 @@ IMPLEMENT_CLASS_AT(UGFxAction_SetVariable, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00e68430
 extern undefined * g_02108258;
+struct C_00e68460 { undefined4 * sub_00e68460(void); };
 // @baa 0x00e68460
-undefined4 * UObject::sub_00e68460(void)
+undefined4 * C_00e68460::sub_00e68460(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -839,8 +849,9 @@ IMPLEMENT_CLASS_AT(URGFxMovie, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 
 int sub_00e66050(void);
 extern undefined * g_023a5270;
+struct C_016e1790 { undefined4 * sub_016e1790(void); };
 // @baa 0x016e1790
-undefined4 * UGFxMovie::sub_016e1790(void)
+undefined4 * C_016e1790::sub_016e1790(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -851,8 +862,9 @@ undefined4 * UGFxMovie::sub_016e1790(void)
 
 // @baa 0x016e17b0
 extern undefined * g_023a53f0;
+struct C_016e17e0 { undefined4 * sub_016e17e0(void); };
 // @baa 0x016e17e0
-undefined4 * UGFxMovie::sub_016e17e0(void)
+undefined4 * C_016e17e0::sub_016e17e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -866,8 +878,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieBio, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x016e1860
 extern undefined * g_023a5570;
+struct C_016e1890 { undefined4 * sub_016e1890(void); };
 // @baa 0x016e1890
-undefined4 * UGFxMovie::sub_016e1890(void)
+undefined4 * C_016e1890::sub_016e1890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -881,8 +894,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieFrontend, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x016e1910
 extern undefined * g_023a56f8;
+struct C_016e1940 { undefined4 * sub_016e1940(void); };
 // @baa 0x016e1940
-undefined4 * UGFxMovie::sub_016e1940(void)
+undefined4 * C_016e1940::sub_016e1940(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -896,8 +910,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieHUD, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x016e19d0
 extern undefined * g_023a5878;
+struct C_016e1a00 { undefined4 * sub_016e1a00(void); };
 // @baa 0x016e1a00
-undefined4 * UGFxMovie::sub_016e1a00(void)
+undefined4 * C_016e1a00::sub_016e1a00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -911,8 +926,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieInvestigate, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x016e1a80
 extern undefined * g_023a59f8;
+struct C_016e1ab0 { undefined4 * sub_016e1ab0(void); };
 // @baa 0x016e1ab0
-undefined4 * UGFxMovie::sub_016e1ab0(void)
+undefined4 * C_016e1ab0::sub_016e1ab0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -926,8 +942,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieMap, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x016e1b30
 extern undefined * g_023a5b78;
+struct C_016e1b60 { undefined4 * sub_016e1b60(void); };
 // @baa 0x016e1b60
-undefined4 * UGFxMovie::sub_016e1b60(void)
+undefined4 * C_016e1b60::sub_016e1b60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -941,8 +958,9 @@ IMPLEMENT_CLASS_AT(URGFxMovieRiddler, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x016e1be0
 extern undefined * g_023a5cf8;
+struct C_016e1c10 { undefined4 * sub_016e1c10(void); };
 // @baa 0x016e1c10
-undefined4 * UGFxMovie::sub_016e1c10(void)
+undefined4 * C_016e1c10::sub_016e1c10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

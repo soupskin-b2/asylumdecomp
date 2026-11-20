@@ -60,8 +60,9 @@ struct C_view {
     int sub_00ccbf20();
 };
 
+struct C_00d56c70 { undefined4 sub_00d56c70(byte param_2); };
 // @baa 0x00d56c70
-undefined4 UObject::sub_00d56c70(byte param_2)
+undefined4 C_00d56c70::sub_00d56c70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 0x10)))->sub_00ccbf20();

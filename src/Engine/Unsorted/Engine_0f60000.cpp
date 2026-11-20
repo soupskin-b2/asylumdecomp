@@ -43,8 +43,9 @@ struct C_view {
     int sub_00f5e3d0(int, int);
 };
 
+struct C_00f61a80 { int sub_00f61a80(int param_2); };
 // @baa 0x00f61a80
-int UPackageMap::sub_00f61a80(int param_2)
+int C_00f61a80::sub_00f61a80(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00f5e3d0((int)(&param_2), param_2);

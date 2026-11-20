@@ -105,8 +105,9 @@ IMPLEMENT_CLASS_AT(UOptionsNewClassFromSel, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 int sub_005c7a20(void);
 extern undefined * g_021cfb30;
+struct C_0115bef0 { undefined4 * sub_0115bef0(void); };
 // @baa 0x0115bef0
-undefined4 * UObject::sub_0115bef0(void)
+undefined4 * C_0115bef0::sub_0115bef0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

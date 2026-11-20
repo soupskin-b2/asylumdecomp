@@ -103,8 +103,9 @@ void sub_00857900(void) { sub_00856e60(); }
 // @baa 0x008590d0
 int sub_005c7a20(void);
 extern undefined * g_01f45020;
+struct C_008590f0 { undefined4 * sub_008590f0(void); };
 // @baa 0x008590f0
-undefined4 * UObject::sub_008590f0(void)
+undefined4 * C_008590f0::sub_008590f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -114,8 +115,9 @@ undefined4 * UObject::sub_008590f0(void)
 }
 
 extern undefined * g_01f45168;
+struct C_00859110 { undefined4 * sub_00859110(void); };
 // @baa 0x00859110
-undefined4 * UObject::sub_00859110(void)
+undefined4 * C_00859110::sub_00859110(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -205,8 +207,9 @@ UBOOL UMorphTargetSet::HasParentClassChanged() const
 }
 
 extern undefined * g_01f43ff8;
+struct C_0083d7d0 { undefined4 * sub_0083d7d0(void); };
 // @baa 0x0083d7d0
-undefined4 * UObject::sub_0083d7d0(void)
+undefined4 * C_0083d7d0::sub_0083d7d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -216,8 +219,9 @@ undefined4 * UObject::sub_0083d7d0(void)
 }
 
 extern undefined * g_01f44140;
+struct C_0083d7f0 { undefined4 * sub_0083d7f0(void); };
 // @baa 0x0083d7f0
-undefined4 * UObject::sub_0083d7f0(void)
+undefined4 * C_0083d7f0::sub_0083d7f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -227,8 +231,9 @@ undefined4 * UObject::sub_0083d7f0(void)
 }
 
 extern undefined * g_01f452b0;
+struct C_008591b0 { undefined4 * sub_008591b0(void); };
 // @baa 0x008591b0
-undefined4 * UObject::sub_008591b0(void)
+undefined4 * C_008591b0::sub_008591b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

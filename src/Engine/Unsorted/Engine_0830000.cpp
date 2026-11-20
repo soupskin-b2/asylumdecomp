@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00b2eb30(void);
+struct C_00830f30 { undefined4 sub_00830f30(byte param_2); };
 // @baa 0x00830f30
-undefined4 ULensFlare::sub_00830f30(byte param_2)
+undefined4 C_00830f30::sub_00830f30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -49,8 +50,9 @@ struct C_00832ce0 { int a, b, c; C_00832ce0(); };
 C_00832ce0::C_00832ce0() : a(0), b(0), c(0) {}
 
 int sub_00832d00(void);
+struct C_008335f0 { undefined4 sub_008335f0(byte param_2); };
 // @baa 0x008335f0
-undefined4 ULensFlare::sub_008335f0(byte param_2)
+undefined4 C_008335f0::sub_008335f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -132,8 +134,9 @@ int sub_008339e0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01f43bb8;
+struct C_008339f0 { undefined4 * sub_008339f0(void); };
 // @baa 0x008339f0
-undefined4 * UObject::sub_008339f0(void)
+undefined4 * C_008339f0::sub_008339f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -338,8 +341,9 @@ struct C_00833dd0 { void sub_00833dd0(void); };
 // @baa 0x00833dd0
 void C_00833dd0::sub_00833dd0(void) { *(int*)((char*)this + 0) = (int)g_01f43ccc; }
 
+struct C_00833de0 { undefined4 * sub_00833de0(byte param_2); };
 // @baa 0x00833de0
-undefined4 * UMotionBlurEffect::sub_00833de0(byte param_2)
+undefined4 * C_00833de0::sub_00833de0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -391,8 +395,9 @@ int sub_008341d0(int a0, int a1) { return a1; }
 int sub_008341e0(int a0, int a1) { return a1; }
 
 extern undefined * g_01f43d08;
+struct C_008341f0 { undefined4 * sub_008341f0(void); };
 // @baa 0x008341f0
-undefined4 * UObject::sub_008341f0(void)
+undefined4 * C_008341f0::sub_008341f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1545,8 +1550,9 @@ undefined4 UMorphWeightSequence::sub_0083a400(byte param_2)
 }
 
 extern undefined * g_01ebbe1c;
+struct C_0083a420 { undefined4 * sub_0083a420(byte param_2); };
 // @baa 0x0083a420
-undefined4 * UMorphWeightSequence::sub_0083a420(byte param_2)
+undefined4 * C_0083a420::sub_0083a420(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2042,8 +2048,9 @@ void __stdcall sub_0083d670(int a0, int a1, int a2, int a3) {  }
 
 // @baa 0x0083d680
 extern undefined * g_01f43ed8;
+struct C_0083d6a0 { undefined4 * sub_0083d6a0(void); };
 // @baa 0x0083d6a0
-undefined4 * UObject::sub_0083d6a0(void)
+undefined4 * C_0083d6a0::sub_0083d6a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_006efb40(void);
+struct C_0079d500 { undefined4 sub_0079d500(byte param_2); };
 // @baa 0x0079d500
-undefined4 ULensFlare::sub_0079d500(byte param_2)
+undefined4 C_0079d500::sub_0079d500(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

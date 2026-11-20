@@ -151,8 +151,9 @@ void sub_01728140(void) { sub_006837e0(); }
 
 int sub_006f7810(void);
 extern undefined * g_023ca0d0;
+struct C_0172ace0 { undefined4 * sub_0172ace0(void); };
 // @baa 0x0172ace0
-undefined4 * UPrimitiveComponent::sub_0172ace0(void)
+undefined4 * C_0172ace0::sub_0172ace0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -190,16 +191,18 @@ int sub_01731540(void)
 // @baa 0x01735290
 int sub_01735290(void) { return 1690; }
 
+struct C_017352a0 { int sub_017352a0(void); };
 // @baa 0x017352a0
-int ULensFlare::sub_017352a0(void)
+int C_017352a0::sub_017352a0(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x84) * 4;
 }
 
+struct C_017352b0 { int sub_017352b0(void); };
 // @baa 0x017352b0
-int ULensFlare::sub_017352b0(void)
+int C_017352b0::sub_017352b0(void)
 {
     int param_1 = (int)this;
 

@@ -8,8 +8,9 @@ void sub_00f70740();
 void sub_00f70b70(void) { sub_00f70740(); }
 
 int sub_00f62060(void);
+struct C_00f70b80 { int sub_00f70b80(void); };
 // @baa 0x00f70b80
-int UPackageMap::sub_00f70b80(void)
+int C_00f70b80::sub_00f70b80(void)
 {
     int param_1 = (int)this;
 
@@ -22,8 +23,9 @@ int UPackageMap::sub_00f70b80(void)
 // @baa 0x00f70ba0
 void sub_00f70ba0(void) { sub_00f70740(); }
 
+struct C_00f70bb0 { int sub_00f70bb0(void); };
 // @baa 0x00f70bb0
-int UPackageMap::sub_00f70bb0(void)
+int C_00f70bb0::sub_00f70bb0(void)
 {
     int param_1 = (int)this;
 

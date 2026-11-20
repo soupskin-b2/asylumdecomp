@@ -5,8 +5,9 @@
 #include "ue3/Map.h"
 
 int sub_0053df70(...);
+struct C_0065faf0 { void sub_0065faf0(int param_2); };
 // @baa 0x0065faf0
-void UFracturedStaticMeshComponent::sub_0065faf0(int param_2)
+void C_0065faf0::sub_0065faf0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -23,8 +24,9 @@ void UFracturedStaticMeshComponent::sub_0065faf0(int param_2)
   return;
 }
 
+struct C_0065fb30 { void sub_0065fb30(int param_2); };
 // @baa 0x0065fb30
-void UFracturedStaticMeshComponent::sub_0065fb30(int param_2)
+void C_0065fb30::sub_0065fb30(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -41,8 +43,9 @@ void UFracturedStaticMeshComponent::sub_0065fb30(int param_2)
   return;
 }
 
+struct C_00672ef0 { void sub_00672ef0(int param_2); };
 // @baa 0x00672ef0
-void UFracturedStaticMeshComponent::sub_00672ef0(int param_2)
+void C_00672ef0::sub_00672ef0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -71,16 +74,18 @@ UBOOL UModel::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00805d30 { int sub_00805d30(int param_2); };
 // @baa 0x00805d30
-int UFracturedStaticMeshComponent::sub_00805d30(int param_2)
+int C_00805d30::sub_00805d30(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_00805db0 { int sub_00805db0(int param_2); };
 // @baa 0x00805db0
-int UFracturedStaticMeshComponent::sub_00805db0(int param_2)
+int C_00805db0::sub_00805db0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -124,8 +129,9 @@ struct C_view {
     int sub_00805840(int);
 };
 
+struct C_00812700 { int sub_00812700(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00812700
-int UObject::sub_00812700(undefined4 param_2, undefined4 param_3)
+int C_00812700::sub_00812700(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00805840(param_3);
@@ -165,8 +171,9 @@ void UModel::PostDuplicate()
   return;
 }
 
+struct C_00815c40 { void sub_00815c40(void); };
 // @baa 0x00815c40
-void UModel::sub_00815c40(void)
+void C_00815c40::sub_00815c40(void)
 {
     int param_1 = (int)this;
 
@@ -206,8 +213,9 @@ void C_008180c0::sub_008180c0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00818120 { void sub_00818120(int param_2); };
 // @baa 0x00818120
-void UObject::sub_00818120(int param_2)
+void C_00818120::sub_00818120(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -228,8 +236,9 @@ struct C_view_00818290 {
     int sub_00805bc0(int);
 };
 
+struct C_00818290 { int sub_00818290(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00818290
-int UObject::sub_00818290(undefined4 param_2, undefined4 param_3)
+int C_00818290::sub_00818290(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00818290 *)(this))->sub_00805bc0(param_3);
@@ -241,8 +250,9 @@ struct C_view_008182b0 {
     int sub_00805c70(int);
 };
 
+struct C_008182b0 { int sub_008182b0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x008182b0
-int UObject::sub_008182b0(undefined4 param_2, undefined4 param_3)
+int C_008182b0::sub_008182b0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_008182b0 *)(this))->sub_00805c70(param_3);
@@ -254,8 +264,9 @@ struct C_view_008182d0 {
     int sub_00805d40(int);
 };
 
+struct C_008182d0 { int sub_008182d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x008182d0
-int UObject::sub_008182d0(undefined4 param_2, undefined4 param_3)
+int C_008182d0::sub_008182d0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_008182d0 *)(this))->sub_00805d40(param_3);
@@ -359,8 +370,9 @@ struct C_00818670 { int a, b, c; C_00818670(); };
 // @baa 0x00818670
 C_00818670::C_00818670() : a(0), b(0), c(0) {}
 
+struct C_00818730 { void sub_00818730(int param_2); };
 // @baa 0x00818730
-void UFracturedStaticMeshComponent::sub_00818730(int param_2)
+void C_00818730::sub_00818730(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -443,8 +455,9 @@ FString C_00821870::sub_00821870()
 }
 
 int sub_00820dc0(void);
+struct C_008218a0 { undefined4 sub_008218a0(byte param_2); };
 // @baa 0x008218a0
-undefined4 ULensFlare::sub_008218a0(byte param_2)
+undefined4 C_008218a0::sub_008218a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -686,8 +699,9 @@ UModelComponent::UModelComponent()
 // @baa 0x00823550
 int sub_005c7a70(...);
 int sub_00823550(void);
+struct C_008235e0 { undefined4 sub_008235e0(byte param_2); };
 // @baa 0x008235e0
-undefined4 UModelComponent::sub_008235e0(byte param_2)
+undefined4 C_008235e0::sub_008235e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -699,8 +713,9 @@ undefined4 UModelComponent::sub_008235e0(byte param_2)
 }
 
 int sub_008217c0(void);
+struct C_00823750 { undefined4 sub_00823750(byte param_2); };
 // @baa 0x00823750
-undefined4 UStaticMeshComponent::sub_00823750(byte param_2)
+undefined4 C_00823750::sub_00823750(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -981,8 +996,9 @@ void S::sub_008291c0() {
 }
 
 int sub_0082ab10(void);
+struct C_0082ae20 { undefined4 sub_0082ae20(byte param_2); };
 // @baa 0x0082ae20
-undefined4 UModel::sub_0082ae20(byte param_2)
+undefined4 C_0082ae20::sub_0082ae20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

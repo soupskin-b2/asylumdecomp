@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_0060dd40(void);
+struct C_0061a8b0 { int sub_0061a8b0(void); };
 // @baa 0x0061a8b0
-int UPackageMap::sub_0061a8b0(void)
+int C_0061a8b0::sub_0061a8b0(void)
 {
     int param_1 = (int)this;
 
@@ -19,8 +20,9 @@ struct C_view {
     int sub_00617000(int);
 };
 
+struct C_0061aa40 { void sub_0061aa40(void); };
 // @baa 0x0061aa40
-void UPackageMap::sub_0061aa40(void)
+void C_0061aa40::sub_0061aa40(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00617000(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c));
@@ -28,8 +30,9 @@ void UPackageMap::sub_0061aa40(void)
 }
 
 int sub_0060dda0(void);
+struct C_0061aa50 { int sub_0061aa50(void); };
 // @baa 0x0061aa50
-int UPackageMap::sub_0061aa50(void)
+int C_0061aa50::sub_0061aa50(void)
 {
     int param_1 = (int)this;
 
@@ -44,8 +47,9 @@ struct C_view_0061aa70 {
     int sub_005dae80(int, int);
 };
 
+struct C_0061aa70 { void sub_0061aa70(void); };
 // @baa 0x0061aa70
-void UPackageMap::sub_0061aa70(void)
+void C_0061aa70::sub_0061aa70(void)
 {
     int param_1 = (int)this;
   ((C_view_0061aa70 *)(this))->sub_0060c760();
@@ -58,8 +62,9 @@ struct C_view_0061aa90 {
     int sub_00613570(int, int);
 };
 
+struct C_0061aa90 { void sub_0061aa90(void); };
 // @baa 0x0061aa90
-void UPackageMap::sub_0061aa90(void)
+void C_0061aa90::sub_0061aa90(void)
 {
     int param_1 = (int)this;
   ((C_view_0061aa90 *)(this))->sub_0060c930();
@@ -72,8 +77,9 @@ struct C_view_0061aab0 {
     int sub_00613630(int, int);
 };
 
+struct C_0061aab0 { void sub_0061aab0(void); };
 // @baa 0x0061aab0
-void UPackageMap::sub_0061aab0(void)
+void C_0061aab0::sub_0061aab0(void)
 {
     int param_1 = (int)this;
   ((C_view_0061aab0 *)(this))->sub_0060cb00();
@@ -82,8 +88,9 @@ void UPackageMap::sub_0061aab0(void)
 }
 
 int sub_0060df60(void);
+struct C_0061ab10 { int sub_0061ab10(void); };
 // @baa 0x0061ab10
-int UPackageMap::sub_0061ab10(void)
+int C_0061ab10::sub_0061ab10(void)
 {
     int param_1 = (int)this;
 
@@ -94,8 +101,9 @@ int UPackageMap::sub_0061ab10(void)
 }
 
 int sub_0060dfc0(void);
+struct C_0061ab30 { int sub_0061ab30(void); };
 // @baa 0x0061ab30
-int UPackageMap::sub_0061ab30(void)
+int C_0061ab30::sub_0061ab30(void)
 {
     int param_1 = (int)this;
 
@@ -106,8 +114,9 @@ int UPackageMap::sub_0061ab30(void)
 }
 
 int sub_0060e070(void);
+struct C_0061ab50 { int sub_0061ab50(void); };
 // @baa 0x0061ab50
-int UPackageMap::sub_0061ab50(void)
+int C_0061ab50::sub_0061ab50(void)
 {
     int param_1 = (int)this;
 
@@ -118,8 +127,9 @@ int UPackageMap::sub_0061ab50(void)
 }
 
 int sub_0060e120(void);
+struct C_0061ab70 { int sub_0061ab70(void); };
 // @baa 0x0061ab70
-int UPackageMap::sub_0061ab70(void)
+int C_0061ab70::sub_0061ab70(void)
 {
     int param_1 = (int)this;
 
@@ -130,8 +140,9 @@ int UPackageMap::sub_0061ab70(void)
 }
 
 int sub_0060e180(void);
+struct C_0061ab90 { int sub_0061ab90(void); };
 // @baa 0x0061ab90
-int UPackageMap::sub_0061ab90(void)
+int C_0061ab90::sub_0061ab90(void)
 {
     int param_1 = (int)this;
 

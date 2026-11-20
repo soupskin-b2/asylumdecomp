@@ -16,8 +16,9 @@ struct C_view {
     int sub_013c8660(int);
 };
 
+struct C_013d17a0 { int sub_013d17a0(int param_2); };
 // @baa 0x013d17a0
-int URFMODSound::sub_013d17a0(int param_2)
+int C_013d17a0::sub_013d17a0(int param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00547da0(param_2);
@@ -51,8 +52,9 @@ struct C_view_013d1800 {
     int sub_0055ab10(int, int);
 };
 
+struct C_013d1800 { void sub_013d1800(void); };
 // @baa 0x013d1800
-void UPackageMap::sub_013d1800(void)
+void C_013d1800::sub_013d1800(void)
 {
     int param_1 = (int)this;
   ((C_view_013d1800 *)(this))->sub_013bdbf0();
@@ -97,8 +99,9 @@ struct C_view_013d1860 {
     int sub_013c7bc0(int, int);
 };
 
+struct C_013d1860 { void sub_013d1860(void); };
 // @baa 0x013d1860
-void UPackageMap::sub_013d1860(void)
+void C_013d1860::sub_013d1860(void)
 {
     int param_1 = (int)this;
   ((C_view_013d1860 *)(this))->sub_013be0b0();
@@ -107,8 +110,9 @@ void UPackageMap::sub_013d1860(void)
 }
 
 int sub_013bea20(void);
+struct C_013d1880 { int sub_013d1880(void); };
 // @baa 0x013d1880
-int UPackageMap::sub_013d1880(void)
+int C_013d1880::sub_013d1880(void)
 {
     int param_1 = (int)this;
 
@@ -119,8 +123,9 @@ int UPackageMap::sub_013d1880(void)
 }
 
 int sub_013bea80(void);
+struct C_013d18a0 { int sub_013d18a0(void); };
 // @baa 0x013d18a0
-int UPackageMap::sub_013d18a0(void)
+int C_013d18a0::sub_013d18a0(void)
 {
     int param_1 = (int)this;
 
@@ -1119,8 +1124,9 @@ struct C_view_013dcd30 {
 };
 
 extern undefined4 g_02275424;
+struct C_013dcd30 { undefined4 * sub_013dcd30(undefined4 param_2, undefined4 param_3); };
 // @baa 0x013dcd30
-undefined4 * UUnrealEdEngine::sub_013dcd30(undefined4 param_2, undefined4 param_3)
+undefined4 * C_013dcd30::sub_013dcd30(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_013dcd30 *)(this))->sub_00c407b0(2);
@@ -1253,8 +1259,9 @@ struct C_view_013dd690 {
 };
 
 extern undefined * g_0227604c;
+struct C_013dd690 { undefined4 * sub_013dd690(undefined4 param_2, undefined4 param_3); };
 // @baa 0x013dd690
-undefined4 * UUnrealEdEngine::sub_013dd690(undefined4 param_2, undefined4 param_3)
+undefined4 * C_013dd690::sub_013dd690(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_013dd690 *)(this))->sub_00c407b0(2);
@@ -1923,8 +1930,9 @@ E_013def20* S_013def20::sub_013def20(INT Index)
     return &Items(Index);
 }
 
+struct C_013defd0 { undefined4 * sub_013defd0(byte param_2); };
 // @baa 0x013defd0
-undefined4 * UObject::sub_013defd0(byte param_2)
+undefined4 * C_013defd0::sub_013defd0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

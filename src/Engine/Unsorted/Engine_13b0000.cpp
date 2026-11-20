@@ -241,8 +241,9 @@ struct C_view {
     int sub_013aee70(int, int);
 };
 
+struct C_013b7020 { int sub_013b7020(int param_2); };
 // @baa 0x013b7020
-int UPackageMap::sub_013b7020(int param_2)
+int C_013b7020::sub_013b7020(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_013aee70((int)(&param_2), param_2);
@@ -256,8 +257,9 @@ struct C_view_013b7070 {
     int sub_013aeff0(int, int);
 };
 
+struct C_013b7070 { int sub_013b7070(int param_2); };
 // @baa 0x013b7070
-int UPackageMap::sub_013b7070(int param_2)
+int C_013b7070::sub_013b7070(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_013b7070 *)(this))->sub_013aeff0((int)(&param_2), param_2);
@@ -271,8 +273,9 @@ struct C_view_013b70a0 {
     int sub_013af0e0(int, int);
 };
 
+struct C_013b70a0 { int sub_013b70a0(int param_2); };
 // @baa 0x013b70a0
-int UPackageMap::sub_013b70a0(int param_2)
+int C_013b70a0::sub_013b70a0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_013b70a0 *)(this))->sub_013af0e0((int)(&param_2), param_2);
@@ -286,8 +289,9 @@ struct C_view_013b70d0 {
     int sub_013af170(int, int);
 };
 
+struct C_013b70d0 { int sub_013b70d0(int param_2); };
 // @baa 0x013b70d0
-int UPackageMap::sub_013b70d0(int param_2)
+int C_013b70d0::sub_013b70d0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_013b70d0 *)(this))->sub_013af170((int)(&param_2), param_2);
@@ -297,16 +301,18 @@ int UPackageMap::sub_013b70d0(int param_2)
   return 0;
 }
 
+struct C_013b7210 { int sub_013b7210(void); };
 // @baa 0x013b7210
-int UPackageMap::sub_013b7210(void)
+int C_013b7210::sub_013b7210(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x20 + *(int *)*param_1;
 }
 
+struct C_013b7340 { int sub_013b7340(void); };
 // @baa 0x013b7340
-int UPackageMap::sub_013b7340(void)
+int C_013b7340::sub_013b7340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -318,8 +324,9 @@ struct C_view_013b7350 {
 };
 
 int sub_0053dfa0(...);
+struct C_013b7350 { undefined4 sub_013b7350(byte param_2); };
 // @baa 0x013b7350
-undefined4 UPackageMap::sub_013b7350(byte param_2)
+undefined4 C_013b7350::sub_013b7350(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_013b7350 *)(((char *)this + 4)))->sub_00549240();

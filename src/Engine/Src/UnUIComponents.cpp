@@ -70,8 +70,9 @@ C_00d8f030* C_00d8f030::sub_00d8f030(void) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_020b9610;
+struct C_00d8f040 { undefined4 * sub_00d8f040(void); };
 // @baa 0x00d8f040
-undefined4 * UObject::sub_00d8f040(void)
+undefined4 * C_00d8f040::sub_00d8f040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -86,8 +87,9 @@ undefined4 * UObject::sub_00d8f040(void)
 // @baa 0x00d8f110
 
 extern undefined * g_020b9500;
+struct C_00d8eb30 { undefined4 * sub_00d8eb30(void); };
 // @baa 0x00d8eb30
-undefined4 * UObject::sub_00d8eb30(void)
+undefined4 * C_00d8eb30::sub_00d8eb30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

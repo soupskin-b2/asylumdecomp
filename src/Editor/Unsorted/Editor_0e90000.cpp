@@ -3,8 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_00e9d620 { undefined4*sub_00e9d620(int*param_2,int param_3); };
 // @baa 0x00e9d620
-undefined4*ULensFlare::sub_00e9d620(int*param_2,int param_3)
+undefined4*C_00e9d620::sub_00e9d620(int*param_2,int param_3)
 {
 undefined4*param_1=(undefined4*)this;
 
@@ -15,8 +16,9 @@ if((param_2!=(int*)0x0)&&(param_3!=0)){
 return param_1;
 }
 
+struct C_00e9d650 { int*sub_00e9d650(int*param_2); };
 // @baa 0x00e9d650
-int*ULensFlare::sub_00e9d650(int*param_2)
+int*C_00e9d650::sub_00e9d650(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -33,8 +35,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00e9d680 { undefined4*sub_00e9d680(int*param_2,int param_3); };
 // @baa 0x00e9d680
-undefined4*ULensFlare::sub_00e9d680(int*param_2,int param_3)
+undefined4*C_00e9d680::sub_00e9d680(int*param_2,int param_3)
 {
 undefined4*param_1=(undefined4*)this;
 
@@ -70,8 +73,9 @@ void C::sub_00e9d6b0()
     }
 }
 
+struct C_00e9d6c0 { int*sub_00e9d6c0(int*param_2); };
 // @baa 0x00e9d6c0
-int*ULensFlare::sub_00e9d6c0(int*param_2)
+int*C_00e9d6c0::sub_00e9d6c0(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -94,8 +98,9 @@ int ULensFlare::sub_00e9d6f0(void) { return *(int*)((char*)this + 0); }
 // @baa 0x00e9d770
 int ULensFlare::sub_00e9d770(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d7f0 { int*sub_00e9d7f0(int*param_2); };
 // @baa 0x00e9d7f0
-int*ULensFlare::sub_00e9d7f0(int*param_2)
+int*C_00e9d7f0::sub_00e9d7f0(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -115,8 +120,9 @@ return param_1;
 // @baa 0x00e9d820
 int ULensFlare::sub_00e9d820(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d8b0 { int*sub_00e9d8b0(int*param_2); };
 // @baa 0x00e9d8b0
-int*ULensFlare::sub_00e9d8b0(int*param_2)
+int*C_00e9d8b0::sub_00e9d8b0(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -139,16 +145,18 @@ int ULensFlare::sub_00e9d8e0(void) { return *(int*)((char*)this + 0); }
 // @baa 0x00e9d8f0
 int ULensFlare::sub_00e9d8f0(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e9d970 { int sub_00e9d970(int param_2); };
 // @baa 0x00e9d970
-int ULensFlare::sub_00e9d970(int param_2)
+int C_00e9d970::sub_00e9d970(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 4;
 }
 
+struct C_00e9d980 { int*sub_00e9d980(int*param_2); };
 // @baa 0x00e9d980
-int*ULensFlare::sub_00e9d980(int*param_2)
+int*C_00e9d980::sub_00e9d980(int*param_2)
 {
 int*param_1=(int*)this;
 

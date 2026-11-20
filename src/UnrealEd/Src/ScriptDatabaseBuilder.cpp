@@ -7,8 +7,9 @@ struct C_view {
     int sub_00faa3c0(int, int);
 };
 
+struct C_00fb56b0 { int sub_00fb56b0(int param_2); };
 // @baa 0x00fb56b0
-int UTexture2D::sub_00fb56b0(int param_2)
+int C_00fb56b0::sub_00fb56b0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

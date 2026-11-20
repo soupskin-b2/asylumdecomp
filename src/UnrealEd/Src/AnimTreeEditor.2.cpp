@@ -61,9 +61,10 @@ void C_013374a0::sub_013374a0(void)
 // @baa 0x013394c0
 IMPLEMENT_CLASS_AT(UAnimNodeEditInfo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\UnrealEd\\Src\\AnimTreeEditor.cpp", 15);
 
+struct C_0133a520 { int sub_0133a520(undefined4*param_2); };
 // @baa 0x0133a1b0
 // @baa 0x0133a520
-int UUnrealEdEngine::sub_0133a520(undefined4*param_2)
+int C_0133a520::sub_0133a520(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

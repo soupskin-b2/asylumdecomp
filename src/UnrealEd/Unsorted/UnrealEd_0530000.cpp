@@ -257,8 +257,9 @@ struct C_0053e4c0 { int a, b; C_0053e4c0(int, int); };
 // @baa 0x0053e4c0
 C_0053e4c0::C_0053e4c0(int x, int y) : a(x), b(y) {}
 
+struct C_0053e4e0 { bool sub_0053e4e0(void); };
 // @baa 0x0053e4e0
-bool UObject::sub_0053e4e0(void)
+bool C_0053e4e0::sub_0053e4e0(void)
 {
     int * param_1 = (int *)this;
 
@@ -349,8 +350,9 @@ int __stdcall sub_0053ea10(int a0, int a1) { return 0; }
 // @baa 0x0053ea20
 void sub_0053ea20(void) {  }
 
+struct C_0053ea30 { bool sub_0053ea30(void); };
 // @baa 0x0053ea30
-bool UTextBufferFactory::sub_0053ea30(void)
+bool C_0053ea30::sub_0053ea30(void)
 {
     int param_1 = (int)this;
 

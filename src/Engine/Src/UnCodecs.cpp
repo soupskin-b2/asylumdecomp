@@ -36,8 +36,9 @@ void __stdcall sub_00c8c690(int a0, int a1) {  }
 
 int sub_005c7a20(void);
 extern undefined * g_02085a70;
+struct C_00c8c6f0 { undefined4 * sub_00c8c6f0(void); };
 // @baa 0x00c8c6f0
-undefined4 * UObject::sub_00c8c6f0(void)
+undefined4 * C_00c8c6f0::sub_00c8c6f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -50,8 +51,9 @@ undefined4 * UObject::sub_00c8c6f0(void)
 int sub_00c8c710(int a0, int a1) { return a1; }
 
 extern undefined * g_02085bb8;
+struct C_00c8c720 { undefined4 * sub_00c8c720(void); };
 // @baa 0x00c8c720
-undefined4 * UObject::sub_00c8c720(void)
+undefined4 * C_00c8c720::sub_00c8c720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -115,8 +117,9 @@ undefined4 C_00cb3150::sub_00cb3150(byte param_2)
 }
 
 int sub_00cb3170(void);
+struct C_00cb31e0 { undefined4 sub_00cb31e0(byte param_2); };
 // @baa 0x00cb31e0
-undefined4 ULensFlare::sub_00cb31e0(byte param_2)
+undefined4 C_00cb31e0::sub_00cb31e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

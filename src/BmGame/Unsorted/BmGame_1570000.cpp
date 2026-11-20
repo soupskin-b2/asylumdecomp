@@ -95,8 +95,9 @@ void sub_01570160(void) { sub_0156ece0(); }
 
 int sub_005c7a20(void);
 extern undefined * g_022fd618;
+struct C_01570170 { undefined4 * sub_01570170(void); };
 // @baa 0x01570170
-undefined4 * UObject::sub_01570170(void)
+undefined4 * C_01570170::sub_01570170(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -217,8 +218,9 @@ void URHUDPrompt::ResetLines()
 
 int sub_006f7810(void);
 extern undefined * g_022feb90;
+struct C_01573940 { undefined4 * sub_01573940(void); };
 // @baa 0x01573940
-undefined4 * UPrimitiveComponent::sub_01573940(void)
+undefined4 * C_01573940::sub_01573940(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -232,8 +234,9 @@ IMPLEMENT_CLASS_AT(URLevelTransitionRenderingComponent, "e:\\Projects\\Amadeus\\
 
 // @baa 0x015739c0
 extern undefined * g_022fede0;
+struct C_015739f0 { undefined4 * sub_015739f0(void); };
 // @baa 0x015739f0
-undefined4 * UPrimitiveComponent::sub_015739f0(void)
+undefined4 * C_015739f0::sub_015739f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -617,8 +620,9 @@ int sub_0157e4e0(void)
 }
 
 extern undefined * g_02308848;
+struct C_0157e510 { undefined4 * sub_0157e510(void); };
 // @baa 0x0157e510
-undefined4 * UObject::sub_0157e510(void)
+undefined4 * C_0157e510::sub_0157e510(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -705,8 +709,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ActivateScarecrow, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x0157e630
 extern undefined * g_023089e8;
+struct C_0157e660 { undefined4 * sub_0157e660(void); };
 // @baa 0x0157e660
-undefined4 * UObject::sub_0157e660(void)
+undefined4 * C_0157e660::sub_0157e660(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -720,8 +725,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CameraShake, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x0157e6f0
 extern undefined * g_02308b88;
+struct C_0157e720 { undefined4 * sub_0157e720(void); };
 // @baa 0x0157e720
-undefined4 * UObject::sub_0157e720(void)
+undefined4 * C_0157e720::sub_0157e720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -881,8 +887,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ChangeMovieStatus, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x0157e910
 extern undefined * g_02308d28;
+struct C_0157e940 { undefined4 * sub_0157e940(void); };
 // @baa 0x0157e940
-undefined4 * UObject::sub_0157e940(void)
+undefined4 * C_0157e940::sub_0157e940(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -969,8 +976,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocPerformChargeAttack, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x0157ea70
 extern undefined * g_02308ec8;
+struct C_0157eaa0 { undefined4 * sub_0157eaa0(void); };
 // @baa 0x0157eaa0
-undefined4 * UObject::sub_0157eaa0(void)
+undefined4 * C_0157eaa0::sub_0157eaa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1057,8 +1065,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocPerformCloseAttack, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x0157ebd0
 extern undefined * g_02309068;
+struct C_0157ec00 { undefined4 * sub_0157ec00(void); };
 // @baa 0x0157ec00
-undefined4 * UObject::sub_0157ec00(void)
+undefined4 * C_0157ec00::sub_0157ec00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1145,8 +1154,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocPerformSmashAttack, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x0157ed30
 extern undefined * g_02309208;
+struct C_0157ed60 { undefined4 * sub_0157ed60(void); };
 // @baa 0x0157ed60
-undefined4 * UObject::sub_0157ed60(void)
+undefined4 * C_0157ed60::sub_0157ed60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1233,8 +1243,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CrocPerformSneakPeek, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x0157ee80
 extern undefined * g_023093a8;
+struct C_0157eeb0 { undefined4 * sub_0157eeb0(void); };
 // @baa 0x0157eeb0
-undefined4 * UObject::sub_0157eeb0(void)
+undefined4 * C_0157eeb0::sub_0157eeb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1321,8 +1332,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_DisableCrocAttacks, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x0157efd0
 extern undefined * g_02309548;
+struct C_0157f000 { undefined4 * sub_0157f000(void); };
 // @baa 0x0157f000
-undefined4 * UObject::sub_0157f000(void)
+undefined4 * C_0157f000::sub_0157f000(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1409,8 +1421,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_DropPlayerFromForensicsModes, "e:\\Projects\\Amadeus
 
 // @baa 0x0157f120
 extern undefined * g_023096e8;
+struct C_0157f150 { undefined4 * sub_0157f150(void); };
 // @baa 0x0157f150
-undefined4 * UObject::sub_0157f150(void)
+undefined4 * C_0157f150::sub_0157f150(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1497,8 +1510,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ForceCrocToJumpOff, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x0157f270
 extern undefined * g_02309888;
+struct C_0157f2a0 { undefined4 * sub_0157f2a0(void); };
 // @baa 0x0157f2a0
-undefined4 * UObject::sub_0157f2a0(void)
+undefined4 * C_0157f2a0::sub_0157f2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1588,8 +1602,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_GetThugStatus, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x0157f430
 extern undefined * g_02309a28;
+struct C_0157f460 { undefined4 * sub_0157f460(void); };
 // @baa 0x0157f460
-undefined4 * UObject::sub_0157f460(void)
+undefined4 * C_0157f460::sub_0157f460(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1676,8 +1691,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_GrappleToVantagePoint, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x0157f580
 extern undefined * g_02309bc8;
+struct C_0157f5b0 { undefined4 * sub_0157f5b0(void); };
 // @baa 0x0157f5b0
-undefined4 * UObject::sub_0157f5b0(void)
+undefined4 * C_0157f5b0::sub_0157f5b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1691,8 +1707,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_HelpText, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x0157f6a0
 extern undefined * g_02309d68;
+struct C_0157f6d0 { undefined4 * sub_0157f6d0(void); };
 // @baa 0x0157f6d0
-undefined4 * UObject::sub_0157f6d0(void)
+undefined4 * C_0157f6d0::sub_0157f6d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1711,8 +1728,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_IsOnPontoon, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x0157f7f0
 extern undefined * g_02309f08;
+struct C_0157f820 { undefined4 * sub_0157f820(void); };
 // @baa 0x0157f820
-undefined4 * UObject::sub_0157f820(void)
+undefined4 * C_0157f820::sub_0157f820(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1797,8 +1815,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_KillScarecrow, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x0157f940
 extern undefined * g_0230a0a8;
+struct C_0157f970 { undefined4 * sub_0157f970(void); };
 // @baa 0x0157f970
-undefined4 * UObject::sub_0157f970(void)
+undefined4 * C_0157f970::sub_0157f970(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1958,8 +1977,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_MakeBatmanLookAtItems, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x0157fb20
 extern undefined * g_0230a248;
+struct C_0157fb50 { undefined4 * sub_0157fb50(void); };
 // @baa 0x0157fb50
-undefined4 * UObject::sub_0157fb50(void)
+undefined4 * C_0157fb50::sub_0157fb50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2046,8 +2066,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_NewSilentPredWave, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x0157fc70
 extern undefined * g_0230a3e8;
+struct C_0157fca0 { undefined4 * sub_0157fca0(void); };
 // @baa 0x0157fca0
-undefined4 * UObject::sub_0157fca0(void)
+undefined4 * C_0157fca0::sub_0157fca0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2134,8 +2155,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_PlayCameraEmitter, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x0157fdc0
 extern undefined * g_0230a588;
+struct C_0157fdf0 { undefined4 * sub_0157fdf0(void); };
 // @baa 0x0157fdf0
-undefined4 * UObject::sub_0157fdf0(void)
+undefined4 * C_0157fdf0::sub_0157fdf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2291,8 +2313,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ScarecrowEffect, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x0157ff90
 extern undefined * g_0230a728;
+struct C_0157ffc0 { undefined4 * sub_0157ffc0(void); };
 // @baa 0x0157ffc0
-undefined4 * UObject::sub_0157ffc0(void)
+undefined4 * C_0157ffc0::sub_0157ffc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

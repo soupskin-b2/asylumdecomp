@@ -779,8 +779,9 @@ struct C_view {
     int sub_0054f280(int, int);
 };
 
+struct C_005551e0 { int sub_005551e0(int param_2); };
 // @baa 0x005551e0
-int UPackageMap::sub_005551e0(int param_2)
+int C_005551e0::sub_005551e0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

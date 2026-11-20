@@ -6,8 +6,9 @@
 int sub_0053dfa0(...);
 int sub_0108a1b0(void);
 extern undefined4 g_026ce488;
+struct C_0108a2f0 { int sub_0108a2f0(byte param_2); };
 // @baa 0x0108a2f0
-int UContentTagIndex::sub_0108a2f0(byte param_2)
+int C_0108a2f0::sub_0108a2f0(byte param_2)
 {
     int param_1 = (int)this;
 

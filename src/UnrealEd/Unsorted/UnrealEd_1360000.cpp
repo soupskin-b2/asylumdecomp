@@ -15,8 +15,9 @@ void C_01361350::sub_01361350(int) { sub_0135eab0(); }
 
 int sub_0053dfa0(...);
 int sub_0061e940(void);
+struct C_01365320 { undefined4 sub_01365320(byte param_2); };
 // @baa 0x01365320
-undefined4 UPackageMap::sub_01365320(byte param_2)
+undefined4 C_01365320::sub_01365320(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -79,8 +80,9 @@ void sub_01367af0(undefined4 param_1)
   return;
 }
 
+struct C_01367b00 { void sub_01367b00(void); };
 // @baa 0x01367b00
-void UUnrealEdEngine::sub_01367b00(void)
+void C_01367b00::sub_01367b00(void)
 {
     int param_1 = (int)this;
 
@@ -90,8 +92,9 @@ void UUnrealEdEngine::sub_01367b00(void)
 
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
+struct C_01367b10 { void sub_01367b10(void); };
 // @baa 0x01367b10
-void UUnrealEdEngine::sub_01367b10(void)
+void C_01367b10::sub_01367b10(void)
 {
     int param_1 = (int)this;
 
@@ -563,8 +566,9 @@ struct C_01369010 { int sub_01369010(void); };
 int C_01369010::sub_01369010(void) { return *(int*)((char*)this + 0); }
 
 int sub_013676f0(void);
+struct C_013690f0 { undefined4 sub_013690f0(byte param_2); };
 // @baa 0x013690f0
-undefined4 UUnrealEdEngine::sub_013690f0(byte param_2)
+undefined4 C_013690f0::sub_013690f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

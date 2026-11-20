@@ -9,8 +9,9 @@ struct C { C* sub_005a1410(int a0); };
 C* C::sub_005a1410(int a0) { return this; }
 
 int sub_0053df70(...);
+struct C_005a1420 { void sub_005a1420(int param_2); };
 // @baa 0x005a1420
-void URFMODSound::sub_005a1420(int param_2)
+void C_005a1420::sub_005a1420(int param_2)
 {
     int * param_1 = (int *)this;
 

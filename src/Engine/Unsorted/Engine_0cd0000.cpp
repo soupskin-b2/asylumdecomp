@@ -200,8 +200,9 @@ struct C_view {
     int sub_00ccf750(int, int);
 };
 
+struct C_00cd1c50 { undefined4 sub_00cd1c50(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00cd1c50
-undefined4 UBrushComponent::sub_00cd1c50(undefined4 param_2, undefined4 param_3)
+undefined4 C_00cd1c50::sub_00cd1c50(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_00ccf750(param_2, param_3);
@@ -238,8 +239,9 @@ struct C_view_00cd1d10 {
     int sub_00ccf7b0(int, int);
 };
 
+struct C_00cd1d10 { int sub_00cd1d10(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00cd1d10
-int UBrushComponent::sub_00cd1d10(undefined4 param_2, undefined4 param_3)
+int C_00cd1d10::sub_00cd1d10(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00cd1d10 *)(this))->sub_00ccf7b0(param_2, param_3);
@@ -249,8 +251,9 @@ int UBrushComponent::sub_00cd1d10(undefined4 param_2, undefined4 param_3)
 
 int sub_0053dfa0(...);
 int sub_00ccbf20(void);
+struct C_00cd1d30 { undefined4 sub_00cd1d30(byte param_2); };
 // @baa 0x00cd1d30
-undefined4 UBrushComponent::sub_00cd1d30(byte param_2)
+undefined4 C_00cd1d30::sub_00cd1d30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -262,8 +265,9 @@ undefined4 UBrushComponent::sub_00cd1d30(byte param_2)
 }
 
 int sub_00cc8150(void);
+struct C_00cd1dd0 { int sub_00cd1dd0(void); };
 // @baa 0x00cd1dd0
-int UBrushComponent::sub_00cd1dd0(void)
+int C_00cd1dd0::sub_00cd1dd0(void)
 {
     int param_1 = (int)this;
 

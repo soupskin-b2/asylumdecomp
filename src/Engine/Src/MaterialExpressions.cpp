@@ -1261,8 +1261,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstant3Vector, "e:\\Projects\\Amadeus\\A
 // @baa 0x00c2c410
 int sub_005c7a20(void);
 extern undefined * g_02045dc8;
+struct C_00c2c430 { undefined4 * sub_00c2c430(void); };
 // @baa 0x00c2c430
-undefined4 * UObject::sub_00c2c430(void)
+undefined4 * C_00c2c430::sub_00c2c430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1276,8 +1277,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstant4Vector, "e:\\Projects\\Amadeus\\A
 
 // @baa 0x00c2c4b0
 extern undefined * g_02045f00;
+struct C_00c2c4d0 { undefined4 * sub_00c2c4d0(void); };
 // @baa 0x00c2c4d0
-undefined4 * UObject::sub_00c2c4d0(void)
+undefined4 * C_00c2c4d0::sub_00c2c4d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1291,8 +1293,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstantBiasScale, "e:\\Projects\\Amadeus\
 
 // @baa 0x00c2c550
 extern undefined * g_02046038;
+struct C_00c2c580 { undefined4 * sub_00c2c580(void); };
 // @baa 0x00c2c580
-undefined4 * UObject::sub_00c2c580(void)
+undefined4 * C_00c2c580::sub_00c2c580(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1306,8 +1309,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstantClamp, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x00c2c600
 extern undefined * g_02046170;
+struct C_00c2c630 { undefined4 * sub_00c2c630(void); };
 // @baa 0x00c2c630
-undefined4 * UObject::sub_00c2c630(void)
+undefined4 * C_00c2c630::sub_00c2c630(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1321,8 +1325,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionCosine, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00c2c6b0
 extern undefined * g_020462a8;
+struct C_00c2c6e0 { undefined4 * sub_00c2c6e0(void); };
 // @baa 0x00c2c6e0
-undefined4 * UObject::sub_00c2c6e0(void)
+undefined4 * C_00c2c6e0::sub_00c2c6e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1336,8 +1341,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionCrossProduct, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00c2c760
 extern undefined * g_020463e0;
+struct C_00c2c790 { undefined4 * sub_00c2c790(void); };
 // @baa 0x00c2c790
-undefined4 * UObject::sub_00c2c790(void)
+undefined4 * C_00c2c790::sub_00c2c790(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1354,8 +1360,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasedAlpha, "e:\\Projects\\Amadeus\\
 
 // @baa 0x00c2c820
 extern undefined * g_02046518;
+struct C_00c2c850 { undefined4 * sub_00c2c850(void); };
 // @baa 0x00c2c850
-undefined4 * UObject::sub_00c2c850(void)
+undefined4 * C_00c2c850::sub_00c2c850(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1372,8 +1379,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasedBlend, "e:\\Projects\\Amadeus\\
 
 // @baa 0x00c2c8e0
 extern undefined * g_02046650;
+struct C_00c2c910 { undefined4 * sub_00c2c910(void); };
 // @baa 0x00c2c910
-undefined4 * UObject::sub_00c2c910(void)
+undefined4 * C_00c2c910::sub_00c2c910(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1387,8 +1395,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDeriveNormalZ, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x00c2c990
 extern undefined * g_02046788;
+struct C_00c2c9b0 { undefined4 * sub_00c2c9b0(void); };
 // @baa 0x00c2c9b0
-undefined4 * UObject::sub_00c2c9b0(void)
+undefined4 * C_00c2c9b0::sub_00c2c9b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1408,8 +1417,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDesaturation, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00c2ca60
 extern undefined * g_020468d8;
+struct C_00c2ca90 { undefined4 * sub_00c2ca90(void); };
 // @baa 0x00c2ca90
-undefined4 * UObject::sub_00c2ca90(void)
+undefined4 * C_00c2ca90::sub_00c2ca90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1423,8 +1433,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDestColor, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00c2cb10
 extern undefined * g_02046a10;
+struct C_00c2cb30 { undefined4 * sub_00c2cb30(void); };
 // @baa 0x00c2cb30
-undefined4 * UObject::sub_00c2cb30(void)
+undefined4 * C_00c2cb30::sub_00c2cb30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1438,8 +1449,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDestDepth, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00c2cbb0
 extern undefined * g_02046b48;
+struct C_00c2cbd0 { undefined4 * sub_00c2cbd0(void); };
 // @baa 0x00c2cbd0
-undefined4 * UObject::sub_00c2cbd0(void)
+undefined4 * C_00c2cbd0::sub_00c2cbd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1453,8 +1465,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDivide, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00c2cc50
 extern undefined * g_02046c80;
+struct C_00c2cc80 { undefined4 * sub_00c2cc80(void); };
 // @baa 0x00c2cc80
-undefined4 * UObject::sub_00c2cc80(void)
+undefined4 * C_00c2cc80::sub_00c2cc80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1468,8 +1481,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDotProduct, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00c2cd00
 extern undefined * g_02046db8;
+struct C_00c2cd30 { undefined4 * sub_00c2cd30(void); };
 // @baa 0x00c2cd30
-undefined4 * UObject::sub_00c2cd30(void)
+undefined4 * C_00c2cd30::sub_00c2cd30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1483,8 +1497,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFloor, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x00c2cdb0
 extern undefined * g_02046ef0;
+struct C_00c2cdd0 { undefined4 * sub_00c2cdd0(void); };
 // @baa 0x00c2cdd0
-undefined4 * UObject::sub_00c2cdd0(void)
+undefined4 * C_00c2cdd0::sub_00c2cdd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1505,8 +1520,9 @@ int UMaterialExpressionFontSample::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2cee0
 extern undefined * g_02047028;
+struct C_00c2cf00 { undefined4 * sub_00c2cf00(void); };
 // @baa 0x00c2cf00
-undefined4 * UObject::sub_00c2cf00(void)
+undefined4 * C_00c2cf00::sub_00c2cf00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1536,8 +1552,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFontSampleParameter, "e:\\Projects\\Amadeu
 
 // @baa 0x00c2cfa0
 extern undefined * g_02047298;
+struct C_00c2cfc0 { undefined4 * sub_00c2cfc0(void); };
 // @baa 0x00c2cfc0
-undefined4 * UObject::sub_00c2cfc0(void)
+undefined4 * C_00c2cfc0::sub_00c2cfc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1551,8 +1568,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFrac, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00c2d040
 extern undefined * g_020473d0;
+struct C_00c2d060 { undefined4 * sub_00c2d060(void); };
 // @baa 0x00c2d060
-undefined4 * UObject::sub_00c2d060(void)
+undefined4 * C_00c2d060::sub_00c2d060(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1572,8 +1590,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFresnel, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x00c2d110
 extern undefined * g_02047518;
+struct C_00c2d140 { undefined4 * sub_00c2d140(void); };
 // @baa 0x00c2d140
-undefined4 * UObject::sub_00c2d140(void)
+undefined4 * C_00c2d140::sub_00c2d140(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1587,8 +1606,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionIf, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00c2d1c0
 extern undefined * g_02047650;
+struct C_00c2d1f0 { undefined4 * sub_00c2d1f0(void); };
 // @baa 0x00c2d1f0
-undefined4 * UObject::sub_00c2d1f0(void)
+undefined4 * C_00c2d1f0::sub_00c2d1f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1605,8 +1625,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareIntensity, "e:\\Projects\\Amadeus
 
 // @baa 0x00c2d280
 extern undefined * g_02047788;
+struct C_00c2d2a0 { undefined4 * sub_00c2d2a0(void); };
 // @baa 0x00c2d2a0
-undefined4 * UObject::sub_00c2d2a0(void)
+undefined4 * C_00c2d2a0::sub_00c2d2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1623,8 +1644,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareOcclusion, "e:\\Projects\\Amadeus
 
 // @baa 0x00c2d330
 extern undefined * g_020478c0;
+struct C_00c2d350 { undefined4 * sub_00c2d350(void); };
 // @baa 0x00c2d350
-undefined4 * UObject::sub_00c2d350(void)
+undefined4 * C_00c2d350::sub_00c2d350(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1641,8 +1663,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareRadialDistance, "e:\\Projects\\Am
 
 // @baa 0x00c2d3e0
 extern undefined * g_020479f8;
+struct C_00c2d400 { undefined4 * sub_00c2d400(void); };
 // @baa 0x00c2d400
-undefined4 * UObject::sub_00c2d400(void)
+undefined4 * C_00c2d400::sub_00c2d400(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1659,8 +1682,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareRayDistance, "e:\\Projects\\Amade
 
 // @baa 0x00c2d490
 extern undefined * g_02047b30;
+struct C_00c2d4b0 { undefined4 * sub_00c2d4b0(void); };
 // @baa 0x00c2d4b0
-undefined4 * UObject::sub_00c2d4b0(void)
+undefined4 * C_00c2d4b0::sub_00c2d4b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1677,8 +1701,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLensFlareSourceDistance, "e:\\Projects\\Am
 
 // @baa 0x00c2d540
 extern undefined * g_02047c68;
+struct C_00c2d560 { undefined4 * sub_00c2d560(void); };
 // @baa 0x00c2d560
-undefined4 * UObject::sub_00c2d560(void)
+undefined4 * C_00c2d560::sub_00c2d560(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1692,8 +1717,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLightingDiffuseLambert, "e:\\Projects\\Ama
 
 // @baa 0x00c2d5e0
 extern undefined * g_02047da0;
+struct C_00c2d610 { undefined4 * sub_00c2d610(void); };
 // @baa 0x00c2d610
-undefined4 * UObject::sub_00c2d610(void)
+undefined4 * C_00c2d610::sub_00c2d610(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1707,8 +1733,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularBlinnPhong, "e:\\Projects\
 
 // @baa 0x00c2d690
 extern undefined * g_02047ed8;
+struct C_00c2d6c0 { undefined4 * sub_00c2d6c0(void); };
 // @baa 0x00c2d6c0
-undefined4 * UObject::sub_00c2d6c0(void)
+undefined4 * C_00c2d6c0::sub_00c2d6c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1722,8 +1749,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularHeidrichSeidel, "e:\\Proje
 
 // @baa 0x00c2d740
 extern undefined * g_02048010;
+struct C_00c2d770 { undefined4 * sub_00c2d770(void); };
 // @baa 0x00c2d770
-undefined4 * UObject::sub_00c2d770(void)
+undefined4 * C_00c2d770::sub_00c2d770(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1737,8 +1765,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLightingSpecularPhong, "e:\\Projects\\Amad
 
 // @baa 0x00c2d7f0
 extern undefined * g_02048148;
+struct C_00c2d820 { undefined4 * sub_00c2d820(void); };
 // @baa 0x00c2d820
-undefined4 * UObject::sub_00c2d820(void)
+undefined4 * C_00c2d820::sub_00c2d820(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1752,8 +1781,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLightVector, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00c2d8a0
 extern undefined * g_02048280;
+struct C_00c2d8c0 { undefined4 * sub_00c2d8c0(void); };
 // @baa 0x00c2d8c0
-undefined4 * UObject::sub_00c2d8c0(void)
+undefined4 * C_00c2d8c0::sub_00c2d8c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1767,8 +1797,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionLinearInterpolate, "e:\\Projects\\Amadeus\
 
 // @baa 0x00c2d940
 extern undefined * g_020483b8;
+struct C_00c2d970 { undefined4 * sub_00c2d970(void); };
 // @baa 0x00c2d970
-undefined4 * UObject::sub_00c2d970(void)
+undefined4 * C_00c2d970::sub_00c2d970(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1782,8 +1813,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionMax, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00c2d9f0
 extern undefined * g_020484f0;
+struct C_00c2da20 { undefined4 * sub_00c2da20(void); };
 // @baa 0x00c2da20
-undefined4 * UObject::sub_00c2da20(void)
+undefined4 * C_00c2da20::sub_00c2da20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1797,8 +1829,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionMeshEmitterVertexColor, "e:\\Projects\\Ama
 
 // @baa 0x00c2daa0
 extern undefined * g_02048628;
+struct C_00c2dac0 { undefined4 * sub_00c2dac0(void); };
 // @baa 0x00c2dac0
-undefined4 * UObject::sub_00c2dac0(void)
+undefined4 * C_00c2dac0::sub_00c2dac0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1812,8 +1845,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionMin, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00c2db40
 extern undefined * g_02048760;
+struct C_00c2db70 { undefined4 * sub_00c2db70(void); };
 // @baa 0x00c2db70
-undefined4 * UObject::sub_00c2db70(void)
+undefined4 * C_00c2db70::sub_00c2db70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1827,8 +1861,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionMultiply, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00c2dbf0
 extern undefined * g_02048898;
+struct C_00c2dc20 { undefined4 * sub_00c2dc20(void); };
 // @baa 0x00c2dc20
-undefined4 * UObject::sub_00c2dc20(void)
+undefined4 * C_00c2dc20::sub_00c2dc20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1842,8 +1877,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionNormal, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00c2dca0
 extern undefined * g_020489d0;
+struct C_00c2dcc0 { undefined4 * sub_00c2dcc0(void); };
 // @baa 0x00c2dcc0
-undefined4 * UObject::sub_00c2dcc0(void)
+undefined4 * C_00c2dcc0::sub_00c2dcc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1863,8 +1899,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionNormalize, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00c2dd70
 extern undefined * g_02048b18;
+struct C_00c2dd90 { undefined4 * sub_00c2dd90(void); };
 // @baa 0x00c2dd90
-undefined4 * UObject::sub_00c2dd90(void)
+undefined4 * C_00c2dd90::sub_00c2dd90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1878,8 +1915,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionOneMinus, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00c2de10
 extern undefined * g_02048c50;
+struct C_00c2de30 { undefined4 * sub_00c2de30(void); };
 // @baa 0x00c2de30
-undefined4 * UObject::sub_00c2de30(void)
+undefined4 * C_00c2de30::sub_00c2de30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1993,8 +2031,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionVectorParameter, "e:\\Projects\\Amadeus\\A
 
 // @baa 0x00c2e200
 extern undefined * g_020493a0;
+struct C_00c2e220 { undefined4 * sub_00c2e220(void); };
 // @baa 0x00c2e220
-undefined4 * UObject::sub_00c2e220(void)
+undefined4 * C_00c2e220::sub_00c2e220(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2008,8 +2047,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionPixelDepth, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00c2e2a0
 extern undefined * g_020494d8;
+struct C_00c2e2c0 { undefined4 * sub_00c2e2c0(void); };
 // @baa 0x00c2e2c0
-undefined4 * UObject::sub_00c2e2c0(void)
+undefined4 * C_00c2e2c0::sub_00c2e2c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2023,8 +2063,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionPower, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x00c2e340
 extern undefined * g_02049610;
+struct C_00c2e370 { undefined4 * sub_00c2e370(void); };
 // @baa 0x00c2e370
-undefined4 * UObject::sub_00c2e370(void)
+undefined4 * C_00c2e370::sub_00c2e370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2038,8 +2079,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionReflectionVector, "e:\\Projects\\Amadeus\\
 
 // @baa 0x00c2e3f0
 extern undefined * g_02049748;
+struct C_00c2e410 { undefined4 * sub_00c2e410(void); };
 // @baa 0x00c2e410
-undefined4 * UObject::sub_00c2e410(void)
+undefined4 * C_00c2e410::sub_00c2e410(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2053,8 +2095,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionRotator, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x00c2e490
 extern undefined * g_02049880;
+struct C_00c2e4c0 { undefined4 * sub_00c2e4c0(void); };
 // @baa 0x00c2e4c0
-undefined4 * UObject::sub_00c2e4c0(void)
+undefined4 * C_00c2e4c0::sub_00c2e4c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2068,8 +2111,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionSceneDepth, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00c2e540
 extern undefined * g_020499b8;
+struct C_00c2e570 { undefined4 * sub_00c2e570(void); };
 // @baa 0x00c2e570
-undefined4 * UObject::sub_00c2e570(void)
+undefined4 * C_00c2e570::sub_00c2e570(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2083,8 +2127,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionSceneTexture, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00c2e5f0
 extern undefined * g_02049af0;
+struct C_00c2e620 { undefined4 * sub_00c2e620(void); };
 // @baa 0x00c2e620
-undefined4 * UObject::sub_00c2e620(void)
+undefined4 * C_00c2e620::sub_00c2e620(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2098,8 +2143,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionScreenPosition, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x00c2e6a0
 extern undefined * g_02049c28;
+struct C_00c2e6c0 { undefined4 * sub_00c2e6c0(void); };
 // @baa 0x00c2e6c0
-undefined4 * UObject::sub_00c2e6c0(void)
+undefined4 * C_00c2e6c0::sub_00c2e6c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2113,8 +2159,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionSine, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00c2e740
 extern undefined * g_02049d60;
+struct C_00c2e770 { undefined4 * sub_00c2e770(void); };
 // @baa 0x00c2e770
-undefined4 * UObject::sub_00c2e770(void)
+undefined4 * C_00c2e770::sub_00c2e770(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2128,8 +2175,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionSquareRoot, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00c2e7f0
 extern undefined * g_02049e98;
+struct C_00c2e810 { undefined4 * sub_00c2e810(void); };
 // @baa 0x00c2e810
-undefined4 * UObject::sub_00c2e810(void)
+undefined4 * C_00c2e810::sub_00c2e810(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2143,8 +2191,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionSubtract, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00c2e890
 extern undefined * g_02049fd0;
+struct C_00c2e8c0 { undefined4 * sub_00c2e8c0(void); };
 // @baa 0x00c2e8c0
-undefined4 * UObject::sub_00c2e8c0(void)
+undefined4 * C_00c2e8c0::sub_00c2e8c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2165,8 +2214,9 @@ int UMaterialExpressionTextureSample::GetLabelPadding() { return 8; }
 
 // @baa 0x00c2e9d0
 extern undefined * g_0204a108;
+struct C_00c2ea00 { undefined4 * sub_00c2ea00(void); };
 // @baa 0x00c2ea00
-undefined4 * UObject::sub_00c2ea00(void)
+undefined4 * C_00c2ea00::sub_00c2ea00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2176,8 +2226,9 @@ undefined4 * UObject::sub_00c2ea00(void)
 }
 
 extern undefined * g_0204a240;
+struct C_00c2ea20 { undefined4 * sub_00c2ea20(void); };
 // @baa 0x00c2ea20
-undefined4 * UObject::sub_00c2ea20(void)
+undefined4 * C_00c2ea20::sub_00c2ea20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2194,8 +2245,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionDepthBiasBlend, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x00c2eab0
 extern undefined * g_0204a378;
+struct C_00c2eae0 { undefined4 * sub_00c2eae0(void); };
 // @baa 0x00c2eae0
-undefined4 * UObject::sub_00c2eae0(void)
+undefined4 * C_00c2eae0::sub_00c2eae0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2209,8 +2261,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionFlipBookSample, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x00c2eb60
 extern undefined * g_0204a4b0;
+struct C_00c2eb90 { undefined4 * sub_00c2eb90(void); };
 // @baa 0x00c2eb90
-undefined4 * UObject::sub_00c2eb90(void)
+undefined4 * C_00c2eb90::sub_00c2eb90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2227,8 +2280,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionMeshSubUV, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00c2ec20
 extern undefined * g_0204a5e8;
+struct C_00c2ec50 { undefined4 * sub_00c2ec50(void); };
 // @baa 0x00c2ec50
-undefined4 * UObject::sub_00c2ec50(void)
+undefined4 * C_00c2ec50::sub_00c2ec50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2345,8 +2399,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionTextureSampleParameterMovie, "e:\\Projects
 
 // @baa 0x00c2f050
 extern undefined * g_0204ad60;
+struct C_00c2f080 { undefined4 * sub_00c2f080(void); };
 // @baa 0x00c2f080
-undefined4 * UObject::sub_00c2f080(void)
+undefined4 * C_00c2f080::sub_00c2f080(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2360,8 +2415,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionTime, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00c2f100
 extern undefined * g_0204ae98;
+struct C_00c2f120 { undefined4 * sub_00c2f120(void); };
 // @baa 0x00c2f120
-undefined4 * UObject::sub_00c2f120(void)
+undefined4 * C_00c2f120::sub_00c2f120(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2375,8 +2431,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionTransform, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x00c2f1a0
 extern undefined * g_0204afd0;
+struct C_00c2f1d0 { undefined4 * sub_00c2f1d0(void); };
 // @baa 0x00c2f1d0
-undefined4 * UObject::sub_00c2f1d0(void)
+undefined4 * C_00c2f1d0::sub_00c2f1d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2390,8 +2447,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionTransformPosition, "e:\\Projects\\Amadeus\
 
 // @baa 0x00c2f250
 extern undefined * g_0204b108;
+struct C_00c2f280 { undefined4 * sub_00c2f280(void); };
 // @baa 0x00c2f280
-undefined4 * UObject::sub_00c2f280(void)
+undefined4 * C_00c2f280::sub_00c2f280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2405,8 +2463,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionVertexColor, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00c2f300
 extern undefined * g_0204b240;
+struct C_00c2f320 { undefined4 * sub_00c2f320(void); };
 // @baa 0x00c2f320
-undefined4 * UObject::sub_00c2f320(void)
+undefined4 * C_00c2f320::sub_00c2f320(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2472,8 +2531,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionComment, "e:\\Projects\\Amadeus\\AA\\Game\
 IMPLEMENT_CLASS_AT(UMaterialExpressionComponentMask, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\MaterialExpressions.cpp", 19);
 
 extern undefined * g_0204b378;
+struct C_00c32090 { undefined4 * sub_00c32090(void); };
 // @baa 0x00c32090
-undefined4 * UObject::sub_00c32090(void)
+undefined4 * C_00c32090::sub_00c32090(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2650,8 +2710,9 @@ IMPLEMENT_CLASS_AT(UMaterialExpressionConstant2Vector, "e:\\Projects\\Amadeus\\A
 // @baa 0x00c369c0
 // @baa 0x00c38bf0
 extern undefined * g_0204b5e8;
+struct C_00c38c10 { undefined4 * sub_00c38c10(void); };
 // @baa 0x00c38c10
-undefined4 * UObject::sub_00c38c10(void)
+undefined4 * C_00c38c10::sub_00c38c10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3451,8 +3512,9 @@ FString UMaterialExpressionConstantBiasScale::GetCaption() const
 }
 
 extern undefined * g_02044df0;
+struct C_00c2bb90 { undefined4 * sub_00c2bb90(void); };
 // @baa 0x00c2bb90
-undefined4 * UObject::sub_00c2bb90(void)
+undefined4 * C_00c2bb90::sub_00c2bb90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3462,8 +3524,9 @@ undefined4 * UObject::sub_00c2bb90(void)
 }
 
 extern undefined * g_02044f28;
+struct C_00c2bc40 { undefined4 * sub_00c2bc40(void); };
 // @baa 0x00c2bc40
-undefined4 * UObject::sub_00c2bc40(void)
+undefined4 * C_00c2bc40::sub_00c2bc40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3473,8 +3536,9 @@ undefined4 * UObject::sub_00c2bc40(void)
 }
 
 extern undefined * g_02045060;
+struct C_00c2bd00 { undefined4 * sub_00c2bd00(void); };
 // @baa 0x00c2bd00
-undefined4 * UObject::sub_00c2bd00(void)
+undefined4 * C_00c2bd00::sub_00c2bd00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3484,8 +3548,9 @@ undefined4 * UObject::sub_00c2bd00(void)
 }
 
 extern undefined * g_02045198;
+struct C_00c2bdb0 { undefined4 * sub_00c2bdb0(void); };
 // @baa 0x00c2bdb0
-undefined4 * UObject::sub_00c2bdb0(void)
+undefined4 * C_00c2bdb0::sub_00c2bdb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3495,8 +3560,9 @@ undefined4 * UObject::sub_00c2bdb0(void)
 }
 
 extern undefined * g_020452d0;
+struct C_00c2be60 { undefined4 * sub_00c2be60(void); };
 // @baa 0x00c2be60
-undefined4 * UObject::sub_00c2be60(void)
+undefined4 * C_00c2be60::sub_00c2be60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3506,8 +3572,9 @@ undefined4 * UObject::sub_00c2be60(void)
 }
 
 extern undefined * g_02045408;
+struct C_00c2bf00 { undefined4 * sub_00c2bf00(void); };
 // @baa 0x00c2bf00
-undefined4 * UObject::sub_00c2bf00(void)
+undefined4 * C_00c2bf00::sub_00c2bf00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3517,8 +3584,9 @@ undefined4 * UObject::sub_00c2bf00(void)
 }
 
 extern undefined * g_02045540;
+struct C_00c2bfa0 { undefined4 * sub_00c2bfa0(void); };
 // @baa 0x00c2bfa0
-undefined4 * UObject::sub_00c2bfa0(void)
+undefined4 * C_00c2bfa0::sub_00c2bfa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3528,8 +3596,9 @@ undefined4 * UObject::sub_00c2bfa0(void)
 }
 
 extern undefined * g_02045678;
+struct C_00c2c040 { undefined4 * sub_00c2c040(void); };
 // @baa 0x00c2c040
-undefined4 * UObject::sub_00c2c040(void)
+undefined4 * C_00c2c040::sub_00c2c040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3539,8 +3608,9 @@ undefined4 * UObject::sub_00c2c040(void)
 }
 
 extern undefined * g_020457b0;
+struct C_00c2c0f0 { undefined4 * sub_00c2c0f0(void); };
 // @baa 0x00c2c0f0
-undefined4 * UObject::sub_00c2c0f0(void)
+undefined4 * C_00c2c0f0::sub_00c2c0f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3550,8 +3620,9 @@ undefined4 * UObject::sub_00c2c0f0(void)
 }
 
 extern undefined * g_020458e8;
+struct C_00c2c1a0 { undefined4 * sub_00c2c1a0(void); };
 // @baa 0x00c2c1a0
-undefined4 * UObject::sub_00c2c1a0(void)
+undefined4 * C_00c2c1a0::sub_00c2c1a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3561,8 +3632,9 @@ undefined4 * UObject::sub_00c2c1a0(void)
 }
 
 extern undefined * g_02045a20;
+struct C_00c2c250 { undefined4 * sub_00c2c250(void); };
 // @baa 0x00c2c250
-undefined4 * UObject::sub_00c2c250(void)
+undefined4 * C_00c2c250::sub_00c2c250(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3572,8 +3644,9 @@ undefined4 * UObject::sub_00c2c250(void)
 }
 
 extern undefined * g_02045b58;
+struct C_00c2c2f0 { undefined4 * sub_00c2c2f0(void); };
 // @baa 0x00c2c2f0
-undefined4 * UObject::sub_00c2c2f0(void)
+undefined4 * C_00c2c2f0::sub_00c2c2f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -3583,8 +3656,9 @@ undefined4 * UObject::sub_00c2c2f0(void)
 }
 
 extern undefined * g_02045c90;
+struct C_00c2c390 { undefined4 * sub_00c2c390(void); };
 // @baa 0x00c2c390
-undefined4 * UObject::sub_00c2c390(void)
+undefined4 * C_00c2c390::sub_00c2c390(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

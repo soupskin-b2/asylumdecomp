@@ -462,8 +462,9 @@ struct C_0146f5e0 { void sub_0146af30(int); C_0146f5e0 *sub_0146f5e0(int); };
 C_0146f5e0 *C_0146f5e0::sub_0146f5e0(int a) { sub_0146af30(a); return this; }
 
 int sub_01121530(void);
+struct C_0146f7b0 { undefined4 sub_0146f7b0(byte param_2); };
 // @baa 0x0146f7b0
-undefined4 ULensFlareEditorPropertyWrapper::sub_0146f7b0(byte param_2)
+undefined4 C_0146f7b0::sub_0146f7b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

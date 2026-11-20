@@ -22,8 +22,9 @@ undefined4 C::sub_01083ab0(byte param_2)
 }
 
 int sub_0107ea80(void);
+struct C_01083ad0 { undefined4 sub_01083ad0(byte param_2); };
 // @baa 0x01083ad0
-undefined4 UObject::sub_01083ad0(byte param_2)
+undefined4 C_01083ad0::sub_01083ad0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -35,8 +36,9 @@ undefined4 UObject::sub_01083ad0(byte param_2)
 }
 
 int sub_0107eae0(void);
+struct C_01083af0 { undefined4 sub_01083af0(byte param_2); };
 // @baa 0x01083af0
-undefined4 UObject::sub_01083af0(byte param_2)
+undefined4 C_01083af0::sub_01083af0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

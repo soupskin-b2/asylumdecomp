@@ -117,8 +117,9 @@ UBOOL UAnimNodeBlendByBase::HasUniqueStaticConfigName() const { return 1; }
 
 int sub_005c7a20(void);
 extern undefined * g_0205a040;
+struct C_00c64a20 { undefined4 * sub_00c64a20(void); };
 // @baa 0x00c64a20
-undefined4 * UObject::sub_00c64a20(void)
+undefined4 * C_00c64a20::sub_00c64a20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -128,8 +129,9 @@ undefined4 * UObject::sub_00c64a20(void)
 }
 
 extern undefined * g_0205a1e0;
+struct C_00c64b00 { undefined4 * sub_00c64b00(void); };
 // @baa 0x00c64b00
-undefined4 * UObject::sub_00c64b00(void)
+undefined4 * C_00c64b00::sub_00c64b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -139,8 +141,9 @@ undefined4 * UObject::sub_00c64b00(void)
 }
 
 extern undefined * g_0205aa10;
+struct C_00c64ec0 { undefined4 * sub_00c64ec0(void); };
 // @baa 0x00c64ec0
-undefined4 * UObject::sub_00c64ec0(void)
+undefined4 * C_00c64ec0::sub_00c64ec0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -150,8 +153,9 @@ undefined4 * UObject::sub_00c64ec0(void)
 }
 
 extern undefined * g_0205abb0;
+struct C_00c65030 { undefined4 * sub_00c65030(void); };
 // @baa 0x00c65030
-undefined4 * UObject::sub_00c65030(void)
+undefined4 * C_00c65030::sub_00c65030(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -161,8 +165,9 @@ undefined4 * UObject::sub_00c65030(void)
 }
 
 extern undefined * g_0205ad50;
+struct C_00c65050 { undefined4 * sub_00c65050(void); };
 // @baa 0x00c65050
-undefined4 * UObject::sub_00c65050(void)
+undefined4 * C_00c65050::sub_00c65050(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -172,8 +177,9 @@ undefined4 * UObject::sub_00c65050(void)
 }
 
 extern undefined * g_0205aef0;
+struct C_00c65100 { undefined4 * sub_00c65100(void); };
 // @baa 0x00c65100
-undefined4 * UObject::sub_00c65100(void)
+undefined4 * C_00c65100::sub_00c65100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -183,8 +189,9 @@ undefined4 * UObject::sub_00c65100(void)
 }
 
 extern undefined * g_0205b090;
+struct C_00c651b0 { undefined4 * sub_00c651b0(void); };
 // @baa 0x00c651b0
-undefined4 * UObject::sub_00c651b0(void)
+undefined4 * C_00c651b0::sub_00c651b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -194,8 +201,9 @@ undefined4 * UObject::sub_00c651b0(void)
 }
 
 extern undefined * g_0205b230;
+struct C_00c65260 { undefined4 * sub_00c65260(void); };
 // @baa 0x00c65260
-undefined4 * UObject::sub_00c65260(void)
+undefined4 * C_00c65260::sub_00c65260(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -205,8 +213,9 @@ undefined4 * UObject::sub_00c65260(void)
 }
 
 extern undefined * g_0205b3d8;
+struct C_00c65330 { undefined4 * sub_00c65330(void); };
 // @baa 0x00c65330
-undefined4 * UObject::sub_00c65330(void)
+undefined4 * C_00c65330::sub_00c65330(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -216,8 +225,9 @@ undefined4 * UObject::sub_00c65330(void)
 }
 
 extern undefined * g_0205b578;
+struct C_00c653f0 { undefined4 * sub_00c653f0(void); };
 // @baa 0x00c653f0
-undefined4 * UObject::sub_00c653f0(void)
+undefined4 * C_00c653f0::sub_00c653f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

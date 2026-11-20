@@ -7,8 +7,9 @@ struct C_view {
     int sub_013c7aa0(int, int);
 };
 
+struct C_013c9fd0 { int sub_013c9fd0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x013c9fd0
-int UPackageMap::sub_013c9fd0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_013c9fd0::sub_013c9fd0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_013c7aa0(param_2, param_4);

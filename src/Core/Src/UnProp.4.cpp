@@ -140,8 +140,9 @@ int UArrayProperty::sub_005faae0(void) { return *(int*)((char*)this + 0); }
 // @baa 0x005faaf0
 int UArrayProperty::sub_005faaf0(void) { return *(int*)((char*)this + 20); }
 
+struct C_005fab00 { int sub_005fab00(int param_2); };
 // @baa 0x005fab00
-int UArrayProperty::sub_005fab00(int param_2)
+int C_005fab00::sub_005fab00(int param_2)
 {
     int * param_1 = (int *)this;
 

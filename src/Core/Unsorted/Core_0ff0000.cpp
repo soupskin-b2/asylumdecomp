@@ -13,8 +13,9 @@ struct C_view {
     int sub_007beb80(int);
 };
 
+struct C_00ffd6a0 { undefined4 sub_00ffd6a0(int param_2); };
 // @baa 0x00ffd6a0
-undefined4 UObject::sub_00ffd6a0(int param_2)
+undefined4 C_00ffd6a0::sub_00ffd6a0(int param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_00672a40(param_2);

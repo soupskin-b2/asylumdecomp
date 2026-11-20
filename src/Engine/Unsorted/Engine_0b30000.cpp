@@ -721,8 +721,9 @@ C_00b35540::C_00b35540() {}
 void C_00b35540::sub_00b35700() {}
 
 int sub_00b36660(void);
+struct C_00b366d0 { undefined4 sub_00b366d0(byte param_2); };
 // @baa 0x00b366d0
-undefined4 ULensFlare::sub_00b366d0(byte param_2)
+undefined4 C_00b366d0::sub_00b366d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -975,8 +976,9 @@ DWORD* S_00b399d0::sub_00b399d0(INT Index)
 }
 
 int sub_00b39970(void);
+struct C_00b39a20 { undefined4 sub_00b39a20(byte param_2); };
 // @baa 0x00b39a20
-undefined4 ULensFlare::sub_00b39a20(byte param_2)
+undefined4 C_00b39a20::sub_00b39a20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1605,8 +1607,9 @@ UBOOL UParticleModuleTypeDataMesh::IsAMeshEmitter() const { return 1; }
 
 // @baa 0x00b3dce0
 extern undefined * g_01feec58;
+struct C_00b3dd00 { undefined4 * sub_00b3dd00(void); };
 // @baa 0x00b3dd00
-undefined4 * UObject::sub_00b3dd00(void)
+undefined4 * C_00b3dd00::sub_00b3dd00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1616,8 +1619,9 @@ undefined4 * UObject::sub_00b3dd00(void)
 }
 
 extern undefined * g_01feedd8;
+struct C_00b3dd20 { undefined4 * sub_00b3dd20(void); };
 // @baa 0x00b3dd20
-undefined4 * UObject::sub_00b3dd20(void)
+undefined4 * C_00b3dd20::sub_00b3dd20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

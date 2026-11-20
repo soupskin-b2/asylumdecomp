@@ -5,8 +5,9 @@
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_0133a760 { int sub_0133a760(undefined4*param_2); };
 // @baa 0x0133a760
-int UUnrealEdEngine::sub_0133a760(undefined4*param_2)
+int C_0133a760::sub_0133a760(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

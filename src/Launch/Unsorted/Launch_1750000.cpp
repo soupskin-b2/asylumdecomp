@@ -46,8 +46,9 @@ void __stdcall sub_01757210(void *a, void *b)
 }
 
 int sub_01746c10(void);
+struct C_017572d0 { int sub_017572d0(void); };
 // @baa 0x017572d0
-int UTexture2D::sub_017572d0(void)
+int C_017572d0::sub_017572d0(void)
 {
     int param_1 = (int)this;
 
@@ -117,8 +118,9 @@ C_017573c0::C_017573c0() {}
 // @baa 0x017573c0
 void C_017573c0::sub_017573d0() {}
 
+struct C_01757440 { int sub_01757440(void); };
 // @baa 0x01757440
-int UTexture2D::sub_01757440(void)
+int C_01757440::sub_01757440(void)
 {
     int param_1 = (int)this;
 
@@ -159,8 +161,9 @@ C_017575f0::C_017575f0() {}
 // @baa 0x017575f0
 void C_017575f0::sub_01757600() {}
 
+struct C_01757690 { int sub_01757690(void); };
 // @baa 0x01757690
-int UTexture2D::sub_01757690(void)
+int C_01757690::sub_01757690(void)
 {
     int param_1 = (int)this;
 

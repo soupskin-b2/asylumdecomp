@@ -89,8 +89,9 @@ extern char g_01ebb554[];
 void UMaterialInstanceConstant::sub_006d89d0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_006d89e0 { undefined4 * sub_006d89e0(byte param_2); };
 // @baa 0x006d89e0
-undefined4 * UMaterialInstanceConstant::sub_006d89e0(byte param_2)
+undefined4 * C_006d89e0::sub_006d89e0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

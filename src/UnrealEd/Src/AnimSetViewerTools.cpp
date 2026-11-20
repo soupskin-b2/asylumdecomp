@@ -413,8 +413,9 @@ struct C_view {
     int sub_0057cb40(int);
 };
 
+struct C_01358290 { int sub_01358290(int param_2); };
 // @baa 0x01358290
-int UUnrealEdEngine::sub_01358290(int param_2)
+int C_01358290::sub_01358290(int param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00fb41b0(param_2);
@@ -464,8 +465,9 @@ struct C_view_0135d0c0 {
 };
 
 int sub_005f5500(...);
+struct C_0135d0c0 { void sub_0135d0c0(void); };
 // @baa 0x0135d0c0
-void UUnrealEdEngine::sub_0135d0c0(void)
+void C_0135d0c0::sub_0135d0c0(void)
 {
     int param_1 = (int)this;
   int iVar1;

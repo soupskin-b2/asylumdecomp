@@ -21,8 +21,9 @@ int sub_015d8250(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_023302f8;
+struct C_015d8260 { undefined4 * sub_015d8260(void); };
 // @baa 0x015d8260
-undefined4 * UObject::sub_015d8260(void)
+undefined4 * C_015d8260::sub_015d8260(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -45,8 +46,9 @@ struct C_015d8310 { C_015d8310* sub_015d8310(void); };
 C_015d8310* C_015d8310::sub_015d8310(void) { *(int*)((char*)this + 0) = (int)g_02330404; return this; }
 
 int sub_0053dfa0(...);
+struct C_015d8320 { undefined4 * sub_015d8320(byte param_2); };
 // @baa 0x015d8320
-undefined4 * URSpotableInterface::sub_015d8320(byte param_2)
+undefined4 * C_015d8320::sub_015d8320(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

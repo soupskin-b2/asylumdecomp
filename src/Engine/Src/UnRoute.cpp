@@ -9,8 +9,9 @@ IMPLEMENT_CLASS_AT(UPathConstraint, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 // @baa 0x008a56d0
 int sub_005c7a20(void);
 extern undefined * g_01f5d7e8;
+struct C_008a56f0 { undefined4 * sub_008a56f0(void); };
 // @baa 0x008a56f0
-undefined4 * UObject::sub_008a56f0(void)
+undefined4 * C_008a56f0::sub_008a56f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -23,8 +24,9 @@ undefined4 * UObject::sub_008a56f0(void)
 int sub_008a5710(int a0, int a1) { return a1; }
 
 extern undefined * g_01f5d8f8;
+struct C_008a5720 { undefined4 * sub_008a5720(void); };
 // @baa 0x008a5720
-undefined4 * UObject::sub_008a5720(void)
+undefined4 * C_008a5720::sub_008a5720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -44,8 +46,9 @@ undefined4 sub_008a57c0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5da08;
+struct C_008a57d0 { undefined4 * sub_008a57d0(void); };
 // @baa 0x008a57d0
-undefined4 * UObject::sub_008a57d0(void)
+undefined4 * C_008a57d0::sub_008a57d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -65,8 +68,9 @@ undefined4 sub_008a5870(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5db20;
+struct C_008a5880 { undefined4 * sub_008a5880(void); };
 // @baa 0x008a5880
-undefined4 * UObject::sub_008a5880(void)
+undefined4 * C_008a5880::sub_008a5880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -86,8 +90,9 @@ undefined4 sub_008a5920(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5dc30;
+struct C_008a5930 { undefined4 * sub_008a5930(void); };
 // @baa 0x008a5930
-undefined4 * UObject::sub_008a5930(void)
+undefined4 * C_008a5930::sub_008a5930(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -107,8 +112,9 @@ undefined4 sub_008a59d0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5dd40;
+struct C_008a59e0 { undefined4 * sub_008a59e0(void); };
 // @baa 0x008a59e0
-undefined4 * UObject::sub_008a59e0(void)
+undefined4 * C_008a59e0::sub_008a59e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -128,8 +134,9 @@ undefined4 sub_008a5a80(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5de50;
+struct C_008a5a90 { undefined4 * sub_008a5a90(void); };
 // @baa 0x008a5a90
-undefined4 * UObject::sub_008a5a90(void)
+undefined4 * C_008a5a90::sub_008a5a90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -149,8 +156,9 @@ undefined4 sub_008a5b30(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5df60;
+struct C_008a5b40 { undefined4 * sub_008a5b40(void); };
 // @baa 0x008a5b40
-undefined4 * UObject::sub_008a5b40(void)
+undefined4 * C_008a5b40::sub_008a5b40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -244,8 +252,9 @@ IMPLEMENT_CLASS_AT(UPathGoalEvaluator, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x008a5c80
 extern undefined * g_01f5e070;
+struct C_008a5ca0 { undefined4 * sub_008a5ca0(void); };
 // @baa 0x008a5ca0
-undefined4 * UObject::sub_008a5ca0(void)
+undefined4 * C_008a5ca0::sub_008a5ca0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -258,8 +267,9 @@ undefined4 * UObject::sub_008a5ca0(void)
 int sub_008a5cc0(int a0, int a1) { return a1; }
 
 extern undefined * g_01f5e190;
+struct C_008a5cd0 { undefined4 * sub_008a5cd0(void); };
 // @baa 0x008a5cd0
-undefined4 * UObject::sub_008a5cd0(void)
+undefined4 * C_008a5cd0::sub_008a5cd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -279,8 +289,9 @@ undefined4 sub_008a5d70(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_01f5e2b0;
+struct C_008a5d80 { undefined4 * sub_008a5d80(void); };
 // @baa 0x008a5d80
-undefined4 * UObject::sub_008a5d80(void)
+undefined4 * C_008a5d80::sub_008a5d80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

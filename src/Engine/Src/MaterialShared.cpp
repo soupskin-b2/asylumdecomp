@@ -646,8 +646,9 @@ struct C_view {
     int sub_00417ef0(int);
 };
 
+struct C_00703830 { int sub_00703830(int param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5); };
 // @baa 0x00703830
-int UObject::sub_00703830(int param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5)
+int C_00703830::sub_00703830(int param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00417ef0(param_3);

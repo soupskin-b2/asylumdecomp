@@ -38,8 +38,9 @@ void*sub_01a375f0(void*,void*,size_t);
 extern undefined2 g_01e3f3dc;
 extern undefined4 g_01fa036c;
 extern undefined4 g_01fa03cc;
+struct C_009e3cd0 { int sub_009e3cd0(void*param_2,size_t param_3); };
 // @baa 0x009e3cd0
-int UPhysicalMaterial::sub_009e3cd0(void*param_2,size_t param_3)
+int C_009e3cd0::sub_009e3cd0(void*param_2,size_t param_3)
 {
 int param_1=(int)this;
 int iVar1;
@@ -71,8 +72,9 @@ int sub_009f7420(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01fb3628;
+struct C_009f7430 { undefined4 * sub_009f7430(void); };
 // @baa 0x009f7430
-undefined4 * UObject::sub_009f7430(void)
+undefined4 * C_009f7430::sub_009f7430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -114,8 +116,9 @@ UBOOL UPhysicalMaterial::HasParentClassChanged() const
 // @baa 0x00a03230
 int sub_0053dfa0(...);
 extern undefined4 g_01fb3844;
+struct C_00a03d30 { undefined4 * sub_00a03d30(byte param_2); };
 // @baa 0x00a03d30
-undefined4 * UPhysicalMaterial::sub_00a03d30(byte param_2)
+undefined4 * C_00a03d30::sub_00a03d30(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -201,8 +204,9 @@ undefined4 * C_00a046c0::sub_00a046c0(byte param_2)
 }
 
 extern undefined * g_01fa3e7c;
+struct C_00a046e0 { undefined4 * sub_00a046e0(byte param_2); };
 // @baa 0x00a046e0
-undefined4 * UPhysicalMaterial::sub_00a046e0(byte param_2)
+undefined4 * C_00a046e0::sub_00a046e0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

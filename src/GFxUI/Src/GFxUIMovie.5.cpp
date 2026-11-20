@@ -93,8 +93,9 @@ UBOOL UGFxMovie::eventStart(UBOOL StartPaused)
 
 int sub_005c7a20(void);
 extern undefined * g_02105e28;
+struct C_00e41d70 { undefined4 * sub_00e41d70(void); };
 // @baa 0x00e41d70
-undefined4 * UObject::sub_00e41d70(void)
+undefined4 * C_00e41d70::sub_00e41d70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -114,8 +115,9 @@ int C_00e41db0::sub_00e41db0(int a)
 }
 
 extern undefined * g_02106fe0;
+struct C_00e592c0 { undefined4 * sub_00e592c0(void); };
 // @baa 0x00e592c0
-undefined4 * UObject::sub_00e592c0(void)
+undefined4 * C_00e592c0::sub_00e592c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

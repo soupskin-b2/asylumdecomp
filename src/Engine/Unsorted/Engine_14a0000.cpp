@@ -24,8 +24,9 @@ struct C_view {
     int sub_014a63b0(int);
 };
 
+struct C_014ace70 { undefined4 * sub_014ace70(undefined4 * param_2); };
 // @baa 0x014ace70
-undefined4 * UTexture2D::sub_014ace70(undefined4 * param_2)
+undefined4 * C_014ace70::sub_014ace70(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;

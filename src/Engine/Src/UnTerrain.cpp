@@ -84,8 +84,9 @@ void sub_00981ff0(S* p, INT Value)
 int ATerrain::sub_00982070(void) { return *(int*)((char*)this + 640); }
 
 int sub_0053dfa0(...);
+struct C_00982080 { void sub_00982080(void); };
 // @baa 0x00982080
-void ATerrain::sub_00982080(void)
+void C_00982080::sub_00982080(void)
 {
     int param_1 = (int)this;
 
@@ -96,8 +97,9 @@ void ATerrain::sub_00982080(void)
   return;
 }
 
+struct C_009820b0 { int sub_009820b0(int param_2); };
 // @baa 0x009820b0
-int ATerrain::sub_009820b0(int param_2)
+int C_009820b0::sub_009820b0(int param_2)
 {
     int param_1 = (int)this;
 
@@ -986,8 +988,9 @@ void C_00985a00::sub_00985a00(void)
   return;
 }
 
+struct C_009861f0 { undefined4 sub_009861f0(void); };
 // @baa 0x009861f0
-undefined4 UTerrainLayerSetup::sub_009861f0(void)
+undefined4 C_009861f0::sub_009861f0(void)
 {
     int param_1 = (int)this;
 
@@ -1982,8 +1985,9 @@ int C_009927b0::sub_009927b0(void)
 }
 
 int sub_0040fcc0(void);
+struct C_009927c0 { undefined4 sub_009927c0(byte param_2); };
 // @baa 0x009927c0
-undefined4 UObject::sub_009927c0(byte param_2)
+undefined4 C_009927c0::sub_009927c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2156,8 +2160,9 @@ C_00995030* C_00995030::sub_00995030(void) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_01f8eec8;
+struct C_00995040 { undefined4 * sub_00995040(void); };
 // @baa 0x00995040
-undefined4 * UObject::sub_00995040(void)
+undefined4 * C_00995040::sub_00995040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2175,8 +2180,9 @@ FLOAT UTerrainLayerSetup::GetMaterialAlpha(const FTerrainFilteredMaterial* Mater
 // @baa 0x00995070
 // @baa 0x009950e0
 extern undefined * g_01f8efd8;
+struct C_00995100 { undefined4 * sub_00995100(void); };
 // @baa 0x00995100
-undefined4 * UObject::sub_00995100(void)
+undefined4 * C_00995100::sub_00995100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2342,8 +2348,9 @@ struct C_view_009963f0 {
     int sub_00992810(int, int);
 };
 
+struct C_009963f0 { int sub_009963f0(int param_2); };
 // @baa 0x009963f0
-int UState::sub_009963f0(int param_2)
+int C_009963f0::sub_009963f0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_009963f0 *)(this))->sub_00992810((int)(&param_2), param_2);
@@ -2357,8 +2364,9 @@ struct C_view_00996420 {
     int sub_00921600(int, int);
 };
 
+struct C_00996420 { int sub_00996420(int param_2); };
 // @baa 0x00996420
-int USkeletalMeshComponent::sub_00996420(int param_2)
+int C_00996420::sub_00996420(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00996420 *)(this))->sub_00921600((int)(&param_2), param_2);
@@ -2501,8 +2509,9 @@ struct C_00996c40 { void sub_00992dc0(int); C_00996c40 *sub_00996c40(int); };
 C_00996c40 *C_00996c40::sub_00996c40(int a) { sub_00992dc0(a); return this; }
 
 int sub_00993a00(void);
+struct C_00997440 { undefined4 sub_00997440(byte param_2); };
 // @baa 0x00997440
-undefined4 UStaticMeshComponent::sub_00997440(byte param_2)
+undefined4 C_00997440::sub_00997440(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2527,8 +2536,9 @@ UTerrainComponent::UTerrainComponent()
 
 int sub_005c7a70(...);
 int sub_00997590(void);
+struct C_00997680 { undefined4 sub_00997680(byte param_2); };
 // @baa 0x00997680
-undefined4 UTerrainComponent::sub_00997680(byte param_2)
+undefined4 C_00997680::sub_00997680(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2545,8 +2555,9 @@ UTerrainWeightMapTexture::UTerrainWeightMapTexture()
 }
 
 int sub_00997700(void);
+struct C_00997770 { undefined4 sub_00997770(byte param_2); };
 // @baa 0x00997770
-undefined4 UTerrainWeightMapTexture::sub_00997770(byte param_2)
+undefined4 C_00997770::sub_00997770(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2565,8 +2576,9 @@ struct C_view_0099a860 {
     int sub_00992810(int, int);
 };
 
+struct C_0099a860 { int sub_0099a860(int param_2); };
 // @baa 0x0099a860
-int UState::sub_0099a860(int param_2)
+int C_0099a860::sub_0099a860(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -2808,8 +2820,9 @@ struct C_view_0099ecd0 {
     int sub_005b4930(int, int);
 };
 
+struct C_0099ecd0 { void sub_0099ecd0(void); };
 // @baa 0x0099ecd0
-void UPackageMap::sub_0099ecd0(void)
+void C_0099ecd0::sub_0099ecd0(void)
 {
     int param_1 = (int)this;
   ((C_view_0099ecd0 *)(this))->sub_005b4930(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -3123,8 +3136,9 @@ int C_009a09f0::sub_009a09f0(void)
 }
 
 int sub_0099efa0(void);
+struct C_009a0a10 { undefined4 sub_009a0a10(byte param_2); };
 // @baa 0x009a0a10
-undefined4 UObject::sub_009a0a10(byte param_2)
+undefined4 C_009a0a10::sub_009a0a10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3196,8 +3210,9 @@ struct C_view_009a2a60 {
     int sub_009a29f0(int);
 };
 
+struct C_009a2a60 { undefined4 sub_009a2a60(void); };
 // @baa 0x009a2a60
-undefined4 ULensFlare::sub_009a2a60(void)
+undefined4 C_009a2a60::sub_009a2a60(void)
 {
     int param_1 = (int)this;
   ((C_view_009a2a60 *)((*(char **)((char *)this + 4))))->sub_009a29f0(param_1 + 0x10);
@@ -3302,8 +3317,9 @@ struct C_009a4040 { C_009a4040* sub_009a4040(void); };
 C_009a4040* C_009a4040::sub_009a4040(void) { return this; }
 
 int sub_009a40d0(void);
+struct C_009a41f0 { undefined4 sub_009a41f0(byte param_2); };
 // @baa 0x009a41f0
-undefined4 ATerrain::sub_009a41f0(byte param_2)
+undefined4 C_009a41f0::sub_009a41f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3335,8 +3351,9 @@ UINT UTerrainComponent::GetMaxTriangleCount() const
 void __stdcall SetMaterials(int a0) {  }
 
 int sub_009a6910(void);
+struct C_009aa040 { void sub_009aa040(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7); };
 // @baa 0x009aa040
-void UTerrainComponent::sub_009aa040(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7)
+void C_009aa040::sub_009aa040(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7)
 {
     int param_1 = (int)this;
 

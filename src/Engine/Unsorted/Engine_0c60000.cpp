@@ -68,8 +68,9 @@ FSparseArrayConstIt_00c63a40::FSparseArrayConstIt_00c63a40(const TSparseArray<IN
 
 int sub_005c7a20(void);
 extern undefined * g_02059b60;
+struct C_00c64890 { undefined4 * sub_00c64890(void); };
 // @baa 0x00c64890
-undefined4 * UObject::sub_00c64890(void)
+undefined4 * C_00c64890::sub_00c64890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -79,8 +80,9 @@ undefined4 * UObject::sub_00c64890(void)
 }
 
 extern undefined * g_02059d00;
+struct C_00c64950 { undefined4 * sub_00c64950(void); };
 // @baa 0x00c64950
-undefined4 * UObject::sub_00c64950(void)
+undefined4 * C_00c64950::sub_00c64950(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -90,8 +92,9 @@ undefined4 * UObject::sub_00c64950(void)
 }
 
 extern undefined * g_02059ea0;
+struct C_00c64970 { undefined4 * sub_00c64970(void); };
 // @baa 0x00c64970
-undefined4 * UObject::sub_00c64970(void)
+undefined4 * C_00c64970::sub_00c64970(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -108,8 +111,9 @@ IMPLEMENT_CLASS_AT(UAnimNodeCrossfader, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00c64b80
 extern undefined * g_0205a870;
+struct C_00c64e00 { undefined4 * sub_00c64e00(void); };
 // @baa 0x00c64e00
-undefined4 * UObject::sub_00c64e00(void)
+undefined4 * C_00c64e00::sub_00c64e00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -156,8 +160,9 @@ IMPLEMENT_CLASS_AT(UAnimNodeBlendBySpeed, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 IMPLEMENT_CLASS_AT(UAnimNodeRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnAnimTree.cpp", 17);
 
 extern undefined * g_0205bc00;
+struct C_00c6b1f0 { undefined4 * sub_00c6b1f0(void); };
 // @baa 0x00c6b1f0
-undefined4 * UObject::sub_00c6b1f0(void)
+undefined4 * C_00c6b1f0::sub_00c6b1f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

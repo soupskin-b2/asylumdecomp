@@ -143,8 +143,9 @@ void sub_00e13530(void) { sub_00e11a60(); }
 // @baa 0x00e139d0
 int sub_00e139d0(void) { return 0; }
 
+struct C_00e139e0 { uint sub_00e139e0(void); };
 // @baa 0x00e139e0
-uint UGuidCache::sub_00e139e0(void)
+uint C_00e139e0::sub_00e139e0(void)
 {
     int param_1 = (int)this;
 
@@ -164,8 +165,9 @@ void __stdcall sub_00e13a10(int a0, int a1, int a2, int a3) {  }
 void __stdcall sub_00e13a20(int a0, int a1, int a2, int a3) {  }
 
 int sub_00e08f00(void);
+struct C_00e13c00 { int sub_00e13c00(void); };
 // @baa 0x00e13c00
-int UGuidCache::sub_00e13c00(void)
+int C_00e13c00::sub_00e13c00(void)
 {
     int param_1 = (int)this;
 
@@ -200,8 +202,9 @@ INT UPackageMapSeekFree::AddPackage(UPackage* Package) {
 // @baa 0x00e14a30
 IMPLEMENT_CLASS_AT(UPackageMapSeekFree, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnNetDrv.cpp", 298);
 
+struct C_00e14a90 { undefined4 * sub_00e14a90(undefined4 param_2); };
 // @baa 0x00e14a90
-undefined4 * UPackageMapSeekFree::sub_00e14a90(undefined4 param_2)
+undefined4 * C_00e14a90::sub_00e14a90(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

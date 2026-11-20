@@ -370,8 +370,9 @@ undefined4 C_00b02b70::sub_00b02b70(byte param_2)
 
 int sub_00654a90(...);
 int sub_00716270(void);
+struct C_00b02e10 { void sub_00b02e10(int param_2); };
 // @baa 0x00b02e10
-void UObject::sub_00b02e10(int param_2)
+void C_00b02e10::sub_00b02e10(int param_2)
 {
     int param_1 = (int)this;
 
@@ -431,8 +432,9 @@ undefined4 C_00b02f60::sub_00b02f60(byte param_2)
 }
 
 int sub_00b02f80(void);
+struct C_00b02ff0 { undefined4 sub_00b02ff0(byte param_2); };
 // @baa 0x00b02ff0
-undefined4 ULensFlare::sub_00b02ff0(byte param_2)
+undefined4 C_00b02ff0::sub_00b02ff0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -485,8 +487,9 @@ struct C_00b031c0 { int a, b, c; C_00b031c0(); };
 C_00b031c0::C_00b031c0() : a(0), b(0), c(0) {}
 
 int sub_00b032b0(void);
+struct C_00b03370 { undefined4 sub_00b03370(byte param_2); };
 // @baa 0x00b03370
-undefined4 ULensFlare::sub_00b03370(byte param_2)
+undefined4 C_00b03370::sub_00b03370(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -498,8 +501,9 @@ undefined4 ULensFlare::sub_00b03370(byte param_2)
 }
 
 int sub_00b03310(void);
+struct C_00b033b0 { undefined4 sub_00b033b0(byte param_2); };
 // @baa 0x00b033b0
-undefined4 ULensFlare::sub_00b033b0(byte param_2)
+undefined4 C_00b033b0::sub_00b033b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -529,8 +533,9 @@ struct C_00b03780 { C_00b03780* sub_00b03780(void); };
 // @baa 0x00b03780
 C_00b03780* C_00b03780::sub_00b03780(void) { *(int*)((char*)this + 96) = 0; return this; }
 
+struct C_00b03790 { void sub_00b03790(void); };
 // @baa 0x00b03790
-void ULensFlare::sub_00b03790(void)
+void C_00b03790::sub_00b03790(void)
 {
     int param_1 = (int)this;
 
@@ -546,8 +551,9 @@ struct C_00b03850 { C_00b03850* sub_00b03850(void); };
 // @baa 0x00b03850
 C_00b03850* C_00b03850::sub_00b03850(void) { *(int*)((char*)this + 48) = 0; return this; }
 
+struct C_00b03860 { void sub_00b03860(void); };
 // @baa 0x00b03860
-void ULensFlare::sub_00b03860(void)
+void C_00b03860::sub_00b03860(void)
 {
     int param_1 = (int)this;
 
@@ -558,8 +564,9 @@ void ULensFlare::sub_00b03860(void)
   return;
 }
 
+struct C_00b03980 { void sub_00b03980(void); };
 // @baa 0x00b03980
-void ULensFlare::sub_00b03980(void)
+void C_00b03980::sub_00b03980(void)
 {
 DWORD param_1=(int)this;
 
@@ -573,8 +580,9 @@ if(iVar1!=0){
 return;
 }
 
+struct C_00b03a00 { void sub_00b03a00(void); };
 // @baa 0x00b03a00
-void ULensFlare::sub_00b03a00(void)
+void C_00b03a00::sub_00b03a00(void)
 {
 int param_1=(int)this;
 
@@ -588,8 +596,9 @@ if(0!=iVar1){
 return;
 }
 
+struct C_00b03a80 { void sub_00b03a80(void); };
 // @baa 0x00b03a80
-void ULensFlare::sub_00b03a80(void)
+void C_00b03a80::sub_00b03a80(void)
 {
 int param_1=(int)this;
 
@@ -604,8 +613,9 @@ return;
 }
 
 int sub_00b0a560(void);
+struct C_00b0afe0 { undefined4 sub_00b0afe0(byte param_2); };
 // @baa 0x00b0afe0
-undefined4 ULensFlare::sub_00b0afe0(byte param_2)
+undefined4 C_00b0afe0::sub_00b0afe0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -616,24 +626,27 @@ undefined4 ULensFlare::sub_00b0afe0(byte param_2)
   return param_1;
 }
 
+struct C_00b0b0c0 { uint sub_00b0b0c0(void); };
 // @baa 0x00b0b0c0
-uint ULensFlare::sub_00b0b0c0(void)
+uint C_00b0b0c0::sub_00b0b0c0(void)
 {
     uint param_1 = (uint)this;
 
   return *(uint *)(param_1 + 0x60) | -(uint)(*(uint *)(param_1 + 0x60) == 0) & param_1;
 }
 
+struct C_00b0b0e0 { uint sub_00b0b0e0(void); };
 // @baa 0x00b0b0e0
-uint ULensFlare::sub_00b0b0e0(void)
+uint C_00b0b0e0::sub_00b0b0e0(void)
 {
     uint param_1 = (uint)this;
 
   return *(uint *)(param_1 + 0x60) | -(uint)(*(uint *)(param_1 + 0x60) == 0) & param_1;
 }
 
+struct C_00b0b170 { int sub_00b0b170(int param_2); };
 // @baa 0x00b0b170
-int ULensFlare::sub_00b0b170(int param_2)
+int C_00b0b170::sub_00b0b170(int param_2)
 {
     uint param_1 = (uint)this;
 
@@ -641,16 +654,18 @@ int ULensFlare::sub_00b0b170(int param_2)
          param_2 * 0xc;
 }
 
+struct C_00b0b190 { uint sub_00b0b190(void); };
 // @baa 0x00b0b190
-uint ULensFlare::sub_00b0b190(void)
+uint C_00b0b190::sub_00b0b190(void)
 {
     uint param_1 = (uint)this;
 
   return *(uint *)(param_1 + 0x30) | -(uint)(*(uint *)(param_1 + 0x30) == 0) & param_1;
 }
 
+struct C_00b0b1b0 { uint sub_00b0b1b0(void); };
 // @baa 0x00b0b1b0
-uint ULensFlare::sub_00b0b1b0(void)
+uint C_00b0b1b0::sub_00b0b1b0(void)
 {
     uint param_1 = (uint)this;
 
@@ -860,8 +875,9 @@ struct C_00b0d0d0 { int sub_00b0d0d0(void); };
 int C_00b0d0d0::sub_00b0d0d0(void) { return *(int*)((char*)this + 0); }
 
 int sub_00b0d0e0(void);
+struct C_00b0d260 { undefined4 sub_00b0d260(byte param_2); };
 // @baa 0x00b0d260
-undefined4 ULensFlare::sub_00b0d260(byte param_2)
+undefined4 C_00b0d260::sub_00b0d260(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -873,8 +889,9 @@ undefined4 ULensFlare::sub_00b0d260(byte param_2)
 }
 
 int sub_00b0d160(void);
+struct C_00b0d280 { undefined4 sub_00b0d280(byte param_2); };
 // @baa 0x00b0d280
-undefined4 ULensFlare::sub_00b0d280(byte param_2)
+undefined4 C_00b0d280::sub_00b0d280(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -886,8 +903,9 @@ undefined4 ULensFlare::sub_00b0d280(byte param_2)
 }
 
 int sub_00b0d1e0(void);
+struct C_00b0d2a0 { undefined4 sub_00b0d2a0(byte param_2); };
 // @baa 0x00b0d2a0
-undefined4 ULensFlare::sub_00b0d2a0(byte param_2)
+undefined4 C_00b0d2a0::sub_00b0d2a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -965,8 +983,9 @@ void C_00b20de0::sub_00b20de0() { m.sub_00b13f70(); }
 // @baa 0x00e13de0
 int sub_00e13de0(void) { return 0; }
 
+struct C_00e13df0 { uint sub_00e13df0(void); };
 // @baa 0x00e13df0
-uint UGuidCache::sub_00e13df0(void)
+uint C_00e13df0::sub_00e13df0(void)
 {
     int param_1 = (int)this;
 
@@ -980,8 +999,9 @@ struct C_view {
     int sub_00a74650(int, int, int, int);
 };
 
+struct C_00e13e60 { void sub_00e13e60(undefined4 param_2, undefined4 param_3, undefined4 param_4, byte param_5); };
 // @baa 0x00e13e60
-void UGuidCache::sub_00e13e60(undefined4 param_2, undefined4 param_3, undefined4 param_4, byte param_5)
+void C_00e13e60::sub_00e13e60(undefined4 param_2, undefined4 param_3, undefined4 param_4, byte param_5)
 {
     int param_1 = (int)this;
   if ((uint)param_5 == *(uint *)(param_1 + 0xc)) {

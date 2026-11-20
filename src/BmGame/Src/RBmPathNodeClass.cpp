@@ -243,8 +243,9 @@ int ARCornerWallMarkerBase::vf_188(void) { return 1; }
 
 int sub_0053dfa0(...);
 int sub_006837e0(void);
+struct C_01605db0 { undefined4 sub_01605db0(byte param_2); };
 // @baa 0x01605db0
-undefined4 ULensFlare::sub_01605db0(byte param_2)
+undefined4 C_01605db0::sub_01605db0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -290,16 +291,18 @@ UBOOL ARBMPathNode_GapJumpProxy::HasParentClassChanged() const
 // @baa 0x01605d70
 int sub_01605d70(void) { return 1690; }
 
+struct C_01605d80 { int sub_01605d80(void); };
 // @baa 0x01605d80
-int ULensFlare::sub_01605d80(void)
+int C_01605d80::sub_01605d80(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x84) * 4;
 }
 
+struct C_01605d90 { int sub_01605d90(void); };
 // @baa 0x01605d90
-int ULensFlare::sub_01605d90(void)
+int C_01605d90::sub_01605d90(void)
 {
     int param_1 = (int)this;
 

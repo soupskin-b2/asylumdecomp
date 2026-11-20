@@ -10,8 +10,9 @@ C* C::sub_015d4920(void) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_02327d48;
+struct C_015d4a80 { undefined4 * sub_015d4a80(void); };
 // @baa 0x015d4a80
-undefined4 * UObject::sub_015d4a80(void)
+undefined4 * C_015d4a80::sub_015d4a80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -325,8 +326,9 @@ C_015d92b0* C_015d92b0::sub_015d92b0(int a0) { return this; }
 int sub_015d9370(int a0, int a1) { return a1; }
 
 extern undefined * g_02330420;
+struct C_015d9380 { undefined4 * sub_015d9380(void); };
 // @baa 0x015d9380
-undefined4 * UObject::sub_015d9380(void)
+undefined4 * C_015d9380::sub_015d9380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -346,8 +348,9 @@ undefined4 sub_015d9420(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02330530;
+struct C_015d9430 { undefined4 * sub_015d9430(void); };
 // @baa 0x015d9430
-undefined4 * UObject::sub_015d9430(void)
+undefined4 * C_015d9430::sub_015d9430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

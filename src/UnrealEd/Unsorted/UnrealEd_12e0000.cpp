@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_012e0000 { undefined4 sub_012e0000(byte param_2); };
 // @baa 0x012e0000
-undefined4 UObject::sub_012e0000(byte param_2)
+undefined4 C_012e0000::sub_012e0000(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -17,8 +18,9 @@ undefined4 UObject::sub_012e0000(byte param_2)
   return param_1;
 }
 
+struct C_012e0030 { undefined4 sub_012e0030(byte param_2); };
 // @baa 0x012e0030
-undefined4 UObject::sub_012e0030(byte param_2)
+undefined4 C_012e0030::sub_012e0030(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -29,8 +31,9 @@ undefined4 UObject::sub_012e0030(byte param_2)
   return param_1;
 }
 
+struct C_012e0060 { undefined4 sub_012e0060(byte param_2); };
 // @baa 0x012e0060
-undefined4 UObject::sub_012e0060(byte param_2)
+undefined4 C_012e0060::sub_012e0060(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -41,8 +44,9 @@ undefined4 UObject::sub_012e0060(byte param_2)
   return param_1;
 }
 
+struct C_012e0090 { undefined4 sub_012e0090(byte param_2); };
 // @baa 0x012e0090
-undefined4 UObject::sub_012e0090(byte param_2)
+undefined4 C_012e0090::sub_012e0090(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -53,8 +57,9 @@ undefined4 UObject::sub_012e0090(byte param_2)
   return param_1;
 }
 
+struct C_012e00c0 { undefined4 sub_012e00c0(byte param_2); };
 // @baa 0x012e00c0
-undefined4 UObject::sub_012e00c0(byte param_2)
+undefined4 C_012e00c0::sub_012e00c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -65,8 +70,9 @@ undefined4 UObject::sub_012e00c0(byte param_2)
   return param_1;
 }
 
+struct C_012e00f0 { undefined4 sub_012e00f0(byte param_2); };
 // @baa 0x012e00f0
-undefined4 UObject::sub_012e00f0(byte param_2)
+undefined4 C_012e00f0::sub_012e00f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -77,8 +83,9 @@ undefined4 UObject::sub_012e00f0(byte param_2)
   return param_1;
 }
 
+struct C_012e0120 { undefined4 sub_012e0120(byte param_2); };
 // @baa 0x012e0120
-undefined4 UObject::sub_012e0120(byte param_2)
+undefined4 C_012e0120::sub_012e0120(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -89,8 +96,9 @@ undefined4 UObject::sub_012e0120(byte param_2)
   return param_1;
 }
 
+struct C_012e0150 { undefined4 sub_012e0150(byte param_2); };
 // @baa 0x012e0150
-undefined4 UObject::sub_012e0150(byte param_2)
+undefined4 C_012e0150::sub_012e0150(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -101,8 +109,9 @@ undefined4 UObject::sub_012e0150(byte param_2)
   return param_1;
 }
 
+struct C_012e0180 { undefined4 sub_012e0180(byte param_2); };
 // @baa 0x012e0180
-undefined4 UObject::sub_012e0180(byte param_2)
+undefined4 C_012e0180::sub_012e0180(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -113,8 +122,9 @@ undefined4 UObject::sub_012e0180(byte param_2)
   return param_1;
 }
 
+struct C_012e01b0 { undefined4 sub_012e01b0(byte param_2); };
 // @baa 0x012e01b0
-undefined4 UObject::sub_012e01b0(byte param_2)
+undefined4 C_012e01b0::sub_012e01b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -125,8 +135,9 @@ undefined4 UObject::sub_012e01b0(byte param_2)
   return param_1;
 }
 
+struct C_012e01e0 { undefined4 sub_012e01e0(byte param_2); };
 // @baa 0x012e01e0
-undefined4 UObject::sub_012e01e0(byte param_2)
+undefined4 C_012e01e0::sub_012e01e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -137,8 +148,9 @@ undefined4 UObject::sub_012e01e0(byte param_2)
   return param_1;
 }
 
+struct C_012e0210 { undefined4 sub_012e0210(byte param_2); };
 // @baa 0x012e0210
-undefined4 UObject::sub_012e0210(byte param_2)
+undefined4 C_012e0210::sub_012e0210(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -149,8 +161,9 @@ undefined4 UObject::sub_012e0210(byte param_2)
   return param_1;
 }
 
+struct C_012e0240 { undefined4 sub_012e0240(byte param_2); };
 // @baa 0x012e0240
-undefined4 UObject::sub_012e0240(byte param_2)
+undefined4 C_012e0240::sub_012e0240(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -182,8 +195,9 @@ struct C_012e3f90 { void sub_012e14b0(); void sub_012e3f90(int); };
 void C_012e3f90::sub_012e3f90(int) { sub_012e14b0(); }
 
 int sub_012e0f10(void);
+struct C_012e3fa0 { undefined4 sub_012e3fa0(byte param_2); };
 // @baa 0x012e3fa0
-undefined4 UUnrealEdEngine::sub_012e3fa0(byte param_2)
+undefined4 C_012e3fa0::sub_012e3fa0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

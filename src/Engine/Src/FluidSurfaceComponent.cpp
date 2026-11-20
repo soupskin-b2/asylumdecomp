@@ -7,8 +7,9 @@ struct C_view {
     int sub_0065a720(int, int, int);
 };
 
+struct C_006753c0 { void sub_006753c0(int param_2); };
 // @baa 0x006753c0
-void UFluidSurfaceComponent::sub_006753c0(int param_2)
+void C_006753c0::sub_006753c0(int param_2)
 {
     int param_1 = (int)this;
   *(undefined4 *)(param_1 + 0x90) = 0;
@@ -40,8 +41,9 @@ struct C_view_00680b50 {
     int sub_00672f70(int, int);
 };
 
+struct C_00680b50 { int sub_00680b50(int param_2); };
 // @baa 0x00680b50
-int UFluidSurfaceComponent::sub_00680b50(int param_2)
+int C_00680b50::sub_00680b50(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00680b50 *)(this))->sub_00672f70((int)(&param_2), param_2);
@@ -818,8 +820,9 @@ TConstSetBitIterator_006cd920& TConstSetBitIterator_006cd920::operator++()
 }
 
 int sub_006c92b0(void);
+struct C_006d1680 { int sub_006d1680(void); };
 // @baa 0x006d1680
-int UFluidSurfaceComponent::sub_006d1680(void)
+int C_006d1680::sub_006d1680(void)
 {
     int param_1 = (int)this;
 
@@ -851,8 +854,9 @@ TConstSetBitIterator_006d16a0& TConstSetBitIterator_006d16a0::operator++()
 }
 
 int sub_006c9440(void);
+struct C_006d1800 { int sub_006d1800(void); };
 // @baa 0x006d1800
-int UFluidSurfaceComponent::sub_006d1800(void)
+int C_006d1800::sub_006d1800(void)
 {
     int param_1 = (int)this;
 
@@ -866,8 +870,9 @@ struct C_view_006d2aa0 {
     int sub_006d1240(int, int);
 };
 
+struct C_006d2aa0 { void sub_006d2aa0(void); };
 // @baa 0x006d2aa0
-void UState::sub_006d2aa0(void)
+void C_006d2aa0::sub_006d2aa0(void)
 {
     int param_1 = (int)this;
   ((C_view_006d2aa0 *)(this))->sub_006d1240(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -878,8 +883,9 @@ struct C_view_006d2bf0 {
     int sub_006d1300(int, int);
 };
 
+struct C_006d2bf0 { void sub_006d2bf0(void); };
 // @baa 0x006d2bf0
-void UTexture2D::sub_006d2bf0(void)
+void C_006d2bf0::sub_006d2bf0(void)
 {
     int param_1 = (int)this;
   ((C_view_006d2bf0 *)(this))->sub_006d1300(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -890,8 +896,9 @@ struct C_view_006d2d30 {
     int sub_006d13c0(int, int);
 };
 
+struct C_006d2d30 { undefined4 sub_006d2d30(undefined4 param_2, undefined4 param_3); };
 // @baa 0x006d2d30
-undefined4 UTexture2D::sub_006d2d30(undefined4 param_2, undefined4 param_3)
+undefined4 C_006d2d30::sub_006d2d30(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_006d2d30 *)(this))->sub_006d13c0(param_2, param_3);
@@ -940,8 +947,9 @@ int C_006d2d90::sub_006d2d90(undefined4 param_2, undefined4 param_3)
 }
 
 int sub_006c91f0(void);
+struct C_006d2db0 { int sub_006d2db0(void); };
 // @baa 0x006d2db0
-int USpeechRecognition::sub_006d2db0(void)
+int C_006d2db0::sub_006d2db0(void)
 {
     int param_1 = (int)this;
 
@@ -967,8 +975,9 @@ int C_006d2dd0::sub_006d2dd0(void)
   return param_1;
 }
 
+struct C_006d30a0 { int sub_006d30a0(void); };
 // @baa 0x006d30a0
-int UFluidSurfaceComponent::sub_006d30a0(void)
+int C_006d30a0::sub_006d30a0(void)
 {
     int param_1 = (int)this;
 
@@ -1003,8 +1012,9 @@ struct C_view_006d3110 {
     int sub_006d16f0(int, int);
 };
 
+struct C_006d3110 { int sub_006d3110(undefined4 param_2, undefined4 param_3); };
 // @baa 0x006d3110
-int UFluidSurfaceComponent::sub_006d3110(undefined4 param_2, undefined4 param_3)
+int C_006d3110::sub_006d3110(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_006d3110 *)(this))->sub_006d16f0(param_2, param_3);
@@ -1016,8 +1026,9 @@ struct C_view_006d3130 {
     int sub_006d1790(int, int);
 };
 
+struct C_006d3130 { int sub_006d3130(undefined4 param_2, undefined4 param_3); };
 // @baa 0x006d3130
-int UFluidSurfaceComponent::sub_006d3130(undefined4 param_2, undefined4 param_3)
+int C_006d3130::sub_006d3130(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_006d3130 *)(this))->sub_006d1790(param_2, param_3);
@@ -1025,8 +1036,9 @@ int UFluidSurfaceComponent::sub_006d3130(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_006d3150 { int sub_006d3150(void); };
 // @baa 0x006d3150
-int UFluidSurfaceComponent::sub_006d3150(void)
+int C_006d3150::sub_006d3150(void)
 {
     int param_1 = (int)this;
 
@@ -1105,8 +1117,9 @@ struct C_view_006d3e40 {
     int sub_006d13c0(int, int);
 };
 
+struct C_006d3e40 { int sub_006d3e40(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x006d3e40
-int UTexture2D::sub_006d3e40(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_006d3e40::sub_006d3e40(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_006d3e40 *)(this))->sub_006d13c0(param_2, param_4);
@@ -1214,8 +1227,9 @@ void C_006d3f00::sub_006d3f00(void)
     }
 }
 
+struct C_006d3f20 { int sub_006d3f20(void); };
 // @baa 0x006d3f20
-int USpeechRecognition::sub_006d3f20(void)
+int C_006d3f20::sub_006d3f20(void)
 {
     int param_1 = (int)this;
 
@@ -1248,8 +1262,9 @@ void sub_006d3030();
 // @baa 0x006d3ff0
 void sub_006d3ff0(void) { sub_006d3030(); }
 
+struct C_006d4000 { int sub_006d4000(void); };
 // @baa 0x006d4000
-int UFluidSurfaceComponent::sub_006d4000(void)
+int C_006d4000::sub_006d4000(void)
 {
     int param_1 = (int)this;
 
@@ -1280,8 +1295,9 @@ TConstSetBitIterator_006d4020& TConstSetBitIterator_006d4020::operator++()
     return *this;
 }
 
+struct C_006d4070 { int sub_006d4070(void); };
 // @baa 0x006d4070
-int UFluidSurfaceComponent::sub_006d4070(void)
+int C_006d4070::sub_006d4070(void)
 {
     int param_1 = (int)this;
 
@@ -1291,8 +1307,9 @@ int UFluidSurfaceComponent::sub_006d4070(void)
   return param_1;
 }
 
+struct C_006d6000 { int sub_006d6000(void); };
 // @baa 0x006d6000
-int UFluidSurfaceComponent::sub_006d6000(void)
+int C_006d6000::sub_006d6000(void)
 {
     int param_1 = (int)this;
 
@@ -1321,8 +1338,9 @@ struct C_006d6240 { void sub_006d2eb0(int); void sub_006d6240(); };
 // @baa 0x006d6240
 void C_006d6240::sub_006d6240() { sub_006d2eb0(0); }
 
+struct C_006d6250 { int sub_006d6250(void); };
 // @baa 0x006d6250
-int UFluidSurfaceComponent::sub_006d6250(void)
+int C_006d6250::sub_006d6250(void)
 {
     int param_1 = (int)this;
 
@@ -1332,8 +1350,9 @@ int UFluidSurfaceComponent::sub_006d6250(void)
   return param_1;
 }
 
+struct C_006d6690 { int sub_006d6690(void); };
 // @baa 0x006d6690
-int UFluidSurfaceComponent::sub_006d6690(void)
+int C_006d6690::sub_006d6690(void)
 {
     int param_1 = (int)this;
 
@@ -1344,8 +1363,9 @@ int UFluidSurfaceComponent::sub_006d6690(void)
   return param_1;
 }
 
+struct C_007080f0 { int sub_007080f0(void); };
 // @baa 0x007080f0
-int UFluidSurfaceComponent::sub_007080f0(void)
+int C_007080f0::sub_007080f0(void)
 {
     int param_1 = (int)this;
 
@@ -1357,8 +1377,9 @@ int UFluidSurfaceComponent::sub_007080f0(void)
 }
 
 int sub_00a4aaa0(void);
+struct C_00a4e280 { int sub_00a4e280(void); };
 // @baa 0x00a4e280
-int UFluidSurfaceComponent::sub_00a4e280(void)
+int C_00a4e280::sub_00a4e280(void)
 {
     int param_1 = (int)this;
 
@@ -1369,8 +1390,9 @@ int UFluidSurfaceComponent::sub_00a4e280(void)
 }
 
 int sub_00a4ab00(void);
+struct C_00a4e2a0 { int sub_00a4e2a0(void); };
 // @baa 0x00a4e2a0
-int UFluidSurfaceComponent::sub_00a4e2a0(void)
+int C_00a4e2a0::sub_00a4e2a0(void)
 {
     int param_1 = (int)this;
 
@@ -1381,8 +1403,9 @@ int UFluidSurfaceComponent::sub_00a4e2a0(void)
 }
 
 int sub_00a4ab60(void);
+struct C_00a4e2c0 { int sub_00a4e2c0(void); };
 // @baa 0x00a4e2c0
-int UFluidSurfaceComponent::sub_00a4e2c0(void)
+int C_00a4e2c0::sub_00a4e2c0(void)
 {
     int param_1 = (int)this;
 
@@ -1392,8 +1415,9 @@ int UFluidSurfaceComponent::sub_00a4e2c0(void)
   return param_1;
 }
 
+struct C_00a4faf0 { int sub_00a4faf0(void); };
 // @baa 0x00a4faf0
-int UFluidSurfaceComponent::sub_00a4faf0(void)
+int C_00a4faf0::sub_00a4faf0(void)
 {
     int param_1 = (int)this;
 
@@ -1403,8 +1427,9 @@ int UFluidSurfaceComponent::sub_00a4faf0(void)
   return param_1;
 }
 
+struct C_00a4fb10 { int sub_00a4fb10(void); };
 // @baa 0x00a4fb10
-int UFluidSurfaceComponent::sub_00a4fb10(void)
+int C_00a4fb10::sub_00a4fb10(void)
 {
     int param_1 = (int)this;
 
@@ -1414,8 +1439,9 @@ int UFluidSurfaceComponent::sub_00a4fb10(void)
   return param_1;
 }
 
+struct C_00a4fb30 { int sub_00a4fb30(void); };
 // @baa 0x00a4fb30
-int UFluidSurfaceComponent::sub_00a4fb30(void)
+int C_00a4fb30::sub_00a4fb30(void)
 {
     int param_1 = (int)this;
 
@@ -1425,8 +1451,9 @@ int UFluidSurfaceComponent::sub_00a4fb30(void)
   return param_1;
 }
 
+struct C_00a51370 { int sub_00a51370(void); };
 // @baa 0x00a51370
-int UFluidSurfaceComponent::sub_00a51370(void)
+int C_00a51370::sub_00a51370(void)
 {
     int param_1 = (int)this;
 
@@ -1436,8 +1463,9 @@ int UFluidSurfaceComponent::sub_00a51370(void)
   return param_1;
 }
 
+struct C_00a51440 { int sub_00a51440(void); };
 // @baa 0x00a51440
-int UFluidSurfaceComponent::sub_00a51440(void)
+int C_00a51440::sub_00a51440(void)
 {
     int param_1 = (int)this;
 
@@ -1447,8 +1475,9 @@ int UFluidSurfaceComponent::sub_00a51440(void)
   return param_1;
 }
 
+struct C_00a51460 { int sub_00a51460(void); };
 // @baa 0x00a51460
-int UFluidSurfaceComponent::sub_00a51460(void)
+int C_00a51460::sub_00a51460(void)
 {
     int param_1 = (int)this;
 
@@ -1458,8 +1487,9 @@ int UFluidSurfaceComponent::sub_00a51460(void)
   return param_1;
 }
 
+struct C_00a52430 { int sub_00a52430(void); };
 // @baa 0x00a52430
-int UFluidSurfaceComponent::sub_00a52430(void)
+int C_00a52430::sub_00a52430(void)
 {
     int param_1 = (int)this;
 
@@ -1469,8 +1499,9 @@ int UFluidSurfaceComponent::sub_00a52430(void)
   return param_1;
 }
 
+struct C_00a52650 { int sub_00a52650(void); };
 // @baa 0x00a52650
-int UFluidSurfaceComponent::sub_00a52650(void)
+int C_00a52650::sub_00a52650(void)
 {
     int param_1 = (int)this;
 
@@ -1480,8 +1511,9 @@ int UFluidSurfaceComponent::sub_00a52650(void)
   return param_1;
 }
 
+struct C_00a52670 { int sub_00a52670(void); };
 // @baa 0x00a52670
-int UFluidSurfaceComponent::sub_00a52670(void)
+int C_00a52670::sub_00a52670(void)
 {
     int param_1 = (int)this;
 
@@ -1496,8 +1528,9 @@ struct C_00a52690 { void sub_00a51480(int); C_00a52690 *sub_00a52690(int); };
 // @baa 0x00a52690
 C_00a52690 *C_00a52690::sub_00a52690(int a) { sub_00a51480(a); return this; }
 
+struct C_00a53780 { int sub_00a53780(void); };
 // @baa 0x00a53780
-int UFluidSurfaceComponent::sub_00a53780(void)
+int C_00a53780::sub_00a53780(void)
 {
     int param_1 = (int)this;
 
@@ -1513,8 +1546,9 @@ struct C_00a53960 { void sub_00a51480(int); C_00a53960 *sub_00a53960(int); };
 // @baa 0x00a53960
 C_00a53960 *C_00a53960::sub_00a53960(int a) { sub_00a51480(a); return this; }
 
+struct C_00a552f0 { int sub_00a552f0(void); };
 // @baa 0x00a552f0
-int UFluidSurfaceComponent::sub_00a552f0(void)
+int C_00a552f0::sub_00a552f0(void)
 {
     int param_1 = (int)this;
 
@@ -1534,8 +1568,9 @@ struct C_view_00a55790 {
     int sub_00a51480(int);
 };
 
+struct C_00a55790 { int sub_00a55790(int param_2); };
 // @baa 0x00a55790
-int UFluidSurfaceComponent::sub_00a55790(int param_2)
+int C_00a55790::sub_00a55790(int param_2)
 {
     int param_1 = (int)this;
   ((C_view_00a55790 *)(this))->sub_00a51480(param_2);
@@ -1547,8 +1582,9 @@ struct C_view_00a55ab0 {
     int sub_00a51480(int);
 };
 
+struct C_00a55ab0 { int sub_00a55ab0(int param_2); };
 // @baa 0x00a55ab0
-int UFluidSurfaceComponent::sub_00a55ab0(int param_2)
+int C_00a55ab0::sub_00a55ab0(int param_2)
 {
     int param_1 = (int)this;
   ((C_view_00a55ab0 *)(this))->sub_00a51480(param_2);
@@ -1602,8 +1638,9 @@ UBOOL UFluidSurfaceComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00bdc940 { int sub_00bdc940(void); };
 // @baa 0x00bdc940
-int UFluidSurfaceComponent::sub_00bdc940(void)
+int C_00bdc940::sub_00bdc940(void)
 {
     int param_1 = (int)this;
 
@@ -1724,8 +1761,9 @@ void UFluidSurfaceComponent::sub_00be48d0(UBOOL bRelease)
 }
 
 int sub_0053df70(...);
+struct C_00be73e0 { void sub_00be73e0(void); };
 // @baa 0x00be73e0
-void UFluidSurfaceComponent::sub_00be73e0(void)
+void C_00be73e0::sub_00be73e0(void)
 {
     int param_1 = (int)this;
 

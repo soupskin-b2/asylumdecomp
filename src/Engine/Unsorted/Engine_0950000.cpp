@@ -168,8 +168,9 @@ FString C_00951610::sub_00951610()
 
 int sub_0053dfa0(...);
 int sub_0094ba30(void);
+struct C_00951640 { undefined4 sub_00951640(byte param_2); };
 // @baa 0x00951640
-undefined4 ULensFlare::sub_00951640(byte param_2)
+undefined4 C_00951640::sub_00951640(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -201,8 +202,9 @@ FString C_00952af0::sub_00952af0()
 }
 
 int sub_00656490(void);
+struct C_00952b20 { undefined4 sub_00952b20(byte param_2); };
 // @baa 0x00952b20
-undefined4 ULensFlare::sub_00952b20(byte param_2)
+undefined4 C_00952b20::sub_00952b20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -224,8 +226,9 @@ FString C_00952b40::sub_00952b40()
 }
 
 int sub_00656520(void);
+struct C_00952b70 { undefined4 sub_00952b70(byte param_2); };
 // @baa 0x00952b70
-undefined4 UTexture2DComposite::sub_00952b70(byte param_2)
+undefined4 C_00952b70::sub_00952b70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -246,8 +249,9 @@ FString C_00953c60::sub_00953c60()
     return TEXT("Morph target mesh vertices");
 }
 
+struct C_00953c90 { undefined4 sub_00953c90(byte param_2); };
 // @baa 0x00953c90
-undefined4 ULensFlare::sub_00953c90(byte param_2)
+undefined4 C_00953c90::sub_00953c90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -268,8 +272,9 @@ FString C_00953cb0::sub_00953cb0()
     return TEXT("Instance skel mesh weight vertices");
 }
 
+struct C_00953ce0 { undefined4 sub_00953ce0(byte param_2); };
 // @baa 0x00953ce0
-undefined4 ULensFlare::sub_00953ce0(byte param_2)
+undefined4 C_00953ce0::sub_00953ce0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -320,8 +325,9 @@ return;
 }
 
 int sub_0094d050(void);
+struct C_00955880 { undefined4 sub_00955880(byte param_2); };
 // @baa 0x00955880
-undefined4 ULensFlare::sub_00955880(byte param_2)
+undefined4 C_00955880::sub_00955880(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -716,8 +722,9 @@ void C_00958390::sub_00958390(int param_2)
   return;
 }
 
+struct C_009583d0 { void sub_009583d0(int param_2); };
 // @baa 0x009583d0
-void UUnrealEdEngine::sub_009583d0(int param_2)
+void C_009583d0::sub_009583d0(int param_2)
 {
     int * param_1 = (int *)this;
 

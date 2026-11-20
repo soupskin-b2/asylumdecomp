@@ -68,8 +68,9 @@ UBOOL URBMBehaviour::HasState()
   return 0;
 }
 
+struct C_015debe0 { void sub_015debe0(undefined4 param_2, float * param_3); };
 // @baa 0x015debe0
-void URBMBehaviour::sub_015debe0(undefined4 param_2, float * param_3)
+void C_015debe0::sub_015debe0(undefined4 param_2, float * param_3)
 {
     int param_1 = (int)this;
   float fVar1;

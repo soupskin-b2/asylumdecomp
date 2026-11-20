@@ -20,16 +20,18 @@ FSparseArrayConstIt_00fb5a30& FSparseArrayConstIt_00fb5a30::operator++()
     return *this;
 }
 
+struct C_00fb5a50 { int sub_00fb5a50(void); };
 // @baa 0x00fb5a50
-int UTexture2D::sub_00fb5a50(void)
+int C_00fb5a50::sub_00fb5a50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x1c;
 }
 
+struct C_00fb5a70 { int sub_00fb5a70(void); };
 // @baa 0x00fb5a70
-int UTexture2D::sub_00fb5a70(void)
+int C_00fb5a70::sub_00fb5a70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -40,8 +42,9 @@ struct C_view {
     int sub_00fb2ef0(int, int);
 };
 
+struct C_00fb5d80 { int sub_00fb5d80(int param_2); };
 // @baa 0x00fb5d80
-int UTexture2D::sub_00fb5d80(int param_2)
+int C_00fb5d80::sub_00fb5d80(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00fb2ef0((int)(&param_2), param_2);
@@ -79,8 +82,9 @@ struct C_view_00fb5df0 {
     int sub_00fb2fa0(int, int);
 };
 
+struct C_00fb5df0 { int sub_00fb5df0(int param_2); };
 // @baa 0x00fb5df0
-int UTexture2D::sub_00fb5df0(int param_2)
+int C_00fb5df0::sub_00fb5df0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00fb5df0 *)(this))->sub_00fb2fa0((int)(&param_2), param_2);
@@ -106,8 +110,9 @@ struct C_view_00fb5e40 {
     int sub_00fb30b0(int, int);
 };
 
+struct C_00fb5e40 { int sub_00fb5e40(int param_2); };
 // @baa 0x00fb5e40
-int UContentTagIndex::sub_00fb5e40(int param_2)
+int C_00fb5e40::sub_00fb5e40(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00fb5e40 *)(this))->sub_00fb30b0((int)(&param_2), param_2);
@@ -121,8 +126,9 @@ struct C_view_00fb5e70 {
     int sub_00fb31a0(int, int);
 };
 
+struct C_00fb5e70 { int sub_00fb5e70(int param_2); };
 // @baa 0x00fb5e70
-int UContentTagIndex::sub_00fb5e70(int param_2)
+int C_00fb5e70::sub_00fb5e70(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00fb5e70 *)(this))->sub_00fb31a0((int)(&param_2), param_2);
@@ -136,8 +142,9 @@ struct C_view_00fb5f00 {
     int sub_00fb3290(int, int);
 };
 
+struct C_00fb5f00 { int sub_00fb5f00(int param_2); };
 // @baa 0x00fb5f00
-int UContentTagIndex::sub_00fb5f00(int param_2)
+int C_00fb5f00::sub_00fb5f00(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00fb5f00 *)(this))->sub_00fb3290((int)(&param_2), param_2);

@@ -70,8 +70,9 @@ void C_005fd2e0::sub_005fd2e0(void)
   return;
 }
 
+struct C_005fed30 { void sub_005fed30(int param_2); };
 // @baa 0x005fed30
-void UPackageMap::sub_005fed30(int param_2)
+void C_005fed30::sub_005fed30(int param_2)
 {
     int * param_1 = (int *)this;
 

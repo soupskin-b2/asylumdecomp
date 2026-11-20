@@ -94,8 +94,9 @@ void C_010c4830::sub_010c4830(int param_2)
 
 int sub_0053dfa0(...);
 int sub_010c6be0(void);
+struct C_010c7a00 { undefined4 sub_010c7a00(byte param_2); };
 // @baa 0x010c7a00
-undefined4 UObject::sub_010c7a00(byte param_2)
+undefined4 C_010c7a00::sub_010c7a00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -106,8 +107,9 @@ undefined4 UObject::sub_010c7a00(byte param_2)
   return param_1;
 }
 
+struct C_010cb2a0 { undefined4 sub_010cb2a0(byte param_2); };
 // @baa 0x010cb2a0
-undefined4 UObject::sub_010cb2a0(byte param_2)
+undefined4 C_010cb2a0::sub_010cb2a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -119,8 +121,9 @@ undefined4 UObject::sub_010cb2a0(byte param_2)
 }
 
 int sub_010ef500(void);
+struct C_010f8240 { undefined4 sub_010f8240(byte param_2); };
 // @baa 0x010f8240
-undefined4 UAnalyzeFallbackMaterialsCommandlet::sub_010f8240(byte param_2)
+undefined4 C_010f8240::sub_010f8240(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

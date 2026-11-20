@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_005ae350(void);
+struct C_005b9180 { int sub_005b9180(void); };
 // @baa 0x005b9180
-int UTexture2D::sub_005b9180(void)
+int C_005b9180::sub_005b9180(void)
 {
     int param_1 = (int)this;
 
@@ -16,8 +17,9 @@ int UTexture2D::sub_005b9180(void)
 }
 
 int sub_005ae3b0(void);
+struct C_005b91a0 { int sub_005b91a0(void); };
 // @baa 0x005b91a0
-int UTexture2D::sub_005b91a0(void)
+int C_005b91a0::sub_005b91a0(void)
 {
     int param_1 = (int)this;
 
@@ -28,8 +30,9 @@ int UTexture2D::sub_005b91a0(void)
 }
 
 int sub_005ae410(void);
+struct C_005b91c0 { int sub_005b91c0(void); };
 // @baa 0x005b91c0
-int UTexture2D::sub_005b91c0(void)
+int C_005b91c0::sub_005b91c0(void)
 {
     int param_1 = (int)this;
 

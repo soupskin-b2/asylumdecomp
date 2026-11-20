@@ -248,8 +248,9 @@ int sub_00b436f0(void)
 }
 
 extern undefined * g_01fef638;
+struct C_00b43720 { undefined4 * sub_00b43720(void); };
 // @baa 0x00b43720
-undefined4 * UObject::sub_00b43720(void)
+undefined4 * C_00b43720::sub_00b43720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -302,8 +303,9 @@ int sub_00b439b0(void)
 }
 
 extern undefined * g_01fef918;
+struct C_00b439e0 { undefined4 * sub_00b439e0(void); };
 // @baa 0x00b439e0
-undefined4 * UObject::sub_00b439e0(void)
+undefined4 * C_00b439e0::sub_00b439e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00665d40(void);
+struct C_01729a40 { undefined4 sub_01729a40(byte param_2); };
 // @baa 0x01729a40
-undefined4 UPrimitiveComponent::sub_01729a40(byte param_2)
+undefined4 C_01729a40::sub_01729a40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UPrimitiveComponent::sub_01729a40(byte param_2)
 }
 
 int sub_006837e0(void);
+struct C_0172c240 { undefined4 sub_0172c240(byte param_2); };
 // @baa 0x0172c240
-undefined4 ULensFlare::sub_0172c240(byte param_2)
+undefined4 C_0172c240::sub_0172c240(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

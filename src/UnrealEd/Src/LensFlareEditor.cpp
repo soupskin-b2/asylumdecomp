@@ -80,8 +80,9 @@ UBOOL ULensFlareEditorPropertyWrapper::HasParentClassChanged() const
 
 int sub_005c7a20(void);
 extern undefined * g_0229d1c8;
+struct C_01452cf0 { undefined4 * sub_01452cf0(void); };
 // @baa 0x01452cf0
-undefined4 * UObject::sub_01452cf0(void)
+undefined4 * C_01452cf0::sub_01452cf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -96,8 +97,9 @@ void sub_01468f20(void) { sub_01463a40(); }
 
 int sub_006f7810(void);
 extern undefined * g_022a0f08;
+struct C_01468f30 { undefined4 * sub_01468f30(void); };
 // @baa 0x01468f30
-undefined4 * UPrimitiveComponent::sub_01468f30(void)
+undefined4 * C_01468f30::sub_01468f30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -107,8 +109,9 @@ undefined4 * UPrimitiveComponent::sub_01468f30(void)
 }
 
 extern undefined * g_022a11b8;
+struct C_0146b040 { undefined4 * sub_0146b040(void); };
 // @baa 0x0146b040
-undefined4 * UObject::sub_0146b040(void)
+undefined4 * C_0146b040::sub_0146b040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

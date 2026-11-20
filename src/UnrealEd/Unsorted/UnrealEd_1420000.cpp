@@ -33,8 +33,9 @@ C_014225b0::C_014225b0() {}
 void C_014225b0::sub_014225c0() {}
 
 int sub_01284da0(void);
+struct C_014225c0 { undefined4 sub_014225c0(byte param_2); };
 // @baa 0x014225c0
-undefined4 UUnrealEdEngine::sub_014225c0(byte param_2)
+undefined4 C_014225c0::sub_014225c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -254,8 +255,9 @@ struct C_view {
 };
 
 extern undefined4 g_0228c6b4;
+struct C_01426480 { undefined4 * sub_01426480(undefined4 param_2); };
 // @baa 0x01426480
-undefined4 * UUnrealEdEngine::sub_01426480(undefined4 param_2)
+undefined4 * C_01426480::sub_01426480(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -1198,8 +1200,9 @@ struct C_view_0142cbe0 {
     int sub_00547da0(int);
 };
 
+struct C_0142cbe0 { int sub_0142cbe0(int param_2); };
 // @baa 0x0142cbe0
-int URFMODSound::sub_0142cbe0(int param_2)
+int C_0142cbe0::sub_0142cbe0(int param_2)
 {
     int param_1 = (int)this;
   ((C_view_0142cbe0 *)(this))->sub_00547da0(param_2);

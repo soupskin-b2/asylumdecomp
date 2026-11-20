@@ -69,8 +69,9 @@ int C_01253810::sub_01253810(void)
 }
 
 int sub_00c304d0(void);
+struct C_012598f0 { undefined4 sub_012598f0(byte param_2); };
 // @baa 0x012598f0
-undefined4 UMaterialExpressionWorldPosition::sub_012598f0(byte param_2)
+undefined4 C_012598f0::sub_012598f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -193,8 +194,9 @@ C_0125c1b0::C_0125c1b0() {}
 // @baa 0x0125c1b0
 void C_0125c1b0::sub_0125f5a0() {}
 
+struct C_0125d920 { undefined4 sub_0125d920(byte param_2); };
 // @baa 0x0125d920
-undefined4 UMaterialExpressionWorldPosition::sub_0125d920(byte param_2)
+undefined4 C_0125d920::sub_0125d920(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -205,8 +207,9 @@ undefined4 UMaterialExpressionWorldPosition::sub_0125d920(byte param_2)
   return param_1;
 }
 
+struct C_0125da20 { undefined4 sub_0125da20(byte param_2); };
 // @baa 0x0125da20
-undefined4 UMaterialExpressionWorldPosition::sub_0125da20(byte param_2)
+undefined4 C_0125da20::sub_0125da20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -217,8 +220,9 @@ undefined4 UMaterialExpressionWorldPosition::sub_0125da20(byte param_2)
   return param_1;
 }
 
+struct C_0125dc30 { undefined4 sub_0125dc30(byte param_2); };
 // @baa 0x0125dc30
-undefined4 UMaterialExpressionWorldPosition::sub_0125dc30(byte param_2)
+undefined4 C_0125dc30::sub_0125dc30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

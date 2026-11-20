@@ -1638,8 +1638,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_0105ffe0 { undefined4 * sub_0105ffe0(undefined4 * param_2); };
 // @baa 0x0105ffe0
-undefined4 * UObject::sub_0105ffe0(undefined4 * param_2)
+undefined4 * C_0105ffe0::sub_0105ffe0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -1650,72 +1651,81 @@ undefined4 * UObject::sub_0105ffe0(undefined4 * param_2)
   return param_1;
 }
 
+struct C_01060020 { int sub_01060020(int param_2); };
 // @baa 0x01060020
-int UObject::sub_01060020(int param_2)
+int C_01060020::sub_01060020(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_01060030 { int sub_01060030(void); };
 // @baa 0x01060030
-int UObject::sub_01060030(void)
+int C_01060030::sub_01060030(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_01060050 { int sub_01060050(void); };
 // @baa 0x01060050
-int UObject::sub_01060050(void)
+int C_01060050::sub_01060050(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_01060060 { int sub_01060060(void); };
 // @baa 0x01060060
-int UObject::sub_01060060(void)
+int C_01060060::sub_01060060(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_01060080 { int sub_01060080(void); };
 // @baa 0x01060080
-int UObject::sub_01060080(void)
+int C_01060080::sub_01060080(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_010600a0 { int sub_010600a0(void); };
 // @baa 0x010600a0
-int UObject::sub_010600a0(void)
+int C_010600a0::sub_010600a0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_010600c0 { int sub_010600c0(int param_2); };
 // @baa 0x010600c0
-int UObject::sub_010600c0(int param_2)
+int C_010600c0::sub_010600c0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_010600d0 { int sub_010600d0(void); };
 // @baa 0x010600d0
-int UObject::sub_010600d0(void)
+int C_010600d0::sub_010600d0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_010600f0 { int sub_010600f0(void); };
 // @baa 0x010600f0
-int UObject::sub_010600f0(void)
+int C_010600f0::sub_010600f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1724,8 +1734,9 @@ int UObject::sub_010600f0(void)
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_01060110 { undefined4 sub_01060110(byte param_2); };
 // @baa 0x01060110
-undefined4 UObject::sub_01060110(byte param_2)
+undefined4 C_01060110::sub_01060110(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1736,15 +1747,17 @@ undefined4 UObject::sub_01060110(byte param_2)
   return param_1;
 }
 
+struct C_01060210 { int sub_01060210(int param_2); };
 // @baa 0x01060210
-int UObject::sub_01060210(int param_2)
+int C_01060210::sub_01060210(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_010602c0 { undefined4 * sub_010602c0(int * param_2); };
 // @baa 0x010602c0
-undefined4 * UObject::sub_010602c0(int * param_2)
+undefined4 * C_010602c0::sub_010602c0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -1757,48 +1770,54 @@ undefined4 * UObject::sub_010602c0(int * param_2)
   return param_1;
 }
 
+struct C_010603f0 { int sub_010603f0(int param_2); };
 // @baa 0x010603f0
-int UContentTagIndex::sub_010603f0(int param_2)
+int C_010603f0::sub_010603f0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x54 + *param_1;
 }
 
+struct C_010604a0 { int sub_010604a0(int param_2); };
 // @baa 0x010604a0
-int UContentTagIndex::sub_010604a0(int param_2)
+int C_010604a0::sub_010604a0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x54 + *param_1;
 }
 
+struct C_010604b0 { int sub_010604b0(void); };
 // @baa 0x010604b0
-int UContentTagIndex::sub_010604b0(void)
+int C_010604b0::sub_010604b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x54 + *(int *)*param_1;
 }
 
+struct C_010604c0 { int sub_010604c0(void); };
 // @baa 0x010604c0
-int UContentTagIndex::sub_010604c0(void)
+int C_010604c0::sub_010604c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x54 + *(int *)*param_1;
 }
 
+struct C_010604d0 { int sub_010604d0(void); };
 // @baa 0x010604d0
-int UContentTagIndex::sub_010604d0(void)
+int C_010604d0::sub_010604d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0xd0 + *(int *)*param_1;
 }
 
+struct C_01060560 { int sub_01060560(int param_2); };
 // @baa 0x01060560
-int UContentTagIndex::sub_01060560(int param_2)
+int C_01060560::sub_01060560(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1904,8 +1923,9 @@ int C_01060670::sub_01060670(void)
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_01060720 { undefined4 * sub_01060720(undefined4 * param_2); };
 // @baa 0x01060720
-undefined4 * UObject::sub_01060720(undefined4 * param_2)
+undefined4 * C_01060720::sub_01060720(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -2105,8 +2125,9 @@ struct C_view_01071560 {
     int sub_01068c80(int);
 };
 
+struct C_01071560 { void sub_01071560(void); };
 // @baa 0x01071560
-void UContentTagIndex::sub_01071560(void)
+void C_01071560::sub_01071560(void)
 {
     int param_1 = (int)this;
   ((C_view_01071560 *)((*(char **)((char *)this + 0x10))))->sub_01068c80(*(undefined4 *)(param_1 + 8));
@@ -2118,8 +2139,9 @@ struct C_view_01071580 {
     int sub_010692b0(int);
 };
 
+struct C_01071580 { void sub_01071580(void); };
 // @baa 0x01071580
-void UContentTagIndex::sub_01071580(void)
+void C_01071580::sub_01071580(void)
 {
     int param_1 = (int)this;
   ((C_view_01071580 *)((*(char **)((char *)this + 0x10))))->sub_010692b0(*(undefined4 *)(param_1 + 8));
@@ -2202,8 +2224,9 @@ UBatchExportCommandlet::UBatchExportCommandlet()
 // @baa 0x01071e70
 int sub_01071e70(void);
 int sub_005c7a70(...);
+struct C_01071ed0 { undefined4 sub_01071ed0(byte param_2); };
 // @baa 0x01071ed0
-undefined4 UBatchExportCommandlet::sub_01071ed0(byte param_2)
+undefined4 C_01071ed0::sub_01071ed0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2222,8 +2245,9 @@ UConformCommandlet::UConformCommandlet()
 
 // @baa 0x01071f50
 int sub_01071f50(void);
+struct C_01071fb0 { undefined4 sub_01071fb0(byte param_2); };
 // @baa 0x01071fb0
-undefined4 UConformCommandlet::sub_01071fb0(byte param_2)
+undefined4 C_01071fb0::sub_01071fb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2242,8 +2266,9 @@ UDumpEmittersCommandlet::UDumpEmittersCommandlet()
 
 // @baa 0x01072030
 int sub_01072030(void);
+struct C_01072090 { undefined4 sub_01072090(byte param_2); };
 // @baa 0x01072090
-undefined4 UDumpEmittersCommandlet::sub_01072090(byte param_2)
+undefined4 C_01072090::sub_01072090(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2262,8 +2287,9 @@ UFixupEmittersCommandlet::UFixupEmittersCommandlet()
 
 // @baa 0x01072110
 int sub_01072110(void);
+struct C_01072170 { undefined4 sub_01072170(byte param_2); };
 // @baa 0x01072170
-undefined4 UFixupEmittersCommandlet::sub_01072170(byte param_2)
+undefined4 C_01072170::sub_01072170(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2282,8 +2308,9 @@ UFindEmitterMismatchedLODsCommandlet::UFindEmitterMismatchedLODsCommandlet()
 
 // @baa 0x010721f0
 int sub_010721f0(void);
+struct C_01072250 { undefined4 sub_01072250(byte param_2); };
 // @baa 0x01072250
-undefined4 UFindEmitterMismatchedLODsCommandlet::sub_01072250(byte param_2)
+undefined4 C_01072250::sub_01072250(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2302,8 +2329,9 @@ UFindEmitterModifiedLODsCommandlet::UFindEmitterModifiedLODsCommandlet()
 
 // @baa 0x010722d0
 int sub_010722d0(void);
+struct C_01072330 { undefined4 sub_01072330(byte param_2); };
 // @baa 0x01072330
-undefined4 UFindEmitterModifiedLODsCommandlet::sub_01072330(byte param_2)
+undefined4 C_01072330::sub_01072330(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2322,8 +2350,9 @@ UFindEmitterModuleLODErrorsCommandlet::UFindEmitterModuleLODErrorsCommandlet()
 
 // @baa 0x010723b0
 int sub_010723b0(void);
+struct C_01072410 { undefined4 sub_01072410(byte param_2); };
 // @baa 0x01072410
-undefined4 UFindEmitterModuleLODErrorsCommandlet::sub_01072410(byte param_2)
+undefined4 C_01072410::sub_01072410(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2342,8 +2371,9 @@ UFixupSourceUVsCommandlet::UFixupSourceUVsCommandlet()
 
 // @baa 0x01072490
 int sub_01072490(void);
+struct C_010724f0 { undefined4 sub_010724f0(byte param_2); };
 // @baa 0x010724f0
-undefined4 UFixupSourceUVsCommandlet::sub_010724f0(byte param_2)
+undefined4 C_010724f0::sub_010724f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2362,8 +2392,9 @@ UCutDownContentCommandlet::UCutDownContentCommandlet()
 
 // @baa 0x01072570
 int sub_01072570(void);
+struct C_010725d0 { undefined4 sub_010725d0(byte param_2); };
 // @baa 0x010725d0
-undefined4 UCutDownContentCommandlet::sub_010725d0(byte param_2)
+undefined4 C_010725d0::sub_010725d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2382,8 +2413,9 @@ UScaleAudioVolumeCommandlet::UScaleAudioVolumeCommandlet()
 
 // @baa 0x01072650
 int sub_01072650(void);
+struct C_010726b0 { undefined4 sub_010726b0(byte param_2); };
 // @baa 0x010726b0
-undefined4 UScaleAudioVolumeCommandlet::sub_010726b0(byte param_2)
+undefined4 C_010726b0::sub_010726b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2402,8 +2434,9 @@ URebuildMapCommandlet::URebuildMapCommandlet()
 
 // @baa 0x01072730
 int sub_01072730(void);
+struct C_01072790 { undefined4 sub_01072790(byte param_2); };
 // @baa 0x01072790
-undefined4 URebuildMapCommandlet::sub_01072790(byte param_2)
+undefined4 C_01072790::sub_01072790(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2422,8 +2455,9 @@ UWrangleContentCommandlet::UWrangleContentCommandlet()
 
 // @baa 0x01072d50
 int sub_01072d50(void);
+struct C_01072db0 { undefined4 sub_01072db0(byte param_2); };
 // @baa 0x01072db0
-undefined4 UWrangleContentCommandlet::sub_01072db0(byte param_2)
+undefined4 C_01072db0::sub_01072db0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2442,8 +2476,9 @@ UFixAmbiguousMaterialParametersCommandlet::UFixAmbiguousMaterialParametersComman
 
 // @baa 0x01072e30
 int sub_01072e30(void);
+struct C_01072e90 { undefined4 sub_01072e90(byte param_2); };
 // @baa 0x01072e90
-undefined4 UFixAmbiguousMaterialParametersCommandlet::sub_01072e90(byte param_2)
+undefined4 C_01072e90::sub_01072e90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2462,8 +2497,9 @@ UPIEToNormalCommandlet::UPIEToNormalCommandlet()
 
 // @baa 0x01072f10
 int sub_01072f10(void);
+struct C_01072f70 { undefined4 sub_01072f70(byte param_2); };
 // @baa 0x01072f70
-undefined4 UPIEToNormalCommandlet::sub_01072f70(byte param_2)
+undefined4 C_01072f70::sub_01072f70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2482,8 +2518,9 @@ UUT3MapStatsCommandlet::UUT3MapStatsCommandlet()
 
 // @baa 0x01072ff0
 int sub_01072ff0(void);
+struct C_01073050 { undefined4 sub_01073050(byte param_2); };
 // @baa 0x01073050
-undefined4 UUT3MapStatsCommandlet::sub_01073050(byte param_2)
+undefined4 C_01073050::sub_01073050(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2502,8 +2539,9 @@ UListLoopingEmittersCommandlet::UListLoopingEmittersCommandlet()
 
 // @baa 0x010730d0
 int sub_010730d0(void);
+struct C_01073130 { undefined4 sub_01073130(byte param_2); };
 // @baa 0x01073130
-undefined4 UListLoopingEmittersCommandlet::sub_01073130(byte param_2)
+undefined4 C_01073130::sub_01073130(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2522,8 +2560,9 @@ USoundGroupInfoCommandlet::USoundGroupInfoCommandlet()
 
 // @baa 0x010731b0
 int sub_010731b0(void);
+struct C_01073210 { undefined4 sub_01073210(byte param_2); };
 // @baa 0x01073210
-undefined4 USoundGroupInfoCommandlet::sub_01073210(byte param_2)
+undefined4 C_01073210::sub_01073210(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2542,8 +2581,9 @@ UListDistanceCrossFadeNodesCommandlet::UListDistanceCrossFadeNodesCommandlet()
 
 // @baa 0x01073290
 int sub_01073290(void);
+struct C_010732f0 { undefined4 sub_010732f0(byte param_2); };
 // @baa 0x010732f0
-undefined4 UListDistanceCrossFadeNodesCommandlet::sub_010732f0(byte param_2)
+undefined4 C_010732f0::sub_010732f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2562,8 +2602,9 @@ ULocSoundInfoCommandlet::ULocSoundInfoCommandlet()
 
 // @baa 0x01073370
 int sub_01073370(void);
+struct C_010733d0 { undefined4 sub_010733d0(byte param_2); };
 // @baa 0x010733d0
-undefined4 ULocSoundInfoCommandlet::sub_010733d0(byte param_2)
+undefined4 C_010733d0::sub_010733d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2582,8 +2623,9 @@ UBuildContentTagIndexCommandlet::UBuildContentTagIndexCommandlet()
 
 // @baa 0x01073450
 int sub_01073450(void);
+struct C_010734b0 { undefined4 sub_010734b0(byte param_2); };
 // @baa 0x010734b0
-undefined4 UBuildContentTagIndexCommandlet::sub_010734b0(byte param_2)
+undefined4 C_010734b0::sub_010734b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2595,8 +2637,9 @@ undefined4 UBuildContentTagIndexCommandlet::sub_010734b0(byte param_2)
 }
 
 int sub_010695f0(void);
+struct C_010745d0 { int sub_010745d0(void); };
 // @baa 0x010745d0
-int UContentTagIndex::sub_010745d0(void)
+int C_010745d0::sub_010745d0(void)
 {
     int param_1 = (int)this;
 
@@ -2607,8 +2650,9 @@ int UContentTagIndex::sub_010745d0(void)
 }
 
 int sub_01069770(void);
+struct C_010745f0 { int sub_010745f0(void); };
 // @baa 0x010745f0
-int UContentTagIndex::sub_010745f0(void)
+int C_010745f0::sub_010745f0(void)
 {
     int param_1 = (int)this;
 
@@ -2619,8 +2663,9 @@ int UContentTagIndex::sub_010745f0(void)
 }
 
 int sub_010697d0(void);
+struct C_01074610 { int sub_01074610(void); };
 // @baa 0x01074610
-int UContentTagIndex::sub_01074610(void)
+int C_01074610::sub_01074610(void)
 {
     int param_1 = (int)this;
 
@@ -2692,8 +2737,9 @@ IMPLEMENT_CLASS_AT(UBuildContentTagIndexCommandlet, "e:\\Projects\\Amadeus\\AA\\
 // @baa 0x010764a0
 // @baa 0x01076560
 int sub_01079f10(void);
+struct C_0107a010 { undefined4 sub_0107a010(byte param_2); };
 // @baa 0x0107a010
-undefined4 UResavePackagesCommandlet::sub_0107a010(byte param_2)
+undefined4 C_0107a010::sub_0107a010(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2712,8 +2758,9 @@ UChangePrefabSequenceClassCommandlet::UChangePrefabSequenceClassCommandlet()
 
 // @baa 0x0107a0a0
 int sub_0107a0a0(void);
+struct C_0107a100 { undefined4 sub_0107a100(byte param_2); };
 // @baa 0x0107a100
-undefined4 UChangePrefabSequenceClassCommandlet::sub_0107a100(byte param_2)
+undefined4 C_0107a100::sub_0107a100(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2825,8 +2872,9 @@ int C_010848a0::sub_010848a0(undefined4 param_2)
 }
 
 int sub_01069650(void);
+struct C_010848c0 { int sub_010848c0(void); };
 // @baa 0x010848c0
-int UContentTagIndex::sub_010848c0(void)
+int C_010848c0::sub_010848c0(void)
 {
     int param_1 = (int)this;
 
@@ -2837,8 +2885,9 @@ int UContentTagIndex::sub_010848c0(void)
 }
 
 int sub_010696b0(void);
+struct C_010848e0 { int sub_010848e0(void); };
 // @baa 0x010848e0
-int UContentTagIndex::sub_010848e0(void)
+int C_010848e0::sub_010848e0(void)
 {
     int param_1 = (int)this;
 
@@ -2850,8 +2899,9 @@ int UContentTagIndex::sub_010848e0(void)
 
 int sub_005c7a20(void);
 extern undefined * g_02193628;
+struct C_010849c0 { undefined4 * sub_010849c0(void); };
 // @baa 0x010849c0
-undefined4 * UObject::sub_010849c0(void)
+undefined4 * C_010849c0::sub_010849c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2863,9 +2913,10 @@ undefined4 * UObject::sub_010849c0(void)
 // @baa 0x010849e0
 IMPLEMENT_CLASS_AT(UContentTagIndex, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UContentCommandlets.cpp", 5359);
 
+struct C_01084df0 { int sub_01084df0(void); };
 // @baa 0x01084a60
 // @baa 0x01084df0
-int UContentTagIndex::sub_01084df0(void)
+int C_01084df0::sub_01084df0(void)
 {
     int param_1 = (int)this;
 
@@ -2875,8 +2926,9 @@ int UContentTagIndex::sub_01084df0(void)
   return param_1;
 }
 
+struct C_01084e10 { int sub_01084e10(void); };
 // @baa 0x01084e10
-int UContentTagIndex::sub_01084e10(void)
+int C_01084e10::sub_01084e10(void)
 {
     int param_1 = (int)this;
 
@@ -2900,8 +2952,9 @@ void sub_01084c70();
 // @baa 0x01084f70
 void sub_01084f70(void) { sub_01084c70(); }
 
+struct C_01084fc0 { int sub_01084fc0(void); };
 // @baa 0x01084fc0
-int UContentTagIndex::sub_01084fc0(void)
+int C_01084fc0::sub_01084fc0(void)
 {
     int param_1 = (int)this;
 
@@ -2911,8 +2964,9 @@ int UContentTagIndex::sub_01084fc0(void)
   return param_1;
 }
 
+struct C_01084fe0 { int sub_01084fe0(void); };
 // @baa 0x01084fe0
-int UContentTagIndex::sub_01084fe0(void)
+int C_01084fe0::sub_01084fe0(void)
 {
     int param_1 = (int)this;
 
@@ -2928,8 +2982,9 @@ void sub_01085630(void) { sub_01084a80(); }
 // @baa 0x01085640
 void sub_01085640(void) { sub_01084af0(); }
 
+struct C_01085650 { int sub_01085650(void); };
 // @baa 0x01085650
-int UContentTagIndex::sub_01085650(void)
+int C_01085650::sub_01085650(void)
 {
     int param_1 = (int)this;
 
@@ -2939,8 +2994,9 @@ int UContentTagIndex::sub_01085650(void)
   return param_1;
 }
 
+struct C_01085670 { int sub_01085670(void); };
 // @baa 0x01085670
-int UContentTagIndex::sub_01085670(void)
+int C_01085670::sub_01085670(void)
 {
     int param_1 = (int)this;
 

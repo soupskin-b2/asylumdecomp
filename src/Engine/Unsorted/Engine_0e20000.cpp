@@ -34,8 +34,9 @@ int sub_00e252a0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_020ecb68;
+struct C_00e252b0 { undefined4 * sub_00e252b0(void); };
 // @baa 0x00e252b0
-undefined4 * UObject::sub_00e252b0(void)
+undefined4 * C_00e252b0::sub_00e252b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -52,8 +53,9 @@ IMPLEMENT_CLASS_AT(UGameExplosion, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 int sub_00e25360(int a0, int a1) { return a1; }
 
 extern undefined * g_020ecc78;
+struct C_00e25370 { undefined4 * sub_00e25370(void); };
 // @baa 0x00e25370
-undefined4 * UObject::sub_00e25370(void)
+undefined4 * C_00e25370::sub_00e25370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

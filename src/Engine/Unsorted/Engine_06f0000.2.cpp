@@ -22,8 +22,9 @@ undefined4 C::sub_006f1c90(byte param_2)
 }
 
 int sub_006efb40(void);
+struct C_006f3bd0 { undefined4 sub_006f3bd0(byte param_2); };
 // @baa 0x006f3bd0
-undefined4 ULensFlare::sub_006f3bd0(byte param_2)
+undefined4 C_006f3bd0::sub_006f3bd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -34,8 +35,9 @@ undefined4 ULensFlare::sub_006f3bd0(byte param_2)
   return param_1;
 }
 
+struct C_006f4200 { undefined4 sub_006f4200(byte param_2); };
 // @baa 0x006f4200
-undefined4 ULensFlare::sub_006f4200(byte param_2)
+undefined4 C_006f4200::sub_006f4200(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

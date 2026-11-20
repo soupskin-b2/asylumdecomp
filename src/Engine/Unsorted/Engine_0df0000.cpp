@@ -8,8 +8,9 @@ struct C_view {
 };
 
 int sub_009e0e10(...);
+struct C_00df01f0 { uint sub_00df01f0(undefined4 param_2); };
 // @baa 0x00df01f0
-uint UMorphWeightSequence::sub_00df01f0(undefined4 param_2)
+uint C_00df01f0::sub_00df01f0(undefined4 param_2)
 {
     int param_1 = (int)this;
   uint uVar1;
@@ -24,8 +25,9 @@ int sub_00df0390(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_020e2a20;
+struct C_00df03a0 { undefined4 * sub_00df03a0(void); };
 // @baa 0x00df03a0
-undefined4 * UObject::sub_00df03a0(void)
+undefined4 * C_00df03a0::sub_00df03a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -221,8 +223,9 @@ extern char g_01e3f3e0[];
 int sub_00df1910(void) { return (int)g_01e3f3e0; }
 
 extern undefined * g_020e2be8;
+struct C_00df1920 { undefined4 * sub_00df1920(void); };
 // @baa 0x00df1920
-undefined4 * UObject::sub_00df1920(void)
+undefined4 * C_00df1920::sub_00df1920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

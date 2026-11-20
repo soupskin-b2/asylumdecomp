@@ -246,8 +246,9 @@ void sub_0081e7f0();
 void sub_00820db0(void) { sub_0081e7f0(); }
 
 int sub_0081f340(void);
+struct C_00825980 { int sub_00825980(void); };
 // @baa 0x00825980
-int UTexture2D::sub_00825980(void)
+int C_00825980::sub_00825980(void)
 {
     int param_1 = (int)this;
 

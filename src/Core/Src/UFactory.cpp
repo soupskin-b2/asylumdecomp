@@ -25,8 +25,9 @@ UBOOL UFactory::FactoryCanImport(const FFilename& a0) { return 0; }
 // @baa 0x005b1620
 int sub_0060b3d0(void);
 extern undefined * g_01e8c3d8;
+struct C_005b3730 { undefined4 * sub_005b3730(void); };
 // @baa 0x005b3730
-undefined4 * UFactory::sub_005b3730(void)
+undefined4 * C_005b3730::sub_005b3730(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -72,8 +73,9 @@ UBOOL UFactory::HasParentClassChanged() const
 // @baa 0x0060ebc0
 // @baa 0x0060f890
 extern undefined * g_0214d0a0;
+struct C_00f31ba0 { undefined4 * sub_00f31ba0(void); };
 // @baa 0x00f31ba0
-undefined4 * UFactory::sub_00f31ba0(void)
+undefined4 * C_00f31ba0::sub_00f31ba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -87,8 +89,9 @@ IMPLEMENT_CLASS_AT(UTextureCubeFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00f31c20
 extern undefined * g_0214d1c8;
+struct C_00f31c40 { undefined4 * sub_00f31c40(void); };
 // @baa 0x00f31c40
-undefined4 * UFactory::sub_00f31c40(void)
+undefined4 * C_00f31c40::sub_00f31c40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -102,8 +105,9 @@ IMPLEMENT_CLASS_AT(UMaterialInstanceConstantFactoryNew, "e:\\Projects\\Amadeus\\
 
 // @baa 0x00f31cc0
 extern undefined * g_0214d2f0;
+struct C_00f31ce0 { undefined4 * sub_00f31ce0(void); };
 // @baa 0x00f31ce0
-undefined4 * UFactory::sub_00f31ce0(void)
+undefined4 * C_00f31ce0::sub_00f31ce0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -117,8 +121,9 @@ IMPLEMENT_CLASS_AT(UMaterialInstanceTimeVaryingFactoryNew, "e:\\Projects\\Amadeu
 
 // @baa 0x00f31d60
 extern undefined * g_0214d418;
+struct C_00f31d80 { undefined4 * sub_00f31d80(void); };
 // @baa 0x00f31d80
-undefined4 * UFactory::sub_00f31d80(void)
+undefined4 * C_00f31d80::sub_00f31d80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -132,8 +137,9 @@ IMPLEMENT_CLASS_AT(UMaterialFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00f31e00
 extern undefined * g_0214d540;
+struct C_00f31e20 { undefined4 * sub_00f31e20(void); };
 // @baa 0x00f31e20
-undefined4 * UFactory::sub_00f31e20(void)
+undefined4 * C_00f31e20::sub_00f31e20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -147,8 +153,9 @@ IMPLEMENT_CLASS_AT(UMaterialFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00f31ea0
 extern undefined * g_0214d668;
+struct C_00f31ec0 { undefined4 * sub_00f31ec0(void); };
 // @baa 0x00f31ec0
-undefined4 * UFactory::sub_00f31ec0(void)
+undefined4 * C_00f31ec0::sub_00f31ec0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -182,8 +189,9 @@ IMPLEMENT_CLASS_AT(USoundTTSFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00f32170
 extern undefined * g_0214dc30;
+struct C_00f321a0 { undefined4 * sub_00f321a0(void); };
 // @baa 0x00f321a0
-undefined4 * UFactory::sub_00f321a0(void)
+undefined4 * C_00f321a0::sub_00f321a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -197,8 +205,9 @@ IMPLEMENT_CLASS_AT(USoundCueFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00f32220
 extern undefined * g_0214dd58;
+struct C_00f32240 { undefined4 * sub_00f32240(void); };
 // @baa 0x00f32240
-undefined4 * UFactory::sub_00f32240(void)
+undefined4 * C_00f32240::sub_00f32240(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -212,8 +221,9 @@ IMPLEMENT_CLASS_AT(ULensFlareFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00f322c0
 extern undefined * g_0214de80;
+struct C_00f322e0 { undefined4 * sub_00f322e0(void); };
 // @baa 0x00f322e0
-undefined4 * UFactory::sub_00f322e0(void)
+undefined4 * C_00f322e0::sub_00f322e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -227,8 +237,9 @@ IMPLEMENT_CLASS_AT(UParticleSystemFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00f32360
 extern undefined * g_0214dfa8;
+struct C_00f32380 { undefined4 * sub_00f32380(void); };
 // @baa 0x00f32380
-undefined4 * UFactory::sub_00f32380(void)
+undefined4 * C_00f32380::sub_00f32380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -242,8 +253,9 @@ IMPLEMENT_CLASS_AT(UDestructibleDamageParametersFactoryNew, "e:\\Projects\\Amade
 
 // @baa 0x00f32400
 extern undefined * g_0214e0d0;
+struct C_00f32420 { undefined4 * sub_00f32420(void); };
 // @baa 0x00f32420
-undefined4 * UFactory::sub_00f32420(void)
+undefined4 * C_00f32420::sub_00f32420(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -257,8 +269,9 @@ IMPLEMENT_CLASS_AT(UPhysXParticleSystemFactoryNew, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00f324a0
 extern undefined * g_0214e1f8;
+struct C_00f324c0 { undefined4 * sub_00f324c0(void); };
 // @baa 0x00f324c0
-undefined4 * UFactory::sub_00f324c0(void)
+undefined4 * C_00f324c0::sub_00f324c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -268,8 +281,9 @@ undefined4 * UFactory::sub_00f324c0(void)
 }
 
 extern undefined * g_0214e320;
+struct C_00f32560 { undefined4 * sub_00f32560(void); };
 // @baa 0x00f32560
-undefined4 * UFactory::sub_00f32560(void)
+undefined4 * C_00f32560::sub_00f32560(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -283,8 +297,9 @@ IMPLEMENT_CLASS_AT(UAnimTreeFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00f325e0
 extern undefined * g_0214e448;
+struct C_00f32600 { undefined4 * sub_00f32600(void); };
 // @baa 0x00f32600
-undefined4 * UFactory::sub_00f32600(void)
+undefined4 * C_00f32600::sub_00f32600(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -298,8 +313,9 @@ IMPLEMENT_CLASS_AT(UPostProcessFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00f32680
 extern undefined * g_0214e570;
+struct C_00f326a0 { undefined4 * sub_00f326a0(void); };
 // @baa 0x00f326a0
-undefined4 * UFactory::sub_00f326a0(void)
+undefined4 * C_00f326a0::sub_00f326a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -313,8 +329,9 @@ IMPLEMENT_CLASS_AT(UPhysicalMaterialFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00f32720
 extern undefined * g_0214e698;
+struct C_00f32740 { undefined4 * sub_00f32740(void); };
 // @baa 0x00f32740
-undefined4 * UFactory::sub_00f32740(void)
+undefined4 * C_00f32740::sub_00f32740(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -328,8 +345,9 @@ IMPLEMENT_CLASS_AT(UCurveEdPresetCurveFactoryNew, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00f327c0
 extern undefined * g_0214e7c0;
+struct C_00f327e0 { undefined4 * sub_00f327e0(void); };
 // @baa 0x00f327e0
-undefined4 * UFactory::sub_00f327e0(void)
+undefined4 * C_00f327e0::sub_00f327e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -343,8 +361,9 @@ IMPLEMENT_CLASS_AT(UCameraAnimFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x00f32860
 extern undefined * g_0214e8e8;
+struct C_00f32880 { undefined4 * sub_00f32880(void); };
 // @baa 0x00f32880
-undefined4 * UFactory::sub_00f32880(void)
+undefined4 * C_00f32880::sub_00f32880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -358,8 +377,9 @@ IMPLEMENT_CLASS_AT(UClassFactoryUC, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00f32900
 extern undefined * g_0214ea10;
+struct C_00f32920 { undefined4 * sub_00f32920(void); };
 // @baa 0x00f32920
-undefined4 * UFactory::sub_00f32920(void)
+undefined4 * C_00f32920::sub_00f32920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -374,8 +394,9 @@ IMPLEMENT_CLASS_AT(ULevelFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00f329a0
 extern undefined * g_0214eb38;
+struct C_00f329c0 { undefined4 * sub_00f329c0(void); };
 // @baa 0x00f329c0
-undefined4 * UFactory::sub_00f329c0(void)
+undefined4 * C_00f329c0::sub_00f329c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -390,8 +411,9 @@ IMPLEMENT_CLASS_AT(UPackageFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00f32a40
 extern undefined * g_0214ec60;
+struct C_00f32a60 { undefined4 * sub_00f32a60(void); };
 // @baa 0x00f32a60
-undefined4 * UFactory::sub_00f32a60(void)
+undefined4 * C_00f32a60::sub_00f32a60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -405,8 +427,9 @@ IMPLEMENT_CLASS_AT(UPolysFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00f32ae0
 extern undefined * g_0214ed88;
+struct C_00f32b00 { undefined4 * sub_00f32b00(void); };
 // @baa 0x00f32b00
-undefined4 * UFactory::sub_00f32b00(void)
+undefined4 * C_00f32b00::sub_00f32b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -420,8 +443,9 @@ IMPLEMENT_CLASS_AT(UModelFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00f32b80
 extern undefined * g_0214d9e0;
+struct C_00f32ba0 { undefined4 * sub_00f32ba0(void); };
 // @baa 0x00f32ba0
-undefined4 * UFactory::sub_00f32ba0(void)
+undefined4 * C_00f32ba0::sub_00f32ba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -432,8 +456,9 @@ undefined4 * UFactory::sub_00f32ba0(void)
 }
 
 extern undefined * g_0214eeb0;
+struct C_00f32bc0 { undefined4 * sub_00f32bc0(void); };
 // @baa 0x00f32bc0
-undefined4 * UFactory::sub_00f32bc0(void)
+undefined4 * C_00f32bc0::sub_00f32bc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -448,8 +473,9 @@ IMPLEMENT_CLASS_AT(USoundSurroundFactory, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00f32c40
 extern undefined * g_0214efd8;
+struct C_00f32c60 { undefined4 * sub_00f32c60(void); };
 // @baa 0x00f32c60
-undefined4 * UFactory::sub_00f32c60(void)
+undefined4 * C_00f32c60::sub_00f32c60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -463,8 +489,9 @@ IMPLEMENT_CLASS_AT(USoundModeFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x00f32ce0
 extern undefined * g_0214f100;
+struct C_00f32d00 { undefined4 * sub_00f32d00(void); };
 // @baa 0x00f32d00
-undefined4 * UFactory::sub_00f32d00(void)
+undefined4 * C_00f32d00::sub_00f32d00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -478,8 +505,9 @@ IMPLEMENT_CLASS_AT(UFonixFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00f32d80
 extern undefined * g_0214f228;
+struct C_00f32da0 { undefined4 * sub_00f32da0(void); };
 // @baa 0x00f32da0
-undefined4 * UFactory::sub_00f32da0(void)
+undefined4 * C_00f32da0::sub_00f32da0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -494,8 +522,9 @@ IMPLEMENT_CLASS_AT(UApexDestructibleAssetFactory, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00f32e20
 extern undefined * g_0214f350;
+struct C_00f32e40 { undefined4 * sub_00f32e40(void); };
 // @baa 0x00f32e40
-undefined4 * UFactory::sub_00f32e40(void)
+undefined4 * C_00f32e40::sub_00f32e40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -510,8 +539,9 @@ IMPLEMENT_CLASS_AT(UApexRenderMeshAssetFactory, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00f32ec0
 extern undefined * g_0214f478;
+struct C_00f32ee0 { undefined4 * sub_00f32ee0(void); };
 // @baa 0x00f32ee0
-undefined4 * UFactory::sub_00f32ee0(void)
+undefined4 * C_00f32ee0::sub_00f32ee0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -526,8 +556,9 @@ IMPLEMENT_CLASS_AT(UApexParticleSystemAssetFactory, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x00f32f60
 extern undefined * g_0214f5a0;
+struct C_00f32f80 { undefined4 * sub_00f32f80(void); };
 // @baa 0x00f32f80
-undefined4 * UFactory::sub_00f32f80(void)
+undefined4 * C_00f32f80::sub_00f32f80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -542,8 +573,9 @@ IMPLEMENT_CLASS_AT(UApexMeshParticleFactoryAssetFactory, "e:\\Projects\\Amadeus\
 
 // @baa 0x00f33000
 extern undefined * g_0214f6c8;
+struct C_00f33020 { undefined4 * sub_00f33020(void); };
 // @baa 0x00f33020
-undefined4 * UFactory::sub_00f33020(void)
+undefined4 * C_00f33020::sub_00f33020(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -558,8 +590,9 @@ IMPLEMENT_CLASS_AT(UTextureMovieFactory, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00f330a0
 extern undefined * g_0214f7f0;
+struct C_00f330c0 { undefined4 * sub_00f330c0(void); };
 // @baa 0x00f330c0
-undefined4 * UFactory::sub_00f330c0(void)
+undefined4 * C_00f330c0::sub_00f330c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -573,8 +606,9 @@ IMPLEMENT_CLASS_AT(UTextureRenderTargetFactoryNew, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x00f33140
 extern undefined * g_0214f918;
+struct C_00f33160 { undefined4 * sub_00f33160(void); };
 // @baa 0x00f33160
-undefined4 * UFactory::sub_00f33160(void)
+undefined4 * C_00f33160::sub_00f33160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -584,8 +618,9 @@ undefined4 * UFactory::sub_00f33160(void)
 }
 
 extern undefined * g_0214fa40;
+struct C_00f33240 { undefined4 * sub_00f33240(void); };
 // @baa 0x00f33240
-undefined4 * UFactory::sub_00f33240(void)
+undefined4 * C_00f33240::sub_00f33240(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -600,8 +635,9 @@ IMPLEMENT_CLASS_AT(USequenceFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x00f332c0
 extern undefined * g_0214fb68;
+struct C_00f332e0 { undefined4 * sub_00f332e0(void); };
 // @baa 0x00f332e0
-undefined4 * UFactory::sub_00f332e0(void)
+undefined4 * C_00f332e0::sub_00f332e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -612,8 +648,9 @@ undefined4 * UFactory::sub_00f332e0(void)
 }
 
 extern undefined * g_02159638;
+struct C_00f623d0 { undefined4 * sub_00f623d0(void); };
 // @baa 0x00f623d0
-undefined4 * UFactory::sub_00f623d0(void)
+undefined4 * C_00f623d0::sub_00f623d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -624,8 +661,9 @@ undefined4 * UFactory::sub_00f623d0(void)
 }
 
 extern undefined * g_02159760;
+struct C_00f62720 { undefined4 * sub_00f62720(void); };
 // @baa 0x00f62720
-undefined4 * UFactory::sub_00f62720(void)
+undefined4 * C_00f62720::sub_00f62720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -635,8 +673,9 @@ undefined4 * UFactory::sub_00f62720(void)
 }
 
 extern undefined * g_0217fbe8;
+struct C_00ffd560 { undefined4 * sub_00ffd560(void); };
 // @baa 0x00ffd560
-undefined4 * UFactory::sub_00ffd560(void)
+undefined4 * C_00ffd560::sub_00ffd560(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -650,8 +689,9 @@ IMPLEMENT_CLASS_AT(UTerrainMaterialFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x00ffd5e0
 extern undefined * g_0217fd10;
+struct C_00ffd600 { undefined4 * sub_00ffd600(void); };
 // @baa 0x00ffd600
-undefined4 * UFactory::sub_00ffd600(void)
+undefined4 * C_00ffd600::sub_00ffd600(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -661,8 +701,9 @@ undefined4 * UFactory::sub_00ffd600(void)
 }
 
 extern undefined * g_021ad2d8;
+struct C_0110a3d0 { undefined4 * sub_0110a3d0(void); };
 // @baa 0x0110a3d0
-undefined4 * UFactory::sub_0110a3d0(void)
+undefined4 * C_0110a3d0::sub_0110a3d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -673,8 +714,9 @@ undefined4 * UFactory::sub_0110a3d0(void)
 }
 
 extern undefined * g_022b32f0;
+struct C_014b3780 { undefined4 * sub_014b3780(void); };
 // @baa 0x014b3780
-undefined4 * UFactory::sub_014b3780(void)
+undefined4 * C_014b3780::sub_014b3780(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -684,8 +726,9 @@ undefined4 * UFactory::sub_014b3780(void)
 }
 
 extern undefined * g_022b3418;
+struct C_014b37a0 { undefined4 * sub_014b37a0(void); };
 // @baa 0x014b37a0
-undefined4 * UFactory::sub_014b37a0(void)
+undefined4 * C_014b37a0::sub_014b37a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -699,8 +742,9 @@ IMPLEMENT_CLASS_AT(UUISceneFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x014b3820
 extern undefined * g_022b3540;
+struct C_014b3840 { undefined4 * sub_014b3840(void); };
 // @baa 0x014b3840
-undefined4 * UFactory::sub_014b3840(void)
+undefined4 * C_014b3840::sub_014b3840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -710,8 +754,9 @@ undefined4 * UFactory::sub_014b3840(void)
 }
 
 extern undefined * g_022de368;
+struct C_0152c2a0 { undefined4 * sub_0152c2a0(void); };
 // @baa 0x0152c2a0
-undefined4 * UFactory::sub_0152c2a0(void)
+undefined4 * C_0152c2a0::sub_0152c2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -725,8 +770,9 @@ IMPLEMENT_CLASS_AT(URScriptConversationFactoryNew, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x0152c320
 extern undefined * g_022de490;
+struct C_0152c340 { undefined4 * sub_0152c340(void); };
 // @baa 0x0152c340
-undefined4 * UFactory::sub_0152c340(void)
+undefined4 * C_0152c340::sub_0152c340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -736,8 +782,9 @@ undefined4 * UFactory::sub_0152c340(void)
 }
 
 extern undefined * g_022fd730;
+struct C_01571bf0 { undefined4 * sub_01571bf0(void); };
 // @baa 0x01571bf0
-undefined4 * UFactory::sub_01571bf0(void)
+undefined4 * C_01571bf0::sub_01571bf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -751,8 +798,9 @@ IMPLEMENT_CLASS_AT(URAimingConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01571c70
 extern undefined * g_022fd858;
+struct C_01571c90 { undefined4 * sub_01571c90(void); };
 // @baa 0x01571c90
-undefined4 * UFactory::sub_01571c90(void)
+undefined4 * C_01571c90::sub_01571c90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -766,8 +814,9 @@ IMPLEMENT_CLASS_AT(URPoseConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x01571d10
 extern undefined * g_022fd980;
+struct C_01571d30 { undefined4 * sub_01571d30(void); };
 // @baa 0x01571d30
-undefined4 * UFactory::sub_01571d30(void)
+undefined4 * C_01571d30::sub_01571d30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -781,8 +830,9 @@ IMPLEMENT_CLASS_AT(URBoneRescaleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x01571db0
 extern undefined * g_022fdaa8;
+struct C_01571dd0 { undefined4 * sub_01571dd0(void); };
 // @baa 0x01571dd0
-undefined4 * UFactory::sub_01571dd0(void)
+undefined4 * C_01571dd0::sub_01571dd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -796,8 +846,9 @@ IMPLEMENT_CLASS_AT(URCharacterViewerConfigFactoryNew, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x01571e50
 extern undefined * g_022fdbd0;
+struct C_01571e70 { undefined4 * sub_01571e70(void); };
 // @baa 0x01571e70
-undefined4 * UFactory::sub_01571e70(void)
+undefined4 * C_01571e70::sub_01571e70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -811,8 +862,9 @@ IMPLEMENT_CLASS_AT(URMirrorConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01571ef0
 extern undefined * g_022fdcf8;
+struct C_01571f10 { undefined4 * sub_01571f10(void); };
 // @baa 0x01571f10
-undefined4 * UFactory::sub_01571f10(void)
+undefined4 * C_01571f10::sub_01571f10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -826,8 +878,9 @@ IMPLEMENT_CLASS_AT(URWeaponConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01571f90
 extern undefined * g_022fde20;
+struct C_01571fb0 { undefined4 * sub_01571fb0(void); };
 // @baa 0x01571fb0
-undefined4 * UFactory::sub_01571fb0(void)
+undefined4 * C_01571fb0::sub_01571fb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -837,8 +890,9 @@ undefined4 * UFactory::sub_01571fb0(void)
 }
 
 extern undefined * g_023457a8;
+struct C_016265a0 { undefined4 * sub_016265a0(void); };
 // @baa 0x016265a0
-undefined4 * UFactory::sub_016265a0(void)
+undefined4 * C_016265a0::sub_016265a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -852,8 +906,9 @@ IMPLEMENT_CLASS_AT(URSimpleIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x01626620
 extern undefined * g_023458d0;
+struct C_01626640 { undefined4 * sub_01626640(void); };
 // @baa 0x01626640
-undefined4 * UFactory::sub_01626640(void)
+undefined4 * C_01626640::sub_01626640(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -867,8 +922,9 @@ IMPLEMENT_CLASS_AT(URIdleTransitionConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x016266c0
 extern undefined * g_023459f8;
+struct C_016266e0 { undefined4 * sub_016266e0(void); };
 // @baa 0x016266e0
-undefined4 * UFactory::sub_016266e0(void)
+undefined4 * C_016266e0::sub_016266e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -882,8 +938,9 @@ IMPLEMENT_CLASS_AT(URIdleWithDeathConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x01626760
 extern undefined * g_02345b20;
+struct C_01626780 { undefined4 * sub_01626780(void); };
 // @baa 0x01626780
-undefined4 * UFactory::sub_01626780(void)
+undefined4 * C_01626780::sub_01626780(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -897,8 +954,9 @@ IMPLEMENT_CLASS_AT(URPairedIdleConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x01626800
 extern undefined * g_02345c48;
+struct C_01626820 { undefined4 * sub_01626820(void); };
 // @baa 0x01626820
-undefined4 * UFactory::sub_01626820(void)
+undefined4 * C_01626820::sub_01626820(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -912,8 +970,9 @@ IMPLEMENT_CLASS_AT(URSpecialMoveFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x016268a0
 extern undefined * g_02345d70;
+struct C_016268c0 { undefined4 * sub_016268c0(void); };
 // @baa 0x016268c0
-undefined4 * UFactory::sub_016268c0(void)
+undefined4 * C_016268c0::sub_016268c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -923,8 +982,9 @@ undefined4 * UFactory::sub_016268c0(void)
 }
 
 extern undefined * g_02376af0;
+struct C_01680550 { undefined4 * sub_01680550(void); };
 // @baa 0x01680550
-undefined4 * UFactory::sub_01680550(void)
+undefined4 * C_01680550::sub_01680550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -938,8 +998,9 @@ IMPLEMENT_CLASS_AT(UREvidenceFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x016805d0
 extern undefined * g_02376c18;
+struct C_016805f0 { undefined4 * sub_016805f0(void); };
 // @baa 0x016805f0
-undefined4 * UFactory::sub_016805f0(void)
+undefined4 * C_016805f0::sub_016805f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -953,8 +1014,9 @@ IMPLEMENT_CLASS_AT(URDummyEvidenceConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x01680670
 extern undefined * g_02376d40;
+struct C_01680690 { undefined4 * sub_01680690(void); };
 // @baa 0x01680690
-undefined4 * UFactory::sub_01680690(void)
+undefined4 * C_01680690::sub_01680690(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -968,8 +1030,9 @@ IMPLEMENT_CLASS_AT(URCrimeSceneAssetFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x01680710
 extern undefined * g_02376e68;
+struct C_01680730 { undefined4 * sub_01680730(void); };
 // @baa 0x01680730
-undefined4 * UFactory::sub_01680730(void)
+undefined4 * C_01680730::sub_01680730(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -979,8 +1042,9 @@ undefined4 * UFactory::sub_01680730(void)
 }
 
 extern undefined * g_0237d998;
+struct C_0169cd20 { undefined4 * sub_0169cd20(void); };
 // @baa 0x0169cd20
-undefined4 * UFactory::sub_0169cd20(void)
+undefined4 * C_0169cd20::sub_0169cd20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -990,8 +1054,9 @@ undefined4 * UFactory::sub_0169cd20(void)
 }
 
 extern undefined * g_02392408;
+struct C_016c6c20 { undefined4 * sub_016c6c20(void); };
 // @baa 0x016c6c20
-undefined4 * UFactory::sub_016c6c20(void)
+undefined4 * C_016c6c20::sub_016c6c20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1005,8 +1070,9 @@ IMPLEMENT_CLASS_AT(URCapeStateConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x016c6ca0
 extern undefined * g_02392530;
+struct C_016c6cc0 { undefined4 * sub_016c6cc0(void); };
 // @baa 0x016c6cc0
-undefined4 * UFactory::sub_016c6cc0(void)
+undefined4 * C_016c6cc0::sub_016c6cc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1016,8 +1082,9 @@ undefined4 * UFactory::sub_016c6cc0(void)
 }
 
 extern undefined * g_023a2dc8;
+struct C_016dbdd0 { undefined4 * sub_016dbdd0(void); };
 // @baa 0x016dbdd0
-undefined4 * UFactory::sub_016dbdd0(void)
+undefined4 * C_016dbdd0::sub_016dbdd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1031,8 +1098,9 @@ IMPLEMENT_CLASS_AT(URCapeCollisionShapeConfigFactoryNew, "e:\\Projects\\Amadeus\
 
 // @baa 0x016dbe50
 extern undefined * g_023a2ef0;
+struct C_016dbe70 { undefined4 * sub_016dbe70(void); };
 // @baa 0x016dbe70
-undefined4 * UFactory::sub_016dbe70(void)
+undefined4 * C_016dbe70::sub_016dbe70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1046,8 +1114,9 @@ IMPLEMENT_CLASS_AT(URCapeCollisionConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x016dbef0
 extern undefined * g_023a3018;
+struct C_016dbf10 { undefined4 * sub_016dbf10(void); };
 // @baa 0x016dbf10
-undefined4 * UFactory::sub_016dbf10(void)
+undefined4 * C_016dbf10::sub_016dbf10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1061,8 +1130,9 @@ IMPLEMENT_CLASS_AT(URCapeStateBoneConfigFactoryNew, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x016dbf90
 extern undefined * g_023a3140;
+struct C_016dbfb0 { undefined4 * sub_016dbfb0(void); };
 // @baa 0x016dbfb0
-undefined4 * UFactory::sub_016dbfb0(void)
+undefined4 * C_016dbfb0::sub_016dbfb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1072,8 +1142,9 @@ undefined4 * UFactory::sub_016dbfb0(void)
 }
 
 extern undefined * g_023c9d58;
+struct C_01729c30 { undefined4 * sub_01729c30(void); };
 // @baa 0x01729c30
-undefined4 * UFactory::sub_01729c30(void)
+undefined4 * C_01729c30::sub_01729c30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

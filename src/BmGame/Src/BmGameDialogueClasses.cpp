@@ -138,8 +138,9 @@ void URSeqAct_RadioDialogueLine::PostEditChange(UProperty* param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_0230ee80;
+struct C_01584b40 { undefined4 * sub_01584b40(void); };
 // @baa 0x01584b40
-undefined4 * UObject::sub_01584b40(void)
+undefined4 * C_01584b40::sub_01584b40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -149,8 +150,9 @@ undefined4 * UObject::sub_01584b40(void)
 }
 
 extern undefined * g_0230f028;
+struct C_01584d20 { undefined4 * sub_01584d20(void); };
 // @baa 0x01584d20
-undefined4 * UObject::sub_01584d20(void)
+undefined4 * C_01584d20::sub_01584d20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -165,8 +167,9 @@ struct C_01584da0 { C_01584da0* sub_01584da0(int a0); };
 C_01584da0* C_01584da0::sub_01584da0(int a0) { return this; }
 
 extern undefined * g_0230f1c8;
+struct C_01584ea0 { undefined4 * sub_01584ea0(void); };
 // @baa 0x01584ea0
-undefined4 * UObject::sub_01584ea0(void)
+undefined4 * C_01584ea0::sub_01584ea0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -176,8 +179,9 @@ undefined4 * UObject::sub_01584ea0(void)
 }
 
 extern undefined * g_0230f368;
+struct C_01584ec0 { undefined4 * sub_01584ec0(void); };
 // @baa 0x01584ec0
-undefined4 * UObject::sub_01584ec0(void)
+undefined4 * C_01584ec0::sub_01584ec0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -192,8 +196,9 @@ struct C_01585010 { C_01585010* sub_01585010(int a0); };
 C_01585010* C_01585010::sub_01585010(int a0) { return this; }
 
 extern undefined * g_0230f510;
+struct C_01585260 { undefined4 * sub_01585260(void); };
 // @baa 0x01585260
-undefined4 * UObject::sub_01585260(void)
+undefined4 * C_01585260::sub_01585260(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -203,8 +208,9 @@ undefined4 * UObject::sub_01585260(void)
 }
 
 extern undefined * g_0230f6d0;
+struct C_01585280 { undefined4 * sub_01585280(void); };
 // @baa 0x01585280
-undefined4 * UObject::sub_01585280(void)
+undefined4 * C_01585280::sub_01585280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -214,8 +220,9 @@ undefined4 * UObject::sub_01585280(void)
 }
 
 extern undefined * g_0230f8a8;
+struct C_015853d0 { undefined4 * sub_015853d0(void); };
 // @baa 0x015853d0
-undefined4 * UObject::sub_015853d0(void)
+undefined4 * C_015853d0::sub_015853d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -225,8 +232,9 @@ undefined4 * UObject::sub_015853d0(void)
 }
 
 extern undefined * g_0230fa68;
+struct C_015856a0 { undefined4 * sub_015856a0(void); };
 // @baa 0x015856a0
-undefined4 * UObject::sub_015856a0(void)
+undefined4 * C_015856a0::sub_015856a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -236,8 +244,9 @@ undefined4 * UObject::sub_015856a0(void)
 }
 
 extern undefined * g_0230fc10;
+struct C_015856c0 { undefined4 * sub_015856c0(void); };
 // @baa 0x015856c0
-undefined4 * UObject::sub_015856c0(void)
+undefined4 * C_015856c0::sub_015856c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -247,8 +256,9 @@ undefined4 * UObject::sub_015856c0(void)
 }
 
 extern undefined * g_0230fdc0;
+struct C_01585810 { undefined4 * sub_01585810(void); };
 // @baa 0x01585810
-undefined4 * UObject::sub_01585810(void)
+undefined4 * C_01585810::sub_01585810(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -258,8 +268,9 @@ undefined4 * UObject::sub_01585810(void)
 }
 
 extern undefined * g_0230ff60;
+struct C_01585960 { undefined4 * sub_01585960(void); };
 // @baa 0x01585960
-undefined4 * UObject::sub_01585960(void)
+undefined4 * C_01585960::sub_01585960(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

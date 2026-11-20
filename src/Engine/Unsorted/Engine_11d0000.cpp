@@ -33,8 +33,9 @@ int C_011d4a40::sub_011d4a40(void)
 
 int sub_0053dfa0(...);
 int sub_011d1670(void);
+struct C_011d4a60 { undefined4 sub_011d4a60(byte param_2); };
 // @baa 0x011d4a60
-undefined4 UObject::sub_011d4a60(byte param_2)
+undefined4 C_011d4a60::sub_011d4a60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -46,8 +47,9 @@ undefined4 UObject::sub_011d4a60(byte param_2)
 }
 
 int sub_011d16d0(void);
+struct C_011d4a80 { undefined4 sub_011d4a80(byte param_2); };
 // @baa 0x011d4a80
-undefined4 UObject::sub_011d4a80(byte param_2)
+undefined4 C_011d4a80::sub_011d4a80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -59,8 +61,9 @@ undefined4 UObject::sub_011d4a80(byte param_2)
 }
 
 int sub_011d1730(void);
+struct C_011d4aa0 { undefined4 sub_011d4aa0(byte param_2); };
 // @baa 0x011d4aa0
-undefined4 UObject::sub_011d4aa0(byte param_2)
+undefined4 C_011d4aa0::sub_011d4aa0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

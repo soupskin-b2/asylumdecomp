@@ -948,8 +948,9 @@ S16* S16::sub_00e48df0()
 
 int sub_005c7a70(...);
 int sub_00e5d260(void);
+struct C_00e5d2d0 { undefined4 sub_00e5d2d0(byte param_2); };
 // @baa 0x00e5d2d0
-undefined4 UGFxEngine::sub_00e5d2d0(byte param_2)
+undefined4 C_00e5d2d0::sub_00e5d2d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

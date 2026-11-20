@@ -830,8 +830,9 @@ UBOOL APlayerController::ShouldCheckVisibilityOf(AController* C) { return FALSE;
 void APlayerController::vf_468(int a0, int a1, int a2) {  }
 
 int sub_0077cae0(void);
+struct C_0077cca0 { undefined4 sub_0077cca0(byte param_2); };
 // @baa 0x0077cca0
-undefined4 APlayerController::sub_0077cca0(byte param_2)
+undefined4 C_0077cca0::sub_0077cca0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -844,8 +845,9 @@ undefined4 APlayerController::sub_0077cca0(byte param_2)
 
 int sub_0077ccd0(void);
 extern undefined * g_01f0ead8;
+struct C_0077cd70 { undefined4 * sub_0077cd70(void); };
 // @baa 0x0077cd70
-undefined4 * APlayerController::sub_0077cd70(void)
+undefined4 * C_0077cd70::sub_0077cd70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1009,8 +1011,9 @@ int sub_007566d0(void);
 int sub_00779070(...);
 int sub_0077e55f(...);
 extern undefined4 g_026b3b58;
+struct C_0077e510 { undefined4 sub_0077e510(void); };
 // @baa 0x0077e510
-undefined4 AActor::sub_0077e510(void)
+undefined4 C_0077e510::sub_0077e510(void)
 {
     int param_1 = (int)this;
 

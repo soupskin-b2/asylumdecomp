@@ -27,8 +27,9 @@ undefined4 * C_00ef8c20::sub_00ef8c20(void)
 
 int sub_0053dfa0(...);
 int sub_00f03060(void);
+struct C_00f09600 { undefined4 sub_00f09600(byte param_2); };
 // @baa 0x00f09600
-undefined4 UPrimitiveComponent::sub_00f09600(byte param_2)
+undefined4 C_00f09600::sub_00f09600(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

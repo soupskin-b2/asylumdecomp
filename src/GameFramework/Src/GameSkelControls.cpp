@@ -44,8 +44,9 @@ undefined4 C_00e273e0::sub_00e273e0(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_020ecda0;
+struct C_00e27470 { undefined4 * sub_00e27470(void); };
 // @baa 0x00e27470
-undefined4 * UObject::sub_00e27470(void)
+undefined4 * C_00e27470::sub_00e27470(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

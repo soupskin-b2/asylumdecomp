@@ -188,8 +188,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_00d48d30 { int sub_00d48d30(int param_2); };
 // @baa 0x00d48d30
-int UObject::sub_00d48d30(int param_2)
+int C_00d48d30::sub_00d48d30(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

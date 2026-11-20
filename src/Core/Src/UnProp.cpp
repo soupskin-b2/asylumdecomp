@@ -577,8 +577,9 @@ IMPLEMENT_CLASS_AT(UObjectProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x0062bfe0
 extern undefined * g_01eaef94;
+struct C_0062c130 { undefined4 * sub_0062c130(byte param_2); };
 // @baa 0x0062c130
-undefined4 * UObjectProperty::sub_0062c130(byte param_2)
+undefined4 * C_0062c130::sub_0062c130(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -727,8 +728,9 @@ int Obj_0062ea00::sub_0062ea00()
   return m_028->sub_005f2bf0(0x70);
 }
 
+struct C_0062ec40 { int * sub_0062ec40(byte param_2); };
 // @baa 0x0062ec40
-int * UArrayProperty::sub_0062ec40(byte param_2)
+int * C_0062ec40::sub_0062ec40(byte param_2)
 {
     int * param_1 = (int *)this;
 
@@ -976,8 +978,9 @@ struct C_view {
 };
 
 extern undefined * g_01eaf0f8;
+struct C_0062f190 { undefined4 * sub_0062f190(void); };
 // @baa 0x0062f190
-undefined4 * UStrProperty::sub_0062f190(void)
+undefined4 * C_0062f190::sub_0062f190(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -993,8 +996,9 @@ IMPLEMENT_CLASS_AT(UByteProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x0062f220
 extern undefined * g_01eaf278;
+struct C_0062f240 { undefined4 * sub_0062f240(void); };
 // @baa 0x0062f240
-undefined4 * UStrProperty::sub_0062f240(void)
+undefined4 * C_0062f240::sub_0062f240(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1013,8 +1017,9 @@ struct C_view_0062f2f0 {
     int sub_0062dc50(int, int, int, int, int);
 };
 
+struct C_0062f2f0 { undefined4 * sub_0062f2f0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6); };
 // @baa 0x0062f2f0
-undefined4 * UStrProperty::sub_0062f2f0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+undefined4 * C_0062f2f0::sub_0062f2f0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_0062f2f0 *)(this))->sub_0062dc50(0, param_3, param_4, param_5, param_6);
@@ -1023,8 +1028,9 @@ undefined4 * UStrProperty::sub_0062f2f0(undefined4 param_2, undefined4 param_3, 
 }
 
 extern undefined * g_01eaf3f8;
+struct C_0062f320 { undefined4 * sub_0062f320(void); };
 // @baa 0x0062f320
-undefined4 * UStrProperty::sub_0062f320(void)
+undefined4 * C_0062f320::sub_0062f320(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1040,8 +1046,9 @@ IMPLEMENT_CLASS_AT(UBoolProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x0062f3b0
 extern undefined * g_01eaf578;
+struct C_0062f3d0 { undefined4 * sub_0062f3d0(void); };
 // @baa 0x0062f3d0
-undefined4 * UStrProperty::sub_0062f3d0(void)
+undefined4 * C_0062f3d0::sub_0062f3d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1060,8 +1067,9 @@ struct C_view_0062f480 {
     int sub_0062dc50(int, int, int, int, int);
 };
 
+struct C_0062f480 { undefined4 * sub_0062f480(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6); };
 // @baa 0x0062f480
-undefined4 * UStrProperty::sub_0062f480(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+undefined4 * C_0062f480::sub_0062f480(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_0062f480 *)(this))->sub_0062dc50(0, param_3, param_4, param_5, param_6);
@@ -1070,8 +1078,9 @@ undefined4 * UStrProperty::sub_0062f480(undefined4 param_2, undefined4 param_3, 
 }
 
 extern undefined * g_01eaee18;
+struct C_0062f4b0 { undefined4 * sub_0062f4b0(void); };
 // @baa 0x0062f4b0
-undefined4 * UStrProperty::sub_0062f4b0(void)
+undefined4 * C_0062f4b0::sub_0062f4b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1083,8 +1092,9 @@ undefined4 * UStrProperty::sub_0062f4b0(void)
 }
 
 extern undefined * g_01eaf6f8;
+struct C_0062f4e0 { undefined4 * sub_0062f4e0(void); };
 // @baa 0x0062f4e0
-undefined4 * UStrProperty::sub_0062f4e0(void)
+undefined4 * C_0062f4e0::sub_0062f4e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1100,8 +1110,9 @@ IMPLEMENT_CLASS_AT(UComponentProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x0062f590
 extern undefined * g_01eaf878;
+struct C_0062f5b0 { undefined4 * sub_0062f5b0(void); };
 // @baa 0x0062f5b0
-undefined4 * UStrProperty::sub_0062f5b0(void)
+undefined4 * C_0062f5b0::sub_0062f5b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1117,8 +1128,9 @@ IMPLEMENT_CLASS_AT(UClassProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 
 // @baa 0x0062f660
 extern undefined * g_01eaf9f8;
+struct C_0062f680 { undefined4 * sub_0062f680(void); };
 // @baa 0x0062f680
-undefined4 * UStrProperty::sub_0062f680(void)
+undefined4 * C_0062f680::sub_0062f680(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1137,8 +1149,9 @@ UBOOL UInterfaceProperty::ContainsObjectReference() const { return 1; }
 
 // @baa 0x0062f720
 extern undefined * g_01eafb78;
+struct C_0062f740 { undefined4 * sub_0062f740(void); };
 // @baa 0x0062f740
-undefined4 * UStrProperty::sub_0062f740(void)
+undefined4 * C_0062f740::sub_0062f740(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1154,8 +1167,9 @@ IMPLEMENT_CLASS_AT(UNameProperty, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x0062f7d0
 extern undefined * g_01ea6f00;
+struct C_0062f7f0 { undefined4 * sub_0062f7f0(void); };
 // @baa 0x0062f7f0
-undefined4 * UStrProperty::sub_0062f7f0(void)
+undefined4 * C_0062f7f0::sub_0062f7f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1167,8 +1181,9 @@ undefined4 * UStrProperty::sub_0062f7f0(void)
 }
 
 extern undefined * g_01eafcf8;
+struct C_0062f820 { undefined4 * sub_0062f820(void); };
 // @baa 0x0062f820
-undefined4 * UStrProperty::sub_0062f820(void)
+undefined4 * C_0062f820::sub_0062f820(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1199,8 +1214,9 @@ UINT UMapProperty::SetPropertyValue(UINT* a0, INT* a1) { return 0; }
 
 // @baa 0x0062f900
 extern undefined * g_01eafe78;
+struct C_0062f920 { undefined4 * sub_0062f920(void); };
 // @baa 0x0062f920
-undefined4 * UStrProperty::sub_0062f920(void)
+undefined4 * C_0062f920::sub_0062f920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);
@@ -1222,8 +1238,9 @@ UINT UStructProperty::SetPropertyValue(UINT* a0, INT* a1) { return 0; }
 
 // @baa 0x0062f9d0
 extern undefined * g_01eafff8;
+struct C_0062f9f0 { undefined4 * sub_0062f9f0(void); };
 // @baa 0x0062f9f0
-undefined4 * UStrProperty::sub_0062f9f0(void)
+undefined4 * C_0062f9f0::sub_0062f9f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567f10(0);

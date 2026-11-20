@@ -376,8 +376,9 @@ void sub_00eb54c0(int * param_1, int param_2)
 
 int sub_0053dfa0(...);
 extern undefined4 g_0212c308;
+struct C_00eb5510 { undefined4 * sub_00eb5510(byte param_2); };
 // @baa 0x00eb5510
-undefined4 * UXnaForceFeedbackManager::sub_00eb5510(byte param_2)
+undefined4 * C_00eb5510::sub_00eb5510(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1053,8 +1054,9 @@ undefined4 C_00ebbb80::sub_00ebbb80(byte param_2)
 }
 
 int sub_00eb9f20(void);
+struct C_00ebcbe0 { int sub_00ebcbe0(void); };
 // @baa 0x00ebcbe0
-int UWindowsClient::sub_00ebcbe0(void)
+int C_00ebcbe0::sub_00ebcbe0(void)
 {
     int param_1 = (int)this;
 
@@ -1065,8 +1067,9 @@ int UWindowsClient::sub_00ebcbe0(void)
 }
 
 int sub_00eb9f80(void);
+struct C_00ebcc00 { int sub_00ebcc00(void); };
 // @baa 0x00ebcc00
-int UWindowsClient::sub_00ebcc00(void)
+int C_00ebcc00::sub_00ebcc00(void)
 {
     int param_1 = (int)this;
 
@@ -1134,8 +1137,9 @@ int C_00ebd0b0::sub_00ebd0b0(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00ebd0d0 { int sub_00ebd0d0(void); };
 // @baa 0x00ebd0d0
-int UWindowsClient::sub_00ebd0d0(void)
+int C_00ebd0d0::sub_00ebd0d0(void)
 {
     int param_1 = (int)this;
 
@@ -1145,8 +1149,9 @@ int UWindowsClient::sub_00ebd0d0(void)
   return param_1;
 }
 
+struct C_00ebd0f0 { int sub_00ebd0f0(void); };
 // @baa 0x00ebd0f0
-int UWindowsClient::sub_00ebd0f0(void)
+int C_00ebd0f0::sub_00ebd0f0(void)
 {
     int param_1 = (int)this;
 
@@ -1164,8 +1169,9 @@ void sub_00ebce60();
 // @baa 0x00ebd120
 void sub_00ebd120(void) { sub_00ebce60(); }
 
+struct C_00ebe960 { int sub_00ebe960(void); };
 // @baa 0x00ebe960
-int UWindowsClient::sub_00ebe960(void)
+int C_00ebe960::sub_00ebe960(void)
 {
     int param_1 = (int)this;
 
@@ -1175,8 +1181,9 @@ int UWindowsClient::sub_00ebe960(void)
   return param_1;
 }
 
+struct C_00ebe980 { int sub_00ebe980(void); };
 // @baa 0x00ebe980
-int UWindowsClient::sub_00ebe980(void)
+int C_00ebe980::sub_00ebe980(void)
 {
     int param_1 = (int)this;
 
@@ -1192,8 +1199,9 @@ void sub_00ebe9a0(void) { sub_00ebcdf0(); }
 // @baa 0x00ebe9b0
 void sub_00ebe9b0(void) { sub_00ebce60(); }
 
+struct C_00ebebd0 { int sub_00ebebd0(void); };
 // @baa 0x00ebebd0
-int UWindowsClient::sub_00ebebd0(void)
+int C_00ebebd0::sub_00ebebd0(void)
 {
     int param_1 = (int)this;
 
@@ -1203,8 +1211,9 @@ int UWindowsClient::sub_00ebebd0(void)
   return param_1;
 }
 
+struct C_00ebebf0 { int sub_00ebebf0(void); };
 // @baa 0x00ebebf0
-int UWindowsClient::sub_00ebebf0(void)
+int C_00ebebf0::sub_00ebebf0(void)
 {
     int param_1 = (int)this;
 
@@ -1229,8 +1238,9 @@ UAudioDevice* UWindowsClient::GetAudioDevice() { return *(UAudioDevice**)((char*
 // @baa 0x00ec0200
 int sub_005c7a70(...);
 int sub_00ec0160(void);
+struct C_00ec0210 { undefined4 sub_00ec0210(byte param_2); };
 // @baa 0x00ec0210
-undefined4 UWindowsClient::sub_00ec0210(byte param_2)
+undefined4 C_00ec0210::sub_00ec0210(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

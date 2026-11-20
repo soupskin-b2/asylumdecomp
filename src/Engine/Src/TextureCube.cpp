@@ -45,8 +45,9 @@ UBOOL UTextureCube::HasParentClassChanged() const
 
 int sub_0053dfa0(...);
 int sub_0075bb70(void);
+struct C_0075bd80 { undefined4 sub_0075bd80(byte param_2); };
 // @baa 0x0075bd80
-undefined4 UTextureCube::sub_0075bd80(byte param_2)
+undefined4 C_0075bd80::sub_0075bd80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -63,8 +64,9 @@ int UTextureCube::GetMaterialType(void) { return 32; }
 // @baa 0x00760fe0
 
 extern undefined4*g_026b0d94;
+struct C_00761790 { void sub_00761790(void); };
 // @baa 0x00761790
-void UTextureCube::sub_00761790(void)
+void C_00761790::sub_00761790(void)
 {
 int param_1=(int)this;
 

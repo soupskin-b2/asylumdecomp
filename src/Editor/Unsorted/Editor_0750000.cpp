@@ -12,8 +12,9 @@ UBOOL UTextureRenderTarget::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00755d00 { int sub_00755d00(void); };
 // @baa 0x00755d00
-int UTextureRenderTarget::sub_00755d00(void)
+int C_00755d00::sub_00755d00(void)
 {
     int param_1 = (int)this;
 

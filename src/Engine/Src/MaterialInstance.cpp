@@ -16,8 +16,9 @@ UBOOL UMaterialInstance::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_006aeb10 { undefined4 sub_006aeb10(void); };
 // @baa 0x006aeb10
-undefined4 UMaterialInstance::sub_006aeb10(void)
+undefined4 C_006aeb10::sub_006aeb10(void)
 {
     int param_1 = (int)this;
 
@@ -34,8 +35,9 @@ extern char g_01ebb554[];
 void UMaterialInstance::sub_006aeb30(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_006aeb40 { undefined4 * sub_006aeb40(byte param_2); };
 // @baa 0x006aeb40
-undefined4 * UMaterialInstance::sub_006aeb40(byte param_2)
+undefined4 * C_006aeb40::sub_006aeb40(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -83,8 +85,9 @@ void UMaterialInstance::SetFontParameterValue(FName ParameterName, class UFont* 
 void UMaterialInstance::ClearParameterValues() {  }
 
 int sub_006be6a0(void);
+struct C_006c47a0 { undefined4 sub_006c47a0(byte param_2); };
 // @baa 0x006c47a0
-undefined4 UMaterialInstance::sub_006c47a0(byte param_2)
+undefined4 C_006c47a0::sub_006c47a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -105,8 +108,9 @@ void __stdcall sub_006cba10(int a1, int a2, Obj o, int a4, int a5, int a6)
 
 int sub_005c7a70(...);
 int sub_006d5aa0(void);
+struct C_006d5b10 { undefined4 sub_006d5b10(byte param_2); };
 // @baa 0x006d5b10
-undefined4 UMaterialInstance::sub_006d5b10(byte param_2)
+undefined4 C_006d5b10::sub_006d5b10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -120,8 +124,9 @@ undefined4 UMaterialInstance::sub_006d5b10(byte param_2)
 // @baa 0x006d6300
 // @baa 0x006d6500
 int sub_00702e60(void);
+struct C_006d69d0 { undefined4 sub_006d69d0(byte param_2); };
 // @baa 0x006d69d0
-undefined4 UMaterialInstance::sub_006d69d0(byte param_2)
+undefined4 C_006d69d0::sub_006d69d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -135,24 +140,27 @@ undefined4 UMaterialInstance::sub_006d69d0(byte param_2)
 // @baa 0x006da480
 int __stdcall sub_006da480(int a0, int a1, int a2) { return 1; }
 
+struct C_007272e0 { int sub_007272e0(int param_2); };
 // @baa 0x007272e0
-int UTexture2D::sub_007272e0(int param_2)
+int C_007272e0::sub_007272e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_007273e0 { int sub_007273e0(int param_2); };
 // @baa 0x007273e0
-int UTexture2D::sub_007273e0(int param_2)
+int C_007273e0::sub_007273e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_007273f0 { int sub_007273f0(int param_2); };
 // @baa 0x007273f0
-int UTexture2D::sub_007273f0(int param_2)
+int C_007273f0::sub_007273f0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -199,8 +207,9 @@ struct C_view {
     int sub_007274c0(int);
 };
 
+struct C_00727560 { int sub_00727560(undefined4 param_2); };
 // @baa 0x00727560
-int UObject::sub_00727560(undefined4 param_2)
+int C_00727560::sub_00727560(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_007274c0(param_2);
@@ -208,8 +217,9 @@ int UObject::sub_00727560(undefined4 param_2)
   return param_1;
 }
 
+struct C_00727580 { int sub_00727580(int param_2); };
 // @baa 0x00727580
-int UObject::sub_00727580(int param_2)
+int C_00727580::sub_00727580(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -217,8 +227,9 @@ int UObject::sub_00727580(int param_2)
 }
 
 int sub_0040fcc0(void);
+struct C_00727590 { undefined4 sub_00727590(byte param_2); };
 // @baa 0x00727590
-undefined4 UObject::sub_00727590(byte param_2)
+undefined4 C_00727590::sub_00727590(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -230,8 +241,9 @@ undefined4 UObject::sub_00727590(byte param_2)
 }
 
 int sub_00722cf0(void);
+struct C_007275b0 { undefined4 sub_007275b0(byte param_2); };
 // @baa 0x007275b0
-undefined4 UObject::sub_007275b0(byte param_2)
+undefined4 C_007275b0::sub_007275b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -242,8 +254,9 @@ undefined4 UObject::sub_007275b0(byte param_2)
   return param_1;
 }
 
+struct C_007275d0 { undefined4 sub_007275d0(byte param_2); };
 // @baa 0x007275d0
-undefined4 UObject::sub_007275d0(byte param_2)
+undefined4 C_007275d0::sub_007275d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -875,8 +888,9 @@ int C_00728bf0::sub_00728bf0(void)
   return param_1[5] * 0x20 + *(int *)*param_1;
 }
 
+struct C_00a49040 { undefined4 sub_00a49040(byte param_2); };
 // @baa 0x00a49040
-undefined4 UMaterialInstance::sub_00a49040(byte param_2)
+undefined4 C_00a49040::sub_00a49040(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -887,8 +901,9 @@ undefined4 UMaterialInstance::sub_00a49040(byte param_2)
   return param_1;
 }
 
+struct C_00a4a800 { undefined4 sub_00a4a800(byte param_2); };
 // @baa 0x00a4a800
-undefined4 UMaterialInstance::sub_00a4a800(byte param_2)
+undefined4 C_00a4a800::sub_00a4a800(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

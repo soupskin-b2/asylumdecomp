@@ -167,8 +167,9 @@ DWORD* S::sub_00ea07e0(INT Index)
 }
 
 extern undefined4*g_026b0d94;
+struct C_00ea0950 { void sub_00ea0950(void); };
 // @baa 0x00ea0950
-void ULensFlare::sub_00ea0950(void)
+void C_00ea0950::sub_00ea0950(void)
 {
 int param_1=(int)this;
 
@@ -190,8 +191,9 @@ iVar3=iVar3+-1;
 return;
 }
 
+struct C_00ea0b60 { int*sub_00ea0b60(void); };
 // @baa 0x00ea0b60
-int*ULensFlare::sub_00ea0b60(void)
+int*C_00ea0b60::sub_00ea0b60(void)
 {
 int*param_1=(int*)this;
 
@@ -218,8 +220,9 @@ DWORD* S_00ea0ca0::sub_00ea0ca0(INT Index)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00ea0cf0 { int sub_00ea0cf0(undefined4*param_2); };
 // @baa 0x00ea0cf0
-int ULensFlare::sub_00ea0cf0(undefined4*param_2)
+int C_00ea0cf0::sub_00ea0cf0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -265,8 +268,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_00ea0da0 { int sub_00ea0da0(int param_2); };
 // @baa 0x00ea0da0
-int ULensFlare::sub_00ea0da0(int param_2)
+int C_00ea0da0::sub_00ea0da0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -275,8 +279,9 @@ int ULensFlare::sub_00ea0da0(int param_2)
   return iVar1;
 }
 
+struct C_00ea0de0 { int*sub_00ea0de0(void); };
 // @baa 0x00ea0de0
-int*ULensFlare::sub_00ea0de0(void)
+int*C_00ea0de0::sub_00ea0de0(void)
 {
 int*param_1=(int*)this;
 
@@ -303,8 +308,9 @@ E_00ea0e00* S_00ea0e00::sub_00ea0e00(INT Index)
     return &Items(Index);
 }
 
+struct C_00ea0ec0 { int*sub_00ea0ec0(int*param_2); };
 // @baa 0x00ea0ec0
-int*ULensFlare::sub_00ea0ec0(int*param_2)
+int*C_00ea0ec0::sub_00ea0ec0(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -322,8 +328,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00ea0ef0 { int*sub_00ea0ef0(void); };
 // @baa 0x00ea0ef0
-int*ULensFlare::sub_00ea0ef0(void)
+int*C_00ea0ef0::sub_00ea0ef0(void)
 {
 int*param_1=(int*)this;
 
@@ -348,8 +355,9 @@ const DWORD* S_00ea0f10::sub_00ea0f10(INT Index) const
     return &Items(Index);
 }
 
+struct C_00ea0f60 { int sub_00ea0f60(undefined4*param_2); };
 // @baa 0x00ea0f60
-int ULensFlare::sub_00ea0f60(undefined4*param_2)
+int C_00ea0f60::sub_00ea0f60(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -375,8 +383,9 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
+struct C_00ea0fc0 { int*sub_00ea0fc0(void); };
 // @baa 0x00ea0fc0
-int*ULensFlare::sub_00ea0fc0(void)
+int*C_00ea0fc0::sub_00ea0fc0(void)
 {
 int*param_1=(int*)this;
 
@@ -405,8 +414,9 @@ struct C_view_00ea1030 {
     int sub_00e9d9c0(int);
 };
 
+struct C_00ea1030 { int sub_00ea1030(int param_2); };
 // @baa 0x00ea1030
-int ULensFlare::sub_00ea1030(int param_2)
+int C_00ea1030::sub_00ea1030(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -437,8 +447,9 @@ const QWORD* S_00ea10c0::sub_00ea10c0(INT Index) const
     return &Items(Index);
 }
 
+struct C_00ea1110 { int*sub_00ea1110(void); };
 // @baa 0x00ea1110
-int*ULensFlare::sub_00ea1110(void)
+int*C_00ea1110::sub_00ea1110(void)
 {
 int*param_1=(int*)this;
 
@@ -465,8 +476,9 @@ E_00ea1130* S_00ea1130::sub_00ea1130(INT Index)
     return &Items(Index);
 }
 
+struct C_00ea11f0 { int*sub_00ea11f0(void); };
 // @baa 0x00ea11f0
-int*ULensFlare::sub_00ea11f0(void)
+int*C_00ea11f0::sub_00ea11f0(void)
 {
 int*param_1=(int*)this;
 
@@ -480,8 +492,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00ea1210 { int*sub_00ea1210(void); };
 // @baa 0x00ea1210
-int*ULensFlare::sub_00ea1210(void)
+int*C_00ea1210::sub_00ea1210(void)
 {
 int*param_1=(int*)this;
 
@@ -508,8 +521,9 @@ const E_00ea1230* S_00ea1230::sub_00ea1230(INT Index) const
     return &Items(Index);
 }
 
+struct C_00ea1280 { int*sub_00ea1280(void); };
 // @baa 0x00ea1280
-int*ULensFlare::sub_00ea1280(void)
+int*C_00ea1280::sub_00ea1280(void)
 {
 int*param_1=(int*)this;
 
@@ -524,8 +538,9 @@ return param_1;
 }
 
 int sub_00ea0890(void);
+struct C_00ea12a0 { undefined4 sub_00ea12a0(byte param_2); };
 // @baa 0x00ea12a0
-undefined4 ULensFlare::sub_00ea12a0(byte param_2)
+undefined4 C_00ea12a0::sub_00ea12a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -537,8 +552,9 @@ undefined4 ULensFlare::sub_00ea12a0(byte param_2)
 }
 
 int sub_00ea0a20(void);
+struct C_00ea12c0 { undefined4 sub_00ea12c0(byte param_2); };
 // @baa 0x00ea12c0
-undefined4 ULensFlare::sub_00ea12c0(byte param_2)
+undefined4 C_00ea12c0::sub_00ea12c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -550,8 +566,9 @@ undefined4 ULensFlare::sub_00ea12c0(byte param_2)
 }
 
 int sub_00ea0c10(void);
+struct C_00ea12e0 { undefined4 sub_00ea12e0(byte param_2); };
 // @baa 0x00ea12e0
-undefined4 ULensFlare::sub_00ea12e0(byte param_2)
+undefined4 C_00ea12e0::sub_00ea12e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -562,8 +579,9 @@ undefined4 ULensFlare::sub_00ea12e0(byte param_2)
   return param_1;
 }
 
+struct C_00ea1390 { int sub_00ea1390(int param_2); };
 // @baa 0x00ea1390
-int ULensFlare::sub_00ea1390(int param_2)
+int C_00ea1390::sub_00ea1390(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -574,8 +592,9 @@ int ULensFlare::sub_00ea1390(int param_2)
 void __stdcall sub_00ea13a0(int a0, int a1) {  }
 
 int sub_00e9d4d0(void);
+struct C_00ea1430 { undefined4 sub_00ea1430(byte param_2); };
 // @baa 0x00ea1430
-undefined4 ULensFlare::sub_00ea1430(byte param_2)
+undefined4 C_00ea1430::sub_00ea1430(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -679,8 +698,9 @@ undefined4 C_00ea2180::sub_00ea2180(byte param_2)
 }
 
 int sub_00e9e4c0(void);
+struct C_00ea21a0 { undefined4 sub_00ea21a0(byte param_2); };
 // @baa 0x00ea21a0
-undefined4 ULensFlare::sub_00ea21a0(byte param_2)
+undefined4 C_00ea21a0::sub_00ea21a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -805,8 +825,9 @@ void C_00ea2f40::sub_00ea2f40() {
 }
 
 int sub_00ea1300(void);
+struct C_00ea30e0 { undefined4 sub_00ea30e0(byte param_2); };
 // @baa 0x00ea30e0
-undefined4 ULensFlare::sub_00ea30e0(byte param_2)
+undefined4 C_00ea30e0::sub_00ea30e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

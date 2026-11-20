@@ -438,8 +438,9 @@ C_00c51280& C_00c51280::sub_00c51280(int Arg)
 
 int sub_005c7a20(void);
 extern undefined * g_02057af8;
+struct C_00c512a0 { undefined4 * sub_00c512a0(void); };
 // @baa 0x00c512a0
-undefined4 * UObject::sub_00c512a0(void)
+undefined4 * C_00c512a0::sub_00c512a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

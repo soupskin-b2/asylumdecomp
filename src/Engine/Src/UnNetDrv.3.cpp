@@ -34,8 +34,9 @@ UBOOL UNetDriver::HasParentClassChanged() const
 
 int sub_0061bbe0(void);
 extern undefined * g_020e4070;
+struct C_00e14920 { undefined4 * sub_00e14920(void); };
 // @baa 0x00e14920
-undefined4 * UPackageMap::sub_00e14920(void)
+undefined4 * C_00e14920::sub_00e14920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -60,8 +61,9 @@ undefined4 * C_00e14940::sub_00e14940(undefined4 param_2)
 }
 
 extern undefined * g_020e41b0;
+struct C_00e14990 { undefined4 * sub_00e14990(void); };
 // @baa 0x00e14990
-undefined4 * UPackageMap::sub_00e14990(void)
+undefined4 * C_00e14990::sub_00e14990(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

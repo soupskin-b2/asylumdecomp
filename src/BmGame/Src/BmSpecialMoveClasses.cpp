@@ -49,8 +49,9 @@ IMPLEMENT_CLASS_AT(URSpecialMoveConfig_RelativeAnimMove, "e:\\Projects\\Amadeus\
 
 int sub_005c7a20(void);
 extern undefined * g_02344d28;
+struct C_016230b0 { undefined4 * sub_016230b0(void); };
 // @baa 0x016230b0
-undefined4 * UObject::sub_016230b0(void)
+undefined4 * C_016230b0::sub_016230b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -61,8 +62,9 @@ undefined4 * UObject::sub_016230b0(void)
 
 // @baa 0x016230d0
 extern undefined * g_02344e38;
+struct C_01623100 { undefined4 * sub_01623100(void); };
 // @baa 0x01623100
-undefined4 * UObject::sub_01623100(void)
+undefined4 * C_01623100::sub_01623100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -121,8 +123,9 @@ UBOOL ARSpecialMoveInstance_RelativeAnimMove::HasParentClassChanged() const
 }
 
 extern undefined * g_02344738;
+struct C_01612a50 { undefined4 * sub_01612a50(void); };
 // @baa 0x01612a50
-undefined4 * UObject::sub_01612a50(void)
+undefined4 * C_01612a50::sub_01612a50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -132,8 +135,9 @@ undefined4 * UObject::sub_01612a50(void)
 }
 
 extern undefined * g_02344848;
+struct C_01612aa0 { undefined4 * sub_01612aa0(void); };
 // @baa 0x01612aa0
-undefined4 * UObject::sub_01612aa0(void)
+undefined4 * C_01612aa0::sub_01612aa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -169,8 +173,9 @@ UBOOL ARSpecialMoveInstance_SwingToVantagePoint::HasUniqueStaticConfigName() con
 void sub_01613710(void) {  }
 
 extern undefined * g_02344988;
+struct C_0161da60 { undefined4 * sub_0161da60(void); };
 // @baa 0x0161da60
-undefined4 * UObject::sub_0161da60(void)
+undefined4 * C_0161da60::sub_0161da60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

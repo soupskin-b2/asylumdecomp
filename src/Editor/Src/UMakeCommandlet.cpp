@@ -68,8 +68,9 @@ struct C_view {
     int sub_00417ef0(int);
 };
 
+struct C_0105fa50 { int sub_0105fa50(undefined4 param_2, undefined4 param_3); };
 // @baa 0x0105fa50
-int UObject::sub_0105fa50(undefined4 param_2, undefined4 param_3)
+int C_0105fa50::sub_0105fa50(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00417ef0(param_2);
@@ -279,8 +280,9 @@ UMakeCommandlet::UMakeCommandlet()
 // @baa 0x010729d0
 int sub_010729d0(void);
 int sub_005c7a70(...);
+struct C_01072a30 { undefined4 sub_01072a30(byte param_2); };
 // @baa 0x01072a30
-undefined4 UMakeCommandlet::sub_01072a30(byte param_2)
+undefined4 C_01072a30::sub_01072a30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

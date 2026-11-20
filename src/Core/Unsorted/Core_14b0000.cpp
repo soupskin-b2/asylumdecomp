@@ -9,8 +9,9 @@ struct C_view {
 };
 
 int sub_0053dfa0(...);
+struct C_014b31c0 { undefined4 sub_014b31c0(byte param_2); };
 // @baa 0x014b31c0
-undefined4 UTexture2D::sub_014b31c0(byte param_2)
+undefined4 C_014b31c0::sub_014b31c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 8)))->sub_014a5c40();
@@ -159,8 +160,9 @@ IMPLEMENT_CLASS_AT(UUISceneFactoryText, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 // @baa 0x014b38c0
 int sub_0060b320(void);
 extern undefined * g_022b3668;
+struct C_014b38e0 { undefined4 * sub_014b38e0(void); };
 // @baa 0x014b38e0
-undefined4 * UExporter::sub_014b38e0(void)
+undefined4 * C_014b38e0::sub_014b38e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

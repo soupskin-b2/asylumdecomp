@@ -61,8 +61,9 @@ UINT UParticleModuleBeamNoise::RequiredBytes(FParticleEmitterInstance* a0) { ret
 // @baa 0x00b666f0
 int sub_005c7a20(void);
 extern undefined * g_01ffa240;
+struct C_00b66710 { undefined4 * sub_00b66710(void); };
 // @baa 0x00b66710
-undefined4 * UObject::sub_00b66710(void)
+undefined4 * C_00b66710::sub_00b66710(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -76,8 +77,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleBeamModifier, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00b667c0
 extern undefined * g_01ffa3b0;
+struct C_00b667f0 { undefined4 * sub_00b667f0(void); };
 // @baa 0x00b667f0
-undefined4 * UObject::sub_00b667f0(void)
+undefined4 * C_00b667f0::sub_00b667f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -91,8 +93,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleBeamNoise, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x00b668c0
 extern undefined * g_01ffa520;
+struct C_00b668f0 { undefined4 * sub_00b668f0(void); };
 // @baa 0x00b668f0
-undefined4 * UObject::sub_00b668f0(void)
+undefined4 * C_00b668f0::sub_00b668f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -106,8 +109,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleBeamSource, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00b669a0
 extern undefined * g_01ffa690;
+struct C_00b669d0 { undefined4 * sub_00b669d0(void); };
 // @baa 0x00b669d0
-undefined4 * UObject::sub_00b669d0(void)
+undefined4 * C_00b669d0::sub_00b669d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -121,8 +125,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleBeamTarget, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00b66a80
 extern undefined * g_01ffa800;
+struct C_00b66ab0 { undefined4 * sub_00b66ab0(void); };
 // @baa 0x00b66ab0
-undefined4 * UObject::sub_00b66ab0(void)
+undefined4 * C_00b66ab0::sub_00b66ab0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

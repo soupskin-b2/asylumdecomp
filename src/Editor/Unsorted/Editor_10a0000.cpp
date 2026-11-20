@@ -74,8 +74,9 @@ int C_010a3bd0::sub_010a3bd0(void)
 }
 
 int sub_0109d410(void);
+struct C_010a44a0 { int sub_010a44a0(void); };
 // @baa 0x010a44a0
-int UTexture2D::sub_010a44a0(void)
+int C_010a44a0::sub_010a44a0(void)
 {
     int param_1 = (int)this;
 

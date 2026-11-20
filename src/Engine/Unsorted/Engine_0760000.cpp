@@ -430,8 +430,9 @@ void C_007609b0::sub_007609c0() {}
 
 int sub_0053dfa0(...);
 int sub_0075b170(void);
+struct C_007609c0 { undefined4 sub_007609c0(byte param_2); };
 // @baa 0x007609c0
-undefined4 UTextureCube::sub_007609c0(byte param_2)
+undefined4 C_007609c0::sub_007609c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -520,8 +521,9 @@ void C_00760b80::sub_00760b80() { m.sub_0040fcc0(); }
 
 int sub_005c7a20(void);
 extern undefined * g_01efe990;
+struct C_00760b90 { undefined4 * sub_00760b90(void); };
 // @baa 0x00760b90
-undefined4 * UObject::sub_00760b90(void)
+undefined4 * C_00760b90::sub_00760b90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -897,8 +899,9 @@ void sub_00767040(void) { sub_00766040(); }
 
 int sub_00766bb0(...);
 extern undefined4 g_026b62b8;
+struct C_00769da0 { undefined4 sub_00769da0(void); };
 // @baa 0x00769da0
-undefined4 AActor::sub_00769da0(void)
+undefined4 C_00769da0::sub_00769da0(void)
 {
     int param_1 = (int)this;
 
@@ -2027,8 +2030,9 @@ FSparseArrayConstIt_0076e2e0::FSparseArrayConstIt_0076e2e0(const TSparseArray<IN
 }
 
 extern undefined * g_01f00730;
+struct C_0076e890 { undefined4 * sub_0076e890(void); };
 // @baa 0x0076e890
-undefined4 * UObject::sub_0076e890(void)
+undefined4 * C_0076e890::sub_0076e890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2038,8 +2042,9 @@ undefined4 * UObject::sub_0076e890(void)
 }
 
 extern undefined * g_01f00848;
+struct C_0076e8b0 { undefined4 * sub_0076e8b0(void); };
 // @baa 0x0076e8b0
-undefined4 * UObject::sub_0076e8b0(void)
+undefined4 * C_0076e8b0::sub_0076e8b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

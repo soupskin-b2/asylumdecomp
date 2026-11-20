@@ -87,8 +87,9 @@ IMPLEMENT_CLASS_AT(UPartyBeaconClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 // @baa 0x00e38210
 int sub_005c7a20(void);
 extern undefined * g_020f4db8;
+struct C_00e38240 { undefined4 * sub_00e38240(void); };
 // @baa 0x00e38240
-undefined4 * UObject::sub_00e38240(void)
+undefined4 * C_00e38240::sub_00e38240(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -342,8 +343,9 @@ int sub_00e3f5f0(void)
 int sub_00d88570(void);
 extern undefined * g_020f5558;
 extern undefined * g_020f5570;
+struct C_00e3f620 { undefined4 * sub_00e3f620(void); };
 // @baa 0x00e3f620
-undefined4 * UOnlineSubsystem::sub_00e3f620(void)
+undefined4 * C_00e3f620::sub_00e3f620(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -62,8 +62,9 @@ FString ULensFlare::sub_00663170()
 }
 
 extern undefined4*g_026b0d94;
+struct C_006631a0 { void sub_006631a0(void); };
 // @baa 0x006631a0
-void ULensFlare::sub_006631a0(void)
+void C_006631a0::sub_006631a0(void)
 {
 int param_1=(int)this;
 
@@ -92,8 +93,9 @@ FString C_006631f0::sub_006631f0()
     return TEXT("FTexture");
 }
 
+struct C_00663220 { void sub_00663220(void); };
 // @baa 0x00663220
-void ULensFlare::sub_00663220(void)
+void C_00663220::sub_00663220(void)
 {
 int param_1=(int)this;
 
@@ -117,8 +119,9 @@ FString C_00663240::sub_00663240()
     return TEXT("FVertexBuffer");
 }
 
+struct C_00663270 { void sub_00663270(void); };
 // @baa 0x00663270
-void ULensFlare::sub_00663270(void)
+void C_00663270::sub_00663270(void)
 {
 int param_1=(int)this;
 

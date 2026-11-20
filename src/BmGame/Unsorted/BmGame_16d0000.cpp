@@ -93,8 +93,9 @@ int sub_016d1a30(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_023a2a40;
+struct C_016d1a40 { undefined4 * sub_016d1a40(void); };
 // @baa 0x016d1a40
-undefined4 * UObject::sub_016d1a40(void)
+undefined4 * C_016d1a40::sub_016d1a40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -988,8 +989,9 @@ void sub_016db0e0();
 void sub_016db4d0(void) { sub_016db0e0(); }
 
 extern undefined * g_023a2c78;
+struct C_016db4e0 { undefined4 * sub_016db4e0(void); };
 // @baa 0x016db4e0
-undefined4 * UObject::sub_016db4e0(void)
+undefined4 * C_016db4e0::sub_016db4e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1004,8 +1006,9 @@ void sub_016db5a0(void) { sub_016db250(); }
 
 int sub_009369a0(void);
 extern undefined * g_023a3378;
+struct C_016dc100 { undefined4 * sub_016dc100(void); };
 // @baa 0x016dc100
-undefined4 * USkeletalMeshComponent::sub_016dc100(void)
+undefined4 * C_016dc100::sub_016dc100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1019,8 +1022,9 @@ IMPLEMENT_CLASS_AT(URCapeSkeletalMeshComponent, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x016dc190
 extern undefined * g_023a35e8;
+struct C_016dc1e0 { undefined4 * sub_016dc1e0(void); };
 // @baa 0x016dc1e0
-undefined4 * UObject::sub_016dc1e0(void)
+undefined4 * C_016dc1e0::sub_016dc1e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

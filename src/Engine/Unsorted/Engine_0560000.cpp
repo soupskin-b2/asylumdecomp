@@ -170,8 +170,9 @@ IMPLEMENT_CLASS_AT(UField, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Deve
 
 int sub_005c7a20(void);
 extern undefined * g_01e7cf70;
+struct C_00566260 { undefined4 * sub_00566260(void); };
 // @baa 0x00566260
-undefined4 * UField::sub_00566260(void)
+undefined4 * C_00566260::sub_00566260(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -513,8 +514,9 @@ int C_005668b0::sub_005668b0(int param_2)
   return *param_1 + param_2 * 4;
 }
 
+struct C_00567830 { undefined4 sub_00567830(void); };
 // @baa 0x00567830
-undefined4 UTexture2D::sub_00567830(void)
+undefined4 C_00567830::sub_00567830(void)
 {
     int param_1 = (int)this;
 
@@ -544,8 +546,9 @@ int sub_005678b0(int param_1, int param_2)
 // @baa 0x005678c0
 int UTexture2D::sub_005678c0(void) { return *(int*)((char*)this + 8); }
 
+struct C_00567930 { uint sub_00567930(void); };
 // @baa 0x00567930
-uint UTexture2D::sub_00567930(void)
+uint C_00567930::sub_00567930(void)
 {
     int param_1 = (int)this;
 
@@ -1169,8 +1172,9 @@ void CNode::sub_0056a5f0()
 }
 
 int sub_00567290(void);
+struct C_0056b700 { undefined4 sub_0056b700(byte param_2); };
 // @baa 0x0056b700
-undefined4 UTexture2D::sub_0056b700(byte param_2)
+undefined4 C_0056b700::sub_0056b700(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1181,8 +1185,9 @@ undefined4 UTexture2D::sub_0056b700(byte param_2)
   return param_1;
 }
 
+struct C_0056b720 { undefined4 sub_0056b720(byte param_2); };
 // @baa 0x0056b720
-undefined4 UTexture2D::sub_0056b720(byte param_2)
+undefined4 C_0056b720::sub_0056b720(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1193,8 +1198,9 @@ undefined4 UTexture2D::sub_0056b720(byte param_2)
   return param_1;
 }
 
+struct C_0056b740 { undefined4 sub_0056b740(byte param_2); };
 // @baa 0x0056b740
-undefined4 UTexture2D::sub_0056b740(byte param_2)
+undefined4 C_0056b740::sub_0056b740(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

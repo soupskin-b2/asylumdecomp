@@ -74,8 +74,9 @@ C_006731c0::C_006731c0() {}
 // @baa 0x006731c0
 void C_006731c0::sub_006731d0() {}
 
+struct C_006731d0 { undefined4 sub_006731d0(byte param_2); };
 // @baa 0x006731d0
-undefined4 UTexture2D::sub_006731d0(byte param_2)
+undefined4 C_006731d0::sub_006731d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -87,8 +88,9 @@ undefined4 UTexture2D::sub_006731d0(byte param_2)
 }
 
 int sub_006734c0(void);
+struct C_00673520 { undefined4 sub_00673520(byte param_2); };
 // @baa 0x00673520
-undefined4 UTexture2DComposite::sub_00673520(byte param_2)
+undefined4 C_00673520::sub_00673520(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -377,8 +379,9 @@ void C_006759e0::sub_006759e0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00675a40 { undefined4 sub_00675a40(void); };
 // @baa 0x00675a40
-undefined4 UObject::sub_00675a40(void)
+undefined4 C_00675a40::sub_00675a40(void)
 {
     undefined4 param_1 = (undefined4)this;
   return param_1;
@@ -410,8 +413,9 @@ void C_00675ab0::sub_00675ab0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00675b10 { undefined4 sub_00675b10(void); };
 // @baa 0x00675b10
-undefined4 UObject::sub_00675b10(void)
+undefined4 C_00675b10::sub_00675b10(void)
 {
     undefined4 param_1 = (undefined4)this;
   return param_1;
@@ -697,8 +701,9 @@ int C_0067e8d0::sub_0067e8d0(int param_2)
 int sub_00673150(void);
 extern undefined4 g_01ebc510;
 extern undefined * g_01ebc518;
+struct C_0067f120 { undefined4 * sub_0067f120(void); };
 // @baa 0x0067f120
-undefined4 * UTexture2D::sub_0067f120(void)
+undefined4 * C_0067f120::sub_0067f120(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -709,8 +714,9 @@ undefined4 * UTexture2D::sub_0067f120(void)
 }
 
 int sub_006697b0(void);
+struct C_0067f2b0 { undefined4 sub_0067f2b0(byte param_2); };
 // @baa 0x0067f2b0
-undefined4 UObject::sub_0067f2b0(byte param_2)
+undefined4 C_0067f2b0::sub_0067f2b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -725,16 +731,18 @@ void sub_00675ff0();
 // @baa 0x0067f350
 void sub_0067f350(void) { sub_00675ff0(); }
 
+struct C_0067f3e0 { int sub_0067f3e0(int param_2); };
 // @baa 0x0067f3e0
-int UTexture2D::sub_0067f3e0(int param_2)
+int C_0067f3e0::sub_0067f3e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_0067f4a0 { int sub_0067f4a0(int param_2); };
 // @baa 0x0067f4a0
-int UTexture2D::sub_0067f4a0(int param_2)
+int C_0067f4a0::sub_0067f4a0(int param_2)
 {
     int * param_1 = (int *)this;
 

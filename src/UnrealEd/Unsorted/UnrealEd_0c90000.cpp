@@ -73,8 +73,9 @@ struct C_view {
 };
 
 extern undefined4 g_02085e0c;
+struct C_00c927b0 { undefined4 * sub_00c927b0(undefined4 param_2); };
 // @baa 0x00c927b0
-undefined4 * UUnrealEdEngine::sub_00c927b0(undefined4 param_2)
+undefined4 * C_00c927b0::sub_00c927b0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -110,8 +111,9 @@ void sub_00c38ac0();
 void sub_00c92850(void) { sub_00c38ac0(); }
 
 extern undefined4 g_02085e3c;
+struct C_00c92860 { undefined4 * sub_00c92860(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00c92860
-undefined4 * UUnrealEdEngine::sub_00c92860(undefined4 param_2, undefined4 param_3)
+undefined4 * C_00c92860::sub_00c92860(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

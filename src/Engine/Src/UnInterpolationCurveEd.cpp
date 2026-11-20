@@ -616,8 +616,9 @@ UBOOL UInterpTrackVectorBase::UsingLegacyInterpMethod() const { return VectorTra
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_00d219d0 { undefined4 sub_00d219d0(byte param_2); };
 // @baa 0x00d219d0
-undefined4 UObject::sub_00d219d0(byte param_2)
+undefined4 C_00d219d0::sub_00d219d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -628,8 +629,9 @@ undefined4 UObject::sub_00d219d0(byte param_2)
   return param_1;
 }
 
+struct C_00d219f0 { undefined4 sub_00d219f0(byte param_2); };
 // @baa 0x00d219f0
-undefined4 UObject::sub_00d219f0(byte param_2)
+undefined4 C_00d219f0::sub_00d219f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -640,8 +642,9 @@ undefined4 UObject::sub_00d219f0(byte param_2)
   return param_1;
 }
 
+struct C_00d21a10 { undefined4 sub_00d21a10(byte param_2); };
 // @baa 0x00d21a10
-undefined4 UObject::sub_00d21a10(byte param_2)
+undefined4 C_00d21a10::sub_00d21a10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -652,8 +655,9 @@ undefined4 UObject::sub_00d21a10(byte param_2)
   return param_1;
 }
 
+struct C_00d21f00 { undefined4 sub_00d21f00(byte param_2); };
 // @baa 0x00d21f00
-undefined4 UObject::sub_00d21f00(byte param_2)
+undefined4 C_00d21f00::sub_00d21f00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

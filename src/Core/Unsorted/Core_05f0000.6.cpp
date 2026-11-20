@@ -5,8 +5,9 @@
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_005fedc0 { int sub_005fedc0(undefined4*param_2); };
 // @baa 0x005fedc0
-int UPackageMap::sub_005fedc0(undefined4*param_2)
+int C_005fedc0::sub_005fedc0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

@@ -527,8 +527,9 @@ undefined4 C_0141c4f0::sub_0141c4f0(byte param_2)
 
 int sub_009799d0(void);
 extern undefined * g_022811f8;
+struct C_0141c760 { undefined4 * sub_0141c760(void); };
 // @baa 0x0141c760
-undefined4 * UStaticMeshComponent::sub_0141c760(void)
+undefined4 * C_0141c760::sub_0141c760(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -562,16 +563,18 @@ C_0141e650* C_0141e650::sub_0141e650(void) { return this; }
 // @baa 0x0141e6a0
 int sub_0141e6a0(void) { return 1690; }
 
+struct C_0141e6d0 { int sub_0141e6d0(void); };
 // @baa 0x0141e6d0
-int ULensFlare::sub_0141e6d0(void)
+int C_0141e6d0::sub_0141e6d0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0xc0) * 3 + *(int *)(param_1 + 0x84)) * 4;
 }
 
+struct C_0141e6f0 { int sub_0141e6f0(void); };
 // @baa 0x0141e6f0
-int ULensFlare::sub_0141e6f0(void)
+int C_0141e6f0::sub_0141e6f0(void)
 {
     int param_1 = (int)this;
 
@@ -580,8 +583,9 @@ int ULensFlare::sub_0141e6f0(void)
 
 int sub_00977470(void);
 extern undefined * g_02281470;
+struct C_0141e710 { void sub_0141e710(void); };
 // @baa 0x0141e710
-void ULensFlare::sub_0141e710(void)
+void C_0141e710::sub_0141e710(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -590,8 +594,9 @@ void ULensFlare::sub_0141e710(void)
   return;
 }
 
+struct C_0141e720 { undefined4 * sub_0141e720(byte param_2); };
 // @baa 0x0141e720
-undefined4 * ULensFlare::sub_0141e720(byte param_2)
+undefined4 * C_0141e720::sub_0141e720(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

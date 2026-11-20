@@ -9,8 +9,9 @@ IMPLEMENT_CLASS_AT(UComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 // @baa 0x00540080
 int sub_005c7a20(void);
 extern undefined * g_01e72b40;
+struct C_005400a0 { undefined4 * sub_005400a0(void); };
 // @baa 0x005400a0
-undefined4 * UComponent::sub_005400a0(void)
+undefined4 * C_005400a0::sub_005400a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -221,8 +222,9 @@ void C_0059cfa0::sub_0059cfa0(int param_2, int param_3, int param_4)
   return;
 }
 
+struct C_0059d090 { void sub_0059d090(int param_2); };
 // @baa 0x0059d090
-void UObject::sub_0059d090(int param_2)
+void C_0059d090::sub_0059d090(int param_2)
 {
     int * param_1 = (int *)this;
   *param_1 = param_2;
@@ -246,8 +248,9 @@ IMPLEMENT_CLASS_AT(UPackage, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 
 int sub_005aa930(void);
 int sub_005c7a70(...);
+struct C_005aa9b0 { undefined4 sub_005aa9b0(byte param_2); };
 // @baa 0x005aa9b0
-undefined4 UPackage::sub_005aa9b0(byte param_2)
+undefined4 C_005aa9b0::sub_005aa9b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   sub_005aa930();
@@ -261,8 +264,9 @@ undefined4 UPackage::sub_005aa9b0(byte param_2)
 // @baa 0x005add00
 // @baa 0x005adee0
 extern undefined * g_01e8c080;
+struct C_005b14f0 { undefined4 * sub_005b14f0(void); };
 // @baa 0x005b14f0
-undefined4 * UObject::sub_005b14f0(void)
+undefined4 * C_005b14f0::sub_005b14f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -279,8 +283,9 @@ void sub_005b1510(void) {  }
 // @baa 0x005b3b40
 // @baa 0x005b3b60
 int sub_005b3b80(void);
+struct C_005b3cf0 { undefined4 sub_005b3cf0(byte param_2); };
 // @baa 0x005b3cf0
-undefined4 ULinker::sub_005b3cf0(byte param_2)
+undefined4 C_005b3cf0::sub_005b3cf0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -291,8 +296,9 @@ undefined4 ULinker::sub_005b3cf0(byte param_2)
   return param_1;
 }
 
+struct C_005b3d80 { int sub_005b3d80(void); };
 // @baa 0x005b3d80
-int UTextBufferFactory::sub_005b3d80(void)
+int C_005b3d80::sub_005b3d80(void)
 {
     int param_1 = (int)this;
 
@@ -311,8 +317,9 @@ C_005b3d90::C_005b3d90() {}
 void C_005b3d90::sub_005b3f50() {}
 
 int sub_005b3eb0(void);
+struct C_005b3f50 { undefined4 sub_005b3f50(byte param_2); };
 // @baa 0x005b3f50
-undefined4 ULinkerSave::sub_005b3f50(byte param_2)
+undefined4 C_005b3f50::sub_005b3f50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -356,8 +363,9 @@ void C_005b5850::sub_005b5850(int param_2)
 
 // @baa 0x005c07f0
 int sub_005c0780(void);
+struct C_005c0800 { undefined4 sub_005c0800(byte param_2); };
 // @baa 0x005c0800
-undefined4 UMetaData::sub_005c0800(byte param_2)
+undefined4 C_005c0800::sub_005c0800(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -741,8 +749,9 @@ int sub_0058f3e0(void)
 int sub_0058f410(int a0, int a1) { return a1; }
 
 extern undefined * g_01e8b828;
+struct C_0058f420 { undefined4 * sub_0058f420(void); };
 // @baa 0x0058f420
-undefined4 * UObject::sub_0058f420(void)
+undefined4 * C_0058f420::sub_0058f420(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

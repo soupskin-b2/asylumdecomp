@@ -15,8 +15,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_006012c0 { undefined4 * sub_006012c0(undefined4 * param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x006012c0
-undefined4 * UObject::sub_006012c0(undefined4 * param_2, undefined4 param_3, undefined4 param_4)
+undefined4 * C_006012c0::sub_006012c0(undefined4 * param_2, undefined4 param_3, undefined4 param_4)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -28,8 +29,9 @@ undefined4 * UObject::sub_006012c0(undefined4 * param_2, undefined4 param_3, und
   return param_1;
 }
 
+struct C_006013e0 { undefined4 * sub_006013e0(undefined4 * param_2, undefined4 param_3); };
 // @baa 0x006013e0
-undefined4 * UObject::sub_006013e0(undefined4 * param_2, undefined4 param_3)
+undefined4 * C_006013e0::sub_006013e0(undefined4 * param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -47,8 +49,9 @@ struct C_view_006019d0 {
 };
 
 extern undefined4 g_01ea7524;
+struct C_006019d0 { undefined4 * sub_006019d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x006019d0
-undefined4 * UPackageMap::sub_006019d0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_006019d0::sub_006019d0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_006019d0 *)(this))->sub_00601720(param_2, param_3);
@@ -69,8 +72,9 @@ struct C_view_0060bd80 {
     int sub_00603010(int, int);
 };
 
+struct C_0060bd80 { int sub_0060bd80(int param_2); };
 // @baa 0x0060bd80
-int UFracturedStaticMeshComponent::sub_0060bd80(int param_2)
+int C_0060bd80::sub_0060bd80(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -81,16 +85,18 @@ int UFracturedStaticMeshComponent::sub_0060bd80(int param_2)
   return 0;
 }
 
+struct C_0060bdc0 { int sub_0060bdc0(void); };
 // @baa 0x0060bdc0
-int UFracturedStaticMeshComponent::sub_0060bdc0(void)
+int C_0060bdc0::sub_0060bdc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x1c;
 }
 
+struct C_0060bde0 { int sub_0060bde0(void); };
 // @baa 0x0060bde0
-int UFracturedStaticMeshComponent::sub_0060bde0(void)
+int C_0060bde0::sub_0060bde0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -54,8 +54,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SpeechEventManagerBase, "e:\\Projects\\Amadeus\\AA\\
 // @baa 0x016313f0
 int sub_005c7a20(void);
 extern undefined * g_0234b778;
+struct C_01631420 { undefined4 * sub_01631420(void); };
 // @baa 0x01631420
-undefined4 * UObject::sub_01631420(void)
+undefined4 * C_01631420::sub_01631420(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -65,8 +66,9 @@ undefined4 * UObject::sub_01631420(void)
 }
 
 extern undefined * g_0234b928;
+struct C_01631440 { undefined4 * sub_01631440(void); };
 // @baa 0x01631440
-undefined4 * UObject::sub_01631440(void)
+undefined4 * C_01631440::sub_01631440(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -80,8 +82,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SpeechEventManager, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x016314f0
 extern undefined * g_0234bad8;
+struct C_01631520 { undefined4 * sub_01631520(void); };
 // @baa 0x01631520
-undefined4 * APlayerController::sub_01631520(void)
+undefined4 * C_01631520::sub_01631520(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -166,8 +169,9 @@ int sub_01631b10(void)
 
 int sub_005c7a70(...);
 int sub_01632410(void);
+struct C_016324a0 { undefined4 sub_016324a0(byte param_2); };
 // @baa 0x016324a0
-undefined4 ARPlayerControllerCombat::sub_016324a0(byte param_2)
+undefined4 C_016324a0::sub_016324a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

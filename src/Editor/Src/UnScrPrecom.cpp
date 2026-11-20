@@ -10,8 +10,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_00ff1b60 { void sub_00ff1b60(int param_2, int param_3); };
 // @baa 0x00ff1b60
-void UPackageMap::sub_00ff1b60(int param_2, int param_3)
+void C_00ff1b60::sub_00ff1b60(int param_2, int param_3)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_005fc710(param_2, param_3);
@@ -23,8 +24,9 @@ struct C_view_00fff1c0 {
     int sub_00ffa960(int, int);
 };
 
+struct C_00fff1c0 { int sub_00fff1c0(int param_2); };
 // @baa 0x00fff1c0
-int UTexture2D::sub_00fff1c0(int param_2)
+int C_00fff1c0::sub_00fff1c0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

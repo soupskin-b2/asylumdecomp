@@ -22,8 +22,9 @@ UBOOL UDistributionVector::CanBeBaked() const
 
 int sub_00540300(void);
 int sub_005c7a70(...);
+struct C_005403b0 { undefined4 sub_005403b0(byte param_2); };
 // @baa 0x005403b0
-undefined4 UDistributionVector::sub_005403b0(byte param_2)
+undefined4 C_005403b0::sub_005403b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   sub_00540300();
@@ -163,8 +164,9 @@ UBOOL UDistributionVector::HasParentClassChanged() const
 int sub_0053ec70(void);
 extern undefined * g_01e72a60;
 extern undefined * g_01e734e8;
+struct C_00546c80 { undefined4 * sub_00546c80(void); };
 // @baa 0x00546c80
-undefined4 * UTexture2D::sub_00546c80(void)
+undefined4 * C_00546c80::sub_00546c80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

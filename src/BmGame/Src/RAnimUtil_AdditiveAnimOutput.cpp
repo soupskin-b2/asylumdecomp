@@ -37,8 +37,9 @@ int sub_01594a00(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_0231c7d0;
+struct C_01594a10 { undefined4 * sub_01594a10(void); };
 // @baa 0x01594a10
-undefined4 * UObject::sub_01594a10(void)
+undefined4 * C_01594a10::sub_01594a10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

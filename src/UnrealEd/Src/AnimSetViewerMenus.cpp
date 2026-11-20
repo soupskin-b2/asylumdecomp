@@ -152,8 +152,9 @@ void sub_013542c0(void) { sub_0134eb10(); }
 
 int sub_009369a0(void);
 extern undefined * g_022589f8;
+struct C_013542d0 { undefined4 * sub_013542d0(void); };
 // @baa 0x013542d0
-undefined4 * USkeletalMeshComponent::sub_013542d0(void)
+undefined4 * C_013542d0::sub_013542d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

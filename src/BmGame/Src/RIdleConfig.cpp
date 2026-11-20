@@ -144,8 +144,9 @@ void URIdleConfig::FireOutputLink(class URBMBehaviour_IdleWithPlannarProp* a0) {
 
 int sub_005c7a20(void);
 extern undefined * g_02345320;
+struct C_01624ac0 { undefined4 * sub_01624ac0(void); };
 // @baa 0x01624ac0
-undefined4 * UObject::sub_01624ac0(void)
+undefined4 * C_01624ac0::sub_01624ac0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -155,8 +156,9 @@ undefined4 * UObject::sub_01624ac0(void)
 }
 
 extern undefined * g_02345440;
+struct C_01624ae0 { undefined4 * sub_01624ae0(void); };
 // @baa 0x01624ae0
-undefined4 * UObject::sub_01624ae0(void)
+undefined4 * C_01624ae0::sub_01624ae0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -166,8 +168,9 @@ undefined4 * UObject::sub_01624ae0(void)
 }
 
 extern undefined * g_02345560;
+struct C_01624ba0 { undefined4 * sub_01624ba0(void); };
 // @baa 0x01624ba0
-undefined4 * UObject::sub_01624ba0(void)
+undefined4 * C_01624ba0::sub_01624ba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -177,8 +180,9 @@ undefined4 * UObject::sub_01624ba0(void)
 }
 
 extern undefined * g_02345688;
+struct C_01624c50 { undefined4 * sub_01624c50(void); };
 // @baa 0x01624c50
-undefined4 * UObject::sub_01624c50(void)
+undefined4 * C_01624c50::sub_01624c50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

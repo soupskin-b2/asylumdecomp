@@ -8,8 +8,9 @@ struct C_view {
     int sub_00f82320(int, int);
 };
 
+struct C_00f884d0 { int sub_00f884d0(int param_2); };
 // @baa 0x00f884d0
-int UState::sub_00f884d0(int param_2)
+int C_00f884d0::sub_00f884d0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00f82320((int)(&param_2), param_2);
@@ -21,8 +22,9 @@ int UState::sub_00f884d0(int param_2)
 
 int sub_0053dfa0(...);
 int sub_00f82290(void);
+struct C_00f88500 { undefined4 sub_00f88500(byte param_2); };
 // @baa 0x00f88500
-undefined4 UObject::sub_00f88500(byte param_2)
+undefined4 C_00f88500::sub_00f88500(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -49,8 +51,9 @@ FSparseArrayConstIt_00f8d3d0& FSparseArrayConstIt_00f8d3d0::operator++()
     return *this;
 }
 
+struct C_00f8d3f0 { undefined4 sub_00f8d3f0(int param_2); };
 // @baa 0x00f8d3f0
-undefined4 UState::sub_00f8d3f0(int param_2)
+undefined4 C_00f8d3f0::sub_00f8d3f0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -65,8 +68,9 @@ struct C_view_00f8d490 {
     int sub_00f88520(int);
 };
 
+struct C_00f8d490 { void sub_00f8d490(void); };
 // @baa 0x00f8d490
-void UState::sub_00f8d490(void)
+void C_00f8d490::sub_00f8d490(void)
 {
     int param_1 = (int)this;
   ((C_view_00f8d490 *)((*(char **)((char *)this + 0x10))))->sub_00f88520(*(undefined4 *)(param_1 + 8));
@@ -78,8 +82,9 @@ struct C_view_00f8d4b0 {
     int sub_00f88680(int);
 };
 
+struct C_00f8d4b0 { void sub_00f8d4b0(void); };
 // @baa 0x00f8d4b0
-void UState::sub_00f8d4b0(void)
+void C_00f8d4b0::sub_00f8d4b0(void)
 {
     int param_1 = (int)this;
   ((C_view_00f8d4b0 *)((*(char **)((char *)this + 0x10))))->sub_00f88680(*(undefined4 *)(param_1 + 8));
@@ -91,8 +96,9 @@ struct C_view_00f8d4d0 {
     int sub_00f887f0(int);
 };
 
+struct C_00f8d4d0 { void sub_00f8d4d0(void); };
 // @baa 0x00f8d4d0
-void UState::sub_00f8d4d0(void)
+void C_00f8d4d0::sub_00f8d4d0(void)
 {
     int param_1 = (int)this;
   ((C_view_00f8d4d0 *)((*(char **)((char *)this + 0x10))))->sub_00f887f0(*(undefined4 *)(param_1 + 8));
@@ -104,8 +110,9 @@ struct C_view_00f8d4f0 {
     int sub_00f88950(int);
 };
 
+struct C_00f8d4f0 { void sub_00f8d4f0(void); };
 // @baa 0x00f8d4f0
-void UState::sub_00f8d4f0(void)
+void C_00f8d4f0::sub_00f8d4f0(void)
 {
     int param_1 = (int)this;
   ((C_view_00f8d4f0 *)((*(char **)((char *)this + 0x10))))->sub_00f88950(*(undefined4 *)(param_1 + 8));
@@ -125,8 +132,9 @@ FSparseArrayConstIt_00f8d890::FSparseArrayConstIt_00f8d890(const TSparseArray<IN
 }
 
 int sub_00f88d40(void);
+struct C_00f8f1d0 { int sub_00f8f1d0(void); };
 // @baa 0x00f8f1d0
-int UState::sub_00f8f1d0(void)
+int C_00f8f1d0::sub_00f8f1d0(void)
 {
     int param_1 = (int)this;
 
@@ -137,8 +145,9 @@ int UState::sub_00f8f1d0(void)
 }
 
 int sub_00f88da0(void);
+struct C_00f8f1f0 { int sub_00f8f1f0(void); };
 // @baa 0x00f8f1f0
-int UState::sub_00f8f1f0(void)
+int C_00f8f1f0::sub_00f8f1f0(void)
 {
     int param_1 = (int)this;
 
@@ -149,8 +158,9 @@ int UState::sub_00f8f1f0(void)
 }
 
 int sub_00f88e00(void);
+struct C_00f8f210 { int sub_00f8f210(void); };
 // @baa 0x00f8f210
-int UState::sub_00f8f210(void)
+int C_00f8f210::sub_00f8f210(void)
 {
     int param_1 = (int)this;
 
@@ -161,8 +171,9 @@ int UState::sub_00f8f210(void)
 }
 
 int sub_00f88e60(void);
+struct C_00f8f230 { int sub_00f8f230(void); };
 // @baa 0x00f8f230
-int UState::sub_00f8f230(void)
+int C_00f8f230::sub_00f8f230(void)
 {
     int param_1 = (int)this;
 
@@ -173,8 +184,9 @@ int UState::sub_00f8f230(void)
 }
 
 int sub_00f88ec0(void);
+struct C_00f8f250 { int sub_00f8f250(void); };
 // @baa 0x00f8f250
-int UState::sub_00f8f250(void)
+int C_00f8f250::sub_00f8f250(void)
 {
     int param_1 = (int)this;
 
@@ -188,8 +200,9 @@ struct C_view_00f8f700 {
     int sub_00f8eb10(int, int);
 };
 
+struct C_00f8f700 { void sub_00f8f700(void); };
 // @baa 0x00f8f700
-void UState::sub_00f8f700(void)
+void C_00f8f700::sub_00f8f700(void)
 {
     int param_1 = (int)this;
   ((C_view_00f8f700 *)(this))->sub_00f8eb10(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -200,8 +213,9 @@ struct C_view_00f8f7d0 {
     int sub_00f8ebd0(int, int);
 };
 
+struct C_00f8f7d0 { undefined4 sub_00f8f7d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8f7d0
-undefined4 UState::sub_00f8f7d0(undefined4 param_2, undefined4 param_3)
+undefined4 C_00f8f7d0::sub_00f8f7d0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00f8f7d0 *)(this))->sub_00f8ebd0(param_2, param_3);
@@ -212,8 +226,9 @@ struct C_view_00f8fb30 {
     int sub_00f8ef30(int, int);
 };
 
+struct C_00f8fb30 { int sub_00f8fb30(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8fb30
-int UState::sub_00f8fb30(undefined4 param_2, undefined4 param_3)
+int C_00f8fb30::sub_00f8fb30(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00f8fb30 *)(this))->sub_00f8ef30(param_2, param_3);
@@ -225,8 +240,9 @@ struct C_view_00f8fb50 {
     int sub_00f8efb0(int, int);
 };
 
+struct C_00f8fb50 { int sub_00f8fb50(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8fb50
-int UState::sub_00f8fb50(undefined4 param_2, undefined4 param_3)
+int C_00f8fb50::sub_00f8fb50(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00f8fb50 *)(this))->sub_00f8efb0(param_2, param_3);
@@ -238,8 +254,9 @@ struct C_view_00f8fb70 {
     int sub_00f8f030(int, int);
 };
 
+struct C_00f8fb70 { int sub_00f8fb70(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8fb70
-int UState::sub_00f8fb70(undefined4 param_2, undefined4 param_3)
+int C_00f8fb70::sub_00f8fb70(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00f8fb70 *)(this))->sub_00f8f030(param_2, param_3);
@@ -251,8 +268,9 @@ struct C_view_00f8fb90 {
     int sub_00f8f0d0(int, int);
 };
 
+struct C_00f8fb90 { int sub_00f8fb90(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8fb90
-int UState::sub_00f8fb90(undefined4 param_2, undefined4 param_3)
+int C_00f8fb90::sub_00f8fb90(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00f8fb90 *)(this))->sub_00f8f0d0(param_2, param_3);
@@ -264,16 +282,18 @@ struct C_view_00f8fbb0 {
     int sub_00f8f150(int, int);
 };
 
+struct C_00f8fbb0 { undefined4 sub_00f8fbb0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00f8fbb0
-undefined4 UState::sub_00f8fbb0(undefined4 param_2, undefined4 param_3)
+undefined4 C_00f8fbb0::sub_00f8fbb0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00f8fbb0 *)(this))->sub_00f8f150(param_2, param_3);
   return param_1;
 }
 
+struct C_00f8fbd0 { int sub_00f8fbd0(void); };
 // @baa 0x00f8fbd0
-int UState::sub_00f8fbd0(void)
+int C_00f8fbd0::sub_00f8fbd0(void)
 {
     int param_1 = (int)this;
 
@@ -283,8 +303,9 @@ int UState::sub_00f8fbd0(void)
   return param_1;
 }
 
+struct C_00f8fbf0 { int sub_00f8fbf0(void); };
 // @baa 0x00f8fbf0
-int UState::sub_00f8fbf0(void)
+int C_00f8fbf0::sub_00f8fbf0(void)
 {
     int param_1 = (int)this;
 
@@ -294,8 +315,9 @@ int UState::sub_00f8fbf0(void)
   return param_1;
 }
 
+struct C_00f8fc10 { int sub_00f8fc10(void); };
 // @baa 0x00f8fc10
-int UState::sub_00f8fc10(void)
+int C_00f8fc10::sub_00f8fc10(void)
 {
     int param_1 = (int)this;
 
@@ -305,8 +327,9 @@ int UState::sub_00f8fc10(void)
   return param_1;
 }
 
+struct C_00f8fc90 { int sub_00f8fc90(void); };
 // @baa 0x00f8fc90
-int UState::sub_00f8fc90(void)
+int C_00f8fc90::sub_00f8fc90(void)
 {
     int param_1 = (int)this;
 
@@ -316,8 +339,9 @@ int UState::sub_00f8fc90(void)
   return param_1;
 }
 
+struct C_00f8fcb0 { int sub_00f8fcb0(void); };
 // @baa 0x00f8fcb0
-int UState::sub_00f8fcb0(void)
+int C_00f8fcb0::sub_00f8fcb0(void)
 {
     int param_1 = (int)this;
 

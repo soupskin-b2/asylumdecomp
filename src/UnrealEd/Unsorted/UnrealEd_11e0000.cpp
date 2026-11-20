@@ -78,8 +78,9 @@ int C_011e8d00::sub_011e8d00(void)
 
 int sub_005c7a20(void);
 extern undefined * g_021ebf10;
+struct C_011e94b0 { undefined4 * sub_011e94b0(void); };
 // @baa 0x011e94b0
-undefined4 * UObject::sub_011e94b0(void)
+undefined4 * C_011e94b0::sub_011e94b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -142,8 +143,9 @@ struct C_view {
     int sub_011edb10(int, int, int, int, int);
 };
 
+struct C_011edc60 { void sub_011edc60(void); };
 // @baa 0x011edc60
-void UMaterial::sub_011edc60(void)
+void C_011edc60::sub_011edc60(void)
 {
     int param_1 = (int)this;
   if (0 < *(int *)(param_1 + 0x168)) {
@@ -168,8 +170,9 @@ C_011ee2c0::C_011ee2c0() {}
 void C_011ee2c0::sub_011ef8b0() {}
 
 int sub_011ee210(void);
+struct C_011ef8b0 { undefined4 sub_011ef8b0(byte param_2); };
 // @baa 0x011ef8b0
-undefined4 UCustomPropertyItemBindings::sub_011ef8b0(byte param_2)
+undefined4 C_011ef8b0::sub_011ef8b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

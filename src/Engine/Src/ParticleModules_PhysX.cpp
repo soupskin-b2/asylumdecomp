@@ -17,8 +17,9 @@ UBOOL UParticleModuleTypeDataMeshPhysX::HasParentClassChanged() const
 
 int sub_0053dfa0(...);
 int sub_00e06070(void);
+struct C_00b33d90 { undefined4 sub_00b33d90(byte param_2); };
 // @baa 0x00b33d90
-undefined4 UParticleModuleTypeDataMeshPhysX::sub_00b33d90(byte param_2)
+undefined4 C_00b33d90::sub_00b33d90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -78,8 +79,9 @@ template INT TArray<T_00b3c470*>::RemoveItem(T_00b3c470* const&);
 
 int sub_005c7a20(void);
 extern undefined * g_01feef58;
+struct C_00b3ddc0 { undefined4 * sub_00b3ddc0(void); };
 // @baa 0x00b3ddc0
-undefined4 * UObject::sub_00b3ddc0(void)
+undefined4 * C_00b3ddc0::sub_00b3ddc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

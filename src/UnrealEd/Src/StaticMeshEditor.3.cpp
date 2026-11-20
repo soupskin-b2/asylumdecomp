@@ -78,8 +78,9 @@ void __stdcall sub_01231170(INT Unused)
 }
 
 int sub_00c38ac0(void);
+struct C_01221f20 { undefined4 sub_01221f20(byte param_2); };
 // @baa 0x01221f20
-undefined4 UObject::sub_01221f20(byte param_2)
+undefined4 C_01221f20::sub_01221f20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

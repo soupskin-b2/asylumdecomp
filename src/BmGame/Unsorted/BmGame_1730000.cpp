@@ -95,8 +95,9 @@ IMPLEMENT_CLASS_AT(ARJokerGlassesGadgetBase, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x01731e40
 int sub_005c7a70(...);
 int sub_01731ef0(void);
+struct C_01731f80 { undefined4 sub_01731f80(byte param_2); };
 // @baa 0x01731f80
-undefined4 ARJokerGunGadgetBase::sub_01731f80(byte param_2)
+undefined4 C_01731f80::sub_01731f80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

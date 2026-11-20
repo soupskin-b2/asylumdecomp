@@ -164,8 +164,9 @@ C_00785270* C_00785270::sub_00785270(int a0) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_01f15fa8;
+struct C_007854f0 { undefined4 * sub_007854f0(void); };
 // @baa 0x007854f0
-undefined4 * UObject::sub_007854f0(void)
+undefined4 * C_007854f0::sub_007854f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -372,8 +373,9 @@ extern char g_01ebb554[];
 // @baa 0x00787610
 void UBrushComponent::sub_00787610(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00787620 { undefined4 * sub_00787620(byte param_2); };
 // @baa 0x00787620
-undefined4 * UBrushComponent::sub_00787620(byte param_2)
+undefined4 * C_00787620::sub_00787620(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1860,8 +1862,9 @@ FString CFoo::sub_0078d960()
 }
 
 int sub_00656520(void);
+struct C_0078ed80 { undefined4 sub_0078ed80(byte param_2); };
 // @baa 0x0078ed80
-undefined4 UTexture2DComposite::sub_0078ed80(byte param_2)
+undefined4 C_0078ed80::sub_0078ed80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

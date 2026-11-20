@@ -52,8 +52,9 @@ IMPLEMENT_CLASS_AT(URCharacterBioCueFactoryNew, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x016dc030
 int sub_005c7a20(void);
 extern undefined * g_023a3268;
+struct C_016dc050 { undefined4 * sub_016dc050(void); };
 // @baa 0x016dc050
-undefined4 * UObject::sub_016dc050(void)
+undefined4 * C_016dc050::sub_016dc050(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -170,8 +170,9 @@ int sub_014c5990(int a0, int a1) { return a1; }
 int sub_014c59a0(int a0, int a1) { return a1; }
 
 extern undefined * g_022b9258;
+struct C_014c59b0 { undefined4 * sub_014c59b0(void); };
 // @baa 0x014c59b0
-undefined4 * UObject::sub_014c59b0(void)
+undefined4 * C_014c59b0::sub_014c59b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

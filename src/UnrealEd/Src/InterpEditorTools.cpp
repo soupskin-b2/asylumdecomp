@@ -221,8 +221,9 @@ void __stdcall sub_012df7e0(int a0, int a1) {  }
 // @baa 0x012df7f0
 int sub_005c7a20(void);
 extern undefined * g_0223fbf0;
+struct C_012df810 { undefined4 * sub_012df810(void); };
 // @baa 0x012df810
-undefined4 * UObject::sub_012df810(void)
+undefined4 * C_012df810::sub_012df810(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -235,8 +236,9 @@ undefined4 * UObject::sub_012df810(void)
 int sub_012df830(int a0, int a1) { return a1; }
 
 extern undefined * g_0223fd10;
+struct C_012df840 { undefined4 * sub_012df840(void); };
 // @baa 0x012df840
-undefined4 * UObject::sub_012df840(void)
+undefined4 * C_012df840::sub_012df840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -256,8 +258,9 @@ undefined4 sub_012df8e0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_0223fe30;
+struct C_012df8f0 { undefined4 * sub_012df8f0(void); };
 // @baa 0x012df8f0
-undefined4 * UObject::sub_012df8f0(void)
+undefined4 * C_012df8f0::sub_012df8f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -277,8 +280,9 @@ undefined4 sub_012df990(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_0223ff50;
+struct C_012df9a0 { undefined4 * sub_012df9a0(void); };
 // @baa 0x012df9a0
-undefined4 * UObject::sub_012df9a0(void)
+undefined4 * C_012df9a0::sub_012df9a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -298,8 +302,9 @@ undefined4 sub_012dfa40(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02240070;
+struct C_012dfa50 { undefined4 * sub_012dfa50(void); };
 // @baa 0x012dfa50
-undefined4 * UObject::sub_012dfa50(void)
+undefined4 * C_012dfa50::sub_012dfa50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -319,8 +324,9 @@ undefined4 sub_012dfaf0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02240190;
+struct C_012dfb00 { undefined4 * sub_012dfb00(void); };
 // @baa 0x012dfb00
-undefined4 * UObject::sub_012dfb00(void)
+undefined4 * C_012dfb00::sub_012dfb00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -340,8 +346,9 @@ undefined4 sub_012dfba0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_022402b0;
+struct C_012dfbb0 { undefined4 * sub_012dfbb0(void); };
 // @baa 0x012dfbb0
-undefined4 * UObject::sub_012dfbb0(void)
+undefined4 * C_012dfbb0::sub_012dfbb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -361,8 +368,9 @@ undefined4 sub_012dfc50(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_022403d0;
+struct C_012dfc60 { undefined4 * sub_012dfc60(void); };
 // @baa 0x012dfc60
-undefined4 * UObject::sub_012dfc60(void)
+undefined4 * C_012dfc60::sub_012dfc60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -382,8 +390,9 @@ undefined4 sub_012dfd00(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_022404f0;
+struct C_012dfd10 { undefined4 * sub_012dfd10(void); };
 // @baa 0x012dfd10
-undefined4 * UObject::sub_012dfd10(void)
+undefined4 * C_012dfd10::sub_012dfd10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -407,8 +416,9 @@ IMPLEMENT_CLASS_AT(UInterpTrackVectorPropHelper, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x012dfe20
 extern undefined * g_02240610;
+struct C_012dfe40 { undefined4 * sub_012dfe40(void); };
 // @baa 0x012dfe40
-undefined4 * UObject::sub_012dfe40(void)
+undefined4 * C_012dfe40::sub_012dfe40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -421,8 +431,9 @@ undefined4 * UObject::sub_012dfe40(void)
 int sub_012dfe60(int a0, int a1) { return a1; }
 
 extern undefined * g_02240738;
+struct C_012dfe70 { undefined4 * sub_012dfe70(void); };
 // @baa 0x012dfe70
-undefined4 * UObject::sub_012dfe70(void)
+undefined4 * C_012dfe70::sub_012dfe70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -442,8 +453,9 @@ undefined4 sub_012dff10(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02240860;
+struct C_012dff20 { undefined4 * sub_012dff20(void); };
 // @baa 0x012dff20
-undefined4 * UObject::sub_012dff20(void)
+undefined4 * C_012dff20::sub_012dff20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

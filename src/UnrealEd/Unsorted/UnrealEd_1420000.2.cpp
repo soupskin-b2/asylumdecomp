@@ -42,8 +42,9 @@ void C_01426690::sub_01426690(wxUpdateUIEvent * param_2)
 }
 
 int sub_00c38ac0(void);
+struct C_01427a60 { undefined4 sub_01427a60(byte param_2); };
 // @baa 0x01427a60
-undefined4 UObject::sub_01427a60(byte param_2)
+undefined4 C_01427a60::sub_01427a60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

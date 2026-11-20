@@ -337,24 +337,27 @@ void C_011050e0::sub_011050e0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_011051a0 { int sub_011051a0(int param_2); };
 // @baa 0x011051a0
-int UObject::sub_011051a0(int param_2)
+int C_011051a0::sub_011051a0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_011051b0 { int sub_011051b0(void); };
 // @baa 0x011051b0
-int UObject::sub_011051b0(void)
+int C_011051b0::sub_011051b0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_011051d0 { int sub_011051d0(void); };
 // @baa 0x011051d0
-int UObject::sub_011051d0(void)
+int C_011051d0::sub_011051d0(void)
 {
     int param_1 = (int)this;
 
@@ -363,8 +366,9 @@ int UObject::sub_011051d0(void)
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_011051f0 { undefined4 sub_011051f0(byte param_2); };
 // @baa 0x011051f0
-undefined4 UObject::sub_011051f0(byte param_2)
+undefined4 C_011051f0::sub_011051f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -621,8 +625,9 @@ undefined4 * C_01108a40::sub_01108a40(undefined4 * param_2)
 
 int sub_005c7a70(...);
 int sub_0110f4f0(void);
+struct C_0110f570 { undefined4 sub_0110f570(byte param_2); };
 // @baa 0x0110f570
-undefined4 UPrecompileShadersCommandlet::sub_0110f570(byte param_2)
+undefined4 C_0110f570::sub_0110f570(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -634,8 +639,9 @@ undefined4 UPrecompileShadersCommandlet::sub_0110f570(byte param_2)
 }
 
 int sub_0110f610(void);
+struct C_0110f680 { undefined4 sub_0110f680(byte param_2); };
 // @baa 0x0110f680
-undefined4 UDumpShadersCommandlet::sub_0110f680(byte param_2)
+undefined4 C_0110f680::sub_0110f680(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

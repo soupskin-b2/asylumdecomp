@@ -8,8 +8,9 @@ struct C_view {
     int sub_0054f280(int, int);
 };
 
+struct C_00551a20 { int sub_00551a20(int param_2); };
 // @baa 0x00551a20
-int UPackageMap::sub_00551a20(int param_2)
+int C_00551a20::sub_00551a20(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_0054f280((int)(&param_2), param_2);
@@ -23,8 +24,9 @@ struct C_view_00551a50 {
     int sub_0054d4a0(int, int);
 };
 
+struct C_00551a50 { int sub_00551a50(int param_2); };
 // @baa 0x00551a50
-int UPackageMap::sub_00551a50(int param_2)
+int C_00551a50::sub_00551a50(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551a50 *)(this))->sub_0054d4a0((int)(&param_2), param_2);
@@ -38,8 +40,9 @@ struct C_view_00551a80 {
     int sub_0054d590(int, int);
 };
 
+struct C_00551a80 { int sub_00551a80(int param_2); };
 // @baa 0x00551a80
-int APrefabInstance::sub_00551a80(int param_2)
+int C_00551a80::sub_00551a80(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551a80 *)(this))->sub_0054d590((int)(&param_2), param_2);
@@ -53,8 +56,9 @@ struct C_view_00551ab0 {
     int sub_0054d6a0(int, int);
 };
 
+struct C_00551ab0 { int sub_00551ab0(int param_2); };
 // @baa 0x00551ab0
-int UPackageMap::sub_00551ab0(int param_2)
+int C_00551ab0::sub_00551ab0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551ab0 *)(this))->sub_0054d6a0((int)(&param_2), param_2);
@@ -79,8 +83,9 @@ struct C_view_00551b50 {
     int sub_0054db70(int, int);
 };
 
+struct C_00551b50 { int sub_00551b50(int param_2); };
 // @baa 0x00551b50
-int URFMODSound::sub_00551b50(int param_2)
+int C_00551b50::sub_00551b50(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551b50 *)(this))->sub_0054db70((int)(&param_2), param_2);
@@ -94,8 +99,9 @@ struct C_view_00551b90 {
     int sub_0054e020(int, int);
 };
 
+struct C_00551b90 { int sub_00551b90(int param_2); };
 // @baa 0x00551b90
-int UPackageMap::sub_00551b90(int param_2)
+int C_00551b90::sub_00551b90(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551b90 *)(this))->sub_0054e020((int)(&param_2), param_2);
@@ -109,8 +115,9 @@ struct C_view_00551bd0 {
     int sub_0054e0b0(int, int);
 };
 
+struct C_00551bd0 { int sub_00551bd0(int param_2); };
 // @baa 0x00551bd0
-int UPackageMap::sub_00551bd0(int param_2)
+int C_00551bd0::sub_00551bd0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551bd0 *)(this))->sub_0054e0b0((int)(&param_2), param_2);
@@ -348,8 +355,9 @@ struct C_view_0055bc80 {
     int sub_0055a430(int, int);
 };
 
+struct C_0055bc80 { void sub_0055bc80(void); };
 // @baa 0x0055bc80
-void UPackageMap::sub_0055bc80(void)
+void C_0055bc80::sub_0055bc80(void)
 {
     int param_1 = (int)this;
   ((C_view_0055bc80 *)(this))->sub_0055a430(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -357,8 +365,9 @@ void UPackageMap::sub_0055bc80(void)
 }
 
 int sub_00556360(void);
+struct C_0055beb0 { int sub_0055beb0(void); };
 // @baa 0x0055beb0
-int UPackageMap::sub_0055beb0(void)
+int C_0055beb0::sub_0055beb0(void)
 {
     int param_1 = (int)this;
 
@@ -372,8 +381,9 @@ struct C_view_0055c010 {
     int sub_0055a750(int, int);
 };
 
+struct C_0055c010 { void sub_0055c010(void); };
 // @baa 0x0055c010
-void UPackageMap::sub_0055c010(void)
+void C_0055c010::sub_0055c010(void)
 {
     int param_1 = (int)this;
   ((C_view_0055c010 *)(this))->sub_0055a750(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -384,8 +394,9 @@ struct C_view_0055c0e0 {
     int sub_0055a8d0(int, int);
 };
 
+struct C_0055c0e0 { undefined4 sub_0055c0e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x0055c0e0
-undefined4 UPackageMap::sub_0055c0e0(undefined4 param_2, undefined4 param_3)
+undefined4 C_0055c0e0::sub_0055c0e0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_0055c0e0 *)(this))->sub_0055a8d0(param_2, param_3);
@@ -396,8 +407,9 @@ struct C_view_0055c200 {
     int sub_0055a9f0(int, int);
 };
 
+struct C_0055c200 { void sub_0055c200(void); };
 // @baa 0x0055c200
-void UPackageMap::sub_0055c200(void)
+void C_0055c200::sub_0055c200(void)
 {
     int param_1 = (int)this;
   ((C_view_0055c200 *)(this))->sub_0055a9f0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -420,8 +432,9 @@ int C_0055d920::sub_0055d920(void)
 }
 
 int sub_00556830(void);
+struct C_0055ee50 { int sub_0055ee50(void); };
 // @baa 0x0055ee50
-int UPackageMap::sub_0055ee50(void)
+int C_0055ee50::sub_0055ee50(void)
 {
     int param_1 = (int)this;
 
@@ -432,8 +445,9 @@ int UPackageMap::sub_0055ee50(void)
 }
 
 int sub_00556890(void);
+struct C_0055ee70 { int sub_0055ee70(void); };
 // @baa 0x0055ee70
-int APrefabInstance::sub_0055ee70(void)
+int C_0055ee70::sub_0055ee70(void)
 {
     int param_1 = (int)this;
 

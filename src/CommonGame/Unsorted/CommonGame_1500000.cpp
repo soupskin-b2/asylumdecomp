@@ -387,8 +387,9 @@ int sub_0150c270(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_022dd988;
+struct C_0150c280 { undefined4 * sub_0150c280(void); };
 // @baa 0x0150c280
-undefined4 * UObject::sub_0150c280(void)
+undefined4 * C_0150c280::sub_0150c280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

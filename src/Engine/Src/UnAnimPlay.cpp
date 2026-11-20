@@ -118,8 +118,9 @@ INT UAnimNodeSequence::GetNumSliders() const
 // @baa 0x00c64c20
 int sub_005c7a20(void);
 extern undefined * g_0205a380;
+struct C_00c64c50 { undefined4 * sub_00c64c50(void); };
 // @baa 0x00c64c50
-undefined4 * UObject::sub_00c64c50(void)
+undefined4 * C_00c64c50::sub_00c64c50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -133,8 +134,9 @@ IMPLEMENT_CLASS_AT(UAnimNodeSequenceBlendBase, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x00c64ce0
 extern undefined * g_0205a520;
+struct C_00c64d10 { undefined4 * sub_00c64d10(void); };
 // @baa 0x00c64d10
-undefined4 * UObject::sub_00c64d10(void)
+undefined4 * C_00c64d10::sub_00c64d10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -144,8 +146,9 @@ undefined4 * UObject::sub_00c64d10(void)
 }
 
 extern undefined * g_0205a6c8;
+struct C_00c64d30 { undefined4 * sub_00c64d30(void); };
 // @baa 0x00c64d30
-undefined4 * UObject::sub_00c64d30(void)
+undefined4 * C_00c64d30::sub_00c64d30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

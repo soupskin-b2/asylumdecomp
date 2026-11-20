@@ -77,16 +77,18 @@ struct C_view {
     int sub_00417ef0(int);
 };
 
+struct C_00548020 { undefined4 sub_00548020(undefined4 param_2); };
 // @baa 0x00548020
-undefined4 UObject::sub_00548020(undefined4 param_2)
+undefined4 C_00548020::sub_00548020(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_00417ef0(param_2);
   return param_1;
 }
 
+struct C_00548080 { int sub_00548080(int param_2); };
 // @baa 0x00548080
-int UObject::sub_00548080(int param_2)
+int C_00548080::sub_00548080(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -100,8 +102,9 @@ struct C_view_00548090 {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00548090 { undefined4 * sub_00548090(int * param_2); };
 // @baa 0x00548090
-undefined4 * UObject::sub_00548090(int * param_2)
+undefined4 * C_00548090::sub_00548090(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -126,15 +129,17 @@ int C_005480d0::sub_005480d0(int param_2)
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_0054e270 { int sub_0054e270(int param_2); };
 // @baa 0x0054e270
-int UObject::sub_0054e270(int param_2)
+int C_0054e270::sub_0054e270(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_0054e3d0 { int sub_0054e3d0(int param_2); };
 // @baa 0x0054e3d0
-int UObject::sub_0054e3d0(int param_2)
+int C_0054e3d0::sub_0054e3d0(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
@@ -144,8 +149,9 @@ struct C_view_00551c00 {
     int sub_0054e1f0(int, int);
 };
 
+struct C_00551c00 { int sub_00551c00(int param_2); };
 // @baa 0x00551c00
-int UFMODAudioDevice::sub_00551c00(int param_2)
+int C_00551c00::sub_00551c00(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00551c00 *)(this))->sub_0054e1f0((int)(&param_2), param_2);
@@ -203,8 +209,9 @@ struct C_view_00551f80 {
     int sub_005518a0(int);
 };
 
+struct C_00551f80 { undefined4 * sub_00551f80(undefined4 * param_2); };
 // @baa 0x00551f80
-undefined4 * UObject::sub_00551f80(undefined4 * param_2)
+undefined4 * C_00551f80::sub_00551f80(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -216,8 +223,9 @@ struct C_view_00551fa0 {
     int sub_005518a0(int);
 };
 
+struct C_00551fa0 { undefined4 * sub_00551fa0(undefined4 * param_2); };
 // @baa 0x00551fa0
-undefined4 * UObject::sub_00551fa0(undefined4 * param_2)
+undefined4 * C_00551fa0::sub_00551fa0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -444,8 +452,9 @@ struct C_view_005555b0 {
     int sub_0054e1f0(int, int);
 };
 
+struct C_005555b0 { int sub_005555b0(int param_2); };
 // @baa 0x005555b0
-int UFMODAudioDevice::sub_005555b0(int param_2)
+int C_005555b0::sub_005555b0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -797,8 +806,9 @@ void C_0055a410::sub_0055a410(void)
 }
 
 int sub_00556360(void);
+struct C_0055a5b0 { int sub_0055a5b0(void); };
 // @baa 0x0055a5b0
-int UPackageMap::sub_0055a5b0(void)
+int C_0055a5b0::sub_0055a5b0(void)
 {
     int param_1 = (int)this;
 
@@ -809,8 +819,9 @@ int UPackageMap::sub_0055a5b0(void)
 }
 
 int sub_00556830(void);
+struct C_0055b200 { int sub_0055b200(void); };
 // @baa 0x0055b200
-int UPackageMap::sub_0055b200(void)
+int C_0055b200::sub_0055b200(void)
 {
     int param_1 = (int)this;
 
@@ -821,8 +832,9 @@ int UPackageMap::sub_0055b200(void)
 }
 
 int sub_00556890(void);
+struct C_0055b220 { int sub_0055b220(void); };
 // @baa 0x0055b220
-int APrefabInstance::sub_0055b220(void)
+int C_0055b220::sub_0055b220(void)
 {
     int param_1 = (int)this;
 
@@ -881,8 +893,9 @@ int C_0055b280::sub_0055b280(void)
 }
 
 int sub_00556a10(void);
+struct C_0055b2a0 { int sub_0055b2a0(void); };
 // @baa 0x0055b2a0
-int UFMODAudioDevice::sub_0055b2a0(void)
+int C_0055b2a0::sub_0055b2a0(void)
 {
     int param_1 = (int)this;
 
@@ -896,8 +909,9 @@ struct C_view_0055c310 {
     int sub_0055aab0(int, int);
 };
 
+struct C_0055c310 { undefined4 sub_0055c310(undefined4 param_2, undefined4 param_3); };
 // @baa 0x0055c310
-undefined4 UPackageMap::sub_0055c310(undefined4 param_2, undefined4 param_3)
+undefined4 C_0055c310::sub_0055c310(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_0055c310 *)(this))->sub_0055aab0(param_2, param_3);
@@ -1043,8 +1057,9 @@ int C_0055c780::sub_0055c780(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_0055c7a0 { int sub_0055c7a0(void); };
 // @baa 0x0055c7a0
-int UPackageMap::sub_0055c7a0(void)
+int C_0055c7a0::sub_0055c7a0(void)
 {
     int param_1 = (int)this;
 
@@ -1054,8 +1069,9 @@ int UPackageMap::sub_0055c7a0(void)
   return param_1;
 }
 
+struct C_0055c7c0 { int sub_0055c7c0(void); };
 // @baa 0x0055c7c0
-int APrefabInstance::sub_0055c7c0(void)
+int C_0055c7c0::sub_0055c7c0(void)
 {
     int param_1 = (int)this;
 
@@ -1110,8 +1126,9 @@ int C_0055c820::sub_0055c820(void)
   return param_1;
 }
 
+struct C_0055c840 { int sub_0055c840(void); };
 // @baa 0x0055c840
-int UFMODAudioDevice::sub_0055c840(void)
+int C_0055c840::sub_0055c840(void)
 {
     int param_1 = (int)this;
 
@@ -1189,8 +1206,9 @@ void sub_0055bc20();
 // @baa 0x0055ca10
 void sub_0055ca10(void) { sub_0055bc20(); }
 
+struct C_0055caa0 { int sub_0055caa0(void); };
 // @baa 0x0055caa0
-int UPackageMap::sub_0055caa0(void)
+int C_0055caa0::sub_0055caa0(void)
 {
     int param_1 = (int)this;
 
@@ -1207,8 +1225,9 @@ struct C_view_0055cbc0 {
     int sub_0055a8d0(int, int);
 };
 
+struct C_0055cbc0 { int sub_0055cbc0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x0055cbc0
-int UPackageMap::sub_0055cbc0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_0055cbc0::sub_0055cbc0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_0055cbc0 *)(this))->sub_0055a8d0(param_2, param_4);
@@ -1263,8 +1282,9 @@ struct C_view_0055ccb0 {
     int sub_0055aab0(int, int);
 };
 
+struct C_0055ccb0 { int sub_0055ccb0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x0055ccb0
-int UPackageMap::sub_0055ccb0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_0055ccb0::sub_0055ccb0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_0055ccb0 *)(this))->sub_0055aab0(param_2, param_4);
@@ -1539,8 +1559,9 @@ FSparseArrayConstIt_0055d2d0& FSparseArrayConstIt_0055d2d0::operator++()
     return *this;
 }
 
+struct C_0055d860 { int sub_0055d860(void); };
 // @baa 0x0055d860
-int UPackageMap::sub_0055d860(void)
+int C_0055d860::sub_0055d860(void)
 {
     int param_1 = (int)this;
 
@@ -1550,8 +1571,9 @@ int UPackageMap::sub_0055d860(void)
   return param_1;
 }
 
+struct C_0055d880 { int sub_0055d880(void); };
 // @baa 0x0055d880
-int APrefabInstance::sub_0055d880(void)
+int C_0055d880::sub_0055d880(void)
 {
     int param_1 = (int)this;
 
@@ -1606,8 +1628,9 @@ int C_0055d8e0::sub_0055d8e0(void)
   return param_1;
 }
 
+struct C_0055d900 { int sub_0055d900(void); };
 // @baa 0x0055d900
-int UFMODAudioDevice::sub_0055d900(void)
+int C_0055d900::sub_0055d900(void)
 {
     int param_1 = (int)this;
 
@@ -1617,8 +1640,9 @@ int UFMODAudioDevice::sub_0055d900(void)
   return param_1;
 }
 
+struct C_0055eef0 { int sub_0055eef0(void); };
 // @baa 0x0055eef0
-int UFMODAudioDevice::sub_0055eef0(void)
+int C_0055eef0::sub_0055eef0(void)
 {
     int param_1 = (int)this;
 
@@ -2749,32 +2773,36 @@ undefined4 C_00e74740::sub_00e74740(byte param_2)
   return param_1;
 }
 
+struct C_00e74800 { int sub_00e74800(int param_2); };
 // @baa 0x00e74800
-int UFMODAudioDevice::sub_00e74800(int param_2)
+int C_00e74800::sub_00e74800(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e74810 { int sub_00e74810(int param_2); };
 // @baa 0x00e74810
-int UFMODAudioDevice::sub_00e74810(int param_2)
+int C_00e74810::sub_00e74810(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e748b0 { int sub_00e748b0(int param_2); };
 // @baa 0x00e748b0
-int UFMODAudioDevice::sub_00e748b0(int param_2)
+int C_00e748b0::sub_00e748b0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e748c0 { int sub_00e748c0(int param_2); };
 // @baa 0x00e748c0
-int UFMODAudioDevice::sub_00e748c0(int param_2)
+int C_00e748c0::sub_00e748c0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -2905,62 +2933,70 @@ void C_00e75430::sub_00e75430() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00e754f0 { int sub_00e754f0(int param_2); };
 // @baa 0x00e754f0
-int UFMODAudioDevice::sub_00e754f0(int param_2)
+int C_00e754f0::sub_00e754f0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e75500 { int sub_00e75500(int param_2); };
 // @baa 0x00e75500
-int UFMODAudioDevice::sub_00e75500(int param_2)
+int C_00e75500::sub_00e75500(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e75510 { int sub_00e75510(int param_2); };
 // @baa 0x00e75510
-int UFMODAudioDevice::sub_00e75510(int param_2)
+int C_00e75510::sub_00e75510(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e75520 { int sub_00e75520(void); };
 // @baa 0x00e75520
-int UFMODAudioDevice::sub_00e75520(void)
+int C_00e75520::sub_00e75520(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00e75540 { int sub_00e75540(void); };
 // @baa 0x00e75540
-int UFMODAudioDevice::sub_00e75540(void)
+int C_00e75540::sub_00e75540(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_00e755b0 { int sub_00e755b0(int param_2); };
 // @baa 0x00e755b0
-int UFMODAudioDevice::sub_00e755b0(int param_2)
+int C_00e755b0::sub_00e755b0(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e75620 { int sub_00e75620(int param_2); };
 // @baa 0x00e75620
-int UFMODAudioDevice::sub_00e75620(int param_2)
+int C_00e75620::sub_00e75620(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e75690 { int sub_00e75690(int param_2); };
 // @baa 0x00e75690
-int UFMODAudioDevice::sub_00e75690(int param_2)
+int C_00e75690::sub_00e75690(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
@@ -3144,8 +3180,9 @@ struct C_view_00e7aed0 {
     int sub_00e75550(int, int);
 };
 
+struct C_00e7aed0 { int sub_00e7aed0(int param_2); };
 // @baa 0x00e7aed0
-int UFMODAudioDevice::sub_00e7aed0(int param_2)
+int C_00e7aed0::sub_00e7aed0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00e7aed0 *)(this))->sub_00e75550((int)(&param_2), param_2);
@@ -3159,8 +3196,9 @@ struct C_view_00e7af00 {
     int sub_00e755c0(int, int);
 };
 
+struct C_00e7af00 { int sub_00e7af00(int param_2); };
 // @baa 0x00e7af00
-int UFMODAudioDevice::sub_00e7af00(int param_2)
+int C_00e7af00::sub_00e7af00(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00e7af00 *)(this))->sub_00e755c0((int)(&param_2), param_2);
@@ -3174,8 +3212,9 @@ struct C_view_00e7af30 {
     int sub_00e75630(int, int);
 };
 
+struct C_00e7af30 { int sub_00e7af30(int param_2); };
 // @baa 0x00e7af30
-int UFMODAudioDevice::sub_00e7af30(int param_2)
+int C_00e7af30::sub_00e7af30(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00e7af30 *)(this))->sub_00e75630((int)(&param_2), param_2);
@@ -3189,8 +3228,9 @@ struct C_view_00e7af60 {
     int sub_00e75630(int, int);
 };
 
+struct C_00e7af60 { int sub_00e7af60(int param_2); };
 // @baa 0x00e7af60
-int UFMODAudioDevice::sub_00e7af60(int param_2)
+int C_00e7af60::sub_00e7af60(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00e7af60 *)(this))->sub_00e75630((int)(&param_2), param_2);
@@ -3204,8 +3244,9 @@ struct C_view_00e7af90 {
     int sub_0054e1f0(int, int);
 };
 
+struct C_00e7af90 { int sub_00e7af90(int param_2); };
 // @baa 0x00e7af90
-int UFMODAudioDevice::sub_00e7af90(int param_2)
+int C_00e7af90::sub_00e7af90(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00e7af90 *)(this))->sub_0054e1f0((int)(&param_2), param_2);
@@ -3285,8 +3326,9 @@ struct C_view_00e7c020 {
     int sub_0054e1f0(int, int);
 };
 
+struct C_00e7c020 { undefined4 sub_00e7c020(int param_2); };
 // @baa 0x00e7c020
-undefined4 UFMODAudioDevice::sub_00e7c020(int param_2)
+undefined4 C_00e7c020::sub_00e7c020(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -3313,8 +3355,9 @@ struct C_view_00e7c200 {
     int sub_00e7b080(int);
 };
 
+struct C_00e7c200 { void sub_00e7c200(void); };
 // @baa 0x00e7c200
-void UFMODAudioDevice::sub_00e7c200(void)
+void C_00e7c200::sub_00e7c200(void)
 {
     int param_1 = (int)this;
   ((C_view_00e7c200 *)((*(char **)((char *)this + 0x10))))->sub_00e7b080(*(undefined4 *)(param_1 + 8));
@@ -3326,8 +3369,9 @@ struct C_view_00e7c220 {
     int sub_00e7b100(int);
 };
 
+struct C_00e7c220 { void sub_00e7c220(void); };
 // @baa 0x00e7c220
-void UFMODAudioDevice::sub_00e7c220(void)
+void C_00e7c220::sub_00e7c220(void)
 {
     int param_1 = (int)this;
   ((C_view_00e7c220 *)((*(char **)((char *)this + 0x10))))->sub_00e7b100(*(undefined4 *)(param_1 + 8));
@@ -3339,8 +3383,9 @@ struct C_view_00e7c240 {
     int sub_00e7b180(int);
 };
 
+struct C_00e7c240 { void sub_00e7c240(void); };
 // @baa 0x00e7c240
-void UFMODAudioDevice::sub_00e7c240(void)
+void C_00e7c240::sub_00e7c240(void)
 {
     int param_1 = (int)this;
   ((C_view_00e7c240 *)((*(char **)((char *)this + 0x10))))->sub_00e7b180(*(undefined4 *)(param_1 + 8));
@@ -3384,8 +3429,9 @@ FSparseArrayConstIt_00e7ded0& FSparseArrayConstIt_00e7ded0::operator++()
 }
 
 int sub_00e7b2f0(void);
+struct C_00e7e4f0 { int sub_00e7e4f0(void); };
 // @baa 0x00e7e4f0
-int UFMODAudioDevice::sub_00e7e4f0(void)
+int C_00e7e4f0::sub_00e7e4f0(void)
 {
     int param_1 = (int)this;
 
@@ -3396,8 +3442,9 @@ int UFMODAudioDevice::sub_00e7e4f0(void)
 }
 
 int sub_00e7b350(void);
+struct C_00e7e510 { int sub_00e7e510(void); };
 // @baa 0x00e7e510
-int UFMODAudioDevice::sub_00e7e510(void)
+int C_00e7e510::sub_00e7e510(void)
 {
     int param_1 = (int)this;
 
@@ -3408,8 +3455,9 @@ int UFMODAudioDevice::sub_00e7e510(void)
 }
 
 int sub_00e7b3b0(void);
+struct C_00e7e530 { int sub_00e7e530(void); };
 // @baa 0x00e7e530
-int UFMODAudioDevice::sub_00e7e530(void)
+int C_00e7e530::sub_00e7e530(void)
 {
     int param_1 = (int)this;
 
@@ -3423,8 +3471,9 @@ struct C_view_00e7f870 {
     int sub_0055abd0(int, int);
 };
 
+struct C_00e7f870 { void sub_00e7f870(void); };
 // @baa 0x00e7f870
-void UFMODAudioDevice::sub_00e7f870(void)
+void C_00e7f870::sub_00e7f870(void)
 {
     int param_1 = (int)this;
   ((C_view_00e7f870 *)(this))->sub_0055abd0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -3435,8 +3484,9 @@ struct C_view_00e7f880 {
     int sub_00e7e340(int, int);
 };
 
+struct C_00e7f880 { undefined4 sub_00e7f880(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e7f880
-undefined4 UFMODAudioDevice::sub_00e7f880(undefined4 param_2, undefined4 param_3)
+undefined4 C_00e7f880::sub_00e7f880(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00e7f880 *)(this))->sub_00e7e340(param_2, param_3);
@@ -3447,8 +3497,9 @@ struct C_view_00e7f8a0 {
     int sub_00e7e3a0(int, int);
 };
 
+struct C_00e7f8a0 { int sub_00e7f8a0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e7f8a0
-int UFMODAudioDevice::sub_00e7f8a0(undefined4 param_2, undefined4 param_3)
+int C_00e7f8a0::sub_00e7f8a0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00e7f8a0 *)(this))->sub_00e7e3a0(param_2, param_3);
@@ -3460,8 +3511,9 @@ struct C_view_00e7f8c0 {
     int sub_00e7e410(int, int);
 };
 
+struct C_00e7f8c0 { int sub_00e7f8c0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e7f8c0
-int UFMODAudioDevice::sub_00e7f8c0(undefined4 param_2, undefined4 param_3)
+int C_00e7f8c0::sub_00e7f8c0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00e7f8c0 *)(this))->sub_00e7e410(param_2, param_3);
@@ -3473,8 +3525,9 @@ struct C_view_00e7f8e0 {
     int sub_00e7e480(int, int);
 };
 
+struct C_00e7f8e0 { int sub_00e7f8e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e7f8e0
-int UFMODAudioDevice::sub_00e7f8e0(undefined4 param_2, undefined4 param_3)
+int C_00e7f8e0::sub_00e7f8e0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00e7f8e0 *)(this))->sub_00e7e480(param_2, param_3);
@@ -3482,8 +3535,9 @@ int UFMODAudioDevice::sub_00e7f8e0(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00e7f900 { int sub_00e7f900(void); };
 // @baa 0x00e7f900
-int UFMODAudioDevice::sub_00e7f900(void)
+int C_00e7f900::sub_00e7f900(void)
 {
     int param_1 = (int)this;
 
@@ -3493,8 +3547,9 @@ int UFMODAudioDevice::sub_00e7f900(void)
   return param_1;
 }
 
+struct C_00e7f920 { int sub_00e7f920(void); };
 // @baa 0x00e7f920
-int UFMODAudioDevice::sub_00e7f920(void)
+int C_00e7f920::sub_00e7f920(void)
 {
     int param_1 = (int)this;
 
@@ -3504,8 +3559,9 @@ int UFMODAudioDevice::sub_00e7f920(void)
   return param_1;
 }
 
+struct C_00e7f940 { int sub_00e7f940(void); };
 // @baa 0x00e7f940
-int UFMODAudioDevice::sub_00e7f940(void)
+int C_00e7f940::sub_00e7f940(void)
 {
     int param_1 = (int)this;
 
@@ -3528,8 +3584,9 @@ void sub_00e7f560();
 void sub_00e7f980(void) { sub_00e7f560(); }
 
 int sub_00e7f370(void);
+struct C_00e7f990 { undefined4 sub_00e7f990(byte param_2); };
 // @baa 0x00e7f990
-undefined4 UFMODAudioDevice::sub_00e7f990(byte param_2)
+undefined4 C_00e7f990::sub_00e7f990(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3548,8 +3605,9 @@ struct C_view_00e7fa80 {
     int sub_00e7e340(int, int);
 };
 
+struct C_00e7fa80 { int sub_00e7fa80(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00e7fa80
-int UFMODAudioDevice::sub_00e7fa80(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00e7fa80::sub_00e7fa80(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00e7fa80 *)(this))->sub_00e7e340(param_2, param_4);
@@ -3600,8 +3658,9 @@ void C_00e7fab0::sub_00e7fab0(void)
     }
 }
 
+struct C_00e7fad0 { int sub_00e7fad0(void); };
 // @baa 0x00e7fad0
-int UFMODAudioDevice::sub_00e7fad0(void)
+int C_00e7fad0::sub_00e7fad0(void)
 {
     int param_1 = (int)this;
 
@@ -3611,8 +3670,9 @@ int UFMODAudioDevice::sub_00e7fad0(void)
   return param_1;
 }
 
+struct C_00e7faf0 { int sub_00e7faf0(void); };
 // @baa 0x00e7faf0
-int UFMODAudioDevice::sub_00e7faf0(void)
+int C_00e7faf0::sub_00e7faf0(void)
 {
     int param_1 = (int)this;
 
@@ -3622,8 +3682,9 @@ int UFMODAudioDevice::sub_00e7faf0(void)
   return param_1;
 }
 
+struct C_00e7fb10 { int sub_00e7fb10(void); };
 // @baa 0x00e7fb10
-int UFMODAudioDevice::sub_00e7fb10(void)
+int C_00e7fb10::sub_00e7fb10(void)
 {
     int param_1 = (int)this;
 
@@ -3642,8 +3703,9 @@ void sub_00e7fb40(void) { sub_00e7f4f0(); }
 // @baa 0x00e7fb50
 void sub_00e7fb50(void) { sub_00e7f560(); }
 
+struct C_00e80ad0 { int sub_00e80ad0(void); };
 // @baa 0x00e80ad0
-int UFMODAudioDevice::sub_00e80ad0(void)
+int C_00e80ad0::sub_00e80ad0(void)
 {
     int param_1 = (int)this;
 
@@ -3653,8 +3715,9 @@ int UFMODAudioDevice::sub_00e80ad0(void)
   return param_1;
 }
 
+struct C_00e80af0 { int sub_00e80af0(void); };
 // @baa 0x00e80af0
-int UFMODAudioDevice::sub_00e80af0(void)
+int C_00e80af0::sub_00e80af0(void)
 {
     int param_1 = (int)this;
 
@@ -3664,8 +3727,9 @@ int UFMODAudioDevice::sub_00e80af0(void)
   return param_1;
 }
 
+struct C_00e80b10 { int sub_00e80b10(void); };
 // @baa 0x00e80b10
-int UFMODAudioDevice::sub_00e80b10(void)
+int C_00e80b10::sub_00e80b10(void)
 {
     int param_1 = (int)this;
 
@@ -3699,8 +3763,9 @@ int UFMODAudioDevice::vf_1c0(void) { return *(int*)((char*)this + 672); }
 
 int sub_005c7a70(...);
 int sub_00e80e20(void);
+struct C_00e80f40 { undefined4 sub_00e80f40(byte param_2); };
 // @baa 0x00e80f40
-undefined4 UFMODAudioDevice::sub_00e80f40(byte param_2)
+undefined4 C_00e80f40::sub_00e80f40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4440,8 +4505,9 @@ struct C_view_01038aa0 {
     int sub_01036530(int, int);
 };
 
+struct C_01038aa0 { int sub_01038aa0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01038aa0
-int UTexture2D::sub_01038aa0(undefined4 param_2, undefined4 param_3)
+int C_01038aa0::sub_01038aa0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01038aa0 *)(this))->sub_01036530(param_2, param_3);
@@ -4453,8 +4519,9 @@ struct C_view_01038ac0 {
     int sub_010365b0(int, int);
 };
 
+struct C_01038ac0 { int sub_01038ac0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01038ac0
-int UTexture2D::sub_01038ac0(undefined4 param_2, undefined4 param_3)
+int C_01038ac0::sub_01038ac0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01038ac0 *)(this))->sub_010365b0(param_2, param_3);
@@ -4466,8 +4533,9 @@ struct C_view_01038ae0 {
     int sub_01036630(int, int);
 };
 
+struct C_01038ae0 { int sub_01038ae0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01038ae0
-int UTexture2D::sub_01038ae0(undefined4 param_2, undefined4 param_3)
+int C_01038ae0::sub_01038ae0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01038ae0 *)(this))->sub_01036630(param_2, param_3);
@@ -4479,8 +4547,9 @@ struct C_view_01038b00 {
     int sub_010366b0(int, int);
 };
 
+struct C_01038b00 { int sub_01038b00(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01038b00
-int UTexture2D::sub_01038b00(undefined4 param_2, undefined4 param_3)
+int C_01038b00::sub_01038b00(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01038b00 *)(this))->sub_010366b0(param_2, param_3);
@@ -4492,8 +4561,9 @@ struct C_view_01038b20 {
     int sub_01036730(int, int);
 };
 
+struct C_01038b20 { int sub_01038b20(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01038b20
-int UTexture2D::sub_01038b20(undefined4 param_2, undefined4 param_3)
+int C_01038b20::sub_01038b20(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01038b20 *)(this))->sub_01036730(param_2, param_3);
@@ -4510,8 +4580,9 @@ void sub_01036ac0();
 void sub_01038b80(void) { sub_01036ac0(); }
 
 int sub_01024750(void);
+struct C_01038c80 { int sub_01038c80(void); };
 // @baa 0x01038c80
-int UTexture2D::sub_01038c80(void)
+int C_01038c80::sub_01038c80(void)
 {
     int param_1 = (int)this;
 
@@ -4522,8 +4593,9 @@ int UTexture2D::sub_01038c80(void)
 }
 
 int sub_01033050(void);
+struct C_01038ca0 { undefined4 sub_01038ca0(byte param_2); };
 // @baa 0x01038ca0
-undefined4 UTexture2D::sub_01038ca0(byte param_2)
+undefined4 C_01038ca0::sub_01038ca0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

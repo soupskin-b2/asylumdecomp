@@ -508,8 +508,9 @@ undefined4 * C_0064b4e0::sub_0064b4e0(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_01ebb7f8;
+struct C_0064b670 { undefined4 * sub_0064b670(void); };
 // @baa 0x0064b670
-undefined4 * UObject::sub_0064b670(void)
+undefined4 * C_0064b670::sub_0064b670(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -579,8 +580,9 @@ int sub_0064b7c0(void)
 }
 
 extern undefined * g_01ebb9c0;
+struct C_0064b880 { undefined4 * sub_0064b880(void); };
 // @baa 0x0064b880
-undefined4 * UObject::sub_0064b880(void)
+undefined4 * C_0064b880::sub_0064b880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -607,8 +609,9 @@ IMPLEMENT_CLASS_AT(UDOFEffect, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\
 
 // @baa 0x0064b930
 extern undefined * g_01ebbad8;
+struct C_0064b960 { undefined4 * sub_0064b960(void); };
 // @baa 0x0064b960
-undefined4 * UObject::sub_0064b960(void)
+undefined4 * C_0064b960::sub_0064b960(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -621,8 +624,9 @@ undefined4 * UObject::sub_0064b960(void)
 int sub_0064b980(int a0, int a1) { return a1; }
 
 extern undefined * g_01ebbbf0;
+struct C_0064b990 { undefined4 * sub_0064b990(void); };
 // @baa 0x0064b990
-undefined4 * UObject::sub_0064b990(void)
+undefined4 * C_0064b990::sub_0064b990(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -713,8 +717,9 @@ int sub_0064bbb0(void)
   return g_026b0de0;
 }
 
+struct C_0064bbe0 { void sub_0064bbe0(void); };
 // @baa 0x0064bbe0
-void USurface::sub_0064bbe0(void)
+void C_0064bbe0::sub_0064bbe0(void)
 {
     int param_1 = (int)this;
 
@@ -804,8 +809,9 @@ int __stdcall sub_0064be20(int a0) { return 0; }
 // @baa 0x0064be30
 int __stdcall sub_0064be30(int a0) { return 0; }
 
+struct C_0064be40 { undefined4 * sub_0064be40(byte param_2); };
 // @baa 0x0064be40
-undefined4 * USurface::sub_0064be40(byte param_2)
+undefined4 * C_0064be40::sub_0064be40(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1086,8 +1092,9 @@ struct C_view {
 };
 
 int sub_00716170(...);
+struct C_0064ce90 { undefined4 sub_0064ce90(undefined4 param_2); };
 // @baa 0x0064ce90
-undefined4 UMorphWeightSequence::sub_0064ce90(undefined4 param_2)
+undefined4 C_0064ce90::sub_0064ce90(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -1485,8 +1492,9 @@ struct C_view_0064f240 {
 };
 
 extern undefined * g_01ebc298;
+struct C_0064f240 { undefined4 * sub_0064f240(undefined4 param_2); };
 // @baa 0x0064f240
-undefined4 * UMaterial::sub_0064f240(undefined4 param_2)
+undefined4 * C_0064f240::sub_0064f240(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_0064f240 *)(this))->sub_006d6c40(param_2);

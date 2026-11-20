@@ -71,8 +71,9 @@ undefined4 C_01526890::sub_01526890(byte param_2)
 }
 
 int sub_0040fcc0(void);
+struct C_015268b0 { undefined4 sub_015268b0(byte param_2); };
 // @baa 0x015268b0
-undefined4 UObject::sub_015268b0(byte param_2)
+undefined4 C_015268b0::sub_015268b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -111,15 +112,17 @@ int C_01526900::sub_01526900(void)
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_01526980 { int sub_01526980(int param_2); };
 // @baa 0x01526980
-int UTexture2D::sub_01526980(int param_2)
+int C_01526980::sub_01526980(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x28;
 }
 
+struct C_01526a10 { int sub_01526a10(int param_2); };
 // @baa 0x01526a10
-int UTexture2D::sub_01526a10(int param_2)
+int C_01526a10::sub_01526a10(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -249,8 +252,9 @@ struct C_view {
     int sub_01526910(int, int);
 };
 
+struct C_0152b7e0 { int sub_0152b7e0(int param_2); };
 // @baa 0x0152b7e0
-int UTexture2D::sub_0152b7e0(int param_2)
+int C_0152b7e0::sub_0152b7e0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_01526910((int)(&param_2), param_2);
@@ -264,8 +268,9 @@ struct C_view_0152b8d0 {
     int sub_01526990(int, int);
 };
 
+struct C_0152b8d0 { int sub_0152b8d0(int param_2); };
 // @baa 0x0152b8d0
-int UTexture2D::sub_0152b8d0(int param_2)
+int C_0152b8d0::sub_0152b8d0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_0152b8d0 *)(this))->sub_01526990((int)(&param_2), param_2);
@@ -456,8 +461,9 @@ void sub_0152c290(void) { sub_01526f80(); }
 
 int sub_0152c360(void);
 int sub_005c7a70(...);
+struct C_0152c3c0 { undefined4 sub_0152c3c0(byte param_2); };
 // @baa 0x0152c3c0
-undefined4 URScriptConversationFactoryNew::sub_0152c3c0(byte param_2)
+undefined4 C_0152c3c0::sub_0152c3c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   sub_0152c360();
@@ -469,8 +475,9 @@ undefined4 URScriptConversationFactoryNew::sub_0152c3c0(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_022de5b8;
+struct C_0152c480 { undefined4 * sub_0152c480(void); };
 // @baa 0x0152c480
-undefined4 * UObject::sub_0152c480(void)
+undefined4 * C_0152c480::sub_0152c480(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

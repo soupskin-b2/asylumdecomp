@@ -41,8 +41,9 @@ return iVar2;
 
 int sub_0053dfa0(...);
 int sub_008c5a00(void);
+struct C_008cde50 { undefined4 sub_008cde50(byte param_2); };
 // @baa 0x008cde50
-undefined4 USeqVar_Union::sub_008cde50(byte param_2)
+undefined4 C_008cde50::sub_008cde50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

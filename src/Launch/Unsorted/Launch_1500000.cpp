@@ -173,8 +173,9 @@ FSparseArrayConstIt_01501d70::FSparseArrayConstIt_01501d70(const TSparseArray<IN
 }
 
 int sub_01501dc0(void);
+struct C_01501f30 { int sub_01501f30(void); };
 // @baa 0x01501f30
-int UTexture2D::sub_01501f30(void)
+int C_01501f30::sub_01501f30(void)
 {
     int param_1 = (int)this;
 
@@ -184,8 +185,9 @@ int UTexture2D::sub_01501f30(void)
   return param_1;
 }
 
+struct C_01501fc0 { int sub_01501fc0(void); };
 // @baa 0x01501fc0
-int UTexture2D::sub_01501fc0(void)
+int C_01501fc0::sub_01501fc0(void)
 {
     int param_1 = (int)this;
 
@@ -199,8 +201,9 @@ void sub_01501f50();
 // @baa 0x01501fe0
 void sub_01501fe0(void) { sub_01501f50(); }
 
+struct C_01501ff0 { int sub_01501ff0(void); };
 // @baa 0x01501ff0
-int UTexture2D::sub_01501ff0(void)
+int C_01501ff0::sub_01501ff0(void)
 {
     int param_1 = (int)this;
 
@@ -213,8 +216,9 @@ int UTexture2D::sub_01501ff0(void)
 // @baa 0x01502010
 void sub_01502010(void) { sub_01501f50(); }
 
+struct C_01502020 { int sub_01502020(void); };
 // @baa 0x01502020
-int UTexture2D::sub_01502020(void)
+int C_01502020::sub_01502020(void)
 {
     int param_1 = (int)this;
 
@@ -464,8 +468,9 @@ void sub_01503ba0(undefined4 param_1, undefined4 param_2, undefined4 param_3)
 }
 
 int sub_01506ce0(void);
+struct C_01509570 { int sub_01509570(void); };
 // @baa 0x01509570
-int UTexture2D::sub_01509570(void)
+int C_01509570::sub_01509570(void)
 {
     int param_1 = (int)this;
 

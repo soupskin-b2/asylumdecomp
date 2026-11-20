@@ -47,8 +47,9 @@ undefined4 ULensFlare::sub_00abc810(byte param_2)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00abcfe0 { int sub_00abcfe0(undefined4*param_2); };
 // @baa 0x00abcfe0
-int ULensFlare::sub_00abcfe0(undefined4*param_2)
+int C_00abcfe0::sub_00abcfe0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -74,8 +75,9 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
+struct C_00abd460 { int sub_00abd460(undefined4*param_2); };
 // @baa 0x00abd460
-int ULensFlare::sub_00abd460(undefined4*param_2)
+int C_00abd460::sub_00abd460(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

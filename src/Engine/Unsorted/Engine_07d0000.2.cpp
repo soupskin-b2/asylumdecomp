@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_007d4020(void);
+struct C_007d5740 { undefined4 sub_007d5740(byte param_2); };
 // @baa 0x007d5740
-undefined4 ULensFlare::sub_007d5740(byte param_2)
+undefined4 C_007d5740::sub_007d5740(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -17,8 +18,9 @@ undefined4 ULensFlare::sub_007d5740(byte param_2)
   return param_1;
 }
 
+struct C_007d5760 { undefined4 sub_007d5760(byte param_2); };
 // @baa 0x007d5760
-undefined4 ULensFlare::sub_007d5760(byte param_2)
+undefined4 C_007d5760::sub_007d5760(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -29,8 +31,9 @@ undefined4 ULensFlare::sub_007d5760(byte param_2)
   return param_1;
 }
 
+struct C_007d5780 { undefined4 sub_007d5780(byte param_2); };
 // @baa 0x007d5780
-undefined4 ULensFlare::sub_007d5780(byte param_2)
+undefined4 C_007d5780::sub_007d5780(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

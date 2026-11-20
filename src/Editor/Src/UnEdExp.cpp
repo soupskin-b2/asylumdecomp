@@ -1236,8 +1236,9 @@ int sub_00ef0530(void) { return 1; }
 int sub_005fba80(void);
 int sub_0060f7d0(...);
 extern undefined4 g_026a4b34;
+struct C_00ef0540 { bool sub_00ef0540(void); };
 // @baa 0x00ef0540
-bool UExporter::sub_00ef0540(void)
+bool C_00ef0540::sub_00ef0540(void)
 {
     int param_1 = (int)this;
 
@@ -1305,8 +1306,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00ef9590 { undefined4 * sub_00ef9590(undefined4 * param_2); };
 // @baa 0x00ef9590
-undefined4 * UObject::sub_00ef9590(undefined4 * param_2)
+undefined4 * C_00ef9590::sub_00ef9590(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);
@@ -1328,8 +1330,9 @@ struct C_view_00f04ce0 {
 };
 
 int sub_006313a0(...);
+struct C_00f04ce0 { void sub_00f04ce0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5); };
 // @baa 0x00f04ce0
-void UTextureExporterT3D::sub_00f04ce0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5)
+void C_00f04ce0::sub_00f04ce0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -1350,8 +1353,9 @@ FViewport* UEditorComponent::GetViewport() { return 0; }
 // @baa 0x00f0ae30
 int sub_006f7810(void);
 extern undefined * g_0213b478;
+struct C_00f0ae60 { undefined4 * sub_00f0ae60(void); };
 // @baa 0x00f0ae60
-undefined4 * UPrimitiveComponent::sub_00f0ae60(void)
+undefined4 * C_00f0ae60::sub_00f0ae60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1361,8 +1365,9 @@ undefined4 * UPrimitiveComponent::sub_00f0ae60(void)
 }
 
 extern undefined * g_0213b6d0;
+struct C_00f0ae80 { undefined4 * sub_00f0ae80(void); };
 // @baa 0x00f0ae80
-undefined4 * UPrimitiveComponent::sub_00f0ae80(void)
+undefined4 * C_00f0ae80::sub_00f0ae80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1377,8 +1382,9 @@ IMPLEMENT_CLASS_AT(UEdModeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 // @baa 0x00f0af00
 int sub_0060b320(void);
 extern undefined * g_0213b928;
+struct C_00f0af30 { undefined4 * sub_00f0af30(void); };
 // @baa 0x00f0af30
-undefined4 * UExporter::sub_00f0af30(void)
+undefined4 * C_00f0af30::sub_00f0af30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1390,8 +1396,9 @@ undefined4 * UExporter::sub_00f0af30(void)
 // @baa 0x00f0af50
 // @baa 0x00f0afb0
 extern undefined * g_0213ba50;
+struct C_00f0afd0 { undefined4 * sub_00f0afd0(void); };
 // @baa 0x00f0afd0
-undefined4 * UExporter::sub_00f0afd0(void)
+undefined4 * C_00f0afd0::sub_00f0afd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1403,8 +1410,9 @@ undefined4 * UExporter::sub_00f0afd0(void)
 // @baa 0x00f0aff0
 // @baa 0x00f0b050
 extern undefined * g_0213bb78;
+struct C_00f0b070 { undefined4 * sub_00f0b070(void); };
 // @baa 0x00f0b070
-undefined4 * UExporter::sub_00f0b070(void)
+undefined4 * C_00f0b070::sub_00f0b070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1416,8 +1424,9 @@ undefined4 * UExporter::sub_00f0b070(void)
 // @baa 0x00f0b090
 // @baa 0x00f0b0f0
 extern undefined * g_0213bca0;
+struct C_00f0b110 { undefined4 * sub_00f0b110(void); };
 // @baa 0x00f0b110
-undefined4 * UExporter::sub_00f0b110(void)
+undefined4 * C_00f0b110::sub_00f0b110(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1429,8 +1438,9 @@ undefined4 * UExporter::sub_00f0b110(void)
 // @baa 0x00f0b130
 // @baa 0x00f0b190
 extern undefined * g_0213bdc8;
+struct C_00f0b1b0 { undefined4 * sub_00f0b1b0(void); };
 // @baa 0x00f0b1b0
-undefined4 * UExporter::sub_00f0b1b0(void)
+undefined4 * C_00f0b1b0::sub_00f0b1b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1442,8 +1452,9 @@ undefined4 * UExporter::sub_00f0b1b0(void)
 // @baa 0x00f0b1d0
 // @baa 0x00f0b230
 extern undefined * g_0213bef0;
+struct C_00f0b250 { undefined4 * sub_00f0b250(void); };
 // @baa 0x00f0b250
-undefined4 * UExporter::sub_00f0b250(void)
+undefined4 * C_00f0b250::sub_00f0b250(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1455,8 +1466,9 @@ undefined4 * UExporter::sub_00f0b250(void)
 // @baa 0x00f0b270
 // @baa 0x00f0b2d0
 extern undefined * g_0213c018;
+struct C_00f0b2f0 { undefined4 * sub_00f0b2f0(void); };
 // @baa 0x00f0b2f0
-undefined4 * UExporter::sub_00f0b2f0(void)
+undefined4 * C_00f0b2f0::sub_00f0b2f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1468,8 +1480,9 @@ undefined4 * UExporter::sub_00f0b2f0(void)
 // @baa 0x00f0b310
 // @baa 0x00f0b370
 extern undefined * g_0213c140;
+struct C_00f0b390 { undefined4 * sub_00f0b390(void); };
 // @baa 0x00f0b390
-undefined4 * UExporter::sub_00f0b390(void)
+undefined4 * C_00f0b390::sub_00f0b390(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1481,8 +1494,9 @@ undefined4 * UExporter::sub_00f0b390(void)
 // @baa 0x00f0b3b0
 // @baa 0x00f0b410
 extern undefined * g_0213c268;
+struct C_00f0b430 { undefined4 * sub_00f0b430(void); };
 // @baa 0x00f0b430
-undefined4 * UExporter::sub_00f0b430(void)
+undefined4 * C_00f0b430::sub_00f0b430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1494,8 +1508,9 @@ undefined4 * UExporter::sub_00f0b430(void)
 // @baa 0x00f0b450
 // @baa 0x00f0b4b0
 extern undefined * g_0213c390;
+struct C_00f0b4d0 { undefined4 * sub_00f0b4d0(void); };
 // @baa 0x00f0b4d0
-undefined4 * UExporter::sub_00f0b4d0(void)
+undefined4 * C_00f0b4d0::sub_00f0b4d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1507,8 +1522,9 @@ undefined4 * UExporter::sub_00f0b4d0(void)
 // @baa 0x00f0b4f0
 // @baa 0x00f0b550
 extern undefined * g_0213c4b8;
+struct C_00f0b570 { undefined4 * sub_00f0b570(void); };
 // @baa 0x00f0b570
-undefined4 * UExporter::sub_00f0b570(void)
+undefined4 * C_00f0b570::sub_00f0b570(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1520,8 +1536,9 @@ undefined4 * UExporter::sub_00f0b570(void)
 // @baa 0x00f0b590
 // @baa 0x00f0b5f0
 extern undefined * g_0213c5e0;
+struct C_00f0b610 { undefined4 * sub_00f0b610(void); };
 // @baa 0x00f0b610
-undefined4 * UExporter::sub_00f0b610(void)
+undefined4 * C_00f0b610::sub_00f0b610(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1533,8 +1550,9 @@ undefined4 * UExporter::sub_00f0b610(void)
 // @baa 0x00f0b630
 // @baa 0x00f0b690
 extern undefined * g_0213c708;
+struct C_00f0b6b0 { undefined4 * sub_00f0b6b0(void); };
 // @baa 0x00f0b6b0
-undefined4 * UExporter::sub_00f0b6b0(void)
+undefined4 * C_00f0b6b0::sub_00f0b6b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1545,8 +1563,9 @@ undefined4 * UExporter::sub_00f0b6b0(void)
 
 int sub_005c7a70(...);
 int sub_00f0b6d0(void);
+struct C_00f0b730 { undefined4 sub_00f0b730(byte param_2); };
 // @baa 0x00f0b730
-undefined4 UExporter::sub_00f0b730(byte param_2)
+undefined4 C_00f0b730::sub_00f0b730(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1558,8 +1577,9 @@ undefined4 UExporter::sub_00f0b730(byte param_2)
 }
 
 extern undefined * g_0213c830;
+struct C_00f0b750 { undefined4 * sub_00f0b750(void); };
 // @baa 0x00f0b750
-undefined4 * UExporter::sub_00f0b750(void)
+undefined4 * C_00f0b750::sub_00f0b750(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1576,8 +1596,9 @@ UBOOL UExporterT3DX::ExportText(const struct FExportObjectInnerContext* a0, clas
 
 // @baa 0x00f0b860
 extern undefined * g_0213c958;
+struct C_00f0b880 { undefined4 * sub_00f0b880(void); };
 // @baa 0x00f0b880
-undefined4 * UExporter::sub_00f0b880(void)
+undefined4 * C_00f0b880::sub_00f0b880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1587,8 +1608,9 @@ undefined4 * UExporter::sub_00f0b880(void)
 }
 
 extern undefined * g_0213ca80;
+struct C_00f0b8a0 { undefined4 * sub_00f0b8a0(void); };
 // @baa 0x00f0b8a0
-undefined4 * UExporter::sub_00f0b8a0(void)
+undefined4 * C_00f0b8a0::sub_00f0b8a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1602,8 +1624,9 @@ IMPLEMENT_CLASS_AT(UMaterialExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00f0b920
 extern undefined * g_0213cba8;
+struct C_00f0b940 { undefined4 * sub_00f0b940(void); };
 // @baa 0x00f0b940
-undefined4 * UExporter::sub_00f0b940(void)
+undefined4 * C_00f0b940::sub_00f0b940(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1617,8 +1640,9 @@ IMPLEMENT_CLASS_AT(UStaticMeshExporterT3D, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x00f0b9c0
 extern undefined * g_0213ccd0;
+struct C_00f0b9e0 { undefined4 * sub_00f0b9e0(void); };
 // @baa 0x00f0b9e0
-undefined4 * UExporter::sub_00f0b9e0(void)
+undefined4 * C_00f0b9e0::sub_00f0b9e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1635,8 +1659,9 @@ struct C_view_00f0eeb0 {
     int sub_0054f280(int, int);
 };
 
+struct C_00f0eeb0 { int sub_00f0eeb0(int param_2); };
 // @baa 0x00f0eeb0
-int UPackageMap::sub_00f0eeb0(int param_2)
+int C_00f0eeb0::sub_00f0eeb0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

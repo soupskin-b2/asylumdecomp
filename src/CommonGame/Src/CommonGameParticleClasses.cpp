@@ -51,8 +51,9 @@ void URParticleModuleWaitForDeath::vf_168(int a0, int a1, int a2, int a3, int a4
 
 int sub_005c7a20(void);
 extern undefined * g_022e5f68;
+struct C_01541d80 { undefined4 * sub_01541d80(void); };
 // @baa 0x01541d80
-undefined4 * UObject::sub_01541d80(void)
+undefined4 * C_01541d80::sub_01541d80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -62,8 +63,9 @@ undefined4 * UObject::sub_01541d80(void)
 }
 
 extern undefined * g_022e60d0;
+struct C_01541dc0 { undefined4 * sub_01541dc0(void); };
 // @baa 0x01541dc0
-undefined4 * UObject::sub_01541dc0(void)
+undefined4 * C_01541dc0::sub_01541dc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -73,8 +75,9 @@ undefined4 * UObject::sub_01541dc0(void)
 }
 
 extern undefined * g_022e6240;
+struct C_01541e60 { undefined4 * sub_01541e60(void); };
 // @baa 0x01541e60
-undefined4 * UObject::sub_01541e60(void)
+undefined4 * C_01541e60::sub_01541e60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -84,8 +87,9 @@ undefined4 * UObject::sub_01541e60(void)
 }
 
 extern undefined * g_022e63b0;
+struct C_01541f00 { undefined4 * sub_01541f00(void); };
 // @baa 0x01541f00
-undefined4 * UObject::sub_01541f00(void)
+undefined4 * C_01541f00::sub_01541f00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

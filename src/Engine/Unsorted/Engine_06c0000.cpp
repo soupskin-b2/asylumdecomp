@@ -6,8 +6,9 @@
 
 int sub_0053dfa0(...);
 int sub_006b88c0(void);
+struct C_006c1300 { undefined4 sub_006c1300(byte param_2); };
 // @baa 0x006c1300
-undefined4 UFogVolumeConeDensityComponent::sub_006c1300(byte param_2)
+undefined4 C_006c1300::sub_006c1300(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -248,8 +249,9 @@ struct C_view {
     int sub_005a9e30(int, int);
 };
 
+struct C_006c5040 { int sub_006c5040(int param_2); };
 // @baa 0x006c5040
-int UTexture2D::sub_006c5040(int param_2)
+int C_006c5040::sub_006c5040(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_005a9e30((int)(&param_2), param_2);
@@ -333,8 +335,9 @@ int C_006c5190::sub_006c5190(void)
 }
 
 int sub_006bd200(void);
+struct C_006c51a0 { undefined4 sub_006c51a0(byte param_2); };
 // @baa 0x006c51a0
-undefined4 UObject::sub_006c51a0(byte param_2)
+undefined4 C_006c51a0::sub_006c51a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -345,8 +348,9 @@ undefined4 UObject::sub_006c51a0(byte param_2)
   return param_1;
 }
 
+struct C_006c5250 { int sub_006c5250(int param_2); };
 // @baa 0x006c5250
-int UTexture2D::sub_006c5250(int param_2)
+int C_006c5250::sub_006c5250(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -360,8 +364,9 @@ DWORD sub_006c5d70() {
 }
 
 int sub_006c7ed0(void);
+struct C_006c7fc0 { undefined4 sub_006c7fc0(byte param_2); };
 // @baa 0x006c7fc0
-undefined4 ULensFlare::sub_006c7fc0(byte param_2)
+undefined4 C_006c7fc0::sub_006c7fc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -448,8 +453,9 @@ int C_006c8790::sub_006c8790(void)
   return param_1[5] * 0x10 + 4 + *(int *)*param_1;
 }
 
+struct C_006c87a0 { int sub_006c87a0(int param_2); };
 // @baa 0x006c87a0
-int UTexture2D::sub_006c87a0(int param_2)
+int C_006c87a0::sub_006c87a0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -460,16 +466,18 @@ int UTexture2D::sub_006c87a0(int param_2)
   return 0;
 }
 
+struct C_006c87e0 { int sub_006c87e0(void); };
 // @baa 0x006c87e0
-int UTexture2D::sub_006c87e0(void)
+int C_006c87e0::sub_006c87e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x1c;
 }
 
+struct C_006c8800 { int sub_006c8800(void); };
 // @baa 0x006c8800
-int UTexture2D::sub_006c8800(void)
+int C_006c8800::sub_006c8800(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -480,8 +488,9 @@ struct C_view_006c8880 {
     int sub_006c51c0(int, int);
 };
 
+struct C_006c8880 { int sub_006c8880(int param_2); };
 // @baa 0x006c8880
-int UTexture2D::sub_006c8880(int param_2)
+int C_006c8880::sub_006c8880(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_006c8880 *)(this))->sub_006c51c0((int)(&param_2), param_2);
@@ -498,8 +507,9 @@ struct C_view_006c8cc0 {
     int sub_006c5780(int);
 };
 
+struct C_006c8cc0 { undefined4 * sub_006c8cc0(int * param_2); };
 // @baa 0x006c8cc0
-undefined4 * UObject::sub_006c8cc0(int * param_2)
+undefined4 * C_006c8cc0::sub_006c8cc0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -514,8 +524,9 @@ struct C_view_006c8cf0 {
     int sub_006c5780(int);
 };
 
+struct C_006c8cf0 { undefined4 * sub_006c8cf0(int * param_2); };
 // @baa 0x006c8cf0
-undefined4 * UObject::sub_006c8cf0(int * param_2)
+undefined4 * C_006c8cf0::sub_006c8cf0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -531,8 +542,9 @@ undefined4 * UObject::sub_006c8cf0(int * param_2)
 void __stdcall sub_006c8e10(int a0, int a1) {  }
 
 int sub_0040fcc0(void);
+struct C_006c8f40 { undefined4 sub_006c8f40(byte param_2); };
 // @baa 0x006c8f40
-undefined4 UObject::sub_006c8f40(byte param_2)
+undefined4 C_006c8f40::sub_006c8f40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -601,8 +613,9 @@ IMPLEMENT_CLASS_AT(UDrawSphereComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 // @baa 0x006c9a00
 int sub_006f7810(void);
 extern undefined * g_01ecf7b8;
+struct C_006c9a30 { undefined4 * sub_006c9a30(void); };
 // @baa 0x006c9a30
-undefined4 * UPrimitiveComponent::sub_006c9a30(void)
+undefined4 * C_006c9a30::sub_006c9a30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -612,8 +625,9 @@ undefined4 * UPrimitiveComponent::sub_006c9a30(void)
 }
 
 extern undefined * g_01ecfa08;
+struct C_006c9a50 { undefined4 * sub_006c9a50(void); };
 // @baa 0x006c9a50
-undefined4 * UPrimitiveComponent::sub_006c9a50(void)
+undefined4 * C_006c9a50::sub_006c9a50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -627,8 +641,9 @@ IMPLEMENT_CLASS_AT(UDrawFrustumComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x006c9ad0
 extern undefined * g_01ecfc58;
+struct C_006c9b00 { undefined4 * sub_006c9b00(void); };
 // @baa 0x006c9b00
-undefined4 * UPrimitiveComponent::sub_006c9b00(void)
+undefined4 * C_006c9b00::sub_006c9b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -679,8 +694,9 @@ struct C_view_006cbaf0 {
     int sub_006c51c0(int, int);
 };
 
+struct C_006cbaf0 { int sub_006cbaf0(int param_2); };
 // @baa 0x006cbaf0
-int UTexture2D::sub_006cbaf0(int param_2)
+int C_006cbaf0::sub_006cbaf0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

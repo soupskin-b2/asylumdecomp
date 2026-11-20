@@ -481,8 +481,9 @@ void C_00567000::sub_00567000(int x)
 }
 
 int sub_00567030(void);
+struct C_005670a0 { bool sub_005670a0(void); };
 // @baa 0x005670a0
-bool UTexture2D::sub_005670a0(void)
+bool C_005670a0::sub_005670a0(void)
 {
     int param_1 = (int)this;
 
@@ -563,8 +564,9 @@ struct C_view {
     int sub_005df8c0(int, int, int, int, int);
 };
 
+struct C_00567ed0 { undefined4 * sub_00567ed0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6); };
 // @baa 0x00567ed0
-undefined4 * UState::sub_00567ed0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+undefined4 * C_00567ed0::sub_00567ed0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_005df8c0(0, param_3, param_4, param_5, param_6);
@@ -871,8 +873,9 @@ void CNode::sub_0056a630()
 
 int sub_0053dfa0(...);
 int sub_00567290(void);
+struct C_0056a640 { undefined4 sub_0056a640(byte param_2); };
 // @baa 0x0056a640
-undefined4 UTexture2D::sub_0056a640(byte param_2)
+undefined4 C_0056a640::sub_0056a640(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

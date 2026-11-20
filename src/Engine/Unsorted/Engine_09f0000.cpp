@@ -86,8 +86,9 @@ struct C_view {
     int sub_009efd90(int, int);
 };
 
+struct C_009f1700 { undefined4 sub_009f1700(undefined4 param_2, undefined4 param_3); };
 // @baa 0x009f1700
-undefined4 UObject::sub_009f1700(undefined4 param_2, undefined4 param_3)
+undefined4 C_009f1700::sub_009f1700(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_009efd90(param_2, param_3);
@@ -165,8 +166,9 @@ void sub_009f1680();
 // @baa 0x009f31d0
 void sub_009f31d0(void) { sub_009f1680(); }
 
+struct C_009f3900 { int sub_009f3900(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x009f3900
-int UObject::sub_009f3900(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_009f3900::sub_009f3900(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_009efd90(param_2, param_4);

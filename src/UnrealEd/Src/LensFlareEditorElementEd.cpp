@@ -30,8 +30,9 @@ struct C_view {
 };
 
 extern undefined4 g_0229ccf8;
+struct C_0144f320 { undefined4 * sub_0144f320(undefined4 param_2, undefined4 param_3); };
 // @baa 0x0144f320
-undefined4 * UUnrealEdEngine::sub_0144f320(undefined4 param_2, undefined4 param_3)
+undefined4 * C_0144f320::sub_0144f320(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -65,8 +66,9 @@ undefined * sub_0144f370(void)
 }
 
 extern undefined4 g_0229cd44;
+struct C_0144f3c0 { undefined4 * sub_0144f3c0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x0144f3c0
-undefined4 * UUnrealEdEngine::sub_0144f3c0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_0144f3c0::sub_0144f3c0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

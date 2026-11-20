@@ -145,8 +145,9 @@ void __stdcall sub_005a1a10(int a, int b)
 void __stdcall sub_005a1a20(int a0, int a1) {  }
 
 int sub_00549160(void);
+struct C_005a1a30 { undefined4 sub_005a1a30(byte param_2); };
 // @baa 0x005a1a30
-undefined4 UObject::sub_005a1a30(byte param_2)
+undefined4 C_005a1a30::sub_005a1a30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -157,8 +158,9 @@ undefined4 UObject::sub_005a1a30(byte param_2)
   return param_1;
 }
 
+struct C_005a1a50 { int sub_005a1a50(void); };
 // @baa 0x005a1a50
-int UObject::sub_005a1a50(void)
+int C_005a1a50::sub_005a1a50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -168,40 +170,45 @@ int UObject::sub_005a1a50(void)
 // @baa 0x005a1a60
 void __stdcall sub_005a1a60(int a0, int a1) {  }
 
+struct C_005a1a70 { int sub_005a1a70(void); };
 // @baa 0x005a1a70
-int UObject::sub_005a1a70(void)
+int C_005a1a70::sub_005a1a70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x14;
 }
 
+struct C_005a1a80 { int sub_005a1a80(void); };
 // @baa 0x005a1a80
-int UObject::sub_005a1a80(void)
+int C_005a1a80::sub_005a1a80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_005a1a90 { int sub_005a1a90(void); };
 // @baa 0x005a1a90
-int UObject::sub_005a1a90(void)
+int C_005a1a90::sub_005a1a90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_005a1aa0 { int sub_005a1aa0(void); };
 // @baa 0x005a1aa0
-int UObject::sub_005a1aa0(void)
+int C_005a1aa0::sub_005a1aa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_005a1ab0 { int sub_005a1ab0(int param_2); };
 // @baa 0x005a1ab0
-int UObject::sub_005a1ab0(int param_2)
+int C_005a1ab0::sub_005a1ab0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -215,8 +222,9 @@ struct C_005a1ac0 { char pad[8]; M_005a1ac0 m; void sub_005a1ac0(); };
 // @baa 0x005a1ac0
 void C_005a1ac0::sub_005a1ac0() { m.sub_0040fcc0(); }
 
+struct C_005a1ad0 { int sub_005a1ad0(void); };
 // @baa 0x005a1ad0
-int UObject::sub_005a1ad0(void)
+int C_005a1ad0::sub_005a1ad0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -527,8 +535,9 @@ struct C_view {
     int sub_005a9910(int, int);
 };
 
+struct C_005af6a0 { int sub_005af6a0(int param_2); };
 // @baa 0x005af6a0
-int UTexture2D::sub_005af6a0(int param_2)
+int C_005af6a0::sub_005af6a0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

@@ -72,8 +72,9 @@ void C_01650130::sub_01650130() {
 
 int sub_0053dfa0(...);
 int sub_0054eec0(void);
+struct C_01650190 { undefined4 sub_01650190(byte param_2); };
 // @baa 0x01650190
-undefined4 UTexture2D::sub_01650190(byte param_2)
+undefined4 C_01650190::sub_01650190(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -85,8 +86,9 @@ undefined4 UTexture2D::sub_01650190(byte param_2)
 }
 
 int sub_0164a920(void);
+struct C_016501b0 { undefined4 sub_016501b0(byte param_2); };
 // @baa 0x016501b0
-undefined4 UObject::sub_016501b0(byte param_2)
+undefined4 C_016501b0::sub_016501b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -98,8 +100,9 @@ undefined4 UObject::sub_016501b0(byte param_2)
 }
 
 int sub_0164ef10(void);
+struct C_016501d0 { undefined4 sub_016501d0(byte param_2); };
 // @baa 0x016501d0
-undefined4 UObject::sub_016501d0(byte param_2)
+undefined4 C_016501d0::sub_016501d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -116,8 +119,9 @@ void sub_01650320(void) { sub_0164fe50(); }
 
 int sub_005c7a20(void);
 extern undefined * g_02359d50;
+struct C_01650330 { undefined4 * sub_01650330(void); };
 // @baa 0x01650330
-undefined4 * UObject::sub_01650330(void)
+undefined4 * C_01650330::sub_01650330(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -234,8 +238,9 @@ void C_01654300::sub_01654300() { m.sub_00665d40(); }
 
 int sub_006f7810(void);
 extern undefined * g_02359ed8;
+struct C_01654b50 { undefined4 * sub_01654b50(void); };
 // @baa 0x01654b50
-undefined4 * UPrimitiveComponent::sub_01654b50(void)
+undefined4 * C_01654b50::sub_01654b50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -245,8 +250,9 @@ undefined4 * UPrimitiveComponent::sub_01654b50(void)
 }
 
 extern undefined * g_0235a148;
+struct C_01654b70 { undefined4 * sub_01654b70(void); };
 // @baa 0x01654b70
-undefined4 * UPrimitiveComponent::sub_01654b70(void)
+undefined4 * C_01654b70::sub_01654b70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -317,8 +323,9 @@ C_01655e90* C_01655e90::sub_01655e90(void) { return this; }
 
 int sub_005c7a70(...);
 int sub_01655f20(void);
+struct C_01655fc0 { undefined4 sub_01655fc0(byte param_2); };
 // @baa 0x01655fc0
-undefined4 ARBatarang::sub_01655fc0(byte param_2)
+undefined4 C_01655fc0::sub_01655fc0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -721,8 +728,9 @@ int sub_0165c950(void)
 }
 
 extern undefined * g_02363a10;
+struct C_0165c980 { undefined4 * sub_0165c980(void); };
 // @baa 0x0165c980
-undefined4 * UObject::sub_0165c980(void)
+undefined4 * C_0165c980::sub_0165c980(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

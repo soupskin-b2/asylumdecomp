@@ -71,8 +71,9 @@ UBOOL UOnlineEventsInterfaceMcp::HasParentClassChanged() const
 int sub_00e34780(void);
 extern undefined * g_020f52fc;
 extern undefined * g_020f5318;
+struct C_00e3cfc0 { undefined4 * sub_00e3cfc0(void); };
 // @baa 0x00e3cfc0
-undefined4 * UMCPBase::sub_00e3cfc0(void)
+undefined4 * C_00e3cfc0::sub_00e3cfc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -99,8 +100,9 @@ IMPLEMENT_CLASS_AT(UOnlineNewsInterfaceMcp, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 // @baa 0x00e3d070
 extern undefined * g_020f5428;
 extern undefined * g_020f5440;
+struct C_00e3d090 { undefined4 * sub_00e3d090(void); };
 // @baa 0x00e3d090
-undefined4 * UMCPBase::sub_00e3d090(void)
+undefined4 * C_00e3d090::sub_00e3d090(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

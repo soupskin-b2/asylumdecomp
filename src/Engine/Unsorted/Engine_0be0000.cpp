@@ -25,8 +25,9 @@ char* ULensFlare::sub_00be2500(void) { return (char*)this + 104; }
 
 int sub_006efb40(void);
 extern undefined * g_020202f8;
+struct C_00be2510 { void sub_00be2510(void); };
 // @baa 0x00be2510
-void ULensFlare::sub_00be2510(void)
+void C_00be2510::sub_00be2510(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -42,8 +43,9 @@ int sub_00be25f0(void) { return 1670; }
 int sub_00be2600(void) { return 0; }
 
 int sub_0053dfa0(...);
+struct C_00be2610 { undefined4 * sub_00be2610(byte param_2); };
 // @baa 0x00be2610
-undefined4 * ULensFlare::sub_00be2610(byte param_2)
+undefined4 * C_00be2610::sub_00be2610(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -80,8 +82,9 @@ const E* S_00be27b0::sub_00be27b0(INT Index) const
 }
 
 int sub_00be2700(void);
+struct C_00be2860 { undefined4 sub_00be2860(byte param_2); };
 // @baa 0x00be2860
-undefined4 ULensFlare::sub_00be2860(byte param_2)
+undefined4 C_00be2860::sub_00be2860(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -93,8 +96,9 @@ undefined4 ULensFlare::sub_00be2860(byte param_2)
 }
 
 int sub_00be2800(void);
+struct C_00be28a0 { undefined4 sub_00be28a0(byte param_2); };
 // @baa 0x00be28a0
-undefined4 ULensFlare::sub_00be28a0(byte param_2)
+undefined4 C_00be28a0::sub_00be28a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -106,8 +110,9 @@ undefined4 ULensFlare::sub_00be28a0(byte param_2)
 }
 
 int sub_00bdf2a0(void);
+struct C_00be28e0 { undefined4 sub_00be28e0(byte param_2); };
 // @baa 0x00be28e0
-undefined4 ULensFlare::sub_00be28e0(byte param_2)
+undefined4 C_00be28e0::sub_00be28e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -302,8 +307,9 @@ int sub_00be03b0();
 int sub_00be2260();
 };
 
+struct C_00be57d0 { void sub_00be57d0(void); };
 // @baa 0x00be57d0
-void ULensFlare::sub_00be57d0(void)
+void C_00be57d0::sub_00be57d0(void)
 {
 int param_1=(int)this;
 int iVar1;
@@ -321,8 +327,9 @@ if(iVar1!=0){
 return;
 }
 
+struct C_00be5810 { undefined4 * sub_00be5810(byte param_2); };
 // @baa 0x00be5810
-undefined4 * ULensFlare::sub_00be5810(byte param_2)
+undefined4 * C_00be5810::sub_00be5810(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -344,8 +351,9 @@ FString C_00be58b0::sub_00be58b0()
     return TEXT("Fluids Vertex Factory");
 }
 
+struct C_00be58e0 { undefined4 * sub_00be58e0(byte param_2); };
 // @baa 0x00be58e0
-undefined4 * ULensFlare::sub_00be58e0(byte param_2)
+undefined4 * C_00be58e0::sub_00be58e0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -12,8 +12,9 @@ UBOOL ULightComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_006ad0a0 { undefined4 sub_006ad0a0(void); };
 // @baa 0x006ad0a0
-undefined4 ULightComponent::sub_006ad0a0(void)
+undefined4 C_006ad0a0::sub_006ad0a0(void)
 {
     int param_1 = (int)this;
 
@@ -28,8 +29,9 @@ undefined4 ULightComponent::sub_006ad0a0(void)
   return 0;
 }
 
+struct C_006ad0d0 { undefined4 sub_006ad0d0(void); };
 // @baa 0x006ad0d0
-undefined4 ULightComponent::sub_006ad0d0(void)
+undefined4 C_006ad0d0::sub_006ad0d0(void)
 {
     int param_1 = (int)this;
 
@@ -42,8 +44,9 @@ undefined4 ULightComponent::sub_006ad0d0(void)
 }
 
 int sub_00765d00(void);
+struct C_006ad1f0 { void sub_006ad1f0(uint param_2); };
 // @baa 0x006ad1f0
-void ULightComponent::sub_006ad1f0(uint param_2)
+void C_006ad1f0::sub_006ad1f0(uint param_2)
 {
     int param_1 = (int)this;
 

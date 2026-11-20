@@ -337,8 +337,9 @@ C_019e5e10::C_019e5e10() {}
 // @baa 0x019e5e10
 void C_019e5e10::sub_019e5e20() {}
 
+struct C_019e6030 { bool sub_019e6030(int param_2); };
 // @baa 0x019e6030
-bool UGFxDataStoreSubscriber::sub_019e6030(int param_2)
+bool C_019e6030::sub_019e6030(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -360,24 +361,27 @@ void C_019e6050::sub_019e6050(float a)
     f = a;
 }
 
+struct C_019e6060 { uint sub_019e6060(void); };
 // @baa 0x019e6060
-uint UGFxDataStoreSubscriber::sub_019e6060(void)
+uint C_019e6060::sub_019e6060(void)
 {
     uint * param_1 = (uint *)this;
 
   return *param_1 >> 1 & 1;
 }
 
+struct C_019e6070 { bool sub_019e6070(void); };
 // @baa 0x019e6070
-bool UGFxDataStoreSubscriber::sub_019e6070(void)
+bool C_019e6070::sub_019e6070(void)
 {
     uint * param_1 = (uint *)this;
 
   return (*param_1 & 3) == 0;
 }
 
+struct C_019e6080 { void sub_019e6080(char param_2); };
 // @baa 0x019e6080
-void UGFxDataStoreSubscriber::sub_019e6080(char param_2)
+void C_019e6080::sub_019e6080(char param_2)
 {
     uint * param_1 = (uint *)this;
 
@@ -389,8 +393,9 @@ void UGFxDataStoreSubscriber::sub_019e6080(char param_2)
   return;
 }
 
+struct C_019e60a0 { void sub_019e60a0(void); };
 // @baa 0x019e60a0
-void UGFxDataStoreSubscriber::sub_019e60a0(void)
+void C_019e60a0::sub_019e60a0(void)
 {
     uint * param_1 = (uint *)this;
 
@@ -401,8 +406,9 @@ void UGFxDataStoreSubscriber::sub_019e60a0(void)
 // @baa 0x019e60b0
 int UGFxDataStoreSubscriber::sub_019e60b0(void) { return *(int*)((char*)this + 0); }
 
+struct C_019e60e0 { undefined4 sub_019e60e0(void); };
 // @baa 0x019e60e0
-undefined4 UGFxDataStoreSubscriber::sub_019e60e0(void)
+undefined4 C_019e60e0::sub_019e60e0(void)
 {
     int param_1 = (int)this;
   return *(undefined4 *)(*(int *)(param_1 + 4) + 0x18);
@@ -412,8 +418,9 @@ struct C_view {
     int sub_019e61a0(int);
 };
 
+struct C_019e61d0 { int sub_019e61d0(int param_2); };
 // @baa 0x019e61d0
-int UGFxDataStoreSubscriber::sub_019e61d0(int param_2)
+int C_019e61d0::sub_019e61d0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

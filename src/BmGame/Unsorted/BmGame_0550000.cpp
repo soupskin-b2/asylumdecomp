@@ -5,8 +5,9 @@
 #include "ue3/Map.h"
 
 int sub_0054f600(void);
+struct C_005539e0 { int sub_005539e0(void); };
 // @baa 0x005539e0
-int UObject::sub_005539e0(void)
+int C_005539e0::sub_005539e0(void)
 {
     int param_1 = (int)this;
 

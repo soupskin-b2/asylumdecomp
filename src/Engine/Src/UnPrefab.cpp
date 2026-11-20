@@ -42,8 +42,9 @@ IMPLEMENT_CLASS_AT(APrefabInstance, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 int sub_005c7a70(...);
 int sub_00d421c0(void);
+struct C_00d42290 { undefined4 sub_00d42290(byte param_2); };
 // @baa 0x00d42290
-undefined4 APrefabInstance::sub_00d42290(byte param_2)
+undefined4 C_00d42290::sub_00d42290(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

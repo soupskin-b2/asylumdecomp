@@ -38,8 +38,9 @@ struct C_view {
 };
 
 extern undefined4 g_02275460;
+struct C_013dcdd0 { undefined4 * sub_013dcdd0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x013dcdd0
-undefined4 * UUnrealEdEngine::sub_013dcdd0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_013dcdd0::sub_013dcdd0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -1633,8 +1634,9 @@ C_0141c020::C_0141c020() {}
 void C_0141c020::sub_0141c030() {}
 
 int sub_01407f00(void);
+struct C_0141c030 { undefined4 sub_0141c030(byte param_2); };
 // @baa 0x0141c030
-undefined4 UMaterialEditorInstanceConstant::sub_0141c030(byte param_2)
+undefined4 C_0141c030::sub_0141c030(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1669,8 +1671,9 @@ void C_0141c060::sub_0141b3b0() {}
 
 int sub_009369a0(void);
 extern undefined * g_02280be0;
+struct C_0141c070 { undefined4 * sub_0141c070(void); };
 // @baa 0x0141c070
-undefined4 * USkeletalMeshComponent::sub_0141c070(void)
+undefined4 * C_0141c070::sub_0141c070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1682,8 +1685,9 @@ undefined4 * USkeletalMeshComponent::sub_0141c070(void)
 // @baa 0x0141c090
 // @baa 0x0141c0f0
 extern undefined * g_02280e50;
+struct C_0141c120 { undefined4 * sub_0141c120(void); };
 // @baa 0x0141c120
-undefined4 * USkeletalMeshComponent::sub_0141c120(void)
+undefined4 * C_0141c120::sub_0141c120(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1696,8 +1700,9 @@ undefined4 * USkeletalMeshComponent::sub_0141c120(void)
 // @baa 0x0141c1a0
 int sub_005c7a20(void);
 extern undefined * g_022810c0;
+struct C_0141c1d0 { undefined4 * sub_0141c1d0(void); };
 // @baa 0x0141c1d0
-undefined4 * UObject::sub_0141c1d0(void)
+undefined4 * C_0141c1d0::sub_0141c1d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1728,8 +1733,9 @@ struct C_view_0141c400 {
 
 extern undefined * g_022811cc;
 extern undefined * g_022811d4;
+struct C_0141c400 { undefined4 * sub_0141c400(undefined4 param_2); };
 // @baa 0x0141c400
-undefined4 * UMaterialEditorInstanceConstant::sub_0141c400(undefined4 param_2)
+undefined4 * C_0141c400::sub_0141c400(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_0141c400 *)(this))->sub_0141beb0(param_2);
@@ -1761,8 +1767,9 @@ struct C_view_0141f900 {
 
 int sub_006311e0(...);
 extern undefined4 g_0227b748;
+struct C_0141f900 { void sub_0141f900(int param_2); };
 // @baa 0x0141f900
-void UMaterialEditorInstanceConstant::sub_0141f900(int param_2)
+void C_0141f900::sub_0141f900(int param_2)
 {
     int param_1 = (int)this;
   if (param_2 == 0) {

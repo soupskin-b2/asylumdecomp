@@ -182,8 +182,9 @@ struct C_00c20fb0 { int sub_00c20fb0(void); };
 int C_00c20fb0::sub_00c20fb0(void) { return *(int*)((char*)this + 0); }
 
 int sub_00c20fc0(void);
+struct C_00c21040 { undefined4 sub_00c21040(byte param_2); };
 // @baa 0x00c21040
-undefined4 ULensFlare::sub_00c21040(byte param_2)
+undefined4 C_00c21040::sub_00c21040(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

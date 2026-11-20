@@ -38,8 +38,9 @@ IMPLEMENT_CLASS_AT(URSeqCond_VisibleLastFrame, "e:\\Projects\\Amadeus\\AA\\Game\
 
 int sub_005c7a20(void);
 extern undefined * g_022e5908;
+struct C_01540000 { undefined4 * sub_01540000(void); };
 // @baa 0x01540000
-undefined4 * UObject::sub_01540000(void)
+undefined4 * C_01540000::sub_01540000(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -49,8 +50,9 @@ undefined4 * UObject::sub_01540000(void)
 }
 
 extern undefined * g_022e8538;
+struct C_01546f30 { undefined4 * sub_01546f30(void); };
 // @baa 0x01546f30
-undefined4 * UObject::sub_01546f30(void)
+undefined4 * C_01546f30::sub_01546f30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -207,8 +209,9 @@ void UObjectThunk_01546f80::sub_01546f80()
 }
 
 extern undefined * g_022e86d8;
+struct C_01547040 { undefined4 * sub_01547040(void); };
 // @baa 0x01547040
-undefined4 * UObject::sub_01547040(void)
+undefined4 * C_01547040::sub_01547040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -218,8 +221,9 @@ undefined4 * UObject::sub_01547040(void)
 }
 
 extern undefined * g_022e8878;
+struct C_01547100 { undefined4 * sub_01547100(void); };
 // @baa 0x01547100
-undefined4 * UObject::sub_01547100(void)
+undefined4 * C_01547100::sub_01547100(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -229,8 +233,9 @@ undefined4 * UObject::sub_01547100(void)
 }
 
 extern undefined * g_022e8a28;
+struct C_015475b0 { undefined4 * sub_015475b0(void); };
 // @baa 0x015475b0
-undefined4 * UObject::sub_015475b0(void)
+undefined4 * C_015475b0::sub_015475b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -240,8 +245,9 @@ undefined4 * UObject::sub_015475b0(void)
 }
 
 extern undefined * g_022e8bd8;
+struct C_01547870 { undefined4 * sub_01547870(void); };
 // @baa 0x01547870
-undefined4 * UObject::sub_01547870(void)
+undefined4 * C_01547870::sub_01547870(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

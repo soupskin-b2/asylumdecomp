@@ -566,8 +566,9 @@ undefined4 C_007e4c50::sub_007e4c50(byte param_2)
 }
 
 int sub_00549310(void);
+struct C_007e4c80 { undefined4 sub_007e4c80(byte param_2); };
 // @baa 0x007e4c80
-undefined4 UObject::sub_007e4c80(byte param_2)
+undefined4 C_007e4c80::sub_007e4c80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1225,8 +1226,9 @@ struct C_007e6b50 { int sub_007e6b50(void); };
 int C_007e6b50::sub_007e6b50(void) { return *(int*)((char*)this + 0); }
 
 int sub_007e1930(void);
+struct C_007e6c30 { undefined4 sub_007e6c30(byte param_2); };
 // @baa 0x007e6c30
-undefined4 UGameEngine::sub_007e6c30(byte param_2)
+undefined4 C_007e6c30::sub_007e6c30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1254,24 +1256,27 @@ void C_007e6d50::sub_007e6d50(undefined4 param_2)
 // @baa 0x007ea160
 int sub_007ea160(void) { return 1690; }
 
+struct C_007ea170 { int sub_007ea170(void); };
 // @baa 0x007ea170
-int ULensFlare::sub_007ea170(void)
+int C_007ea170::sub_007ea170(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 8) * 0x30;
 }
 
+struct C_007ea180 { int sub_007ea180(void); };
 // @baa 0x007ea180
-int ULensFlare::sub_007ea180(void)
+int C_007ea180::sub_007ea180(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x84) + *(int *)(param_1 + 0x9c) * 0xc) * 4;
 }
 
+struct C_007ea2e0 { int sub_007ea2e0(void); };
 // @baa 0x007ea2e0
-int ULensFlare::sub_007ea2e0(void)
+int C_007ea2e0::sub_007ea2e0(void)
 {
     int param_1 = (int)this;
 
@@ -1279,8 +1284,9 @@ int ULensFlare::sub_007ea2e0(void)
 }
 
 int sub_007ea300(void);
+struct C_007ea360 { undefined4 sub_007ea360(byte param_2); };
 // @baa 0x007ea360
-undefined4 ULensFlare::sub_007ea360(byte param_2)
+undefined4 C_007ea360::sub_007ea360(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1448,8 +1454,9 @@ struct C_view {
     int sub_007e4f00(int, int);
 };
 
+struct C_007eac40 { int sub_007eac40(int param_2); };
 // @baa 0x007eac40
-int UState::sub_007eac40(int param_2)
+int C_007eac40::sub_007eac40(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_007e4f00((int)(&param_2), param_2);
@@ -1606,8 +1613,9 @@ ULineBatchComponent::ULineBatchComponent()
 
 int sub_005c7a70(...);
 int sub_007ec870(void);
+struct C_007ec8f0 { undefined4 sub_007ec8f0(byte param_2); };
 // @baa 0x007ec8f0
-undefined4 ULineBatchComponent::sub_007ec8f0(byte param_2)
+undefined4 C_007ec8f0::sub_007ec8f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1619,8 +1627,9 @@ undefined4 ULineBatchComponent::sub_007ec8f0(byte param_2)
 }
 
 int sub_007ec920(void);
+struct C_007eca10 { undefined4 sub_007eca10(byte param_2); };
 // @baa 0x007eca10
-undefined4 ULevelBase::sub_007eca10(byte param_2)
+undefined4 C_007eca10::sub_007eca10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1779,8 +1788,9 @@ void C_007eece0::sub_007eece0(void)
 }
 
 int sub_007eaed0(void);
+struct C_007eed00 { undefined4 sub_007eed00(byte param_2); };
 // @baa 0x007eed00
-undefined4 UObject::sub_007eed00(byte param_2)
+undefined4 C_007eed00::sub_007eed00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

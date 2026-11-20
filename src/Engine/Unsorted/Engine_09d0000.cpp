@@ -25,8 +25,9 @@ struct C_view {
     int sub_009d3a80(int);
 };
 
+struct C_009d4180 { undefined4 sub_009d4180(void); };
 // @baa 0x009d4180
-undefined4 ULensFlare::sub_009d4180(void)
+undefined4 C_009d4180::sub_009d4180(void)
 {
     int param_1 = (int)this;
   ((C_view *)((*(char **)((char *)this + 4))))->sub_009d3a80(*(undefined4 *)(param_1 + 8));

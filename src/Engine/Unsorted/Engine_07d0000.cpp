@@ -6,24 +6,27 @@
 // @baa 0x007d3da0
 int sub_007d3da0(void) { return 1687; }
 
+struct C_007d3db0 { int sub_007d3db0(void); };
 // @baa 0x007d3db0
-int ULensFlare::sub_007d3db0(void)
+int C_007d3db0::sub_007d3db0(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 8) * 0x1c;
 }
 
+struct C_007d3dd0 { int sub_007d3dd0(void); };
 // @baa 0x007d3dd0
-int ULensFlare::sub_007d3dd0(void)
+int C_007d3dd0::sub_007d3dd0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0xb4) * 7 + *(int *)(param_1 + 0x84)) * 4;
 }
 
+struct C_007d3df0 { int sub_007d3df0(void); };
 // @baa 0x007d3df0
-int ULensFlare::sub_007d3df0(void)
+int C_007d3df0::sub_007d3df0(void)
 {
     int param_1 = (int)this;
 
@@ -32,8 +35,9 @@ int ULensFlare::sub_007d3df0(void)
 
 int sub_0053dfa0(...);
 int sub_007d3d10(void);
+struct C_007d3e10 { undefined4 sub_007d3e10(byte param_2); };
 // @baa 0x007d3e10
-undefined4 ULensFlare::sub_007d3e10(byte param_2)
+undefined4 C_007d3e10::sub_007d3e10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -769,8 +773,9 @@ extern char g_01ebb554[];
 // @baa 0x007d6e40
 void UGameEngine::sub_007d6e40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_007d6e50 { undefined4 * sub_007d6e50(byte param_2); };
 // @baa 0x007d6e50
-undefined4 * UGameEngine::sub_007d6e50(byte param_2)
+undefined4 * C_007d6e50::sub_007d6e50(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -797,8 +802,9 @@ extern char g_01f31590[];
 // @baa 0x007d6ee0
 int sub_007d6ee0(void) { return (int)g_01f31590; }
 
+struct C_007d6f10 { undefined4 sub_007d6f10(void); };
 // @baa 0x007d6f10
-undefined4 UGameEngine::sub_007d6f10(void)
+undefined4 C_007d6f10::sub_007d6f10(void)
 {
     int param_1 = (int)this;
   float fVar1;
@@ -835,8 +841,9 @@ void UGameEngine::sub_007d6f70(void) { *(int*)((char*)this + 0) = (int)g_01ebb55
 // @baa 0x007d6f80
 void UGameEngine::sub_007d6f80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_007d6f90 { undefined4 * sub_007d6f90(byte param_2); };
 // @baa 0x007d6f90
-undefined4 * UGameEngine::sub_007d6f90(byte param_2)
+undefined4 * C_007d6f90::sub_007d6f90(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -847,8 +854,9 @@ undefined4 * UGameEngine::sub_007d6f90(byte param_2)
   return param_1;
 }
 
+struct C_007d6fb0 { undefined4 * sub_007d6fb0(byte param_2); };
 // @baa 0x007d6fb0
-undefined4 * UGameEngine::sub_007d6fb0(byte param_2)
+undefined4 * C_007d6fb0::sub_007d6fb0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -859,8 +867,9 @@ undefined4 * UGameEngine::sub_007d6fb0(byte param_2)
   return param_1;
 }
 
+struct C_007d6fd0 { undefined4 * sub_007d6fd0(byte param_2); };
 // @baa 0x007d6fd0
-undefined4 * UGameEngine::sub_007d6fd0(byte param_2)
+undefined4 * C_007d6fd0::sub_007d6fd0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1551,8 +1560,9 @@ UBOOL UGameEngine::IsReadyForMapChange()
   return 0;
 }
 
+struct C_007d9c40 { void sub_007d9c40(float param_2); };
 // @baa 0x007d9c40
-void UGameEngine::sub_007d9c40(float param_2)
+void C_007d9c40::sub_007d9c40(float param_2)
 {
     float * param_1 = (float *)this;
   if (param_2 <= 0.0) {

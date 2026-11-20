@@ -39,8 +39,9 @@ if(piVar1!=(int*)0x0){
 return param_1;
 }
 
+struct C_00ea0ab0 { int*sub_00ea0ab0(void); };
 // @baa 0x00ea0ab0
-int*ULensFlare::sub_00ea0ab0(void)
+int*C_00ea0ab0::sub_00ea0ab0(void)
 {
 int*param_1=(int*)this;
 

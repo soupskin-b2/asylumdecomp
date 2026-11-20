@@ -95,8 +95,9 @@ struct C_view {
     int sub_00db2240(int, int);
 };
 
+struct C_00db5d00 { int sub_00db5d00(int param_2); };
 // @baa 0x00db5d00
-int UTexture2D::sub_00db5d00(int param_2)
+int C_00db5d00::sub_00db5d00(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00db2240((int)(&param_2), param_2);
@@ -572,8 +573,9 @@ int C_00db8840::sub_00db8840(void)
   return *(int *)*param_1 + param_1[5] * 0x24;
 }
 
+struct C_00db8850 { int sub_00db8850(int param_2); };
 // @baa 0x00db8850
-int UTexture2D::sub_00db8850(int param_2)
+int C_00db8850::sub_00db8850(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

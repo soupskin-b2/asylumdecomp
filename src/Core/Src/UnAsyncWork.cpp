@@ -6,8 +6,9 @@
 typedef uint size_t;
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_005673b0 { void sub_005673b0(void); };
 // @baa 0x005673b0
-void UTexture2D::sub_005673b0(void)
+void C_005673b0::sub_005673b0(void)
 {
     int param_1 = (int)this;
 
@@ -15,8 +16,9 @@ void UTexture2D::sub_005673b0(void)
   return;
 }
 
+struct C_005673d0 { void sub_005673d0(void); };
 // @baa 0x005673d0
-void UTexture2D::sub_005673d0(void)
+void C_005673d0::sub_005673d0(void)
 {
     int param_1 = (int)this;
 
@@ -33,8 +35,9 @@ struct C_view {
 };
 
 extern undefined4 g_01e7d0c0;
+struct C_005674a0 { undefined4 * sub_005674a0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7); };
 // @baa 0x005674a0
-undefined4 * UTexture2D::sub_005674a0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7)
+undefined4 * C_005674a0::sub_005674a0(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00567200(param_7);

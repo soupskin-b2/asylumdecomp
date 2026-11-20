@@ -717,8 +717,9 @@ void sub_0153f470(undefined4 * param_1, undefined4 * param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_022e5508;
+struct C_0153fbf0 { undefined4 * sub_0153fbf0(void); };
 // @baa 0x0153fbf0
-undefined4 * UObject::sub_0153fbf0(void)
+undefined4 * C_0153fbf0::sub_0153fbf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -735,8 +736,9 @@ IMPLEMENT_CLASS_AT(URActorFactoryRigidBody, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x0153fd10
 extern undefined * g_022e5758;
+struct C_0153ff40 { undefined4 * sub_0153ff40(void); };
 // @baa 0x0153ff40
-undefined4 * UObject::sub_0153ff40(void)
+undefined4 * C_0153ff40::sub_0153ff40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

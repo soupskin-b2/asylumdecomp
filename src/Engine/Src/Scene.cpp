@@ -89,8 +89,9 @@ undefined4 * C_00abc490::sub_00abc490(byte param_2)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00abd1c0 { int sub_00abd1c0(undefined4*param_2); };
 // @baa 0x00abd1c0
-int ULensFlare::sub_00abd1c0(undefined4*param_2)
+int C_00abd1c0::sub_00abd1c0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -149,8 +150,9 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
+struct C_00abd2e0 { void sub_00abd2e0(undefined4 * param_2); };
 // @baa 0x00abd2e0
-void ULensFlare::sub_00abd2e0(undefined4 * param_2)
+void C_00abd2e0::sub_00abd2e0(undefined4 * param_2)
 {
     undefined4 param_1 = (undefined4)this;
   *param_2 = param_1;

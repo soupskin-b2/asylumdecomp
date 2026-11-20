@@ -41,8 +41,9 @@ extern char g_01ebb554[];
 void UTextureMovie::sub_007558e0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_007558f0 { undefined4 * sub_007558f0(byte param_2); };
 // @baa 0x007558f0
-undefined4 * UTextureMovie::sub_007558f0(byte param_2)
+undefined4 * C_007558f0::sub_007558f0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -77,8 +78,9 @@ int sub_00755950(void) { return (int)g_01ef1354; }
 // @baa 0x00755960
 void UTextureMovie::sub_00755960(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755970 { undefined4 * sub_00755970(byte param_2); };
 // @baa 0x00755970
-undefined4 * UTextureMovie::sub_00755970(byte param_2)
+undefined4 * C_00755970::sub_00755970(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -96,8 +98,9 @@ int sub_00755a00(void) { return (int)g_01ef18b4; }
 // @baa 0x00755a10
 void UTextureMovie::sub_00755a10(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755a20 { undefined4 * sub_00755a20(byte param_2); };
 // @baa 0x00755a20
-undefined4 * UTextureMovie::sub_00755a20(byte param_2)
+undefined4 * C_00755a20::sub_00755a20(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -132,8 +135,9 @@ int sub_00755a80(void) { return (int)g_01ef1af4; }
 // @baa 0x00755a90
 void UTextureMovie::sub_00755a90(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755aa0 { undefined4 * sub_00755aa0(byte param_2); };
 // @baa 0x00755aa0
-undefined4 * UTextureMovie::sub_00755aa0(byte param_2)
+undefined4 * C_00755aa0::sub_00755aa0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -168,8 +172,9 @@ int sub_00755b10(void) { return (int)g_01ef1d34; }
 // @baa 0x00755b20
 void UTextureMovie::sub_00755b20(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00755b30 { undefined4 * sub_00755b30(byte param_2); };
 // @baa 0x00755b30
-undefined4 * UTextureMovie::sub_00755b30(byte param_2)
+undefined4 * C_00755b30::sub_00755b30(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -180,8 +185,9 @@ undefined4 * UTextureMovie::sub_00755b30(byte param_2)
   return param_1;
 }
 
+struct C_00755b50 { int sub_00755b50(void); };
 // @baa 0x00755b50
-int UTextureMovie::sub_00755b50(void)
+int C_00755b50::sub_00755b50(void)
 {
     int param_1 = (int)this;
 
@@ -215,8 +221,9 @@ DOUBLE UTextureMovie::GetSurfaceHeight() {
 
 int sub_005c7a70(...);
 int sub_00761100(void);
+struct C_00761170 { undefined4 sub_00761170(byte param_2); };
 // @baa 0x00761170
-undefined4 UTextureMovie::sub_00761170(byte param_2)
+undefined4 C_00761170::sub_00761170(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

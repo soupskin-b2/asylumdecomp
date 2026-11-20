@@ -22,8 +22,9 @@ void C::sub_00810750(undefined4 param_2)
 
 int sub_0053dfa0(...);
 int sub_00807930(void);
+struct C_00811b70 { undefined4 sub_00811b70(byte param_2); };
 // @baa 0x00811b70
-undefined4 ULensFlare::sub_00811b70(byte param_2)
+undefined4 C_00811b70::sub_00811b70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -120,8 +121,9 @@ void C_00812520::sub_00812520(int param_2)
   return;
 }
 
+struct C_00812780 { void sub_00812780(int param_2); };
 // @baa 0x00812780
-void UObject::sub_00812780(int param_2)
+void C_00812780::sub_00812780(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -792,8 +794,9 @@ struct C_00816790 { char pad[4]; M_00816790 m; void sub_00816790(); };
 // @baa 0x00816790
 void C_00816790::sub_00816790() { m.sub_008124c0(); }
 
+struct C_00818b50 { int sub_00818b50(int param_2); };
 // @baa 0x00818b50
-int UFracturedStaticMeshComponent::sub_00818b50(int param_2)
+int C_00818b50::sub_00818b50(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -804,8 +807,9 @@ struct C_view {
     int sub_00812f20(int, int);
 };
 
+struct C_00818b60 { int sub_00818b60(int param_2); };
 // @baa 0x00818b60
-int UFracturedStaticMeshComponent::sub_00818b60(int param_2)
+int C_00818b60::sub_00818b60(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00812f20((int)(&param_2), param_2);
@@ -1611,8 +1615,9 @@ undefined4 sub_0081dbe0(undefined4 param_1, undefined4 param_2)
 }
 
 int sub_00816700(void);
+struct C_0081e690 { undefined4 sub_0081e690(byte param_2); };
 // @baa 0x0081e690
-undefined4 UModelComponent::sub_0081e690(byte param_2)
+undefined4 C_0081e690::sub_0081e690(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1640,8 +1645,9 @@ undefined4 C_0081e730::sub_0081e730(byte param_2)
 }
 
 int sub_00816de0(void);
+struct C_0081e7b0 { undefined4 sub_0081e7b0(byte param_2); };
 // @baa 0x0081e7b0
-undefined4 UTexture2DComposite::sub_0081e7b0(byte param_2)
+undefined4 C_0081e7b0::sub_0081e7b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1663,8 +1669,9 @@ int sub_0081e870(void) { return 0; }
 // @baa 0x0081e880
 int UFracturedStaticMeshComponent::sub_0081e880(void) { return *(int*)((char*)this + 16); }
 
+struct C_0081e890 { int sub_0081e890(void); };
 // @baa 0x0081e890
-int UFracturedStaticMeshComponent::sub_0081e890(void)
+int C_0081e890::sub_0081e890(void)
 {
     int param_1 = (int)this;
 
@@ -1689,8 +1696,9 @@ struct C_0081e8f0 { char pad[4]; TArray<int> A; const int* sub_0081e8f0() const;
 // @baa 0x0081e8f0
 const int* C_0081e8f0::sub_0081e8f0() const { return &A(0); }
 
+struct C_0081e920 { void sub_0081e920(void); };
 // @baa 0x0081e920
-void UFracturedStaticMeshComponent::sub_0081e920(void)
+void C_0081e920::sub_0081e920(void)
 {
     int param_1 = (int)this;
 

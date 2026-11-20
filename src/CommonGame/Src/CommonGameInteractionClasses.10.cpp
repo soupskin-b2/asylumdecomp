@@ -170,8 +170,9 @@ void C_01541bd0::sub_01541bd0(int param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_022e5e18;
+struct C_01541c10 { undefined4 * sub_01541c10(void); };
 // @baa 0x01541c10
-undefined4 * UObject::sub_01541c10(void)
+undefined4 * C_01541c10::sub_01541c10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

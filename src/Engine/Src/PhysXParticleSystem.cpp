@@ -288,8 +288,9 @@ struct C_view {
 };
 
 extern undefined4 g_020d95c8;
+struct C_00e0cc80 { void sub_00e0cc80(int param_2); };
 // @baa 0x00e0cc80
-void UPhysXParticleSystem::sub_00e0cc80(int param_2)
+void C_00e0cc80::sub_00e0cc80(int param_2)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x84) != 0) {

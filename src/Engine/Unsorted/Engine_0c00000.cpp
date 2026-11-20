@@ -64,8 +64,9 @@ void __stdcall sub_00c004f0(int a0, int a1) {  }
 
 int sub_0053dfa0(...);
 int sub_00549310(void);
+struct C_00c00500 { undefined4 sub_00c00500(byte param_2); };
 // @baa 0x00c00500
-undefined4 UObject::sub_00c00500(byte param_2)
+undefined4 C_00c00500::sub_00c00500(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

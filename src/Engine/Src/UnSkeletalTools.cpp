@@ -32,8 +32,9 @@ int USkeletalMeshSocket::sub_00943b60(void) { return *(int*)((char*)this + 40); 
 // @baa 0x00943b70
 int USkeletalMeshSocket::sub_00943b70(void) { return *(int*)((char*)this + 44); }
 
+struct C_00943b80 { int sub_00943b80(void); };
 // @baa 0x00943b80
-int USkeletalMeshSocket::sub_00943b80(void)
+int C_00943b80::sub_00943b80(void)
 {
     int param_1 = (int)this;
 
@@ -43,8 +44,9 @@ int USkeletalMeshSocket::sub_00943b80(void)
 // @baa 0x00943b90
 int USkeletalMeshSocket::sub_00943b90(void) { return *(int*)((char*)this + 0); }
 
+struct C_00943ba0 { int sub_00943ba0(void); };
 // @baa 0x00943ba0
-int USkeletalMeshSocket::sub_00943ba0(void)
+int C_00943ba0::sub_00943ba0(void)
 {
     int * param_1 = (int *)this;
 
@@ -56,8 +58,9 @@ extern char g_01f86aa4[];
 void USkeletalMeshSocket::sub_00943bf0(void) { *(int*)((char*)this + 0) = (int)g_01f86aa4; }
 
 int sub_0053dfa0(...);
+struct C_00943c00 { undefined4 * sub_00943c00(byte param_2); };
 // @baa 0x00943c00
-undefined4 * USkeletalMeshSocket::sub_00943c00(byte param_2)
+undefined4 * C_00943c00::sub_00943c00(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -114,8 +117,9 @@ int C_00943c70::sub_00943c70(void) { return *(int*)((char*)this + 44); }
 
 int sub_0056bf90(void);
 extern undefined * g_01f86ac0;
+struct C_00943cf0 { undefined4 * sub_00943cf0(void); };
 // @baa 0x00943cf0
-undefined4 * UTexture2D::sub_00943cf0(void)
+undefined4 * C_00943cf0::sub_00943cf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -591,8 +595,9 @@ IMPLEMENT_CLASS_AT(UStaticMesh, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\
 // @baa 0x0097fe30
 int sub_005c7a70(...);
 int sub_0097fba0(void);
+struct C_0097fe40 { undefined4 sub_0097fe40(byte param_2); };
 // @baa 0x0097fe40
-undefined4 USkeletalMesh::sub_0097fe40(byte param_2)
+undefined4 C_0097fe40::sub_0097fe40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

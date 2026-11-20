@@ -31,8 +31,9 @@ extern char g_01ebb554[];
 void UPointLightComponent::sub_006da900(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_006da910 { undefined4 * sub_006da910(byte param_2); };
 // @baa 0x006da910
-undefined4 * UPointLightComponent::sub_006da910(byte param_2)
+undefined4 * C_006da910::sub_006da910(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

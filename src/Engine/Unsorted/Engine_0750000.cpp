@@ -582,8 +582,9 @@ IMPLEMENT_CLASS_AT(UDOFBloomMotionBlurEffect, "e:\\Projects\\Amadeus\\AA\\Game\\
 // @baa 0x00753c90
 int sub_005c7a20(void);
 extern undefined * g_01efd8a0;
+struct C_00753cc0 { undefined4 * sub_00753cc0(void); };
 // @baa 0x00753cc0
-undefined4 * UObject::sub_00753cc0(void)
+undefined4 * C_00753cc0::sub_00753cc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -596,8 +597,9 @@ undefined4 * UObject::sub_00753cc0(void)
 int sub_00753ce0(int a0, int a1) { return a1; }
 
 extern undefined * g_01efd9b8;
+struct C_00753cf0 { undefined4 * sub_00753cf0(void); };
 // @baa 0x00753cf0
-undefined4 * UObject::sub_00753cf0(void)
+undefined4 * C_00753cf0::sub_00753cf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1210,8 +1212,9 @@ int sub_007544a0(void)
 int sub_007544d0(int a0, int a1) { return a1; }
 
 extern undefined * g_01efdad0;
+struct C_007544e0 { undefined4 * sub_007544e0(void); };
 // @baa 0x007544e0
-undefined4 * UObject::sub_007544e0(void)
+undefined4 * C_007544e0::sub_007544e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1234,8 +1237,9 @@ undefined4 sub_00754580(undefined4 param_1, undefined4 param_2)
 int sub_00754590(int a0, int a1) { return a1; }
 
 extern undefined * g_01efdc20;
+struct C_007545a0 { undefined4 * sub_007545a0(void); };
 // @baa 0x007545a0
-undefined4 * UObject::sub_007545a0(void)
+undefined4 * C_007545a0::sub_007545a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1305,8 +1309,9 @@ UPrimitiveComponent* UPrimitiveComponentFactory::CreatePrimitiveComponent(UObjec
 
 // @baa 0x007549c0
 extern undefined * g_01efe060;
+struct C_007549e0 { undefined4 * sub_007549e0(void); };
 // @baa 0x007549e0
-undefined4 * UObject::sub_007549e0(void)
+undefined4 * C_007549e0::sub_007549e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1325,8 +1330,9 @@ int sub_00754a10(int a0, int a1) { return a1; }
 int sub_00754a20(int a0, int a1) { return a1; }
 
 extern undefined * g_01efe178;
+struct C_00754a30 { undefined4 * sub_00754a30(void); };
 // @baa 0x00754a30
-undefined4 * UObject::sub_00754a30(void)
+undefined4 * C_00754a30::sub_00754a30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1523,16 +1529,18 @@ UBOOL UTexture2DDynamic::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00754eb0 { undefined4 sub_00754eb0(void); };
 // @baa 0x00754eb0
-undefined4 UTexture2DDynamic::sub_00754eb0(void)
+undefined4 C_00754eb0::sub_00754eb0(void)
 {
     int param_1 = (int)this;
 
   return *(undefined4 *)(*(int *)(param_1 + 0x44) + 0xb0);
 }
 
+struct C_00754ec0 { undefined4 sub_00754ec0(void); };
 // @baa 0x00754ec0
-undefined4 UTexture2DDynamic::sub_00754ec0(void)
+undefined4 C_00754ec0::sub_00754ec0(void)
 {
     int param_1 = (int)this;
 
@@ -1707,8 +1715,9 @@ struct C_view {
 };
 
 int sub_00716170(...);
+struct C_00756620 { undefined4 sub_00756620(undefined4 param_2); };
 // @baa 0x00756620
-undefined4 UMorphWeightSequence::sub_00756620(undefined4 param_2)
+undefined4 C_00756620::sub_00756620(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -1809,8 +1818,9 @@ void AActor::SetTickGroup(undefined1 param_2)
   return;
 }
 
+struct C_00758300 { bool sub_00758300(int param_2); };
 // @baa 0x00758300
-bool AActor::sub_00758300(int param_2)
+bool C_00758300::sub_00758300(int param_2)
 {
     int param_1 = (int)this;
 
@@ -2152,8 +2162,9 @@ FFaceFXElement* UFxRenderWidget::sub_0075f6a0(INT Index)
 }
 
 int sub_0075f280(void);
+struct C_0075f6f0 { undefined4 sub_0075f6f0(byte param_2); };
 // @baa 0x0075f6f0
-undefined4 ULensFlare::sub_0075f6f0(byte param_2)
+undefined4 C_0075f6f0::sub_0075f6f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2168,8 +2179,9 @@ void sub_00656490();
 // @baa 0x0075f730
 void sub_0075f730(void) { sub_00656490(); }
 
+struct C_0075f740 { undefined4 * sub_0075f740(byte param_2); };
 // @baa 0x0075f740
-undefined4 * ULensFlare::sub_0075f740(byte param_2)
+undefined4 * C_0075f740::sub_0075f740(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

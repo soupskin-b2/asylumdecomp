@@ -146,8 +146,9 @@ C_00947880::C_00947880() : a(0), b(0), c(0) {}
 // @baa 0x0094b670
 IMPLEMENT_CLASS_AT(USkeletalMeshSocket, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalMesh.cpp", 28);
 
+struct C_0094b8e0 { void sub_0094b8e0(int param_2); };
 // @baa 0x0094b8e0
-void USkeletalMeshSocket::sub_0094b8e0(int param_2)
+void C_0094b8e0::sub_0094b8e0(int param_2)
 {
     int param_1 = (int)this;
 
@@ -312,8 +313,9 @@ int C_00977450::sub_00977450(void)
 
 int sub_0053dfa0(...);
 int sub_00977470(void);
+struct C_0097b450 { undefined4 sub_0097b450(byte param_2); };
 // @baa 0x0097b450
-undefined4 ULensFlare::sub_0097b450(byte param_2)
+undefined4 C_0097b450::sub_0097b450(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

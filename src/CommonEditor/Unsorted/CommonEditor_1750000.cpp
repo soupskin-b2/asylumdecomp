@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_01746c70(void);
+struct C_01750210 { int sub_01750210(void); };
 // @baa 0x01750210
-int UTexture2D::sub_01750210(void)
+int C_01750210::sub_01750210(void)
 {
     int param_1 = (int)this;
 
@@ -16,8 +17,9 @@ int UTexture2D::sub_01750210(void)
 }
 
 int sub_01746cd0(void);
+struct C_01750230 { int sub_01750230(void); };
 // @baa 0x01750230
-int UTexture2D::sub_01750230(void)
+int C_01750230::sub_01750230(void)
 {
     int param_1 = (int)this;
 
@@ -32,8 +34,9 @@ struct C_view {
 };
 
 int sub_0053dfa0(...);
+struct C_01750250 { undefined4 sub_01750250(byte param_2); };
 // @baa 0x01750250
-undefined4 UTexture2D::sub_01750250(byte param_2)
+undefined4 C_01750250::sub_01750250(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 4)))->sub_010a4ce0();
@@ -108,16 +111,18 @@ struct C_view_01753960 {
     int sub_0093d4e0(int);
 };
 
+struct C_01753960 { void sub_01753960(void); };
 // @baa 0x01753960
-void USkeletalMeshComponent::sub_01753960(void)
+void C_01753960::sub_01753960(void)
 {
     int param_1 = (int)this;
   ((C_view_01753960 *)(this))->sub_0093d4e0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c));
   return;
 }
 
+struct C_01753970 { int sub_01753970(void); };
 // @baa 0x01753970
-int UTexture2D::sub_01753970(void)
+int C_01753970::sub_01753970(void)
 {
     int param_1 = (int)this;
 
@@ -127,8 +132,9 @@ int UTexture2D::sub_01753970(void)
   return param_1;
 }
 
+struct C_01753990 { int sub_01753990(void); };
 // @baa 0x01753990
-int UTexture2D::sub_01753990(void)
+int C_01753990::sub_01753990(void)
 {
     int param_1 = (int)this;
 
@@ -218,8 +224,9 @@ void sub_01754f70();
 void sub_01755270(void) { sub_01754f70(); }
 
 int sub_00936580(void);
+struct C_01755280 { int sub_01755280(void); };
 // @baa 0x01755280
-int USkeletalMeshComponent::sub_01755280(void)
+int C_01755280::sub_01755280(void)
 {
     int param_1 = (int)this;
 
@@ -250,8 +257,9 @@ void C_01755850::sub_01755850(void)
 }
 
 int sub_01746c10(void);
+struct C_01755870 { int sub_01755870(void); };
 // @baa 0x01755870
-int UTexture2D::sub_01755870(void)
+int C_01755870::sub_01755870(void)
 {
     int param_1 = (int)this;
 

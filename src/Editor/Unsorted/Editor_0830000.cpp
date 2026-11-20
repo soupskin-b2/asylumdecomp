@@ -24,8 +24,9 @@ struct C_view {
 };
 
 extern undefined4 g_01f3ee90;
+struct C_008314d0 { undefined4 * sub_008314d0(undefined4 param_2); };
 // @baa 0x008314d0
-undefined4 * UUnrealEdEngine::sub_008314d0(undefined4 param_2)
+undefined4 * C_008314d0::sub_008314d0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(0);
@@ -145,8 +146,9 @@ DWORD* S::sub_00831850(INT Index)
     return &Items(Index);
 }
 
+struct C_008318a0 { int sub_008318a0(int param_2); };
 // @baa 0x008318a0
-int UTexture2DComposite::sub_008318a0(int param_2)
+int C_008318a0::sub_008318a0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -169,8 +171,9 @@ void sub_00831950(undefined4 * param_1, undefined4 * param_2)
 
 int sub_0053dfa0(...);
 int sub_00831a50(void);
+struct C_00831d80 { undefined4 sub_00831d80(byte param_2); };
 // @baa 0x00831d80
-undefined4 UTexture2DComposite::sub_00831d80(byte param_2)
+undefined4 C_00831d80::sub_00831d80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -242,8 +245,9 @@ struct C_view_00835160 {
 int sub_00716170(...);
 int sub_007161b0(...);
 int sub_00afa590(...);
+struct C_00835160 { undefined4 sub_00835160(undefined4 param_2); };
 // @baa 0x00835160
-undefined4 UMorphWeightSequence::sub_00835160(undefined4 param_2)
+undefined4 C_00835160::sub_00835160(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -274,8 +278,9 @@ struct C_view_00835210 {
 
 extern undefined4 g_01f43e74;
 extern undefined * g_01f43e7c;
+struct C_00835210 { undefined4 * sub_00835210(undefined4 param_2); };
 // @baa 0x00835210
-undefined4 * UMorphWeightSequence::sub_00835210(undefined4 param_2)
+undefined4 * C_00835210::sub_00835210(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00835210 *)(this))->sub_00835020(param_2);

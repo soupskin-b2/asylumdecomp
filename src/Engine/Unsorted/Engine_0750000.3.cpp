@@ -22,8 +22,9 @@ undefined4 C::sub_0075d4f0(byte param_2)
 }
 
 int sub_00656490(void);
+struct C_0075f760 { undefined4 sub_0075f760(byte param_2); };
 // @baa 0x0075f760
-undefined4 ULensFlare::sub_0075f760(byte param_2)
+undefined4 C_0075f760::sub_0075f760(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -2503,8 +2503,9 @@ FSparseArrayConstIt_01439310& FSparseArrayConstIt_01439310::operator++()
 }
 
 int sub_01435ab0(void);
+struct C_01439330 { undefined4 sub_01439330(byte param_2); };
 // @baa 0x01439330
-undefined4 UObject::sub_01439330(byte param_2)
+undefined4 C_01439330::sub_01439330(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2764,8 +2765,9 @@ struct C_view {
     int sub_010c7800(int);
 };
 
+struct C_0143c9c0 { undefined4 sub_0143c9c0(int param_2); };
 // @baa 0x0143c9c0
-undefined4 URFMODSound::sub_0143c9c0(int param_2)
+undefined4 C_0143c9c0::sub_0143c9c0(int param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_00547da0(param_2);

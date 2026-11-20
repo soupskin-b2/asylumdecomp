@@ -257,16 +257,18 @@ void sub_0132b150(void) { sub_013287e0(); }
 // @baa 0x0132bce0
 int sub_0132bce0(void) { return 1690; }
 
+struct C_0132be00 { int sub_0132be00(void); };
 // @baa 0x0132be00
-int ULensFlare::sub_0132be00(void)
+int C_0132be00::sub_0132be00(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0xc0) * 3 + *(int *)(param_1 + 0x84)) * 4;
 }
 
+struct C_0132be20 { int sub_0132be20(void); };
 // @baa 0x0132be20
-int ULensFlare::sub_0132be20(void)
+int C_0132be20::sub_0132be20(void)
 {
     int param_1 = (int)this;
 
@@ -275,8 +277,9 @@ int ULensFlare::sub_0132be20(void)
 
 int sub_00977470(void);
 extern undefined * g_0224a8b8;
+struct C_0132be40 { void sub_0132be40(void); };
 // @baa 0x0132be40
-void ULensFlare::sub_0132be40(void)
+void C_0132be40::sub_0132be40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -286,8 +289,9 @@ void ULensFlare::sub_0132be40(void)
 }
 
 int sub_0053dfa0(...);
+struct C_0132be50 { undefined4 * sub_0132be50(byte param_2); };
 // @baa 0x0132be50
-undefined4 * ULensFlare::sub_0132be50(byte param_2)
+undefined4 * C_0132be50::sub_0132be50(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -300,8 +304,9 @@ undefined4 * ULensFlare::sub_0132be50(byte param_2)
 }
 
 int sub_0132bfe0(void);
+struct C_0132c040 { undefined4 sub_0132c040(byte param_2); };
 // @baa 0x0132c040
-undefined4 UUnrealEdEngine::sub_0132c040(byte param_2)
+undefined4 C_0132c040::sub_0132c040(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -313,8 +318,9 @@ undefined4 UUnrealEdEngine::sub_0132c040(byte param_2)
 }
 
 int sub_01321d20(void);
+struct C_0132c060 { int sub_0132c060(void); };
 // @baa 0x0132c060
-int UUnrealEdEngine::sub_0132c060(void)
+int C_0132c060::sub_0132c060(void)
 {
     int param_1 = (int)this;
 
@@ -325,8 +331,9 @@ int UUnrealEdEngine::sub_0132c060(void)
 }
 
 int sub_01321d80(void);
+struct C_0132c080 { int sub_0132c080(void); };
 // @baa 0x0132c080
-int UUnrealEdEngine::sub_0132c080(void)
+int C_0132c080::sub_0132c080(void)
 {
     int param_1 = (int)this;
 
@@ -337,8 +344,9 @@ int UUnrealEdEngine::sub_0132c080(void)
 }
 
 int sub_01321de0(void);
+struct C_0132c0a0 { int sub_0132c0a0(void); };
 // @baa 0x0132c0a0
-int UUnrealEdEngine::sub_0132c0a0(void)
+int C_0132c0a0::sub_0132c0a0(void)
 {
     int param_1 = (int)this;
 

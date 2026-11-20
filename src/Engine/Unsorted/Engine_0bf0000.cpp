@@ -59,8 +59,9 @@ int C_00bf0a60::sub_00bf0a60(int param_2)
 
 int sub_005c7a70(...);
 int sub_00bf4320(void);
+struct C_00bf43f0 { undefined4 sub_00bf43f0(byte param_2); };
 // @baa 0x00bf43f0
-undefined4 URFMODSound::sub_00bf43f0(byte param_2)
+undefined4 C_00bf43f0::sub_00bf43f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -73,8 +74,9 @@ undefined4 URFMODSound::sub_00bf43f0(byte param_2)
 
 int sub_009369a0(void);
 extern undefined * g_02026540;
+struct C_00bf44e0 { undefined4 * sub_00bf44e0(void); };
 // @baa 0x00bf44e0
-undefined4 * USkeletalMeshComponent::sub_00bf44e0(void)
+undefined4 * C_00bf44e0::sub_00bf44e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -848,8 +850,9 @@ void C_00bfba30::sub_00bfba30(undefined4 param_2, undefined4 param_3, undefined4
 // @baa 0x00bfbc70
 int sub_005c7a20(void);
 extern undefined * g_02030af8;
+struct C_00bfbc90 { undefined4 * sub_00bfbc90(void); };
 // @baa 0x00bfbc90
-undefined4 * UObject::sub_00bfbc90(void)
+undefined4 * C_00bfbc90::sub_00bfbc90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -859,8 +862,9 @@ undefined4 * UObject::sub_00bfbc90(void)
 }
 
 extern undefined * g_02030c60;
+struct C_00bfbcb0 { undefined4 * sub_00bfbcb0(void); };
 // @baa 0x00bfbcb0
-undefined4 * UObject::sub_00bfbcb0(void)
+undefined4 * C_00bfbcb0::sub_00bfbcb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -874,8 +878,9 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_BitwiseCompressOnly, "e:\\Proj
 
 // @baa 0x00bfbd30
 extern undefined * g_02030d70;
+struct C_00bfbd50 { undefined4 * sub_00bfbd50(void); };
 // @baa 0x00bfbd50
-undefined4 * UObject::sub_00bfbd50(void)
+undefined4 * C_00bfbd50::sub_00bfbd50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -889,8 +894,9 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveEverySecondKey, "e:\\Pro
 
 // @baa 0x00bfbdd0
 extern undefined * g_02030e80;
+struct C_00bfbdf0 { undefined4 * sub_00bfbdf0(void); };
 // @baa 0x00bfbdf0
-undefined4 * UObject::sub_00bfbdf0(void)
+undefined4 * C_00bfbdf0::sub_00bfbdf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -900,8 +906,9 @@ undefined4 * UObject::sub_00bfbdf0(void)
 }
 
 extern undefined * g_02030f90;
+struct C_00bfbe90 { undefined4 * sub_00bfbe90(void); };
 // @baa 0x00bfbe90
-undefined4 * UObject::sub_00bfbe90(void)
+undefined4 * C_00bfbe90::sub_00bfbe90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -915,8 +922,9 @@ IMPLEMENT_CLASS_AT(UAnimationCompressionAlgorithm_RemoveTrivialKeys, "e:\\Projec
 
 // @baa 0x00bfbf10
 extern undefined * g_020310a0;
+struct C_00bfbf30 { undefined4 * sub_00bfbf30(void); };
 // @baa 0x00bfbf30
-undefined4 * UObject::sub_00bfbf30(void)
+undefined4 * C_00bfbf30::sub_00bfbf30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

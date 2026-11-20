@@ -17,8 +17,9 @@ UBOOL UCheckPrefabsCommandlet::HasParentClassChanged() const
 
 int sub_0053dfa0(...);
 int sub_006837e0(void);
+struct C_0175e240 { undefined4 sub_0175e240(byte param_2); };
 // @baa 0x0175e240
-undefined4 ULensFlare::sub_0175e240(byte param_2)
+undefined4 C_0175e240::sub_0175e240(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -29,8 +30,9 @@ undefined4 ULensFlare::sub_0175e240(byte param_2)
   return param_1;
 }
 
+struct C_0175e260 { undefined4 sub_0175e260(byte param_2); };
 // @baa 0x0175e260
-undefined4 ULensFlare::sub_0175e260(byte param_2)
+undefined4 C_0175e260::sub_0175e260(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -41,8 +43,9 @@ undefined4 ULensFlare::sub_0175e260(byte param_2)
   return param_1;
 }
 
+struct C_0175e280 { undefined4 sub_0175e280(byte param_2); };
 // @baa 0x0175e280
-undefined4 ULensFlare::sub_0175e280(byte param_2)
+undefined4 C_0175e280::sub_0175e280(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -55,8 +58,9 @@ undefined4 ULensFlare::sub_0175e280(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_023da940;
+struct C_0175e2a0 { undefined4 * sub_0175e2a0(void); };
 // @baa 0x0175e2a0
-undefined4 * UObject::sub_0175e2a0(void)
+undefined4 * C_0175e2a0::sub_0175e2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -70,8 +74,9 @@ IMPLEMENT_CLASS_AT(UChangeDashesToUnderscoresCommandlet, "e:\\Projects\\Amadeus\
 
 // @baa 0x0175e320
 extern undefined * g_023daa58;
+struct C_0175e340 { undefined4 * sub_0175e340(void); };
 // @baa 0x0175e340
-undefined4 * UObject::sub_0175e340(void)
+undefined4 * C_0175e340::sub_0175e340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -85,8 +90,9 @@ IMPLEMENT_CLASS_AT(UCheckMapsCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x0175e3c0
 extern undefined * g_023dab70;
+struct C_0175e3e0 { undefined4 * sub_0175e3e0(void); };
 // @baa 0x0175e3e0
-undefined4 * UObject::sub_0175e3e0(void)
+undefined4 * C_0175e3e0::sub_0175e3e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

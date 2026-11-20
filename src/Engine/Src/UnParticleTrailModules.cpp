@@ -105,8 +105,9 @@ EModuleType UParticleModuleTrailBase::GetModuleType() const { return EPMT_Trail;
 // @baa 0x00bcd770
 int sub_005c7a20(void);
 extern undefined * g_0201af98;
+struct C_00bcd790 { undefined4 * sub_00bcd790(void); };
 // @baa 0x00bcd790
-undefined4 * UObject::sub_00bcd790(void)
+undefined4 * C_00bcd790::sub_00bcd790(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -123,8 +124,9 @@ IMPLEMENT_CLASS_AT(UParticleModuleTrailSource, "e:\\Projects\\Amadeus\\AA\\Game\
 IMPLEMENT_CLASS_AT(UParticleModuleTrailSpawn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnParticleTrailModules.cpp", 366);
 
 extern undefined * g_0201b108;
+struct C_00bcd880 { undefined4 * sub_00bcd880(void); };
 // @baa 0x00bcd880
-undefined4 * UObject::sub_00bcd880(void)
+undefined4 * C_00bcd880::sub_00bcd880(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -173,8 +175,9 @@ void UParticleModuleTypeDataTrail2_BAA::sub_00baaf50(INT A, INT B, INT* Source, 
 }
 
 extern undefined * g_0201a860;
+struct C_00bc8f30 { undefined4 * sub_00bc8f30(void); };
 // @baa 0x00bc8f30
-undefined4 * UObject::sub_00bc8f30(void)
+undefined4 * C_00bc8f30::sub_00bc8f30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -184,8 +187,9 @@ undefined4 * UObject::sub_00bc8f30(void)
 }
 
 extern undefined * g_0201a9c8;
+struct C_00bc8f50 { undefined4 * sub_00bc8f50(void); };
 // @baa 0x00bc8f50
-undefined4 * UObject::sub_00bc8f50(void)
+undefined4 * C_00bc8f50::sub_00bc8f50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -195,8 +199,9 @@ undefined4 * UObject::sub_00bc8f50(void)
 }
 
 extern undefined * g_0201ab38;
+struct C_00bc8ff0 { undefined4 * sub_00bc8ff0(void); };
 // @baa 0x00bc8ff0
-undefined4 * UObject::sub_00bc8ff0(void)
+undefined4 * C_00bc8ff0::sub_00bc8ff0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

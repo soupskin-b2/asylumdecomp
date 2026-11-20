@@ -21,8 +21,9 @@ void C::sub_00acd670() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00acd6d0 { int sub_00acd6d0(int param_2); };
 // @baa 0x00acd6d0
-int UFracturedStaticMeshComponent::sub_00acd6d0(int param_2)
+int C_00acd6d0::sub_00acd6d0(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
@@ -32,8 +33,9 @@ struct C_view {
     int sub_00ac8e10(int, int);
 };
 
+struct C_00acd6e0 { int sub_00acd6e0(int param_2); };
 // @baa 0x00acd6e0
-int UFracturedStaticMeshComponent::sub_00acd6e0(int param_2)
+int C_00acd6e0::sub_00acd6e0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_00ac8e10((int)(&param_2), param_2);
@@ -43,16 +45,18 @@ int UFracturedStaticMeshComponent::sub_00acd6e0(int param_2)
   return 0;
 }
 
+struct C_00acd710 { int sub_00acd710(int param_2); };
 // @baa 0x00acd710
-int UFracturedStaticMeshComponent::sub_00acd710(int param_2)
+int C_00acd710::sub_00acd710(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_00acd720 { int sub_00acd720(int param_2); };
 // @baa 0x00acd720
-int UFracturedStaticMeshComponent::sub_00acd720(int param_2)
+int C_00acd720::sub_00acd720(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -62,8 +66,9 @@ int UFracturedStaticMeshComponent::sub_00acd720(int param_2)
 // @baa 0x00acd8b0
 void __stdcall sub_00acd8b0(int a0, int a1) {  }
 
+struct C_00acd8c0 { int sub_00acd8c0(void); };
 // @baa 0x00acd8c0
-int UFracturedStaticMeshComponent::sub_00acd8c0(void)
+int C_00acd8c0::sub_00acd8c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -86,8 +91,9 @@ FSparseArrayConstIt_00acd8d0& FSparseArrayConstIt_00acd8d0::operator++()
     return *this;
 }
 
+struct C_00acd8f0 { int sub_00acd8f0(void); };
 // @baa 0x00acd8f0
-int UFracturedStaticMeshComponent::sub_00acd8f0(void)
+int C_00acd8f0::sub_00acd8f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -114,8 +120,9 @@ void C_00acd950::sub_00acd950() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00acdb20 { int sub_00acdb20(int param_2); };
 // @baa 0x00acdb20
-int UFracturedStaticMeshComponent::sub_00acdb20(int param_2)
+int C_00acdb20::sub_00acdb20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -123,8 +130,9 @@ int UFracturedStaticMeshComponent::sub_00acdb20(int param_2)
 }
 
 int sub_0053df70(...);
+struct C_00acdd60 { void sub_00acdd60(int param_2); };
 // @baa 0x00acdd60
-void UFracturedStaticMeshComponent::sub_00acdd60(int param_2)
+void C_00acdd60::sub_00acdd60(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -141,24 +149,27 @@ void UFracturedStaticMeshComponent::sub_00acdd60(int param_2)
   return;
 }
 
+struct C_00acdda0 { int sub_00acdda0(int param_2); };
 // @baa 0x00acdda0
-int UFracturedStaticMeshComponent::sub_00acdda0(int param_2)
+int C_00acdda0::sub_00acdda0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00acdf10 { int sub_00acdf10(int param_2); };
 // @baa 0x00acdf10
-int UFracturedStaticMeshComponent::sub_00acdf10(int param_2)
+int C_00acdf10::sub_00acdf10(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x30 + *param_1;
 }
 
+struct C_00ace0f0 { int sub_00ace0f0(int param_2); };
 // @baa 0x00ace0f0
-int UFracturedStaticMeshComponent::sub_00ace0f0(int param_2)
+int C_00ace0f0::sub_00ace0f0(int param_2)
 {
     int * param_1 = (int *)this;
 

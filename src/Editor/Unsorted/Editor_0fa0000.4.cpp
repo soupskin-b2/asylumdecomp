@@ -46,8 +46,9 @@ void C_00fa9a20::sub_00fa9a20(int param_2)
   return;
 }
 
+struct C_00fac050 { void sub_00fac050(int param_2); };
 // @baa 0x00fac050
-void UObject::sub_00fac050(int param_2)
+void C_00fac050::sub_00fac050(int param_2)
 {
     int * param_1 = (int *)this;
 

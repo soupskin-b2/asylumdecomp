@@ -202,8 +202,9 @@ IMPLEMENT_CLASS_AT(URRopeComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 // @baa 0x01654c10
 int sub_006f7810(void);
 extern undefined * g_0235a3b8;
+struct C_01654c40 { undefined4 * sub_01654c40(void); };
 // @baa 0x01654c40
-undefined4 * UPrimitiveComponent::sub_01654c40(void)
+undefined4 * C_01654c40::sub_01654c40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -216,8 +217,9 @@ undefined4 * UPrimitiveComponent::sub_01654c40(void)
 // @baa 0x01654cc0
 int sub_0053dfa0(...);
 int sub_01654cf0(void);
+struct C_01654d90 { undefined4 sub_01654d90(byte param_2); };
 // @baa 0x01654d90
-undefined4 ULensFlare::sub_01654d90(byte param_2)
+undefined4 C_01654d90::sub_01654d90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

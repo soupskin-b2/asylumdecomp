@@ -39,8 +39,9 @@ UBOOL UParticleModuleMeshMaterial::HasUniqueStaticConfigName() const { return 1;
 
 int sub_005c7a20(void);
 extern undefined * g_01fef368;
+struct C_00b40e10 { undefined4 * sub_00b40e10(void); };
 // @baa 0x00b40e10
-undefined4 * UObject::sub_00b40e10(void)
+undefined4 * C_00b40e10::sub_00b40e10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -50,8 +51,9 @@ undefined4 * UObject::sub_00b40e10(void)
 }
 
 extern undefined * g_01fef4d0;
+struct C_00b40ed0 { undefined4 * sub_00b40ed0(void); };
 // @baa 0x00b40ed0
-undefined4 * UObject::sub_00b40ed0(void)
+undefined4 * C_00b40ed0::sub_00b40ed0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

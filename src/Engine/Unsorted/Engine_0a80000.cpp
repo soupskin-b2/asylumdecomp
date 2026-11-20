@@ -420,8 +420,9 @@ struct C_view {
 };
 
 int sub_00a49bb0(...);
+struct C_00a82370 { undefined4 sub_00a82370(undefined4 param_2); };
 // @baa 0x00a82370
-undefined4 UMorphWeightSequence::sub_00a82370(undefined4 param_2)
+undefined4 C_00a82370::sub_00a82370(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

@@ -452,8 +452,9 @@ int C_0112f950::sub_0112f950(int param_2)
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_0112fa50 { int sub_0112fa50(int param_2); };
 // @baa 0x0112fa50
-int UObject::sub_0112fa50(int param_2)
+int C_0112fa50::sub_0112fa50(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -464,8 +465,9 @@ struct C_view {
     int sub_0112fb10(int);
 };
 
+struct C_0112fba0 { int sub_0112fba0(undefined4 param_2); };
 // @baa 0x0112fba0
-int UObject::sub_0112fba0(undefined4 param_2)
+int C_0112fba0::sub_0112fba0(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_0112fb10(param_2);

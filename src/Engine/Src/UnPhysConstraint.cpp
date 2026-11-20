@@ -14,8 +14,9 @@ int sub_00a2ffa0(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01fbfdd8;
+struct C_00a2ffb0 { undefined4 * sub_00a2ffb0(void); };
 // @baa 0x00a2ffb0
-undefined4 * UObject::sub_00a2ffb0(void)
+undefined4 * C_00a2ffb0::sub_00a2ffb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -41,8 +42,9 @@ IMPLEMENT_CLASS_AT(URB_ConstraintSetup, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00a300e0
 extern undefined * g_01fbfee8;
+struct C_00a30110 { undefined4 * sub_00a30110(void); };
 // @baa 0x00a30110
-undefined4 * UObject::sub_00a30110(void)
+undefined4 * C_00a30110::sub_00a30110(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -55,8 +57,9 @@ undefined4 * UObject::sub_00a30110(void)
 int sub_00a30130(int a0, int a1) { return a1; }
 
 extern undefined * g_01fbfff8;
+struct C_00a30140 { undefined4 * sub_00a30140(void); };
 // @baa 0x00a30140
-undefined4 * UObject::sub_00a30140(void)
+undefined4 * C_00a30140::sub_00a30140(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -73,8 +76,9 @@ IMPLEMENT_CLASS_AT(URB_BSJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 int sub_00a301f0(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0108;
+struct C_00a30200 { undefined4 * sub_00a30200(void); };
 // @baa 0x00a30200
-undefined4 * UObject::sub_00a30200(void)
+undefined4 * C_00a30200::sub_00a30200(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -91,8 +95,9 @@ IMPLEMENT_CLASS_AT(URB_DistanceJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 int sub_00a302b0(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0218;
+struct C_00a302c0 { undefined4 * sub_00a302c0(void); };
 // @baa 0x00a302c0
-undefined4 * UObject::sub_00a302c0(void)
+undefined4 * C_00a302c0::sub_00a302c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -109,8 +114,9 @@ IMPLEMENT_CLASS_AT(URB_HingeSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 int sub_00a30370(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0328;
+struct C_00a30380 { undefined4 * sub_00a30380(void); };
 // @baa 0x00a30380
-undefined4 * UObject::sub_00a30380(void)
+undefined4 * C_00a30380::sub_00a30380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -127,8 +133,9 @@ IMPLEMENT_CLASS_AT(URB_PrismaticSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 int sub_00a30430(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0438;
+struct C_00a30440 { undefined4 * sub_00a30440(void); };
 // @baa 0x00a30440
-undefined4 * UObject::sub_00a30440(void)
+undefined4 * C_00a30440::sub_00a30440(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -145,8 +152,9 @@ IMPLEMENT_CLASS_AT(URB_PulleyJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 int sub_00a304f0(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0548;
+struct C_00a30500 { undefined4 * sub_00a30500(void); };
 // @baa 0x00a30500
-undefined4 * UObject::sub_00a30500(void)
+undefined4 * C_00a30500::sub_00a30500(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -163,8 +171,9 @@ IMPLEMENT_CLASS_AT(URB_SkelJointSetup, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 int sub_00a305b0(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0658;
+struct C_00a305c0 { undefined4 * sub_00a305c0(void); };
 // @baa 0x00a305c0
-undefined4 * UObject::sub_00a305c0(void)
+undefined4 * C_00a305c0::sub_00a305c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

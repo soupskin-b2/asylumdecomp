@@ -60,8 +60,9 @@ int sub_00f1ead0(void) { return 1; }
 int sub_005fba80(void);
 int sub_0060f7d0(...);
 extern undefined4 g_026a4b34;
+struct C_00f1eae0 { bool sub_00f1eae0(void); };
 // @baa 0x00f1eae0
-bool UTerrainHeightMapExporter::sub_00f1eae0(void)
+bool C_00f1eae0::sub_00f1eae0(void)
 {
     int param_1 = (int)this;
 
@@ -79,8 +80,9 @@ bool UTerrainHeightMapExporter::sub_00f1eae0(void)
 // @baa 0x00f31980
 int sub_0060b320(void);
 extern undefined * g_0214cbe8;
+struct C_00f319a0 { undefined4 * sub_00f319a0(void); };
 // @baa 0x00f319a0
-undefined4 * UExporter::sub_00f319a0(void)
+undefined4 * C_00f319a0::sub_00f319a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -90,8 +92,9 @@ undefined4 * UExporter::sub_00f319a0(void)
 }
 
 extern undefined * g_0214cd18;
+struct C_00f319c0 { undefined4 * sub_00f319c0(void); };
 // @baa 0x00f319c0
-undefined4 * UExporter::sub_00f319c0(void)
+undefined4 * C_00f319c0::sub_00f319c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -105,8 +108,9 @@ IMPLEMENT_CLASS_AT(UTerrainHeightMapExporterTextT3D, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x00f31a40
 extern undefined * g_0214ce48;
+struct C_00f31a60 { undefined4 * sub_00f31a60(void); };
 // @baa 0x00f31a60
-undefined4 * UExporter::sub_00f31a60(void)
+undefined4 * C_00f31a60::sub_00f31a60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -120,8 +124,9 @@ IMPLEMENT_CLASS_AT(UTerrainHeightMapExporterG16BMPT3D, "e:\\Projects\\Amadeus\\A
 
 // @baa 0x00f31ae0
 extern undefined * g_0214cf78;
+struct C_00f31b00 { undefined4 * sub_00f31b00(void); };
 // @baa 0x00f31b00
-undefined4 * UExporter::sub_00f31b00(void)
+undefined4 * C_00f31b00::sub_00f31b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -132,8 +137,9 @@ undefined4 * UExporter::sub_00f31b00(void)
 
 int sub_005c7a70(...);
 int sub_00f31b20(void);
+struct C_00f31b80 { undefined4 sub_00f31b80(byte param_2); };
 // @baa 0x00f31b80
-undefined4 UTerrainHeightMapExporter::sub_00f31b80(byte param_2)
+undefined4 C_00f31b80::sub_00f31b80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

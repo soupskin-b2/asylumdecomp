@@ -1639,8 +1639,9 @@ struct C_00e47a00 { C_00e47a00* sub_00e47a00(void); };
 C_00e47a00* C_00e47a00::sub_00e47a00(void) { *(int*)((char*)this + 0) = (int)g_02106574; return this; }
 
 int sub_00e47450(void);
+struct C_00e47a10 { undefined4 sub_00e47a10(byte param_2); };
 // @baa 0x00e47a10
-undefined4 ULensFlare::sub_00e47a10(byte param_2)
+undefined4 C_00e47a10::sub_00e47a10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1652,8 +1653,9 @@ undefined4 ULensFlare::sub_00e47a10(byte param_2)
 }
 
 int sub_00e474d0(void);
+struct C_00e47a30 { undefined4 sub_00e47a30(byte param_2); };
 // @baa 0x00e47a30
-undefined4 ULensFlare::sub_00e47a30(byte param_2)
+undefined4 C_00e47a30::sub_00e47a30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1665,8 +1667,9 @@ undefined4 ULensFlare::sub_00e47a30(byte param_2)
 }
 
 int sub_00e47550(void);
+struct C_00e47a50 { undefined4 sub_00e47a50(byte param_2); };
 // @baa 0x00e47a50
-undefined4 ULensFlare::sub_00e47a50(byte param_2)
+undefined4 C_00e47a50::sub_00e47a50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1678,8 +1681,9 @@ undefined4 ULensFlare::sub_00e47a50(byte param_2)
 }
 
 int sub_00e475d0(void);
+struct C_00e47a70 { undefined4 sub_00e47a70(byte param_2); };
 // @baa 0x00e47a70
-undefined4 ULensFlare::sub_00e47a70(byte param_2)
+undefined4 C_00e47a70::sub_00e47a70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1691,8 +1695,9 @@ undefined4 ULensFlare::sub_00e47a70(byte param_2)
 }
 
 int sub_00e47650(void);
+struct C_00e47a90 { undefined4 sub_00e47a90(byte param_2); };
 // @baa 0x00e47a90
-undefined4 ULensFlare::sub_00e47a90(byte param_2)
+undefined4 C_00e47a90::sub_00e47a90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1704,8 +1709,9 @@ undefined4 ULensFlare::sub_00e47a90(byte param_2)
 }
 
 int sub_00e476d0(void);
+struct C_00e47ab0 { undefined4 sub_00e47ab0(byte param_2); };
 // @baa 0x00e47ab0
-undefined4 ULensFlare::sub_00e47ab0(byte param_2)
+undefined4 C_00e47ab0::sub_00e47ab0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1717,8 +1723,9 @@ undefined4 ULensFlare::sub_00e47ab0(byte param_2)
 }
 
 int sub_00e47750(void);
+struct C_00e47ad0 { undefined4 sub_00e47ad0(byte param_2); };
 // @baa 0x00e47ad0
-undefined4 ULensFlare::sub_00e47ad0(byte param_2)
+undefined4 C_00e47ad0::sub_00e47ad0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1730,8 +1737,9 @@ undefined4 ULensFlare::sub_00e47ad0(byte param_2)
 }
 
 int sub_00e477d0(void);
+struct C_00e47af0 { undefined4 sub_00e47af0(byte param_2); };
 // @baa 0x00e47af0
-undefined4 ULensFlare::sub_00e47af0(byte param_2)
+undefined4 C_00e47af0::sub_00e47af0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1743,8 +1751,9 @@ undefined4 ULensFlare::sub_00e47af0(byte param_2)
 }
 
 int sub_00e47850(void);
+struct C_00e47b10 { undefined4 sub_00e47b10(byte param_2); };
 // @baa 0x00e47b10
-undefined4 ULensFlare::sub_00e47b10(byte param_2)
+undefined4 C_00e47b10::sub_00e47b10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1756,8 +1765,9 @@ undefined4 ULensFlare::sub_00e47b10(byte param_2)
 }
 
 int sub_00e478d0(void);
+struct C_00e47b30 { undefined4 sub_00e47b30(byte param_2); };
 // @baa 0x00e47b30
-undefined4 ULensFlare::sub_00e47b30(byte param_2)
+undefined4 C_00e47b30::sub_00e47b30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1769,8 +1779,9 @@ undefined4 ULensFlare::sub_00e47b30(byte param_2)
 }
 
 int sub_00e47950(void);
+struct C_00e47b50 { undefined4 sub_00e47b50(byte param_2); };
 // @baa 0x00e47b50
-undefined4 ULensFlare::sub_00e47b50(byte param_2)
+undefined4 C_00e47b50::sub_00e47b50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2785,8 +2796,9 @@ undefined4 C_00e61580::sub_00e61580(byte param_2)
 
 int sub_005c7a70(...);
 int sub_0072ef30(void);
+struct C_00e644d0 { undefined4 sub_00e644d0(byte param_2); };
 // @baa 0x00e644d0
-undefined4 UTexture2D::sub_00e644d0(byte param_2)
+undefined4 C_00e644d0::sub_00e644d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

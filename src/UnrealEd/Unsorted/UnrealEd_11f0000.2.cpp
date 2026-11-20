@@ -47,8 +47,9 @@ void C::sub_011f3fb0(undefined4 * param_2, long param_3)
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_011f7950 { undefined4 sub_011f7950(byte param_2); };
 // @baa 0x011f7950
-undefined4 UObject::sub_011f7950(byte param_2)
+undefined4 C_011f7950::sub_011f7950(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

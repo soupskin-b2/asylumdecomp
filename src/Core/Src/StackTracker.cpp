@@ -59,8 +59,9 @@ void C_006023f0::sub_006023f0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00602450 { int sub_00602450(void); };
 // @baa 0x00602450
-int UPackageMap::sub_00602450(void)
+int C_00602450::sub_00602450(void)
 {
     int param_1 = (int)this;
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
@@ -90,8 +91,9 @@ int sub_006311e0(...);
 extern undefined4 g_01ea3848;
 extern undefined4 g_02666790;
 extern undefined4 g_02666794;
+struct C_0061a470 { void sub_0061a470(void); };
 // @baa 0x0061a470
-void UPackageMap::sub_0061a470(void)
+void C_0061a470::sub_0061a470(void)
 {
     int param_1 = (int)this;
   if (*(int *)(param_1 + 0x48) != 0) {

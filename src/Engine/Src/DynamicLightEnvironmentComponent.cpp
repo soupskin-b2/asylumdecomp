@@ -215,8 +215,9 @@ void ULightEnvironmentComponent::UpdateLight(const ULightComponent* a0) {  }
 
 // @baa 0x006c6670
 extern undefined * g_01ecf4e8;
+struct C_006c6690 { undefined4 * sub_006c6690(void); };
 // @baa 0x006c6690
-undefined4 * UObject::sub_006c6690(void)
+undefined4 * C_006c6690::sub_006c6690(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -226,8 +227,9 @@ undefined4 * UObject::sub_006c6690(void)
 }
 
 extern undefined * g_01ecf638;
+struct C_006c66b0 { undefined4 * sub_006c66b0(void); };
 // @baa 0x006c66b0
-undefined4 * UObject::sub_006c66b0(void)
+undefined4 * C_006c66b0::sub_006c66b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

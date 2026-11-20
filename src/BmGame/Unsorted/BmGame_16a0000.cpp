@@ -65,8 +65,9 @@ struct C_016a9c00 { C_016a9c00* sub_016a9c00(int a0); };
 // @baa 0x016a9c00
 C_016a9c00* C_016a9c00::sub_016a9c00(int a0) { return this; }
 
+struct C_016a9c50 { int sub_016a9c50(int param); };
 // @baa 0x016a9c50
-int UObject::sub_016a9c50(int param)
+int C_016a9c50::sub_016a9c50(int param)
 {
     return (int)this;
 }

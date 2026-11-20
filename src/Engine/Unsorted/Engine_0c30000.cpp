@@ -59,8 +59,9 @@ int C_00c318a0::sub_00c318a0(void)
 }
 
 int sub_0040fcc0(void);
+struct C_00c31aa0 { undefined4 sub_00c31aa0(byte param_2); };
 // @baa 0x00c31aa0
-undefined4 UObject::sub_00c31aa0(byte param_2)
+undefined4 C_00c31aa0::sub_00c31aa0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -71,8 +72,9 @@ undefined4 UObject::sub_00c31aa0(byte param_2)
   return param_1;
 }
 
+struct C_00c31ac0 { int sub_00c31ac0(void); };
 // @baa 0x00c31ac0
-int UObject::sub_00c31ac0(void)
+int C_00c31ac0::sub_00c31ac0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -80,8 +82,9 @@ int UObject::sub_00c31ac0(void)
 }
 
 int sub_00c2a060(void);
+struct C_00c31ad0 { undefined4 sub_00c31ad0(byte param_2); };
 // @baa 0x00c31ad0
-undefined4 UObject::sub_00c31ad0(byte param_2)
+undefined4 C_00c31ad0::sub_00c31ad0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -118,8 +121,9 @@ FSparseArrayConstIt_00c31b40::FSparseArrayConstIt_00c31b40(const TSparseArray<IN
 {
 }
 
+struct C_00c31b90 { int sub_00c31b90(void); };
 // @baa 0x00c31b90
-int UObject::sub_00c31b90(void)
+int C_00c31b90::sub_00c31b90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -143,8 +147,9 @@ int C_00c36da0::sub_00c36da0(void)
          4;
 }
 
+struct C_00c36de0 { int sub_00c36de0(void); };
 // @baa 0x00c36de0
-int UMaterialExpressionCompound::sub_00c36de0(void)
+int C_00c36de0::sub_00c36de0(void)
 {
     int param_1 = (int)this;
 
@@ -158,8 +163,9 @@ void sub_006837e0();
 void sub_00c36e30(void) { sub_006837e0(); }
 
 int sub_00c304d0(void);
+struct C_00c36eb0 { undefined4 sub_00c36eb0(byte param_2); };
 // @baa 0x00c36eb0
-undefined4 UMaterialExpressionWorldPosition::sub_00c36eb0(byte param_2)
+undefined4 C_00c36eb0::sub_00c36eb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -398,8 +404,9 @@ int sub_00c38bb0(void) { return 2; }
 
 int sub_006f7810(void);
 extern undefined * g_0204b720;
+struct C_00c3ec10 { undefined4 * sub_00c3ec10(void); };
 // @baa 0x00c3ec10
-undefined4 * UPrimitiveComponent::sub_00c3ec10(void)
+undefined4 * C_00c3ec10::sub_00c3ec10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -413,8 +420,9 @@ IMPLEMENT_CLASS_AT(UPathRenderingComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x00c3ec90
 extern undefined * g_0204b970;
+struct C_00c3ecc0 { undefined4 * sub_00c3ecc0(void); };
 // @baa 0x00c3ecc0
-undefined4 * UPrimitiveComponent::sub_00c3ecc0(void)
+undefined4 * C_00c3ecc0::sub_00c3ecc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

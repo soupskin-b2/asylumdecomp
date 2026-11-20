@@ -401,8 +401,9 @@ struct C_0103e550 { void sub_01039420(int); C_0103e550 *sub_0103e550(int); };
 C_0103e550 *C_0103e550::sub_0103e550(int a) { sub_01039420(a); return this; }
 
 int sub_01024750(void);
+struct C_0103e570 { int sub_0103e570(void); };
 // @baa 0x0103e570
-int UTexture2D::sub_0103e570(void)
+int C_0103e570::sub_0103e570(void)
 {
     int param_1 = (int)this;
 

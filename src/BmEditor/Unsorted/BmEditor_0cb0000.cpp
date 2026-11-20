@@ -23,8 +23,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_00cb4a50 { int sub_00cb4a50(int param_2); };
 // @baa 0x00cb4a50
-int ULensFlare::sub_00cb4a50(int param_2)
+int C_00cb4a50::sub_00cb4a50(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -35,8 +36,9 @@ int ULensFlare::sub_00cb4a50(int param_2)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00cb4a90 { int sub_00cb4a90(undefined4*param_2); };
 // @baa 0x00cb4a90
-int ULensFlare::sub_00cb4a90(undefined4*param_2)
+int C_00cb4a90::sub_00cb4a90(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -62,8 +64,9 @@ if((undefined4*)0x0!=puVar1){
 return iVar2;
 }
 
+struct C_00cb4af0 { bool sub_00cb4af0(void); };
 // @baa 0x00cb4af0
-bool ULensFlare::sub_00cb4af0(void)
+bool C_00cb4af0::sub_00cb4af0(void)
 {
     int param_1 = (int)this;
 
@@ -72,8 +75,9 @@ bool ULensFlare::sub_00cb4af0(void)
 
 int sub_0053dfa0(...);
 int sub_00cb4950(void);
+struct C_00cb4b00 { undefined4 sub_00cb4b00(byte param_2); };
 // @baa 0x00cb4b00
-undefined4 ULensFlare::sub_00cb4b00(byte param_2)
+undefined4 C_00cb4b00::sub_00cb4b00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

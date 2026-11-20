@@ -38,8 +38,9 @@ struct C_view {
     int sub_006138c0(int, int);
 };
 
+struct C_006177e0 { int sub_006177e0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x006177e0
-int UPackageMap::sub_006177e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_006177e0::sub_006177e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_006138c0(param_2, param_4);
@@ -1034,8 +1035,9 @@ void UEngine::vf_18c(void) {  }
 
 int sub_005c7a70(...);
 int sub_007f6e80(void);
+struct C_007f7310 { undefined4 sub_007f7310(byte param_2); };
 // @baa 0x007f7310
-undefined4 UEngine::sub_007f7310(byte param_2)
+undefined4 C_007f7310::sub_007f7310(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

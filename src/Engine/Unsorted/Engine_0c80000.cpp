@@ -838,8 +838,9 @@ int sub_00c8c7d0(void)
 int sub_00c8c800(int a0, int a1) { return a1; }
 
 extern undefined * g_02085d00;
+struct C_00c8c810 { undefined4 * sub_00c8c810(void); };
 // @baa 0x00c8c810
-undefined4 * UObject::sub_00c8c810(void)
+undefined4 * C_00c8c810::sub_00c8c810(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

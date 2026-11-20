@@ -9,8 +9,9 @@ int sub_00d67060(void) { return (int)g_020b50d8; }
 
 int sub_005c7a20(void);
 extern undefined * g_020b50f0;
+struct C_00d67070 { undefined4 * sub_00d67070(void); };
 // @baa 0x00d67070
-undefined4 * UObject::sub_00d67070(void)
+undefined4 * C_00d67070::sub_00d67070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -43,8 +44,9 @@ struct C_00d67170 { void sub_00d67170(void); };
 void C_00d67170::sub_00d67170(void) { *(int*)((char*)this + 0) = (int)g_020b51fc; }
 
 int sub_0053dfa0(...);
+struct C_00d67180 { undefined4 * sub_00d67180(byte param_2); };
 // @baa 0x00d67180
-undefined4 * UOnlinePlaylistManager::sub_00d67180(byte param_2)
+undefined4 * C_00d67180::sub_00d67180(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -56,8 +58,9 @@ undefined4 * UOnlinePlaylistManager::sub_00d67180(byte param_2)
 }
 
 extern undefined * g_01f4d260;
+struct C_00d671a0 { undefined4 * sub_00d671a0(void); };
 // @baa 0x00d671a0
-undefined4 * UObject::sub_00d671a0(void)
+undefined4 * C_00d671a0::sub_00d671a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

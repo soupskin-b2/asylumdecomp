@@ -368,23 +368,26 @@ void C_01232b10::sub_01232b10() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_01232b70 { int sub_01232b70(void); };
 // @baa 0x01232b70
-int UUnrealEdEngine::sub_01232b70(void)
+int C_01232b70::sub_01232b70(void)
 {
     int param_1 = (int)this;
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_01232b90 { int sub_01232b90(void); };
 // @baa 0x01232b90
-int UUnrealEdEngine::sub_01232b90(void)
+int C_01232b90::sub_01232b90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + 0xc + param_1[5] * 0x18;
 }
 
+struct C_01232ba0 { int sub_01232ba0(void); };
 // @baa 0x01232ba0
-int UUnrealEdEngine::sub_01232ba0(void)
+int C_01232ba0::sub_01232ba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -409,8 +412,9 @@ undefined4 C_01232c00::sub_01232c00(byte param_2)
 }
 
 int sub_0040fcc0(void);
+struct C_01232c20 { undefined4 sub_01232c20(byte param_2); };
 // @baa 0x01232c20
-undefined4 UObject::sub_01232c20(byte param_2)
+undefined4 C_01232c20::sub_01232c20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -437,8 +441,9 @@ FSparseArrayConstIt_01232c40& FSparseArrayConstIt_01232c40::operator++()
     return *this;
 }
 
+struct C_01232c60 { undefined4 sub_01232c60(byte param_2); };
 // @baa 0x01232c60
-undefined4 UObject::sub_01232c60(byte param_2)
+undefined4 C_01232c60::sub_01232c60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -582,8 +587,9 @@ FSparseArrayConstIt_01240640::FSparseArrayConstIt_01240640(const TSparseArray<IN
 }
 
 int sub_012362e0(void);
+struct C_01240900 { int sub_01240900(void); };
 // @baa 0x01240900
-int UUnrealEdEngine::sub_01240900(void)
+int C_01240900::sub_01240900(void)
 {
     int param_1 = (int)this;
 
@@ -595,8 +601,9 @@ int UUnrealEdEngine::sub_01240900(void)
 
 int sub_009799d0(void);
 extern undefined * g_02203420;
+struct C_01240920 { undefined4 * sub_01240920(void); };
 // @baa 0x01240920
-undefined4 * UStaticMeshComponent::sub_01240920(void)
+undefined4 * C_01240920::sub_01240920(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

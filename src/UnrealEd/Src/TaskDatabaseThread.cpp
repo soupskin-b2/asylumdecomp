@@ -5,8 +5,9 @@
 
 int sub_006311e0(...);
 extern undefined4 g_022a2858;
+struct C_01476ca0 { undefined4 sub_01476ca0(void); };
 // @baa 0x01476ca0
-undefined4 UFMODReverbLabelRenderer::sub_01476ca0(void)
+undefined4 C_01476ca0::sub_01476ca0(void)
 {
     int param_1 = (int)this;
 

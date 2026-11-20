@@ -705,32 +705,36 @@ struct C_005452f0 { int sub_005452f0(void); };
 // @baa 0x005452f0
 int C_005452f0::sub_005452f0(void) { return *(int*)((char*)this + 20); }
 
+struct C_00547ed0 { int sub_00547ed0(int param_2); };
 // @baa 0x00547ed0
-int UPackageMap::sub_00547ed0(int param_2)
+int C_00547ed0::sub_00547ed0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00547ee0 { int sub_00547ee0(int param_2); };
 // @baa 0x00547ee0
-int UPackageMap::sub_00547ee0(int param_2)
+int C_00547ee0::sub_00547ee0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00547ef0 { int sub_00547ef0(void); };
 // @baa 0x00547ef0
-int UPackageMap::sub_00547ef0(void)
+int C_00547ef0::sub_00547ef0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00547f10 { int sub_00547f10(int param_2); };
 // @baa 0x00547f10
-int UPackageMap::sub_00547f10(int param_2)
+int C_00547f10::sub_00547f10(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -768,8 +772,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_0054de60 { undefined4 * sub_0054de60(int * param_2); };
 // @baa 0x0054de60
-undefined4 * UObject::sub_0054de60(int * param_2)
+undefined4 * C_0054de60::sub_0054de60(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -784,16 +789,18 @@ undefined4 * UObject::sub_0054de60(int * param_2)
   return param_1;
 }
 
+struct C_0054e090 { int sub_0054e090(int param_2); };
 // @baa 0x0054e090
-int UObject::sub_0054e090(int param_2)
+int C_0054e090::sub_0054e090(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_0054e120 { int sub_0054e120(int param_2); };
 // @baa 0x0054e120
-int UObject::sub_0054e120(int param_2)
+int C_0054e120::sub_0054e120(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x18;
@@ -827,16 +834,18 @@ void C_0054e4c0::sub_0054e4c0() { m.sub_0040fcc0(); }
 // @baa 0x0054e530
 void sub_0054e530(void) { sub_0040fcc0(); }
 
+struct C_0054e540 { int sub_0054e540(void); };
 // @baa 0x0054e540
-int UObject::sub_0054e540(void)
+int C_0054e540::sub_0054e540(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_0054e550 { int sub_0054e550(void); };
 // @baa 0x0054e550
-int UObject::sub_0054e550(void)
+int C_0054e550::sub_0054e550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -834,8 +834,9 @@ undefined4 * UPartyBeaconHost::sub_00e338f0(int * param_2)
   return param_1;
 }
 
+struct C_00e33940 { int sub_00e33940(int param_2); };
 // @baa 0x00e33940
-int UPartyBeaconHost::sub_00e33940(int param_2)
+int C_00e33940::sub_00e33940(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -846,8 +847,9 @@ struct C_view_00e33950 {
     int sub_00e338f0(int);
 };
 
+struct C_00e33950 { int sub_00e33950(undefined4 param_2); };
 // @baa 0x00e33950
-int UPartyBeaconHost::sub_00e33950(undefined4 param_2)
+int C_00e33950::sub_00e33950(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view_00e33950 *)(this))->sub_00e338f0(param_2);
@@ -855,24 +857,27 @@ int UPartyBeaconHost::sub_00e33950(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e33a00 { int sub_00e33a00(int param_2); };
 // @baa 0x00e33a00
-int UPartyBeaconHost::sub_00e33a00(int param_2)
+int C_00e33a00::sub_00e33a00(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00e33a10 { int sub_00e33a10(void); };
 // @baa 0x00e33a10
-int UPartyBeaconHost::sub_00e33a10(void)
+int C_00e33a10::sub_00e33a10(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00e33a30 { int sub_00e33a30(void); };
 // @baa 0x00e33a30
-int UPartyBeaconHost::sub_00e33a30(void)
+int C_00e33a30::sub_00e33a30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -883,48 +888,54 @@ void sub_0040fcc0();
 // @baa 0x00e33a40
 void sub_00e33a40(void) { sub_0040fcc0(); }
 
+struct C_00e33a50 { int sub_00e33a50(int param_2); };
 // @baa 0x00e33a50
-int UPartyBeaconHost::sub_00e33a50(int param_2)
+int C_00e33a50::sub_00e33a50(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x24;
 }
 
+struct C_00e33a60 { int sub_00e33a60(int param_2); };
 // @baa 0x00e33a60
-int UPartyBeaconHost::sub_00e33a60(int param_2)
+int C_00e33a60::sub_00e33a60(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00e33a70 { int sub_00e33a70(void); };
 // @baa 0x00e33a70
-int UPartyBeaconHost::sub_00e33a70(void)
+int C_00e33a70::sub_00e33a70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x14;
 }
 
+struct C_00e33a80 { int sub_00e33a80(void); };
 // @baa 0x00e33a80
-int UPartyBeaconHost::sub_00e33a80(void)
+int C_00e33a80::sub_00e33a80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x24;
 }
 
+struct C_00e33a90 { int sub_00e33a90(void); };
 // @baa 0x00e33a90
-int UPartyBeaconHost::sub_00e33a90(void)
+int C_00e33a90::sub_00e33a90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x24;
 }
 
+struct C_00e33aa0 { int sub_00e33aa0(void); };
 // @baa 0x00e33aa0
-int UPartyBeaconHost::sub_00e33aa0(void)
+int C_00e33aa0::sub_00e33aa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -946,16 +957,18 @@ struct C_00e37a90 { C_00e37a90* sub_00e37a90(void); };
 // @baa 0x00e37a90
 C_00e37a90* C_00e37a90::sub_00e37a90(void) { return this; }
 
+struct C_00e37aa0 { int sub_00e37aa0(int param_2); };
 // @baa 0x00e37aa0
-int UPartyBeaconHost::sub_00e37aa0(int param_2)
+int C_00e37aa0::sub_00e37aa0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x24;
 }
 
+struct C_00e37ab0 { int sub_00e37ab0(int param_2); };
 // @baa 0x00e37ab0
-int UPartyBeaconHost::sub_00e37ab0(int param_2)
+int C_00e37ab0::sub_00e37ab0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -967,16 +980,18 @@ struct C_00e37ac0 { void sub_00e33df0(int); C_00e37ac0 *sub_00e37ac0(int); };
 // @baa 0x00e37ac0
 C_00e37ac0 *C_00e37ac0::sub_00e37ac0(int a) { sub_00e33df0(a); return this; }
 
+struct C_00e37ae0 { int sub_00e37ae0(void); };
 // @baa 0x00e37ae0
-int UPartyBeaconHost::sub_00e37ae0(void)
+int C_00e37ae0::sub_00e37ae0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00e37b00 { int sub_00e37b00(void); };
 // @baa 0x00e37b00
-int UPartyBeaconHost::sub_00e37b00(void)
+int C_00e37b00::sub_00e37b00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -987,8 +1002,9 @@ struct C_view_00e37b10 {
     int sub_00e33450();
 };
 
+struct C_00e37b10 { undefined4 sub_00e37b10(byte param_2); };
 // @baa 0x00e37b10
-undefined4 UPartyBeaconHost::sub_00e37b10(byte param_2)
+undefined4 C_00e37b10::sub_00e37b10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00e37b10 *)(((char *)this + 0xc)))->sub_00e33450();
@@ -1002,8 +1018,9 @@ struct C_view_00e37b40 {
     int sub_0040fcc0();
 };
 
+struct C_00e37b40 { undefined4 sub_00e37b40(byte param_2); };
 // @baa 0x00e37b40
-undefined4 UPartyBeaconHost::sub_00e37b40(byte param_2)
+undefined4 C_00e37b40::sub_00e37b40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00e37b40 *)(((char *)this + 4)))->sub_0040fcc0();
@@ -1014,8 +1031,9 @@ undefined4 UPartyBeaconHost::sub_00e37b40(byte param_2)
 }
 
 int sub_00e33790(void);
+struct C_00e37b70 { undefined4 sub_00e37b70(byte param_2); };
 // @baa 0x00e37b70
-undefined4 UPartyBeaconHost::sub_00e37b70(byte param_2)
+undefined4 C_00e37b70::sub_00e37b70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1027,8 +1045,9 @@ undefined4 UPartyBeaconHost::sub_00e37b70(byte param_2)
 }
 
 int sub_00e337f0(void);
+struct C_00e37b90 { undefined4 sub_00e37b90(byte param_2); };
 // @baa 0x00e37b90
-undefined4 UPartyBeaconHost::sub_00e37b90(byte param_2)
+undefined4 C_00e37b90::sub_00e37b90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1039,16 +1058,18 @@ undefined4 UPartyBeaconHost::sub_00e37b90(byte param_2)
   return param_1;
 }
 
+struct C_00e37c30 { int sub_00e37c30(int param_2); };
 // @baa 0x00e37c30
-int UPartyBeaconHost::sub_00e37c30(int param_2)
+int C_00e37c30::sub_00e37c30(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x24;
 }
 
+struct C_00e37ca0 { int sub_00e37ca0(int param_2); };
 // @baa 0x00e37ca0
-int UPartyBeaconHost::sub_00e37ca0(int param_2)
+int C_00e37ca0::sub_00e37ca0(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x14;
@@ -1145,16 +1166,18 @@ struct C_00e395a0 { void sub_00e33df0(int); C_00e395a0 *sub_00e395a0(int); };
 // @baa 0x00e395a0
 C_00e395a0 *C_00e395a0::sub_00e395a0(int a) { sub_00e33df0(a); return this; }
 
+struct C_00e395c0 { int sub_00e395c0(void); };
 // @baa 0x00e395c0
-int UPartyBeaconHost::sub_00e395c0(void)
+int C_00e395c0::sub_00e395c0(void)
 {
     int param_1 = (int)this;
 
   return (*(int *)(param_1 + 0x14) < *(int *)(*(int *)(param_1 + 0xc) + 0x14)) - 1;
 }
 
+struct C_00e395e0 { int sub_00e395e0(void); };
 // @baa 0x00e395e0
-int UPartyBeaconHost::sub_00e395e0(void)
+int C_00e395e0::sub_00e395e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1345,8 +1368,9 @@ int C_00e3cd90::sub_00e3cd90(void)
 int sub_00e34900(void);
 extern undefined * g_020f5064;
 extern undefined * g_020f5080;
+struct C_00e3cdb0 { undefined4 * sub_00e3cdb0(void); };
 // @baa 0x00e3cdb0
-undefined4 * UPartyBeacon::sub_00e3cdb0(void)
+undefined4 * C_00e3cdb0::sub_00e3cdb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1372,8 +1396,9 @@ void C_00e3cdd0::sub_00e3ce70() {}
 int sub_00e34780(void);
 extern undefined * g_020f51a8;
 extern undefined * g_020f51c0;
+struct C_00e3cea0 { undefined4 * sub_00e3cea0(void); };
 // @baa 0x00e3cea0
-undefined4 * UMCPBase::sub_00e3cea0(void)
+undefined4 * C_00e3cea0::sub_00e3cea0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

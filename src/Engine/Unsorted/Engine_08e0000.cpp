@@ -47,8 +47,9 @@ struct C_view {
     int sub_008dcec0(int);
 };
 
+struct C_008eed30 { undefined4 sub_008eed30(undefined4 param_2); };
 // @baa 0x008eed30
-undefined4 USeqAct_Switch::sub_008eed30(undefined4 param_2)
+undefined4 C_008eed30::sub_008eed30(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_008dcec0(param_2);

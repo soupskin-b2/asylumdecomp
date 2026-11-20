@@ -22,8 +22,9 @@ undefined4 C::sub_016c6920(byte param_2)
 }
 
 int sub_00549160(void);
+struct C_016c6940 { undefined4 sub_016c6940(byte param_2); };
 // @baa 0x016c6940
-undefined4 UObject::sub_016c6940(byte param_2)
+undefined4 C_016c6940::sub_016c6940(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

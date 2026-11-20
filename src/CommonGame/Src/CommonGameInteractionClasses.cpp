@@ -37,8 +37,9 @@ IMPLEMENT_CLASS_AT(URInteractionComponent, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 int sub_005c7a20(void);
 extern undefined * g_022e6578;
+struct C_01542d20 { undefined4 * sub_01542d20(void); };
 // @baa 0x01542d20
-undefined4 * UObject::sub_01542d20(void)
+undefined4 * C_01542d20::sub_01542d20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -105,8 +106,9 @@ C_01545f30* C_01545f30::sub_01545f30(void) { return this; }
 
 int sub_005c7a70(...);
 int sub_0154a2f0(void);
+struct C_0154a370 { undefined4 sub_0154a370(byte param_2); };
 // @baa 0x0154a370
-undefined4 URInteractionManager::sub_0154a370(byte param_2)
+undefined4 C_0154a370::sub_0154a370(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -124,8 +124,9 @@ void UScriptedTexture::sub_00755fc0(void) { *(int*)((char*)this + 0) = (int)g_01
 void UScriptedTexture::sub_00755fd0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
 int sub_0053dfa0(...);
+struct C_00755fe0 { undefined4 * sub_00755fe0(byte param_2); };
 // @baa 0x00755fe0
-undefined4 * UScriptedTexture::sub_00755fe0(byte param_2)
+undefined4 * C_00755fe0::sub_00755fe0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -136,8 +137,9 @@ undefined4 * UScriptedTexture::sub_00755fe0(byte param_2)
   return param_1;
 }
 
+struct C_00756000 { undefined4 * sub_00756000(byte param_2); };
 // @baa 0x00756000
-undefined4 * UScriptedTexture::sub_00756000(byte param_2)
+undefined4 * C_00756000::sub_00756000(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -148,8 +150,9 @@ undefined4 * UScriptedTexture::sub_00756000(byte param_2)
   return param_1;
 }
 
+struct C_00756020 { undefined4 * sub_00756020(byte param_2); };
 // @baa 0x00756020
-undefined4 * UScriptedTexture::sub_00756020(byte param_2)
+undefined4 * C_00756020::sub_00756020(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

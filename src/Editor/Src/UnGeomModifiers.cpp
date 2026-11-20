@@ -81,8 +81,9 @@ UBOOL UGeomModifier_Weld::HasUniqueStaticConfigName() const { return 1; }
 // @baa 0x00fa4fb0
 int sub_005c7a20(void);
 extern undefined * g_021773f8;
+struct C_00fa4fd0 { undefined4 * sub_00fa4fd0(void); };
 // @baa 0x00fa4fd0
-undefined4 * UObject::sub_00fa4fd0(void)
+undefined4 * C_00fa4fd0::sub_00fa4fd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -96,8 +97,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Edit, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x00fa5050
 extern undefined * g_02177518;
+struct C_00fa5070 { undefined4 * sub_00fa5070(void); };
 // @baa 0x00fa5070
-undefined4 * UObject::sub_00fa5070(void)
+undefined4 * C_00fa5070::sub_00fa5070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -107,8 +109,9 @@ undefined4 * UObject::sub_00fa5070(void)
 }
 
 extern undefined * g_02177638;
+struct C_00fa5090 { undefined4 * sub_00fa5090(void); };
 // @baa 0x00fa5090
-undefined4 * UObject::sub_00fa5090(void)
+undefined4 * C_00fa5090::sub_00fa5090(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -122,8 +125,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Clip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x00fa5110
 extern undefined * g_02177758;
+struct C_00fa5130 { undefined4 * sub_00fa5130(void); };
 // @baa 0x00fa5130
-undefined4 * UObject::sub_00fa5130(void)
+undefined4 * C_00fa5130::sub_00fa5130(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -137,8 +141,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Create, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00fa51b0
 extern undefined * g_02177878;
+struct C_00fa51d0 { undefined4 * sub_00fa51d0(void); };
 // @baa 0x00fa51d0
-undefined4 * UObject::sub_00fa51d0(void)
+undefined4 * C_00fa51d0::sub_00fa51d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -152,8 +157,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Delete, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x00fa5250
 extern undefined * g_02177998;
+struct C_00fa5270 { undefined4 * sub_00fa5270(void); };
 // @baa 0x00fa5270
-undefined4 * UObject::sub_00fa5270(void)
+undefined4 * C_00fa5270::sub_00fa5270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -167,8 +173,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Extrude, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 // @baa 0x00fa52f0
 extern undefined * g_02177ab8;
+struct C_00fa5310 { undefined4 * sub_00fa5310(void); };
 // @baa 0x00fa5310
-undefined4 * UObject::sub_00fa5310(void)
+undefined4 * C_00fa5310::sub_00fa5310(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -182,8 +189,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Flip, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x00fa5390
 extern undefined * g_02177bd8;
+struct C_00fa53b0 { undefined4 * sub_00fa53b0(void); };
 // @baa 0x00fa53b0
-undefined4 * UObject::sub_00fa53b0(void)
+undefined4 * C_00fa53b0::sub_00fa53b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -197,8 +205,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Lathe, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00fa5430
 extern undefined * g_02177cf8;
+struct C_00fa5450 { undefined4 * sub_00fa5450(void); };
 // @baa 0x00fa5450
-undefined4 * UObject::sub_00fa5450(void)
+undefined4 * C_00fa5450::sub_00fa5450(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -212,8 +221,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Split, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00fa54d0
 extern undefined * g_02177e18;
+struct C_00fa54f0 { undefined4 * sub_00fa54f0(void); };
 // @baa 0x00fa54f0
-undefined4 * UObject::sub_00fa54f0(void)
+undefined4 * C_00fa54f0::sub_00fa54f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -227,8 +237,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Triangulate, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x00fa5570
 extern undefined * g_02177f38;
+struct C_00fa5590 { undefined4 * sub_00fa5590(void); };
 // @baa 0x00fa5590
-undefined4 * UObject::sub_00fa5590(void)
+undefined4 * C_00fa5590::sub_00fa5590(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -242,8 +253,9 @@ IMPLEMENT_CLASS_AT(UGeomModifier_Turn, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x00fa5610
 extern undefined * g_02178058;
+struct C_00fa5630 { undefined4 * sub_00fa5630(void); };
 // @baa 0x00fa5630
-undefined4 * UObject::sub_00fa5630(void)
+undefined4 * C_00fa5630::sub_00fa5630(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

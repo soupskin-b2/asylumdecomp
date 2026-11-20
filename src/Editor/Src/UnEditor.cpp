@@ -49,8 +49,9 @@ IMPLEMENT_CLASS_AT(ULightingChannelsObject, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 int sub_0053dfa0(...);
 extern undefined4 g_02158e54;
+struct C_00f51ba0 { undefined4 * sub_00f51ba0(byte param_2); };
 // @baa 0x00f51ba0
-undefined4 * ULightingChannelsObject::sub_00f51ba0(byte param_2)
+undefined4 * C_00f51ba0::sub_00f51ba0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -61,8 +62,9 @@ undefined4 * ULightingChannelsObject::sub_00f51ba0(byte param_2)
   return param_1;
 }
 
+struct C_00f51bc0 { undefined4 * sub_00f51bc0(byte param_2); };
 // @baa 0x00f51bc0
-undefined4 * ULightingChannelsObject::sub_00f51bc0(byte param_2)
+undefined4 * C_00f51bc0::sub_00f51bc0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -102,8 +104,9 @@ void C_00f51c00::sub_00f51c00(int * param_2)
 }
 
 int sub_00c38ac0(void);
+struct C_00f51c20 { undefined4 sub_00f51c20(byte param_2); };
 // @baa 0x00f51c20
-undefined4 UObject::sub_00f51c20(byte param_2)
+undefined4 C_00f51c20::sub_00f51c20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -114,8 +117,9 @@ undefined4 UObject::sub_00f51c20(byte param_2)
   return param_1;
 }
 
+struct C_00f51c40 { undefined4 sub_00f51c40(byte param_2); };
 // @baa 0x00f51c40
-undefined4 UObject::sub_00f51c40(byte param_2)
+undefined4 C_00f51c40::sub_00f51c40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -126,8 +130,9 @@ undefined4 UObject::sub_00f51c40(byte param_2)
   return param_1;
 }
 
+struct C_00f51c60 { undefined4 sub_00f51c60(byte param_2); };
 // @baa 0x00f51c60
-undefined4 UObject::sub_00f51c60(byte param_2)
+undefined4 C_00f51c60::sub_00f51c60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -309,8 +314,9 @@ C_00f557a0* C_00f557a0::sub_00f557a0(void) { *(int*)((char*)this + 0) = (int)g_0
 IMPLEMENT_CLASS_AT(UEditorEngine, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Editor\\Src\\UnEditor.cpp", 76);
 
 int sub_00f683d0(void);
+struct C_00f684d0 { undefined4 sub_00f684d0(byte param_2); };
 // @baa 0x00f684d0
-undefined4 UEditorEngine::sub_00f684d0(byte param_2)
+undefined4 C_00f684d0::sub_00f684d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

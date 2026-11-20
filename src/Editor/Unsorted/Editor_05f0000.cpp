@@ -23,8 +23,9 @@ struct C_view {
 };
 
 extern undefined * g_01ea6f00;
+struct C_005fa990 { undefined4 * sub_005fa990(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6); };
 // @baa 0x005fa990
-undefined4 * UStrProperty::sub_005fa990(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
+undefined4 * C_005fa990::sub_005fa990(undefined4 param_2, undefined4 param_3, undefined4 param_4, undefined4 param_5, undefined4 param_6)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_0062dc50(0, param_3, param_4, param_5, param_6);

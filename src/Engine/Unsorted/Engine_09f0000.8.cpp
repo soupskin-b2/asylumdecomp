@@ -5,8 +5,9 @@
 
 int sub_005c7a20(void);
 extern undefined * g_01fb33a8;
+struct C_009f7290 { undefined4 * sub_009f7290(void); };
 // @baa 0x009f7290
-undefined4 * UObject::sub_009f7290(void)
+undefined4 * C_009f7290::sub_009f7290(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -16,8 +17,9 @@ undefined4 * UObject::sub_009f7290(void)
 }
 
 extern undefined * g_01fb3510;
+struct C_009f7370 { undefined4 * sub_009f7370(void); };
 // @baa 0x009f7370
-undefined4 * UObject::sub_009f7370(void)
+undefined4 * C_009f7370::sub_009f7370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

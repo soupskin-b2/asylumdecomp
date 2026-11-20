@@ -172,8 +172,9 @@ IMPLEMENT_CLASS_AT(UInterpFilter, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x00cf1190
 int sub_005c7a20(void);
 extern undefined * g_02098808;
+struct C_00cf11b0 { undefined4 * sub_00cf11b0(void); };
 // @baa 0x00cf11b0
-undefined4 * UObject::sub_00cf11b0(void)
+undefined4 * C_00cf11b0::sub_00cf11b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -410,8 +411,9 @@ void __stdcall sub_00cf87a0(int a0, int a1) {  }
 
 int sub_0053dfa0(...);
 int sub_00cf6650(void);
+struct C_00cf87b0 { undefined4 sub_00cf87b0(byte param_2); };
 // @baa 0x00cf87b0
-undefined4 UInterpTrackFaceFX::sub_00cf87b0(byte param_2)
+undefined4 C_00cf87b0::sub_00cf87b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -446,8 +448,9 @@ C_00cf8b50& C_00cf8b50::sub_00cf8b50(int Arg)
 }
 
 extern undefined * g_02098918;
+struct C_00cf8cf0 { undefined4 * sub_00cf8cf0(void); };
 // @baa 0x00cf8cf0
-undefined4 * UObject::sub_00cf8cf0(void)
+undefined4 * C_00cf8cf0::sub_00cf8cf0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

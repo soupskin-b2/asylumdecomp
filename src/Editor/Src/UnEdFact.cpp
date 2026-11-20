@@ -106,8 +106,9 @@ IMPLEMENT_CLASS_AT(UFontFactory, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x00ed81b0
 int sub_00f33220(void);
 extern undefined * g_02132700;
+struct C_00ed9d70 { undefined4 * sub_00ed9d70(void); };
 // @baa 0x00ed9d70
-undefined4 * UFontFactory::sub_00ed9d70(void)
+undefined4 * C_00ed9d70::sub_00ed9d70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -935,8 +936,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00f25880 { undefined4 * sub_00f25880(int * param_2); };
 // @baa 0x00f25880
-undefined4 * UObject::sub_00f25880(int * param_2)
+undefined4 * C_00f25880::sub_00f25880(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -1387,8 +1389,9 @@ void C_00f33420::sub_00f334d0() {}
 
 int sub_005c7a70(...);
 int sub_00f33430(void);
+struct C_00f334d0 { undefined4 sub_00f334d0(byte param_2); };
 // @baa 0x00f334d0
-undefined4 UReimportTextureFactory::sub_00f334d0(byte param_2)
+undefined4 C_00f334d0::sub_00f334d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1411,8 +1414,9 @@ C_00f33580::C_00f33580() {}
 void C_00f33580::sub_00f33630() {}
 
 int sub_00f33590(void);
+struct C_00f33630 { undefined4 sub_00f33630(byte param_2); };
 // @baa 0x00f33630
-undefined4 UReimportStaticMeshFactory::sub_00f33630(byte param_2)
+undefined4 C_00f33630::sub_00f33630(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1435,8 +1439,9 @@ C_00f336e0::C_00f336e0() {}
 void C_00f336e0::sub_00f33790() {}
 
 int sub_00f336f0(void);
+struct C_00f33790 { undefined4 sub_00f33790(byte param_2); };
 // @baa 0x00f33790
-undefined4 UReimportSkeletalMeshFactory::sub_00f33790(byte param_2)
+undefined4 C_00f33790::sub_00f33790(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1459,8 +1464,9 @@ C_00f33840::C_00f33840() {}
 void C_00f33840::sub_00f338f0() {}
 
 int sub_00f33850(void);
+struct C_00f338f0 { undefined4 sub_00f338f0(byte param_2); };
 // @baa 0x00f338f0
-undefined4 UReimportSoundFactory::sub_00f338f0(byte param_2)
+undefined4 C_00f338f0::sub_00f338f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

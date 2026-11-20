@@ -688,8 +688,9 @@ int C_007be780::sub_007be780(int param_2)
 }
 
 int sub_007c2c10(...);
+struct C_007c2d30 { undefined4 sub_007c2d30(void); };
 // @baa 0x007c2d30
-undefined4 UFracturedBaseComponent::sub_007c2d30(void)
+undefined4 C_007c2d30::sub_007c2d30(void)
 {
     int param_1 = (int)this;
 
@@ -747,8 +748,9 @@ struct C_007c5660 { void sub_00792b40(int); C_007c5660 *sub_007c5660(int); };
 C_007c5660 *C_007c5660::sub_007c5660(int a) { sub_00792b40(a); return this; }
 
 int sub_007c2bc0(void);
+struct C_007c58b0 { undefined4 sub_007c58b0(byte param_2); };
 // @baa 0x007c58b0
-undefined4 UFracturedBaseComponent::sub_007c58b0(byte param_2)
+undefined4 C_007c58b0::sub_007c58b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -760,8 +762,9 @@ undefined4 UFracturedBaseComponent::sub_007c58b0(byte param_2)
 }
 
 int sub_007c2d50(void);
+struct C_007c5940 { undefined4 sub_007c5940(byte param_2); };
 // @baa 0x007c5940
-undefined4 UFracturedBaseComponent::sub_007c5940(byte param_2)
+undefined4 C_007c5940::sub_007c5940(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -773,8 +776,9 @@ undefined4 UFracturedBaseComponent::sub_007c5940(byte param_2)
 }
 
 int sub_007c2fd0(void);
+struct C_007c59d0 { undefined4 sub_007c59d0(byte param_2); };
 // @baa 0x007c59d0
-undefined4 UFracturedBaseComponent::sub_007c59d0(byte param_2)
+undefined4 C_007c59d0::sub_007c59d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -826,8 +830,9 @@ FSparseArrayConstIt_007c86b0::FSparseArrayConstIt_007c86b0(const TSparseArray<IN
 // @baa 0x007c8860
 int sub_009799d0(void);
 extern undefined * g_01f29ec0;
+struct C_007c8890 { undefined4 * sub_007c8890(void); };
 // @baa 0x007c8890
-undefined4 * UStaticMeshComponent::sub_007c8890(void)
+undefined4 * C_007c8890::sub_007c8890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -971,8 +976,9 @@ UStaticMesh::UStaticMesh()
 
 int sub_005c7a70(...);
 int sub_007ca3e0(void);
+struct C_007ca4e0 { undefined4 sub_007ca4e0(byte param_2); };
 // @baa 0x007ca4e0
-undefined4 UStaticMesh::sub_007ca4e0(byte param_2)
+undefined4 C_007ca4e0::sub_007ca4e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

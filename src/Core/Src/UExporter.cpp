@@ -68,8 +68,9 @@ void sub_0061bbd0(void) { sub_00617350(); }
 int sub_0060dda0(void);
 extern undefined2 g_025d6ac8;
 extern undefined2 g_026a4b20;
+struct C_0061bc70 { int sub_0061bc70(void); };
 // @baa 0x0061bc70
-int UPackageMap::sub_0061bc70(void)
+int C_0061bc70::sub_0061bc70(void)
 {
     int param_1 = (int)this;
 
@@ -83,8 +84,9 @@ int UPackageMap::sub_0061bc70(void)
 
 int sub_0053dfa0(...);
 int sub_0061b180(void);
+struct C_0061bd50 { undefined4 sub_0061bd50(byte param_2); };
 // @baa 0x0061bd50
-undefined4 UHelpCommandlet::sub_0061bd50(byte param_2)
+undefined4 C_0061bd50::sub_0061bd50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

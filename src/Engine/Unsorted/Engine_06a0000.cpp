@@ -161,8 +161,9 @@ struct C_view {
 };
 
 int sub_0053df70(...);
+struct C_006a2bc0 { void sub_006a2bc0(void); };
 // @baa 0x006a2bc0
-void UObject::sub_006a2bc0(void)
+void C_006a2bc0::sub_006a2bc0(void)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -182,8 +183,9 @@ struct C_view_006a3200 {
     int sub_006a2410(int);
 };
 
+struct C_006a3200 { void sub_006a3200(void); };
 // @baa 0x006a3200
-void UObject::sub_006a3200(void)
+void C_006a3200::sub_006a3200(void)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -790,8 +792,9 @@ struct C_view_006a8c90 {
 };
 
 int sub_00716170(...);
+struct C_006a8c90 { undefined4 sub_006a8c90(undefined4 param_2); };
 // @baa 0x006a8c90
-undefined4 UMorphWeightSequence::sub_006a8c90(undefined4 param_2)
+undefined4 C_006a8c90::sub_006a8c90(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -1165,8 +1168,9 @@ struct C_006abac0 { C_006abac0* sub_006abac0(void); };
 C_006abac0* C_006abac0::sub_006abac0(void) { *(int*)((char*)this + 0) = 0; return this; }
 
 int sub_00c44850(void);
+struct C_006abad0 { undefined4 sub_006abad0(byte param_2); };
 // @baa 0x006abad0
-undefined4 UFogVolumeConeDensityComponent::sub_006abad0(byte param_2)
+undefined4 C_006abad0::sub_006abad0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1224,8 +1228,9 @@ void UFogVolumeConeDensityComponent::sub_006abb70(void) { *(int*)((char*)this + 
 // @baa 0x006abb80
 void UFogVolumeConeDensityComponent::sub_006abb80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abb90 { undefined4 * sub_006abb90(byte param_2); };
 // @baa 0x006abb90
-undefined4 * UFogVolumeConeDensityComponent::sub_006abb90(byte param_2)
+undefined4 * C_006abb90::sub_006abb90(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1236,8 +1241,9 @@ undefined4 * UFogVolumeConeDensityComponent::sub_006abb90(byte param_2)
   return param_1;
 }
 
+struct C_006abbb0 { undefined4 * sub_006abbb0(byte param_2); };
 // @baa 0x006abbb0
-undefined4 * UFogVolumeConeDensityComponent::sub_006abbb0(byte param_2)
+undefined4 * C_006abbb0::sub_006abbb0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1256,8 +1262,9 @@ void C_006abbd0::sub_006abbd0(void) { *(int*)((char*)this + 216) = 1; }
 // @baa 0x006abc10
 int sub_006abc10(void) { return 1; }
 
+struct C_006abc40 { undefined4 sub_006abc40(void); };
 // @baa 0x006abc40
-undefined4 UFogVolumeConeDensityComponent::sub_006abc40(void)
+undefined4 C_006abc40::sub_006abc40(void)
 {
     int param_1 = (int)this;
 
@@ -1276,8 +1283,9 @@ int sub_006abc70(void) { return (int)g_01ec3d64; }
 // @baa 0x006abc80
 void UFogVolumeConeDensityComponent::sub_006abc80(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abc90 { undefined4 * sub_006abc90(byte param_2); };
 // @baa 0x006abc90
-undefined4 * UFogVolumeConeDensityComponent::sub_006abc90(byte param_2)
+undefined4 * C_006abc90::sub_006abc90(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1319,8 +1327,9 @@ void UFogVolumeConeDensityComponent::sub_006abd30(void) { *(int*)((char*)this + 
 // @baa 0x006abd40
 void UFogVolumeConeDensityComponent::sub_006abd40(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abd50 { undefined4 * sub_006abd50(byte param_2); };
 // @baa 0x006abd50
-undefined4 * UFogVolumeConeDensityComponent::sub_006abd50(byte param_2)
+undefined4 * C_006abd50::sub_006abd50(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1331,8 +1340,9 @@ undefined4 * UFogVolumeConeDensityComponent::sub_006abd50(byte param_2)
   return param_1;
 }
 
+struct C_006abd70 { undefined4 * sub_006abd70(byte param_2); };
 // @baa 0x006abd70
-undefined4 * UFogVolumeConeDensityComponent::sub_006abd70(byte param_2)
+undefined4 * C_006abd70::sub_006abd70(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1349,8 +1359,9 @@ int UFogVolumeConeDensityComponent::sub_006abe80(void) { return *(int*)((char*)t
 // @baa 0x006abe90
 int UFogVolumeConeDensityComponent::sub_006abe90(void) { return *(int*)((char*)this + 64); }
 
+struct C_006abec0 { undefined4 sub_006abec0(void); };
 // @baa 0x006abec0
-undefined4 UFogVolumeConeDensityComponent::sub_006abec0(void)
+undefined4 C_006abec0::sub_006abec0(void)
 {
     int param_1 = (int)this;
 
@@ -1365,8 +1376,9 @@ int sub_006abed0(void) { return (int)g_01ec45a4; }
 // @baa 0x006abee0
 void UFogVolumeConeDensityComponent::sub_006abee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abef0 { undefined4 * sub_006abef0(byte param_2); };
 // @baa 0x006abef0
-undefined4 * UFogVolumeConeDensityComponent::sub_006abef0(byte param_2)
+undefined4 * C_006abef0::sub_006abef0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1398,8 +1410,9 @@ int sub_006abf60(void) { return (int)g_01ec484c; }
 // @baa 0x006abf70
 void UFogVolumeConeDensityComponent::sub_006abf70(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006abf80 { undefined4 * sub_006abf80(byte param_2); };
 // @baa 0x006abf80
-undefined4 * UFogVolumeConeDensityComponent::sub_006abf80(byte param_2)
+undefined4 * C_006abf80::sub_006abf80(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1425,8 +1438,9 @@ int sub_006ac020(void) { return (int)g_01ec4c0c; }
 // @baa 0x006ac030
 void UFogVolumeConeDensityComponent::sub_006ac030(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006ac040 { undefined4 * sub_006ac040(byte param_2); };
 // @baa 0x006ac040
-undefined4 * UFogVolumeConeDensityComponent::sub_006ac040(byte param_2)
+undefined4 * C_006ac040::sub_006ac040(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1444,8 +1458,9 @@ int sub_006ac080(void) { return (int)g_01ec4fc4; }
 // @baa 0x006ac090
 void UFogVolumeConeDensityComponent::sub_006ac090(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006ac0a0 { undefined4 * sub_006ac0a0(byte param_2); };
 // @baa 0x006ac0a0
-undefined4 * UFogVolumeConeDensityComponent::sub_006ac0a0(byte param_2)
+undefined4 * C_006ac0a0::sub_006ac0a0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1459,8 +1474,9 @@ undefined4 * UFogVolumeConeDensityComponent::sub_006ac0a0(byte param_2)
 // @baa 0x006ac0c0
 void __stdcall sub_006ac0c0(int a0, int a1) {  }
 
+struct C_006ac260 { void sub_006ac260(undefined4 param_2); };
 // @baa 0x006ac260
-void UFogVolumeConeDensityComponent::sub_006ac260(undefined4 param_2)
+void C_006ac260::sub_006ac260(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -1493,8 +1509,9 @@ int sub_006ac2a0(void) { return (int)g_01ec5f84; }
 // @baa 0x006ac2b0
 void UFogVolumeConeDensityComponent::sub_006ac2b0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_006ac2c0 { undefined4 * sub_006ac2c0(byte param_2); };
 // @baa 0x006ac2c0
-undefined4 * UFogVolumeConeDensityComponent::sub_006ac2c0(byte param_2)
+undefined4 * C_006ac2c0::sub_006ac2c0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1662,8 +1679,9 @@ UBOOL ULightEnvironmentComponent::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_006ad770 { uint sub_006ad770(void); };
 // @baa 0x006ad770
-uint ULightEnvironmentComponent::sub_006ad770(void)
+uint C_006ad770::sub_006ad770(void)
 {
     int param_1 = (int)this;
 

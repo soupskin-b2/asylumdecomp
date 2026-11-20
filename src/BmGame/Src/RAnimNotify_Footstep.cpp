@@ -22,8 +22,9 @@ IMPLEMENT_CLASS_AT(URAnimNotify_Footstep, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 int sub_005c7a20(void);
 extern undefined * g_0231c110;
+struct C_015939c0 { undefined4 * sub_015939c0(void); };
 // @baa 0x015939c0
-undefined4 * UObject::sub_015939c0(void)
+undefined4 * C_015939c0::sub_015939c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -33,8 +34,9 @@ undefined4 * UObject::sub_015939c0(void)
 }
 
 extern undefined * g_0231c228;
+struct C_01593a80 { undefined4 * sub_01593a80(void); };
 // @baa 0x01593a80
-undefined4 * UObject::sub_01593a80(void)
+undefined4 * C_01593a80::sub_01593a80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

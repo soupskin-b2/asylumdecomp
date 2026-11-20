@@ -297,8 +297,9 @@ int C_00a70e60::sub_00a70e60(void)
 }
 
 extern undefined4*g_026b0d94;
+struct C_00a71a40 { void sub_00a71a40(void); };
 // @baa 0x00a71a40
-void ULensFlare::sub_00a71a40(void)
+void C_00a71a40::sub_00a71a40(void)
 {
 int param_1=(int)this;
 

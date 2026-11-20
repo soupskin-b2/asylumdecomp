@@ -3,8 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_01962440 { int sub_01962440(void); };
 // @baa 0x01962440
-int UGFxDataStoreSubscriber::sub_01962440(void)
+int C_01962440::sub_01962440(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -15,8 +16,9 @@ struct C_view {
     int sub_0195e8a0(int);
 };
 
+struct C_019635a0 { void sub_019635a0(void); };
 // @baa 0x019635a0
-void UGFxDataStoreSubscriber::sub_019635a0(void)
+void C_019635a0::sub_019635a0(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_0195e8a0(*(int *)(param_1 + 4) + -1);

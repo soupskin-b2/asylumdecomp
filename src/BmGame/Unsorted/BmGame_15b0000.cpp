@@ -5,8 +5,9 @@
 
 int sub_005c7a20(void);
 extern undefined * g_0231d538;
+struct C_015b41c0 { undefined4 * sub_015b41c0(void); };
 // @baa 0x015b41c0
-undefined4 * UObject::sub_015b41c0(void)
+undefined4 * C_015b41c0::sub_015b41c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -16,8 +17,9 @@ undefined4 * UObject::sub_015b41c0(void)
 }
 
 extern undefined * g_0231d6d8;
+struct C_015b4270 { undefined4 * sub_015b4270(void); };
 // @baa 0x015b4270
-undefined4 * UObject::sub_015b4270(void)
+undefined4 * C_015b4270::sub_015b4270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -117,8 +119,9 @@ undefined4 sub_015bcd40(uint * param_1, uint * param_2)
 int sub_015bce50(int a0, int a1) { return a1; }
 
 extern undefined * g_02325fe0;
+struct C_015bce60 { undefined4 * sub_015bce60(void); };
 // @baa 0x015bce60
-undefined4 * UObject::sub_015bce60(void)
+undefined4 * C_015bce60::sub_015bce60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -138,8 +141,9 @@ undefined4 sub_015bcf00(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_023260f0;
+struct C_015bcf10 { undefined4 * sub_015bcf10(void); };
 // @baa 0x015bcf10
-undefined4 * UObject::sub_015bcf10(void)
+undefined4 * C_015bcf10::sub_015bcf10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -362,8 +366,9 @@ undefined4 sub_015be290(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02327460;
+struct C_015be2a0 { undefined4 * sub_015be2a0(void); };
 // @baa 0x015be2a0
-undefined4 * UObject::sub_015be2a0(void)
+undefined4 * C_015be2a0::sub_015be2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -380,8 +385,9 @@ IMPLEMENT_CLASS_AT(URAnimUtil_PosePlayer, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 int sub_015be360(int a0, int a1) { return a1; }
 
 extern undefined * g_02327570;
+struct C_015be370 { undefined4 * sub_015be370(void); };
 // @baa 0x015be370
-undefined4 * UObject::sub_015be370(void)
+undefined4 * C_015be370::sub_015be370(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -403,8 +409,9 @@ C_015be410::C_015be410(int x, int y) : a(x), b(y) {}
 int sub_015be4b0(int a0, int a1) { return a1; }
 
 extern undefined * g_02327680;
+struct C_015be4c0 { undefined4 * sub_015be4c0(void); };
 // @baa 0x015be4c0
-undefined4 * UObject::sub_015be4c0(void)
+undefined4 * C_015be4c0::sub_015be4c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -424,8 +431,9 @@ undefined4 sub_015be560(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_02327790;
+struct C_015be570 { undefined4 * sub_015be570(void); };
 // @baa 0x015be570
-undefined4 * UObject::sub_015be570(void)
+undefined4 * C_015be570::sub_015be570(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -445,8 +453,9 @@ undefined4 sub_015be610(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_023278a0;
+struct C_015be620 { undefined4 * sub_015be620(void); };
 // @baa 0x015be620
-undefined4 * UObject::sub_015be620(void)
+undefined4 * C_015be620::sub_015be620(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -463,8 +472,9 @@ IMPLEMENT_CLASS_AT(URAnimUtil_Layers, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 int sub_015be700(int a0, int a1) { return a1; }
 
 extern undefined * g_023279b0;
+struct C_015be710 { undefined4 * sub_015be710(void); };
 // @baa 0x015be710
-undefined4 * UObject::sub_015be710(void)
+undefined4 * C_015be710::sub_015be710(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

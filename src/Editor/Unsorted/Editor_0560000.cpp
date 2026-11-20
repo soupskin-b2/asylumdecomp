@@ -3,16 +3,18 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_00567940 { bool sub_00567940(void); };
 // @baa 0x00567940
-bool UTexture2D::sub_00567940(void)
+bool C_00567940::sub_00567940(void)
 {
     int param_1 = (int)this;
 
   return *(int *)(param_1 + 0x24) != 0;
 }
 
+struct C_00567950 { uint sub_00567950(void); };
 // @baa 0x00567950
-uint UTexture2D::sub_00567950(void)
+uint C_00567950::sub_00567950(void)
 {
     int param_1 = (int)this;
 

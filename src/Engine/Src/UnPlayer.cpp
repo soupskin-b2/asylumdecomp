@@ -435,8 +435,9 @@ void C_00895760::sub_00895760() {
 
 int sub_0053dfa0(...);
 int sub_00895880(void);
+struct C_00895a20 { undefined4 sub_00895a20(byte param_2); };
 // @baa 0x00895a20
-undefined4 UTextureCube::sub_00895a20(byte param_2)
+undefined4 C_00895a20::sub_00895a20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -448,8 +449,9 @@ undefined4 UTextureCube::sub_00895a20(byte param_2)
 }
 
 int sub_008959b0(void);
+struct C_00895a40 { undefined4 sub_00895a40(byte param_2); };
 // @baa 0x00895a40
-undefined4 UTextureCube::sub_00895a40(byte param_2)
+undefined4 C_00895a40::sub_00895a40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -810,8 +812,9 @@ class UObject* UGameViewportClient::GetUObject() { return this; }
 // @baa 0x0089f6d0
 int sub_005c7a70(...);
 int sub_0089f6d0(void);
+struct C_0089f7b0 { undefined4 sub_0089f7b0(byte param_2); };
 // @baa 0x0089f7b0
-undefined4 UGameViewportClient::sub_0089f7b0(byte param_2)
+undefined4 C_0089f7b0::sub_0089f7b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -826,8 +829,9 @@ undefined4 UGameViewportClient::sub_0089f7b0(byte param_2)
 void sub_0089f7e0(void) { sub_0089e210(); }
 
 int sub_0089f8b0(void);
+struct C_0089f930 { undefined4 sub_0089f930(byte param_2); };
 // @baa 0x0089f930
-undefined4 ULocalPlayer::sub_0089f930(byte param_2)
+undefined4 C_0089f930::sub_0089f930(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -901,8 +905,9 @@ int sub_0089f640(void);
 extern undefined4 g_02107540;
 extern undefined * g_02107548;
 extern undefined * g_021075a8;
+struct C_00e67de0 { undefined4 * sub_00e67de0(void); };
 // @baa 0x00e67de0
-undefined4 * UGameViewportClient::sub_00e67de0(void)
+undefined4 * C_00e67de0::sub_00e67de0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -916,8 +921,9 @@ undefined4 * UGameViewportClient::sub_00e67de0(void)
 int sub_0089f7f0(void);
 extern undefined4 g_02132370;
 extern undefined * g_02132378;
+struct C_00ed7f30 { undefined4 * sub_00ed7f30(void); };
 // @baa 0x00ed7f30
-undefined4 * ULocalPlayer::sub_00ed7f30(void)
+undefined4 * C_00ed7f30::sub_00ed7f30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -930,8 +936,9 @@ undefined4 * ULocalPlayer::sub_00ed7f30(void)
 extern undefined4 g_023a5f84;
 extern undefined * g_023a5f88;
 extern undefined * g_023a5fe8;
+struct C_016e5820 { undefined4 * sub_016e5820(void); };
 // @baa 0x016e5820
-undefined4 * UGameViewportClient::sub_016e5820(void)
+undefined4 * C_016e5820::sub_016e5820(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

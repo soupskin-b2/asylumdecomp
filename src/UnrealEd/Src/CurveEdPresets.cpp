@@ -30,8 +30,9 @@ IMPLEMENT_CLASS_AT(UCurveEdPreset_UserSet, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 int sub_005c7a20(void);
 extern undefined * g_021bd7c8;
+struct C_011195a0 { undefined4 * sub_011195a0(void); };
 // @baa 0x011195a0
-undefined4 * UObject::sub_011195a0(void)
+undefined4 * C_011195a0::sub_011195a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -41,8 +42,9 @@ undefined4 * UObject::sub_011195a0(void)
 }
 
 extern undefined * g_021bd8d8;
+struct C_011195f0 { undefined4 * sub_011195f0(void); };
 // @baa 0x011195f0
-undefined4 * UObject::sub_011195f0(void)
+undefined4 * C_011195f0::sub_011195f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -52,8 +54,9 @@ undefined4 * UObject::sub_011195f0(void)
 }
 
 extern undefined * g_021bd9e8;
+struct C_011196a0 { undefined4 * sub_011196a0(void); };
 // @baa 0x011196a0
-undefined4 * UObject::sub_011196a0(void)
+undefined4 * C_011196a0::sub_011196a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -63,8 +66,9 @@ undefined4 * UObject::sub_011196a0(void)
 }
 
 extern undefined * g_021bdaf8;
+struct C_01119750 { undefined4 * sub_01119750(void); };
 // @baa 0x01119750
-undefined4 * UObject::sub_01119750(void)
+undefined4 * C_01119750::sub_01119750(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -74,8 +78,9 @@ undefined4 * UObject::sub_01119750(void)
 }
 
 extern undefined * g_021bdc08;
+struct C_01119800 { undefined4 * sub_01119800(void); };
 // @baa 0x01119800
-undefined4 * UObject::sub_01119800(void)
+undefined4 * C_01119800::sub_01119800(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -85,8 +90,9 @@ undefined4 * UObject::sub_01119800(void)
 }
 
 extern undefined * g_021bdd18;
+struct C_011198b0 { undefined4 * sub_011198b0(void); };
 // @baa 0x011198b0
-undefined4 * UObject::sub_011198b0(void)
+undefined4 * C_011198b0::sub_011198b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

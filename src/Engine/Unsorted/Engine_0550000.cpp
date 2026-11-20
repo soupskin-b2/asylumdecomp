@@ -43,8 +43,9 @@ struct C_view {
     int sub_0054e6c0(int);
 };
 
+struct C_00551920 { undefined4 sub_00551920(undefined4 param_2); };
 // @baa 0x00551920
-undefined4 UObject::sub_00551920(undefined4 param_2)
+undefined4 C_00551920::sub_00551920(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_0054e6c0(param_2);
@@ -111,8 +112,9 @@ struct C_view_00558220 {
     int sub_005560b0(int);
 };
 
+struct C_00558220 { void sub_00558220(void); };
 // @baa 0x00558220
-void UPackageMap::sub_00558220(void)
+void C_00558220::sub_00558220(void)
 {
     int param_1 = (int)this;
   ((C_view_00558220 *)((*(char **)((char *)this + 0x10))))->sub_005560b0(*(undefined4 *)(param_1 + 8));

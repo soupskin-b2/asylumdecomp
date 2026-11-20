@@ -57,8 +57,9 @@ void C_013a2fb0::sub_013a2fb0(wxDCBase * param_2, int * param_3)
 
 extern undefined4 g_026d8f84;
 extern undefined4 g_026d8f8c;
+struct C_013a2fe0 { void sub_013a2fe0(int param_2); };
 // @baa 0x013a2fe0
-void UUnrealEdEngine::sub_013a2fe0(int param_2)
+void C_013a2fe0::sub_013a2fe0(int param_2)
 {
     int param_1 = (int)this;
 
@@ -100,8 +101,9 @@ extern char g_026d9104[];
 // @baa 0x013a32a0
 int sub_013a32a0(void) { return (int)g_026d9104; }
 
+struct C_013a3390 { void sub_013a3390(int param_2); };
 // @baa 0x013a3390
-void UUnrealEdEngine::sub_013a3390(int param_2)
+void C_013a3390::sub_013a3390(int param_2)
 {
     int param_1 = (int)this;
 
@@ -111,8 +113,9 @@ void UUnrealEdEngine::sub_013a3390(int param_2)
   return;
 }
 
+struct C_013a33d0 { void sub_013a33d0(void); };
 // @baa 0x013a33d0
-void UUnrealEdEngine::sub_013a33d0(void)
+void C_013a33d0::sub_013a33d0(void)
 {
     int param_1 = (int)this;
 
@@ -130,8 +133,9 @@ int sub_013a3430(void) { return (int)g_026d93a0; }
 
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
+struct C_013a3480 { void sub_013a3480(void); };
 // @baa 0x013a3480
-void UUnrealEdEngine::sub_013a3480(void)
+void C_013a3480::sub_013a3480(void)
 {
     int param_1 = (int)this;
   int *piVar1;
@@ -143,8 +147,9 @@ void UUnrealEdEngine::sub_013a3480(void)
   return;
 }
 
+struct C_013a34b0 { void sub_013a34b0(void); };
 // @baa 0x013a34b0
-void UUnrealEdEngine::sub_013a34b0(void)
+void C_013a34b0::sub_013a34b0(void)
 {
     int param_1 = (int)this;
 
@@ -2369,8 +2374,9 @@ int C_013aee20::sub_013aee20(void)
 }
 
 int sub_013aa100(void);
+struct C_013aee40 { undefined4 sub_013aee40(byte param_2); };
 // @baa 0x013aee40
-undefined4 UUnrealEdEngine::sub_013aee40(byte param_2)
+undefined4 C_013aee40::sub_013aee40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2388,16 +2394,18 @@ struct C_013aee60 { char pad[4]; M_013aee60 m; void sub_013aee60(); };
 // @baa 0x013aee60
 void C_013aee60::sub_013aee60() { m.sub_00549240(); }
 
+struct C_013aeef0 { int sub_013aeef0(int param_2); };
 // @baa 0x013aeef0
-int UPackageMap::sub_013aeef0(int param_2)
+int C_013aeef0::sub_013aeef0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_013aef70 { int sub_013aef70(int param_2); };
 // @baa 0x013aef70
-int UPackageMap::sub_013aef70(int param_2)
+int C_013aef70::sub_013aef70(int param_2)
 {
     int * param_1 = (int *)this;
 

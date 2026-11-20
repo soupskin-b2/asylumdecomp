@@ -4,8 +4,9 @@
 #include "ue3/Implement.h"
 
 int sub_0060de00(void);
+struct C_00621110 { int sub_00621110(void); };
 // @baa 0x00621110
-int UPackageMap::sub_00621110(void)
+int C_00621110::sub_00621110(void)
 {
     int param_1 = (int)this;
 
@@ -48,8 +49,9 @@ struct C_00621290 { void sub_0061ee60(int); C_00621290 *sub_00621290(int); };
 // @baa 0x00621290
 C_00621290 *C_00621290::sub_00621290(int a) { sub_0061ee60(a); return this; }
 
+struct C_006212d0 { int sub_006212d0(void); };
 // @baa 0x006212d0
-int UPackageMap::sub_006212d0(void)
+int C_006212d0::sub_006212d0(void)
 {
     int param_1 = (int)this;
 
@@ -68,8 +70,9 @@ struct C_00621310 { void sub_0061ee60(int); C_00621310 *sub_00621310(int); };
 C_00621310 *C_00621310::sub_00621310(int a) { sub_0061ee60(a); return this; }
 
 int sub_0060de60(void);
+struct C_006258a0 { int sub_006258a0(void); };
 // @baa 0x006258a0
-int UPackageMap::sub_006258a0(void)
+int C_006258a0::sub_006258a0(void)
 {
     int param_1 = (int)this;
 
@@ -216,8 +219,9 @@ int sub_0062c150(int a0, int a1) { return a1; }
 
 int sub_005c7a20(void);
 extern undefined * g_01eaefb8;
+struct C_0062c160 { undefined4 * sub_0062c160(void); };
 // @baa 0x0062c160
-undefined4 * UObject::sub_0062c160(void)
+undefined4 * C_0062c160::sub_0062c160(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

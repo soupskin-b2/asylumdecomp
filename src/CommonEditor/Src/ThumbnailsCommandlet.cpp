@@ -75,8 +75,9 @@ UThumbnailsCommandlet::UThumbnailsCommandlet()
 // @baa 0x0174aa20
 int sub_0174aa20(void);
 int sub_005c7a70(...);
+struct C_0174aa80 { undefined4 sub_0174aa80(byte param_2); };
 // @baa 0x0174aa80
-undefined4 UThumbnailsCommandlet::sub_0174aa80(byte param_2)
+undefined4 C_0174aa80::sub_0174aa80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

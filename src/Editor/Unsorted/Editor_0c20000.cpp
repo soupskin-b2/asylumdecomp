@@ -3,48 +3,54 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
+struct C_00c25110 { int sub_00c25110(int param_2); };
 // @baa 0x00c25110
-int ULensFlare::sub_00c25110(int param_2)
+int C_00c25110::sub_00c25110(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x48;
 }
 
+struct C_00c25120 { int sub_00c25120(int param_2); };
 // @baa 0x00c25120
-int ULensFlare::sub_00c25120(int param_2)
+int C_00c25120::sub_00c25120(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x24;
 }
 
+struct C_00c25130 { int sub_00c25130(int param_2); };
 // @baa 0x00c25130
-int ULensFlare::sub_00c25130(int param_2)
+int C_00c25130::sub_00c25130(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 4;
 }
 
+struct C_00c25140 { int sub_00c25140(int param_2); };
 // @baa 0x00c25140
-int ULensFlare::sub_00c25140(int param_2)
+int C_00c25140::sub_00c25140(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_00c25150 { int sub_00c25150(int param_2); };
 // @baa 0x00c25150
-int ULensFlare::sub_00c25150(int param_2)
+int C_00c25150::sub_00c25150(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00c25160 { int sub_00c25160(int param_2); };
 // @baa 0x00c25160
-int ULensFlare::sub_00c25160(int param_2)
+int C_00c25160::sub_00c25160(int param_2)
 {
     int * param_1 = (int *)this;
 

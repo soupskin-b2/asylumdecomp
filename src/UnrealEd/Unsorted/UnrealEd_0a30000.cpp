@@ -228,8 +228,9 @@ class NxForceFieldShapeDesc * UForceFieldShape::CreateNxDesc() { return 0; }
 // @baa 0x00a33e60
 int sub_005c7a20(void);
 extern undefined * g_01fc0840;
+struct C_00a33e80 { undefined4 * sub_00a33e80(void); };
 // @baa 0x00a33e80
-undefined4 * UObject::sub_00a33e80(void)
+undefined4 * C_00a33e80::sub_00a33e80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -247,8 +248,9 @@ C_00a33ea0* C_00a33ea0::sub_00a33ea0(int a0) { return this; }
 int sub_00a33f10(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0950;
+struct C_00a33f20 { undefined4 * sub_00a33f20(void); };
 // @baa 0x00a33f20
-undefined4 * UObject::sub_00a33f20(void)
+undefined4 * C_00a33f20::sub_00a33f20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -280,8 +282,9 @@ C_00a33fd0* C_00a33fd0::sub_00a33fd0(int a0) { return this; }
 int sub_00a34060(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0a60;
+struct C_00a34070 { undefined4 * sub_00a34070(void); };
 // @baa 0x00a34070
-undefined4 * UObject::sub_00a34070(void)
+undefined4 * C_00a34070::sub_00a34070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -308,8 +311,9 @@ C_00a34110* C_00a34110::sub_00a34110(int arg1)
 int sub_00a34160(int a0, int a1) { return a1; }
 
 extern undefined * g_01fc0b70;
+struct C_00a34170 { undefined4 * sub_00a34170(void); };
 // @baa 0x00a34170
-undefined4 * UObject::sub_00a34170(void)
+undefined4 * C_00a34170::sub_00a34170(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

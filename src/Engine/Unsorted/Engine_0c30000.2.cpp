@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_006837e0(void);
+struct C_00c3ed70 { undefined4 sub_00c3ed70(byte param_2); };
 // @baa 0x00c3ed70
-undefined4 UMaterialExpressionCompound::sub_00c3ed70(byte param_2)
+undefined4 C_00c3ed70::sub_00c3ed70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -17,8 +18,9 @@ undefined4 UMaterialExpressionCompound::sub_00c3ed70(byte param_2)
   return param_1;
 }
 
+struct C_00c3ed90 { undefined4 sub_00c3ed90(byte param_2); };
 // @baa 0x00c3ed90
-undefined4 ULensFlare::sub_00c3ed90(byte param_2)
+undefined4 C_00c3ed90::sub_00c3ed90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

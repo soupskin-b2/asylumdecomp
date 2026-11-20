@@ -258,8 +258,9 @@ IMPLEMENT_CLASS_AT(UOnlineGameInterfaceImpl, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x00e39c50
 int sub_005c7a70(...);
 int sub_00e3a0b0(void);
+struct C_00e3a140 { undefined4 sub_00e3a140(byte param_2); };
 // @baa 0x00e3a140
-undefined4 UHTTPDownload::sub_00e3a140(byte param_2)
+undefined4 C_00e3a140::sub_00e3a140(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -272,8 +273,9 @@ undefined4 UHTTPDownload::sub_00e3a140(byte param_2)
 
 int sub_0053dfa0(...);
 int sub_00e39ce0(void);
+struct C_00e3a170 { undefined4 sub_00e3a170(byte param_2); };
 // @baa 0x00e3a170
-undefined4 UHTTPDownload::sub_00e3a170(byte param_2)
+undefined4 C_00e3a170::sub_00e3a170(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -11,8 +11,9 @@ void sub_005fae90(void)
 
 int sub_006311e0(...);
 extern undefined4 g_02264a78;
+struct C_013a33e0 { void sub_013a33e0(void); };
 // @baa 0x013a33e0
-void UUnrealEdEngine::sub_013a33e0(void)
+void C_013a33e0::sub_013a33e0(void)
 {
     int param_1 = (int)this;
 

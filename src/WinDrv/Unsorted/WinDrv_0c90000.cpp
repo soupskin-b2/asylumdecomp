@@ -88,8 +88,9 @@ struct C_view {
 
 extern undefined4 g_02086048;
 extern undefined * g_02086050;
+struct C_00c97a50 { undefined4 * sub_00c97a50(undefined4 param_2); };
 // @baa 0x00c97a50
-undefined4 * UCodecMovieBink::sub_00c97a50(undefined4 param_2)
+undefined4 * C_00c97a50::sub_00c97a50(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00739650(param_2);

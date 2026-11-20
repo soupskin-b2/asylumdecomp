@@ -101,8 +101,9 @@ struct C_view {
 };
 
 extern undefined4 g_020d5098;
+struct C_00ddcda0 { undefined4 * sub_00ddcda0(undefined4 param_2); };
 // @baa 0x00ddcda0
-undefined4 * UUnrealEdEngine::sub_00ddcda0(undefined4 param_2)
+undefined4 * C_00ddcda0::sub_00ddcda0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

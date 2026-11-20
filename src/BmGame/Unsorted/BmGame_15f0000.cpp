@@ -670,8 +670,9 @@ undefined4 C_015f2850::sub_015f2850(byte param_2)
 }
 
 int sub_015f1c40(void);
+struct C_015f28a0 { undefined4 sub_015f28a0(byte param_2); };
 // @baa 0x015f28a0
-undefined4 UObject::sub_015f28a0(byte param_2)
+undefined4 C_015f28a0::sub_015f28a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -691,8 +692,9 @@ void C_015f28c0::sub_015f28c0() { m.sub_015f1480(); }
 
 int sub_005c7a20(void);
 extern undefined * g_023307c8;
+struct C_015f2930 { undefined4 * sub_015f2930(void); };
 // @baa 0x015f2930
-undefined4 * UObject::sub_015f2930(void)
+undefined4 * C_015f2930::sub_015f2930(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -717,8 +719,9 @@ undefined4 C_015f29e0::sub_015f29e0(void)
 }
 
 extern undefined * g_02330918;
+struct C_015f29f0 { undefined4 * sub_015f29f0(void); };
 // @baa 0x015f29f0
-undefined4 * UObject::sub_015f29f0(void)
+undefined4 * C_015f29f0::sub_015f29f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -732,8 +735,9 @@ IMPLEMENT_CLASS_AT(URBMSpeechManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x015f2a80
 extern undefined * g_02330a68;
+struct C_015f2aa0 { undefined4 * sub_015f2aa0(void); };
 // @baa 0x015f2aa0
-undefined4 * UObject::sub_015f2aa0(void)
+undefined4 * C_015f2aa0::sub_015f2aa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -748,8 +752,9 @@ IMPLEMENT_CLASS_AT(URCharacterRandom, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 // @baa 0x015f2b20
 int sub_006f7810(void);
 extern undefined * g_02330b80;
+struct C_015f2b50 { undefined4 * sub_015f2b50(void); };
 // @baa 0x015f2b50
-undefined4 * UPrimitiveComponent::sub_015f2b50(void)
+undefined4 * C_015f2b50::sub_015f2b50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -792,8 +797,9 @@ undefined4 C_015f2e00::sub_015f2e00(byte param_2)
 }
 
 int sub_015f28d0(void);
+struct C_015f2e30 { undefined4 sub_015f2e30(byte param_2); };
 // @baa 0x015f2e30
-undefined4 UObject::sub_015f2e30(byte param_2)
+undefined4 C_015f2e30::sub_015f2e30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -915,8 +921,9 @@ IMPLEMENT_CLASS_AT(ARPawnBossVenomJokerBase, "e:\\Projects\\Amadeus\\AA\\Game\\U
 // @baa 0x015f4750
 int sub_00773830(void);
 extern undefined * g_02334150;
+struct C_015f4780 { undefined4 * sub_015f4780(void); };
 // @baa 0x015f4780
-undefined4 * AController::sub_015f4780(void)
+undefined4 * C_015f4780::sub_015f4780(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1211,8 +1218,9 @@ IMPLEMENT_CLASS_AT(URBMSeqEvent_BehaviourRoot, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x015fa5a0
 extern undefined * g_02339c70;
+struct C_015fa5d0 { undefined4 * sub_015fa5d0(void); };
 // @baa 0x015fa5d0
-undefined4 * UObject::sub_015fa5d0(void)
+undefined4 * C_015fa5d0::sub_015fa5d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1222,8 +1230,9 @@ undefined4 * UObject::sub_015fa5d0(void)
 }
 
 extern undefined * g_02339e18;
+struct C_015fa5f0 { undefined4 * sub_015fa5f0(void); };
 // @baa 0x015fa5f0
-undefined4 * UObject::sub_015fa5f0(void)
+undefined4 * C_015fa5f0::sub_015fa5f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1237,8 +1246,9 @@ IMPLEMENT_CLASS_AT(URBMSeqEvent_BMSpotted, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x015fa670
 extern undefined * g_02339fc0;
+struct C_015fa6a0 { undefined4 * sub_015fa6a0(void); };
 // @baa 0x015fa6a0
-undefined4 * UObject::sub_015fa6a0(void)
+undefined4 * C_015fa6a0::sub_015fa6a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1265,8 +1275,9 @@ int sub_015fa750(void)
 }
 
 extern undefined * g_0233a168;
+struct C_015fa780 { undefined4 * sub_015fa780(void); };
 // @baa 0x015fa780
-undefined4 * UObject::sub_015fa780(void)
+undefined4 * C_015fa780::sub_015fa780(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1284,8 +1295,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x015fa910
 extern undefined * g_0233a2b8;
+struct C_015fa940 { undefined4 * sub_015fa940(void); };
 // @baa 0x015fa940
-undefined4 * UObject::sub_015fa940(void)
+undefined4 * C_015fa940::sub_015fa940(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1295,8 +1307,9 @@ undefined4 * UObject::sub_015fa940(void)
 }
 
 extern undefined * g_0233a478;
+struct C_015fa960 { undefined4 * sub_015fa960(void); };
 // @baa 0x015fa960
-undefined4 * UObject::sub_015fa960(void)
+undefined4 * C_015fa960::sub_015fa960(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1313,8 +1326,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_AttachToEvents, "e:\\Projects\\Amadeus\\AA\\Gam
 IMPLEMENT_CLASS_AT(URBMBehaviour_Controlled, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 46);
 
 extern undefined * g_0233a638;
+struct C_015faa70 { undefined4 * sub_015faa70(void); };
 // @baa 0x015faa70
-undefined4 * UObject::sub_015faa70(void)
+undefined4 * C_015faa70::sub_015faa70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1348,8 +1362,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_Venom, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 IMPLEMENT_CLASS_AT(URBMBehaviour_Conversation, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 47);
 
 extern undefined * g_0233b398;
+struct C_015faf80 { undefined4 * sub_015faf80(void); };
 // @baa 0x015faf80
-undefined4 * UObject::sub_015faf80(void)
+undefined4 * C_015faf80::sub_015faf80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1360,8 +1375,9 @@ undefined4 * UObject::sub_015faf80(void)
 
 // @baa 0x015fafa0
 extern undefined * g_0233b558;
+struct C_015fafd0 { undefined4 * sub_015fafd0(void); };
 // @baa 0x015fafd0
-undefined4 * UObject::sub_015fafd0(void)
+undefined4 * C_015fafd0::sub_015fafd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1375,8 +1391,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_StartConversation, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x015fb080
 extern undefined * g_0233b718;
+struct C_015fb0b0 { undefined4 * sub_015fb0b0(void); };
 // @baa 0x015fb0b0
-undefined4 * UObject::sub_015fb0b0(void)
+undefined4 * C_015fb0b0::sub_015fb0b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1405,8 +1422,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_IdleWithPlannarProp, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x015fb290
 extern undefined * g_0233b8d8;
+struct C_015fb2c0 { undefined4 * sub_015fb2c0(void); };
 // @baa 0x015fb2c0
-undefined4 * UObject::sub_015fb2c0(void)
+undefined4 * C_015fb2c0::sub_015fb2c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1423,8 +1441,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_MiniCutscene, "e:\\Projects\\Amadeus\\AA\\Game\
 IMPLEMENT_CLASS_AT(URBMBehaviour_MoveTo, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\BmGame\\Src\\RBmAIClass.cpp", 42);
 
 extern undefined * g_0233ba98;
+struct C_015fb430 { undefined4 * sub_015fb430(void); };
 // @baa 0x015fb430
-undefined4 * UObject::sub_015fb430(void)
+undefined4 * C_015fb430::sub_015fb430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1439,8 +1458,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToGroup, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x015fb5b0
 extern undefined * g_0233bc58;
+struct C_015fb5e0 { undefined4 * sub_015fb5e0(void); };
 // @baa 0x015fb5e0
-undefined4 * UObject::sub_015fb5e0(void)
+undefined4 * C_015fb5e0::sub_015fb5e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1450,8 +1470,9 @@ undefined4 * UObject::sub_015fb5e0(void)
 }
 
 extern undefined * g_0233be18;
+struct C_015fb600 { undefined4 * sub_015fb600(void); };
 // @baa 0x015fb600
-undefined4 * UObject::sub_015fb600(void)
+undefined4 * C_015fb600::sub_015fb600(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1480,8 +1501,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToBatmanInChair, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x015fb7d0
 extern undefined * g_0233bfd8;
+struct C_015fb800 { undefined4 * sub_015fb800(void); };
 // @baa 0x015fb800
-undefined4 * UObject::sub_015fb800(void)
+undefined4 * C_015fb800::sub_015fb800(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1505,8 +1527,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_MoveToJokerInChair, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x015fba40
 extern undefined * g_0233c1a0;
+struct C_015fba70 { undefined4 * sub_015fba70(void); };
 // @baa 0x015fba70
-undefined4 * UObject::sub_015fba70(void)
+undefined4 * C_015fba70::sub_015fba70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1520,8 +1543,9 @@ IMPLEMENT_CLASS_AT(URBMBehaviour_Sniper, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x015fbb10
 extern undefined * g_0233c360;
+struct C_015fbb40 { undefined4 * sub_015fbb40(void); };
 // @baa 0x015fbb40
-undefined4 * UObject::sub_015fbb40(void)
+undefined4 * C_015fbb40::sub_015fbb40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1542,8 +1566,9 @@ IMPLEMENT_CLASS_AT(URBMExitConditionCombiner, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x015fbdf0
 extern undefined * g_0233c870;
+struct C_015fbe20 { undefined4 * sub_015fbe20(void); };
 // @baa 0x015fbe20
-undefined4 * UObject::sub_015fbe20(void)
+undefined4 * C_015fbe20::sub_015fbe20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

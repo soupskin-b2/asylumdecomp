@@ -95,8 +95,9 @@ struct C_008a4d80 { int a, b; C_008a4d80(int, int); };
 // @baa 0x008a4d80
 C_008a4d80::C_008a4d80(int x, int y) : a(x), b(y) {}
 
+struct C_008a4da0 { undefined4 sub_008a4da0(int * param_2); };
 // @baa 0x008a4da0
-undefined4 UObject::sub_008a4da0(int * param_2)
+undefined4 C_008a4da0::sub_008a4da0(int * param_2)
 {
     int * param_1 = (int *)this;
 
@@ -642,8 +643,9 @@ extern char g_01ebb554[];
 // @baa 0x008a7710
 void UGoal_Null::sub_008a7710(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_008a7720 { undefined4 * sub_008a7720(byte param_2); };
 // @baa 0x008a7720
-undefined4 * UGoal_Null::sub_008a7720(byte param_2)
+undefined4 * C_008a7720::sub_008a7720(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -688,8 +690,9 @@ int sub_008a77e0(void) { return 1; }
 // @baa 0x008a77f0
 int sub_008a77f0(void) { return 0; }
 
+struct C_008a7830 { void sub_008a7830(undefined4 param_2, float * param_3); };
 // @baa 0x008a7830
-void AActor::sub_008a7830(undefined4 param_2, float * param_3)
+void C_008a7830::sub_008a7830(undefined4 param_2, float * param_3)
 {
     int param_1 = (int)this;
   float fVar1;
@@ -703,8 +706,9 @@ void AActor::sub_008a7830(undefined4 param_2, float * param_3)
   return;
 }
 
+struct C_008a9420 { void sub_008a9420(void); };
 // @baa 0x008a9420
-void AGameInfo::sub_008a9420(void)
+void C_008a9420::sub_008a9420(void)
 {
     int param_1 = (int)this;
 

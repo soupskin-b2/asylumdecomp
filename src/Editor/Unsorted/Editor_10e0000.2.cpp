@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_010d33d0(void);
+struct C_010ecf60 { undefined4 sub_010ecf60(byte param_2); };
 // @baa 0x010ecf60
-undefined4 UObject::sub_010ecf60(byte param_2)
+undefined4 C_010ecf60::sub_010ecf60(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -1164,8 +1164,9 @@ INT APawn::calcMoveFlags()
 }
 
 extern undefined4 g_026b5a90;
+struct C_008a66c0 { undefined4 sub_008a66c0(void); };
 // @baa 0x008a66c0
-undefined4 APawn::sub_008a66c0(void)
+undefined4 C_008a66c0::sub_008a66c0(void)
 {
     undefined4 param_1 = (undefined4)this;
 

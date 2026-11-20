@@ -250,8 +250,9 @@ void C_00b5ff00::sub_00b5ff00(int param_2)
   return;
 }
 
+struct C_00b64b80 { void sub_00b64b80(int param_2); };
 // @baa 0x00b64b80
-void UParticleSystemComponent::sub_00b64b80(int param_2)
+void C_00b64b80::sub_00b64b80(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -429,8 +430,9 @@ UBOOL AEmitterCameraLensEffectBase::HasUniqueStaticConfigName() const { return 1
 
 int sub_005c7a20(void);
 extern undefined * g_01ff98d0;
+struct C_00b66620 { undefined4 * sub_00b66620(void); };
 // @baa 0x00b66620
-undefined4 * UObject::sub_00b66620(void)
+undefined4 * C_00b66620::sub_00b66620(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -440,8 +442,9 @@ undefined4 * UObject::sub_00b66620(void)
 }
 
 extern undefined * g_01ffa118;
+struct C_00b66640 { undefined4 * sub_00b66640(void); };
 // @baa 0x00b66640
-undefined4 * UObject::sub_00b66640(void)
+undefined4 * C_00b66640::sub_00b66640(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

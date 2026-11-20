@@ -101,8 +101,9 @@ UScriptStruct::UScriptStruct()
 
 int sub_00575580(void);
 int sub_005c7a70(...);
+struct C_00575600 { undefined4 sub_00575600(byte param_2); };
 // @baa 0x00575600
-undefined4 UScriptStruct::sub_00575600(byte param_2)
+undefined4 C_00575600::sub_00575600(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -159,8 +160,9 @@ IMPLEMENT_CLASS_AT(UScriptStruct, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 // @baa 0x00578cc0
 int sub_0057bd80(void);
+struct C_00586d40 { int sub_00586d40(void); };
 // @baa 0x00586d40
-int UState::sub_00586d40(void)
+int C_00586d40::sub_00586d40(void)
 {
     int param_1 = (int)this;
 
@@ -253,8 +255,9 @@ struct C_005873d0 { void sub_00583540(int); C_005873d0 *sub_005873d0(int); };
 C_005873d0 *C_005873d0::sub_005873d0(int a) { sub_00583540(a); return this; }
 
 int sub_00586fd0(void);
+struct C_005873f0 { undefined4 sub_005873f0(byte param_2); };
 // @baa 0x005873f0
-undefined4 UState::sub_005873f0(byte param_2)
+undefined4 C_005873f0::sub_005873f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -266,8 +269,9 @@ undefined4 UState::sub_005873f0(byte param_2)
 }
 
 int sub_00587aa0(void);
+struct C_00587b90 { undefined4 sub_00587b90(byte param_2); };
 // @baa 0x00587b90
-undefined4 UState::sub_00587b90(byte param_2)
+undefined4 C_00587b90::sub_00587b90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -285,8 +289,9 @@ UBOOL UClass::MergeBools() { return 1; }
 UStruct* UClass::GetInheritanceSuper() const { return (UStruct*)SuperField; }
 
 int sub_00587dc0(void);
+struct C_00587ec0 { undefined4 sub_00587ec0(byte param_2); };
 // @baa 0x00587ec0
-undefined4 UClass::sub_00587ec0(byte param_2)
+undefined4 C_00587ec0::sub_00587ec0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -364,8 +369,9 @@ FString C_00588580::sub_00588580()
 void sub_005885b0(void) { sub_00588400(); }
 
 int sub_005875a0(void);
+struct C_005885c0 { undefined4 sub_005885c0(byte param_2); };
 // @baa 0x005885c0
-undefined4 UState::sub_005885c0(byte param_2)
+undefined4 C_005885c0::sub_005885c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -382,8 +388,9 @@ void UState::sub_00588900(int a0) { *(int*)((char*)this + 132) = a0; }
 // @baa 0x00588910
 int UState::sub_00588910(void) { return *(int*)((char*)this + 132); }
 
+struct C_00588920 { undefined4 sub_00588920(void); };
 // @baa 0x00588920
-undefined4 UState::sub_00588920(void)
+undefined4 C_00588920::sub_00588920(void)
 {
     int param_1 = (int)this;
 
@@ -399,8 +406,9 @@ int sub_0040cf70(int);
 int sub_006311e0(...);
 void*sub_01a375f0(void*,void*,size_t);
 extern undefined2 g_01e3f3dc;
+struct C_00588930 { void sub_00588930(void*param_2,size_t param_3); };
 // @baa 0x00588930
-void UState::sub_00588930(void*param_2,size_t param_3)
+void C_00588930::sub_00588930(void*param_2,size_t param_3)
 {
 int*piVar1;
 int param_1=(int)this;
@@ -434,8 +442,9 @@ FString C_005889c0::sub_005889c0()
 }
 
 int sub_005889f0(void);
+struct C_00588a50 { undefined4 sub_00588a50(byte param_2); };
 // @baa 0x00588a50
-undefined4 UState::sub_00588a50(byte param_2)
+undefined4 C_00588a50::sub_00588a50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

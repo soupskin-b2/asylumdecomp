@@ -108,8 +108,9 @@ IMPLEMENT_CLASS_AT(URIdleConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 // @baa 0x01621df0
 int sub_005c7a20(void);
 extern undefined * g_02344c08;
+struct C_01621e20 { undefined4 * sub_01621e20(void); };
 // @baa 0x01621e20
-undefined4 * UObject::sub_01621e20(void)
+undefined4 * C_01621e20::sub_01621e20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -160,8 +161,9 @@ struct C_016245d0 { void sub_00d29cd0(int); C_016245d0 *sub_016245d0(int); };
 C_016245d0 *C_016245d0::sub_016245d0(int a) { sub_00d29cd0(a); return this; }
 
 int sub_01622dd0(void);
+struct C_01624650 { undefined4 sub_01624650(byte param_2); };
 // @baa 0x01624650
-undefined4 UObject::sub_01624650(byte param_2)
+undefined4 C_01624650::sub_01624650(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -173,8 +175,9 @@ undefined4 UObject::sub_01624650(byte param_2)
 }
 
 int sub_01621aa0(void);
+struct C_01624670 { undefined4 sub_01624670(byte param_2); };
 // @baa 0x01624670
-undefined4 UObject::sub_01624670(byte param_2)
+undefined4 C_01624670::sub_01624670(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -186,8 +189,9 @@ undefined4 UObject::sub_01624670(byte param_2)
 }
 
 int sub_01621b00(void);
+struct C_01624690 { undefined4 sub_01624690(byte param_2); };
 // @baa 0x01624690
-undefined4 UObject::sub_01624690(byte param_2)
+undefined4 C_01624690::sub_01624690(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -199,8 +203,9 @@ undefined4 UObject::sub_01624690(byte param_2)
 }
 
 int sub_01621b60(void);
+struct C_016246b0 { undefined4 sub_016246b0(byte param_2); };
 // @baa 0x016246b0
-undefined4 UObject::sub_016246b0(byte param_2)
+undefined4 C_016246b0::sub_016246b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -215,8 +220,9 @@ struct C_view {
     int sub_0040fcc0();
 };
 
+struct C_016246d0 { undefined4 sub_016246d0(byte param_2); };
 // @baa 0x016246d0
-undefined4 UObject::sub_016246d0(byte param_2)
+undefined4 C_016246d0::sub_016246d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 8)))->sub_0040fcc0();
@@ -227,8 +233,9 @@ undefined4 UObject::sub_016246d0(byte param_2)
 }
 
 extern undefined * g_02344f68;
+struct C_01624700 { undefined4 * sub_01624700(void); };
 // @baa 0x01624700
-undefined4 * UObject::sub_01624700(void)
+undefined4 * C_01624700::sub_01624700(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -472,8 +479,9 @@ struct C_0162b7d0 { C_0162b7d0* sub_0162b7d0(void); };
 C_0162b7d0* C_0162b7d0::sub_0162b7d0(void) { return this; }
 
 int sub_01629650(void);
+struct C_0162b7e0 { undefined4 sub_0162b7e0(byte param_2); };
 // @baa 0x0162b7e0
-undefined4 UObject::sub_0162b7e0(byte param_2)
+undefined4 C_0162b7e0::sub_0162b7e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -485,8 +493,9 @@ undefined4 UObject::sub_0162b7e0(byte param_2)
 }
 
 int sub_016296b0(void);
+struct C_0162b800 { undefined4 sub_0162b800(byte param_2); };
 // @baa 0x0162b800
-undefined4 UObject::sub_0162b800(byte param_2)
+undefined4 C_0162b800::sub_0162b800(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

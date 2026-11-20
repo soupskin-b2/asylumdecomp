@@ -2141,8 +2141,9 @@ struct C_view {
     int sub_0127b090(int, int);
 };
 
+struct C_0127e2e0 { void sub_0127e2e0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x0127e2e0
-void UUnrealEdEngine::sub_0127e2e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+void C_0127e2e0::sub_0127e2e0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   *(undefined4 *)(param_1 + 0x348) = param_3;

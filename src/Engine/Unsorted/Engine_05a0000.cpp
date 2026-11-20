@@ -125,8 +125,9 @@ struct C_view {
     int sub_005a9910(int, int);
 };
 
+struct C_005accf0 { int sub_005accf0(int param_2); };
 // @baa 0x005accf0
-int UTexture2D::sub_005accf0(int param_2)
+int C_005accf0::sub_005accf0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_005a9910((int)(&param_2), param_2);

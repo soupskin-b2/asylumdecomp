@@ -147,8 +147,9 @@ UBOOL ARBatarangTarget::HasParentClassChanged() const
 
 int sub_005c7a20(void);
 extern undefined * g_02397268;
+struct C_016cc2a0 { undefined4 * sub_016cc2a0(void); };
 // @baa 0x016cc2a0
-undefined4 * UObject::sub_016cc2a0(void)
+undefined4 * C_016cc2a0::sub_016cc2a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

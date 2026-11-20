@@ -6,8 +6,9 @@
 
 int sub_0053dfa0(...);
 int sub_006837e0(void);
+struct C_00c13720 { undefined4 sub_00c13720(byte param_2); };
 // @baa 0x00c13720
-undefined4 ULensFlare::sub_00c13720(byte param_2)
+undefined4 C_00c13720::sub_00c13720(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -70,8 +71,9 @@ undefined4 C_00c13b90::sub_00c13b90(byte param_2)
 }
 
 int sub_00c06920(void);
+struct C_00c13bb0 { undefined4 sub_00c13bb0(byte param_2); };
 // @baa 0x00c13bb0
-undefined4 UPrimitiveComponent::sub_00c13bb0(byte param_2)
+undefined4 C_00c13bb0::sub_00c13bb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -99,8 +101,9 @@ FSparseArrayConstIt_00c13c20::FSparseArrayConstIt_00c13c20(const TSparseArray<IN
 
 int sub_005c7a20(void);
 extern undefined * g_020312b8;
+struct C_00c13d10 { undefined4 * sub_00c13d10(void); };
 // @baa 0x00c13d10
-undefined4 * UObject::sub_00c13d10(void)
+undefined4 * C_00c13d10::sub_00c13d10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -121,8 +124,9 @@ void sub_00c144b0(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
 
 int sub_006f7810(void);
 extern undefined * g_020313c8;
+struct C_00c147a0 { undefined4 * sub_00c147a0(void); };
 // @baa 0x00c147a0
-undefined4 * UPrimitiveComponent::sub_00c147a0(void)
+undefined4 * C_00c147a0::sub_00c147a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -213,8 +217,9 @@ struct C_view {
     int sub_0055a5d0(int, int);
 };
 
+struct C_00c171a0 { void sub_00c171a0(void); };
 // @baa 0x00c171a0
-void UPackageMap::sub_00c171a0(void)
+void C_00c171a0::sub_00c171a0(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_0055a5d0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -763,8 +768,9 @@ struct C_view_00c1bc20 {
 };
 
 int sub_007161b0(...);
+struct C_00c1bc20 { undefined4 sub_00c1bc20(undefined4 param_2); };
 // @baa 0x00c1bc20
-undefined4 UMorphWeightSequence::sub_00c1bc20(undefined4 param_2)
+undefined4 C_00c1bc20::sub_00c1bc20(undefined4 param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;

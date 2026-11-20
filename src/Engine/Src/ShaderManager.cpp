@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 extern undefined4*g_026b0d94;
+struct C_0071d550 { int*sub_0071d550(int*param_2); };
 // @baa 0x0071d550
-int*UTexture2D::sub_0071d550(int*param_2)
+int*C_0071d550::sub_0071d550(int*param_2)
 {
 int*param_1=(int*)this;
 
@@ -24,8 +25,9 @@ if(iVar2!=0){
 return param_1;
 }
 
+struct C_0071d5a0 { void sub_0071d5a0(void); };
 // @baa 0x0071d5a0
-void UTexture2D::sub_0071d5a0(void)
+void C_0071d5a0::sub_0071d5a0(void)
 {
 int*param_1=(int*)this;
 
@@ -39,8 +41,9 @@ if(iVar1){
 return;
 }
 
+struct C_0071d5c0 { int*sub_0071d5c0(int*param_2); };
 // @baa 0x0071d5c0
-int*UTexture2D::sub_0071d5c0(int*param_2)
+int*C_0071d5c0::sub_0071d5c0(int*param_2)
 {
 int*param_1=(int*)this;
 

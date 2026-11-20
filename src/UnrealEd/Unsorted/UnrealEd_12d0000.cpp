@@ -40,8 +40,9 @@ undefined4 C_012d8f20::sub_012d8f20(byte param_2)
 
 int sub_005c7a20(void);
 extern undefined * g_02232158;
+struct C_012d9720 { undefined4 * sub_012d9720(void); };
 // @baa 0x012d9720
-undefined4 * UObject::sub_012d9720(void)
+undefined4 * C_012d9720::sub_012d9720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -76,8 +77,9 @@ struct C_view {
 };
 
 extern undefined4 g_0223f554;
+struct C_012de590 { undefined4 * sub_012de590(void); };
 // @baa 0x012de590
-undefined4 * UUnrealEdEngine::sub_012de590(void)
+undefined4 * C_012de590::sub_012de590(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -90,8 +92,9 @@ void sub_00c38ac0();
 void sub_012de5b0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f564;
+struct C_012de5c0 { undefined4 * sub_012de5c0(undefined4 param_2); };
 // @baa 0x012de5c0
-undefined4 * UUnrealEdEngine::sub_012de5c0(undefined4 param_2)
+undefined4 * C_012de5c0::sub_012de5c0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -104,8 +107,9 @@ undefined4 * UUnrealEdEngine::sub_012de5c0(undefined4 param_2)
 void sub_012de5e0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f574;
+struct C_012de5f0 { undefined4 * sub_012de5f0(undefined4 param_2); };
 // @baa 0x012de5f0
-undefined4 * UUnrealEdEngine::sub_012de5f0(undefined4 param_2)
+undefined4 * C_012de5f0::sub_012de5f0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -118,8 +122,9 @@ undefined4 * UUnrealEdEngine::sub_012de5f0(undefined4 param_2)
 void sub_012de610(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f584;
+struct C_012de620 { undefined4 * sub_012de620(undefined4 param_2); };
 // @baa 0x012de620
-undefined4 * UUnrealEdEngine::sub_012de620(undefined4 param_2)
+undefined4 * C_012de620::sub_012de620(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -132,8 +137,9 @@ undefined4 * UUnrealEdEngine::sub_012de620(undefined4 param_2)
 void sub_012de640(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f594;
+struct C_012de650 { undefined4 * sub_012de650(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012de650
-undefined4 * UUnrealEdEngine::sub_012de650(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012de650::sub_012de650(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -147,8 +153,9 @@ undefined4 * UUnrealEdEngine::sub_012de650(undefined4 param_2, undefined4 param_
 void sub_012de680(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5a4;
+struct C_012de690 { undefined4 * sub_012de690(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012de690
-undefined4 * UUnrealEdEngine::sub_012de690(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012de690::sub_012de690(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -162,8 +169,9 @@ undefined4 * UUnrealEdEngine::sub_012de690(undefined4 param_2, undefined4 param_
 void sub_012de6c0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5b4;
+struct C_012de6d0 { undefined4 * sub_012de6d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012de6d0
-undefined4 * UUnrealEdEngine::sub_012de6d0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012de6d0::sub_012de6d0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -177,8 +185,9 @@ undefined4 * UUnrealEdEngine::sub_012de6d0(undefined4 param_2, undefined4 param_
 void sub_012de700(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5c4;
+struct C_012de710 { undefined4 * sub_012de710(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012de710
-undefined4 * UUnrealEdEngine::sub_012de710(undefined4 param_2, undefined4 param_3)
+undefined4 * C_012de710::sub_012de710(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -192,8 +201,9 @@ undefined4 * UUnrealEdEngine::sub_012de710(undefined4 param_2, undefined4 param_
 void sub_012de740(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5d4;
+struct C_012de750 { undefined4 * sub_012de750(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x012de750
-undefined4 * UUnrealEdEngine::sub_012de750(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+undefined4 * C_012de750::sub_012de750(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -208,8 +218,9 @@ undefined4 * UUnrealEdEngine::sub_012de750(undefined4 param_2, undefined4 param_
 void sub_012de780(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5e4;
+struct C_012de790 { undefined4 * sub_012de790(void); };
 // @baa 0x012de790
-undefined4 * UUnrealEdEngine::sub_012de790(void)
+undefined4 * C_012de790::sub_012de790(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -221,8 +232,9 @@ undefined4 * UUnrealEdEngine::sub_012de790(void)
 void sub_012de7b0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f5f4;
+struct C_012de7c0 { undefined4 * sub_012de7c0(void); };
 // @baa 0x012de7c0
-undefined4 * UUnrealEdEngine::sub_012de7c0(void)
+undefined4 * C_012de7c0::sub_012de7c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -234,8 +246,9 @@ undefined4 * UUnrealEdEngine::sub_012de7c0(void)
 void sub_012de7e0(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f604;
+struct C_012de7f0 { undefined4 * sub_012de7f0(void); };
 // @baa 0x012de7f0
-undefined4 * UUnrealEdEngine::sub_012de7f0(void)
+undefined4 * C_012de7f0::sub_012de7f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -247,8 +260,9 @@ undefined4 * UUnrealEdEngine::sub_012de7f0(void)
 void sub_012de810(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f614;
+struct C_012de820 { undefined4 * sub_012de820(undefined4 param_2); };
 // @baa 0x012de820
-undefined4 * UUnrealEdEngine::sub_012de820(undefined4 param_2)
+undefined4 * C_012de820::sub_012de820(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -261,8 +275,9 @@ undefined4 * UUnrealEdEngine::sub_012de820(undefined4 param_2)
 void sub_012de840(void) { sub_00c38ac0(); }
 
 extern undefined4 g_0223f624;
+struct C_012de850 { undefined4 * sub_012de850(undefined4 param_2); };
 // @baa 0x012de850
-undefined4 * UUnrealEdEngine::sub_012de850(undefined4 param_2)
+undefined4 * C_012de850::sub_012de850(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);

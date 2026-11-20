@@ -36,8 +36,9 @@ int C_00e12f80::sub_00e12f80(void)
 }
 
 int sub_00e08f00(void);
+struct C_00e12fa0 { int sub_00e12fa0(void); };
 // @baa 0x00e12fa0
-int UGuidCache::sub_00e12fa0(void)
+int C_00e12fa0::sub_00e12fa0(void)
 {
     int param_1 = (int)this;
 

@@ -195,8 +195,9 @@ IMPLEMENT_CLASS_AT(UBrushBuilder, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 
 int sub_005c7a20(void);
 extern undefined * g_02132968;
+struct C_00ee00b0 { undefined4 * sub_00ee00b0(void); };
 // @baa 0x00ee00b0
-undefined4 * UObject::sub_00ee00b0(void)
+undefined4 * C_00ee00b0::sub_00ee00b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -207,8 +208,9 @@ undefined4 * UObject::sub_00ee00b0(void)
 
 // @baa 0x00ee00d0
 extern undefined * g_02132aa8;
+struct C_00ee00f0 { undefined4 * sub_00ee00f0(void); };
 // @baa 0x00ee00f0
-undefined4 * UObject::sub_00ee00f0(void)
+undefined4 * C_00ee00f0::sub_00ee00f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

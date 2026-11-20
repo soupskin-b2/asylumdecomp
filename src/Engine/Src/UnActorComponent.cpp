@@ -81,8 +81,9 @@ void UFogVolumeDensityComponent::SetEnabled(uint param_2)
 // @baa 0x006c0c30
 int sub_005c7a20(void);
 extern undefined * g_01ecec60;
+struct C_006c0c60 { undefined4 * sub_006c0c60(void); };
 // @baa 0x006c0c60
-undefined4 * UObject::sub_006c0c60(void)
+undefined4 * C_006c0c60::sub_006c0c60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -92,8 +93,9 @@ undefined4 * UObject::sub_006c0c60(void)
 }
 
 extern undefined * g_01ecee20;
+struct C_006c0c80 { undefined4 * sub_006c0c80(void); };
 // @baa 0x006c0c80
-undefined4 * UObject::sub_006c0c80(void)
+undefined4 * C_006c0c80::sub_006c0c80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -107,8 +109,9 @@ IMPLEMENT_CLASS_AT(UFogVolumeConeDensityComponent, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x006c0d00
 extern undefined * g_01ecef70;
+struct C_006c0d30 { undefined4 * sub_006c0d30(void); };
 // @baa 0x006c0d30
-undefined4 * UObject::sub_006c0d30(void)
+undefined4 * C_006c0d30::sub_006c0d30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -122,8 +125,9 @@ IMPLEMENT_CLASS_AT(UFogVolumeConstantDensityComponent, "e:\\Projects\\Amadeus\\A
 
 // @baa 0x006c0db0
 extern undefined * g_01ecf0c0;
+struct C_006c0de0 { undefined4 * sub_006c0de0(void); };
 // @baa 0x006c0de0
-undefined4 * UObject::sub_006c0de0(void)
+undefined4 * C_006c0de0::sub_006c0de0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -137,8 +141,9 @@ IMPLEMENT_CLASS_AT(UFogVolumeLinearHalfspaceDensityComponent, "e:\\Projects\\Ama
 
 // @baa 0x006c0e60
 extern undefined * g_01ecf210;
+struct C_006c0e90 { undefined4 * sub_006c0e90(void); };
 // @baa 0x006c0e90
-undefined4 * UObject::sub_006c0e90(void)
+undefined4 * C_006c0e90::sub_006c0e90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -164,8 +169,9 @@ struct C_view {
     int sub_005d5620(int, int, int);
 };
 
+struct C_006d4280 { int sub_006d4280(void); };
 // @baa 0x006d4280
-int UObject::sub_006d4280(void)
+int C_006d4280::sub_006d4280(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_005d5620((int)(L"None"), 1, 1);
@@ -175,8 +181,9 @@ int UObject::sub_006d4280(void)
   return param_1;
 }
 
+struct C_006d42f0 { int sub_006d42f0(void); };
 // @baa 0x006d42f0
-int UObject::sub_006d42f0(void)
+int C_006d42f0::sub_006d42f0(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_005d5620((int)(L"None"), 1, 1);
@@ -1508,8 +1515,9 @@ void C_007662f0::sub_007662f0() {
 }
 
 int sub_00766290(void);
+struct C_00766430 { undefined4 sub_00766430(byte param_2); };
 // @baa 0x00766430
-undefined4 ULensFlare::sub_00766430(byte param_2)
+undefined4 C_00766430::sub_00766430(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

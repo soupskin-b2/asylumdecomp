@@ -15,8 +15,9 @@ void UAnimSequence::SortNotifies()
 
 int sub_005c7a20(void);
 extern undefined * g_01f77bc0;
+struct C_0090bd70 { undefined4 * sub_0090bd70(void); };
 // @baa 0x0090bd70
-undefined4 * UObject::sub_0090bd70(void)
+undefined4 * C_0090bd70::sub_0090bd70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -29,8 +30,9 @@ undefined4 * UObject::sub_0090bd70(void)
 int sub_0090bd90(int a0, int a1) { return a1; }
 
 extern undefined * g_01f77cd8;
+struct C_0090bda0 { undefined4 * sub_0090bda0(void); };
 // @baa 0x0090bda0
-undefined4 * UObject::sub_0090bda0(void)
+undefined4 * C_0090bda0::sub_0090bda0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -40,8 +42,9 @@ undefined4 * UObject::sub_0090bda0(void)
 }
 
 extern undefined * g_01f77df0;
+struct C_0090be50 { undefined4 * sub_0090be50(void); };
 // @baa 0x0090be50
-undefined4 * UObject::sub_0090be50(void)
+undefined4 * C_0090be50::sub_0090be50(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -51,8 +54,9 @@ undefined4 * UObject::sub_0090be50(void)
 }
 
 extern undefined * g_01f77f08;
+struct C_0090bf00 { undefined4 * sub_0090bf00(void); };
 // @baa 0x0090bf00
-undefined4 * UObject::sub_0090bf00(void)
+undefined4 * C_0090bf00::sub_0090bf00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -62,8 +66,9 @@ undefined4 * UObject::sub_0090bf00(void)
 }
 
 extern undefined * g_01f78020;
+struct C_0090bfb0 { undefined4 * sub_0090bfb0(void); };
 // @baa 0x0090bfb0
-undefined4 * UObject::sub_0090bfb0(void)
+undefined4 * C_0090bfb0::sub_0090bfb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -73,8 +78,9 @@ undefined4 * UObject::sub_0090bfb0(void)
 }
 
 extern undefined * g_01f78138;
+struct C_0090c060 { undefined4 * sub_0090c060(void); };
 // @baa 0x0090c060
-undefined4 * UObject::sub_0090c060(void)
+undefined4 * C_0090c060::sub_0090c060(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -84,8 +90,9 @@ undefined4 * UObject::sub_0090c060(void)
 }
 
 extern undefined * g_01f78250;
+struct C_0090c110 { undefined4 * sub_0090c110(void); };
 // @baa 0x0090c110
-undefined4 * UObject::sub_0090c110(void)
+undefined4 * C_0090c110::sub_0090c110(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -108,8 +115,9 @@ DWORD C_0090c1b0::sub_0090c1b0(int)
 int sub_0090c210(int a0, int a1) { return a1; }
 
 extern undefined * g_01f78368;
+struct C_0090c220 { undefined4 * sub_0090c220(void); };
 // @baa 0x0090c220
-undefined4 * UObject::sub_0090c220(void)
+undefined4 * C_0090c220::sub_0090c220(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -119,8 +127,9 @@ undefined4 * UObject::sub_0090c220(void)
 }
 
 extern undefined * g_01f78480;
+struct C_0090c2d0 { undefined4 * sub_0090c2d0(void); };
 // @baa 0x0090c2d0
-undefined4 * UObject::sub_0090c2d0(void)
+undefined4 * C_0090c2d0::sub_0090c2d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

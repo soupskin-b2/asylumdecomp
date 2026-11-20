@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00b79620(void);
+struct C_00b84e20 { undefined4 sub_00b84e20(byte param_2); };
 // @baa 0x00b84e20
-undefined4 ULensFlare::sub_00b84e20(byte param_2)
+undefined4 C_00b84e20::sub_00b84e20(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -31,8 +32,9 @@ void sub_00b84ef0(void) { sub_00656790(); }
 // @baa 0x00b84f00
 void sub_00b84f00(void) { sub_00656790(); }
 
+struct C_00b84f50 { undefined4 sub_00b84f50(void); };
 // @baa 0x00b84f50
-undefined4 ULensFlare::sub_00b84f50(void)
+undefined4 C_00b84f50::sub_00b84f50(void)
 {
     int param_1 = (int)this;
 
@@ -64,8 +66,9 @@ const DWORD* S_00b84fc0::sub_00b84fc0(INT Index) const
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00b85010 { int sub_00b85010(undefined4*param_2); };
 // @baa 0x00b85010
-int ULensFlare::sub_00b85010(undefined4*param_2)
+int C_00b85010::sub_00b85010(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -118,24 +121,27 @@ const DWORD* S_00b85110::sub_00b85110(INT Index) const
 // @baa 0x00b85160
 void __stdcall sub_00b85160(int a0, int a1) {  }
 
+struct C_00b85170 { int sub_00b85170(int param_2); };
 // @baa 0x00b85170
-int ULensFlare::sub_00b85170(int param_2)
+int C_00b85170::sub_00b85170(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0xc;
 }
 
+struct C_00b85180 { int sub_00b85180(int param_2); };
 // @baa 0x00b85180
-int ULensFlare::sub_00b85180(int param_2)
+int C_00b85180::sub_00b85180(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x38;
 }
 
+struct C_00b85210 { int sub_00b85210(int param_2); };
 // @baa 0x00b85210
-int ULensFlare::sub_00b85210(int param_2)
+int C_00b85210::sub_00b85210(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -158,8 +164,9 @@ void sub_00b85490(undefined4 * param_1, undefined4 * param_2)
 }
 
 extern undefined4*g_026b0d94;
+struct C_00b854c0 { void sub_00b854c0(void); };
 // @baa 0x00b854c0
-void ULensFlare::sub_00b854c0(void)
+void C_00b854c0::sub_00b854c0(void)
 {
 int param_1=(int)this;
 
@@ -185,8 +192,9 @@ FString C::sub_00b854f0()
 }
 
 int sub_00656490(void);
+struct C_00b85520 { undefined4 sub_00b85520(byte param_2); };
 // @baa 0x00b85520
-undefined4 ULensFlare::sub_00b85520(byte param_2)
+undefined4 C_00b85520::sub_00b85520(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

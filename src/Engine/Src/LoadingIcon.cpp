@@ -59,8 +59,9 @@ void C_00c1b9a0::sub_00c1b9a0(void) { *(int*)((char*)this + 24) = 0; }
 
 int sub_0053dfa0(...);
 int sub_00c21980(void);
+struct C_00c219f0 { undefined4 sub_00c219f0(byte param_2); };
 // @baa 0x00c219f0
-undefined4 ULensFlare::sub_00c219f0(byte param_2)
+undefined4 C_00c219f0::sub_00c219f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -113,8 +114,9 @@ struct C_view {
     int sub_006139b0(int, int);
 };
 
+struct C_00c44130 { void sub_00c44130(void); };
 // @baa 0x00c44130
-void USpeechRecognition::sub_00c44130(void)
+void C_00c44130::sub_00c44130(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_006139b0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -125,8 +127,9 @@ struct C_view_00c44140 {
     int sub_00c43220(int, int);
 };
 
+struct C_00c44140 { undefined4 sub_00c44140(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00c44140
-undefined4 USpeechRecognition::sub_00c44140(undefined4 param_2, undefined4 param_3)
+undefined4 C_00c44140::sub_00c44140(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00c44140 *)(this))->sub_00c43220(param_2, param_3);
@@ -137,8 +140,9 @@ struct C_view_00c44160 {
     int sub_00613a70(int, int);
 };
 
+struct C_00c44160 { void sub_00c44160(void); };
 // @baa 0x00c44160
-void USpeechRecognition::sub_00c44160(void)
+void C_00c44160::sub_00c44160(void)
 {
     int param_1 = (int)this;
   ((C_view_00c44160 *)(this))->sub_00613a70(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -149,8 +153,9 @@ struct C_view_00c44170 {
     int sub_00c43280(int, int);
 };
 
+struct C_00c44170 { undefined4 sub_00c44170(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00c44170
-undefined4 USpeechRecognition::sub_00c44170(undefined4 param_2, undefined4 param_3)
+undefined4 C_00c44170::sub_00c44170(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00c44170 *)(this))->sub_00c43280(param_2, param_3);
@@ -158,8 +163,9 @@ undefined4 USpeechRecognition::sub_00c44170(undefined4 param_2, undefined4 param
 }
 
 int sub_00c380e0(void);
+struct C_00c442c0 { int sub_00c442c0(void); };
 // @baa 0x00c442c0
-int USpeechRecognition::sub_00c442c0(void)
+int C_00c442c0::sub_00c442c0(void)
 {
     int param_1 = (int)this;
 
@@ -186,8 +192,9 @@ struct C_view_00c44860 {
     int sub_00c43220(int, int);
 };
 
+struct C_00c44860 { int sub_00c44860(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00c44860
-int USpeechRecognition::sub_00c44860(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00c44860::sub_00c44860(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00c44860 *)(this))->sub_00c43220(param_2, param_4);
@@ -242,8 +249,9 @@ struct C_view_00c448b0 {
     int sub_00c43280(int, int);
 };
 
+struct C_00c448b0 { int sub_00c448b0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00c448b0
-int USpeechRecognition::sub_00c448b0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00c448b0::sub_00c448b0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00c448b0 *)(this))->sub_00c43280(param_2, param_4);
@@ -314,8 +322,9 @@ int C_00c44910::sub_00c44910(void)
 }
 
 int sub_00c44230(void);
+struct C_00c449b0 { undefined4 sub_00c449b0(byte param_2); };
 // @baa 0x00c449b0
-undefined4 USpeechRecognition::sub_00c449b0(byte param_2)
+undefined4 C_00c449b0::sub_00c449b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -327,8 +336,9 @@ undefined4 USpeechRecognition::sub_00c449b0(byte param_2)
 }
 
 int sub_00c38140(void);
+struct C_00c449d0 { int sub_00c449d0(void); };
 // @baa 0x00c449d0
-int USpeechRecognition::sub_00c449d0(void)
+int C_00c449d0::sub_00c449d0(void)
 {
     int param_1 = (int)this;
 

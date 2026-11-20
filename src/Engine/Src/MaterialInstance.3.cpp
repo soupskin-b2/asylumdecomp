@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_007271f0(void);
+struct C_00729050 { undefined4 sub_00729050(byte param_2); };
 // @baa 0x00729050
-undefined4 UMaterialInstance::sub_00729050(byte param_2)
+undefined4 C_00729050::sub_00729050(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -17,8 +18,9 @@ undefined4 UMaterialInstance::sub_00729050(byte param_2)
   return param_1;
 }
 
+struct C_0072dd00 { undefined4 sub_0072dd00(byte param_2); };
 // @baa 0x0072dd00
-undefined4 UMaterialInstance::sub_0072dd00(byte param_2)
+undefined4 C_0072dd00::sub_0072dd00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

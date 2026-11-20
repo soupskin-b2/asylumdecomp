@@ -105,8 +105,9 @@ UBOOL URCapeCollisionShapeConfigFactoryNew::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_016cebf0 { uint sub_016cebf0(void); };
 // @baa 0x016cebf0
-uint URCapeStateController::sub_016cebf0(void)
+uint C_016cebf0::sub_016cebf0(void)
 {
     int param_1 = (int)this;
 
@@ -138,8 +139,9 @@ void URCapeStateController::sub_016cec20(void)
 
 int sub_006311e0(...);
 extern undefined4 g_02399000;
+struct C_016cec40 { undefined4 sub_016cec40(void); };
 // @baa 0x016cec40
-undefined4 URCapeStateController::sub_016cec40(void)
+undefined4 C_016cec40::sub_016cec40(void)
 {
     int param_1 = (int)this;
 
@@ -152,8 +154,9 @@ undefined4 URCapeStateController::sub_016cec40(void)
 }
 
 extern undefined4 g_023990f0;
+struct C_016cec70 { undefined4 sub_016cec70(void); };
 // @baa 0x016cec70
-undefined4 URCapeStateController::sub_016cec70(void)
+undefined4 C_016cec70::sub_016cec70(void)
 {
     int param_1 = (int)this;
 
@@ -616,8 +619,9 @@ void sub_016d8860(void) { sub_016d8470(); }
 
 int sub_005c7a20(void);
 extern undefined * g_023a2b60;
+struct C_016d8870 { undefined4 * sub_016d8870(void); };
 // @baa 0x016d8870
-undefined4 * UObject::sub_016d8870(void)
+undefined4 * C_016d8870::sub_016d8870(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -715,8 +719,9 @@ struct C_view {
 
 extern undefined4 g_0239c23c;
 extern undefined4 g_0239c340;
+struct C_016e01a0 { int sub_016e01a0(void); };
 // @baa 0x016e01a0
-int URCapeStateController::sub_016e01a0(void)
+int C_016e01a0::sub_016e01a0(void)
 {
     int param_1 = (int)this;
   int iVar1;
@@ -740,8 +745,9 @@ struct C_view_016e0200 {
 
 extern undefined4 g_0239c44c;
 extern undefined4 g_0239c550;
+struct C_016e0200 { int sub_016e0200(void); };
 // @baa 0x016e0200
-int URCapeStateController::sub_016e0200(void)
+int C_016e0200::sub_016e0200(void)
 {
     int param_1 = (int)this;
   int iVar1;
@@ -772,8 +778,9 @@ void sub_016e65a0(void) { sub_016e62f0(); }
 // @baa 0x016e65b0
 int sub_005c7a70(...);
 int sub_016e6de0(void);
+struct C_016e6ed0 { undefined4 sub_016e6ed0(byte param_2); };
 // @baa 0x016e6ed0
-undefined4 URCapeStateController::sub_016e6ed0(byte param_2)
+undefined4 C_016e6ed0::sub_016e6ed0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -72,8 +72,9 @@ int sub_016e4860(void)
 
 int sub_005c7a20(void);
 extern undefined * g_023a5e78;
+struct C_016e4890 { undefined4 * sub_016e4890(void); };
 // @baa 0x016e4890
-undefined4 * UObject::sub_016e4890(void)
+undefined4 * C_016e4890::sub_016e4890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

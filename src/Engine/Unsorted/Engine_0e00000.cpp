@@ -334,8 +334,9 @@ C_00e05c40::C_00e05c40() {}
 void C_00e05c40::sub_00e09ac0() {}
 
 int sub_00e001b0(void);
+struct C_00e06020 { undefined4 sub_00e06020(byte param_2); };
 // @baa 0x00e06020
-undefined4 UChannelDownload::sub_00e06020(byte param_2)
+undefined4 C_00e06020::sub_00e06020(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -347,8 +348,9 @@ undefined4 UChannelDownload::sub_00e06020(byte param_2)
 }
 
 extern undefined4 g_020e336c;
+struct C_00e06040 { undefined4 * sub_00e06040(byte param_2); };
 // @baa 0x00e06040
-undefined4 * UChannelDownload::sub_00e06040(byte param_2)
+undefined4 * C_00e06040::sub_00e06040(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -361,8 +363,9 @@ undefined4 * UChannelDownload::sub_00e06040(byte param_2)
 }
 
 extern undefined4 g_020e337c;
+struct C_00e06130 { undefined4 * sub_00e06130(byte param_2); };
 // @baa 0x00e06130
-undefined4 * UChannelDownload::sub_00e06130(byte param_2)
+undefined4 * C_00e06130::sub_00e06130(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -392,8 +395,9 @@ undefined4 C_00e061c0::sub_00e061c0(byte param_2)
 }
 
 int sub_005722a0(void);
+struct C_00e06ec0 { undefined4 sub_00e06ec0(byte param_2); };
 // @baa 0x00e06ec0
-undefined4 UTexture2D::sub_00e06ec0(byte param_2)
+undefined4 C_00e06ec0::sub_00e06ec0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -405,8 +409,9 @@ undefined4 UTexture2D::sub_00e06ec0(byte param_2)
 }
 
 int sub_00572130(void);
+struct C_00e06ee0 { undefined4 sub_00e06ee0(byte param_2); };
 // @baa 0x00e06ee0
-undefined4 UTexture2D::sub_00e06ee0(byte param_2)
+undefined4 C_00e06ee0::sub_00e06ee0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -535,8 +540,9 @@ void sub_00e0a091() { ((Outer*)0)->sub_00e0a090(); }
 
 int sub_006f7810(void);
 extern undefined * g_020e3830;
+struct C_00e0b7a0 { undefined4 * sub_00e0b7a0(void); };
 // @baa 0x00e0b7a0
-undefined4 * UPrimitiveComponent::sub_00e0b7a0(void)
+undefined4 * C_00e0b7a0::sub_00e0b7a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

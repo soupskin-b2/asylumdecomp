@@ -48,8 +48,9 @@ void C_01090560::sub_01090560(int param_2)
   return;
 }
 
+struct C_01090f80 { void sub_01090f80(void); };
 // @baa 0x01090f80
-void UCookPackagesCommandlet::sub_01090f80(void)
+void C_01090f80::sub_01090f80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -124,8 +125,9 @@ void C_01093a80::sub_01093a80(int param_2)
 
 int sub_0053dfa0(...);
 int sub_010908f0(void);
+struct C_010977c0 { undefined4 sub_010977c0(byte param_2); };
 // @baa 0x010977c0
-undefined4 UTexture2D::sub_010977c0(byte param_2)
+undefined4 C_010977c0::sub_010977c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

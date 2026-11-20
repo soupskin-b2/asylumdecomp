@@ -134,8 +134,9 @@ FSparseArrayConstIt_01321ee0::FSparseArrayConstIt_01321ee0(const TSparseArray<IN
 
 int sub_009369a0(void);
 extern undefined * g_0224a2b8;
+struct C_01321f30 { undefined4 * sub_01321f30(void); };
 // @baa 0x01321f30
-undefined4 * USkeletalMeshComponent::sub_01321f30(void)
+undefined4 * C_01321f30::sub_01321f30(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -149,8 +150,9 @@ IMPLEMENT_CLASS_AT(UASVSkelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x01321fb0
 extern undefined * g_0224a528;
+struct C_01321fe0 { undefined4 * sub_01321fe0(void); };
 // @baa 0x01321fe0
-undefined4 * USkeletalMeshComponent::sub_01321fe0(void)
+undefined4 * C_01321fe0::sub_01321fe0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -196,8 +198,9 @@ struct C_view {
     int sub_013217f0(int);
 };
 
+struct C_01325e40 { void sub_01325e40(void); };
 // @baa 0x01325e40
-void UUnrealEdEngine::sub_01325e40(void)
+void C_01325e40::sub_01325e40(void)
 {
     int param_1 = (int)this;
   ((C_view *)((*(char **)((char *)this + 0x10))))->sub_013217f0(*(undefined4 *)(param_1 + 8));
@@ -209,8 +212,9 @@ struct C_view_01325e60 {
     int sub_01321960(int);
 };
 
+struct C_01325e60 { void sub_01325e60(void); };
 // @baa 0x01325e60
-void UUnrealEdEngine::sub_01325e60(void)
+void C_01325e60::sub_01325e60(void)
 {
     int param_1 = (int)this;
   ((C_view_01325e60 *)((*(char **)((char *)this + 0x10))))->sub_01321960(*(undefined4 *)(param_1 + 8));
@@ -222,8 +226,9 @@ struct C_view_01325e80 {
     int sub_01321ad0(int);
 };
 
+struct C_01325e80 { void sub_01325e80(void); };
 // @baa 0x01325e80
-void UUnrealEdEngine::sub_01325e80(void)
+void C_01325e80::sub_01325e80(void)
 {
     int param_1 = (int)this;
   ((C_view_01325e80 *)((*(char **)((char *)this + 0x10))))->sub_01321ad0(*(undefined4 *)(param_1 + 8));
@@ -235,8 +240,9 @@ struct C_view_01328bd0 {
     int sub_01328090(int, int);
 };
 
+struct C_01328bd0 { void sub_01328bd0(void); };
 // @baa 0x01328bd0
-void UUnrealEdEngine::sub_01328bd0(void)
+void C_01328bd0::sub_01328bd0(void)
 {
     int param_1 = (int)this;
   ((C_view_01328bd0 *)(this))->sub_01328090(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -247,8 +253,9 @@ struct C_view_01328ca0 {
     int sub_01328150(int, int);
 };
 
+struct C_01328ca0 { undefined4 sub_01328ca0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01328ca0
-undefined4 UUnrealEdEngine::sub_01328ca0(undefined4 param_2, undefined4 param_3)
+undefined4 C_01328ca0::sub_01328ca0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_01328ca0 *)(this))->sub_01328150(param_2, param_3);
@@ -259,8 +266,9 @@ struct C_view_01328cc0 {
     int sub_013281b0(int, int);
 };
 
+struct C_01328cc0 { undefined4 sub_01328cc0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01328cc0
-undefined4 UUnrealEdEngine::sub_01328cc0(undefined4 param_2, undefined4 param_3)
+undefined4 C_01328cc0::sub_01328cc0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_01328cc0 *)(this))->sub_013281b0(param_2, param_3);
@@ -271,8 +279,9 @@ struct C_view_01328ce0 {
     int sub_01328210(int, int);
 };
 
+struct C_01328ce0 { int sub_01328ce0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01328ce0
-int UUnrealEdEngine::sub_01328ce0(undefined4 param_2, undefined4 param_3)
+int C_01328ce0::sub_01328ce0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01328ce0 *)(this))->sub_01328210(param_2, param_3);
@@ -284,8 +293,9 @@ struct C_view_01328d00 {
     int sub_01328290(int, int);
 };
 
+struct C_01328d00 { int sub_01328d00(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01328d00
-int UUnrealEdEngine::sub_01328d00(undefined4 param_2, undefined4 param_3)
+int C_01328d00::sub_01328d00(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01328d00 *)(this))->sub_01328290(param_2, param_3);
@@ -297,8 +307,9 @@ struct C_view_01328d20 {
     int sub_01328310(int, int);
 };
 
+struct C_01328d20 { int sub_01328d20(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01328d20
-int UUnrealEdEngine::sub_01328d20(undefined4 param_2, undefined4 param_3)
+int C_01328d20::sub_01328d20(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01328d20 *)(this))->sub_01328310(param_2, param_3);
@@ -307,8 +318,9 @@ int UUnrealEdEngine::sub_01328d20(undefined4 param_2, undefined4 param_3)
 }
 
 int sub_01321d20(void);
+struct C_01328d40 { int sub_01328d40(void); };
 // @baa 0x01328d40
-int UUnrealEdEngine::sub_01328d40(void)
+int C_01328d40::sub_01328d40(void)
 {
     int param_1 = (int)this;
 
@@ -319,8 +331,9 @@ int UUnrealEdEngine::sub_01328d40(void)
 }
 
 int sub_01321d80(void);
+struct C_01328d60 { int sub_01328d60(void); };
 // @baa 0x01328d60
-int UUnrealEdEngine::sub_01328d60(void)
+int C_01328d60::sub_01328d60(void)
 {
     int param_1 = (int)this;
 
@@ -331,8 +344,9 @@ int UUnrealEdEngine::sub_01328d60(void)
 }
 
 int sub_01321de0(void);
+struct C_01328d80 { int sub_01328d80(void); };
 // @baa 0x01328d80
-int UUnrealEdEngine::sub_01328d80(void)
+int C_01328d80::sub_01328d80(void)
 {
     int param_1 = (int)this;
 

@@ -345,8 +345,9 @@ void C_006f2530::sub_006f2590() {}
 
 int sub_0053dfa0(...);
 int sub_006ecd80(void);
+struct C_006f25b0 { undefined4 sub_006f25b0(byte param_2); };
 // @baa 0x006f25b0
-undefined4 UObject::sub_006f25b0(byte param_2)
+undefined4 C_006f25b0::sub_006f25b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -357,32 +358,36 @@ undefined4 UObject::sub_006f25b0(byte param_2)
   return param_1;
 }
 
+struct C_006f2650 { int sub_006f2650(int param_2); };
 // @baa 0x006f2650
-int UObject::sub_006f2650(int param_2)
+int C_006f2650::sub_006f2650(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x20 + *param_1;
 }
 
+struct C_006f26e0 { int sub_006f26e0(int param_2); };
 // @baa 0x006f26e0
-int UObject::sub_006f26e0(int param_2)
+int C_006f26e0::sub_006f26e0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_006f2770 { int sub_006f2770(int param_2); };
 // @baa 0x006f2770
-int UObject::sub_006f2770(int param_2)
+int C_006f2770::sub_006f2770(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_006f2810 { int sub_006f2810(int param_2); };
 // @baa 0x006f2810
-int UObject::sub_006f2810(int param_2)
+int C_006f2810::sub_006f2810(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1044,8 +1049,9 @@ struct C_view {
     int sub_006f25d0(int, int);
 };
 
+struct C_006f50a0 { int sub_006f50a0(int param_2); };
 // @baa 0x006f50a0
-int UContentTagIndex::sub_006f50a0(int param_2)
+int C_006f50a0::sub_006f50a0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_006f25d0((int)(&param_2), param_2);
@@ -1239,8 +1245,9 @@ void C_006f5910::sub_006f8210() {}
 int sub_00673150(void);
 extern undefined4 g_01ed9870;
 extern undefined * g_01ed9878;
+struct C_006f5a20 { undefined4 * sub_006f5a20(void); };
 // @baa 0x006f5a20
-undefined4 * UTexture2D::sub_006f5a20(void)
+undefined4 * C_006f5a20::sub_006f5a20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -28,8 +28,9 @@ struct C_00e61f30 { int sub_00e61f30(void); };
 int C_00e61f30::sub_00e61f30(void) { return *(int*)((char*)this + 72); }
 
 extern undefined4*g_026b0d94;
+struct C_00e62180 { void sub_00e62180(void); };
 // @baa 0x00e62180
-void UTextureCube::sub_00e62180(void)
+void C_00e62180::sub_00e62180(void)
 {
 int param_1=(int)this;
 
@@ -55,8 +56,9 @@ return;
 
 int sub_0053dfa0(...);
 int sub_00e61f40(void);
+struct C_00e621f0 { undefined4 sub_00e621f0(byte param_2); };
 // @baa 0x00e621f0
-undefined4 UTextureCube::sub_00e621f0(byte param_2)
+undefined4 C_00e621f0::sub_00e621f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

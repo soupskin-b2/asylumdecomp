@@ -42,8 +42,9 @@ int sub_014fb080(void)
 
 int sub_005c7a20(void);
 extern undefined * g_022cc3f8;
+struct C_014fb0b0 { undefined4 * sub_014fb0b0(void); };
 // @baa 0x014fb0b0
-undefined4 * UObject::sub_014fb0b0(void)
+undefined4 * C_014fb0b0::sub_014fb0b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -59,8 +60,9 @@ IMPLEMENT_CLASS_AT(UGFxMovieThumbnailRenderer, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x014fccf0
 // @baa 0x014fcd50
 extern undefined * g_022cc9d8;
+struct C_014fcd70 { undefined4 * sub_014fcd70(void); };
 // @baa 0x014fcd70
-undefined4 * UObject::sub_014fcd70(void)
+undefined4 * C_014fcd70::sub_014fcd70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -101,8 +103,9 @@ void C_014fd170::sub_014fd230() {}
 
 int sub_005c7a70(...);
 int sub_014fd180(void);
+struct C_014fd230 { undefined4 sub_014fd230(byte param_2); };
 // @baa 0x014fd230
-undefined4 UGFxMovieFactory::sub_014fd230(byte param_2)
+undefined4 C_014fd230::sub_014fd230(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -5,8 +5,9 @@
 
 int sub_005c7a20(void);
 extern undefined * g_022e6918;
+struct C_015437f0 { undefined4 * sub_015437f0(void); };
 // @baa 0x015437f0
-undefined4 * UObject::sub_015437f0(void)
+undefined4 * C_015437f0::sub_015437f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -47,8 +48,9 @@ C_01543910 *C_01543910::sub_01543910(int a) { sub_01542bd0(a); return this; }
 
 int sub_0053dfa0(...);
 int sub_00665d40(void);
+struct C_01543980 { undefined4 sub_01543980(byte param_2); };
 // @baa 0x01543980
-undefined4 UPrimitiveComponent::sub_01543980(byte param_2)
+undefined4 C_01543980::sub_01543980(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -275,8 +275,9 @@ int C_00bc8890::sub_00bc8890(void)
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_00bc88a0 { undefined4 sub_00bc88a0(byte param_2); };
 // @baa 0x00bc88a0
-undefined4 UObject::sub_00bc88a0(byte param_2)
+undefined4 C_00bc88a0::sub_00bc88a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -585,8 +586,9 @@ FSparseArrayConstIt_00bccfd0::FSparseArrayConstIt_00bccfd0(const TSparseArray<IN
 
 int sub_006f7810(void);
 extern undefined * g_0201ad30;
+struct C_00bcd6a0 { undefined4 * sub_00bcd6a0(void); };
 // @baa 0x00bcd6a0
-undefined4 * UPrimitiveComponent::sub_00bcd6a0(void)
+undefined4 * C_00bcd6a0::sub_00bcd6a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

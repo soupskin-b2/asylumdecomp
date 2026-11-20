@@ -40,8 +40,9 @@ struct C_view {
 };
 
 extern undefined4 g_02248f9c;
+struct C_0130d3f0 { undefined4 * sub_0130d3f0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x0130d3f0
-undefined4 * UUnrealEdEngine::sub_0130d3f0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+undefined4 * C_0130d3f0::sub_0130d3f0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -57,8 +58,9 @@ void sub_00c38ac0();
 void sub_0130d420(void) { sub_00c38ac0(); }
 
 extern undefined4 g_02248fac;
+struct C_0130d430 { undefined4 * sub_0130d430(undefined4 param_2); };
 // @baa 0x0130d430
-undefined4 * UUnrealEdEngine::sub_0130d430(undefined4 param_2)
+undefined4 * C_0130d430::sub_0130d430(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -74,8 +76,9 @@ void sub_0130d450(void) { sub_00c38ac0(); }
 void sub_0130d480(void) { sub_00c38ac0(); }
 
 extern undefined4 g_02248fcc;
+struct C_0130d490 { undefined4 * sub_0130d490(undefined4 param_2); };
 // @baa 0x0130d490
-undefined4 * UUnrealEdEngine::sub_0130d490(undefined4 param_2)
+undefined4 * C_0130d490::sub_0130d490(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -133,8 +136,9 @@ extern char g_026d6c14[];
 // @baa 0x0130d7f0
 int sub_0130d7f0(void) { return (int)g_026d6c14; }
 
+struct C_0130d820 { void sub_0130d820(int param_2); };
 // @baa 0x0130d820
-void UUnrealEdEngine::sub_0130d820(int param_2)
+void C_0130d820::sub_0130d820(int param_2)
 {
     int param_1 = (int)this;
 
@@ -165,8 +169,9 @@ extern char g_026d70a0[];
 // @baa 0x0130d8a0
 int sub_0130d8a0(void) { return (int)g_026d70a0; }
 
+struct C_0130d900 { undefined4 sub_0130d900(void); };
 // @baa 0x0130d900
-undefined4 UUnrealEdEngine::sub_0130d900(void)
+undefined4 C_0130d900::sub_0130d900(void)
 {
     int param_1 = (int)this;
 
@@ -179,8 +184,9 @@ undefined4 UUnrealEdEngine::sub_0130d900(void)
   return *(undefined4 *)(param_1 + 0x420);
 }
 
+struct C_0130d930 { undefined4 sub_0130d930(void); };
 // @baa 0x0130d930
-undefined4 UUnrealEdEngine::sub_0130d930(void)
+undefined4 C_0130d930::sub_0130d930(void)
 {
     int param_1 = (int)this;
 
@@ -193,8 +199,9 @@ undefined4 UUnrealEdEngine::sub_0130d930(void)
   return *(undefined4 *)(param_1 + 0x424);
 }
 
+struct C_0130d960 { undefined4 sub_0130d960(void); };
 // @baa 0x0130d960
-undefined4 UUnrealEdEngine::sub_0130d960(void)
+undefined4 C_0130d960::sub_0130d960(void)
 {
     int param_1 = (int)this;
 
@@ -207,8 +214,9 @@ undefined4 UUnrealEdEngine::sub_0130d960(void)
   return *(undefined4 *)(param_1 + 0x428);
 }
 
+struct C_0130d990 { void sub_0130d990(undefined4 param_2); };
 // @baa 0x0130d990
-void UUnrealEdEngine::sub_0130d990(undefined4 param_2)
+void C_0130d990::sub_0130d990(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -224,8 +232,9 @@ void UUnrealEdEngine::sub_0130d990(undefined4 param_2)
   return;
 }
 
+struct C_0130d9d0 { void sub_0130d9d0(undefined4 param_2); };
 // @baa 0x0130d9d0
-void UUnrealEdEngine::sub_0130d9d0(undefined4 param_2)
+void C_0130d9d0::sub_0130d9d0(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -241,8 +250,9 @@ void UUnrealEdEngine::sub_0130d9d0(undefined4 param_2)
   return;
 }
 
+struct C_0130da10 { void sub_0130da10(undefined4 param_2); };
 // @baa 0x0130da10
-void UUnrealEdEngine::sub_0130da10(undefined4 param_2)
+void C_0130da10::sub_0130da10(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -407,8 +417,9 @@ int sub_0130f060(void) { return (int)g_02158c10; }
 
 int sub_005c7a20(void);
 extern undefined * g_02249cb0;
+struct C_0130f070 { undefined4 * sub_0130f070(void); };
 // @baa 0x0130f070
-undefined4 * UObject::sub_0130f070(void)
+undefined4 * C_0130f070::sub_0130f070(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -429,8 +440,9 @@ UBOOL UPhATSimOptions::HasParentClassChanged() const
 
 int sub_0053dfa0(...);
 int sub_0130d6f0(void);
+struct C_0130f680 { undefined4 sub_0130f680(byte param_2); };
 // @baa 0x0130f680
-undefined4 UUnrealEdEngine::sub_0130f680(byte param_2)
+undefined4 C_0130f680::sub_0130f680(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

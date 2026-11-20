@@ -105,8 +105,9 @@ struct C_view {
     int sub_00da2110();
 };
 
+struct C_00da5450 { undefined4 sub_00da5450(byte param_2); };
 // @baa 0x00da5450
-undefined4 USkeletalMeshComponent::sub_00da5450(byte param_2)
+undefined4 C_00da5450::sub_00da5450(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 8)))->sub_00da2110();
@@ -120,8 +121,9 @@ struct C_view_00da5480 {
     int sub_00da2200(int);
 };
 
+struct C_00da5480 { undefined4 * sub_00da5480(undefined4 * param_2); };
 // @baa 0x00da5480
-undefined4 * USkeletalMeshComponent::sub_00da5480(undefined4 * param_2)
+undefined4 * C_00da5480::sub_00da5480(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -134,8 +136,9 @@ struct C_view_00da54b0 {
     int sub_00da2200(int);
 };
 
+struct C_00da54b0 { undefined4 * sub_00da54b0(int * param_2); };
 // @baa 0x00da54b0
-undefined4 * USkeletalMeshComponent::sub_00da54b0(int * param_2)
+undefined4 * C_00da54b0::sub_00da54b0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -150,8 +153,9 @@ struct C_view_00da54e0 {
     int sub_00da2200(int);
 };
 
+struct C_00da54e0 { undefined4 * sub_00da54e0(int * param_2); };
 // @baa 0x00da54e0
-undefined4 * USkeletalMeshComponent::sub_00da54e0(int * param_2)
+undefined4 * C_00da54e0::sub_00da54e0(int * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -163,8 +167,9 @@ undefined4 * USkeletalMeshComponent::sub_00da54e0(int * param_2)
   return param_1;
 }
 
+struct C_00da5740 { undefined4 sub_00da5740(byte param_2); };
 // @baa 0x00da5740
-undefined4 USkeletalMeshComponent::sub_00da5740(byte param_2)
+undefined4 C_00da5740::sub_00da5740(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(((char *)this + 8)))->sub_00da2110();
@@ -175,8 +180,9 @@ undefined4 USkeletalMeshComponent::sub_00da5740(byte param_2)
 }
 
 int sub_00d984c0(void);
+struct C_00da5dc0 { int sub_00da5dc0(void); };
 // @baa 0x00da5dc0
-int USkeletalMeshComponent::sub_00da5dc0(void)
+int C_00da5dc0::sub_00da5dc0(void)
 {
     int param_1 = (int)this;
 
@@ -194,8 +200,9 @@ struct C_view_00da5f50 {
     int sub_00da5b60(int);
 };
 
+struct C_00da5f50 { void sub_00da5f50(void); };
 // @baa 0x00da5f50
-void USkeletalMeshComponent::sub_00da5f50(void)
+void C_00da5f50::sub_00da5f50(void)
 {
     int param_1 = (int)this;
   ((C_view_00da5f50 *)((*(char **)((char *)this + 0x10))))->sub_00da5b60(*(undefined4 *)(param_1 + 8));
@@ -203,8 +210,9 @@ void USkeletalMeshComponent::sub_00da5f50(void)
   return;
 }
 
+struct C_00da5f70 { int sub_00da5f70(void); };
 // @baa 0x00da5f70
-int USkeletalMeshComponent::sub_00da5f70(void)
+int C_00da5f70::sub_00da5f70(void)
 {
     int param_1 = (int)this;
 
@@ -215,8 +223,9 @@ int USkeletalMeshComponent::sub_00da5f70(void)
 }
 
 int sub_00d98460(void);
+struct C_00da5f90 { int sub_00da5f90(void); };
 // @baa 0x00da5f90
-int USkeletalMeshComponent::sub_00da5f90(void)
+int C_00da5f90::sub_00da5f90(void)
 {
     int param_1 = (int)this;
 
@@ -234,8 +243,9 @@ void sub_00da5e60();
 // @baa 0x00da6000
 void sub_00da6000(void) { sub_00da5e60(); }
 
+struct C_00da6080 { int sub_00da6080(void); };
 // @baa 0x00da6080
-int USkeletalMeshComponent::sub_00da6080(void)
+int C_00da6080::sub_00da6080(void)
 {
     int param_1 = (int)this;
 
@@ -245,8 +255,9 @@ int USkeletalMeshComponent::sub_00da6080(void)
   return param_1;
 }
 
+struct C_00da60a0 { int sub_00da60a0(void); };
 // @baa 0x00da60a0
-int USkeletalMeshComponent::sub_00da60a0(void)
+int C_00da60a0::sub_00da60a0(void)
 {
     int param_1 = (int)this;
 
@@ -263,8 +274,9 @@ void sub_00da6010();
 // @baa 0x00da60d0
 void sub_00da60d0(void) { sub_00da6010(); }
 
+struct C_00da60e0 { int sub_00da60e0(void); };
 // @baa 0x00da60e0
-int USkeletalMeshComponent::sub_00da60e0(void)
+int C_00da60e0::sub_00da60e0(void)
 {
     int param_1 = (int)this;
 
@@ -274,8 +286,9 @@ int USkeletalMeshComponent::sub_00da60e0(void)
   return param_1;
 }
 
+struct C_00da6100 { int sub_00da6100(void); };
 // @baa 0x00da6100
-int USkeletalMeshComponent::sub_00da6100(void)
+int C_00da6100::sub_00da6100(void)
 {
     int param_1 = (int)this;
 
@@ -291,8 +304,9 @@ void sub_00da6120(void) { sub_00da5df0(); }
 // @baa 0x00da6130
 void sub_00da6130(void) { sub_00da6010(); }
 
+struct C_00da6140 { int sub_00da6140(void); };
 // @baa 0x00da6140
-int USkeletalMeshComponent::sub_00da6140(void)
+int C_00da6140::sub_00da6140(void)
 {
     int param_1 = (int)this;
 

@@ -33,8 +33,9 @@ struct C_view {
     int sub_01743bd0(int, int);
 };
 
+struct C_01749d40 { int sub_01749d40(int param_2); };
 // @baa 0x01749d40
-int UTexture2D::sub_01749d40(int param_2)
+int C_01749d40::sub_01749d40(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -49,8 +50,9 @@ struct C_view_01749d80 {
     int sub_0147e750(int, int);
 };
 
+struct C_01749d80 { int sub_01749d80(int param_2); };
 // @baa 0x01749d80
-int UTexture2D::sub_01749d80(int param_2)
+int C_01749d80::sub_01749d80(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -161,8 +163,9 @@ UVerifySourceControlCommandlet::UVerifySourceControlCommandlet()
 // @baa 0x0174a940
 int sub_0174a940(void);
 int sub_005c7a70(...);
+struct C_0174a9a0 { undefined4 sub_0174a9a0(byte param_2); };
 // @baa 0x0174a9a0
-undefined4 UVerifySourceControlCommandlet::sub_0174a9a0(byte param_2)
+undefined4 C_0174a9a0::sub_0174a9a0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

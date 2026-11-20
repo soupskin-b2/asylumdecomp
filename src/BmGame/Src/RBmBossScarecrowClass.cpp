@@ -57,8 +57,9 @@ UBOOL URSeqAct_SetScarecrowCamera::HasParentClassChanged() const
 
 int sub_005c7a20(void);
 extern undefined * g_023975b0;
+struct C_016cc420 { undefined4 * sub_016cc420(void); };
 // @baa 0x016cc420
-undefined4 * UObject::sub_016cc420(void)
+undefined4 * C_016cc420::sub_016cc420(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

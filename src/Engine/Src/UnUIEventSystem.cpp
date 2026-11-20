@@ -44,8 +44,9 @@ IMPLEMENT_CLASS_AT(UUIEvent_ProcessInput, "e:\\Projects\\Amadeus\\AA\\Game\\Unre
 
 int sub_005c7a70(...);
 int sub_00dc95c0(void);
+struct C_00dc9640 { undefined4 sub_00dc9640(byte param_2); };
 // @baa 0x00dc9640
-undefined4 UUIEvent_ProcessInput::sub_00dc9640(byte param_2)
+undefined4 C_00dc9640::sub_00dc9640(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

@@ -48,8 +48,9 @@ void sub_00f76280(undefined4 param_1, undefined4 param_2, undefined4 param_3, un
   return;
 }
 
+struct C_00f7dd20 { int sub_00f7dd20(int param_2); };
 // @baa 0x00f7dd20
-int UState::sub_00f7dd20(int param_2)
+int C_00f7dd20::sub_00f7dd20(int param_2)
 {
     int * param_1 = (int *)this;
 

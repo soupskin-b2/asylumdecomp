@@ -106,8 +106,9 @@ undefined4 UTextureCube::sub_00762340(byte param_2)
 
 int sub_005c7a70(...);
 int sub_007626b0(void);
+struct C_00762710 { undefined4 sub_00762710(byte param_2); };
 // @baa 0x00762710
-undefined4 UScriptedTexture::sub_00762710(byte param_2)
+undefined4 C_00762710::sub_00762710(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

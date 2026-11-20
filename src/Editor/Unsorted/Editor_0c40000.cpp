@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_00c40870 { undefined4 sub_00c40870(byte param_2); };
 // @baa 0x00c40870
-undefined4 UObject::sub_00c40870(byte param_2)
+undefined4 C_00c40870::sub_00c40870(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -18,8 +19,9 @@ undefined4 UObject::sub_00c40870(byte param_2)
 }
 
 int sub_00c38140(void);
+struct C_00c45220 { int sub_00c45220(void); };
 // @baa 0x00c45220
-int USpeechRecognition::sub_00c45220(void)
+int C_00c45220::sub_00c45220(void)
 {
     int param_1 = (int)this;
 

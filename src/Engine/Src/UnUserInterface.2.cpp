@@ -827,8 +827,9 @@ struct C_0056f2a0 { C_0056f2a0* sub_0056f2a0(void); };
 // @baa 0x0056f2a0
 C_0056f2a0* C_0056f2a0::sub_0056f2a0(void) { *(int*)((char*)this + 12) = -1; return this; }
 
+struct C_00573840 { int sub_00573840(void); };
 // @baa 0x00573840
-int UGameUISceneClient::sub_00573840(void)
+int C_00573840::sub_00573840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -859,48 +860,54 @@ int C_005738b0::sub_005738b0(void)
   return *(int *)*param_1 + param_1[5] * 4;
 }
 
+struct C_00573b10 { int sub_00573b10(int param_2); };
 // @baa 0x00573b10
-int UObject::sub_00573b10(int param_2)
+int C_00573b10::sub_00573b10(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00573b90 { int sub_00573b90(int param_2); };
 // @baa 0x00573b90
-int UObject::sub_00573b90(int param_2)
+int C_00573b90::sub_00573b90(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00573c20 { int sub_00573c20(int param_2); };
 // @baa 0x00573c20
-int UObject::sub_00573c20(int param_2)
+int C_00573c20::sub_00573c20(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00573c30 { int sub_00573c30(int param_2); };
 // @baa 0x00573c30
-int UObject::sub_00573c30(int param_2)
+int C_00573c30::sub_00573c30(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00573e10 { int sub_00573e10(int param_2); };
 // @baa 0x00573e10
-int UObject::sub_00573e10(int param_2)
+int C_00573e10::sub_00573e10(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00573fe0 { int sub_00573fe0(int param_2); };
 // @baa 0x00573fe0
-int UObject::sub_00573fe0(int param_2)
+int C_00573fe0::sub_00573fe0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -911,8 +918,9 @@ struct C_view {
     int sub_00573f30(int);
 };
 
+struct C_00573ff0 { int sub_00573ff0(undefined4 param_2); };
 // @baa 0x00573ff0
-int UObject::sub_00573ff0(undefined4 param_2)
+int C_00573ff0::sub_00573ff0(undefined4 param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00573f30(param_2);
@@ -947,32 +955,36 @@ int C_00574110::sub_00574110(void)
 // @baa 0x00574120
 void __stdcall sub_00574120(int a0, int a1) {  }
 
+struct C_005741b0 { int sub_005741b0(int param_2); };
 // @baa 0x005741b0
-int UGameUISceneClient::sub_005741b0(int param_2)
+int C_005741b0::sub_005741b0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00574230 { int sub_00574230(void); };
 // @baa 0x00574230
-int UGameUISceneClient::sub_00574230(void)
+int C_00574230::sub_00574230(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x2c + *(int *)*param_1;
 }
 
+struct C_005742c0 { int sub_005742c0(int param_2); };
 // @baa 0x005742c0
-int UGameUISceneClient::sub_005742c0(int param_2)
+int C_005742c0::sub_005742c0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00574340 { int sub_00574340(void); };
 // @baa 0x00574340
-int UGameUISceneClient::sub_00574340(void)
+int C_00574340::sub_00574340(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -987,8 +999,9 @@ struct C_view_005775b0 {
     int sub_00573a10(int, int);
 };
 
+struct C_005775b0 { int sub_005775b0(int param_2); };
 // @baa 0x005775b0
-int UGameUISceneClient::sub_005775b0(int param_2)
+int C_005775b0::sub_005775b0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_005775b0 *)(this))->sub_00573a10((int)(&param_2), param_2);
@@ -1002,8 +1015,9 @@ struct C_view_005775e0 {
     int sub_0054d4a0(int, int);
 };
 
+struct C_005775e0 { int sub_005775e0(int param_2); };
 // @baa 0x005775e0
-int UPackageMap::sub_005775e0(int param_2)
+int C_005775e0::sub_005775e0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_005775e0 *)(this))->sub_0054d4a0((int)(&param_2), param_2);
@@ -1017,8 +1031,9 @@ struct C_view_00577630 {
     int sub_0054d590(int, int);
 };
 
+struct C_00577630 { int sub_00577630(int param_2); };
 // @baa 0x00577630
-int APrefabInstance::sub_00577630(int param_2)
+int C_00577630::sub_00577630(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00577630 *)(this))->sub_0054d590((int)(&param_2), param_2);
@@ -1032,8 +1047,9 @@ struct C_view_00577680 {
     int sub_00573d90(int, int);
 };
 
+struct C_00577680 { int sub_00577680(int param_2); };
 // @baa 0x00577680
-int UGameUISceneClient::sub_00577680(int param_2)
+int C_00577680::sub_00577680(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00577680 *)(this))->sub_00573d90((int)(&param_2), param_2);
@@ -1084,8 +1100,9 @@ void C_005776d0::sub_005776d0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00577810 { void sub_00577810(int param_2); };
 // @baa 0x00577810
-void UGameUISceneClient::sub_00577810(int param_2)
+void C_00577810::sub_00577810(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1121,8 +1138,9 @@ struct C_view_005779c0 {
     int sub_00574130(int, int);
 };
 
+struct C_005779c0 { int sub_005779c0(int param_2); };
 // @baa 0x005779c0
-int UGameUISceneClient::sub_005779c0(int param_2)
+int C_005779c0::sub_005779c0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_005779c0 *)(this))->sub_00574130((int)(&param_2), param_2);
@@ -1132,24 +1150,27 @@ int UGameUISceneClient::sub_005779c0(int param_2)
   return 0;
 }
 
+struct C_005779f0 { int sub_005779f0(void); };
 // @baa 0x005779f0
-int UGameUISceneClient::sub_005779f0(void)
+int C_005779f0::sub_005779f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x2c + *(int *)*param_1;
 }
 
+struct C_00577a80 { int sub_00577a80(void); };
 // @baa 0x00577a80
-int UGameUISceneClient::sub_00577a80(void)
+int C_00577a80::sub_00577a80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[2] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00577ad0 { int sub_00577ad0(void); };
 // @baa 0x00577ad0
-int UGameUISceneClient::sub_00577ad0(void)
+int C_00577ad0::sub_00577ad0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1158,8 +1179,9 @@ int UGameUISceneClient::sub_00577ad0(void)
 
 int sub_0053dfa0(...);
 int sub_00576270(void);
+struct C_00577be0 { undefined4 sub_00577be0(byte param_2); };
 // @baa 0x00577be0
-undefined4 UGameUISceneClient::sub_00577be0(byte param_2)
+undefined4 C_00577be0::sub_00577be0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1193,8 +1215,9 @@ FSparseArrayConstIt_00577c90::FSparseArrayConstIt_00577c90(const TSparseArray<IN
 {
 }
 
+struct C_00578300 { void sub_00578300(int param_2); };
 // @baa 0x00578300
-void UGameUISceneClient::sub_00578300(int param_2)
+void C_00578300::sub_00578300(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1402,8 +1425,9 @@ struct C_view_0057a2b0 {
     int sub_00573a10(int, int);
 };
 
+struct C_0057a2b0 { int sub_0057a2b0(int param_2); };
 // @baa 0x0057a2b0
-int UGameUISceneClient::sub_0057a2b0(int param_2)
+int C_0057a2b0::sub_0057a2b0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -1414,16 +1438,18 @@ int UGameUISceneClient::sub_0057a2b0(int param_2)
   return 0;
 }
 
+struct C_0057a3f0 { int sub_0057a3f0(void); };
 // @baa 0x0057a3f0
-int UGameUISceneClient::sub_0057a3f0(void)
+int C_0057a3f0::sub_0057a3f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[5] * 0x10 + *(int *)*param_1;
 }
 
+struct C_0057a400 { int sub_0057a400(void); };
 // @baa 0x0057a400
-int UGameUISceneClient::sub_0057a400(void)
+int C_0057a400::sub_0057a400(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1457,16 +1483,18 @@ struct C_view_0057a630 {
     int sub_00577850(int, int);
 };
 
+struct C_0057a630 { void sub_0057a630(void); };
 // @baa 0x0057a630
-void UGameUISceneClient::sub_0057a630(void)
+void C_0057a630::sub_0057a630(void)
 {
     int param_1 = (int)this;
   ((C_view_0057a630 *)((*(char **)((char *)this + 0))))->sub_00577850(*(undefined4 *)(param_1 + 0x14), 1);
   return;
 }
 
+struct C_0057a680 { int sub_0057a680(void); };
 // @baa 0x0057a680
-int UGameUISceneClient::sub_0057a680(void)
+int C_0057a680::sub_0057a680(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1477,8 +1505,9 @@ struct C_view_0057a690 {
     int sub_00577c00(int, int);
 };
 
+struct C_0057a690 { int sub_0057a690(int param_2); };
 // @baa 0x0057a690
-int UGameUISceneClient::sub_0057a690(int param_2)
+int C_0057a690::sub_0057a690(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_0057a690 *)(this))->sub_00577c00((int)(&param_2), param_2);
@@ -1942,8 +1971,9 @@ struct C_view_0057c400 {
     int sub_00575910(int, int);
 };
 
+struct C_0057c400 { int sub_0057c400(int param_2); };
 // @baa 0x0057c400
-int UState::sub_0057c400(int param_2)
+int C_0057c400::sub_0057c400(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -1958,8 +1988,9 @@ struct C_view_0057c440 {
     int sub_00578e60(int);
 };
 
+struct C_0057c440 { void sub_0057c440(void); };
 // @baa 0x0057c440
-void UState::sub_0057c440(void)
+void C_0057c440::sub_0057c440(void)
 {
     int param_1 = (int)this;
   ((C_view_0057c440 *)((*(char **)((char *)this + 0x10))))->sub_00578e60(*(undefined4 *)(param_1 + 8));
@@ -1971,8 +2002,9 @@ struct C_view_0057c460 {
     int sub_00578ef0(int);
 };
 
+struct C_0057c460 { void sub_0057c460(void); };
 // @baa 0x0057c460
-void UState::sub_0057c460(void)
+void C_0057c460::sub_0057c460(void)
 {
     int param_1 = (int)this;
   ((C_view_0057c460 *)((*(char **)((char *)this + 0x10))))->sub_00578ef0(*(undefined4 *)(param_1 + 8));
@@ -2527,8 +2559,9 @@ FSparseArrayConstIt_005803b0::FSparseArrayConstIt_005803b0(const TSparseArray<IN
 }
 
 int sub_0057bde0(void);
+struct C_00580c60 { int sub_00580c60(void); };
 // @baa 0x00580c60
-int UGameUISceneClient::sub_00580c60(void)
+int C_00580c60::sub_00580c60(void)
 {
     int param_1 = (int)this;
 
@@ -2539,8 +2572,9 @@ int UGameUISceneClient::sub_00580c60(void)
 }
 
 int sub_0057be40(void);
+struct C_00580c80 { int sub_00580c80(void); };
 // @baa 0x00580c80
-int UGameUISceneClient::sub_00580c80(void)
+int C_00580c80::sub_00580c80(void)
 {
     int param_1 = (int)this;
 
@@ -2551,8 +2585,9 @@ int UGameUISceneClient::sub_00580c80(void)
 }
 
 int sub_0057bea0(void);
+struct C_00580ca0 { int sub_00580ca0(void); };
 // @baa 0x00580ca0
-int UGameUISceneClient::sub_00580ca0(void)
+int C_00580ca0::sub_00580ca0(void)
 {
     int param_1 = (int)this;
 
@@ -2563,8 +2598,9 @@ int UGameUISceneClient::sub_00580ca0(void)
 }
 
 int sub_0057bf00(void);
+struct C_00580cc0 { int sub_00580cc0(void); };
 // @baa 0x00580cc0
-int UState::sub_00580cc0(void)
+int C_00580cc0::sub_00580cc0(void)
 {
     int param_1 = (int)this;
 
@@ -2575,8 +2611,9 @@ int UState::sub_00580cc0(void)
 }
 
 int sub_0057bfb0(void);
+struct C_00580ce0 { int sub_00580ce0(void); };
 // @baa 0x00580ce0
-int UState::sub_00580ce0(void)
+int C_00580ce0::sub_00580ce0(void)
 {
     int param_1 = (int)this;
 
@@ -2590,8 +2627,9 @@ struct C_view_005819f0 {
     int sub_0057fa80(int, int);
 };
 
+struct C_005819f0 { void sub_005819f0(void); };
 // @baa 0x005819f0
-void UGameUISceneClient::sub_005819f0(void)
+void C_005819f0::sub_005819f0(void)
 {
     int param_1 = (int)this;
   ((C_view_005819f0 *)(this))->sub_0057fa80(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2602,8 +2640,9 @@ struct C_view_00581a70 {
     int sub_0057fc50(int, int);
 };
 
+struct C_00581a70 { void sub_00581a70(void); };
 // @baa 0x00581a70
-void UGameUISceneClient::sub_00581a70(void)
+void C_00581a70::sub_00581a70(void)
 {
     int param_1 = (int)this;
   ((C_view_00581a70 *)(this))->sub_0057fc50(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2614,8 +2653,9 @@ struct C_view_00581c10 {
     int sub_0055a690(int, int);
 };
 
+struct C_00581c10 { void sub_00581c10(void); };
 // @baa 0x00581c10
-void UPackageMap::sub_00581c10(void)
+void C_00581c10::sub_00581c10(void)
 {
     int param_1 = (int)this;
   ((C_view_00581c10 *)(this))->sub_0055a690(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2626,8 +2666,9 @@ struct C_view_00581d00 {
     int sub_0057ffa0(int, int);
 };
 
+struct C_00581d00 { void sub_00581d00(void); };
 // @baa 0x00581d00
-void UGameUISceneClient::sub_00581d00(void)
+void C_00581d00::sub_00581d00(void)
 {
     int param_1 = (int)this;
   ((C_view_00581d00 *)(this))->sub_0057ffa0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2638,8 +2679,9 @@ struct C_view_00581e40 {
     int sub_00580060(int, int);
 };
 
+struct C_00581e40 { void sub_00581e40(void); };
 // @baa 0x00581e40
-void UGameUISceneClient::sub_00581e40(void)
+void C_00581e40::sub_00581e40(void)
 {
     int param_1 = (int)this;
   ((C_view_00581e40 *)(this))->sub_00580060(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2650,8 +2692,9 @@ struct C_view_00581f70 {
     int sub_00580120(int, int);
 };
 
+struct C_00581f70 { void sub_00581f70(void); };
 // @baa 0x00581f70
-void UTexture2D::sub_00581f70(void)
+void C_00581f70::sub_00581f70(void)
 {
     int param_1 = (int)this;
   ((C_view_00581f70 *)(this))->sub_00580120(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2673,8 +2716,9 @@ struct C_view_00582190 {
     int sub_005802f0(int, int);
 };
 
+struct C_00582190 { undefined4 sub_00582190(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582190
-undefined4 UGameUISceneClient::sub_00582190(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582190::sub_00582190(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582190 *)(this))->sub_005802f0(param_2, param_3);
@@ -2685,8 +2729,9 @@ struct C_view_005821b0 {
     int sub_00580350(int, int);
 };
 
+struct C_005821b0 { undefined4 sub_005821b0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x005821b0
-undefined4 UGameUISceneClient::sub_005821b0(undefined4 param_2, undefined4 param_3)
+undefined4 C_005821b0::sub_005821b0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_005821b0 *)(this))->sub_00580350(param_2, param_3);
@@ -2708,8 +2753,9 @@ struct C_view_00582220 {
     int sub_00580400(int, int);
 };
 
+struct C_00582220 { undefined4 sub_00582220(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582220
-undefined4 UGameUISceneClient::sub_00582220(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582220::sub_00582220(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582220 *)(this))->sub_00580400(param_2, param_3);
@@ -2720,8 +2766,9 @@ struct C_view_00582300 {
     int sub_00580520(int, int);
 };
 
+struct C_00582300 { undefined4 sub_00582300(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582300
-undefined4 UGameUISceneClient::sub_00582300(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582300::sub_00582300(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582300 *)(this))->sub_00580520(param_2, param_3);
@@ -2732,8 +2779,9 @@ struct C_view_00582320 {
     int sub_00580580(int, int);
 };
 
+struct C_00582320 { undefined4 sub_00582320(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582320
-undefined4 UGameUISceneClient::sub_00582320(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582320::sub_00582320(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582320 *)(this))->sub_00580580(param_2, param_3);
@@ -2744,8 +2792,9 @@ struct C_view_00582340 {
     int sub_005805e0(int, int);
 };
 
+struct C_00582340 { void sub_00582340(void); };
 // @baa 0x00582340
-void UGameUISceneClient::sub_00582340(void)
+void C_00582340::sub_00582340(void)
 {
     int param_1 = (int)this;
   ((C_view_00582340 *)(this))->sub_005805e0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -2756,8 +2805,9 @@ struct C_view_00582410 {
     int sub_005806a0(int, int);
 };
 
+struct C_00582410 { undefined4 sub_00582410(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582410
-undefined4 UGameUISceneClient::sub_00582410(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582410::sub_00582410(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582410 *)(this))->sub_005806a0(param_2, param_3);
@@ -2768,8 +2818,9 @@ struct C_view_00582430 {
     int sub_00580700(int, int);
 };
 
+struct C_00582430 { undefined4 sub_00582430(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582430
-undefined4 UGameUISceneClient::sub_00582430(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582430::sub_00582430(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582430 *)(this))->sub_00580700(param_2, param_3);
@@ -2780,8 +2831,9 @@ struct C_view_00582450 {
     int sub_00580760(int, int);
 };
 
+struct C_00582450 { int sub_00582450(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582450
-int UGameUISceneClient::sub_00582450(undefined4 param_2, undefined4 param_3)
+int C_00582450::sub_00582450(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582450 *)(this))->sub_00580760(param_2, param_3);
@@ -2793,8 +2845,9 @@ struct C_view_00582470 {
     int sub_005807e0(int, int);
 };
 
+struct C_00582470 { int sub_00582470(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582470
-int UGameUISceneClient::sub_00582470(undefined4 param_2, undefined4 param_3)
+int C_00582470::sub_00582470(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582470 *)(this))->sub_005807e0(param_2, param_3);
@@ -2806,8 +2859,9 @@ struct C_view_00582490 {
     int sub_00580860(int, int);
 };
 
+struct C_00582490 { undefined4 sub_00582490(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582490
-undefined4 UGameUISceneClient::sub_00582490(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582490::sub_00582490(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582490 *)(this))->sub_00580860(param_2, param_3);
@@ -2818,8 +2872,9 @@ struct C_view_005824b0 {
     int sub_005808e0(int, int);
 };
 
+struct C_005824b0 { int sub_005824b0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x005824b0
-int UGameUISceneClient::sub_005824b0(undefined4 param_2, undefined4 param_3)
+int C_005824b0::sub_005824b0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_005824b0 *)(this))->sub_005808e0(param_2, param_3);
@@ -2831,8 +2886,9 @@ struct C_view_005824d0 {
     int sub_00580960(int, int);
 };
 
+struct C_005824d0 { int sub_005824d0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x005824d0
-int UGameUISceneClient::sub_005824d0(undefined4 param_2, undefined4 param_3)
+int C_005824d0::sub_005824d0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_005824d0 *)(this))->sub_00580960(param_2, param_3);
@@ -2844,8 +2900,9 @@ struct C_view_005824f0 {
     int sub_005809e0(int, int);
 };
 
+struct C_005824f0 { int sub_005824f0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x005824f0
-int UGameUISceneClient::sub_005824f0(undefined4 param_2, undefined4 param_3)
+int C_005824f0::sub_005824f0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_005824f0 *)(this))->sub_005809e0(param_2, param_3);
@@ -2857,8 +2914,9 @@ struct C_view_00582510 {
     int sub_00580a60(int, int);
 };
 
+struct C_00582510 { int sub_00582510(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582510
-int UGameUISceneClient::sub_00582510(undefined4 param_2, undefined4 param_3)
+int C_00582510::sub_00582510(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582510 *)(this))->sub_00580a60(param_2, param_3);
@@ -2870,8 +2928,9 @@ struct C_view_00582530 {
     int sub_00580ae0(int, int);
 };
 
+struct C_00582530 { int sub_00582530(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582530
-int UGameUISceneClient::sub_00582530(undefined4 param_2, undefined4 param_3)
+int C_00582530::sub_00582530(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582530 *)(this))->sub_00580ae0(param_2, param_3);
@@ -2883,8 +2942,9 @@ struct C_view_00582550 {
     int sub_00580b60(int, int);
 };
 
+struct C_00582550 { int sub_00582550(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582550
-int UGameUISceneClient::sub_00582550(undefined4 param_2, undefined4 param_3)
+int C_00582550::sub_00582550(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582550 *)(this))->sub_00580b60(param_2, param_3);
@@ -2896,8 +2956,9 @@ struct C_view_00582570 {
     int sub_00580be0(int, int);
 };
 
+struct C_00582570 { int sub_00582570(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582570
-int UGameUISceneClient::sub_00582570(undefined4 param_2, undefined4 param_3)
+int C_00582570::sub_00582570(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00582570 *)(this))->sub_00580be0(param_2, param_3);
@@ -2905,8 +2966,9 @@ int UGameUISceneClient::sub_00582570(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00582590 { int sub_00582590(void); };
 // @baa 0x00582590
-int UGameUISceneClient::sub_00582590(void)
+int C_00582590::sub_00582590(void)
 {
     int param_1 = (int)this;
 
@@ -2916,8 +2978,9 @@ int UGameUISceneClient::sub_00582590(void)
   return param_1;
 }
 
+struct C_00582610 { int sub_00582610(void); };
 // @baa 0x00582610
-int UGameUISceneClient::sub_00582610(void)
+int C_00582610::sub_00582610(void)
 {
     int param_1 = (int)this;
 
@@ -2927,8 +2990,9 @@ int UGameUISceneClient::sub_00582610(void)
   return param_1;
 }
 
+struct C_00582630 { int sub_00582630(void); };
 // @baa 0x00582630
-int UGameUISceneClient::sub_00582630(void)
+int C_00582630::sub_00582630(void)
 {
     int param_1 = (int)this;
 
@@ -2938,8 +3002,9 @@ int UGameUISceneClient::sub_00582630(void)
   return param_1;
 }
 
+struct C_00582650 { int sub_00582650(void); };
 // @baa 0x00582650
-int UState::sub_00582650(void)
+int C_00582650::sub_00582650(void)
 {
     int param_1 = (int)this;
 
@@ -2949,8 +3014,9 @@ int UState::sub_00582650(void)
   return param_1;
 }
 
+struct C_00582670 { int sub_00582670(void); };
 // @baa 0x00582670
-int UState::sub_00582670(void)
+int C_00582670::sub_00582670(void)
 {
     int param_1 = (int)this;
 
@@ -2961,8 +3027,9 @@ int UState::sub_00582670(void)
 }
 
 int sub_0057bd80(void);
+struct C_00582690 { int sub_00582690(void); };
 // @baa 0x00582690
-int UState::sub_00582690(void)
+int C_00582690::sub_00582690(void)
 {
     int param_1 = (int)this;
 
@@ -3041,8 +3108,9 @@ struct C_view_00582a90 {
     int sub_00581370(int, int);
 };
 
+struct C_00582a90 { undefined4 sub_00582a90(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00582a90
-undefined4 UState::sub_00582a90(undefined4 param_2, undefined4 param_3)
+undefined4 C_00582a90::sub_00582a90(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00582a90 *)(this))->sub_00581370(param_2, param_3);
@@ -3050,8 +3118,9 @@ undefined4 UState::sub_00582a90(undefined4 param_2, undefined4 param_3)
 }
 
 int sub_00578ff0(void);
+struct C_00582ab0 { int sub_00582ab0(void); };
 // @baa 0x00582ab0
-int UState::sub_00582ab0(void)
+int C_00582ab0::sub_00582ab0(void)
 {
     int param_1 = (int)this;
 
@@ -3114,8 +3183,9 @@ void sub_00581840();
 void sub_00582b30(void) { sub_00581840(); }
 
 int sub_00581450(void);
+struct C_00582b40 { undefined4 sub_00582b40(byte param_2); };
 // @baa 0x00582b40
-undefined4 UTexture2D::sub_00582b40(byte param_2)
+undefined4 C_00582b40::sub_00582b40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -3175,8 +3245,9 @@ struct C_view_00583150 {
     int sub_005802f0(int, int);
 };
 
+struct C_00583150 { int sub_00583150(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00583150
-int UGameUISceneClient::sub_00583150(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00583150::sub_00583150(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00583150 *)(this))->sub_005802f0(param_2, param_4);
@@ -3231,8 +3302,9 @@ struct C_view_005831a0 {
     int sub_00580350(int, int);
 };
 
+struct C_005831a0 { int sub_005831a0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x005831a0
-int UGameUISceneClient::sub_005831a0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_005831a0::sub_005831a0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_005831a0 *)(this))->sub_00580350(param_2, param_4);
@@ -3298,8 +3370,9 @@ struct C_view_00583240 {
     int sub_00580400(int, int);
 };
 
+struct C_00583240 { int sub_00583240(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00583240
-int UGameUISceneClient::sub_00583240(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00583240::sub_00583240(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00583240 *)(this))->sub_00580400(param_2, param_4);
@@ -3354,8 +3427,9 @@ struct C_view_005832d0 {
     int sub_00580520(int, int);
 };
 
+struct C_005832d0 { int sub_005832d0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x005832d0
-int UGameUISceneClient::sub_005832d0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_005832d0::sub_005832d0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_005832d0 *)(this))->sub_00580520(param_2, param_4);
@@ -3410,8 +3484,9 @@ struct C_view_00583320 {
     int sub_00580580(int, int);
 };
 
+struct C_00583320 { int sub_00583320(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00583320
-int UGameUISceneClient::sub_00583320(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00583320::sub_00583320(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00583320 *)(this))->sub_00580580(param_2, param_4);
@@ -3466,8 +3541,9 @@ struct C_view_005833b0 {
     int sub_005806a0(int, int);
 };
 
+struct C_005833b0 { int sub_005833b0(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x005833b0
-int UGameUISceneClient::sub_005833b0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_005833b0::sub_005833b0(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_005833b0 *)(this))->sub_005806a0(param_2, param_4);
@@ -3522,8 +3598,9 @@ struct C_view_00583400 {
     int sub_00580700(int, int);
 };
 
+struct C_00583400 { int sub_00583400(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00583400
-int UGameUISceneClient::sub_00583400(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00583400::sub_00583400(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00583400 *)(this))->sub_00580700(param_2, param_4);
@@ -3574,8 +3651,9 @@ void C_00583430::sub_00583430(void)
     }
 }
 
+struct C_00583450 { int sub_00583450(void); };
 // @baa 0x00583450
-int UGameUISceneClient::sub_00583450(void)
+int C_00583450::sub_00583450(void)
 {
     int param_1 = (int)this;
 
@@ -3589,8 +3667,9 @@ void sub_005825b0();
 // @baa 0x00583470
 void sub_00583470(void) { sub_005825b0(); }
 
+struct C_00583480 { int sub_00583480(void); };
 // @baa 0x00583480
-int UGameUISceneClient::sub_00583480(void)
+int C_00583480::sub_00583480(void)
 {
     int param_1 = (int)this;
 
@@ -3600,8 +3679,9 @@ int UGameUISceneClient::sub_00583480(void)
   return param_1;
 }
 
+struct C_005834a0 { int sub_005834a0(void); };
 // @baa 0x005834a0
-int UGameUISceneClient::sub_005834a0(void)
+int C_005834a0::sub_005834a0(void)
 {
     int param_1 = (int)this;
 
@@ -3616,8 +3696,9 @@ struct C_view_005834c0 {
     int sub_00580060(int, int);
 };
 
+struct C_005834c0 { void sub_005834c0(void); };
 // @baa 0x005834c0
-void UGameUISceneClient::sub_005834c0(void)
+void C_005834c0::sub_005834c0(void)
 {
     int param_1 = (int)this;
   ((C_view_005834c0 *)(this))->sub_0057b1a0();
@@ -3625,8 +3706,9 @@ void UGameUISceneClient::sub_005834c0(void)
   return;
 }
 
+struct C_00586400 { int sub_00586400(void); };
 // @baa 0x00586400
-int UGameUISceneClient::sub_00586400(void)
+int C_00586400::sub_00586400(void)
 {
     int param_1 = (int)this;
 
@@ -3640,8 +3722,9 @@ struct C_view_00586420 {
     int sub_005825b0(int);
 };
 
+struct C_00586420 { void sub_00586420(int param_2); };
 // @baa 0x00586420
-void UPackageMap::sub_00586420(int param_2)
+void C_00586420::sub_00586420(int param_2)
 {
     int param_1 = (int)this;
   undefined4 uVar1;
@@ -3657,8 +3740,9 @@ void UPackageMap::sub_00586420(int param_2)
   return;
 }
 
+struct C_00586470 { int sub_00586470(void); };
 // @baa 0x00586470
-int UGameUISceneClient::sub_00586470(void)
+int C_00586470::sub_00586470(void)
 {
     int param_1 = (int)this;
 
@@ -3668,8 +3752,9 @@ int UGameUISceneClient::sub_00586470(void)
   return param_1;
 }
 
+struct C_00586490 { int sub_00586490(void); };
 // @baa 0x00586490
-int UGameUISceneClient::sub_00586490(void)
+int C_00586490::sub_00586490(void)
 {
     int param_1 = (int)this;
 
@@ -3684,8 +3769,9 @@ struct C_view_005864b0 {
     int sub_00580060(int, int);
 };
 
+struct C_005864b0 { void sub_005864b0(void); };
 // @baa 0x005864b0
-void UGameUISceneClient::sub_005864b0(void)
+void C_005864b0::sub_005864b0(void)
 {
     int param_1 = (int)this;
   ((C_view_005864b0 *)(this))->sub_0057b1a0();
@@ -3697,8 +3783,9 @@ struct C_view_005acd30 {
     int sub_00573a10(int, int);
 };
 
+struct C_005acd30 { int sub_005acd30(int param_2); };
 // @baa 0x005acd30
-int UGameUISceneClient::sub_005acd30(int param_2)
+int C_005acd30::sub_005acd30(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_005acd30 *)(this))->sub_00573a10((int)(&param_2), param_2);
@@ -3712,8 +3799,9 @@ struct C_view_005acd60 {
     int sub_00573a90(int, int);
 };
 
+struct C_005acd60 { int sub_005acd60(int param_2); };
 // @baa 0x005acd60
-int UGameUISceneClient::sub_005acd60(int param_2)
+int C_005acd60::sub_005acd60(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_005acd60 *)(this))->sub_00573a90((int)(&param_2), param_2);
@@ -3727,8 +3815,9 @@ struct C_view_005af6e0 {
     int sub_00573a10(int, int);
 };
 
+struct C_005af6e0 { undefined4 sub_005af6e0(int param_2); };
 // @baa 0x005af6e0
-undefined4 UGameUISceneClient::sub_005af6e0(int param_2)
+undefined4 C_005af6e0::sub_005af6e0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -3743,8 +3832,9 @@ struct C_view_005b7100 {
     int sub_0057fe20(int, int);
 };
 
+struct C_005b7100 { void sub_005b7100(void); };
 // @baa 0x005b7100
-void UGameUISceneClient::sub_005b7100(void)
+void C_005b7100::sub_005b7100(void)
 {
     int param_1 = (int)this;
   ((C_view_005b7100 *)(this))->sub_0057fe20(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -3848,8 +3938,9 @@ struct C_view_00d39100 {
     int sub_00d28e10();
 };
 
+struct C_00d39100 { undefined4 sub_00d39100(byte param_2); };
 // @baa 0x00d39100
-undefined4 UGameUISceneClient::sub_00d39100(byte param_2)
+undefined4 C_00d39100::sub_00d39100(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d39100 *)(((char *)this + 0x18)))->sub_00d28e10();
@@ -3866,24 +3957,27 @@ struct C_00d78bd0 { char pad[8]; M_00d78bd0 m; void sub_00d78bd0(); };
 // @baa 0x00d78bd0
 void C_00d78bd0::sub_00d78bd0() { m.sub_0040fcc0(); }
 
+struct C_00d78c50 { int sub_00d78c50(int param_2); };
 // @baa 0x00d78c50
-int UGameUISceneClient::sub_00d78c50(int param_2)
+int C_00d78c50::sub_00d78c50(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00d78c60 { int sub_00d78c60(int param_2); };
 // @baa 0x00d78c60
-int UGameUISceneClient::sub_00d78c60(int param_2)
+int C_00d78c60::sub_00d78c60(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00d78d10 { int sub_00d78d10(int param_2); };
 // @baa 0x00d78d10
-int UGameUISceneClient::sub_00d78d10(int param_2)
+int C_00d78d10::sub_00d78d10(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -4244,8 +4338,9 @@ undefined4 C_00d7c4e0::sub_00d7c4e0(byte param_2)
 }
 
 int sub_00d78b70(void);
+struct C_00d7c510 { undefined4 sub_00d7c510(byte param_2); };
 // @baa 0x00d7c510
-undefined4 UObject::sub_00d7c510(byte param_2)
+undefined4 C_00d7c510::sub_00d7c510(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4279,32 +4374,36 @@ struct C_00d7c5c0 { char pad[8]; M_00d7c5c0 m; void sub_00d7c5c0(); };
 // @baa 0x00d7c5c0
 void C_00d7c5c0::sub_00d7c5c0() { m.sub_00d78810(); }
 
+struct C_00d7c5d0 { int sub_00d7c5d0(int param_2); };
 // @baa 0x00d7c5d0
-int UGameUISceneClient::sub_00d7c5d0(int param_2)
+int C_00d7c5d0::sub_00d7c5d0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00d7c5f0 { int sub_00d7c5f0(int param_2); };
 // @baa 0x00d7c5f0
-int UGameUISceneClient::sub_00d7c5f0(int param_2)
+int C_00d7c5f0::sub_00d7c5f0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00d7c690 { int sub_00d7c690(int param_2); };
 // @baa 0x00d7c690
-int UGameUISceneClient::sub_00d7c690(int param_2)
+int C_00d7c690::sub_00d7c690(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x14;
 }
 
+struct C_00d7c720 { int sub_00d7c720(int param_2); };
 // @baa 0x00d7c720
-int UGameUISceneClient::sub_00d7c720(int param_2)
+int C_00d7c720::sub_00d7c720(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -4336,8 +4435,9 @@ void C_00d7c7c0::sub_00d7c7c0() {
     if (t) { sub_0053dfa0(t); Data = 0; }
 }
 
+struct C_00d7c8a0 { int sub_00d7c8a0(int param_2); };
 // @baa 0x00d7c8a0
-int UGameUISceneClient::sub_00d7c8a0(int param_2)
+int C_00d7c8a0::sub_00d7c8a0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -4418,8 +4518,9 @@ struct C_view_00d7fbd0 {
     int sub_00d7c610(int, int);
 };
 
+struct C_00d7fbd0 { int sub_00d7fbd0(int param_2); };
 // @baa 0x00d7fbd0
-int UGameUISceneClient::sub_00d7fbd0(int param_2)
+int C_00d7fbd0::sub_00d7fbd0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00d7fbd0 *)(this))->sub_00d7c610((int)(&param_2), param_2);
@@ -4433,8 +4534,9 @@ struct C_view_00d7fc00 {
     int sub_00d7c730(int, int);
 };
 
+struct C_00d7fc00 { int sub_00d7fc00(int param_2); };
 // @baa 0x00d7fc00
-int UGameUISceneClient::sub_00d7fc00(int param_2)
+int C_00d7fc00::sub_00d7fc00(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00d7fc00 *)(this))->sub_00d7c730((int)(&param_2), param_2);
@@ -4448,8 +4550,9 @@ struct C_view_00d7fc30 {
     int sub_00d7c820(int, int);
 };
 
+struct C_00d7fc30 { int sub_00d7fc30(int param_2); };
 // @baa 0x00d7fc30
-int UGameUISceneClient::sub_00d7fc30(int param_2)
+int C_00d7fc30::sub_00d7fc30(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00d7fc30 *)(this))->sub_00d7c820((int)(&param_2), param_2);
@@ -4463,8 +4566,9 @@ struct C_view_00d7fc80 {
     int sub_00d7c8b0(int, int);
 };
 
+struct C_00d7fc80 { int sub_00d7fc80(int param_2); };
 // @baa 0x00d7fc80
-int UGameUISceneClient::sub_00d7fc80(int param_2)
+int C_00d7fc80::sub_00d7fc80(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00d7fc80 *)(this))->sub_00d7c8b0((int)(&param_2), param_2);
@@ -4474,24 +4578,27 @@ int UGameUISceneClient::sub_00d7fc80(int param_2)
   return 0;
 }
 
+struct C_00d7fcb0 { int sub_00d7fcb0(void); };
 // @baa 0x00d7fcb0
-int UGameUISceneClient::sub_00d7fcb0(void)
+int C_00d7fcb0::sub_00d7fcb0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x48;
 }
 
+struct C_00d7fd20 { int sub_00d7fd20(void); };
 // @baa 0x00d7fd20
-int UGameUISceneClient::sub_00d7fd20(void)
+int C_00d7fd20::sub_00d7fd20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   return *(int *)*param_1 + param_1[2] * 0x1c;
 }
 
 int sub_00d7c560(void);
+struct C_00d7fee0 { undefined4 sub_00d7fee0(byte param_2); };
 // @baa 0x00d7fee0
-undefined4 UGameUISceneClient::sub_00d7fee0(byte param_2)
+undefined4 C_00d7fee0::sub_00d7fee0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4506,8 +4613,9 @@ struct C_view_00d7ff00 {
     int sub_00d78810();
 };
 
+struct C_00d7ff00 { undefined4 sub_00d7ff00(byte param_2); };
 // @baa 0x00d7ff00
-undefined4 UGameUISceneClient::sub_00d7ff00(byte param_2)
+undefined4 C_00d7ff00::sub_00d7ff00(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d7ff00 *)(((char *)this + 8)))->sub_00d78810();
@@ -4672,8 +4780,9 @@ struct C_view_00d82360 {
     int sub_00d7c610(int, int);
 };
 
+struct C_00d82360 { undefined4 sub_00d82360(int param_2); };
 // @baa 0x00d82360
-undefined4 UGameUISceneClient::sub_00d82360(int param_2)
+undefined4 C_00d82360::sub_00d82360(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -4684,16 +4793,18 @@ undefined4 UGameUISceneClient::sub_00d82360(int param_2)
   return 0;
 }
 
+struct C_00d82480 { int sub_00d82480(void); };
 // @baa 0x00d82480
-int UGameUISceneClient::sub_00d82480(void)
+int C_00d82480::sub_00d82480(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x48;
 }
 
+struct C_00d82490 { int sub_00d82490(void); };
 // @baa 0x00d82490
-int UGameUISceneClient::sub_00d82490(void)
+int C_00d82490::sub_00d82490(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -4764,8 +4875,9 @@ struct C_view_00d82750 {
     int sub_00d80020(int);
 };
 
+struct C_00d82750 { void sub_00d82750(void); };
 // @baa 0x00d82750
-void UGameUISceneClient::sub_00d82750(void)
+void C_00d82750::sub_00d82750(void)
 {
     int param_1 = (int)this;
   ((C_view_00d82750 *)((*(char **)((char *)this + 0x10))))->sub_00d80020(*(undefined4 *)(param_1 + 8));
@@ -4777,8 +4889,9 @@ struct C_view_00d82770 {
     int sub_00d80190(int);
 };
 
+struct C_00d82770 { void sub_00d82770(void); };
 // @baa 0x00d82770
-void UGameUISceneClient::sub_00d82770(void)
+void C_00d82770::sub_00d82770(void)
 {
     int param_1 = (int)this;
   ((C_view_00d82770 *)((*(char **)((char *)this + 0x10))))->sub_00d80190(*(undefined4 *)(param_1 + 8));
@@ -4790,8 +4903,9 @@ struct C_view_00d82790 {
     int sub_00d803e0(int);
 };
 
+struct C_00d82790 { void sub_00d82790(void); };
 // @baa 0x00d82790
-void UGameUISceneClient::sub_00d82790(void)
+void C_00d82790::sub_00d82790(void)
 {
     int param_1 = (int)this;
   ((C_view_00d82790 *)((*(char **)((char *)this + 0x10))))->sub_00d803e0(*(undefined4 *)(param_1 + 8));
@@ -4803,8 +4917,9 @@ struct C_view_00d827b0 {
     int sub_00d80540(int);
 };
 
+struct C_00d827b0 { void sub_00d827b0(void); };
 // @baa 0x00d827b0
-void UGameUISceneClient::sub_00d827b0(void)
+void C_00d827b0::sub_00d827b0(void)
 {
     int param_1 = (int)this;
   ((C_view_00d827b0 *)((*(char **)((char *)this + 0x10))))->sub_00d80540(*(undefined4 *)(param_1 + 8));
@@ -4816,8 +4931,9 @@ struct C_view_00d827d0 {
     int sub_00d806a0(int);
 };
 
+struct C_00d827d0 { void sub_00d827d0(void); };
 // @baa 0x00d827d0
-void UGameUISceneClient::sub_00d827d0(void)
+void C_00d827d0::sub_00d827d0(void)
 {
     int param_1 = (int)this;
   ((C_view_00d827d0 *)((*(char **)((char *)this + 0x10))))->sub_00d806a0(*(undefined4 *)(param_1 + 8));
@@ -4826,8 +4942,9 @@ void UGameUISceneClient::sub_00d827d0(void)
 }
 
 int sub_00d7ff40(void);
+struct C_00d827f0 { undefined4 sub_00d827f0(byte param_2); };
 // @baa 0x00d827f0
-undefined4 UGameUISceneClient::sub_00d827f0(byte param_2)
+undefined4 C_00d827f0::sub_00d827f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4839,8 +4956,9 @@ undefined4 UGameUISceneClient::sub_00d827f0(byte param_2)
 }
 
 int sub_00d7ffb0(void);
+struct C_00d82810 { undefined4 sub_00d82810(byte param_2); };
 // @baa 0x00d82810
-undefined4 UGameUISceneClient::sub_00d82810(byte param_2)
+undefined4 C_00d82810::sub_00d82810(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -4855,8 +4973,9 @@ struct C_view_00d82a90 {
     int sub_00553720();
 };
 
+struct C_00d82a90 { undefined4 sub_00d82a90(byte param_2); };
 // @baa 0x00d82a90
-undefined4 UGameUISceneClient::sub_00d82a90(byte param_2)
+undefined4 C_00d82a90::sub_00d82a90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d82a90 *)(((char *)this + 4)))->sub_00553720();
@@ -4982,8 +5101,9 @@ struct C_view_00d85530 {
     int sub_0060d780(int);
 };
 
+struct C_00d85530 { undefined4 * sub_00d85530(undefined4 * param_2); };
 // @baa 0x00d85530
-undefined4 * UObject::sub_00d85530(undefined4 * param_2)
+undefined4 * C_00d85530::sub_00d85530(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -5165,8 +5285,9 @@ struct C_view_00d868c0 {
     int sub_00d84f70(int, int);
 };
 
+struct C_00d868c0 { void sub_00d868c0(void); };
 // @baa 0x00d868c0
-void UGameUISceneClient::sub_00d868c0(void)
+void C_00d868c0::sub_00d868c0(void)
 {
     int param_1 = (int)this;
   ((C_view_00d868c0 *)(this))->sub_00d84f70(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5177,8 +5298,9 @@ struct C_view_00d86ae0 {
     int sub_00d850f0(int, int);
 };
 
+struct C_00d86ae0 { void sub_00d86ae0(void); };
 // @baa 0x00d86ae0
-void UGameUISceneClient::sub_00d86ae0(void)
+void C_00d86ae0::sub_00d86ae0(void)
 {
     int param_1 = (int)this;
   ((C_view_00d86ae0 *)(this))->sub_00d850f0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -5252,8 +5374,9 @@ struct C_view_00d86f00 {
     int sub_00d855d0(int, int);
 };
 
+struct C_00d86f00 { undefined4 sub_00d86f00(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86f00
-undefined4 UObject::sub_00d86f00(undefined4 param_2, undefined4 param_3)
+undefined4 C_00d86f00::sub_00d86f00(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d86f00 *)(this))->sub_00d855d0(param_2, param_3);
@@ -5264,8 +5387,9 @@ struct C_view_00d86f20 {
     int sub_00d85630(int, int);
 };
 
+struct C_00d86f20 { undefined4 sub_00d86f20(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86f20
-undefined4 UObject::sub_00d86f20(undefined4 param_2, undefined4 param_3)
+undefined4 C_00d86f20::sub_00d86f20(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d86f20 *)(this))->sub_00d85630(param_2, param_3);
@@ -5276,8 +5400,9 @@ struct C_view_00d86f40 {
     int sub_00d85690(int, int);
 };
 
+struct C_00d86f40 { undefined4 sub_00d86f40(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86f40
-undefined4 UObject::sub_00d86f40(undefined4 param_2, undefined4 param_3)
+undefined4 C_00d86f40::sub_00d86f40(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00d86f40 *)(this))->sub_00d85690(param_2, param_3);
@@ -5288,8 +5413,9 @@ struct C_view_00d86f60 {
     int sub_00d85710(int, int);
 };
 
+struct C_00d86f60 { int sub_00d86f60(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86f60
-int UObject::sub_00d86f60(undefined4 param_2, undefined4 param_3)
+int C_00d86f60::sub_00d86f60(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d86f60 *)(this))->sub_00d85710(param_2, param_3);
@@ -5301,8 +5427,9 @@ struct C_view_00d86f80 {
     int sub_00d85790(int, int);
 };
 
+struct C_00d86f80 { int sub_00d86f80(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86f80
-int UObject::sub_00d86f80(undefined4 param_2, undefined4 param_3)
+int C_00d86f80::sub_00d86f80(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d86f80 *)(this))->sub_00d85790(param_2, param_3);
@@ -5314,8 +5441,9 @@ struct C_view_00d86fa0 {
     int sub_00d85810(int, int);
 };
 
+struct C_00d86fa0 { int sub_00d86fa0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86fa0
-int UObject::sub_00d86fa0(undefined4 param_2, undefined4 param_3)
+int C_00d86fa0::sub_00d86fa0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d86fa0 *)(this))->sub_00d85810(param_2, param_3);
@@ -5327,8 +5455,9 @@ struct C_view_00d86fc0 {
     int sub_00d85890(int, int);
 };
 
+struct C_00d86fc0 { int sub_00d86fc0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86fc0
-int UObject::sub_00d86fc0(undefined4 param_2, undefined4 param_3)
+int C_00d86fc0::sub_00d86fc0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d86fc0 *)(this))->sub_00d85890(param_2, param_3);
@@ -5340,8 +5469,9 @@ struct C_view_00d86fe0 {
     int sub_00d85910(int, int);
 };
 
+struct C_00d86fe0 { int sub_00d86fe0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d86fe0
-int UObject::sub_00d86fe0(undefined4 param_2, undefined4 param_3)
+int C_00d86fe0::sub_00d86fe0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d86fe0 *)(this))->sub_00d85910(param_2, param_3);
@@ -5353,8 +5483,9 @@ struct C_view_00d87000 {
     int sub_00d85980(int, int);
 };
 
+struct C_00d87000 { int sub_00d87000(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00d87000
-int UObject::sub_00d87000(undefined4 param_2, undefined4 param_3)
+int C_00d87000::sub_00d87000(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00d87000 *)(this))->sub_00d85980(param_2, param_3);
@@ -5366,8 +5497,9 @@ struct C_view_00d87020 {
     int sub_00d85320(int);
 };
 
+struct C_00d87020 { void sub_00d87020(void); };
 // @baa 0x00d87020
-void UObject::sub_00d87020(void)
+void C_00d87020::sub_00d87020(void)
 {
     int param_1 = (int)this;
   ((C_view_00d87020 *)((*(char **)((char *)this + 0x10))))->sub_00d85320(*(undefined4 *)(param_1 + 8));
@@ -5484,8 +5616,9 @@ struct C_view_00d88220 {
     int sub_00d855d0(int, int);
 };
 
+struct C_00d88220 { int sub_00d88220(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00d88220
-int UObject::sub_00d88220(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00d88220::sub_00d88220(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00d88220 *)(this))->sub_00d855d0(param_2, param_4);
@@ -5540,8 +5673,9 @@ struct C_view_00d88270 {
     int sub_00d85630(int, int);
 };
 
+struct C_00d88270 { int sub_00d88270(undefined4 param_2, undefined4 param_3, undefined4 param_4); };
 // @baa 0x00d88270
-int UObject::sub_00d88270(undefined4 param_2, undefined4 param_3, undefined4 param_4)
+int C_00d88270::sub_00d88270(undefined4 param_2, undefined4 param_3, undefined4 param_4)
 {
     int param_1 = (int)this;
   ((C_view_00d88270 *)(this))->sub_00d85630(param_2, param_4);
@@ -5627,8 +5761,9 @@ struct C_view_00d88380 {
     int sub_00d84f70(int, int);
 };
 
+struct C_00d88380 { void sub_00d88380(void); };
 // @baa 0x00d88380
-void UGameUISceneClient::sub_00d88380(void)
+void C_00d88380::sub_00d88380(void)
 {
     int param_1 = (int)this;
   ((C_view_00d88380 *)(this))->sub_00d802f0();
@@ -5641,8 +5776,9 @@ struct C_view_00d8a870 {
     int sub_00d84f70(int, int);
 };
 
+struct C_00d8a870 { void sub_00d8a870(void); };
 // @baa 0x00d8a870
-void UGameUISceneClient::sub_00d8a870(void)
+void C_00d8a870::sub_00d8a870(void)
 {
     int param_1 = (int)this;
   ((C_view_00d8a870 *)(this))->sub_00d802f0();
@@ -5659,8 +5795,9 @@ struct C_view_00db8910 {
     int sub_00db5e60(int, int);
 };
 
+struct C_00db8910 { int sub_00db8910(int param_2); };
 // @baa 0x00db8910
-int UGameUISceneClient::sub_00db8910(int param_2)
+int C_00db8910::sub_00db8910(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00db8910 *)(this))->sub_00db5e60((int)(&param_2), param_2);
@@ -5674,8 +5811,9 @@ struct C_view_00db8940 {
     int sub_00d7c6a0(int, int);
 };
 
+struct C_00db8940 { int sub_00db8940(int param_2); };
 // @baa 0x00db8940
-int UGameUISceneClient::sub_00db8940(int param_2)
+int C_00db8940::sub_00db8940(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00db8940 *)(this))->sub_00d7c6a0((int)(&param_2), param_2);
@@ -5689,8 +5827,9 @@ struct C_view_00dba3f0 {
     int sub_00db5e60(int, int);
 };
 
+struct C_00dba3f0 { int sub_00dba3f0(int param_2); };
 // @baa 0x00dba3f0
-int UGameUISceneClient::sub_00dba3f0(int param_2)
+int C_00dba3f0::sub_00dba3f0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -5739,8 +5878,9 @@ undefined4 sub_00ddd240(undefined4 param_1, undefined4 param_2)
 IMPLEMENT_CLASS_AT(UUIState, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnUserInterface.cpp", 28);
 
 extern undefined * g_020d5358;
+struct C_00ddd2b0 { undefined4 * sub_00ddd2b0(void); };
 // @baa 0x00ddd2b0
-undefined4 * UObject::sub_00ddd2b0(void)
+undefined4 * C_00ddd2b0::sub_00ddd2b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5757,8 +5897,9 @@ undefined4 sub_00ddd2f0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_020d5468;
+struct C_00ddd300 { undefined4 * sub_00ddd300(void); };
 // @baa 0x00ddd300
-undefined4 * UObject::sub_00ddd300(void)
+undefined4 * C_00ddd300::sub_00ddd300(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5778,8 +5919,9 @@ undefined4 sub_00ddd3a0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_020d5578;
+struct C_00ddd3b0 { undefined4 * sub_00ddd3b0(void); };
 // @baa 0x00ddd3b0
-undefined4 * UObject::sub_00ddd3b0(void)
+undefined4 * C_00ddd3b0::sub_00ddd3b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5796,8 +5938,9 @@ extern char g_020d5684[];
 // @baa 0x00ddd450
 void UUIState_Enabled::sub_00ddd450(void) { *(int*)((char*)this + 0) = (int)g_020d5684; }
 
+struct C_00ddd460 { undefined4 * sub_00ddd460(byte param_2); };
 // @baa 0x00ddd460
-undefined4 * UUIState_Enabled::sub_00ddd460(byte param_2)
+undefined4 * C_00ddd460::sub_00ddd460(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5832,8 +5975,9 @@ int sub_00ddd570(void) { return (int)g_020b5210; }
 int sub_00ddd580(int a0, int a1) { return a1; }
 
 extern undefined * g_020d5690;
+struct C_00ddd590 { undefined4 * sub_00ddd590(void); };
 // @baa 0x00ddd590
-undefined4 * UObject::sub_00ddd590(void)
+undefined4 * C_00ddd590::sub_00ddd590(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5853,8 +5997,9 @@ undefined4 sub_00ddd630(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_020d57a0;
+struct C_00ddd640 { undefined4 * sub_00ddd640(void); };
 // @baa 0x00ddd640
-undefined4 * UObject::sub_00ddd640(void)
+undefined4 * C_00ddd640::sub_00ddd640(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5874,8 +6019,9 @@ undefined4 sub_00ddd6e0(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_020d58b0;
+struct C_00ddd6f0 { undefined4 * sub_00ddd6f0(void); };
 // @baa 0x00ddd6f0
-undefined4 * UObject::sub_00ddd6f0(void)
+undefined4 * C_00ddd6f0::sub_00ddd6f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5895,8 +6041,9 @@ undefined4 sub_00ddd790(undefined4 param_1, undefined4 param_2)
 }
 
 extern undefined * g_020d59c0;
+struct C_00ddd7a0 { undefined4 * sub_00ddd7a0(void); };
 // @baa 0x00ddd7a0
-undefined4 * UObject::sub_00ddd7a0(void)
+undefined4 * C_00ddd7a0::sub_00ddd7a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -5976,8 +6123,9 @@ struct C_view_00dddb10 {
 };
 
 extern undefined4 g_020d5acc;
+struct C_00dddb10 { undefined4 * sub_00dddb10(undefined4 param_2); };
 // @baa 0x00dddb10
-undefined4 * UUnrealEdEngine::sub_00dddb10(undefined4 param_2)
+undefined4 * C_00dddb10::sub_00dddb10(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00dddb10 *)(this))->sub_00c407b0(2);
@@ -6039,8 +6187,9 @@ struct C_00ddde60 { C_00ddde60* sub_00ddde60(void); };
 C_00ddde60* C_00ddde60::sub_00ddde60(void) { *(int*)((char*)this + 0) = (int)g_020d5af4; return this; }
 
 int sub_00aa5130(void);
+struct C_00ddde70 { undefined4 sub_00ddde70(byte param_2); };
 // @baa 0x00ddde70
-undefined4 UUISceneClient::sub_00ddde70(byte param_2)
+undefined4 C_00ddde70::sub_00ddde70(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -6076,8 +6225,9 @@ extern char g_01ebb554[];
 // @baa 0x00dddee0
 void UUISceneClient::sub_00dddee0(void) { *(int*)((char*)this + 0) = (int)g_01ebb554; }
 
+struct C_00dddef0 { undefined4 * sub_00dddef0(byte param_2); };
 // @baa 0x00dddef0
-undefined4 * UUISceneClient::sub_00dddef0(byte param_2)
+undefined4 * C_00dddef0::sub_00dddef0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -6694,6 +6844,7 @@ C_00ddfaf0::C_00ddfaf0() {}
 // @baa 0x00ddfaf0
 void C_00ddfaf0::sub_00ddfad0() {}
 
+struct C_00de02c0 { undefined4 sub_00de02c0(void); };
 // @baa 0x00ddfb00
 // @baa 0x00ddfbc0
 // @baa 0x00ddfc80
@@ -6705,7 +6856,7 @@ void C_00ddfaf0::sub_00ddfad0() {}
 // @baa 0x00de0100
 // @baa 0x00de01c0
 // @baa 0x00de02c0
-undefined4 UUITickableObjectProxy::sub_00de02c0(void)
+undefined4 C_00de02c0::sub_00de02c0(void)
 {
     int param_1 = (int)this;
 
@@ -6991,8 +7142,9 @@ struct C_00de3b70 { char pad[4]; M_00de3b70 m; void sub_00de3b70(); };
 // @baa 0x00de3b70
 void C_00de3b70::sub_00de3b70() { m.sub_0054eec0(); }
 
+struct C_00de3d90 { int sub_00de3d90(int param_2); };
 // @baa 0x00de3d90
-int UGameUISceneClient::sub_00de3d90(int param_2)
+int C_00de3d90::sub_00de3d90(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -7006,16 +7158,18 @@ struct C_00de3da0 { char pad[4]; M_00de3da0 m; void sub_00de3da0(); };
 // @baa 0x00de3da0
 void C_00de3da0::sub_00de3da0() { m.sub_0054eec0(); }
 
+struct C_00de3db0 { int sub_00de3db0(void); };
 // @baa 0x00de3db0
-int UGameUISceneClient::sub_00de3db0(void)
+int C_00de3db0::sub_00de3db0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[5] * 0x18;
 }
 
+struct C_00de3dc0 { int sub_00de3dc0(void); };
 // @baa 0x00de3dc0
-int UGameUISceneClient::sub_00de3dc0(void)
+int C_00de3dc0::sub_00de3dc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -7026,8 +7180,9 @@ struct C_view_00de3f50 {
     int sub_00d7c940();
 };
 
+struct C_00de3f50 { undefined4 sub_00de3f50(byte param_2); };
 // @baa 0x00de3f50
-undefined4 UGameUISceneClient::sub_00de3f50(byte param_2)
+undefined4 C_00de3f50::sub_00de3f50(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00de3f50 *)(((char *)this + 4)))->sub_00d7c940();
@@ -7041,8 +7196,9 @@ struct C_view_00de3f80 {
     int sub_0054eec0();
 };
 
+struct C_00de3f80 { undefined4 sub_00de3f80(byte param_2); };
 // @baa 0x00de3f80
-undefined4 UGameUISceneClient::sub_00de3f80(byte param_2)
+undefined4 C_00de3f80::sub_00de3f80(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00de3f80 *)(((char *)this + 4)))->sub_0054eec0();
@@ -7108,24 +7264,27 @@ int C_00de61a0::sub_00de61a0()
     return g_026a1ca4(Index);
 }
 
+struct C_00de6200 { int sub_00de6200(int param_2); };
 // @baa 0x00de6200
-int UGameUISceneClient::sub_00de6200(int param_2)
+int C_00de6200::sub_00de6200(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00de6220 { int sub_00de6220(int param_2); };
 // @baa 0x00de6220
-int UGameUISceneClient::sub_00de6220(int param_2)
+int C_00de6220::sub_00de6220(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x48;
 }
 
+struct C_00de6230 { int sub_00de6230(int param_2); };
 // @baa 0x00de6230
-int UGameUISceneClient::sub_00de6230(int param_2)
+int C_00de6230::sub_00de6230(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -7136,8 +7295,9 @@ struct C_view_00de6240 {
     int sub_00de3bf0(int, int);
 };
 
+struct C_00de6240 { int sub_00de6240(int param_2); };
 // @baa 0x00de6240
-int UGameUISceneClient::sub_00de6240(int param_2)
+int C_00de6240::sub_00de6240(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00de6240 *)(this))->sub_00de3bf0((int)(&param_2), param_2);
@@ -7147,8 +7307,9 @@ int UGameUISceneClient::sub_00de6240(int param_2)
   return 0;
 }
 
+struct C_00de6270 { int sub_00de6270(int param_2); };
 // @baa 0x00de6270
-int UGameUISceneClient::sub_00de6270(int param_2)
+int C_00de6270::sub_00de6270(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -7159,8 +7320,9 @@ struct C_view_00de6280 {
     int sub_00de3cd0(int, int);
 };
 
+struct C_00de6280 { int sub_00de6280(int param_2); };
 // @baa 0x00de6280
-int UGameUISceneClient::sub_00de6280(int param_2)
+int C_00de6280::sub_00de6280(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_00de6280 *)(this))->sub_00de3cd0((int)(&param_2), param_2);
@@ -7170,40 +7332,45 @@ int UGameUISceneClient::sub_00de6280(int param_2)
   return 0;
 }
 
+struct C_00de62b0 { int sub_00de62b0(void); };
 // @baa 0x00de62b0
-int UGameUISceneClient::sub_00de62b0(void)
+int C_00de62b0::sub_00de62b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return *(int *)*param_1 + param_1[2] * 0x1c;
 }
 
+struct C_00de6360 { int sub_00de6360(int param_2); };
 // @baa 0x00de6360
-int UGameUISceneClient::sub_00de6360(int param_2)
+int C_00de6360::sub_00de6360(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00de6380 { int sub_00de6380(int param_2); };
 // @baa 0x00de6380
-int UGameUISceneClient::sub_00de6380(int param_2)
+int C_00de6380::sub_00de6380(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x48;
 }
 
+struct C_00de6390 { int sub_00de6390(int param_2); };
 // @baa 0x00de6390
-int UGameUISceneClient::sub_00de6390(int param_2)
+int C_00de6390::sub_00de6390(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x18;
 }
 
+struct C_00de63a0 { int sub_00de63a0(int param_2); };
 // @baa 0x00de63a0
-int UGameUISceneClient::sub_00de63a0(int param_2)
+int C_00de63a0::sub_00de63a0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -7214,8 +7381,9 @@ struct C_view_00de63b0 {
     int sub_0054eec0();
 };
 
+struct C_00de63b0 { undefined4 sub_00de63b0(byte param_2); };
 // @baa 0x00de63b0
-undefined4 UGameUISceneClient::sub_00de63b0(byte param_2)
+undefined4 C_00de63b0::sub_00de63b0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00de63b0 *)(((char *)this + 4)))->sub_0054eec0();
@@ -7294,8 +7462,9 @@ FSparseArrayConstIt_00de6ac0::FSparseArrayConstIt_00de6ac0(const TSparseArray<IN
 {
 }
 
+struct C_00de6b10 { int sub_00de6b10(void); };
 // @baa 0x00de6b10
-int UGameUISceneClient::sub_00de6b10(void)
+int C_00de6b10::sub_00de6b10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -7320,8 +7489,9 @@ struct C_view_00de6b80 {
     int sub_00de66e0(int);
 };
 
+struct C_00de6b80 { undefined4 * sub_00de6b80(undefined4 * param_2); };
 // @baa 0x00de6b80
-undefined4 * UGameUISceneClient::sub_00de6b80(undefined4 * param_2)
+undefined4 * C_00de6b80::sub_00de6b80(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7333,8 +7503,9 @@ struct C_view_00de6ba0 {
     int sub_00555160(int);
 };
 
+struct C_00de6ba0 { undefined4 * sub_00de6ba0(undefined4 * param_2); };
 // @baa 0x00de6ba0
-undefined4 * UGameUISceneClient::sub_00de6ba0(undefined4 * param_2)
+undefined4 * C_00de6ba0::sub_00de6ba0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7346,8 +7517,9 @@ struct C_view_00de7110 {
     int sub_00de3bf0(int, int);
 };
 
+struct C_00de7110 { int sub_00de7110(int param_2); };
 // @baa 0x00de7110
-int UGameUISceneClient::sub_00de7110(int param_2)
+int C_00de7110::sub_00de7110(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -7362,8 +7534,9 @@ struct C_view_00de7150 {
     int sub_00de3cd0(int, int);
 };
 
+struct C_00de7150 { int sub_00de7150(int param_2); };
 // @baa 0x00de7150
-int UGameUISceneClient::sub_00de7150(int param_2)
+int C_00de7150::sub_00de7150(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -7378,8 +7551,9 @@ struct C_view_00de7760 {
     int sub_00de66e0(int);
 };
 
+struct C_00de7760 { undefined4 * sub_00de7760(undefined4 * param_2); };
 // @baa 0x00de7760
-undefined4 * UGameUISceneClient::sub_00de7760(undefined4 * param_2)
+undefined4 * C_00de7760::sub_00de7760(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7406,8 +7580,9 @@ struct C_view_00de7a20 {
     int sub_00555160(int);
 };
 
+struct C_00de7a20 { undefined4 * sub_00de7a20(undefined4 * param_2); };
 // @baa 0x00de7a20
-undefined4 * UGameUISceneClient::sub_00de7a20(undefined4 * param_2)
+undefined4 * C_00de7a20::sub_00de7a20(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7419,8 +7594,9 @@ struct C_view_00de7b30 {
     int sub_00555160(int);
 };
 
+struct C_00de7b30 { undefined4 * sub_00de7b30(undefined4 * param_2); };
 // @baa 0x00de7b30
-undefined4 * UGameUISceneClient::sub_00de7b30(undefined4 * param_2)
+undefined4 * C_00de7b30::sub_00de7b30(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7466,8 +7642,9 @@ struct C_view_00de98f0 {
     int sub_008cda10(int);
 };
 
+struct C_00de98f0 { undefined4 * sub_00de98f0(undefined4 * param_2); };
 // @baa 0x00de98f0
-undefined4 * UGameUISceneClient::sub_00de98f0(undefined4 * param_2)
+undefined4 * C_00de98f0::sub_00de98f0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7484,8 +7661,9 @@ struct C_view_00de9930 {
     int sub_00de7360(int);
 };
 
+struct C_00de9930 { void sub_00de9930(void); };
 // @baa 0x00de9930
-void UGameUISceneClient::sub_00de9930(void)
+void C_00de9930::sub_00de9930(void)
 {
     int param_1 = (int)this;
   ((C_view_00de9930 *)((*(char **)((char *)this + 0x10))))->sub_00de7360(*(undefined4 *)(param_1 + 8));
@@ -7497,8 +7675,9 @@ struct C_view_00de9950 {
     int sub_00de76e0(int);
 };
 
+struct C_00de9950 { void sub_00de9950(void); };
 // @baa 0x00de9950
-void UGameUISceneClient::sub_00de9950(void)
+void C_00de9950::sub_00de9950(void)
 {
     int param_1 = (int)this;
   ((C_view_00de9950 *)((*(char **)((char *)this + 0x10))))->sub_00de76e0(*(undefined4 *)(param_1 + 8));
@@ -7510,8 +7689,9 @@ struct C_view_00de9970 {
     int sub_00de79a0(int);
 };
 
+struct C_00de9970 { void sub_00de9970(void); };
 // @baa 0x00de9970
-void UGameUISceneClient::sub_00de9970(void)
+void C_00de9970::sub_00de9970(void)
 {
     int param_1 = (int)this;
   ((C_view_00de9970 *)((*(char **)((char *)this + 0x10))))->sub_00de79a0(*(undefined4 *)(param_1 + 8));
@@ -7520,8 +7700,9 @@ void UGameUISceneClient::sub_00de9970(void)
 }
 
 int sub_00de7bb0(void);
+struct C_00dec730 { int sub_00dec730(void); };
 // @baa 0x00dec730
-int UGameUISceneClient::sub_00dec730(void)
+int C_00dec730::sub_00dec730(void)
 {
     int param_1 = (int)this;
 
@@ -7532,8 +7713,9 @@ int UGameUISceneClient::sub_00dec730(void)
 }
 
 int sub_00de7c70(void);
+struct C_00dec750 { int sub_00dec750(void); };
 // @baa 0x00dec750
-int UGameUISceneClient::sub_00dec750(void)
+int C_00dec750::sub_00dec750(void)
 {
     int param_1 = (int)this;
 
@@ -7544,8 +7726,9 @@ int UGameUISceneClient::sub_00dec750(void)
 }
 
 int sub_00de7cd0(void);
+struct C_00dec770 { int sub_00dec770(void); };
 // @baa 0x00dec770
-int UGameUISceneClient::sub_00dec770(void)
+int C_00dec770::sub_00dec770(void)
 {
     int param_1 = (int)this;
 
@@ -7559,8 +7742,9 @@ struct C_view_00decba0 {
     int sub_00dec540(int, int);
 };
 
+struct C_00decba0 { int sub_00decba0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00decba0
-int UGameUISceneClient::sub_00decba0(undefined4 param_2, undefined4 param_3)
+int C_00decba0::sub_00decba0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00decba0 *)(this))->sub_00dec540(param_2, param_3);
@@ -7572,8 +7756,9 @@ struct C_view_00decbc0 {
     int sub_00dec5c0(int, int);
 };
 
+struct C_00decbc0 { int sub_00decbc0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00decbc0
-int UGameUISceneClient::sub_00decbc0(undefined4 param_2, undefined4 param_3)
+int C_00decbc0::sub_00decbc0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00decbc0 *)(this))->sub_00dec5c0(param_2, param_3);
@@ -7585,8 +7770,9 @@ struct C_view_00decbe0 {
     int sub_00dec640(int, int);
 };
 
+struct C_00decbe0 { int sub_00decbe0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00decbe0
-int UGameUISceneClient::sub_00decbe0(undefined4 param_2, undefined4 param_3)
+int C_00decbe0::sub_00decbe0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00decbe0 *)(this))->sub_00dec640(param_2, param_3);
@@ -7598,8 +7784,9 @@ struct C_view_00decc00 {
     int sub_00dec6c0(int, int);
 };
 
+struct C_00decc00 { int sub_00decc00(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00decc00
-int UGameUISceneClient::sub_00decc00(undefined4 param_2, undefined4 param_3)
+int C_00decc00::sub_00decc00(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00decc00 *)(this))->sub_00dec6c0(param_2, param_3);
@@ -7607,8 +7794,9 @@ int UGameUISceneClient::sub_00decc00(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00decc20 { int sub_00decc20(void); };
 // @baa 0x00decc20
-int UGameUISceneClient::sub_00decc20(void)
+int C_00decc20::sub_00decc20(void)
 {
     int param_1 = (int)this;
 
@@ -7622,16 +7810,18 @@ struct C_view_00decc40 {
     int sub_00dec300(int, int);
 };
 
+struct C_00decc40 { void sub_00decc40(void); };
 // @baa 0x00decc40
-void UGameUISceneClient::sub_00decc40(void)
+void C_00decc40::sub_00decc40(void)
 {
     int param_1 = (int)this;
   ((C_view_00decc40 *)(this))->sub_00dec300(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
   return;
 }
 
+struct C_00decc50 { int sub_00decc50(void); };
 // @baa 0x00decc50
-int UGameUISceneClient::sub_00decc50(void)
+int C_00decc50::sub_00decc50(void)
 {
     int param_1 = (int)this;
 
@@ -7645,16 +7835,18 @@ struct C_view_00decc70 {
     int sub_00dec3c0(int, int);
 };
 
+struct C_00decc70 { void sub_00decc70(void); };
 // @baa 0x00decc70
-void UGameUISceneClient::sub_00decc70(void)
+void C_00decc70::sub_00decc70(void)
 {
     int param_1 = (int)this;
   ((C_view_00decc70 *)(this))->sub_00dec3c0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
   return;
 }
 
+struct C_00decc80 { int sub_00decc80(void); };
 // @baa 0x00decc80
-int UGameUISceneClient::sub_00decc80(void)
+int C_00decc80::sub_00decc80(void)
 {
     int param_1 = (int)this;
 
@@ -7672,8 +7864,9 @@ void sub_00dec900();
 // @baa 0x00ded320
 void sub_00ded320(void) { sub_00dec900(); }
 
+struct C_00ded3b0 { int sub_00ded3b0(void); };
 // @baa 0x00ded3b0
-int UGameUISceneClient::sub_00ded3b0(void)
+int C_00ded3b0::sub_00ded3b0(void)
 {
     int param_1 = (int)this;
 
@@ -7688,8 +7881,9 @@ struct C_view_00ded3d0 {
     int sub_00dec300(int, int);
 };
 
+struct C_00ded3d0 { void sub_00ded3d0(void); };
 // @baa 0x00ded3d0
-void UGameUISceneClient::sub_00ded3d0(void)
+void C_00ded3d0::sub_00ded3d0(void)
 {
     int param_1 = (int)this;
   ((C_view_00ded3d0 *)(this))->sub_00de75e0();
@@ -7697,8 +7891,9 @@ void UGameUISceneClient::sub_00ded3d0(void)
   return;
 }
 
+struct C_00ded3f0 { int sub_00ded3f0(void); };
 // @baa 0x00ded3f0
-int UGameUISceneClient::sub_00ded3f0(void)
+int C_00ded3f0::sub_00ded3f0(void)
 {
     int param_1 = (int)this;
 
@@ -7713,8 +7908,9 @@ struct C_view_00ded410 {
     int sub_00dec3c0(int, int);
 };
 
+struct C_00ded410 { void sub_00ded410(void); };
 // @baa 0x00ded410
-void UGameUISceneClient::sub_00ded410(void)
+void C_00ded410::sub_00ded410(void)
 {
     int param_1 = (int)this;
   ((C_view_00ded410 *)(this))->sub_00de7870();
@@ -7722,8 +7918,9 @@ void UGameUISceneClient::sub_00ded410(void)
   return;
 }
 
+struct C_00ded430 { int sub_00ded430(void); };
 // @baa 0x00ded430
-int UGameUISceneClient::sub_00ded430(void)
+int C_00ded430::sub_00ded430(void)
 {
     int param_1 = (int)this;
 
@@ -7736,8 +7933,9 @@ int UGameUISceneClient::sub_00ded430(void)
 // @baa 0x00ded4b0
 void sub_00ded4b0(void) { sub_00dec7f0(); }
 
+struct C_00ded6b0 { int sub_00ded6b0(void); };
 // @baa 0x00ded6b0
-int UGameUISceneClient::sub_00ded6b0(void)
+int C_00ded6b0::sub_00ded6b0(void)
 {
     int param_1 = (int)this;
 
@@ -7752,8 +7950,9 @@ struct C_view_00ded6d0 {
     int sub_00dec300(int, int);
 };
 
+struct C_00ded6d0 { void sub_00ded6d0(void); };
 // @baa 0x00ded6d0
-void UGameUISceneClient::sub_00ded6d0(void)
+void C_00ded6d0::sub_00ded6d0(void)
 {
     int param_1 = (int)this;
   ((C_view_00ded6d0 *)(this))->sub_00de75e0();
@@ -7761,8 +7960,9 @@ void UGameUISceneClient::sub_00ded6d0(void)
   return;
 }
 
+struct C_00ded6f0 { int sub_00ded6f0(void); };
 // @baa 0x00ded6f0
-int UGameUISceneClient::sub_00ded6f0(void)
+int C_00ded6f0::sub_00ded6f0(void)
 {
     int param_1 = (int)this;
 
@@ -7777,8 +7977,9 @@ struct C_view_00ded710 {
     int sub_00dec3c0(int, int);
 };
 
+struct C_00ded710 { void sub_00ded710(void); };
 // @baa 0x00ded710
-void UGameUISceneClient::sub_00ded710(void)
+void C_00ded710::sub_00ded710(void)
 {
     int param_1 = (int)this;
   ((C_view_00ded710 *)(this))->sub_00de7870();
@@ -7786,8 +7987,9 @@ void UGameUISceneClient::sub_00ded710(void)
   return;
 }
 
+struct C_00ded730 { int sub_00ded730(void); };
 // @baa 0x00ded730
-int UGameUISceneClient::sub_00ded730(void)
+int C_00ded730::sub_00ded730(void)
 {
     int param_1 = (int)this;
 
@@ -7814,8 +8016,9 @@ struct C_view_00dee550 {
     int sub_00d864f0();
 };
 
+struct C_00dee550 { undefined4 sub_00dee550(byte param_2); };
 // @baa 0x00dee550
-undefined4 UGameUISceneClient::sub_00dee550(byte param_2)
+undefined4 C_00dee550::sub_00dee550(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00dee550 *)(((char *)this + 4)))->sub_00d864f0();
@@ -7825,8 +8028,9 @@ undefined4 UGameUISceneClient::sub_00dee550(byte param_2)
   return param_1;
 }
 
+struct C_00dee580 { int sub_00dee580(void); };
 // @baa 0x00dee580
-int UGameUISceneClient::sub_00dee580(void)
+int C_00dee580::sub_00dee580(void)
 {
     int param_1 = (int)this;
 
@@ -7841,8 +8045,9 @@ IMPLEMENT_CLASS_AT(UGameUISceneClient, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 int sub_005c7a70(...);
 int sub_00dee5a0(void);
+struct C_00dee640 { undefined4 sub_00dee640(byte param_2); };
 // @baa 0x00dee640
-undefined4 UGameUISceneClient::sub_00dee640(byte param_2)
+undefined4 C_00dee640::sub_00dee640(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -7873,8 +8078,9 @@ struct C_view_00deeab0 {
     int sub_00ded450(int);
 };
 
+struct C_00deeab0 { undefined4 * sub_00deeab0(undefined4 * param_2); };
 // @baa 0x00deeab0
-undefined4 * UGameUISceneClient::sub_00deeab0(undefined4 * param_2)
+undefined4 * C_00deeab0::sub_00deeab0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7886,8 +8092,9 @@ struct C_view_00deec60 {
     int sub_00deea10(int);
 };
 
+struct C_00deec60 { void sub_00deec60(void); };
 // @baa 0x00deec60
-void UGameUISceneClient::sub_00deec60(void)
+void C_00deec60::sub_00deec60(void)
 {
     int param_1 = (int)this;
   ((C_view_00deec60 *)((*(char **)((char *)this + 0x10))))->sub_00deea10(*(undefined4 *)(param_1 + 8));
@@ -7899,8 +8106,9 @@ struct C_view_00deec80 {
     int sub_00ded450(int);
 };
 
+struct C_00deec80 { undefined4 * sub_00deec80(undefined4 * param_2); };
 // @baa 0x00deec80
-undefined4 * UGameUISceneClient::sub_00deec80(undefined4 * param_2)
+undefined4 * C_00deec80::sub_00deec80(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7912,8 +8120,9 @@ struct C_view_00deeca0 {
     int sub_00ded450(int);
 };
 
+struct C_00deeca0 { undefined4 * sub_00deeca0(undefined4 * param_2); };
 // @baa 0x00deeca0
-undefined4 * UGameUISceneClient::sub_00deeca0(undefined4 * param_2)
+undefined4 * C_00deeca0::sub_00deeca0(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   *param_1 = *param_2;
@@ -7923,8 +8132,9 @@ undefined4 * UGameUISceneClient::sub_00deeca0(undefined4 * param_2)
 }
 
 int sub_00de7c10(void);
+struct C_00deecd0 { int sub_00deecd0(void); };
 // @baa 0x00deecd0
-int UGameUISceneClient::sub_00deecd0(void)
+int C_00deecd0::sub_00deecd0(void)
 {
     int param_1 = (int)this;
 
@@ -7938,8 +8148,9 @@ void sub_00deec00();
 // @baa 0x00deed60
 void sub_00deed60(void) { sub_00deec00(); }
 
+struct C_00deee90 { int sub_00deee90(void); };
 // @baa 0x00deee90
-int UGameUISceneClient::sub_00deee90(void)
+int C_00deee90::sub_00deee90(void)
 {
     int param_1 = (int)this;
 
@@ -7949,8 +8160,9 @@ int UGameUISceneClient::sub_00deee90(void)
   return param_1;
 }
 
+struct C_00deeef0 { int sub_00deeef0(void); };
 // @baa 0x00deeef0
-int UGameUISceneClient::sub_00deeef0(void)
+int C_00deeef0::sub_00deeef0(void)
 {
     int param_1 = (int)this;
 
@@ -7960,8 +8172,9 @@ int UGameUISceneClient::sub_00deeef0(void)
   return param_1;
 }
 
+struct C_00def5e0 { int sub_00def5e0(void); };
 // @baa 0x00def5e0
-int UGameUISceneClient::sub_00def5e0(void)
+int C_00def5e0::sub_00def5e0(void)
 {
     int param_1 = (int)this;
 
@@ -7975,8 +8188,9 @@ struct C_view_00e66d70 {
     int sub_0057f8b0(int, int);
 };
 
+struct C_00e66d70 { void sub_00e66d70(void); };
 // @baa 0x00e66d70
-void UGameUISceneClient::sub_00e66d70(void)
+void C_00e66d70::sub_00e66d70(void)
 {
     int param_1 = (int)this;
   ((C_view_00e66d70 *)(this))->sub_0057f8b0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -7987,8 +8201,9 @@ struct C_view_0111f080 {
     int sub_00d20b10(int, int);
 };
 
+struct C_0111f080 { int sub_0111f080(undefined4 * param_2, int param_3); };
 // @baa 0x0111f080
-int UGameUISceneClient::sub_0111f080(undefined4 * param_2, int param_3)
+int C_0111f080::sub_0111f080(undefined4 * param_2, int param_3)
 {
     int * param_1 = (int *)this;
   undefined4 *puVar1;
@@ -8004,8 +8219,9 @@ struct C_view_013b6f30 {
     int sub_00d7c6a0(int, int);
 };
 
+struct C_013b6f30 { int sub_013b6f30(int param_2); };
 // @baa 0x013b6f30
-int UGameUISceneClient::sub_013b6f30(int param_2)
+int C_013b6f30::sub_013b6f30(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view_013b6f30 *)(this))->sub_00d7c6a0((int)(&param_2), param_2);

@@ -4,8 +4,9 @@
 #include "ue3/Classes.h"
 
 int sub_0053df70(...);
+struct C_00e1bee0 { void sub_00e1bee0(int param_2); };
 // @baa 0x00e1bee0
-void UNetPendingLevel::sub_00e1bee0(int param_2)
+void C_00e1bee0::sub_00e1bee0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -22,8 +23,9 @@ void UNetPendingLevel::sub_00e1bee0(int param_2)
   return;
 }
 
+struct C_00e1bf20 { void sub_00e1bf20(int param_2); };
 // @baa 0x00e1bf20
-void UNetPendingLevel::sub_00e1bf20(int param_2)
+void C_00e1bf20::sub_00e1bf20(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -44,8 +46,9 @@ struct C_view {
     int sub_00e1e0a0(int);
 };
 
+struct C_00e1eba0 { void sub_00e1eba0(void); };
 // @baa 0x00e1eba0
-void UNetPendingLevel::sub_00e1eba0(void)
+void C_00e1eba0::sub_00e1eba0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 uVar1;
@@ -64,8 +67,9 @@ void UNetPendingLevel::sub_00e1eba0(void)
 
 int sub_0053dfa0(...);
 int sub_00e1ddc0(void);
+struct C_00e20240 { undefined4 sub_00e20240(byte param_2); };
 // @baa 0x00e20240
-undefined4 UNetPendingLevel::sub_00e20240(byte param_2)
+undefined4 C_00e20240::sub_00e20240(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

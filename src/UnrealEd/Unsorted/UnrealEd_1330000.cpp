@@ -278,8 +278,9 @@ void UAnimNodeEditInfo::Draw3DInfo(const FSceneView* a0, FPrimitiveDrawInterface
 // @baa 0x013377f0
 int sub_005c7a20(void);
 extern undefined * g_02257470;
+struct C_01337810 { undefined4 * sub_01337810(void); };
 // @baa 0x01337810
-undefined4 * UObject::sub_01337810(void)
+undefined4 * C_01337810::sub_01337810(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -292,8 +293,9 @@ undefined4 * UObject::sub_01337810(void)
 int sub_01337830(int a0, int a1) { return a1; }
 
 extern undefined * g_02257598;
+struct C_01337840 { undefined4 * sub_01337840(void); };
 // @baa 0x01337840
-undefined4 * UObject::sub_01337840(void)
+undefined4 * C_01337840::sub_01337840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -336,8 +338,9 @@ undefined4 C_0133a190::sub_0133a190(byte param_2)
 
 int sub_0053d240(...);
 int sub_0053df70(...);
+struct C_0133a5d0 { int sub_0133a5d0(undefined4*param_2); };
 // @baa 0x0133a5d0
-int UUnrealEdEngine::sub_0133a5d0(undefined4*param_2)
+int C_0133a5d0::sub_0133a5d0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -373,8 +376,9 @@ struct C_view {
 };
 
 void * sub_01a37612(void *, int, size_t);
+struct C_0133a640 { int sub_0133a640(int param_2); };
 // @baa 0x0133a640
-int UUnrealEdEngine::sub_0133a640(int param_2)
+int C_0133a640::sub_0133a640(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -387,8 +391,9 @@ struct C_view_0133a680 {
     int sub_01338d20(int);
 };
 
+struct C_0133a680 { int sub_0133a680(int param_2); };
 // @baa 0x0133a680
-int UUnrealEdEngine::sub_0133a680(int param_2)
+int C_0133a680::sub_0133a680(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -401,8 +406,9 @@ struct C_view_0133a6c0 {
     int sub_01338da0(int);
 };
 
+struct C_0133a6c0 { int sub_0133a6c0(int param_2); };
 // @baa 0x0133a6c0
-int UUnrealEdEngine::sub_0133a6c0(int param_2)
+int C_0133a6c0::sub_0133a6c0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;
@@ -411,8 +417,9 @@ int UUnrealEdEngine::sub_0133a6c0(int param_2)
   return iVar1;
 }
 
+struct C_0133a6f0 { int sub_0133a6f0(undefined4*param_2); };
 // @baa 0x0133a6f0
-int UUnrealEdEngine::sub_0133a6f0(undefined4*param_2)
+int C_0133a6f0::sub_0133a6f0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 
@@ -441,15 +448,17 @@ puVar3[3]=param_2[3];
 return iVar1;
 }
 
+struct C_0133a820 { int sub_0133a820(int param_2); };
 // @baa 0x0133a820
-int UUnrealEdEngine::sub_0133a820(int param_2)
+int C_0133a820::sub_0133a820(int param_2)
 {
     int * param_1 = (int *)this;
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_0133a860 { int sub_0133a860(int param_2); };
 // @baa 0x0133a860
-int UUnrealEdEngine::sub_0133a860(int param_2)
+int C_0133a860::sub_0133a860(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 4;

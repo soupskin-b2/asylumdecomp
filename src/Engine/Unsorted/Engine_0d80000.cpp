@@ -160,8 +160,9 @@ FSparseArrayConstIt_00d812b0::FSparseArrayConstIt_00d812b0(const TSparseArray<IN
 
 int sub_005c7a70(...);
 int sub_00d81390(void);
+struct C_00d81430 { undefined4 sub_00d81430(byte param_2); };
 // @baa 0x00d81430
-undefined4 UConsole::sub_00d81430(byte param_2)
+undefined4 C_00d81430::sub_00d81430(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -411,8 +412,9 @@ int C_00d883c0::sub_00d883c0(void)
 }
 
 int sub_00d87040(void);
+struct C_00d883e0 { undefined4 sub_00d883e0(byte param_2); };
 // @baa 0x00d883e0
-undefined4 UObject::sub_00d883e0(byte param_2)
+undefined4 C_00d883e0::sub_00d883e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -430,8 +432,9 @@ C_00d889b0* C_00d889b0::sub_00d889b0(void) { return this; }
 
 int sub_005c7a20(void);
 extern undefined * g_020b70e8;
+struct C_00d889c0 { undefined4 * sub_00d889c0(void); };
 // @baa 0x00d889c0
-undefined4 * UObject::sub_00d889c0(void)
+undefined4 * C_00d889c0::sub_00d889c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -448,8 +451,9 @@ IMPLEMENT_CLASS_AT(UOnlineGameSettings, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x00d88b50
 extern undefined * g_020b7458;
+struct C_00d88b80 { undefined4 * sub_00d88b80(void); };
 // @baa 0x00d88b80
-undefined4 * UObject::sub_00d88b80(void)
+undefined4 * C_00d88b80::sub_00d88b80(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

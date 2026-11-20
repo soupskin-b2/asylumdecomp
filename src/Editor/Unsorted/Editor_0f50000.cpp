@@ -433,8 +433,9 @@ void sub_00f51b20(undefined4 * param_1, undefined4 * param_2)
 
 int sub_0053dfa0(...);
 int sub_00c38ac0(void);
+struct C_00f51b40 { undefined4 sub_00f51b40(byte param_2); };
 // @baa 0x00f51b40
-undefined4 UObject::sub_00f51b40(byte param_2)
+undefined4 C_00f51b40::sub_00f51b40(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

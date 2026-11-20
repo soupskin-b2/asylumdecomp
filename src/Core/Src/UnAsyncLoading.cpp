@@ -151,16 +151,18 @@ int C_00575900::sub_00575900(void)
   return *(int *)*param_1 + param_1[5] * 0x14;
 }
 
+struct C_005759d0 { int sub_005759d0(int param_2); };
 // @baa 0x005759d0
-int UState::sub_005759d0(int param_2)
+int C_005759d0::sub_005759d0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return *param_1 + param_2 * 0x1c;
 }
 
+struct C_00575a60 { int sub_00575a60(int param_2); };
 // @baa 0x00575a60
-int UState::sub_00575a60(int param_2)
+int C_00575a60::sub_00575a60(int param_2)
 {
     int * param_1 = (int *)this;
   return *param_1 + param_2 * 0x14;

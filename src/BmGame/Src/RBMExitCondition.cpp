@@ -16,8 +16,9 @@ IMPLEMENT_CLASS_AT(URBMExitConditionCombiner, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 int sub_005c7a20(void);
 extern undefined * g_0233c520;
+struct C_015fbd40 { undefined4 * sub_015fbd40(void); };
 // @baa 0x015fbd40
-undefined4 * UObject::sub_015fbd40(void)
+undefined4 * C_015fbd40::sub_015fbd40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -27,8 +28,9 @@ undefined4 * UObject::sub_015fbd40(void)
 }
 
 extern undefined * g_0233c6c8;
+struct C_015fbd60 { undefined4 * sub_015fbd60(void); };
 // @baa 0x015fbd60
-undefined4 * UObject::sub_015fbd60(void)
+undefined4 * C_015fbd60::sub_015fbd60(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

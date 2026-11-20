@@ -40,8 +40,9 @@ UBOOL APlayerController::StopAtLedge() { return 0; }
 // @baa 0x007a06e0
 int sub_007a06e0(void) { return 0; }
 
+struct C_007a06f0 { void sub_007a06f0(void); };
 // @baa 0x007a06f0
-void ADroppedPickup::sub_007a06f0(void)
+void C_007a06f0::sub_007a06f0(void)
 {
     int param_1 = (int)this;
 
@@ -65,8 +66,9 @@ bool AController::InLatentExecution(uint param_2)
   return *(ushort *)(*(int *)(param_1 + 0x18) + 0x34) == param_2;
 }
 
+struct C_007a0ec0 { void sub_007a0ec0(void); };
 // @baa 0x007a0ec0
-void AController::sub_007a0ec0(void)
+void C_007a0ec0::sub_007a0ec0(void)
 {
     int param_1 = (int)this;
 

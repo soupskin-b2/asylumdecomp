@@ -152,8 +152,9 @@ struct C_view {
     int sub_007dfec0(int, int);
 };
 
+struct C_007e4860 { int sub_007e4860(int param_2); };
 // @baa 0x007e4860
-int UNetPendingLevel::sub_007e4860(int param_2)
+int C_007e4860::sub_007e4860(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_007dfec0((int)(&param_2), param_2);
@@ -779,8 +780,9 @@ struct C_view_007f60a0 {
     int sub_007f25d0(int, int);
 };
 
+struct C_007f60a0 { void sub_007f60a0(void); };
 // @baa 0x007f60a0
-void UNetPendingLevel::sub_007f60a0(void)
+void C_007f60a0::sub_007f60a0(void)
 {
     int param_1 = (int)this;
   ((C_view_007f60a0 *)(this))->sub_007f25d0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -1165,8 +1167,9 @@ int UNetPendingLevel::sub_00e176d0(void) { return *(int*)((char*)this + 92); }
 // @baa 0x00e176e0
 int UNetPendingLevel::sub_00e176e0(void) { return *(int*)((char*)this + 96); }
 
+struct C_00e176f0 { void sub_00e176f0(void); };
 // @baa 0x00e176f0
-void UNetPendingLevel::sub_00e176f0(void)
+void C_00e176f0::sub_00e176f0(void)
 {
     int param_1 = (int)this;
 
@@ -1270,8 +1273,9 @@ void sub_00e17ba0(void) {  }
 // @baa 0x00e17bb0
 void UNetPendingLevel::sub_00e17bb0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e17d70 { void sub_00e17d70(undefined4 param_2); };
 // @baa 0x00e17d70
-void UNetPendingLevel::sub_00e17d70(undefined4 param_2)
+void C_00e17d70::sub_00e17d70(undefined4 param_2)
 {
     int param_1 = (int)this;
   *(undefined4 *)(param_1 + 0x14) = param_2;
@@ -1290,8 +1294,9 @@ wchar_t * sub_00e17dd0(int param_1)
   return pwVar1;
 }
 
+struct C_00e17df0 { void sub_00e17df0(undefined4 param_2); };
 // @baa 0x00e17df0
-void UNetPendingLevel::sub_00e17df0(undefined4 param_2)
+void C_00e17df0::sub_00e17df0(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -1299,8 +1304,9 @@ void UNetPendingLevel::sub_00e17df0(undefined4 param_2)
   return;
 }
 
+struct C_00e17e10 { void sub_00e17e10(void); };
 // @baa 0x00e17e10
-void UNetPendingLevel::sub_00e17e10(void)
+void C_00e17e10::sub_00e17e10(void)
 {
     int param_1 = (int)this;
 
@@ -1313,8 +1319,9 @@ void UNetPendingLevel::sub_00e17e10(void)
 // @baa 0x00e17e20
 void sub_00e17e20(void) {  }
 
+struct C_00e17e30 { void sub_00e17e30(undefined4 param_2); };
 // @baa 0x00e17e30
-void UNetPendingLevel::sub_00e17e30(undefined4 param_2)
+void C_00e17e30::sub_00e17e30(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -1322,8 +1329,9 @@ void UNetPendingLevel::sub_00e17e30(undefined4 param_2)
   return;
 }
 
+struct C_00e17e50 { void sub_00e17e50(undefined4 param_2); };
 // @baa 0x00e17e50
-void UNetPendingLevel::sub_00e17e50(undefined4 param_2)
+void C_00e17e50::sub_00e17e50(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -1458,8 +1466,9 @@ int UNetPendingLevel::sub_00e184d0(void) { return *(int*)((char*)this + 0); }
 
 int sub_006311e0(...);
 extern undefined2 g_01e3f3dc;
+struct C_00e184e0 { int sub_00e184e0(int param_2); };
 // @baa 0x00e184e0
-int UNetPendingLevel::sub_00e184e0(int param_2)
+int C_00e184e0::sub_00e184e0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1471,8 +1480,9 @@ int UNetPendingLevel::sub_00e184e0(int param_2)
   return ((param_1[1] - param_2) + -1) * 0x40 + *param_1;
 }
 
+struct C_00e18520 { int sub_00e18520(int param_2); };
 // @baa 0x00e18520
-int UNetPendingLevel::sub_00e18520(int param_2)
+int C_00e18520::sub_00e18520(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1482,8 +1492,9 @@ int UNetPendingLevel::sub_00e18520(int param_2)
 // @baa 0x00e18530
 int UNetPendingLevel::sub_00e18530(void) { return *(int*)((char*)this + 0); }
 
+struct C_00e18540 { int sub_00e18540(void); };
 // @baa 0x00e18540
-int UNetPendingLevel::sub_00e18540(void)
+int C_00e18540::sub_00e18540(void)
 {
     int param_1 = (int)this;
 
@@ -1495,8 +1506,9 @@ struct C_00e18550 { int a, b; C_00e18550(int, int); };
 // @baa 0x00e18550
 C_00e18550::C_00e18550(int x, int y) : a(x), b(y) {}
 
+struct C_00e18570 { int sub_00e18570(void); };
 // @baa 0x00e18570
-int UNetPendingLevel::sub_00e18570(void)
+int C_00e18570::sub_00e18570(void)
 {
     int param_1 = (int)this;
 
@@ -1526,8 +1538,9 @@ struct C_00e185d0 { int a, b; C_00e185d0(const C_00e185d0 &); };
 // @baa 0x00e185d0
 C_00e185d0::C_00e185d0(const C_00e185d0 &o) : a(o.a), b(o.b) {}
 
+struct C_00e18630 { int sub_00e18630(int param_2); };
 // @baa 0x00e18630
-int UNetPendingLevel::sub_00e18630(int param_2)
+int C_00e18630::sub_00e18630(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -1553,8 +1566,9 @@ struct C_00e18840 { int a, b; C_00e18840(const C_00e18840 &); };
 // @baa 0x00e18840
 C_00e18840::C_00e18840(const C_00e18840 &o) : a(o.a), b(o.b) {}
 
+struct C_00e188b0 { void sub_00e188b0(undefined4 param_2); };
 // @baa 0x00e188b0
-void UNetPendingLevel::sub_00e188b0(undefined4 param_2)
+void C_00e188b0::sub_00e188b0(undefined4 param_2)
 {
     int param_1 = (int)this;
 
@@ -1563,8 +1577,9 @@ void UNetPendingLevel::sub_00e188b0(undefined4 param_2)
   return;
 }
 
+struct C_00e188f0 { undefined4 * sub_00e188f0(byte param_2); };
 // @baa 0x00e188f0
-undefined4 * UNetPendingLevel::sub_00e188f0(byte param_2)
+undefined4 * C_00e188f0::sub_00e188f0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1575,8 +1590,9 @@ undefined4 * UNetPendingLevel::sub_00e188f0(byte param_2)
   return param_1;
 }
 
+struct C_00e189b0 { undefined4 * sub_00e189b0(byte param_2); };
 // @baa 0x00e189b0
-undefined4 * UNetPendingLevel::sub_00e189b0(byte param_2)
+undefined4 * C_00e189b0::sub_00e189b0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1588,8 +1604,9 @@ undefined4 * UNetPendingLevel::sub_00e189b0(byte param_2)
 }
 
 int sub_00e17bc0(void);
+struct C_00e189d0 { undefined4 sub_00e189d0(byte param_2); };
 // @baa 0x00e189d0
-undefined4 UNetPendingLevel::sub_00e189d0(byte param_2)
+undefined4 C_00e189d0::sub_00e189d0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -1883,8 +1900,9 @@ void C_00e192f0::sub_00e192f0(undefined4 param_2, undefined4 param_3, undefined4
   return;
 }
 
+struct C_00e19800 { undefined4 sub_00e19800(void); };
 // @baa 0x00e19800
-undefined4 UNetPendingLevel::sub_00e19800(void)
+undefined4 C_00e19800::sub_00e19800(void)
 {
     int param_1 = (int)this;
 
@@ -1896,8 +1914,9 @@ undefined4 UNetPendingLevel::sub_00e19800(void)
   return *(undefined4 *)(*(int *)(param_1 + 0xc) + -4 + *(int *)(param_1 + 0x10) * 4);
 }
 
+struct C_00e19840 { undefined4 sub_00e19840(void); };
 // @baa 0x00e19840
-undefined4 UNetPendingLevel::sub_00e19840(void)
+undefined4 C_00e19840::sub_00e19840(void)
 {
     int param_1 = (int)this;
 
@@ -1909,8 +1928,9 @@ undefined4 UNetPendingLevel::sub_00e19840(void)
   return *(undefined4 *)(*(int *)(param_1 + 0x18) + -4 + *(int *)(param_1 + 0x1c) * 4);
 }
 
+struct C_00e19880 { int sub_00e19880(void); };
 // @baa 0x00e19880
-int UNetPendingLevel::sub_00e19880(void)
+int C_00e19880::sub_00e19880(void)
 {
     int param_1 = (int)this;
 
@@ -1950,8 +1970,9 @@ struct C_view_00e1a680 {
 };
 
 extern undefined * g_020ea178;
+struct C_00e1a680 { undefined4 * sub_00e1a680(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e1a680
-undefined4 * UNetPendingLevel::sub_00e1a680(undefined4 param_2, undefined4 param_3)
+undefined4 * C_00e1a680::sub_00e1a680(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1a680 *)(this))->sub_00e1da90(param_2, param_3);
@@ -1960,8 +1981,9 @@ undefined4 * UNetPendingLevel::sub_00e1a680(undefined4 param_2, undefined4 param
 }
 
 int sub_00e19c40(void);
+struct C_00e1a6a0 { void sub_00e1a6a0(void); };
 // @baa 0x00e1a6a0
-void UNetPendingLevel::sub_00e1a6a0(void)
+void C_00e1a6a0::sub_00e1a6a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1975,8 +1997,9 @@ struct C_view_00e1aac0 {
 };
 
 extern undefined * g_020ea194;
+struct C_00e1aac0 { undefined4 * sub_00e1aac0(undefined4 param_2); };
 // @baa 0x00e1aac0
-undefined4 * UNetPendingLevel::sub_00e1aac0(undefined4 param_2)
+undefined4 * C_00e1aac0::sub_00e1aac0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1aac0 *)(this))->sub_00e1aa00(param_2);
@@ -1988,8 +2011,9 @@ undefined4 * UNetPendingLevel::sub_00e1aac0(undefined4 param_2)
 // @baa 0x00e1aaf0
 void UNetPendingLevel::sub_00e1aaf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1ab00 { undefined4 * sub_00e1ab00(byte param_2); };
 // @baa 0x00e1ab00
-undefined4 * UNetPendingLevel::sub_00e1ab00(byte param_2)
+undefined4 * C_00e1ab00::sub_00e1ab00(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2015,8 +2039,9 @@ struct C_view_00e1ab50 {
 };
 
 extern undefined * g_020ea1d8;
+struct C_00e1ab50 { undefined4 * sub_00e1ab50(undefined4 param_2); };
 // @baa 0x00e1ab50
-undefined4 * UNetPendingLevel::sub_00e1ab50(undefined4 param_2)
+undefined4 * C_00e1ab50::sub_00e1ab50(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   int iVar1;
@@ -2036,8 +2061,9 @@ undefined4 * UNetPendingLevel::sub_00e1ab50(undefined4 param_2)
 // @baa 0x00e1ab90
 void UNetPendingLevel::sub_00e1ab90(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1aba0 { undefined4 * sub_00e1aba0(byte param_2); };
 // @baa 0x00e1aba0
-undefined4 * UNetPendingLevel::sub_00e1aba0(byte param_2)
+undefined4 * C_00e1aba0::sub_00e1aba0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2053,8 +2079,9 @@ struct C_view_00e1abc0 {
 };
 
 extern undefined * g_020ea204;
+struct C_00e1abc0 { undefined4 * sub_00e1abc0(undefined4 param_2); };
 // @baa 0x00e1abc0
-undefined4 * UNetPendingLevel::sub_00e1abc0(undefined4 param_2)
+undefined4 * C_00e1abc0::sub_00e1abc0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1abc0 *)(this))->sub_00e1aa00(param_2);
@@ -2063,8 +2090,9 @@ undefined4 * UNetPendingLevel::sub_00e1abc0(undefined4 param_2)
   return param_1;
 }
 
+struct C_00e1abf0 { undefined4 * sub_00e1abf0(byte param_2); };
 // @baa 0x00e1abf0
-undefined4 * UNetPendingLevel::sub_00e1abf0(byte param_2)
+undefined4 * C_00e1abf0::sub_00e1abf0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2090,8 +2118,9 @@ struct C_view_00e1ac40 {
 };
 
 extern undefined * g_020ea258;
+struct C_00e1ac40 { undefined4 * sub_00e1ac40(undefined4 param_2); };
 // @baa 0x00e1ac40
-undefined4 * UNetPendingLevel::sub_00e1ac40(undefined4 param_2)
+undefined4 * C_00e1ac40::sub_00e1ac40(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1ac40 *)(this))->sub_00e1aa00(param_2);
@@ -2103,8 +2132,9 @@ undefined4 * UNetPendingLevel::sub_00e1ac40(undefined4 param_2)
 // @baa 0x00e1ac70
 void UNetPendingLevel::sub_00e1ac70(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1ac80 { undefined4 * sub_00e1ac80(byte param_2); };
 // @baa 0x00e1ac80
-undefined4 * UNetPendingLevel::sub_00e1ac80(byte param_2)
+undefined4 * C_00e1ac80::sub_00e1ac80(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2120,8 +2150,9 @@ struct C_view_00e1aca0 {
 };
 
 extern undefined * g_020ea284;
+struct C_00e1aca0 { undefined4 * sub_00e1aca0(undefined4 param_2); };
 // @baa 0x00e1aca0
-undefined4 * UNetPendingLevel::sub_00e1aca0(undefined4 param_2)
+undefined4 * C_00e1aca0::sub_00e1aca0(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1aca0 *)(this))->sub_00e1aa00(param_2);
@@ -2133,8 +2164,9 @@ undefined4 * UNetPendingLevel::sub_00e1aca0(undefined4 param_2)
 // @baa 0x00e1acd0
 void UNetPendingLevel::sub_00e1acd0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1ace0 { undefined4 * sub_00e1ace0(byte param_2); };
 // @baa 0x00e1ace0
-undefined4 * UNetPendingLevel::sub_00e1ace0(byte param_2)
+undefined4 * C_00e1ace0::sub_00e1ace0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2160,8 +2192,9 @@ struct C_view_00e1ad30 {
 };
 
 extern undefined * g_020ea2c4;
+struct C_00e1ad30 { undefined4 * sub_00e1ad30(undefined4 param_2); };
 // @baa 0x00e1ad30
-undefined4 * UNetPendingLevel::sub_00e1ad30(undefined4 param_2)
+undefined4 * C_00e1ad30::sub_00e1ad30(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1ad30 *)(this))->sub_00e1aa00(param_2);
@@ -2173,8 +2206,9 @@ undefined4 * UNetPendingLevel::sub_00e1ad30(undefined4 param_2)
 // @baa 0x00e1ad60
 void UNetPendingLevel::sub_00e1ad60(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1ad70 { undefined4 * sub_00e1ad70(byte param_2); };
 // @baa 0x00e1ad70
-undefined4 * UNetPendingLevel::sub_00e1ad70(byte param_2)
+undefined4 * C_00e1ad70::sub_00e1ad70(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2200,8 +2234,9 @@ struct C_view_00e1adc0 {
 };
 
 extern undefined * g_020ea308;
+struct C_00e1adc0 { undefined4 * sub_00e1adc0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e1adc0
-undefined4 * UNetPendingLevel::sub_00e1adc0(undefined4 param_2, undefined4 param_3)
+undefined4 * C_00e1adc0::sub_00e1adc0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1adc0 *)(this))->sub_00e1aa00(param_3);
@@ -2214,8 +2249,9 @@ undefined4 * UNetPendingLevel::sub_00e1adc0(undefined4 param_2, undefined4 param
 // @baa 0x00e1adf0
 void UNetPendingLevel::sub_00e1adf0(void) { *(int*)((char*)this + 0) = (int)g_020e9f34; }
 
+struct C_00e1ae00 { undefined4 * sub_00e1ae00(byte param_2); };
 // @baa 0x00e1ae00
-undefined4 * UNetPendingLevel::sub_00e1ae00(byte param_2)
+undefined4 * C_00e1ae00::sub_00e1ae00(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2260,32 +2296,36 @@ struct C_00e1bf60 { char pad[4]; M_00e1bf60 m; void sub_00e1bf60(); };
 // @baa 0x00e1bf60
 void C_00e1bf60::sub_00e1bf60() { m.sub_0040fcc0(); }
 
+struct C_00e1bf70 { int sub_00e1bf70(int param_2); };
 // @baa 0x00e1bf70
-int UNetPendingLevel::sub_00e1bf70(int param_2)
+int C_00e1bf70::sub_00e1bf70(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e1bfb0 { int sub_00e1bfb0(int param_2); };
 // @baa 0x00e1bfb0
-int UNetPendingLevel::sub_00e1bfb0(int param_2)
+int C_00e1bfb0::sub_00e1bfb0(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e1c030 { int sub_00e1c030(int param_2); };
 // @baa 0x00e1c030
-int UNetPendingLevel::sub_00e1c030(int param_2)
+int C_00e1c030::sub_00e1c030(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e1c040 { int sub_00e1c040(void); };
 // @baa 0x00e1c040
-int UNetPendingLevel::sub_00e1c040(void)
+int C_00e1c040::sub_00e1c040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2306,8 +2346,9 @@ void Outer::sub_00e1c1f0() {
 }
 
 int sub_00e19bd0(void);
+struct C_00e1c3f0 { undefined4 sub_00e1c3f0(byte param_2); };
 // @baa 0x00e1c3f0
-undefined4 UNetPendingLevel::sub_00e1c3f0(byte param_2)
+undefined4 C_00e1c3f0::sub_00e1c3f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2318,8 +2359,9 @@ undefined4 UNetPendingLevel::sub_00e1c3f0(byte param_2)
   return param_1;
 }
 
+struct C_00e1c410 { undefined4 sub_00e1c410(byte param_2); };
 // @baa 0x00e1c410
-undefined4 UNetPendingLevel::sub_00e1c410(byte param_2)
+undefined4 C_00e1c410::sub_00e1c410(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2330,8 +2372,9 @@ undefined4 UNetPendingLevel::sub_00e1c410(byte param_2)
   return param_1;
 }
 
+struct C_00e1c4b0 { undefined4 * sub_00e1c4b0(byte param_2); };
 // @baa 0x00e1c4b0
-undefined4 * UNetPendingLevel::sub_00e1c4b0(byte param_2)
+undefined4 * C_00e1c4b0::sub_00e1c4b0(byte param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2355,24 +2398,27 @@ int C_00e1ca70::sub_00e1ca70()
     return g_026a1ca4(Index);
 }
 
+struct C_00e1cb70 { int sub_00e1cb70(int param_2); };
 // @baa 0x00e1cb70
-int UNetPendingLevel::sub_00e1cb70(int param_2)
+int C_00e1cb70::sub_00e1cb70(int param_2)
 {
     int * param_1 = (int *)this;
 
   return param_2 * 0x10 + *param_1;
 }
 
+struct C_00e1cbc0 { int sub_00e1cbc0(void); };
 // @baa 0x00e1cbc0
-int UNetPendingLevel::sub_00e1cbc0(void)
+int C_00e1cbc0::sub_00e1cbc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
   return param_1[2] * 0x10 + *(int *)*param_1;
 }
 
+struct C_00e1cbd0 { int sub_00e1cbd0(void); };
 // @baa 0x00e1cbd0
-int UNetPendingLevel::sub_00e1cbd0(void)
+int C_00e1cbd0::sub_00e1cbd0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2383,8 +2429,9 @@ struct C_view_00e1cbe0 {
     int sub_0040fcc0();
 };
 
+struct C_00e1cbe0 { undefined4 sub_00e1cbe0(byte param_2); };
 // @baa 0x00e1cbe0
-undefined4 UNetPendingLevel::sub_00e1cbe0(byte param_2)
+undefined4 C_00e1cbe0::sub_00e1cbe0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00e1cbe0 *)(((char *)this + 4)))->sub_0040fcc0();
@@ -2395,8 +2442,9 @@ undefined4 UNetPendingLevel::sub_00e1cbe0(byte param_2)
 }
 
 int sub_00e1c550(void);
+struct C_00e1cc10 { undefined4 sub_00e1cc10(byte param_2); };
 // @baa 0x00e1cc10
-undefined4 UNetPendingLevel::sub_00e1cc10(byte param_2)
+undefined4 C_00e1cc10::sub_00e1cc10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2407,8 +2455,9 @@ undefined4 UNetPendingLevel::sub_00e1cc10(byte param_2)
   return param_1;
 }
 
+struct C_00e1ccb0 { int sub_00e1ccb0(int param_2); };
 // @baa 0x00e1ccb0
-int UNetPendingLevel::sub_00e1ccb0(int param_2)
+int C_00e1ccb0::sub_00e1ccb0(int param_2)
 {
     int * param_1 = (int *)this;
 
@@ -2462,8 +2511,9 @@ FSparseArrayConstIt_00e1ce70::FSparseArrayConstIt_00e1ce70(const TSparseArray<IN
 }
 
 int sub_00e1c5d0(void);
+struct C_00e1cf00 { undefined4 sub_00e1cf00(void); };
 // @baa 0x00e1cf00
-undefined4 UNetPendingLevel::sub_00e1cf00(void)
+undefined4 C_00e1cf00::sub_00e1cf00(void)
 {
     int param_1 = (int)this;
 
@@ -2476,8 +2526,9 @@ undefined4 UNetPendingLevel::sub_00e1cf00(void)
   return 0;
 }
 
+struct C_00e1d4f0 { int sub_00e1d4f0(int param_2); };
 // @baa 0x00e1d4f0
-int UNetPendingLevel::sub_00e1d4f0(int param_2)
+int C_00e1d4f0::sub_00e1d4f0(int param_2)
 {
     int * param_1 = (int *)this;
   ((C_view *)(this))->sub_007dfec0((int)(&param_2), param_2);
@@ -2512,8 +2563,9 @@ FSparseArrayConstIt_00e1d690::FSparseArrayConstIt_00e1d690(const TSparseArray<IN
 int sub_00c14990(void);
 extern undefined * g_020ea3d0;
 extern undefined * g_020ea3f0;
+struct C_00e1d6e0 { undefined4 * sub_00e1d6e0(void); };
 // @baa 0x00e1d6e0
-undefined4 * UPendingLevel::sub_00e1d6e0(void)
+undefined4 * C_00e1d6e0::sub_00e1d6e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -2534,8 +2586,9 @@ struct C_view_00e1e2a0 {
     int sub_00e1d560(int);
 };
 
+struct C_00e1e2a0 { void sub_00e1e2a0(void); };
 // @baa 0x00e1e2a0
-void UNetPendingLevel::sub_00e1e2a0(void)
+void C_00e1e2a0::sub_00e1e2a0(void)
 {
     int param_1 = (int)this;
   ((C_view_00e1e2a0 *)((*(char **)((char *)this + 0x10))))->sub_00e1d560(*(undefined4 *)(param_1 + 8));
@@ -2561,8 +2614,9 @@ struct C_view_00e1ec70 {
 };
 
 extern undefined4 g_020ea50c;
+struct C_00e1ec70 { undefined4 * sub_00e1ec70(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e1ec70
-undefined4 * UNetPendingLevel::sub_00e1ec70(undefined4 param_2, undefined4 param_3)
+undefined4 * C_00e1ec70::sub_00e1ec70(undefined4 param_2, undefined4 param_3)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e1ec70 *)(this))->sub_00e1ebe0(param_2, param_3);
@@ -2580,8 +2634,9 @@ void S_00e1ec90::sub_00e1ec90() {
     sub_00e19bd0();
 }
 
+struct C_00e1eca0 { undefined4 sub_00e1eca0(byte param_2); };
 // @baa 0x00e1eca0
-undefined4 UNetPendingLevel::sub_00e1eca0(byte param_2)
+undefined4 C_00e1eca0::sub_00e1eca0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2593,8 +2648,9 @@ undefined4 UNetPendingLevel::sub_00e1eca0(byte param_2)
 }
 
 int sub_00e1d630(void);
+struct C_00e1f4b0 { int sub_00e1f4b0(void); };
 // @baa 0x00e1f4b0
-int UNetPendingLevel::sub_00e1f4b0(void)
+int C_00e1f4b0::sub_00e1f4b0(void)
 {
     int param_1 = (int)this;
 
@@ -2615,8 +2671,9 @@ struct C_view_00e20ed0 {
     int sub_00e1f3b0(int, int);
 };
 
+struct C_00e20ed0 { undefined4 sub_00e20ed0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e20ed0
-undefined4 UNetPendingLevel::sub_00e20ed0(undefined4 param_2, undefined4 param_3)
+undefined4 C_00e20ed0::sub_00e20ed0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_00e20ed0 *)(this))->sub_00e1f3b0(param_2, param_3);
@@ -2627,8 +2684,9 @@ struct C_view_00e20ef0 {
     int sub_00e1f430(int, int);
 };
 
+struct C_00e20ef0 { int sub_00e20ef0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x00e20ef0
-int UNetPendingLevel::sub_00e20ef0(undefined4 param_2, undefined4 param_3)
+int C_00e20ef0::sub_00e20ef0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_00e20ef0 *)(this))->sub_00e1f430(param_2, param_3);
@@ -2636,8 +2694,9 @@ int UNetPendingLevel::sub_00e20ef0(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_00e20f10 { int sub_00e20f10(void); };
 // @baa 0x00e20f10
-int UNetPendingLevel::sub_00e20f10(void)
+int C_00e20f10::sub_00e20f10(void)
 {
     int param_1 = (int)this;
 
@@ -2648,8 +2707,9 @@ int UNetPendingLevel::sub_00e20f10(void)
 }
 
 int sub_00e20400(void);
+struct C_00e20f30 { undefined4 sub_00e20f30(byte param_2); };
 // @baa 0x00e20f30
-undefined4 UNetPendingLevel::sub_00e20f30(byte param_2)
+undefined4 C_00e20f30::sub_00e20f30(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2672,8 +2732,9 @@ void sub_00e20e70();
 // @baa 0x00e21580
 void sub_00e21580(void) { sub_00e20e70(); }
 
+struct C_00e21590 { int sub_00e21590(void); };
 // @baa 0x00e21590
-int UNetPendingLevel::sub_00e21590(void)
+int C_00e21590::sub_00e21590(void)
 {
     int param_1 = (int)this;
 
@@ -2689,8 +2750,9 @@ void UNetPendingLevel::sub_00e21970(void) { *(int*)((char*)this + 40) = 1; }
 // @baa 0x00e21b30
 void sub_00e21b30(void) { sub_00e20d20(); }
 
+struct C_00e224a0 { int sub_00e224a0(void); };
 // @baa 0x00e224a0
-int UNetPendingLevel::sub_00e224a0(void)
+int C_00e224a0::sub_00e224a0(void)
 {
     int param_1 = (int)this;
 
@@ -2701,8 +2763,9 @@ int UNetPendingLevel::sub_00e224a0(void)
 }
 
 int sub_00e215b0(void);
+struct C_00e224c0 { undefined4 sub_00e224c0(byte param_2); };
 // @baa 0x00e224c0
-undefined4 UNetPendingLevel::sub_00e224c0(byte param_2)
+undefined4 C_00e224c0::sub_00e224c0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -2716,16 +2779,18 @@ undefined4 UNetPendingLevel::sub_00e224c0(byte param_2)
 // @baa 0x00e23360
 void sub_00e23360(void) { sub_00e20d20(); }
 
+struct C_00e233d0 { bool sub_00e233d0(void); };
 // @baa 0x00e233d0
-bool UNetPendingLevel::sub_00e233d0(void)
+bool C_00e233d0::sub_00e233d0(void)
 {
     int param_1 = (int)this;
 
   return 0 < *(int *)(param_1 + 0xb8);
 }
 
+struct C_00e23530 { bool sub_00e23530(void); };
 // @baa 0x00e23530
-bool UNetPendingLevel::sub_00e23530(void)
+bool C_00e23530::sub_00e23530(void)
 {
     int param_1 = (int)this;
 

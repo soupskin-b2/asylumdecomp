@@ -40,8 +40,9 @@ IMPLEMENT_CLASS_AT(UOnlineGameSettings, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 int sub_005c7a20(void);
 extern undefined * g_020b72a0;
+struct C_00d88ac0 { undefined4 * sub_00d88ac0(void); };
 // @baa 0x00d88ac0
-undefined4 * UObject::sub_00d88ac0(void)
+undefined4 * C_00d88ac0::sub_00d88ac0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

@@ -52,8 +52,9 @@ struct C_view {
 };
 
 extern undefined4 g_02249c8c;
+struct C_0130e940 { undefined4 * sub_0130e940(undefined4 param_2); };
 // @baa 0x0130e940
-undefined4 * UUnrealEdEngine::sub_0130e940(undefined4 param_2)
+undefined4 * C_0130e940::sub_0130e940(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -67,8 +68,9 @@ void sub_00c38ac0();
 void sub_0130e960(void) { sub_00c38ac0(); }
 
 extern undefined4 g_02249c9c;
+struct C_0130e970 { undefined4 * sub_0130e970(undefined4 param_2); };
 // @baa 0x0130e970
-undefined4 * UUnrealEdEngine::sub_0130e970(undefined4 param_2)
+undefined4 * C_0130e970::sub_0130e970(undefined4 param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00c407b0(2);
@@ -104,8 +106,9 @@ extern char g_026d7138[];
 // @baa 0x0130ebd0
 int sub_0130ebd0(void) { return (int)g_026d7138; }
 
+struct C_0130ec00 { undefined4 sub_0130ec00(void); };
 // @baa 0x0130ec00
-undefined4 UUnrealEdEngine::sub_0130ec00(void)
+undefined4 C_0130ec00::sub_0130ec00(void)
 {
     int param_1 = (int)this;
 
@@ -270,8 +273,9 @@ IMPLEMENT_CLASS_AT(UASVSkelComponent, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x01327b00
 int sub_01321d20(void);
+struct C_01328390 { int sub_01328390(void); };
 // @baa 0x01328390
-int UUnrealEdEngine::sub_01328390(void)
+int C_01328390::sub_01328390(void)
 {
     int param_1 = (int)this;
 
@@ -282,8 +286,9 @@ int UUnrealEdEngine::sub_01328390(void)
 }
 
 int sub_01321d80(void);
+struct C_013283b0 { int sub_013283b0(void); };
 // @baa 0x013283b0
-int UUnrealEdEngine::sub_013283b0(void)
+int C_013283b0::sub_013283b0(void)
 {
     int param_1 = (int)this;
 
@@ -294,8 +299,9 @@ int UUnrealEdEngine::sub_013283b0(void)
 }
 
 int sub_01321de0(void);
+struct C_013283d0 { int sub_013283d0(void); };
 // @baa 0x013283d0
-int UUnrealEdEngine::sub_013283d0(void)
+int C_013283d0::sub_013283d0(void)
 {
     int param_1 = (int)this;
 

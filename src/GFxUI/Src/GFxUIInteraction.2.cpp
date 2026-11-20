@@ -44,8 +44,9 @@ IMPLEMENT_CLASS_AT(UGFxFSCmdHandler_Kismet, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 int sub_005c7a70(...);
 int sub_00e6be10(void);
+struct C_00e6be90 { undefined4 sub_00e6be90(byte param_2); };
 // @baa 0x00e6be90
-undefined4 UGFxFSCmdHandler_Kismet::sub_00e6be90(byte param_2)
+undefined4 C_00e6be90::sub_00e6be90(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -58,8 +59,9 @@ undefined4 UGFxFSCmdHandler_Kismet::sub_00e6be90(byte param_2)
 
 int sub_0053dfa0(...);
 int sub_00e6a680(void);
+struct C_00e6beb0 { undefined4 sub_00e6beb0(byte param_2); };
 // @baa 0x00e6beb0
-undefined4 UGFxFSCmdHandler_Kismet::sub_00e6beb0(byte param_2)
+undefined4 C_00e6beb0::sub_00e6beb0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

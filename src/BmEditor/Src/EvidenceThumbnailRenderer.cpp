@@ -70,8 +70,9 @@ void __stdcall sub_01759830(int a0, int a1) {  }
 
 int sub_005c7a20(void);
 extern undefined * g_023da4a8;
+struct C_01759840 { undefined4 * sub_01759840(void); };
 // @baa 0x01759840
-undefined4 * UObject::sub_01759840(void)
+undefined4 * C_01759840::sub_01759840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

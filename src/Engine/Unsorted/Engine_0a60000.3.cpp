@@ -75,8 +75,9 @@ undefined4 C_00a666e0::sub_00a666e0(byte param_2)
 
 int sub_0053d240(...);
 undefined4 sub_0053df70(...);
+struct C_00a678d0 { int sub_00a678d0(undefined4*param_2); };
 // @baa 0x00a678d0
-int ULensFlare::sub_00a678d0(undefined4*param_2)
+int C_00a678d0::sub_00a678d0(undefined4*param_2)
 {
 int*param_1=(int*)this;
 

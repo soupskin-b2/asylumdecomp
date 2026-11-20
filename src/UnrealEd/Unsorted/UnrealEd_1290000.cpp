@@ -21,8 +21,9 @@ FSparseArrayConstIt_01290000::FSparseArrayConstIt_01290000(const TSparseArray<IN
 
 int sub_005c7a20(void);
 extern undefined * g_02218f60;
+struct C_01290050 { undefined4 * sub_01290050(void); };
 // @baa 0x01290050
-undefined4 * UObject::sub_01290050(void)
+undefined4 * C_01290050::sub_01290050(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -89,8 +90,9 @@ FSparseArrayConstIt_012915d0::FSparseArrayConstIt_012915d0(const TSparseArray<IN
 }
 
 int sub_0128fea0(void);
+struct C_01291ff0 { int sub_01291ff0(void); };
 // @baa 0x01291ff0
-int UUnrealEdEngine::sub_01291ff0(void)
+int C_01291ff0::sub_01291ff0(void)
 {
     int param_1 = (int)this;
 
@@ -101,8 +103,9 @@ int UUnrealEdEngine::sub_01291ff0(void)
 }
 
 int sub_0128ff00(void);
+struct C_01292010 { int sub_01292010(void); };
 // @baa 0x01292010
-int UUnrealEdEngine::sub_01292010(void)
+int C_01292010::sub_01292010(void)
 {
     int param_1 = (int)this;
 
@@ -129,8 +132,9 @@ struct C_view {
     int sub_01291ca0(int, int);
 };
 
+struct C_01292210 { void sub_01292210(void); };
 // @baa 0x01292210
-void UUnrealEdEngine::sub_01292210(void)
+void C_01292210::sub_01292210(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_01291ca0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -141,8 +145,9 @@ struct C_view_012922e0 {
     int sub_01291d60(int, int);
 };
 
+struct C_012922e0 { undefined4 sub_012922e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012922e0
-undefined4 UUnrealEdEngine::sub_012922e0(undefined4 param_2, undefined4 param_3)
+undefined4 C_012922e0::sub_012922e0(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_012922e0 *)(this))->sub_01291d60(param_2, param_3);
@@ -153,8 +158,9 @@ struct C_view_012923c0 {
     int sub_01291e80(int, int);
 };
 
+struct C_012923c0 { int sub_012923c0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012923c0
-int UUnrealEdEngine::sub_012923c0(undefined4 param_2, undefined4 param_3)
+int C_012923c0::sub_012923c0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_012923c0 *)(this))->sub_01291e80(param_2, param_3);
@@ -166,8 +172,9 @@ struct C_view_012923e0 {
     int sub_01291ef0(int, int);
 };
 
+struct C_012923e0 { int sub_012923e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x012923e0
-int UUnrealEdEngine::sub_012923e0(undefined4 param_2, undefined4 param_3)
+int C_012923e0::sub_012923e0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_012923e0 *)(this))->sub_01291ef0(param_2, param_3);
@@ -179,8 +186,9 @@ struct C_view_01292400 {
     int sub_01291f70(int, int);
 };
 
+struct C_01292400 { int sub_01292400(undefined4 param_2, undefined4 param_3); };
 // @baa 0x01292400
-int UUnrealEdEngine::sub_01292400(undefined4 param_2, undefined4 param_3)
+int C_01292400::sub_01292400(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_01292400 *)(this))->sub_01291f70(param_2, param_3);
@@ -188,8 +196,9 @@ int UUnrealEdEngine::sub_01292400(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_01292420 { int sub_01292420(void); };
 // @baa 0x01292420
-int UUnrealEdEngine::sub_01292420(void)
+int C_01292420::sub_01292420(void)
 {
     int param_1 = (int)this;
 
@@ -199,8 +208,9 @@ int UUnrealEdEngine::sub_01292420(void)
   return param_1;
 }
 
+struct C_01292440 { int sub_01292440(void); };
 // @baa 0x01292440
-int UUnrealEdEngine::sub_01292440(void)
+int C_01292440::sub_01292440(void)
 {
     int param_1 = (int)this;
 
@@ -214,8 +224,9 @@ void sub_012920d0();
 // @baa 0x01292690
 void sub_01292690(void) { sub_012920d0(); }
 
+struct C_01294cb0 { int sub_01294cb0(void); };
 // @baa 0x01294cb0
-int UUnrealEdEngine::sub_01294cb0(void)
+int C_01294cb0::sub_01294cb0(void)
 {
     int param_1 = (int)this;
 
@@ -227,8 +238,9 @@ int UUnrealEdEngine::sub_01294cb0(void)
 
 int sub_005c7a70(...);
 int sub_01294d40(void);
+struct C_01294dd0 { undefined4 sub_01294dd0(byte param_2); };
 // @baa 0x01294dd0
-undefined4 UUnrealEdOptions::sub_01294dd0(byte param_2)
+undefined4 C_01294dd0::sub_01294dd0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

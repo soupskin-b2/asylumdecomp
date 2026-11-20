@@ -5,8 +5,9 @@
 
 int sub_005c7a20(void);
 extern undefined * g_022e0a10;
+struct C_01533770 { undefined4 * sub_01533770(void); };
 // @baa 0x01533770
-undefined4 * UObject::sub_01533770(void)
+undefined4 * C_01533770::sub_01533770(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -16,8 +17,9 @@ undefined4 * UObject::sub_01533770(void)
 }
 
 extern undefined * g_022e0b20;
+struct C_01533840 { undefined4 * sub_01533840(void); };
 // @baa 0x01533840
-undefined4 * UObject::sub_01533840(void)
+undefined4 * C_01533840::sub_01533840(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -27,8 +29,9 @@ undefined4 * UObject::sub_01533840(void)
 }
 
 extern undefined * g_022e0cc0;
+struct C_01534ca0 { undefined4 * sub_01534ca0(void); };
 // @baa 0x01534ca0
-undefined4 * UObject::sub_01534ca0(void)
+undefined4 * C_01534ca0::sub_01534ca0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -55,8 +58,9 @@ int sub_0150f2c0(void) { return 1; }
 int sub_005fbe20(void);
 int sub_0060f890(...);
 extern undefined4 g_026a4b38;
+struct C_0150f2d0 { bool sub_0150f2d0(void); };
 // @baa 0x0150f2d0
-bool URScriptConversationFactoryNew::sub_0150f2d0(void)
+bool C_0150f2d0::sub_0150f2d0(void)
 {
     int param_1 = (int)this;
 

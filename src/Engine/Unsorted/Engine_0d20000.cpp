@@ -635,8 +635,9 @@ struct C_view {
 };
 
 void * sub_01a375f0(void *, void *, size_t);
+struct C_00d28f10 { undefined4 * sub_00d28f10(undefined4 * param_2); };
 // @baa 0x00d28f10
-undefined4 * UObject::sub_00d28f10(undefined4 * param_2)
+undefined4 * C_00d28f10::sub_00d28f10(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view *)(this))->sub_00417dc0(param_2[1]);

@@ -9,8 +9,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetEvidenceScanned, "e:\\Projects\\Amadeus\\AA\\Game
 // @baa 0x015800e0
 int sub_005c7a20(void);
 extern undefined * g_0230a8c8;
+struct C_01580110 { undefined4 * sub_01580110(void); };
 // @baa 0x01580110
-undefined4 * UObject::sub_01580110(void)
+undefined4 * C_01580110::sub_01580110(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -97,8 +98,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetMeshInvestigationInfo, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x01580240
 extern undefined * g_0230aa68;
+struct C_01580270 { undefined4 * sub_01580270(void); };
 // @baa 0x01580270
-undefined4 * UObject::sub_01580270(void)
+undefined4 * C_01580270::sub_01580270(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -185,8 +187,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetNeedsRescue, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x01580370
 extern undefined * g_0230ac08;
+struct C_015803a0 { undefined4 * sub_015803a0(void); };
 // @baa 0x015803a0
-undefined4 * UObject::sub_015803a0(void)
+undefined4 * C_015803a0::sub_015803a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -271,8 +274,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetPawnsREvidence, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x015804c0
 extern undefined * g_0230ada8;
+struct C_015804f0 { undefined4 * sub_015804f0(void); };
 // @baa 0x015804f0
-undefined4 * UObject::sub_015804f0(void)
+undefined4 * C_015804f0::sub_015804f0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -432,8 +436,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetRoomUnlocked, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01580690
 extern undefined * g_0230af48;
+struct C_015806c0 { undefined4 * sub_015806c0(void); };
 // @baa 0x015806c0
-undefined4 * UObject::sub_015806c0(void)
+undefined4 * C_015806c0::sub_015806c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -593,8 +598,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowFocus, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x01580860
 extern undefined * g_0230b0e8;
+struct C_01580890 { undefined4 * sub_01580890(void); };
 // @baa 0x01580890
-undefined4 * UObject::sub_01580890(void)
+undefined4 * C_01580890::sub_01580890(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -681,8 +687,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowInspect, "e:\\Projects\\Amadeus\\AA\\Gam
 
 // @baa 0x015809b0
 extern undefined * g_0230b288;
+struct C_015809e0 { undefined4 * sub_015809e0(void); };
 // @baa 0x015809e0
-undefined4 * UObject::sub_015809e0(void)
+undefined4 * C_015809e0::sub_015809e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -769,8 +776,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowParameters, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x01580b10
 extern undefined * g_0230b428;
+struct C_01580b40 { undefined4 * sub_01580b40(void); };
 // @baa 0x01580b40
-undefined4 * UObject::sub_01580b40(void)
+undefined4 * C_01580b40::sub_01580b40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -784,8 +792,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowSearch, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x01580c70
 extern undefined * g_0230b5c8;
+struct C_01580ca0 { undefined4 * sub_01580ca0(void); };
 // @baa 0x01580ca0
-undefined4 * UObject::sub_01580ca0(void)
+undefined4 * C_01580ca0::sub_01580ca0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -799,8 +808,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetScarecrowSearchAnims, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x01580dc0
 extern undefined * g_0230b768;
+struct C_01580df0 { undefined4 * sub_01580df0(void); };
 // @baa 0x01580df0
-undefined4 * UObject::sub_01580df0(void)
+undefined4 * C_01580df0::sub_01580df0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -814,8 +824,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetTrackingObjectVars, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x01580f10
 extern undefined * g_0230b908;
+struct C_01580f40 { undefined4 * sub_01580f40(void); };
 // @baa 0x01580f40
-undefined4 * UObject::sub_01580f40(void)
+undefined4 * C_01580f40::sub_01580f40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -829,8 +840,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetTrackingSpotlightVars, "e:\\Projects\\Amadeus\\AA
 
 // @baa 0x015812b0
 extern undefined * g_0230baa8;
+struct C_015812e0 { undefined4 * sub_015812e0(void); };
 // @baa 0x015812e0
-undefined4 * UObject::sub_015812e0(void)
+undefined4 * C_015812e0::sub_015812e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -844,8 +856,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetVenomParameters, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x01581400
 extern undefined * g_0230bc48;
+struct C_01581430 { undefined4 * sub_01581430(void); };
 // @baa 0x01581430
-undefined4 * UObject::sub_01581430(void)
+undefined4 * C_01581430::sub_01581430(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -859,8 +872,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_TriggerRunTheGauntlet, "e:\\Projects\\Amadeus\\AA\\G
 
 // @baa 0x01581550
 extern undefined * g_0230bde8;
+struct C_01581580 { undefined4 * sub_01581580(void); };
 // @baa 0x01581580
-undefined4 * UObject::sub_01581580(void)
+undefined4 * C_01581580::sub_01581580(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -874,8 +888,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_UnlockXrayMode, "e:\\Projects\\Amadeus\\AA\\Game\\Un
 
 // @baa 0x015816a0
 extern undefined * g_0230bf88;
+struct C_015816d0 { undefined4 * sub_015816d0(void); };
 // @baa 0x015816d0
-undefined4 * UObject::sub_015816d0(void)
+undefined4 * C_015816d0::sub_015816d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -889,8 +904,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ActivateElectrifiedFloorPanels, "e:\\Projects\\Amade
 
 // @baa 0x01581760
 extern undefined * g_0230c138;
+struct C_01581790 { undefined4 * sub_01581790(void); };
 // @baa 0x01581790
-undefined4 * UObject::sub_01581790(void)
+undefined4 * C_01581790::sub_01581790(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -904,8 +920,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_BatmanState, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x01581820
 extern undefined * g_0230c2d8;
+struct C_01581850 { undefined4 * sub_01581850(void); };
 // @baa 0x01581850
-undefined4 * UObject::sub_01581850(void)
+undefined4 * C_01581850::sub_01581850(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -925,8 +942,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_Credits, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEng
 
 // @baa 0x01581a70
 extern undefined * g_0230c478;
+struct C_01581aa0 { undefined4 * sub_01581aa0(void); };
 // @baa 0x01581aa0
-undefined4 * UObject::sub_01581aa0(void)
+undefined4 * C_01581aa0::sub_01581aa0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -953,8 +971,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_FadeScreen, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x01581de0
 extern undefined * g_0230c618;
+struct C_01581e10 { undefined4 * sub_01581e10(void); };
 // @baa 0x01581e10
-undefined4 * UObject::sub_01581e10(void)
+undefined4 * C_01581e10::sub_01581e10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -981,8 +1000,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_FadeSound, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x015820b0
 extern undefined * g_0230c7b8;
+struct C_015820e0 { undefined4 * sub_015820e0(void); };
 // @baa 0x015820e0
-undefined4 * UObject::sub_015820e0(void)
+undefined4 * C_015820e0::sub_015820e0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -996,8 +1016,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_FullScreenPlayer, "e:\\Projects\\Amadeus\\AA\\Game\\
 
 // @baa 0x01582180
 extern undefined * g_0230c970;
+struct C_015821b0 { undefined4 * sub_015821b0(void); };
 // @baa 0x015821b0
-undefined4 * UObject::sub_015821b0(void)
+undefined4 * C_015821b0::sub_015821b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1014,8 +1035,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_HUDTimer, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x01582250
 extern undefined * g_0230cb10;
+struct C_01582280 { undefined4 * sub_01582280(void); };
 // @baa 0x01582280
-undefined4 * UObject::sub_01582280(void)
+undefined4 * C_01582280::sub_01582280(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1029,8 +1051,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_InDialogue, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x015823a0
 extern undefined * g_0230ccb0;
+struct C_015823d0 { undefined4 * sub_015823d0(void); };
 // @baa 0x015823d0
-undefined4 * UObject::sub_015823d0(void)
+undefined4 * C_015823d0::sub_015823d0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1044,8 +1067,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_Mixbin, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x01582530
 extern undefined * g_0230ce50;
+struct C_01582560 { undefined4 * sub_01582560(void); };
 // @baa 0x01582560
-undefined4 * UObject::sub_01582560(void)
+undefined4 * C_01582560::sub_01582560(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1059,8 +1083,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ModifyPostProcess, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x015825e0
 extern undefined * g_0230cff0;
+struct C_01582610 { undefined4 * sub_01582610(void); };
 // @baa 0x01582610
-undefined4 * UObject::sub_01582610(void)
+undefined4 * C_01582610::sub_01582610(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1074,8 +1099,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_MovePlayer, "e:\\Projects\\Amadeus\\AA\\Game\\Unreal
 
 // @baa 0x01582880
 extern undefined * g_0230d190;
+struct C_015828b0 { undefined4 * sub_015828b0(void); };
 // @baa 0x015828b0
-undefined4 * UObject::sub_015828b0(void)
+undefined4 * C_015828b0::sub_015828b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1089,8 +1115,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SetStationary1stPersonCamera, "e:\\Projects\\Amadeus
 
 // @baa 0x01582930
 extern undefined * g_0230d330;
+struct C_01582960 { undefined4 * sub_01582960(void); };
 // @baa 0x01582960
-undefined4 * UObject::sub_01582960(void)
+undefined4 * C_01582960::sub_01582960(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1104,8 +1131,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_ShowLevelIntroText, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x015829f0
 extern undefined * g_0230d4d0;
+struct C_01582a20 { undefined4 * sub_01582a20(void); };
 // @baa 0x01582a20
-undefined4 * UObject::sub_01582a20(void)
+undefined4 * C_01582a20::sub_01582a20(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1119,8 +1147,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SmilexBombClock, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01582ac0
 extern undefined * g_0230d670;
+struct C_01582af0 { undefined4 * sub_01582af0(void); };
 // @baa 0x01582af0
-undefined4 * UObject::sub_01582af0(void)
+undefined4 * C_01582af0::sub_01582af0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1144,8 +1173,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_SmoothCameraTransition, "e:\\Projects\\Amadeus\\AA\\
 
 // @baa 0x01582dd0
 extern undefined * g_0230d810;
+struct C_01582e00 { undefined4 * sub_01582e00(void); };
 // @baa 0x01582e00
-undefined4 * UObject::sub_01582e00(void)
+undefined4 * C_01582e00::sub_01582e00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1159,8 +1189,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_StreamInPackage, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x01582ea0
 extern undefined * g_0230d9b0;
+struct C_01582ed0 { undefined4 * sub_01582ed0(void); };
 // @baa 0x01582ed0
-undefined4 * UObject::sub_01582ed0(void)
+undefined4 * C_01582ed0::sub_01582ed0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1174,8 +1205,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_RandomSwitchForGameOver, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x01583010
 extern undefined * g_0230db50;
+struct C_01583040 { undefined4 * sub_01583040(void); };
 // @baa 0x01583040
-undefined4 * UObject::sub_01583040(void)
+undefined4 * C_01583040::sub_01583040(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1194,8 +1226,9 @@ IMPLEMENT_CLASS_AT(URSeqEvent_EvidenceFlagSet, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x01583180
 extern undefined * g_0230dcf8;
+struct C_015831b0 { undefined4 * sub_015831b0(void); };
 // @baa 0x015831b0
-undefined4 * UObject::sub_015831b0(void)
+undefined4 * C_015831b0::sub_015831b0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1214,8 +1247,9 @@ IMPLEMENT_CLASS_AT(URSeqEvent_EvidenceFound, "e:\\Projects\\Amadeus\\AA\\Game\\U
 
 // @baa 0x015832f0
 extern undefined * g_0230dea0;
+struct C_01583320 { undefined4 * sub_01583320(void); };
 // @baa 0x01583320
-undefined4 * UObject::sub_01583320(void)
+undefined4 * C_01583320::sub_01583320(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1251,8 +1285,9 @@ IMPLEMENT_CLASS_AT(URSeqEvent_HitByGadget, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x015833f0
 extern undefined * g_0230e048;
+struct C_01583420 { undefined4 * sub_01583420(void); };
 // @baa 0x01583420
-undefined4 * UObject::sub_01583420(void)
+undefined4 * C_01583420::sub_01583420(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1271,8 +1306,9 @@ IMPLEMENT_CLASS_AT(URSeqEvent_ItemInvestigated, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x01583560
 extern undefined * g_0230e1f0;
+struct C_01583590 { undefined4 * sub_01583590(void); };
 // @baa 0x01583590
-undefined4 * UObject::sub_01583590(void)
+undefined4 * C_01583590::sub_01583590(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1286,8 +1322,9 @@ IMPLEMENT_CLASS_AT(URPoseConfig, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3
 
 // @baa 0x01583630
 extern undefined * g_0230e300;
+struct C_01583650 { undefined4 * sub_01583650(void); };
 // @baa 0x01583650
-undefined4 * UObject::sub_01583650(void)
+undefined4 * C_01583650::sub_01583650(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1301,8 +1338,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CheckPlayerHealth, "e:\\Projects\\Amadeus\\AA\\Game\
 
 // @baa 0x015836e0
 extern undefined * g_0230e4a0;
+struct C_01583710 { undefined4 * sub_01583710(void); };
 // @baa 0x01583710
-undefined4 * UObject::sub_01583710(void)
+undefined4 * C_01583710::sub_01583710(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1321,8 +1359,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CombatMusic, "e:\\Projects\\Amadeus\\AA\\Game\\Unrea
 
 // @baa 0x01583b40
 extern undefined * g_0230e640;
+struct C_01583b70 { undefined4 * sub_01583b70(void); };
 // @baa 0x01583b70
-undefined4 * UObject::sub_01583b70(void)
+undefined4 * C_01583b70::sub_01583b70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1336,8 +1375,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_Music, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngin
 
 // @baa 0x01583ee0
 extern undefined * g_0230e7f0;
+struct C_01583f10 { undefined4 * sub_01583f10(void); };
 // @baa 0x01583f10
-undefined4 * UObject::sub_01583f10(void)
+undefined4 * C_01583f10::sub_01583f10(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1351,8 +1391,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_PlayScaledDistanceSound, "e:\\Projects\\Amadeus\\AA\
 
 // @baa 0x01584190
 extern undefined * g_0230e990;
+struct C_015841c0 { undefined4 * sub_015841c0(void); };
 // @baa 0x015841c0
-undefined4 * UObject::sub_015841c0(void)
+undefined4 * C_015841c0::sub_015841c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1371,8 +1412,9 @@ IMPLEMENT_CLASS_AT(URSeqEvent_RopeCut, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealE
 
 // @baa 0x01584300
 extern undefined * g_0230eb38;
+struct C_01584330 { undefined4 * sub_01584330(void); };
 // @baa 0x01584330
-undefined4 * UObject::sub_01584330(void)
+undefined4 * C_01584330::sub_01584330(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1431,8 +1473,9 @@ UBOOL ARXrayInteractableItem::HasParentClassChanged() const
 }
 
 extern undefined * g_0230ece0;
+struct C_01584a90 { undefined4 * sub_01584a90(void); };
 // @baa 0x01584a90
-undefined4 * UObject::sub_01584a90(void)
+undefined4 * C_01584a90::sub_01584a90(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1519,8 +1562,9 @@ int sub_01585a40(void)
 }
 
 extern undefined * g_02310100;
+struct C_01585a70 { undefined4 * sub_01585a70(void); };
 // @baa 0x01585a70
-undefined4 * UObject::sub_01585a70(void)
+undefined4 * C_01585a70::sub_01585a70(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1534,8 +1578,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_CheckURLParam, "e:\\Projects\\Amadeus\\AA\\Game\\Unr
 
 // @baa 0x01585b10
 extern undefined * g_023102a0;
+struct C_01585b40 { undefined4 * sub_01585b40(void); };
 // @baa 0x01585b40
-undefined4 * UObject::sub_01585b40(void)
+undefined4 * C_01585b40::sub_01585b40(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -1549,8 +1594,9 @@ IMPLEMENT_CLASS_AT(URSeqAct_LockDown, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEn
 
 // @baa 0x01585bd0
 extern undefined * g_02310440;
+struct C_01585c00 { undefined4 * sub_01585c00(void); };
 // @baa 0x01585c00
-undefined4 * UObject::sub_01585c00(void)
+undefined4 * C_01585c00::sub_01585c00(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

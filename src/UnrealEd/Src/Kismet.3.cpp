@@ -82,8 +82,9 @@ void sub_01199160(Obj* a)
 
 int sub_0040fcc0(void);
 int sub_0053dfa0(...);
+struct C_011a1690 { undefined4 sub_011a1690(byte param_2); };
 // @baa 0x011a1690
-undefined4 UObject::sub_011a1690(byte param_2)
+undefined4 C_011a1690::sub_011a1690(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

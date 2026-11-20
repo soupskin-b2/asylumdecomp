@@ -102,8 +102,9 @@ C_00e276e0* C_00e276e0::sub_00e276e0(void) { return this; }
 // @baa 0x00e27840
 int sub_00773ad0(void);
 extern undefined * g_020ed6c0;
+struct C_00e27870 { undefined4 * sub_00e27870(void); };
 // @baa 0x00e27870
-undefined4 * AHUD::sub_00e27870(void)
+undefined4 * C_00e27870::sub_00e27870(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -122,8 +123,9 @@ IMPLEMENT_CLASS_AT(AGameHUD, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\De
 // @baa 0x00e27a90
 int sub_0077ccd0(void);
 extern undefined * g_020ee0c8;
+struct C_00e27fc0 { undefined4 * sub_00e27fc0(void); };
 // @baa 0x00e27fc0
-undefined4 * APlayerController::sub_00e27fc0(void)
+undefined4 * C_00e27fc0::sub_00e27fc0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

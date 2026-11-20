@@ -814,8 +814,9 @@ struct C_view {
     int sub_013b7380(int, int);
 };
 
+struct C_013c44e0 { int sub_013c44e0(int param_2); };
 // @baa 0x013c44e0
-int UPackageMap::sub_013c44e0(int param_2)
+int C_013c44e0::sub_013c44e0(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

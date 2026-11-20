@@ -78,8 +78,9 @@ struct C_view {
     int sub_014a63b0(int);
 };
 
+struct C_014b2e00 { undefined4 * sub_014b2e00(undefined4 * param_2); };
 // @baa 0x014b2e00
-undefined4 * UTexture2D::sub_014b2e00(undefined4 * param_2)
+undefined4 * C_014b2e00::sub_014b2e00(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -90,8 +91,9 @@ undefined4 * UTexture2D::sub_014b2e00(undefined4 * param_2)
   return param_1;
 }
 
+struct C_014b2f30 { undefined4 * sub_014b2f30(undefined4 * param_2); };
 // @baa 0x014b2f30
-undefined4 * UTexture2D::sub_014b2f30(undefined4 * param_2)
+undefined4 * C_014b2f30::sub_014b2f30(undefined4 * param_2)
 {
     undefined4 * param_1 = (undefined4 *)this;
   undefined4 *puVar1;
@@ -211,8 +213,9 @@ struct C_014ba7d0 { char pad[12]; M_014ba7d0 m; void sub_014ba7d0(); };
 void C_014ba7d0::sub_014ba7d0() { m.sub_014b9470(); }
 
 int sub_014b3380(void);
+struct C_014bafc0 { int sub_014bafc0(void); };
 // @baa 0x014bafc0
-int UTexture2D::sub_014bafc0(void)
+int C_014bafc0::sub_014bafc0(void)
 {
     int param_1 = (int)this;
 
@@ -223,8 +226,9 @@ int UTexture2D::sub_014bafc0(void)
 }
 
 int sub_014b33e0(void);
+struct C_014bafe0 { int sub_014bafe0(void); };
 // @baa 0x014bafe0
-int UTexture2D::sub_014bafe0(void)
+int C_014bafe0::sub_014bafe0(void)
 {
     int param_1 = (int)this;
 
@@ -235,8 +239,9 @@ int UTexture2D::sub_014bafe0(void)
 }
 
 int sub_014b3440(void);
+struct C_014bb000 { int sub_014bb000(void); };
 // @baa 0x014bb000
-int UTexture2D::sub_014bb000(void)
+int C_014bb000::sub_014bb000(void)
 {
     int param_1 = (int)this;
 
@@ -247,8 +252,9 @@ int UTexture2D::sub_014bb000(void)
 }
 
 int sub_014ad9b0(void);
+struct C_014bb0f0 { int sub_014bb0f0(void); };
 // @baa 0x014bb0f0
-int UTexture2D::sub_014bb0f0(void)
+int C_014bb0f0::sub_014bb0f0(void)
 {
     int param_1 = (int)this;
 
@@ -268,8 +274,9 @@ struct C_view_014bc070 {
     int sub_00dbc800(int, int);
 };
 
+struct C_014bc070 { void sub_014bc070(void); };
 // @baa 0x014bc070
-void UTexture2D::sub_014bc070(void)
+void C_014bc070::sub_014bc070(void)
 {
     int param_1 = (int)this;
   ((C_view_014bc070 *)(this))->sub_00dbc800(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -280,8 +287,9 @@ struct C_view_014bc080 {
     int sub_014bad80(int, int);
 };
 
+struct C_014bc080 { undefined4 sub_014bc080(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014bc080
-undefined4 UTexture2D::sub_014bc080(undefined4 param_2, undefined4 param_3)
+undefined4 C_014bc080::sub_014bc080(undefined4 param_2, undefined4 param_3)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view_014bc080 *)(this))->sub_014bad80(param_2, param_3);
@@ -292,8 +300,9 @@ struct C_view_014bc0a0 {
     int sub_014bade0(int, int);
 };
 
+struct C_014bc0a0 { int sub_014bc0a0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014bc0a0
-int UTexture2D::sub_014bc0a0(undefined4 param_2, undefined4 param_3)
+int C_014bc0a0::sub_014bc0a0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_014bc0a0 *)(this))->sub_014bade0(param_2, param_3);
@@ -305,8 +314,9 @@ struct C_view_014bc0c0 {
     int sub_014bae60(int, int);
 };
 
+struct C_014bc0c0 { int sub_014bc0c0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014bc0c0
-int UTexture2D::sub_014bc0c0(undefined4 param_2, undefined4 param_3)
+int C_014bc0c0::sub_014bc0c0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_014bc0c0 *)(this))->sub_014bae60(param_2, param_3);
@@ -318,8 +328,9 @@ struct C_view_014bc0e0 {
     int sub_014baee0(int, int);
 };
 
+struct C_014bc0e0 { int sub_014bc0e0(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014bc0e0
-int UTexture2D::sub_014bc0e0(undefined4 param_2, undefined4 param_3)
+int C_014bc0e0::sub_014bc0e0(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_014bc0e0 *)(this))->sub_014baee0(param_2, param_3);
@@ -331,8 +342,9 @@ struct C_view_014bc100 {
     int sub_014baf50(int, int);
 };
 
+struct C_014bc100 { int sub_014bc100(undefined4 param_2, undefined4 param_3); };
 // @baa 0x014bc100
-int UTexture2D::sub_014bc100(undefined4 param_2, undefined4 param_3)
+int C_014bc100::sub_014bc100(undefined4 param_2, undefined4 param_3)
 {
     int param_1 = (int)this;
   ((C_view_014bc100 *)(this))->sub_014baf50(param_2, param_3);
@@ -340,8 +352,9 @@ int UTexture2D::sub_014bc100(undefined4 param_2, undefined4 param_3)
   return param_1;
 }
 
+struct C_014bc120 { int sub_014bc120(void); };
 // @baa 0x014bc120
-int UTexture2D::sub_014bc120(void)
+int C_014bc120::sub_014bc120(void)
 {
     int param_1 = (int)this;
 
@@ -351,8 +364,9 @@ int UTexture2D::sub_014bc120(void)
   return param_1;
 }
 
+struct C_014bc140 { int sub_014bc140(void); };
 // @baa 0x014bc140
-int UTexture2D::sub_014bc140(void)
+int C_014bc140::sub_014bc140(void)
 {
     int param_1 = (int)this;
 
@@ -362,8 +376,9 @@ int UTexture2D::sub_014bc140(void)
   return param_1;
 }
 
+struct C_014bc160 { int sub_014bc160(void); };
 // @baa 0x014bc160
-int UTexture2D::sub_014bc160(void)
+int C_014bc160::sub_014bc160(void)
 {
     int param_1 = (int)this;
 
@@ -377,8 +392,9 @@ void sub_014bb080();
 // @baa 0x014bc220
 void sub_014bc220(void) { sub_014bb080(); }
 
+struct C_014bc230 { int sub_014bc230(void); };
 // @baa 0x014bc230
-int UTexture2D::sub_014bc230(void)
+int C_014bc230::sub_014bc230(void)
 {
     int param_1 = (int)this;
 

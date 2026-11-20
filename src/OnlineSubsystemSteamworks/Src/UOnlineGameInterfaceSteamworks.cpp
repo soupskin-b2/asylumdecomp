@@ -102,8 +102,9 @@ int UOnlineGameInterfaceSteamworks::sub_00e89770(void) { return *(int*)((char*)t
 // @baa 0x00e89860
 void __stdcall sub_00e89860(int a0) {  }
 
+struct C_00e89880 { undefined4 sub_00e89880(void); };
 // @baa 0x00e89880
-undefined4 UOnlineGameInterfaceSteamworks::sub_00e89880(void)
+undefined4 C_00e89880::sub_00e89880(void)
 {
     int param_1 = (int)this;
 

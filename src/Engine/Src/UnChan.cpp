@@ -3,8 +3,9 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
+struct C_00567860 { int sub_00567860(void); };
 // @baa 0x00567860
-int UTexture2D::sub_00567860(void)
+int C_00567860::sub_00567860(void)
 {
     int param_1 = (int)this;
 
@@ -158,8 +159,9 @@ void C_00df3190::sub_00df3190(void)
 
 int sub_005c7a20(void);
 extern undefined * g_020e2d80;
+struct C_00df32a0 { undefined4 * sub_00df32a0(void); };
 // @baa 0x00df32a0
-undefined4 * UObject::sub_00df32a0(void)
+undefined4 * C_00df32a0::sub_00df32a0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -501,8 +503,9 @@ UActorChannel::UActorChannel()
 // @baa 0x00e070e0
 int sub_005c7a70(...);
 int sub_00e070e0(void);
+struct C_00e07190 { undefined4 sub_00e07190(byte param_2); };
 // @baa 0x00e07190
-undefined4 UActorChannel::sub_00e07190(byte param_2)
+undefined4 C_00e07190::sub_00e07190(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -701,8 +704,9 @@ int C_00e121c0::sub_00e121c0(void)
 }
 
 int sub_00e08f00(void);
+struct C_00e121e0 { int sub_00e121e0(void); };
 // @baa 0x00e121e0
-int UGuidCache::sub_00e121e0(void)
+int C_00e121e0::sub_00e121e0(void)
 {
     int param_1 = (int)this;
 
@@ -747,8 +751,9 @@ struct C_view_00e01db0 {
 };
 
 extern undefined * g_020e34c0;
+struct C_00e01db0 { undefined4 * sub_00e01db0(void); };
 // @baa 0x00e01db0
-undefined4 * UTexture2D::sub_00e01db0(void)
+undefined4 * C_00e01db0::sub_00e01db0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
   ((C_view_00e01db0 *)(this))->sub_00572050(0);

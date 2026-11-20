@@ -122,8 +122,9 @@ UBOOL ARInventoryManager::HasParentClassChanged() const
 
 int sub_005c7a70(...);
 int sub_01656540(void);
+struct C_016565e0 { undefined4 sub_016565e0(byte param_2); };
 // @baa 0x016565e0
-undefined4 ARInventoryManager::sub_016565e0(byte param_2)
+undefined4 C_016565e0::sub_016565e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

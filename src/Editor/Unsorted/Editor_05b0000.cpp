@@ -7,8 +7,9 @@
 IMPLEMENT_CLASS_AT(UCommandlet, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Core\\Src\\UnCoreNative.cpp", 674);
 
 int sub_005b08d0(void);
+struct C_005ba250 { int sub_005ba250(void); };
 // @baa 0x005ba250
-int UTexture2D::sub_005ba250(void)
+int C_005ba250::sub_005ba250(void)
 {
     int param_1 = (int)this;
 
@@ -19,8 +20,9 @@ int UTexture2D::sub_005ba250(void)
 }
 
 int sub_005b0930(void);
+struct C_005ba270 { int sub_005ba270(void); };
 // @baa 0x005ba270
-int UTexture2D::sub_005ba270(void)
+int C_005ba270::sub_005ba270(void)
 {
     int param_1 = (int)this;
 
@@ -31,8 +33,9 @@ int UTexture2D::sub_005ba270(void)
 }
 
 int sub_005b0990(void);
+struct C_005ba290 { int sub_005ba290(void); };
 // @baa 0x005ba290
-int UTexture2D::sub_005ba290(void)
+int C_005ba290::sub_005ba290(void)
 {
     int param_1 = (int)this;
 
@@ -46,8 +49,9 @@ struct C_view {
     int sub_005b8460(int);
 };
 
+struct C_005ba2b0 { undefined4 sub_005ba2b0(undefined4 param_2); };
 // @baa 0x005ba2b0
-undefined4 UTexture2D::sub_005ba2b0(undefined4 param_2)
+undefined4 C_005ba2b0::sub_005ba2b0(undefined4 param_2)
 {
     undefined4 param_1 = (undefined4)this;
   ((C_view *)(this))->sub_005b8460(param_2);

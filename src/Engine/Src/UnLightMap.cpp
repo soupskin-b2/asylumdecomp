@@ -167,8 +167,9 @@ void sub_00d3f630(void) { sub_00d3ef90(); }
 
 int sub_005c7a20(void);
 extern undefined * g_020a8288;
+struct C_00d3f660 { undefined4 * sub_00d3f660(void); };
 // @baa 0x00d3f660
-undefined4 * UObject::sub_00d3f660(void)
+undefined4 * C_00d3f660::sub_00d3f660(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -185,8 +186,9 @@ IMPLEMENT_CLASS_AT(UPrefabSequence, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngi
 
 // @baa 0x00d3f6f0
 extern undefined * g_020a8450;
+struct C_00d3f720 { undefined4 * sub_00d3f720(void); };
 // @baa 0x00d3f720
-undefined4 * UObject::sub_00d3f720(void)
+undefined4 * C_00d3f720::sub_00d3f720(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -217,8 +219,9 @@ UBOOL ULightMapTexture2D::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
+struct C_00d1f450 { void sub_00d1f450(float * param_2, float param_3); };
 // @baa 0x00d1f450
-void ULightMapTexture2D::sub_00d1f450(float * param_2, float param_3)
+void C_00d1f450::sub_00d1f450(float * param_2, float param_3)
 {
     int param_1 = (int)this;
   float *pfVar1;

@@ -5,8 +5,9 @@
 
 int sub_005c7a70(...);
 int sub_00773670(void);
+struct C_00773800 { undefined4 sub_00773800(byte param_2); };
 // @baa 0x00773800
-undefined4 AController::sub_00773800(byte param_2)
+undefined4 C_00773800::sub_00773800(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

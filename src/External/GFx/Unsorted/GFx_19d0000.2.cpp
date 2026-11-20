@@ -99,8 +99,9 @@ undefined4 * C_019d16d0::sub_019d16d0(void)
   return param_1;
 }
 
+struct C_019d1840 { undefined4 sub_019d1840(void); };
 // @baa 0x019d1840
-undefined4 UGFxDataStoreSubscriber::sub_019d1840(void)
+undefined4 C_019d1840::sub_019d1840(void)
 {
     int param_1 = (int)this;
 

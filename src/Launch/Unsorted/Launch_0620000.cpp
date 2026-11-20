@@ -26,8 +26,9 @@ void C_0062d850::sub_0062d850(void) { *(int*)((char*)this + 0) = (int)g_01e729c0
 
 int sub_0053dfa0(...);
 int sub_00626000(void);
+struct C_0062d860 { undefined4 sub_0062d860(byte param_2); };
 // @baa 0x0062d860
-undefined4 UPackageMap::sub_0062d860(byte param_2)
+undefined4 C_0062d860::sub_0062d860(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 

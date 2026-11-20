@@ -5,8 +5,9 @@
 
 int sub_0053dfa0(...);
 int sub_006b9150(void);
+struct C_006c18e0 { undefined4 sub_006c18e0(byte param_2); };
 // @baa 0x006c18e0
-undefined4 UFogVolumeConeDensityComponent::sub_006c18e0(byte param_2)
+undefined4 C_006c18e0::sub_006c18e0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -21,8 +22,9 @@ struct C_view {
     int sub_006bcd60(int);
 };
 
+struct C_006c1900 { undefined4 sub_006c1900(void); };
 // @baa 0x006c1900
-undefined4 UFogVolumeConeDensityComponent::sub_006c1900(void)
+undefined4 C_006c1900::sub_006c1900(void)
 {
     int param_1 = (int)this;
   ((C_view *)((*(char **)((char *)this + 0x40))))->sub_006bcd60(param_1 + 4);

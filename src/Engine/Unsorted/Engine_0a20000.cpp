@@ -44,8 +44,9 @@ FSparseArrayConstIt_00a222c0::FSparseArrayConstIt_00a222c0(const TSparseArray<IN
 
 int sub_006f7810(void);
 extern undefined * g_01fb3930;
+struct C_00a22310 { undefined4 * sub_00a22310(void); };
 // @baa 0x00a22310
-undefined4 * UPrimitiveComponent::sub_00a22310(void)
+undefined4 * C_00a22310::sub_00a22310(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -60,8 +61,9 @@ IMPLEMENT_CLASS_AT(URB_RadialImpulseComponent, "e:\\Projects\\Amadeus\\AA\\Game\
 // @baa 0x00a22390
 int sub_005c7a20(void);
 extern undefined * g_01fb3b88;
+struct C_00a223c0 { undefined4 * sub_00a223c0(void); };
 // @baa 0x00a223c0
-undefined4 * UObject::sub_00a223c0(void)
+undefined4 * C_00a223c0::sub_00a223c0(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -85,8 +87,9 @@ void URB_ForceComponent::vf_254(void) {  }
 
 // @baa 0x00a22500
 extern undefined * g_01fb3ce0;
+struct C_00a22530 { undefined4 * sub_00a22530(void); };
 // @baa 0x00a22530
-undefined4 * UPrimitiveComponent::sub_00a22530(void)
+undefined4 * C_00a22530::sub_00a22530(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -96,8 +99,9 @@ undefined4 * UPrimitiveComponent::sub_00a22530(void)
 }
 
 extern undefined * g_01fb3f40;
+struct C_00a22550 { undefined4 * sub_00a22550(void); };
 // @baa 0x00a22550
-undefined4 * UPrimitiveComponent::sub_00a22550(void)
+undefined4 * C_00a22550::sub_00a22550(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -111,8 +115,9 @@ IMPLEMENT_CLASS_AT(URB_ForceComponentCylindrical, "e:\\Projects\\Amadeus\\AA\\Ga
 
 // @baa 0x00a225d0
 extern undefined * g_01fb41a0;
+struct C_00a22600 { undefined4 * sub_00a22600(void); };
 // @baa 0x00a22600
-undefined4 * UPrimitiveComponent::sub_00a22600(void)
+undefined4 * C_00a22600::sub_00a22600(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 
@@ -229,8 +234,9 @@ struct C_00a2c350 { void sub_00a2b4d0(int); C_00a2c350 *sub_00a2c350(int); };
 C_00a2c350 *C_00a2c350::sub_00a2c350(int a) { sub_00a2b4d0(a); return this; }
 
 extern undefined * g_01fb4410;
+struct C_00a2c380 { undefined4 * sub_00a2c380(void); };
 // @baa 0x00a2c380
-undefined4 * UObject::sub_00a2c380(void)
+undefined4 * C_00a2c380::sub_00a2c380(void)
 {
     undefined4 * param_1 = (undefined4 *)this;
 

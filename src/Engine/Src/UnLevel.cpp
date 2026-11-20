@@ -42,8 +42,9 @@ struct C_view {
     int sub_00553180(int);
 };
 
+struct C_007f0910 { int sub_007f0910(int param_2); };
 // @baa 0x007f0910
-int URFMODSound::sub_007f0910(int param_2)
+int C_007f0910::sub_007f0910(int param_2)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_00547da0(param_2);

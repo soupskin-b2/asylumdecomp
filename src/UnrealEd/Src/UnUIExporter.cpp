@@ -7,8 +7,9 @@ struct C_view {
     int sub_0054e0b0(int, int);
 };
 
+struct C_00555570 { int sub_00555570(int param_2); };
 // @baa 0x00555570
-int UPackageMap::sub_00555570(int param_2)
+int C_00555570::sub_00555570(int param_2)
 {
     int * param_1 = (int *)this;
   int iVar1;

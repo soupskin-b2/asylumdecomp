@@ -24,8 +24,9 @@ void C::sub_007f21d0(void)
 
 int sub_0053dfa0(...);
 int sub_00796530(void);
+struct C_007f21f0 { undefined4 sub_007f21f0(byte param_2); };
 // @baa 0x007f21f0
-undefined4 UBrushComponent::sub_007f21f0(byte param_2)
+undefined4 C_007f21f0::sub_007f21f0(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -107,8 +108,9 @@ struct C_view {
     int sub_007f2210(int, int);
 };
 
+struct C_007f5bc0 { void sub_007f5bc0(void); };
 // @baa 0x007f5bc0
-void UFracturedStaticMeshComponent::sub_007f5bc0(void)
+void C_007f5bc0::sub_007f5bc0(void)
 {
     int param_1 = (int)this;
   ((C_view *)(this))->sub_007f2210(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -119,8 +121,9 @@ struct C_view_007f5c30 {
     int sub_007f22d0(int, int);
 };
 
+struct C_007f5c30 { void sub_007f5c30(void); };
 // @baa 0x007f5c30
-void UBrushComponent::sub_007f5c30(void)
+void C_007f5c30::sub_007f5c30(void)
 {
     int param_1 = (int)this;
   ((C_view_007f5c30 *)(this))->sub_007f22d0(*(int *)(param_1 + 4) - *(int *)(param_1 + 0x2c), 1);
@@ -163,8 +166,9 @@ void sub_007f58c0();
 void sub_007f5930();
 
 int sub_007f7400(void);
+struct C_007f7540 { undefined4 sub_007f7540(byte param_2); };
 // @baa 0x007f7540
-undefined4 UGameEngine::sub_007f7540(byte param_2)
+undefined4 C_007f7540::sub_007f7540(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
@@ -306,8 +310,9 @@ void sub_007f8630(void) { sub_007f5a80(); }
 void sub_007f88e0(void) { sub_007f5af0(); }
 
 int sub_007f88f0(void);
+struct C_007f8b10 { undefined4 sub_007f8b10(byte param_2); };
 // @baa 0x007f8b10
-undefined4 ULevel::sub_007f8b10(byte param_2)
+undefined4 C_007f8b10::sub_007f8b10(byte param_2)
 {
     undefined4 param_1 = (undefined4)this;
 
