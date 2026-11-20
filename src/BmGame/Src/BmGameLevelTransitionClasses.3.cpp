@@ -83,13 +83,6 @@ void ARGameRI::RemoveNextLevelRequest(FName Level, AActor* Originator)
     }
 }
 
-/* Kit gap: FName has no operator== (UnName.h); both of UE3's overloads. */
-struct FName_ : public FName
-{
-	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-	FORCEINLINE UBOOL operator==(EName Other) const { return Index == Other && Number == 0; }
-};
-
 // @baa 0x0155ab10
 /* Slot 0x3a4: whether the global door lock applies to the current level. */
 UBOOL ARGameRI::IsGlobalLockActive()
@@ -104,13 +97,6 @@ UBOOL ARGameRI::IsGlobalLockActive()
 	return FALSE;
 }
 
-/* Kit gap: FName has no operator==/!= (UnName.h). */
-struct FName__0155a410 : public FName
-{
-	FORCEINLINE UBOOL operator==(const FName& Other) const { return Index == Other.Index && Number == Other.Number; }
-	FORCEINLINE UBOOL operator!=(EName Other) const { return Index != Other || Number != 0; }
-};
-
 // @baa 0x0155a410
 /* Slot 0x368: whether this transition has two distinct levels to stream between. */
 UBOOL ARLevelTransition::DoesLevelStreaming()
@@ -118,12 +104,6 @@ UBOOL ARLevelTransition::DoesLevelStreaming()
 	return !bDisabledStreaming && !DisableAllStreaming && !(LevelInFront == LevelBehind)
 		&& LevelInFront != NAME_None && LevelBehind != NAME_None;
 }
-
-/* Kit gap: FName has no operator!= (UnName.h). */
-struct FName__0155ff60 : public FName
-{
-	FORCEINLINE UBOOL operator!=(EName Other) const { return Index != Other || Number != 0; }
-};
 
 // @baa 0x0155ff60
 /* Slot 0x368: a transition into other persistent levels only needs one side to be set. */

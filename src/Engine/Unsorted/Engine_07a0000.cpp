@@ -1733,7 +1733,6 @@ UBOOL AController::CanSee(APawn* Other)
     return SeePawn(Other, FALSE);
 }
 
-
 // @baa 0x007a08d0
 /* UE3's AController::PointReachable(FVector aPoint) (execPointReachable's native). */
 UBOOL AController::PickWallAdjust(FVector aPoint)
@@ -1748,13 +1747,13 @@ UBOOL AController::PickWallAdjust(FVector aPoint)
 // @baa 0x007ad790
 void AController::SetFocalPoint(FVector FP, UBOOL bOffsetFromBase)
 {
-    ((FBasedPosition&)FocalPosition).Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
+    FocalPosition.Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, FP);
 }
 
 // @baa 0x007ad9c0
 void AController::SetDestinationPosition(FVector Dest, UBOOL bOffsetFromBase)
 {
-    ((FBasedPosition&)DestinationPosition).Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
+    DestinationPosition.Set((bOffsetFromBase && Pawn) ? Pawn->Base : NULL, Dest);
 }
 
 /* UE3's AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* ForcedBase): base the position on
@@ -1767,7 +1766,7 @@ void AController::SetBasedPosition(FBasedPosition& BP, FVector Pos, AActor* Forc
     {
         ForcedBase = Pawn ? Pawn->Base : NULL;
     }
-    ((FBasedPosition&)BP).Set(ForcedBase, Pos);
+    BP.Set(ForcedBase, Pos);
 }
 
 /* UnPlayerController.cpp's file-local BlendRot (007afc20); not in Classes.h. */
@@ -1784,26 +1783,7 @@ void APlayerController::SmoothTargetViewRotation(APawn* TargetPawn, FLOAT DeltaS
 	BlendedTargetViewRotation.Roll = BlendRot(DeltaSeconds, BlendedTargetViewRotation.Roll, TargetViewRotation.Roll & 65535);
 }
 
-/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
- * (UnMath.h), FVector's operator+ and operator!=, and FRotator's operator!= aren't declared. */
-
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const
-	{
-		FVector4 Result;
-		Result.X = P.X * XPlane.X + P.Y * YPlane.X + P.Z * ZPlane.X + P.W * WPlane.X;
-		Result.Y = P.X * XPlane.Y + P.Y * YPlane.Y + P.Z * ZPlane.Y + P.W * WPlane.Y;
-		Result.Z = P.X * XPlane.Z + P.Y * YPlane.Z + P.Z * ZPlane.Z + P.W * WPlane.Z;
-		Result.W = P.X * XPlane.W + P.Y * YPlane.W + P.Z * ZPlane.W + P.W * WPlane.W;
-		return Result;
-	}
-	FORCEINLINE FVector4 TransformFVector(const FVector& V) const
-	{
-		return TransformFVector4(FVector4(V.X, V.Y, V.Z, 1.0f));
-	}
-};
-
+/* Member-wise vector and rotator arithmetic as this code spells it out (FVector plus an FVector4's XYZ, comparisons). */
 static FORCEINLINE FVector AddVectors(const FVector& A, const FVector4& B)
 {
 	return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z);
@@ -1819,7 +1799,6 @@ static FORCEINLINE UBOOL RotatorsDiffer(const FRotator& A, const FRotator& B)
 	return A.Pitch != B.Pitch || A.Yaw != B.Yaw || A.Roll != B.Roll;
 }
 
-
 // @baa 0x007ad610
 /* The world position of a based position: Position in its base's frame (cached while the base hasn't moved), or
  * Position itself when there's no base. Same body as APawn::GetBasedPosition. */
@@ -1831,7 +1810,7 @@ FVector AController::GetBasedPosition(FBasedPosition BP)
 		{
 			BP.CachedBaseLocation = BP.Base->Location;
 			BP.CachedBaseRotation = BP.Base->Rotation;
-			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix_&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
+			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
 		}
 		return BP.CachedTransPosition;
 	}
@@ -1850,14 +1829,13 @@ struct FBasedPosition__007ad7e0 : public FBasedPosition
 			{
 				CachedBaseLocation = BaseActor->Location;
 				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
 			}
 			return CachedTransPosition;
 		}
 		return Position;
 	}
 };
-
 
 // @baa 0x007ad7e0
 /* UnController.cpp: the world location the controller is looking at. */
@@ -1878,14 +1856,13 @@ struct FBasedPosition__007ada10 : public FBasedPosition
 			{
 				CachedBaseLocation = BaseActor->Location;
 				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
 			}
 			return CachedTransPosition;
 		}
 		return Position;
 	}
 };
-
 
 // @baa 0x007ada10
 /* UnController.cpp: the world location the controller is moving to. */
@@ -1906,14 +1883,13 @@ struct FBasedPosition__007adc50 : public FBasedPosition
 			{
 				CachedBaseLocation = BaseActor->Location;
 				CachedBaseRotation = BaseActor->Rotation;
-				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix_&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
+				CachedTransPosition = AddVectors(BaseActor->Location, ((const FMatrix&)FRotationMatrix(BaseActor->Rotation)).TransformFVector(Position));
 			}
 			return CachedTransPosition;
 		}
 		return Position;
 	}
 };
-
 
 // @baa 0x007adc50
 /* UnController.cpp: the adjusted world location the controller is moving to. */

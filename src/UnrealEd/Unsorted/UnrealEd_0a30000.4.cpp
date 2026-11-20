@@ -5,14 +5,8 @@
 #include "ue3/Script.h"
 
 extern FName g_026c42d8;
-// A one-FLOAT UnrealScript event with no return value: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    void eventScriptCall(FLOAT Value);
-};
-
 // @baa 0x00a33da0
-void UObject_::eventScriptCall(FLOAT Value)
+void UObject::eventScriptCall(FLOAT Value)
 {
     struct ScriptCall_Parms
     {

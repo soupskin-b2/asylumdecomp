@@ -14,21 +14,15 @@ static FORCEINLINE FLOAT GetMax(const FVector& V)
     return Max(Max(V.X, V.Y), V.Z);
 }
 
-/* FVector's arithmetic (UnMath.h); the kit's FVector has no operators */
-struct FVector_ : public FVector
-{
-    FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-};
-
 /* TkDOPLineCollisionCheck<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a line check against a bone's
  * per-poly collision. Only the local-space line is used here. Not in the kit. */
 struct FSkelMeshkDOPLineCollisionCheck
 {
     BYTE OpaqueCheckState[0x20]; /* the result, data provider, tree, world start/end and trace flags */
-    FVector_ LocalStart;         /* 0x20 */
-    FVector_ LocalEnd;           /* 0x2c */
-    FVector_ LocalDir;           /* 0x38 */
-    FVector_ LocalOneOverDir;    /* 0x44 */
+    FVector LocalStart;         /* 0x20 */
+    FVector LocalEnd;           /* 0x2c */
+    FVector LocalDir;           /* 0x38 */
+    FVector LocalOneOverDir;    /* 0x44 */
 };
 
 /* TkDOP<FSkelMeshCollisionDataProvider,WORD> (UnkDOP.h): a node's bounds */

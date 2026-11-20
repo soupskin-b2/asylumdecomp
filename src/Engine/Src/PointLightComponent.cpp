@@ -45,7 +45,6 @@ undefined4 * C_006da910::sub_006da910(byte param_2)
   return param_1;
 }
 
-
 // @baa 0x006da930
 void UPointLightComponent::SetParentToWorld(const FMatrix& ParentToWorld)
 {
@@ -72,7 +71,6 @@ FVector4 UPointLightComponent::GetPosition() const
     return FVector4(FVector(LightToWorld.WPlane.X, LightToWorld.WPlane.Y, LightToWorld.WPlane.Z), 1.f);
 }
 
-
 // @baa 0x006da950
 /* Keeps the editor's light radius preview in step with the light. */
 void UPointLightComponent::UpdatePreviewLightRadius()
@@ -85,19 +83,12 @@ void UPointLightComponent::UpdatePreviewLightRadius()
 }
 
 #define SMALL_NUMBER (1.e-8f)
-/* FMatrix's operator* (0x0058e560) and RemoveScaling (0x006a7f30) (UnMath.h, out of line here). */
-struct FMatrix_ : public FMatrix
-{
-    void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER);
-    FMatrix operator*(const FMatrix& Other) const;
-};
-
 // @baa 0x006e42d0
 /* Slot 0x184 (UE3's SetTransformedToWorld): the light's frame is the parent's, translated and with X and Z swapped,
  * without scaling. */
 void UPointLightComponent::SetTransformedToWorld()
 {
-    LightToWorld = (const FMatrix_&)((const FMatrix_&)FMatrix(
+    LightToWorld = (const FMatrix&)((const FMatrix&)FMatrix(
             FPlane(+0, +0, +1, +0),
             FPlane(+0, +1, +0, +0),
             FPlane(+1, +0, +0, +0),
@@ -105,20 +96,9 @@ void UPointLightComponent::SetTransformedToWorld()
             ) *
         FTranslationMatrix(Translation)) *
         CachedParentToWorld;
-    ((FMatrix_&)LightToWorld).RemoveScaling();
+    LightToWorld.RemoveScaling();
     WorldToLight = LightToWorld.InverseSafe();
 }
-
-/* UnMath.h inlines the kit's FVector/FMatrix don't declare yet (data-free helpers). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-};
-
-struct FMatrix__006daa30 : public FMatrix
-{
-	FORCEINLINE FVector_ GetOrigin() const { return FVector_(WPlane.X, WPlane.Y, WPlane.Z);	/* M[3][0..2] */ }
-};
 
 // @baa 0x006daa30
 FBox UPointLightComponent::GetBoundingBox() const

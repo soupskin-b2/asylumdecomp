@@ -34,36 +34,11 @@ INT BlendRot(FLOAT DeltaTime, INT BlendC, INT NewC)
  * FVector::IsNearlyZero / FMatrix::InverseTransformFVector aren't declared. */
 #define KINDA_SMALL_NUMBER	(1.e-4f)
 
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_() {}
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-};
-
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector InverseTransformFVector(const FVector& V) const
-	{
-		const FLOAT (*M)[4] = (const FLOAT (*)[4])&XPlane;	/* UnMath.h's FLOAT M[4][4] */
-		FVector t, Result;
-
-		t.X = V.X - M[3][0];
-		t.Y = V.Y - M[3][1];
-		t.Z = V.Z - M[3][2];
-
-		Result.X = t.X * M[0][0] + t.Y * M[0][1] + t.Z * M[0][2];
-		Result.Y = t.X * M[1][0] + t.Y * M[1][1] + t.Z * M[1][2];
-		Result.Z = t.X * M[2][0] + t.Y * M[2][1] + t.Z * M[2][2];
-
-		return Result;
-	}
-};
-
 // @baa 0x007ab4e0
 /* UnActor.cpp: stores InPosition relative to InBase (static bases count as none). */
 void FBasedPosition::Set(AActor* InBase, const FVector& InPosition)
 {
-	if (((const FVector_&)InPosition).IsNearlyZero())
+	if (InPosition.IsNearlyZero())
 	{
 		Base = NULL;
 		Position = FVector(0, 0, 0);
@@ -74,7 +49,7 @@ void FBasedPosition::Set(AActor* InBase, const FVector& InPosition)
 	Base = NewBase;
 	if (NewBase)
 	{
-		Position = ((const FMatrix_&)FRotationMatrix(NewBase->Rotation)).InverseTransformFVector(((const FVector_&)InPosition) - NewBase->Location);
+		Position = ((const FMatrix&)FRotationMatrix(NewBase->Rotation)).InverseTransformFVector(InPosition - NewBase->Location);
 		CachedBaseLocation = NewBase->Location;
 		CachedBaseRotation = NewBase->Rotation;
 		CachedTransPosition = InPosition;

@@ -6,18 +6,9 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-
-
-
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 
 inline FArchive& operator<<(FArchive& Ar, FQuat& F) { return Ar << F.X << F.Y << F.Z << F.W; }
-
-/* FColor(R, G, B, A) (UnMath.h); the kit's FColor has no constructor. */
-struct FColor_ : public FColor
-{
-    FColor_(BYTE InR, BYTE InG, BYTE InB, BYTE InA) { B = InB; G = InG; R = InR; A = InA; }
-};
 
 inline FArchive& operator<<(FArchive& Ar, FColor& Color) { Ar.ByteOrderSerialize(&Color, sizeof(Color)); return Ar; }
 

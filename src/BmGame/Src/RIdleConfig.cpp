@@ -3,10 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-struct FName_ : public FName {
-    FName_(const TCHAR* Name, INT FindType = 1, UBOOL bSplitName = 1) { sub_005d5620(Name, FindType, bSplitName); }
-};
-
 struct FNameArray : public TArray<FName> {};
 
 void* sub_0056fa40(unsigned int Size, FNameArray& Array);

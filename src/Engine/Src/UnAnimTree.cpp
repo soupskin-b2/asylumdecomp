@@ -1172,7 +1172,6 @@ undefined4 C_00c6a9f0::sub_00c6a9f0(byte param_2)
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_00c6abd0 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_00c6abd0(const TSparseArray<INT>& InArray, INT StartIndex);
@@ -1789,7 +1788,6 @@ void UAnimNodeBlendBase::SetChildrenTotalWeightAccumulator(const INT Index)
 	Children(Index).Anim->TotalWeightAccumulator += Children(Index).TotalWeight;
 }
 
-
 /* UAnimTree's PostEditChange (vtable 0x4c, declared only as vf_04c). */
 
 // @baa 0x00c4b6d0
@@ -1867,7 +1865,6 @@ void UAnimNodeSynch::SetGroupRateScale(FName GroupName, FLOAT NewRateScale)
 /* UAnimNodeBlend::SetBlendTarget (non-virtual in this build) and TickAnim (vtable 0x134, declared only as
  * vf_134), and UAnimNodeCrossfader::GetActiveChild; none is declared by name in Classes.h. */
 
-
 // @baa 0x00c7dfd0
 void UAnimNodeCrossfader::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
@@ -1938,7 +1935,6 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
 
-
 // @baa 0x00c6c770
 UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRootMotionDelta, INT& bOutHasRootMotion)
 {
@@ -1962,12 +1958,7 @@ UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRoo
 
 #line 2132 "candidate.cpp"
 
-/* Kit gaps: FBoneAtom::Identity (UnSkeletalMesh.h) and the static FillWithRefPose. */
-struct FBoneAtom_ : public FBoneAtom
-{
-	static const FBoneAtom Identity;	/* 025df358 */
-};
-
+/* Kit gap: the static FillWithRefPose. */
 void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones, const TArray<FMeshBone>& RefSkel);
 	/* FillWithRefPose */
 
@@ -1975,9 +1966,9 @@ void sub_00c5eb80(TArray<FBoneAtom>& OutAtoms, const TArray<BYTE>& DesiredBones,
 void UAnimNode::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray<BYTE>& DesiredBones, FBoneAtom& RootMotionDelta, INT& bHasRootMotion)
 {
 	// FBoneAtom::operator= (copies the members; not in the kit)
-	RootMotionDelta.Rotation = FBoneAtom_::Identity.Rotation;
-	RootMotionDelta.Translation = FBoneAtom_::Identity.Translation;
-	RootMotionDelta.Scale = FBoneAtom_::Identity.Scale;
+	RootMotionDelta.Rotation = FBoneAtom::Identity.Rotation;
+	RootMotionDelta.Translation = FBoneAtom::Identity.Translation;
+	RootMotionDelta.Scale = FBoneAtom::Identity.Scale;
 	bHasRootMotion = 0;
 
 	// the reference pose

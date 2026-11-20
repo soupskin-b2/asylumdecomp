@@ -5,14 +5,8 @@
 #include "ue3/Script.h"
 
 extern FName g_026d5158;
-// A one-UBOOL UnrealScript event that returns an int: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    INT eventScriptCall(INT bValue);
-};
-
 // @baa 0x011194b0
-INT UObject_::eventScriptCall(INT bValue)
+INT UObject::eventScriptCall(INT bValue)
 {
     struct ScriptCall_Parms
     {

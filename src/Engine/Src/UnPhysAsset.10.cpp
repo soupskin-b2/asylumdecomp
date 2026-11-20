@@ -3,7 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-
 // @baa 0x009f9a40
 void URB_BodyInstance::sub_009f9a40(const URB_BodyInstance* FromInst)
 {
@@ -59,7 +58,6 @@ void UPhysicsAsset::PostLoad()
 	}
 }
 
-
 // @baa 0x00a0b380
 /* UE3's UPhysicsAssetInstance::SetAllBodiesFixed: fix or unfix every body of the instance. */
 void UPhysicsAssetInstance::SetAllBodiesFixed(UBOOL bNewFixed)
@@ -71,7 +69,6 @@ void UPhysicsAssetInstance::SetAllBodiesFixed(UBOOL bNewFixed)
 }
 
 /* Unnamed in the kit (0x00a2ca60): UE3's UKMeshProps::CopyMeshPropsFrom(UKMeshProps* FromProps). */
-
 
 // @baa 0x00a2d190
 /* UE3's URB_BodySetup::CopyBodyPropertiesFrom: take over another body's geometry and physical settings. */
@@ -97,7 +94,6 @@ void URB_BodySetup::CopyBodyPropertiesFrom(URB_BodySetup* FromSetup)
 
 /* Unnamed in the kit (0x00a2c3b0): UE3's URB_BodySetup::ClearShapeCache(). */
 
-
 // @baa 0x00a2d130
 /* UE3's UPhysicsAsset::ClearShapeCaches: drop every body's cached physics shapes. */
 void UPhysicsAsset::ClearShapeCaches()
@@ -108,17 +104,10 @@ void UPhysicsAsset::ClearShapeCaches()
     }
 }
 
-/* FString::Printf, as the linker specialised it for these argument types (0x00723a70);
- * the kit declares no FString::Printf. */
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B);
-};
-
 // @baa 0x00a17b50
 FString UPhysicsAsset::GetDesc()
 {
-	return FString_::Printf(TEXT("%d Bodies, %d Constraints"), BodySetup.Num(), ConstraintSetup.Num());
+	return FString::Printf(TEXT("%d Bodies, %d Constraints"), BodySetup.Num(), ConstraintSetup.Num());
 }
 
 /* Kit gap: FString::Printf (0x005488a0) isn't declared. */

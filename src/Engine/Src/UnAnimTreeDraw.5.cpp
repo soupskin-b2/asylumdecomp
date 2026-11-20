@@ -3,13 +3,7 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-/* Kit gaps, with UE3's definitions (UnObjBas.h, UnLinkedObjEditor.h): FIntPoint has no constructor, and
- * the linked-object editor's connector types and layout constant aren't defined. */
-struct FIntPoint_ : public FIntPoint
-{
-	FIntPoint_(INT InX, INT InY) { X = InX; Y = InY; }
-};
-
+/* Kit gap (UnLinkedObjEditor.h): the linked-object editor's connector types and layout constant aren't defined. */
 enum EConnectorHitProxyType { LOC_INPUT, LOC_OUTPUT, LOC_VARIABLE, LOC_EVENT };
 
 #define LO_CONNECTOR_LENGTH (10)
@@ -34,7 +28,6 @@ FIntPoint UAnimNodeBlendBase::GetConnectionLocation(INT ConnType, INT ConnIndex)
 }
 
 #line 61 "candidate.cpp"
-
 
 // @baa 0x00cb9070
 FIntPoint UAnimTree::GetConnectionLocation(INT ConnType, INT ConnIndex)

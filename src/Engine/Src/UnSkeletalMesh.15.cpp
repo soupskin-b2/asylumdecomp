@@ -207,18 +207,11 @@ private:
     UBOOL bUseFullPrecisionUVs;   /* 0x2c */
 };
 
-/* UnMath.h's FVector operators the kit lacks */
-struct FVector_ : public FVector
-{
-    FVector_(const FVector& V) : FVector(V) {}
-    FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-};
-
 /* UnMath.h: the binormal of a tangent basis, rebuilt from TangentX, TangentZ and the basis sign
  * kept in TangentZ.W */
 static FORCEINLINE FVector GenerateYAxis(const FPackedNormal_0094b780& TangentX, const FPackedNormal_0094b780& TangentZ)
 {
-    return (FVector_(TangentZ) ^ FVector(TangentX)) * ((FLOAT)TangentZ.Vector.W / 127.5f - 1.0f);
+    return (FVector(TangentZ) ^ FVector(TangentX)) * ((FLOAT)TangentZ.Vector.W / 127.5f - 1.0f);
 }
 
 // @baa 0x0094b780

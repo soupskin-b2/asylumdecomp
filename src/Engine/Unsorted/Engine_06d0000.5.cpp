@@ -212,17 +212,11 @@ void UPrimitiveComponent::execSetActorCollision(FFrame& Stack, RESULT_DECL)
     BlockActors = NewBlockActors;
 }
 
-/* FMatrix::Rotator (005c3fc0, UnMath.cpp) isn't declared in the kit. */
-struct FMatrix_ : public FMatrix
-{
-    FRotator Rotator() const;
-};
-
 // @baa 0x006dc5a0
 void UPrimitiveComponent::execGetRotation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FRotator*)Result = ((const FMatrix_&)LocalToWorld).Rotator();
+    *(FRotator*)Result = LocalToWorld.Rotator();
 }
 
 // @baa 0x006dc120

@@ -38,9 +38,6 @@ public:
 // @baa 0x00d4c850
 template void Sort<FSkeletalMeshVertIndexAndZ, CompareUnSkeletalToolsFSkeletalMeshVertIndexAndZConstRef>(FSkeletalMeshVertIndexAndZ* First, INT Num);
 
-
-
-
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 
 inline FArchive& operator<<(FArchive& Ar, FQuat& F) { return Ar << F.X << F.Y << F.Z << F.W; }
@@ -287,13 +284,6 @@ INT& FNameIntMap::Set(FName InKey, INT InValue)
     return ElementData[PairId].Value.Value;
 }
 
-/* FString::Printf, as the linker specialised it for these argument types (0x00723a70);
- * the kit declares no FString::Printf. */
-struct FString_ : public FString
-{
-    static FString Printf(const TCHAR* Fmt, INT A, INT B);
-};
-
 /* FStaticLODModel (UnSkeletalMesh.h): only GetTotalFaces (0x00951780) is used here. */
 struct FStaticLODModel
 {
@@ -310,7 +300,7 @@ FString USkeletalMesh::GetDesc()
     TIndirectArray<FStaticLODModel>& LODModels = (TIndirectArray<FStaticLODModel>&)this->LODModels;
 #line 1689 "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine3\\Development\\Src\\Engine\\Src\\UnSkeletalTools.cpp"
     check(LODModels.Num() > 0);
-    return FString_::Printf(TEXT("%d Triangles, %d Bones"), LODModels(0).GetTotalFaces(), RefSkeleton.Num());
+    return FString::Printf(TEXT("%d Triangles, %d Bones"), LODModels(0).GetTotalFaces(), RefSkeleton.Num());
 }
 
 #line 438 "candidate.cpp"

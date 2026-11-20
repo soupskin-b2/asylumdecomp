@@ -57,16 +57,11 @@ void UPrimitiveComponent::execRigidBodyIsNearlyStill(FFrame& Stack, RESULT_DECL)
 
 /* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
 #define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
-struct FVector_ : public FVector
-{
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
 // @baa 0x009fed10
 void UPrimitiveComponent::execAddImpulse(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_VECTOR(Impulse);
-	P_GET_STRUCT_OPTX(FVector, Position, FVector_(0.f, 0.f, 0.f));
+	P_GET_STRUCT_OPTX(FVector, Position, FVector(0.f, 0.f, 0.f));
 	P_GET_NAME_OPTX(BoneName, NAME_None);
 	P_GET_UBOOL_OPTX(bVelChange, FALSE);
 	P_FINISH;
@@ -79,7 +74,7 @@ void UPrimitiveComponent::execAddImpulse(FFrame& Stack, RESULT_DECL)
 void UPrimitiveComponent::execAddForce(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_VECTOR(Force);
-	P_GET_STRUCT_OPTX(FVector, Position, FVector_(0.f, 0.f, 0.f));
+	P_GET_STRUCT_OPTX(FVector, Position, FVector(0.f, 0.f, 0.f));
 	P_GET_NAME_OPTX(BoneName, NAME_None);
 	P_FINISH;
 	this->AddForce(Force, Position, BoneName);

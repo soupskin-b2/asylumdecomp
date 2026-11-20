@@ -322,18 +322,12 @@ void URRopeComponentBase::StopCurrentRopeLengthChange()
 	RopeLengthControlType = 0;
 }
 
-/* Kit gap: FVector has no constructor (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
 // @baa 0x0163f3a0
 void URRopeComponentBase::DetachRopeEnd1()
 {
 	IsRopeEnd1Attached = FALSE;
 	RopeAttachActor1 = NULL;
-	ConstraintActor1AttachPos = FVector_(0, 0, 0);
+	ConstraintActor1AttachPos = FVector(0, 0, 0);
 	RopeActor1AttachBone = NAME_None;
 	RopeAttachComponent1 = NULL;
 	RopeEnd1AttachMaxDistance = 0.f;
@@ -344,7 +338,7 @@ void URRopeComponentBase::DetachRopeEnd2()
 {
 	IsRopeEnd2Attached = FALSE;
 	RopeAttachActor2 = NULL;
-	ConstraintActor2AttachPos = FVector_(0, 0, 0);
+	ConstraintActor2AttachPos = FVector(0, 0, 0);
 	RopeActor2AttachBone = NAME_None;
 	RopeAttachComponent2 = NULL;
 	RopeEnd2AttachMaxDistance = 0.f;
@@ -385,7 +379,6 @@ void URRopeComponentBase::sub_01644e00(AActor* Actor, FVector AttachPos, FName A
 		RopeAttachComponent1 = NULL;
 	}
 }
-
 
 // @baa 0x01644ea0
 /* Attaches the rope's second end: to the given component (and its owner) when one is given, else to the actor's

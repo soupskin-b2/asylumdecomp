@@ -4,18 +4,15 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-/* FName(EName) as UE3 has it (the kit's FName is an aggregate); the same stand-in UnController.cpp binds this with. */
-struct FName_ : public FName { FName_(INT N) { Index = N; Number = 0; } };
-
 /* UE3's UObject::IsProbing(FName ProbeName), bound through AController_ as UnController.cpp's
  * ShouldCheckVisibilityOf already calls it. */
 struct AController_ : public AController
 {
-    UBOOL IsProbing(FName_ ProbeName);
+    UBOOL IsProbing(FName ProbeName);
 };
 
 // @baa 0x0058f750
-UBOOL AController_::IsProbing(FName_ ProbeName)
+UBOOL AController_::IsProbing(FName ProbeName)
 {
     return (ProbeName.Index < NAME_PROBEMIN) ||
            (ProbeName.Index >= NAME_PROBEMAX) ||

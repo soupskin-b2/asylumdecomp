@@ -93,15 +93,9 @@ void UCanvas::execProjectSphereBounds(FFrame& Stack, RESULT_DECL)
 	ProjectSphereBounds(Center, Radius, Min, Max);
 }
 
-/* Classes.h has FLinearColor as a plain script mirror: no FLinearColor(const FColor&) constructor. */
-struct FLinearColor_ : public FLinearColor
-{
-	FLinearColor_(const FColor& C);
-};
-
 struct UCanvas__00aa97a0 : public UCanvas
 {
-	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor_& Color );
+	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor& Color );
 	void execDrawTile(FFrame& Stack, RESULT_DECL);
 };
 
@@ -125,7 +119,6 @@ void UCanvas__00aa97a0::execDrawTile(FFrame& Stack, RESULT_DECL)
 	CurYL = Max(CurYL, YL);
 }
 
-
 // @baa 0x00aa9990
 void UCanvas::execDrawColorizedTile(FFrame& Stack, RESULT_DECL)
 {
@@ -146,7 +139,6 @@ void UCanvas::execDrawColorizedTile(FFrame& Stack, RESULT_DECL)
 	CurX += XL;
 	CurYL = Max(CurYL, YL);
 }
-
 
 // @baa 0x00a9eea0
 void UCanvas::execDrawMaterialTile(FFrame& Stack, RESULT_DECL)
@@ -170,7 +162,7 @@ void UCanvas::execDrawMaterialTile(FFrame& Stack, RESULT_DECL)
 
 struct UCanvas__00aaa040 : public UCanvas
 {
-	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor_& Color );
+	void DrawTile( UTexture* Tex, FLOAT X, FLOAT Y, FLOAT XL, FLOAT YL, FLOAT U, FLOAT V, FLOAT UL, FLOAT VL, const FLinearColor& Color );
 	void execDrawTileClipped(FFrame& Stack, RESULT_DECL);
 };
 
@@ -284,7 +276,6 @@ void UCanvas::execTextSize(FFrame& Stack, RESULT_DECL)
 	YL = YLi;
 }
 
-
 // @baa 0x00a9f0a0
 void UCanvas::execDrawMaterialTileClipped(FFrame& Stack, RESULT_DECL)
 {
@@ -370,13 +361,7 @@ void UCanvas::execDrawRotatedMaterialTile(FFrame& Stack, RESULT_DECL)
 	DrawRotatedMaterialTile(Mat, Rotation, XL, YL, U, V, UL, VL, AnchorX, AnchorY);
 }
 
-/* Classes.h has FVector2D / FLinearColor as plain script mirrors without their constructors. */
-struct FVector2D_ : public FVector2D
-{
-	FVector2D_(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
-};
-
-void DrawLine2D( FCanvas* Canvas, const FVector2D& StartPos, const FVector2D& EndPos, const FLinearColor_& Color );
+void DrawLine2D( FCanvas* Canvas, const FVector2D& StartPos, const FVector2D& EndPos, const FLinearColor& Color );
 struct UCanvas__00aaabc0 : public UCanvas
 {
 	FCanvas* GetCanvas() const
@@ -400,7 +385,7 @@ void UCanvas__00aaabc0::execDraw2DLine(FFrame& Stack, RESULT_DECL)
 	X2 += OrgX;
 	Y1 += OrgY;
 	Y2 += OrgY;
-	DrawLine2D(GetCanvas(), FVector2D_(X1, Y1), FVector2D_(X2, Y2), LineColor);
+	DrawLine2D(GetCanvas(), FVector2D(X1, Y1), FVector2D(X2, Y2), LineColor);
 }
 
 // @baa 0x00ab0870
@@ -419,7 +404,6 @@ void UCanvas::execDrawTextureLine(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	DrawTextureLine(StartPoint, EndPoint, Perc, Width, LineColor, LineTexture, U, V, UL, VL);
 }
-
 
 // @baa 0x00ab03b0
 void UCanvas::execDrawTileStretched(FFrame& Stack, RESULT_DECL)
@@ -513,13 +497,7 @@ void UCanvas::execProject(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = resultVec;
 }
 
-/* Kit gaps: FSceneView_00a58ac0 (SceneManagement.h) isn't declared (only its WorldToPixel is needed here), and the
- * kit's FVector2D has no (X, Y) constructor. */
-struct FVector2D__00a58ac0 : public FVector2D
-{
-	FORCEINLINE FVector2D__00a58ac0(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
-};
-
+/* Kit gap: FSceneView_00a58ac0 (SceneManagement.h) isn't declared (only its WorldToPixel is needed here). */
 class FSceneView_00a58ac0
 {
 public:
@@ -539,7 +517,7 @@ void UCanvas::execWorldToPixel(FFrame& Stack, RESULT_DECL)
 		*(UBOOL*)Result = FALSE;
 		return;
 	}
-	FVector2D__00a58ac0 Pixel(0.f, 0.f);
+	FVector2D Pixel(0.f, 0.f);
 	*(UBOOL*)Result = View->WorldToPixel(Position, Pixel);
 	PixelLocation = FVector(Pixel.X, Pixel.Y, 0.f);
 }

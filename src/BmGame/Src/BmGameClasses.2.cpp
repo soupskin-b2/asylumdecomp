@@ -843,16 +843,6 @@ void URSeqAct_Music::eventAdvanceCue()
 }
 
 	/* BMGAME_InitHUD */
-/* Kit gaps: the script events' generated glue (BmGameClasses.h); ShutdownHUD's copy is out of line (0x01581870),
- * and USeqAct_Latent's Update glue is out of line too (0x008aa600). */
-struct URSeqAct_Credits__015818f0 : public URSeqAct_Credits
-{
-	void eventInitHUD()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e2644), NULL);
-	}
-};
-
 // @baa 0x015818f0
 /* Inputs: start, stop (which also fires the second output), pause and resume. While the credits run, script
  * Update drives them, and the action finishes once it reports they're done. */
@@ -860,7 +850,7 @@ UBOOL URSeqAct_Credits::UpdateOp(FLOAT DeltaTime)
 {
 	if (InputLinks(0).bHasImpulse)
 	{
-		((URSeqAct_Credits__015818f0*)this)->eventInitHUD();
+		eventInitHUD();
 	}
 	else if (InputLinks.Num() > 1 && InputLinks(1).bHasImpulse)
 	{
@@ -1035,24 +1025,9 @@ UBOOL URSeqAct_GetThugStatus::UpdateOp(FLOAT DeltaTime)
 }
 
 	/* BMGAME_DoCheck */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URSeqAct_IsOnPontoon__0157f740 : public URSeqAct_IsOnPontoon
-{
-	UBOOL eventDoCheck()
-	{
-		struct RSeqAct_IsOnPontoon_eventDoCheck_Parms
-		{
-			UBOOL ReturnValue;
-		} Parms;
-		Parms.ReturnValue = FALSE;
-		ProcessEvent(FindFunctionChecked(g_026e30a0), &Parms);
-		return Parms.ReturnValue;
-	}
-};
-
 // @baa 0x0157f740
 /* Script does the check (and fires the outputs); the action finishes when it says so. */
 UBOOL URSeqAct_IsOnPontoon::UpdateOp(FLOAT DeltaTime)
 {
-	return ((URSeqAct_IsOnPontoon__0157f740*)this)->eventDoCheck() != FALSE;
+	return eventDoCheck() != FALSE;
 }

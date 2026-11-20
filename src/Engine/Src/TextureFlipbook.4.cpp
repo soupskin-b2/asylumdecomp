@@ -20,13 +20,8 @@ struct FPixelFormatInfo
 
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C, const TCHAR* D, INT E, INT F);
-};
-
 // @baa 0x007676a0
 FString UTextureFlipBook::GetDesc()
 {
-	return FString_::Printf(TEXT("%dx%d[%s%s] %dx%d"), SizeX, SizeY, GPixelFormats[Format].Name, DeferCompression ? TEXT("*") : TEXT(""), HorizontalImages, VerticalImages);
+	return FString::Printf(TEXT("%dx%d[%s%s] %dx%d"), SizeX, SizeY, GPixelFormats[Format].Name, DeferCompression ? TEXT("*") : TEXT(""), HorizontalImages, VerticalImages);
 }

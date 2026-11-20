@@ -14,18 +14,6 @@ struct FSkelMeshMergeSectionMapping
 
 /* UnObjBas.h CastChecked<T>; out of line in this file (0x00d4c680 for USkeletalMeshSocket) */
 template<class T> T* CastChecked(UObject* Src);
-/* UObject::StaticDuplicateObject (UnObj.cpp, 0x005eac10) isn't declared in the kit */
-struct UObject_ : public UObject
-{
-    static UObject* StaticDuplicateObject(UObject* SourceObject, UObject* RootObject, UObject* DestOuter, const TCHAR* DestName, QWORD FlagMask = ~0, UClass* DestClass = NULL, UBOOL bMigrateArchetypes = FALSE);
-};
-
-/* FBoxSphereBounds + (UnMath.h, out of line here 0x00655c60): the bounds of both */
-struct FBoxSphereBounds_ : public FBoxSphereBounds
-{
-    FBoxSphereBounds operator+(const FBoxSphereBounds& Other) const;
-};
-
 /* the USkeletalMesh array members with their out-of-line operations */
 struct FRefSkeletonArray : public TArray<FMeshBone>
 {
@@ -102,7 +90,7 @@ UBOOL FSkeletalMeshMerge::FinalizeMesh()
                 MergeMesh->Sockets.AddZeroed(SrcMesh->Sockets.Num());
                 for (INT i = 0; i < SrcMesh->Sockets.Num(); i++)
                 {
-                    USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject_::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
+                    USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
                     MergeMesh->Sockets(i) = NewSocket;
                 }
 
@@ -113,11 +101,11 @@ UBOOL FSkeletalMeshMerge::FinalizeMesh()
             {
                 for (INT i = 0; i < SrcMesh->Sockets.Num(); i++)
                 {
-                    USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject_::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
+                    USkeletalMeshSocket* NewSocket = CastChecked<USkeletalMeshSocket>(UObject::StaticDuplicateObject(SrcMesh->Sockets(i), SrcMesh->Sockets(i), MergeMesh, TEXT("None")));
                     MergeMesh->Sockets.AddUniqueItem(NewSocket);
                 }
 
-                MergeMesh->Bounds = ((FBoxSphereBounds_&)MergeMesh->Bounds) + SrcMesh->Bounds;
+                MergeMesh->Bounds = MergeMesh->Bounds + SrcMesh->Bounds;
                 MergeMesh->SkeletalDepth = Max(MergeMesh->SkeletalDepth, SrcMesh->SkeletalDepth);
             }
         }

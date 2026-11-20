@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-
 // @baa 0x005996a0
 void UObject::sub_005996a0(FFrame& Stack, RESULT_DECL)
 {
@@ -1117,16 +1116,12 @@ void UObject::execMultiply_VectorVector(FFrame& Stack, RESULT_DECL)
 // Its constructor from a rotator is out-of-line at 0x004029a0.
 
 // FQuat's constructor from a rotation matrix is out-of-line at 0x005c40e0.
-struct FQuat_ : public FQuat {
-    FQuat_(const FRotationMatrix& M); /* 0x005c40e0 */
-};
-
 // @baa 0x00598e90
 void UObject::execQuatFromRotator(FFrame& Stack, RESULT_DECL)
 {
     P_GET_ROTATOR(A);
     P_FINISH;
-    *(FQuat*)Result = FQuat_(FRotationMatrix(A));
+    *(FQuat*)Result = FQuat(FRotationMatrix(A));
 }
 
 FLOAT sub_005c6f80(FLOAT Current, FLOAT Target, FLOAT DeltaTime, FLOAT InterpSpeed);
@@ -1183,21 +1178,12 @@ void UObject::execVInterpTo(FFrame& Stack, RESULT_DECL)
 	*(FVector*)Result = *sub_005c6d10(&Out, &Current, &Target, &DeltaTime, InterpSpeed);
 }
 
-/* Kit gap: FMatrix::GetOrigin (UnMath.h) isn't declared. */
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector GetOrigin() const
-	{
-		return FVector(WPlane.X, WPlane.Y, WPlane.Z);
-	}
-};
-
 // @baa 0x005986a0
 void UObject::execMatrixGetOrigin(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FMatrix, TM);
 	P_FINISH;
-	*(FVector*)Result = ((FMatrix_&)TM).GetOrigin();
+	*(FVector*)Result = ((FMatrix&)TM).GetOrigin();
 }
 
 // @baa 0x005982f0
@@ -1461,13 +1447,11 @@ void UObject::execEndFunctionParms(FFrame& Stack, RESULT_DECL)
 	Stack.Code--;
 }
 
-
 // @baa 0x00590db0
 void UObject::execFloatConst(FFrame& Stack, RESULT_DECL)
 {
 	*(FLOAT*)Result = Stack.ReadFloat();
 }
-
 
 // @baa 0x00590e20
 void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
@@ -1475,13 +1459,11 @@ void UObject::execNameConst(FFrame& Stack, RESULT_DECL)
 	*(FName*)Result = Stack.ReadName();
 }
 
-
 // @baa 0x00590e40
 void UObject::execByteConst(FFrame& Stack, RESULT_DECL)
 {
 	*(BYTE*)Result = *Stack.Code++;
 }
-
 
 // @baa 0x00590eb0
 void UObject::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
@@ -1490,13 +1472,11 @@ void UObject::execEmptyDelegate(FFrame& Stack, RESULT_DECL)
 	((FScriptDelegate*)Result)->FunctionName = NAME_None;
 }
 
-
 // @baa 0x00590ed0
 void UObject::execIntConstByte(FFrame& Stack, RESULT_DECL)
 {
 	*(INT*)Result = *Stack.Code++;
 }
-
 
 // @baa 0x00590100
 void UObject::execInterfaceToObject(FFrame& Stack, RESULT_DECL)
@@ -1508,7 +1488,6 @@ void UObject::execInterfaceToObject(FFrame& Stack, RESULT_DECL)
 		*(UObject**)Result = InterfaceValue.GetObject();
 	}
 }
-
 
 // @baa 0x005907d0
 void UObject::execConditional(FFrame& Stack, RESULT_DECL)
@@ -1558,7 +1537,6 @@ void UObject::execLetDelegate(FFrame& Stack, RESULT_DECL)
 	}
 }
 
-
 // @baa 0x00590f30
 void UObject::execByteToInt(FFrame& Stack, RESULT_DECL)
 {
@@ -1566,7 +1544,6 @@ void UObject::execByteToInt(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &B);
 	*(INT*)Result = B;
 }
-
 
 // @baa 0x00590f70
 void UObject::execByteToBool(FFrame& Stack, RESULT_DECL)
@@ -1576,7 +1553,6 @@ void UObject::execByteToBool(FFrame& Stack, RESULT_DECL)
 	*(DWORD*)Result = B ? 1 : 0;
 }
 
-
 // @baa 0x00590fb0
 void UObject::execByteToFloat(FFrame& Stack, RESULT_DECL)
 {
@@ -1584,7 +1560,6 @@ void UObject::execByteToFloat(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &B);
 	*(FLOAT*)Result = B;
 }
-
 
 // @baa 0x00590ff0
 void UObject::execIntToByte(FFrame& Stack, RESULT_DECL)
@@ -1594,7 +1569,6 @@ void UObject::execIntToByte(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = I;
 }
 
-
 // @baa 0x00591030
 void UObject::execIntToBool(FFrame& Stack, RESULT_DECL)
 {
@@ -1602,7 +1576,6 @@ void UObject::execIntToBool(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &I);
 	*(DWORD*)Result = I ? 1 : 0;
 }
-
 
 // @baa 0x00591070
 void UObject::execIntToFloat(FFrame& Stack, RESULT_DECL)
@@ -1612,7 +1585,6 @@ void UObject::execIntToFloat(FFrame& Stack, RESULT_DECL)
 	*(FLOAT*)Result = I;
 }
 
-
 // @baa 0x005910b0
 void UObject::execBoolToByte(FFrame& Stack, RESULT_DECL)
 {
@@ -1620,7 +1592,6 @@ void UObject::execBoolToByte(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &B);
 	*(BYTE*)Result = B & 1;
 }
-
 
 // @baa 0x005910f0
 void UObject::execBoolToInt(FFrame& Stack, RESULT_DECL)
@@ -1630,7 +1601,6 @@ void UObject::execBoolToInt(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = B & 1;
 }
 
-
 // @baa 0x00591130
 void UObject::execBoolToFloat(FFrame& Stack, RESULT_DECL)
 {
@@ -1638,7 +1608,6 @@ void UObject::execBoolToFloat(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &B);
 	*(FLOAT*)Result = B & 1;
 }
-
 
 // @baa 0x00591180
 void UObject::execFloatToByte(FFrame& Stack, RESULT_DECL)
@@ -1648,7 +1617,6 @@ void UObject::execFloatToByte(FFrame& Stack, RESULT_DECL)
 	*(BYTE*)Result = (BYTE)appTrunc(F);
 }
 
-
 // @baa 0x005911c0
 void UObject::execFloatToInt(FFrame& Stack, RESULT_DECL)
 {
@@ -1656,7 +1624,6 @@ void UObject::execFloatToInt(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &F);
 	*(INT*)Result = appTrunc(F);
 }
-
 
 // @baa 0x00591200
 void UObject::execFloatToBool(FFrame& Stack, RESULT_DECL)
@@ -1666,7 +1633,6 @@ void UObject::execFloatToBool(FFrame& Stack, RESULT_DECL)
 	*(DWORD*)Result = F != 0.f ? 1 : 0;
 }
 
-
 // @baa 0x00591260
 void UObject::execObjectToBool(FFrame& Stack, RESULT_DECL)
 {
@@ -1674,7 +1640,6 @@ void UObject::execObjectToBool(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &Obj);
 	*(DWORD*)Result = Obj != NULL;
 }
-
 
 // @baa 0x00591340
 void UObject::execNameToBool(FFrame& Stack, RESULT_DECL)
@@ -1712,7 +1677,6 @@ void UObject::execEqualEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (A.Object == B.Object && A.FunctionName == B.FunctionName);
 }
 
-
 // @baa 0x00590ac0
 void UObject::execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
 {
@@ -1731,7 +1695,6 @@ void UObject::execNotEqual_DelegateDelegate(FFrame& Stack, RESULT_DECL)
 	}
 	*(UBOOL*)Result = (A.Object != B.Object || A.FunctionName != B.FunctionName);
 }
-
 
 // @baa 0x00590bb0
 void UObject::execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
@@ -1752,7 +1715,6 @@ void UObject::execEqualEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (A.Object == B.Object && A.FunctionName == B.FunctionName);
 }
 
-
 // @baa 0x00590ca0
 void UObject::execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 {
@@ -1772,7 +1734,6 @@ void UObject::execNotEqual_DelegateFunction(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = (A.Object != B.Object || A.FunctionName != B.FunctionName);
 }
 
-
 // @baa 0x00594830
 void UObject::execVectorConst(FFrame& Stack, RESULT_DECL)
 {
@@ -1780,7 +1741,6 @@ void UObject::execVectorConst(FFrame& Stack, RESULT_DECL)
 	((FVector*)Result)->Y = Stack.ReadFloat();
 	((FVector*)Result)->Z = Stack.ReadFloat();
 }
-
 
 // @baa 0x005947f0
 void UObject::execRotationConst(FFrame& Stack, RESULT_DECL)
@@ -1790,7 +1750,6 @@ void UObject::execRotationConst(FFrame& Stack, RESULT_DECL)
 	((FRotator*)Result)->Roll = Stack.ReadInt();
 }
 
-
 // @baa 0x005951a0
 void UObject::execVectorToRotator(FFrame& Stack, RESULT_DECL)
 {
@@ -1799,7 +1758,6 @@ void UObject::execVectorToRotator(FFrame& Stack, RESULT_DECL)
 	*(FRotator*)Result = V.Rotation();
 }
 
-
 // @baa 0x00595200
 void UObject::execRotatorToBool(FFrame& Stack, RESULT_DECL)
 {
@@ -1807,7 +1765,6 @@ void UObject::execRotatorToBool(FFrame& Stack, RESULT_DECL)
 	Stack.Step(Stack.Object, &R);
 	*(DWORD*)Result = !R.IsZero();
 }
-
 
 // @baa 0x00595280
 void UObject::execRotatorToVector(FFrame& Stack, RESULT_DECL)

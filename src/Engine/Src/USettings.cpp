@@ -505,21 +505,11 @@ FSettingsData__00d74260& FSettingsData__00d74260::operator=(const FSettingsData_
 	return *this;
 }
 
-/* Kit gaps: FString has no operator* (UnString.h); FSettingsData's SetData overloads (structcpptext) and USettings'
- * FSettingsData helpers aren't declared. */
-struct FStringM_ : public FString
-{
-	FORCEINLINE const TCHAR* operator*() const
-	{
-		return Num() ? &(*this)(0) : TEXT("");
-	}
-};
-
 // @baa 0x00d6e620
 /* Makes a settings value a string. */
 void USettings::SetSettingsDataString(FSettingsData& Data, const FString& InString)
 {
-	Data.SetData(*(const FStringM_&)InString);
+	Data.SetData(*(const FString&)InString);
 }
 
 struct FSettingsData__00d74300 : public FSettingsData

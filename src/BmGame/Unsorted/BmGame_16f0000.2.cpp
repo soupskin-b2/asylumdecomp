@@ -1244,7 +1244,6 @@ void ARSpecialMoveInstance_ResonateObject::execInterpThumb(FFrame& Stack, RESULT
     *(FLOAT*)Result = this->InterpThumb(DesiredPos, CurrentPos, DeltaTime);
 }
 
-
 // @baa 0x016fbfe0
 void ARSpecialMoveInstance_ResonateObject::execGetLeftAndRightAngles(FFrame& Stack, RESULT_DECL)
 {
@@ -1281,7 +1280,6 @@ void ARSpecialMoveInstance_SwingToVantagePoint::execSetupTrajectory(FFrame& Stac
     P_FINISH;
     ((ARSpecialMoveInstance_SwingToVantagePoint*)this)->SetupTrajectory(StartLocation, EndLocation, DefaultDistance, DefaultRadius, AnimationDuration);
 }
-
 
 // @baa 0x016fc400
 void ARSpecialMoveInstance_SwingToVantagePoint::execUpdateTrajectory(FFrame& Stack, RESULT_DECL)
@@ -1887,7 +1885,6 @@ void URSeqAct_ConversationDialogue::execGetSpeaker(FFrame& Stack, RESULT_DECL)
     *(ARPawnCharacter**)Result = GetSpeaker(PC, ScriptName);
 }
 
-
 // @baa 0x016f6db0
 void ARPawnPlayer::execForceUnCrouch(FFrame& Stack, RESULT_DECL)
 {
@@ -1895,14 +1892,12 @@ void ARPawnPlayer::execForceUnCrouch(FFrame& Stack, RESULT_DECL)
     sub_01688660();
 }
 
-
 // @baa 0x016f6de0
 void ARPawnPlayer::execUpdateGrateExcluder(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
     sub_0169bc40();
 }
-
 
 // @baa 0x016f6e10
 void ARPawnPlayer::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
@@ -1913,17 +1908,12 @@ void ARPawnPlayer::execClearOverridableTransition(FFrame& Stack, RESULT_DECL)
 
 /* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
 #define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
-struct FVector_ : public FVector
-{
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
 // @baa 0x016f6ab0
 void ARPawnPlayerCombat::execFindFacingActorForStrike(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_FLOAT_OPTX(MaxDist, -1.f);
 	P_GET_FLOAT_OPTX(MaxVenomDist, -1.f);
-	P_GET_STRUCT_OPTX(FVector, FacingDir, FVector_(0.f, 0.f, 0.f));
+	P_GET_STRUCT_OPTX(FVector, FacingDir, FVector(0.f, 0.f, 0.f));
 	P_GET_OBJECT_OPTX(UClass, dmgType, URDamageType::StaticClass());
 	P_FINISH;
 	*(class AActor**)Result = FindFacingActorForStrike(MaxDist, MaxVenomDist, FacingDir, dmgType);
@@ -1934,7 +1924,6 @@ struct FEnvironmentSpecialMoveLocator_ : public FEnvironmentSpecialMoveLocator
 {
 	FEnvironmentSpecialMoveLocator_() { Type = 0; AnimDir = 0; ActorInstance = NULL; }
 };
-
 
 // @baa 0x016fb880
 void ARSpecialMoveInstance_LineLauncher::execShouldIDoLandAnim(FFrame& Stack, RESULT_DECL)

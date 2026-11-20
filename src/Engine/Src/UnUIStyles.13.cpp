@@ -12,14 +12,6 @@ struct FTextureCoordinates_ : public FTextureCoordinates
 	UBOOL operator==(const FTextureCoordinates& Other) const;
 };
 
-struct FUIScreenValue_Extent_ : public FUIScreenValue_Extent
-{
-	FORCEINLINE UBOOL operator==(const FUIScreenValue_Extent& Other) const
-	{
-		return appAbs(Value - Other.Value) < DELTA && ScaleType == Other.ScaleType && Orientation == Other.Orientation;
-	}
-};
-
 struct FUIImageAdjustmentData_ : public FUIImageAdjustmentData
 {
 	UBOOL operator==(const FUIImageAdjustmentData& Other) const;

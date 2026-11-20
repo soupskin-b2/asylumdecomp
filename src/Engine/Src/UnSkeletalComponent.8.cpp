@@ -27,7 +27,6 @@ UMorphTarget* USkeletalMeshComponent::FindMorphTarget(FName MorphTargetName)
     return NULL;
 }
 
-
 // @baa 0x0090f3d0
 /* name guessed: whether the ragdoll calming code is switched off, for real or for debugging */
 UBOOL USkeletalMeshComponent::AreRagdollCalmingMeasuresDisabled() const
@@ -35,14 +34,12 @@ UBOOL USkeletalMeshComponent::AreRagdollCalmingMeasuresDisabled() const
     return bDisableRagdollCalmingMeasures || bDebugDisableRagdollCalmingMeasures;
 }
 
-
 // @baa 0x0090f440
 /* name guessed from the field it sets */
 void USkeletalMeshComponent::SetDisableRagdollCalmingMeasures(UBOOL bDisable)
 {
     bDisableRagdollCalmingMeasures = bDisable;
 }
-
 
 // @baa 0x0090f550
 /* name guessed: park the physics asset instance in CachedPhysicsAssetInstance, or bring it back */
@@ -71,37 +68,14 @@ void USkeletalMeshComponent::SetPhysicsAssetInstanceCached(UBOOL bCache)
 
 #line 90 "candidate.cpp"
 
-/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560) and Rotator (0x005c3fc0)
- * are out of line. */
-struct FMatrix_ : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-    FRotator Rotator() const;
-    FVector GetOrigin() const
-    {
-        FVector Result;
-        Result.X = WPlane.X;
-        Result.Y = WPlane.Y;
-        Result.Z = WPlane.Z;
-        return Result;
-    }
-};
-
 /* FRotationTranslationMatrix (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix : public FMatrix_
+class FRotationTranslationMatrix : public FMatrix
 {
 public:
     FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
 };
 
-/* FRotator(INT,INT,INT) (UnMath.h) */
-struct FRotator_ : public FRotator
-{
-    FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; }
-};
-
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
 
 // @baa 0x0091da00
 UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketName, FVector& OutLocation, FRotator* OutRotation)
@@ -118,10 +92,10 @@ UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketNa
                 FRotationTranslationMatrix SocketMatrix(Socket->RelativeRotation, Socket->RelativeLocation);
                 FMatrix SocketWorldMatrix = SocketMatrix * BoneMatrix;
 
-                OutLocation = ((const FMatrix_&)SocketWorldMatrix).GetOrigin();
+                OutLocation = SocketWorldMatrix.GetOrigin();
                 if (OutRotation)
                 {
-                    *OutRotation = ((const FMatrix_&)SocketWorldMatrix).Rotator();
+                    *OutRotation = SocketWorldMatrix.Rotator();
                 }
                 return TRUE;
             }
@@ -133,16 +107,10 @@ UBOOL USkeletalMeshComponent::GetSocketWorldLocationAndRotation(FName InSocketNa
     OutLocation = Zero;
     if (OutRotation)
     {
-        *OutRotation = FRotator_(0, 0, 0);
+        *OutRotation = FRotator(0, 0, 0);
     }
     return FALSE;
 }
-
-/* FMatrix::operator* (UnMath.h, out of line at 0x0058e560); the kit's FMatrix has no methods. */
-struct FMatrix__0091d2a0 : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-};
 
 // @baa 0x0091d2a0
 /* world-space matrix of a bone; with a parent anim component in mode 0 the bone is looked up there */
@@ -155,7 +123,7 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
             const INT ParentBoneIndex = ((const TArray<INT>&)ParentBoneMap)(BoneIndex);
             if (ParentBoneIndex != INDEX_NONE && ParentBoneIndex < ParentAnimComponent->SpaceBases.Num())
             {
-                return (const FMatrix__0091d2a0&)ParentAnimComponent->SpaceBases(ParentBoneIndex) * LocalToWorld;
+                return (const FMatrix&)ParentAnimComponent->SpaceBases(ParentBoneIndex) * LocalToWorld;
             }
         }
         return FMatrix::Identity;
@@ -164,19 +132,13 @@ FMatrix USkeletalMeshComponent::GetBoneMatrix(INT BoneIndex)
     {
         if (SpaceBases.Num() != 0 && (UINT)BoneIndex < (UINT)SpaceBases.Num())
         {
-            return (const FMatrix__0091d2a0&)((const TArray<FMatrix>&)SpaceBases)(BoneIndex) * LocalToWorld;
+            return (const FMatrix&)((const TArray<FMatrix>&)SpaceBases)(BoneIndex) * LocalToWorld;
         }
         return FMatrix::Identity;
     }
 }
 
 #line 229 "candidate.cpp"
-
-/* FMatrix::GetOrigin (UnMath.h) */
-struct FMatrix__0091e3a0 : public FMatrix
-{
-    FVector GetOrigin() const { return FVector(WPlane.X, WPlane.Y, WPlane.Z); }
-};
 
 // @baa 0x0091e3a0
 /* Space 0 = world, 1 = component (SpaceBases), 2 = component before physics (PrePhysicsSpaceBases) */
@@ -192,19 +154,19 @@ FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
     {
         if (BoneIndex < SpaceBases.Num())
         {
-            return ((const FMatrix__0091e3a0&)SpaceBases(BoneIndex)).GetOrigin();
+            return ((const FMatrix&)SpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else if (Space == 2)
     {
         if (BoneIndex < PrePhysicsSpaceBases.Num())
         {
-            return ((const FMatrix__0091e3a0&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
+            return ((const FMatrix&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else
     {
-        return ((const FMatrix__0091e3a0&)GetBoneMatrix(BoneIndex)).GetOrigin();
+        return ((const FMatrix&)GetBoneMatrix(BoneIndex)).GetOrigin();
     }
 
     return FVector(0.f, 0.f, 0.f);

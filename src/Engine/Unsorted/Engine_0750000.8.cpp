@@ -4,20 +4,9 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: FBoxSphereBounds' component constructor (UnMath.h) */
-struct FBoxSphereBounds_ : public FBoxSphereBounds
-{
-	FBoxSphereBounds_(const FVector& InOrigin, const FVector& InBoxExtent, FLOAT InSphereRadius)
-	{
-		Origin = InOrigin;
-		BoxExtent = InBoxExtent;
-		SphereRadius = InSphereRadius;
-	}
-};
-
 // @baa 0x0075ea00
 /* UpdateBounds: the quad's extent, around the component. */
 void UDrawQuadComponent::UpdateBounds()
 {
-	Bounds = FBoxSphereBounds_(LocalToWorld.TransformFVector(FVector(0, 0, 0)), FVector(16.0f, Width, Height), Max(Width, Height));
+	Bounds = FBoxSphereBounds(LocalToWorld.TransformFVector(FVector(0, 0, 0)), FVector(16.0f, Width, Height), Max(Width, Height));
 }

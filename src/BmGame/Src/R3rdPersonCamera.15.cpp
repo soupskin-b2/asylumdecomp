@@ -5,14 +5,6 @@
 #include "ue3/AppMath.h"
 
 #define KINDA_SMALL_NUMBER (1.e-4)
-/* Kit gap: FVector has no constructors or operators here (UnMath.h). */
-struct FVector_ : public FVector
-{
-    FORCEINLINE FVector_() {}
-    FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
-
 // @baa 0x01689920
 FVector AR3rdPersonCamera::sub_01689920(const FVector& Target, FLOAT DeltaTime)
 {
@@ -22,7 +14,7 @@ FVector AR3rdPersonCamera::sub_01689920(const FVector& Target, FLOAT DeltaTime)
     }
     else if (DeltaTime > KINDA_SMALL_NUMBER)
     {
-        ChasePosition = (const FVector_&)Target + ((const FVector_&)ChasePosition - Target) * (FLOAT)appExp(-(DeltaTime * SmoothingConfigStrength));
+        ChasePosition = (const FVector&)Target + ((const FVector&)ChasePosition - Target) * (FLOAT)appExp(-(DeltaTime * SmoothingConfigStrength));
     }
     return ChasePosition;
 }

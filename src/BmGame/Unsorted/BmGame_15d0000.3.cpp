@@ -166,21 +166,14 @@ UBOOL URBMBehaviour_Combat::IsLocationInCombatArea(FVector TestLocation)
     return !HostController->bUseCombatAreas || CombatManager->IsLocationInCombatArea(TestLocation);
 }
 
-/* Kit gap: FVector has no operators (UnMath.h operator- and operator|). */
-struct FVector_ : public FVector
-{
-    FORCEINLINE FVector_() {}
-    FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
 // @baa 0x015dda00
 /* TestPawn is "in front" when our pawn lies along its aim direction by more than Angle (a dot product against the
  * unnormalised offset, as in the original). */
 UBOOL URBMBehaviour_Combat::IsInFrontOfPawn(ARPawnCombat* TestPawn, FLOAT Angle)
 {
-    FVector_ AimDir;
+    FVector AimDir;
     (FVector&)AimDir = TestPawn->GetActualAimAtDirection();
-    if ((AimDir | (((FVector_&)HostPawn->Location) - TestPawn->Location)) > Angle)
+    if ((AimDir | (HostPawn->Location - TestPawn->Location)) > Angle)
     {
         return TRUE;
     }

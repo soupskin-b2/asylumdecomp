@@ -169,18 +169,6 @@ IMPLEMENT_CLASS_AT(UAnimNodeSequenceBlendByAim, "e:\\Projects\\Amadeus\\AA\\Game
 
 // @baa 0x00c64dd0
 
-struct UAnimNodeSequence_ : public UAnimNodeSequence {
-    void StopCameraAnim()
-    {
-        if (ActiveCameraAnimInstance)
-        {
-            ((UCameraAnimInst*)ActiveCameraAnimInstance)->Stop(1);
-            ActiveCameraAnimInstance->bAutoReleaseWhenFinished = 1;
-            ActiveCameraAnimInstance = NULL;
-        }
-    }
-};
-
 // @baa 0x00c67d30
 void UAnimNodeSequence::TickAnim(FLOAT DeltaSeconds, FLOAT TotalWeight)
 {
@@ -271,18 +259,11 @@ void UAnimNodeSequenceBlendBase::CheckAnimsUpToDate()
 	}
 }
 
-/* Kit gaps: FBoneAtom::Identity (UnSkeletalMesh.h) and TArray<FBoneAtom>::operator= (out of line here,
- * 00c64160). */
-struct FBoneAtom_ : public FBoneAtom
-{
-	static const FBoneAtom Identity;	/* 025df358 */
-};
-
+/* Kit gap: TArray<FBoneAtom>::operator= (out of line here, 00c64160). */
 struct FBoneAtomArray : public TArray<FBoneAtom>
 {
 	void sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
-
 
 // @baa 0x00c6b8e0
 /* Hands back this node's cached pose (and root motion, if it was cached this tick) when it fits OutAtoms. */
@@ -307,9 +288,9 @@ UBOOL UAnimNode::GetCachedResults(TArray<FBoneAtom>& OutAtoms, FBoneAtom& OutRoo
 		}
 		else
 		{
-			OutRootMotionDelta.Rotation = FBoneAtom_::Identity.Rotation;
-			OutRootMotionDelta.Translation = FBoneAtom_::Identity.Translation;
-			OutRootMotionDelta.Scale = FBoneAtom_::Identity.Scale;
+			OutRootMotionDelta.Rotation = FBoneAtom::Identity.Rotation;
+			OutRootMotionDelta.Translation = FBoneAtom::Identity.Translation;
+			OutRootMotionDelta.Scale = FBoneAtom::Identity.Scale;
 			bOutHasRootMotion = 0;
 		}
 		return TRUE;

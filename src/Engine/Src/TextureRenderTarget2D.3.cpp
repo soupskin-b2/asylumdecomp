@@ -213,13 +213,8 @@ struct FPixelFormatInfo
 
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
-};
-
 // @baa 0x00768090
 FString UTextureRenderTarget2D::GetDesc()
 {
-	return FString_::Printf(TEXT("Render to Texture %dx%d[%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
+	return FString::Printf(TEXT("Render to Texture %dx%d[%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

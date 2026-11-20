@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Implement.h"
 
-
-
 /* vertex types (UnSkeletalMesh.h); only referenced through their arrays here */
 struct FRigidSkinVertex;
 struct FSoftSkinVertex;
@@ -40,13 +38,6 @@ FArchive& operator<<(FArchive& Ar, FSkelMeshChunk& C)
 }
 
 #define SMALL_NUMBER (1.e-8f)
-/* FMatrix methods used here (UnMath.h, out of line); the kit's FMatrix has none. */
-struct FMatrix_ : public FMatrix
-{
-    void RemoveScaling(FLOAT Tolerance = SMALL_NUMBER); /* 0x006a7f30 */
-    FMatrix operator*(const FMatrix& Other) const;      /* 0x0058e560 */
-};
-
 /* UnSkeletalMesh.cpp helper (0x00d776d0): world-space matrix of a bone */
 FMatrix GetBoneMatrix(INT BoneIndex, const TArray<FMatrix>& SpaceBases, const FMatrix& LocalToWorld);
 class FPrimitiveDrawInterface;
@@ -64,8 +55,8 @@ void UPhysicsAsset::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh*
         if (Bone1Index != INDEX_NONE)
         {
             FMatrix Body1TM = GetBoneMatrix(Bone1Index, SpaceBases, LocalToWorld);
-            ((FMatrix_&)Body1TM).RemoveScaling();
-            Con1Frame = (const FMatrix_&)cs->GetRefFrameMatrix(0) * Body1TM;
+            Body1TM.RemoveScaling();
+            Con1Frame = (const FMatrix&)cs->GetRefFrameMatrix(0) * Body1TM;
         }
 
         FMatrix Con2Frame;
@@ -73,8 +64,8 @@ void UPhysicsAsset::DrawConstraints(FPrimitiveDrawInterface* PDI, USkeletalMesh*
         if (Bone2Index != INDEX_NONE)
         {
             FMatrix Body2TM = GetBoneMatrix(Bone2Index, SpaceBases, LocalToWorld);
-            ((FMatrix_&)Body2TM).RemoveScaling();
-            Con2Frame = (const FMatrix_&)cs->GetRefFrameMatrix(1) * Body2TM;
+            Body2TM.RemoveScaling();
+            Con2Frame = (const FMatrix&)cs->GetRefFrameMatrix(1) * Body2TM;
         }
     }
 }

@@ -185,7 +185,6 @@ void USeqCond_IncrementFloat::Activated()
     }
 }
 
-
 // @baa 0x008be500
 void USequence::MarkSequencePendingKill()
 {
@@ -257,7 +256,6 @@ extern template void TArray<USequenceOp*>::Remove(INT Index, INT Count);
 /* the out-of-line TArray<USequenceOp*>::Pop instantiation (unreferenced in the exe) */
 template USequenceOp* TArray<USequenceOp*>::Pop();
 
-
 // @baa 0x008ac210
 UBOOL USeqAct_LevelStreaming::UpdateOp(FLOAT DeltaTime)
 {
@@ -271,7 +269,6 @@ void USeqAct_SetString::Activated()
 {
     Target = Value;
 }
-
 
 // @baa 0x008abb30
 /* a sequence is only enabled if all of its parents are */
@@ -309,19 +306,13 @@ template UBOOL TArray<USequenceOp*>::ContainsItem(USequenceOp* const& Item) cons
 /* the out-of-line TArray<USeqAct_Latent*>::ContainsItem instantiation (AActor::LatentActions) */
 template UBOOL TArray<USeqAct_Latent*>::ContainsItem(USeqAct_Latent* const& Item) const;
 
-/* FString::operator== (UnString.h, case-insensitive; 0x00544d40); the kit's FString has none. */
-struct FString__008bd7b0 : public FString
-{
-    UBOOL operator==(const FString& Other) const;
-};
-
 // @baa 0x008bd7b0
 UBOOL USequenceOp::ActivateNamedOutputLink(const FString& LinkDesc)
 {
     UBOOL bActivated = FALSE;
     for (INT Idx = 0; Idx < OutputLinks.Num(); Idx++)
     {
-        if ((const FString__008bd7b0&)OutputLinks(Idx).LinkDesc == LinkDesc)
+        if ((const FString&)OutputLinks(Idx).LinkDesc == LinkDesc)
         {
             bActivated = ActivateOutputLink(Idx); // ActivateOutputLink(Idx)
             break;
@@ -329,7 +320,6 @@ UBOOL USequenceOp::ActivateNamedOutputLink(const FString& LinkDesc)
     }
     return bActivated;
 }
-
 
 // @baa 0x008bc130
 /* inputs 1/2/3 ("Enable", "Disable", "Toggle"), called from Activated (0x008bee30) */
@@ -349,13 +339,6 @@ void USeqAct_ParticleEventGenerator::HandleEnableInputs()
     }
 }
 
-/* FString::operator* and the copy of FString::Printf this unit links against (0x005495f0); not in the kit's FString. */
-struct FString__008cb850 : public FString
-{
-    const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-    static FString Printf(const TCHAR* Fmt, ...);
-};
-
 /* FName != NAME_None (UnName.h); the kit's FName has no operators. */
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
@@ -370,17 +353,10 @@ FString USeqVar_Named_::GetValueStr()
 {
     if (FindVarName != NAME_None)
     {
-        return FString__008cb850::Printf(TEXT("< %s >"), *(const FString__008cb850&)FindVarName.ToString());
+        return FString::Printf(TEXT("< %s >"), *(const FString&)FindVarName.ToString());
     }
     return FString(TEXT("< ??? >"));
 }
-
-/* FString::operator* and the copy of FString::Printf this unit links against (0x005495f0); not in the kit's FString. */
-struct FString__008c84a0 : public FString
-{
-    const TCHAR* operator*() const { return Num() ? &(*this)(0) : TEXT(""); }
-    static FString Printf(const TCHAR* Fmt, ...);
-};
 
 /* UObject::GetName (0x0043bbb0); the kit doesn't declare it. */
 /* slot 0x194 (vf_194) is USequenceVariable::GetValueStr */
@@ -392,7 +368,7 @@ struct USeqVar_Object_ : public USeqVar_Object
 // @baa 0x008c84a0
 FString USeqVar_Object_::GetValueStr()
 {
-    return FString__008c84a0::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString__008c84a0&)ObjValue->GetName() : TEXT("???"));
+    return FString::Printf(TEXT("%s"), ObjValue != NULL ? *(const FString&)ObjValue->GetName() : TEXT("???"));
 }
 
 // @baa 0x008be9e0
@@ -462,8 +438,6 @@ struct FSeqOpOutputLinkArray : public TArray<FSeqOpOutputLink>
     ~FSeqOpOutputLinkArray();
     TArray<FSeqOpOutputLink>& operator+=(const TArray<FSeqOpOutputLink>& Other);
 };
-
-
 
 // @baa 0x00907d90
 void USeqAct_Switch::UpdateObject()

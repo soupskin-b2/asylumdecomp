@@ -5,24 +5,19 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: UObject::GetOuter, UUIStyle_Data::GetOwnerStyle and FStyleDataReference's methods aren't declared. */
-struct UObject_ : public UObject
-{
-	FORCEINLINE UObject* GetOuter() const { return Outer; }
-};
-
+/* Kit gaps: UUIStyle_Data::GetOwnerStyle and FStyleDataReference's methods aren't declared. */
 struct UUIStyle_Data_ : public UUIStyle_Data
 {
 	/* GetOwnerStyle (00ddb0a0), inline here. */
 	FORCEINLINE UUIStyle* GetOwnerStyle() const
 	{
 		UUIStyle* Result = NULL;
-		if (((UObject_*)this)->GetOuter() != NULL)
+		if (GetOuter() != NULL)
 		{
-			Result = Cast<UUIStyle>(((UObject_*)this)->GetOuter());
+			Result = Cast<UUIStyle>(GetOuter());
 			if (Result == NULL)
 			{
-				Result = Cast<UUIStyle>(((UObject_*)((UObject_*)this)->GetOuter())->GetOuter());
+				Result = Cast<UUIStyle>(((UObject*)GetOuter())->GetOuter());
 			}
 		}
 		return Result;

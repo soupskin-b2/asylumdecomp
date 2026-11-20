@@ -578,13 +578,6 @@ void C_016d5a90::sub_016d5a90(int param_2)
 // @baa 0x017196e0
 int sub_017196e0(void) { return 1; }
 
-// UE3's FName(EName) constructor; the shared FName is an aggregate without it.
-
-struct FName_ : public FName {
-    FName_(EName N) { Index = N; Number = 0; }
-};
-
-
 // @baa 0x016ae990
 // Clears the forwarded state change request.
 void URCapeComponent::sub_016ae990()
@@ -594,13 +587,13 @@ void URCapeComponent::sub_016ae990()
     ForwardToAnimIsMirrored = FALSE;
     ForwardToCinematitClearVelocityOnExit = FALSE;
     ForwardToTeleportToInitialPose = FALSE;
-    ForwardToStateName = FName_(NAME_None);
-    ForwardToCinematicAnimName = FName_(NAME_None);
+    ForwardToStateName = FName(NAME_None);
+    ForwardToCinematicAnimName = FName(NAME_None);
     ForwardToCinematicTemporaryAnimSet = NULL;
     ForwardToCinematicTemplateStateConfig = NULL;
     ForwardToAnimStartTime = 0.f;
     ForwardToAnimPlayRate = 0.f;
-    ForwardToAnimSyncAnimName = FName_(NAME_None);
+    ForwardToAnimSyncAnimName = FName(NAME_None);
     ForwardToAnimSyncAnimOffset = 0.f;
 }
 
@@ -685,7 +678,6 @@ void URCapeComponent::TermComponentRBPhys(FRBPhysScene* InScene)
 }
 
 // @baa 0x016c6d40
-
 
 // @baa 0x016d59d0
 /* Whether the cape's anim sets differ from its core anim sets (and so need resetting to them). */

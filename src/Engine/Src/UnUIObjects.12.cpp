@@ -80,13 +80,6 @@ void UUIScreenObject::GetSupportedUIActionKeyNames(TArray<FName>& out_KeyNames)
     sub_00db2cc0(out_KeyNames);
 }
 
-/* Kit gaps: FName::operator== (UnName.h), UUIInteraction::GetDataStoreClient (static, 00d8dee0) and
- * UUIScene::CreateSceneDataStore (00db0a10) aren't declared. */
-struct UUIInteraction_ : public UUIInteraction
-{
-	static UDataStoreClient* GetDataStoreClient();
-};
-
 // @baa 0x00db0c60
 /* Finds the data store tagged DataStoreTag: the scene's own for SceneData, else a global or player data store
  * (for InPlayerOwner, or the scene's owner). Callable on a NULL scene. */
@@ -107,7 +100,7 @@ UUIDataStore* UUIScene::ResolveDataStore(FName DataStoreTag, ULocalPlayer* InPla
 	}
 	else
 	{
-		UDataStoreClient* DataStoreClient = UUIInteraction_::GetDataStoreClient();
+		UDataStoreClient* DataStoreClient = UUIInteraction::GetDataStoreClient();
 		if (DataStoreClient != NULL)
 		{
 			if (InPlayerOwner == NULL && this != NULL)

@@ -124,9 +124,8 @@ void UCameraAnimInst::execApplyTransientScaling(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(Scalar);
     P_FINISH;
-    ((UCameraAnimInst*)this)->ApplyTransientScaling(Scalar);
+    ApplyTransientScaling(Scalar);
 }
-
 
 // @baa 0x00c8f520
 void UTexture2DComposite::execSourceTexturesFullyStreamedIn( FFrame& Stack, RESULT_DECL )
@@ -166,14 +165,14 @@ void ASkeletalMeshActorMAT::execMAT_FinishAnimControl( FFrame& Stack, RESULT_DEC
 void AController::execFindRandomDest(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(ANavigationPoint**)Result = ((AController*)this)->FindRandomDest();
+	*(ANavigationPoint**)Result = FindRandomDest();
 }
 
 // @baa 0x00c8ba90
 void APortalTeleporter::execCreatePortalTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_FINISH;
-	*(UTextureRenderTarget2D**)Result = ((APortalTeleporter*)this)->CreatePortalTexture();
+	*(UTextureRenderTarget2D**)Result = CreatePortalTexture();
 }
 
 // @baa 0x00c87e50
@@ -221,7 +220,6 @@ void AActor::execReattachComponent(FFrame& Stack, RESULT_DECL)
 	((AActor*)this)->ReattachComponent(ComponentToReattach);
 }
 
-
 // @baa 0x00c82300
 void AActor::execSetTickGroup(FFrame& Stack, RESULT_DECL)
 {
@@ -259,7 +257,7 @@ void AGameInfo::execForceClearUnpauseDelegates(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, PauseActor);
 	P_FINISH;
-	((AGameInfo*)this)->ForceClearUnpauseDelegates(PauseActor);
+	ForceClearUnpauseDelegates(PauseActor);
 }
 
 // @baa 0x00c8f560
@@ -267,7 +265,7 @@ void UTexture2DComposite::execUpdateCompositeTexture(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_INT(NumMipsToGenerate);
 	P_FINISH;
-	((UTexture2DComposite*)this)->UpdateCompositeTexture(NumMipsToGenerate);
+	UpdateCompositeTexture(NumMipsToGenerate);
 }
 
 // @baa 0x00c8faa0
@@ -285,7 +283,6 @@ void ULensFlareComponent::execSetTemplate(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	((ULensFlareComponent*)this)->SetTemplate(NewTemplate);
 }
-
 
 // @baa 0x00c8b750
 void USceneCaptureComponent::execSetFrameRate(FFrame& Stack, RESULT_DECL)
@@ -308,7 +305,7 @@ void AController::execCanSee(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(APawn, Other);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController*)this)->CanSee(Other);
+	*(UBOOL*)Result = CanSee(Other);
 }
 
 // @baa 0x00c85030
@@ -316,7 +313,7 @@ void AController::execActorReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, anActor);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController*)this)->ActorReachable(anActor);
+	*(UBOOL*)Result = ActorReachable(anActor);
 }
 
 struct AController__00c85160 : public AController
@@ -358,7 +355,7 @@ void APortalTeleporter::execTransformActor(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, A);
 	P_FINISH;
-	*(UBOOL*)Result = ((APortalTeleporter*)this)->TransformActor(A);
+	*(UBOOL*)Result = TransformActor(A);
 }
 
 // @baa 0x00c82070
@@ -369,17 +366,12 @@ void AActor::execSetOnlyOwnerSee(FFrame& Stack, RESULT_DECL)
 	((AActor*)this)->SetOnlyOwnerSee(bNewOnlyOwnerSee);
 }
 
-struct UHeightFogComponent_ : public UHeightFogComponent
-{
-	void SetEnabled(UBOOL);
-};
-
 // @baa 0x00c8b550
 void UHeightFogComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bSetEnabled);
 	P_FINISH;
-	((UHeightFogComponent_*)this)->SetEnabled(bSetEnabled);
+	SetEnabled(bSetEnabled);
 }
 
 // @baa 0x00c8b660
@@ -387,7 +379,7 @@ void ULightEnvironmentComponent::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bNewEnabled);
 	P_FINISH;
-	((ULightEnvironmentComponent*)this)->SetEnabled(bNewEnabled);
+	SetEnabled(bNewEnabled);
 }
 
 // @baa 0x00c8b5f0
@@ -397,7 +389,6 @@ void UPointLightComponent::execSetTranslation(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	((UPointLightComponent*)this)->SetTranslation(NewTranslation);
 }
-
 
 // @baa 0x00c825f0
 void AActor::execGetComponentsBoundingBox(FFrame& Stack, RESULT_DECL)
@@ -412,7 +403,7 @@ void UCameraAnimInst::execStop(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL_OPTX(bImmediate, 0);
 	P_FINISH;
-	((UCameraAnimInst*)this)->Stop(bImmediate);
+	Stop(bImmediate);
 }
 
 // @baa 0x00c82570
@@ -428,7 +419,7 @@ void AController::execPointReachable(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, aPoint);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController*)this)->PointReachable(aPoint);
+	*(UBOOL*)Result = PointReachable(aPoint);
 }
 
 // @baa 0x00c850a0
@@ -436,7 +427,7 @@ void AController::execPickWallAdjust(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FVector, HitNormal);
 	P_FINISH;
-	*(UBOOL*)Result = ((AController*)this)->PickWallAdjust(HitNormal);
+	*(UBOOL*)Result = PickWallAdjust(HitNormal);
 }
 
 // @baa 0x00c820e0
@@ -594,54 +585,30 @@ void UMaterialInterface::execSetForceMipLevelsToBeResident(FFrame& Stack, RESULT
 	SetForceMipLevelsToBeResident(ForceDuration);
 }
 
-struct UCameraAnimInst__00c8c210 : public UCameraAnimInst
-{
-    /* AdvanceAnim; Classes.h doesn't declare it. */
-    void AdvanceAnim(FLOAT DeltaTime, UBOOL bJump);
-};
-
 // @baa 0x00c8c210
 void UCameraAnimInst::execAdvanceAnim(FFrame& Stack, RESULT_DECL)
 {
     P_GET_FLOAT(DeltaTime);
     P_GET_UBOOL(bJump);
     P_FINISH;
-    ((UCameraAnimInst__00c8c210*)this)->AdvanceAnim(DeltaTime, bJump);
+    AdvanceAnim(DeltaTime, bJump);
 }
-
-struct APortalTeleporter__00c8b970 : public APortalTeleporter
-{
-    /* TransformVectorDir; Classes.h doesn't declare it. */
-    FVector TransformVectorDir(FVector V);
-};
 
 // @baa 0x00c8b970
 void APortalTeleporter::execTransformVectorDir(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, V);
     P_FINISH;
-    *(FVector*)Result = ((APortalTeleporter__00c8b970*)this)->TransformVectorDir(V);
+    *(FVector*)Result = TransformVectorDir(V);
 }
-
-struct APortalTeleporter__00c8ba00 : public APortalTeleporter
-{
-    /* TransformHitLocation; Classes.h doesn't declare it. */
-    FVector TransformHitLocation(FVector HitLocation);
-};
 
 // @baa 0x00c8ba00
 void APortalTeleporter::execTransformHitLocation(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STRUCT(FVector, HitLocation);
     P_FINISH;
-    *(FVector*)Result = ((APortalTeleporter__00c8ba00*)this)->TransformHitLocation(HitLocation);
+    *(FVector*)Result = TransformHitLocation(HitLocation);
 }
-
-struct USceneCapture2DComponent_ : public USceneCapture2DComponent
-{
-    /* SetView; Classes.h doesn't declare it. */
-    void SetView(FVector NewLocation, FRotator NewRotation);
-};
 
 // @baa 0x00c8b7c0
 void USceneCapture2DComponent::execSetView(FFrame& Stack, RESULT_DECL)
@@ -649,14 +616,8 @@ void USceneCapture2DComponent::execSetView(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, NewLocation);
     P_GET_STRUCT(FRotator, NewRotation);
     P_FINISH;
-    ((USceneCapture2DComponent_*)this)->SetView(NewLocation, NewRotation);
+    SetView(NewLocation, NewRotation);
 }
-
-struct AHUD_ : public AHUD
-{
-    /* Draw3DLine; Classes.h doesn't declare it. */
-    void Draw3DLine(FVector Start, FVector End, FColor LineColor);
-};
 
 // @baa 0x00c87be0
 void AHUD::execDraw3DLine(FFrame& Stack, RESULT_DECL)
@@ -665,14 +626,8 @@ void AHUD::execDraw3DLine(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, End);
     P_GET_STRUCT(FColor, LineColor);
     P_FINISH;
-    ((AHUD_*)this)->Draw3DLine(Start, End, LineColor);
+    Draw3DLine(Start, End, LineColor);
 }
-
-struct AHUD__00c87cb0 : public AHUD
-{
-    /* Draw2DLine; Classes.h doesn't declare it. */
-    void Draw2DLine(INT X1, INT Y1, INT X2, INT Y2, FColor LineColor);
-};
 
 // @baa 0x00c87cb0
 void AHUD::execDraw2DLine(FFrame& Stack, RESULT_DECL)
@@ -683,14 +638,8 @@ void AHUD::execDraw2DLine(FFrame& Stack, RESULT_DECL)
     P_GET_INT(Y2);
     P_GET_STRUCT(FColor, LineColor);
     P_FINISH;
-    ((AHUD__00c87cb0*)this)->Draw2DLine(X1, Y1, X2, Y2, LineColor);
+    Draw2DLine(X1, Y1, X2, Y2, LineColor);
 }
-
-struct UTexture2DDynamic_ : public UTexture2DDynamic
-{
-    /* Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget); Classes.h doesn't declare it. */
-    void Init(INT InSizeX, INT InSizeY, BYTE InFormat, UBOOL InIsResolveTarget);
-};
 
 // @baa 0x00c8f620
 void UTexture2DDynamic::execInit(FFrame& Stack, RESULT_DECL)
@@ -700,14 +649,8 @@ void UTexture2DDynamic::execInit(FFrame& Stack, RESULT_DECL)
     P_GET_BYTE_OPTX(InFormat, PF_A8R8G8B8);
     P_GET_UBOOL_OPTX(InIsResolveTarget, FALSE);
     P_FINISH;
-    ((UTexture2DDynamic_*)this)->Init(InSizeX, InSizeY, InFormat, InIsResolveTarget);
+    Init(InSizeX, InSizeY, InFormat, InIsResolveTarget);
 }
-
-struct UCameraAnimInst__00c8c0e0 : public UCameraAnimInst
-{
-    /* Update(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration); Classes.h doesn't declare it. */
-    void Update(FLOAT NewRate, FLOAT NewScale, FLOAT NewBlendInTime, FLOAT NewBlendOutTime, FLOAT NewDuration);
-};
 
 // @baa 0x00c8c0e0
 void UCameraAnimInst::execUpdate(FFrame& Stack, RESULT_DECL)
@@ -718,14 +661,8 @@ void UCameraAnimInst::execUpdate(FFrame& Stack, RESULT_DECL)
     P_GET_FLOAT(NewBlendOutTime);
     P_GET_FLOAT_OPTX(NewDuration, 0.f);
     P_FINISH;
-    ((UCameraAnimInst__00c8c0e0*)this)->Update(NewRate, NewScale, NewBlendInTime, NewBlendOutTime, NewDuration);
+    Update(NewRate, NewScale, NewBlendInTime, NewBlendOutTime, NewDuration);
 }
-
-struct UCameraAnimInst__00c8bef0 : public UCameraAnimInst
-{
-    /* Play(UCameraAnim*, AActor*, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration); Classes.h doesn't declare it. */
-    void Play(UCameraAnim* Anim, AActor* CamActor, FLOAT InRate, FLOAT InScale, FLOAT InBlendInTime, FLOAT InBlendOutTime, UBOOL bInLoop, UBOOL bRandomStartTime, FLOAT Duration);
-};
 
 // @baa 0x00c8bef0
 void UCameraAnimInst::execPlay(FFrame& Stack, RESULT_DECL)
@@ -740,7 +677,7 @@ void UCameraAnimInst::execPlay(FFrame& Stack, RESULT_DECL)
     P_GET_UBOOL(bRandomStartTime);
     P_GET_FLOAT_OPTX(Duration, 0.f);
     P_FINISH;
-    ((UCameraAnimInst__00c8bef0*)this)->Play(Anim, CamActor, InRate, InScale, InBlendInTime, InBlendOutTime, bInLoop, bRandomStartTime, Duration);
+    Play(Anim, CamActor, InRate, InScale, InBlendInTime, InBlendOutTime, bInLoop, bRandomStartTime, Duration);
 }
 
 // @baa 0x00c8f180
@@ -832,7 +769,7 @@ void AActor::execFindSpot(FFrame& Stack, RESULT_DECL)
 void AController::execGetAdjustLocation(FFrame& Stack, RESULT_DECL)
 {
     P_FINISH;
-    *(FVector*)Result = ((AController*)this)->GetAdjustLocation();
+    *(FVector*)Result = GetAdjustLocation();
 }
 
 // @baa 0x00c84750
@@ -841,7 +778,7 @@ void AController::execBeyondFogDistance(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, ViewPoint);
     P_GET_STRUCT(FVector, OtherPoint);
     P_FINISH;
-    *(UBOOL*)Result = ((AController*)this)->BeyondFogDistance(ViewPoint, OtherPoint);
+    *(UBOOL*)Result = BeyondFogDistance(ViewPoint, OtherPoint);
 }
 
 // @baa 0x00c84870
@@ -851,7 +788,7 @@ void AController::execCanSeeByPoints(FFrame& Stack, RESULT_DECL)
     P_GET_STRUCT(FVector, TestLocation);
     P_GET_STRUCT(FRotator, ViewRotation);
     P_FINISH;
-    *(UBOOL*)Result = ((AController*)this)->CanSeeByPoints(ViewLocation, TestLocation, ViewRotation);
+    *(UBOOL*)Result = CanSeeByPoints(ViewLocation, TestLocation, ViewRotation);
 }
 
 // @baa 0x00c84b20
@@ -861,7 +798,7 @@ void AController::execFindPathTo(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController*)this)->FindPathTo(aPoint, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = FindPathTo(aPoint, MaxPathLength, bReturnPartial);
 }
 
 // @baa 0x00c84c10
@@ -872,7 +809,7 @@ void AController::execFindPathToward(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController*)this)->FindPathToward(anActor, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = FindPathToward(anActor, bWeightDetours, MaxPathLength, bReturnPartial);
 }
 
 // @baa 0x00c84d20
@@ -883,7 +820,7 @@ void AController::execFindPathTowardNearest(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController*)this)->FindPathTowardNearest(GoalClass, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = FindPathTowardNearest(GoalClass, bWeightDetours, MaxPathLength, bReturnPartial);
 }
 
 // @baa 0x00c84e70
@@ -895,7 +832,7 @@ void AController::execFindPathToIntercept(FFrame& Stack, RESULT_DECL)
     P_GET_INT_OPTX(MaxPathLength, 0);
     P_GET_UBOOL_OPTX(bReturnPartial, FALSE);
     P_FINISH;
-    *(AActor**)Result = ((AController*)this)->FindPathToIntercept(P, InRouteGoal, bWeightDetours, MaxPathLength, bReturnPartial);
+    *(AActor**)Result = FindPathToIntercept(P, InRouteGoal, bWeightDetours, MaxPathLength, bReturnPartial);
 }
 
 // @baa 0x00c87f20
@@ -904,9 +841,8 @@ void ANavigationPoint::execGetReachSpecTo(FFrame& Stack, RESULT_DECL)
     P_GET_OBJECT(ANavigationPoint, Nav);
     P_GET_OBJECT_OPTX(UClass, SpecClass, NULL);
     P_FINISH;
-    *(UReachSpec**)Result = ((ANavigationPoint*)this)->GetReachSpecTo(Nav, SpecClass);
+    *(UReachSpec**)Result = GetReachSpecTo(Nav, SpecClass);
 }
-
 
 // @baa 0x00c88dd0
 void ACoverSlotMarker::execIsValidClaim(FFrame& Stack, RESULT_DECL)
@@ -1004,7 +940,6 @@ void UOnlineStatsWrite::execDecrementIntStat(FFrame& Stack, RESULT_DECL)
     P_FINISH;
     DecrementIntStat(StatId, DecBy);
 }
-
 
 // @baa 0x00c86b60
 void UOnlineSubsystem::execGetBuildUniqueId(FFrame& Stack, RESULT_DECL)

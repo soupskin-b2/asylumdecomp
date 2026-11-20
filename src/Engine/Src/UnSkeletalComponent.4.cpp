@@ -18,7 +18,6 @@ void USkeletalMeshComponent::execUpdateSceneProxy( FFrame& Stack, RESULT_DECL )
 	UpdateSceneProxy();
 }
 
-
 // @baa 0x00935ce0
 void USkeletalMeshComponent::execUpdateAnimations( FFrame& Stack, RESULT_DECL )
 {
@@ -221,7 +220,6 @@ void USkeletalMeshComponent::execSetFaceFXRegisterEx(FFrame& Stack, RESULT_DECL)
 	SetFaceFXRegisterEx(RegName, RegOp, FirstValue, FirstInterpDuration, NextValue, NextInterpDuration);
 }
 
-
 // @baa 0x0091dbe0
 void USkeletalMeshComponent::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 {
@@ -229,7 +227,6 @@ void USkeletalMeshComponent::execFindMorphTarget(FFrame& Stack, RESULT_DECL)
 	P_FINISH;
 	*(UMorphTarget**)Result = FindMorphTarget(MorphTargetName);
 }
-
 
 // @baa 0x0091d3f0
 void USkeletalMeshComponent::execGetBoneMatrix(FFrame& Stack, RESULT_DECL)
@@ -257,24 +254,8 @@ void USkeletalMeshComponent::execFindClosestBone(FFrame& Stack, RESULT_DECL)
     *(FName*)Result = FindClosestBone(TestLocation, pBoneLocation, IgnoreScale);
 }
 
-/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560) and Rotator (0x005c3fc0)
- * are out of line. */
-struct FMatrix_ : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-    FRotator Rotator() const;
-    FVector GetOrigin() const
-    {
-        FVector Result;
-        Result.X = WPlane.X;
-        Result.Y = WPlane.Y;
-        Result.Z = WPlane.Z;
-        return Result;
-    }
-};
-
 /* FRotationTranslationMatrix (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix : public FMatrix_
+class FRotationTranslationMatrix : public FMatrix
 {
 public:
     FRotationTranslationMatrix(const FRotator& Rot, const FVector& Origin);
@@ -283,19 +264,6 @@ public:
 /* USkeletalMesh::MatchRefBone (0x00976be0) isn't declared in Classes.h. */
 
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
-
-struct USkeletalMeshComponent__0091e8d0 : public USkeletalMeshComponent
-{
-    INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != NAME_None && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
-        }
-        return BoneIndex;
-    }
-};
 
 // @baa 0x0091e8d0
 /* transform a location and rotation from a bone's space to world space */
@@ -313,47 +281,18 @@ void USkeletalMeshComponent::execTransformFromBoneSpace(FFrame& Stack, RESULT_DE
     {
         FMatrix BoneToWorldTM = GetBoneMatrix(BoneIndex);
         FMatrix BoneSpaceTM = FRotationTranslationMatrix(InRotation, InPosition);
-        FMatrix WorldTM = (const FMatrix_&)BoneSpaceTM * BoneToWorldTM;
+        FMatrix WorldTM = (const FMatrix&)BoneSpaceTM * BoneToWorldTM;
 
-        OutPosition = ((const FMatrix_&)WorldTM).GetOrigin();
-        OutRotation = ((const FMatrix_&)WorldTM).Rotator();
+        OutPosition = WorldTM.GetOrigin();
+        OutRotation = WorldTM.Rotator();
     }
 }
 
-/* FMatrix methods (UnMath.h); the kit's FMatrix has none. operator* (0x0058e560) and Rotator (0x005c3fc0)
- * are out of line. */
-struct FMatrix__0091e6d0 : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-    FRotator Rotator() const;
-    FVector GetOrigin() const
-    {
-        FVector Result;
-        Result.X = WPlane.X;
-        Result.Y = WPlane.Y;
-        Result.Z = WPlane.Z;
-        return Result;
-    }
-};
-
 /* FRotationTranslationMatrix_0091e6d0 (UnMath.h); constructor out of line at 0x0058f1b0. */
-class FRotationTranslationMatrix_0091e6d0 : public FMatrix__0091e6d0
+class FRotationTranslationMatrix_0091e6d0 : public FMatrix
 {
 public:
     FRotationTranslationMatrix_0091e6d0(const FRotator& Rot, const FVector& Origin);
-};
-
-struct USkeletalMeshComponent__0091e6d0 : public USkeletalMeshComponent
-{
-    INT MatchRefBone(FName BoneName) const
-    {
-        INT BoneIndex = INDEX_NONE;
-        if (BoneName != NAME_None && SkeletalMesh)
-        {
-            BoneIndex = ((USkeletalMesh*)SkeletalMesh)->MatchRefBone(BoneName);
-        }
-        return BoneIndex;
-    }
 };
 
 // @baa 0x0091e6d0
@@ -379,28 +318,6 @@ void USkeletalMeshComponent::execTransformToBoneSpace(FFrame& Stack, RESULT_DECL
     }
 }
 
-/* UObject::IsPendingKill (the kit's vf_038) and IsA (UnObjBas.h) */
-struct UObject_ : public UObject
-{
-    UBOOL IsPendingKill() { return IsPendingKill(); }
-
-    UBOOL IsA(const UClass* SomeBase) const
-    {
-        if (SomeBase == NULL)
-        {
-            return TRUE;
-        }
-        for (const UField* TempClass = (const UField*)GetClass(); TempClass; TempClass = TempClass->SuperField)
-        {
-            if (TempClass == (const UField*)SomeBase)
-            {
-                return TRUE;
-            }
-        }
-        return FALSE;
-    }
-};
-
 // @baa 0x0091e010
 /* script iterator over the attached components of a class */
 void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
@@ -423,7 +340,7 @@ void USkeletalMeshComponent::execAttachedComponents(FFrame& Stack, RESULT_DECL)
         while (AttachmentIndex < Attachments.Num() && !OutComponent)
         {
             UActorComponent* TestComponent = Attachments(AttachmentIndex++).Component;
-            if (TestComponent && !((UObject_*)TestComponent)->IsPendingKill() && ((UObject_*)TestComponent)->IsA(BaseClass))
+            if (TestComponent && !TestComponent->IsPendingKill() && TestComponent->IsA(BaseClass))
             {
                 OutComponent = TestComponent;
             }

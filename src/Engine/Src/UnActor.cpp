@@ -630,11 +630,6 @@ UBOOL ASpotLightToggleable::HasParentClassChanged() const
 
 // @baa 0x007826a0
 
-/* the kit's FVector/FRotator are aggregates; UE3's constructors */
-struct FVector_ : public FVector { FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; } };
-
-struct FRotator_ : public FRotator { FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; } };
-
 // @baa 0x00758370
 // ABrush::InitPosRotScale (vtable slot 0x358)
 void ABrush::InitPosRotScale()
@@ -643,9 +638,9 @@ void ABrush::InitPosRotScale()
     check(BrushComponent);
     check(Brush);
 
-    Location = FVector_(0, 0, 0);
-    Rotation = FRotator_(0, 0, 0);
-    PrePivot = FVector_(0, 0, 0);
+    Location = FVector(0, 0, 0);
+    Rotation = FRotator(0, 0, 0);
+    PrePivot = FVector(0, 0, 0);
 }
 
 #line 654 "candidate.cpp"

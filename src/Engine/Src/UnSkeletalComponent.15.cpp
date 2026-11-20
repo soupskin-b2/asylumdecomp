@@ -5,12 +5,6 @@
 #include "ue3/Array.h"
 #include "ue3/Script.h"
 
-/* FMatrix::GetOrigin (UnMath.h) */
-struct FMatrix_ : public FMatrix
-{
-    FVector GetOrigin() const { return FVector(WPlane.X, WPlane.Y, WPlane.Z); }
-};
-
 inline UBOOL operator!=(const FName& A, EName B) { return A.Index != B || A.Number != 0; }
 
 FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT Space)
@@ -25,19 +19,19 @@ FORCEINLINE FVector USkeletalMeshComponent::GetBoneLocation(FName BoneName, INT 
     {
         if (BoneIndex < SpaceBases.Num())
         {
-            return ((const FMatrix_&)SpaceBases(BoneIndex)).GetOrigin();
+            return ((const FMatrix&)SpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else if (Space == 2)
     {
         if (BoneIndex < PrePhysicsSpaceBases.Num())
         {
-            return ((const FMatrix_&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
+            return ((const FMatrix&)PrePhysicsSpaceBases(BoneIndex)).GetOrigin();
         }
     }
     else
     {
-        return ((const FMatrix_&)GetBoneMatrix(BoneIndex)).GetOrigin();
+        return ((const FMatrix&)GetBoneMatrix(BoneIndex)).GetOrigin();
     }
 
     return FVector(0.f, 0.f, 0.f);

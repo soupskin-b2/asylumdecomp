@@ -122,7 +122,6 @@ undefined4 C_00d3d9d0::sub_00d3d9d0(byte param_2)
 /* Out-of-line copies of TSparseArray<T>::TConstIterator's constructor and operator++ (one per element type; the code doesn't
  * depend on it, so INT stands in for the unknown T). */
 
-
 struct FSparseArrayConstIt_00d3db50 : public TSparseArray<INT>::TConstIterator
 {
     FSparseArrayConstIt_00d3db50(const TSparseArray<INT>& InArray, INT StartIndex);
@@ -293,13 +292,8 @@ struct FPixelFormatInfo
 
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
-};
-
 // @baa 0x00d31340
 FString ULightMapTexture2D::GetDesc()
 {
-	return FString_::Printf(TEXT("Lightmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
+	return FString::Printf(TEXT("Lightmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

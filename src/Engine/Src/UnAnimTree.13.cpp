@@ -53,9 +53,8 @@ void UAnimNodeAimOffset::SetActiveProfileByIndex(INT ProfileIndex)
 	}
 
 	CurrentProfileIndex = ProfileIndex;
-	((UAnimNodeAimOffset*)this)->UpdateListOfRequiredBones();
+	UpdateListOfRequiredBones();
 }
-
 
 /* UAnimNodeRandom's OnChildAnimEnd override (vtable 0x18c, declared only as a vf_). */
 struct UAnimNodeRandom_ : public UAnimNodeRandom
@@ -254,7 +253,6 @@ UBOOL UAnimNodeBlendDirectional::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-
 // @baa 0x00c78fe0
 FVector2D UAnimNodeAimOffset::GetAim()
 {
@@ -342,28 +340,17 @@ UBOOL UAnimNodePlayCustomAnim::HasParentClassChanged() const
     return GetClass()->GetSuperClass() != Super::StaticClass();
 }
 
-/* Kit gaps, with UE3's definitions (UnMath.h, UnSkeletalMesh.h): FQuat has no constructor from a matrix
- * (out of line here), FVector no constructor, FMatrix no GetOrigin, FBoneAtom no constructor from a matrix and no operator=. */
-struct FQuat_ : public FQuat
+/* UE3's FBoneAtom constructor from a matrix (UnSkeletalMesh.h), which the kit's FBoneAtom lacks, with the origin helper it uses. */
+static inline FVector GetOrigin(const FMatrix& M)
 {
-	FQuat_(const FMatrix& M);					/* 005c40e0 */
-};
-
-struct FVector_ : public FVector
-{
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
-static inline FVector_ GetOrigin(const FMatrix& M)
-{
-	return FVector_(M.WPlane.X, M.WPlane.Y, M.WPlane.Z);
+	return FVector(M.WPlane.X, M.WPlane.Y, M.WPlane.Z);
 }
 
 /* FBoneAtom with UE3's constructor from a matrix (same layout; the kit's FBoneAtom has no constructors). */
 struct FBoneAtom_
 {
-	FQuat_ Rotation;
-	FVector_ Translation;
+	FQuat Rotation;
+	FVector Translation;
 	FLOAT Scale;
 
 	FBoneAtom_(const FMatrix& InMatrix)
@@ -385,7 +372,6 @@ struct FBoneAtomArray : public TArray<FBoneAtom>
 {
 	FBoneAtomArray& sub_00c64160(const TArray<FBoneAtom>& Other);	/* operator= */
 };
-
 
 /* UAnimTree's GetBoneAtoms override (its vtable slot is declared only as a vf_). */
 struct UAnimTree__00c71100 : public UAnimTree

@@ -500,18 +500,12 @@ F00658ed0Obj::F00658ed0Obj(INT X, INT Y)
     B   = Y;
 }
 
-/* Kit gaps: FVector has no constructor or operators (UnMath.h), and ULightComponent::GetDirection (an inline in
- * EngineLightClasses.h) isn't declared. FMatrix here is planes, so M[i][2] is the i-th plane's Z. */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
+/* Kit gap: ULightComponent::GetDirection (an inline in EngineLightClasses.h) isn't declared. FMatrix here is planes, so M[i][2] is the i-th plane's Z. */
 struct ULightComponent_ : public ULightComponent
 {
-	FORCEINLINE FVector_ GetDirection() const
+	FORCEINLINE FVector GetDirection() const
 	{
-		return FVector_(WorldToLight.XPlane.Z, WorldToLight.YPlane.Z, WorldToLight.ZPlane.Z);
+		return FVector(WorldToLight.XPlane.Z, WorldToLight.YPlane.Z, WorldToLight.ZPlane.Z);
 	}
 };
 

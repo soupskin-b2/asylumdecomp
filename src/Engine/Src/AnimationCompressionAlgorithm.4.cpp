@@ -15,19 +15,8 @@ struct FFloatArray : public TArray<FLOAT>
 	void sub_00920980(INT Index, INT Count);	/* Remove */
 };
 
-struct FVector_ : public FVector
-{
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
-/* UAnimationCompressionAlgorithm::FilterTrivialPositionKeys (static) isn't declared in Classes.h. */
-struct UAnimationCompressionAlgorithm_ : public UAnimationCompressionAlgorithm
-{
-	static void FilterTrivialPositionKeys(TArray<FTranslationTrack>& InputTracks, FLOAT MaxPosDelta);
-};
-
 // @baa 0x00c01c00
-void UAnimationCompressionAlgorithm_::FilterTrivialPositionKeys(TArray<FTranslationTrack>& InputTracks, FLOAT MaxPosDelta)
+void UAnimationCompressionAlgorithm::FilterTrivialPositionKeys(TArray<FTranslationTrack>& InputTracks, FLOAT MaxPosDelta)
 {
 	const INT NumTracks = InputTracks.Num();
 	for (INT TrackIndex = 0; TrackIndex < NumTracks; ++TrackIndex)

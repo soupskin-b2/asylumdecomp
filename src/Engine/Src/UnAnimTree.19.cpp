@@ -46,11 +46,6 @@ FAimOffsetProfile* UAnimNodeAimOffset::GetCurrentProfile()
 
 #line 86 "candidate.cpp"
 
-struct FQuat_ : public FQuat
-{
-	static const FQuat Identity;			/* 025d6800 */
-};
-
 /* TArray<FAimComponent>::Insert is out of line (0x00c4bfa0). */
 struct FAimComponentArray : public TArray<FAimComponent>
 {
@@ -111,15 +106,15 @@ INT UAnimNodeAimOffset::GetComponentIdxFromBoneIdx(INT BoneIndex, UBOOL bCreateI
 		P->AimComponents(InsertIndex).BoneName = BoneName;
 
 		// no rotation in any direction yet
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTUP, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERUP, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTUP, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTCENTER, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERCENTER, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTCENTER, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTDOWN, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERDOWN, FQuat_::Identity);
-		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTDOWN, FQuat_::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTUP, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERUP, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTUP, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTCENTER, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERCENTER, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTCENTER, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_LEFTDOWN, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_CENTERDOWN, FQuat::Identity);
+		SetBoneAimQuaternion(InsertIndex, ANIMAIM_RIGHTDOWN, FQuat::Identity);
 
 		UpdateListOfRequiredBones();
 		return InsertIndex;

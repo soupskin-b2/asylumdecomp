@@ -91,13 +91,8 @@ struct FPixelFormatInfo
 
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
-};
-
 // @baa 0x009221b0
 FString UShadowMapTexture2D::GetDesc()
 {
-	return FString_::Printf(TEXT("Shadowmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
+	return FString::Printf(TEXT("Shadowmap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }

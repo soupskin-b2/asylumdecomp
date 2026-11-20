@@ -5,24 +5,6 @@
 #include "ue3/Cast.h"
 #include "ue3/Array.h"
 
-struct UUIStyle_Data_ : public UUIStyle_Data
-{
-	/* GetOwnerStyle (00ddb0a0), inline here. */
-	FORCEINLINE UUIStyle* GetOwnerStyle() const
-	{
-		UUIStyle* Result = NULL;
-		if (this->GetOuter() != NULL)
-		{
-			Result = Cast<UUIStyle>(this->GetOuter());
-			if (Result == NULL)
-			{
-				Result = Cast<UUIStyle>(((UObject*)this->GetOuter())->GetOuter());
-			}
-		}
-		return Result;
-	}
-};
-
 /* Kit gap: FGuid operator== (UnMisc.h) for FSTYLE_ID. */
 FORCEINLINE UBOOL operator==(const FSTYLE_ID& X, const FSTYLE_ID& Y)
 {

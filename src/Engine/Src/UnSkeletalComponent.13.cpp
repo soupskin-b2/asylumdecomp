@@ -3,31 +3,12 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-struct FMatrix_ : public FMatrix
-{
-    FORCEINLINE FVector GetAxis(INT i) const
-    {
-        const FPlane& P = (&XPlane)[i];
-        return FVector(P.X, P.Y, P.Z);
-    }
-    FORCEINLINE void SetAxis(INT i, const FVector& Axis)
-    {
-        FPlane& P = (&XPlane)[i];
-        P.X = Axis.X;
-        P.Y = Axis.Y;
-        P.Z = Axis.Z;
-    }
-    FORCEINLINE FVector GetOrigin() const { return FVector(WPlane.X, WPlane.Y, WPlane.Z); }
-    FORCEINLINE void SetOrigin(const FVector& NewOrigin) { WPlane.X = NewOrigin.X; WPlane.Y = NewOrigin.Y; WPlane.Z = NewOrigin.Z; }
-};
-
-
 // @baa 0x0091a110
 /* name guessed: rebuild the twist bone from its base bone, keeping the twist angle measured at init */
 void FTwistBoneFixer::Apply(TArray<FMatrix>& SpaceBases)
 {
-    FMatrix_& TwistTM = (FMatrix_&)SpaceBases(TwistBoneIndex);
-    const FMatrix_& BaseTM = (const FMatrix_&)SpaceBases(BaseBoneIndex);
+    FMatrix& TwistTM = (FMatrix&)SpaceBases(TwistBoneIndex);
+    const FMatrix& BaseTM = (const FMatrix&)SpaceBases(BaseBoneIndex);
 
     TwistTM.SetAxis(0, BaseTM.GetAxis(0));
     TwistTM.SetAxis(1, BaseTM.GetAxis(1) * BaseYDotTwistY - BaseTM.GetAxis(2) * BaseYDotTwistZ);
@@ -50,7 +31,6 @@ private:
     FSceneInterface* Scene;
     AActor* Owner;
 };
-
 
 // @baa 0x0091d830
 void USkeletalMeshComponent::SetForceWireframe(UBOOL InForceWireframe)

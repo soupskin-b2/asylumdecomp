@@ -97,7 +97,6 @@ FVector AActor::GetFOVCheckLocation()
     return Location;
 }
 
-
 // @baa 0x007585b0
 /* World geometry answers level-geometry traces; other actors answer traces for "others" when they're projectile
  * targets or blocking. (0x80 TRACE_LevelGeometry, 0x10 TRACE_Others, 0x20 TRACE_OnlyProjActor, 0x40 TRACE_Blocking) */
@@ -109,7 +108,6 @@ UBOOL AActor::ShouldTrace(UPrimitiveComponent* Primitive, AActor* SourceActor, D
                 ? (bProjTarget || (bBlockActors && Primitive->BlockActors))
                 : (!(TraceFlags & 0x40) || (SourceActor && SourceActor->IsBlockedBy(this, Primitive)))));
 }
-
 
 // @baa 0x00758680
 /* Like AActor::ShouldTrace, but volumes answer volume traces (0x08 TRACE_Volumes) instead of "others".
@@ -137,37 +135,11 @@ void UScriptedTexture::delegateRender(class UCanvas* C)
 	ProcessDelegate(g_026c40d4, &__Render__Delegate, &Parms, NULL);
 }
 
-/* Kit gap: FVector has no operator+= (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_& operator+=(const FVector& V)
-	{
-		X += V.X; Y += V.Y; Z += V.Z;
-		return *this;
-	}
-};
-
 // @baa 0x00757e40
 void AActor::EditorApplyTranslation(const FVector& DeltaTranslation, UBOOL bAltDown, UBOOL bShiftDown, UBOOL bCtrlDown)
 {
-	(FVector_&)Location += DeltaTranslation;
+	(FVector&)Location += DeltaTranslation;
 }
-
-/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::operator* (0058e560), FMatrix::Transpose
- * (0058e9a0), FMatrix::Rotator (005c3fc0) and FName::operator!= (UnName.h) aren't declared. */
-
-struct FMatrix_ : public FMatrix
-{
-	FMatrix operator*(const FMatrix& Other) const; /* 0x0058e560 */
-	FMatrix Transpose() const; /* 0x0058e9a0 */
-	FRotator Rotator() const; /* 0x005c3fc0 */
-};
-
-struct FName_ : public FName
-{
-	FORCEINLINE UBOOL operator!=(const FName& Other) const { return Index != Other.Index || Number != Other.Number; }
-};
-
 
 // @baa 0x00758050
 /* UnActor.cpp: RelativeRotation is the rotation relative to the base's rotation. */
@@ -178,5 +150,5 @@ void AActor::UpdateRelativeRotation()
 		return;
 	}
 
-	RelativeRotation = ((const FMatrix_&)(((const FMatrix_&)FRotationMatrix(Rotation)) * ((const FMatrix_&)FRotationMatrix(Base->Rotation)).Transpose())).Rotator();
+	RelativeRotation = ((const FMatrix&)(((const FMatrix&)FRotationMatrix(Rotation)) * ((const FMatrix&)FRotationMatrix(Base->Rotation)).Transpose())).Rotator();
 }

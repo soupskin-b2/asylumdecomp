@@ -375,24 +375,16 @@ FIntRect USequenceFrame::GetSeqObjBoundingBox()
     return USequenceObject::GetSeqObjBoundingBox();
 }
 
-
 // @baa 0x008bc4b0
 FString USeqVar_Bool::GetValueStr()
 {
     return FString(bValue == TRUE ? TEXT("True") : TEXT("False"));
 }
 
-/* FString::Printf (0x005488a0) isn't declared in the kit. */
-struct FString_ : public FString
-{
-    static FString Printf(const TCHAR* Fmt, ...);
-};
-
-
 // @baa 0x008c8250
 FString USeqVar_Int::GetValueStr()
 {
-    return FString_::Printf(TEXT("%d"), IntValue);
+    return FString::Printf(TEXT("%d"), IntValue);
 }
 
 /* FString::Printf, as the linker specialised it for these argument types (0x005a9f90);
@@ -401,7 +393,6 @@ struct FString__008cb160 : public FString
 {
     static FString Printf(const TCHAR* Fmt, BYTE Value);
 };
-
 
 // @baa 0x008cb160
 FString USeqVar_Byte::GetValueStr()
@@ -416,7 +407,6 @@ struct FString__008c82a0 : public FString
     static FString Printf(const TCHAR* Fmt, INT A, INT B);
 };
 
-
 // @baa 0x008c82a0
 FString USeqVar_RandomInt::GetValueStr()
 {
@@ -429,7 +419,6 @@ struct FString__008c81f0 : public FString
 {
     static FString Printf(const TCHAR* Fmt, FLOAT A, FLOAT B);
 };
-
 
 // @baa 0x008c81f0
 FString USeqVar_RandomFloat::GetValueStr()
@@ -444,27 +433,24 @@ struct FString__008c8110 : public FString
     static FString Printf(const TCHAR* Fmt, FLOAT R, FLOAT G, FLOAT B, FLOAT A);
 };
 
-
 // @baa 0x008c8110
 FString USeqVar_Colour::GetValueStr()
 {
     return FString__008c8110::Printf(TEXT("R=%2.1f G=%2.1f B=%2.1f A=%2.1f"), ColourValue.R, ColourValue.G, ColourValue.B, ColourValue.A);
 }
 
-
 // @baa 0x008c88d0
 FString USeqVar_Player::GetValueStr()
 {
     if (!bAllPlayers)
     {
-        return FString_::Printf(TEXT("Player %d"), PlayerIdx);
+        return FString::Printf(TEXT("Player %d"), PlayerIdx);
     }
     return FString(TEXT("All Players"));
 }
 
 /* FName == NAME_None (UnName.h); the kit's FName has no operators. */
 inline UBOOL operator==(const FName& A, EName B) { return A.Index == B && A.Number == 0; }
-
 
 // @baa 0x008bec90
 FString USeqVar_Group::GetValueStr()
@@ -475,8 +461,6 @@ FString USeqVar_Group::GetValueStr()
     }
     return GroupName.ToString();
 }
-
-
 
 // @baa 0x00907ca0
 void USeqAct_ChangeCollision::UpdateObject()

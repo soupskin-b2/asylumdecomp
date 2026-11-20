@@ -86,33 +86,15 @@ void URSeqAct_PlaySpeechConversation::eventCheckForNewLine()
 }
 
 	/* BMGAME_CheckForNewLine */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URSeqAct_ConversationDialogue__015851f0 : public URSeqAct_ConversationDialogue
-{
-	void eventCheckForNewLine()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
-	}
-};
-
 // @baa 0x015851f0
 /* Lets script queue the next line, then runs the speech as usual. */
 UBOOL URSeqAct_ConversationDialogue::UpdateOp(FLOAT DeltaTime)
 {
-	((URSeqAct_ConversationDialogue__015851f0*)this)->eventCheckForNewLine();
+	eventCheckForNewLine();
 	return Super::UpdateOp(DeltaTime);
 }
 
 	/* BMGAME_CheckForNewLine */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URSeqAct_PlaySpeechConversation__01585590 : public URSeqAct_PlaySpeechConversation
-{
-	void eventCheckForNewLine()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e3a70), NULL);
-	}
-};
-
 // @baa 0x01585590
 /* The third and fourth inputs duck and unduck the conversation; then the line delay counts down, script gets
  * a chance to queue the next line, and the speech runs as usual. */
@@ -130,32 +112,17 @@ UBOOL URSeqAct_PlaySpeechConversation::UpdateOp(FLOAT DeltaTime)
 		}
 	}
 	DelayTimer -= DeltaTime;
-	((URSeqAct_PlaySpeechConversation__01585590*)this)->eventCheckForNewLine();
+	eventCheckForNewLine();
 	return Super::UpdateOp(DeltaTime);
 }
 
 	/* BMGAME_CheckPlayOnce */
-/* Kit gap: the script event's generated glue (BmGameClasses.h). */
-struct URBMSeqAct_PlaySpeech_ : public URBMSeqAct_PlaySpeech
-{
-	UBOOL eventCheckPlayOnce()
-	{
-		struct RBMSeqAct_PlaySpeech_eventCheckPlayOnce_Parms
-		{
-			UBOOL ReturnValue;
-		} Parms;
-		Parms.ReturnValue = FALSE;
-		ProcessEvent(FindFunctionChecked(g_026e3630), &Parms);
-		return Parms.ReturnValue;
-	}
-};
-
 // @baa 0x01584df0
 /* Plays the line unless script says a play-once line already ran; then the second output fires instead
  * (USequenceOp::ActivateOutputLink(1), inlined). */
 void URBMSeqAct_PlaySpeech::Activated()
 {
-	if (((URBMSeqAct_PlaySpeech_*)this)->eventCheckPlayOnce())
+	if (eventCheckPlayOnce())
 	{
 		bFinished = FALSE;
 		USeqAct_Latent::Activated();
@@ -171,34 +138,15 @@ void URBMSeqAct_PlaySpeech::Activated()
 }
 
 	/* BMGAME_ChangeDialogueCamera */
-/* Kit gap: the script events' generated glue (BmGameClasses.h). */
-struct URSeqAct_ConversationDialogue__015850c0 : public URSeqAct_ConversationDialogue
-{
-	UBOOL eventIsOptionNext()
-	{
-		struct RSeqAct_ConversationDialogue_eventIsOptionNext_Parms
-		{
-			UBOOL ReturnValue;
-		} Parms;
-		Parms.ReturnValue = FALSE;
-		ProcessEvent(FindFunctionChecked(g_026e39c4), &Parms);
-		return Parms.ReturnValue;
-	}
-	void eventChangeDialogueCamera()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e25cc), NULL);
-	}
-};
-
 // @baa 0x015850c0
 /* Slot 0x178 is USequenceOp::DeActivated. When the player's dialogue options come next, the camera changes and the
  * options op linked from the exit output is told it may end; then the first output fires
  * (USequenceOp::ActivateOutputLink(0), inlined). */
 void URSeqAct_ConversationDialogue::DeActivated()
 {
-	if (((URSeqAct_ConversationDialogue__015850c0*)this)->eventIsOptionNext())
+	if (eventIsOptionNext())
 	{
-		((URSeqAct_ConversationDialogue__015850c0*)this)->eventChangeDialogueCamera();
+		eventChangeDialogueCamera();
 		FSeqOpOutputLink& ExitLink = OutputLinks(ExitOptionNo);
 		((URSeqAct_PlayerDialogueOptions*)ExitLink.Links(SavedLinkIndex).LinkedOp)->IsReadyToEnd = TRUE;
 	}

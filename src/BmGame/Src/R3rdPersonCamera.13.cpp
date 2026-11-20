@@ -269,40 +269,23 @@ void AR3rdPersonCamera::execApplyCameraModifiers(FFrame& Stack, RESULT_DECL)
 
 /* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
 #define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
-struct FRotator_ : public FRotator
-{
-	FRotator_(INT InPitch, INT InYaw, INT InRoll) { Pitch = InPitch; Yaw = InYaw; Roll = InRoll; }
-};
-
-
 // @baa 0x017095a0
 void AR3rdPersonCamera::execBlendToCameraTarget(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_OBJECT(AActor, Target);
 	P_GET_FLOAT(BlendTime);
 	P_GET_UBOOL_OPTX(bResetCam, FALSE);
-	P_GET_STRUCT_OPTX(FRotator, ResetRotation, FRotator_(0, 0, 0));
+	P_GET_STRUCT_OPTX(FRotator, ResetRotation, FRotator(0, 0, 0));
 	P_GET_UBOOL_OPTX(BlendBatmanRelativePosition, FALSE);
 	P_FINISH;
 	this->BlendToCameraTarget(Target, BlendTime, bResetCam, ResetRotation, BlendBatmanRelativePosition);
 }
 
 	/* BMGAME_SettingsChanged */
-/* Kit gaps: the script event's generated glue (BmGameClasses.h) and the native settings rebuild (0x01689170,
- * which derives the cached camera values from the edited angles). */
-struct AR3rdPersonCamera__016898e0 : public AR3rdPersonCamera
-{
-	void eventSettingsChanged()
-	{
-		ProcessEvent(FindFunctionChecked(g_026e25a8), NULL);
-	}
-	void UpdateCameraSettings();
-};
-
 // @baa 0x016898e0
 /* Editing a property refreshes the camera settings, script side first. */
 void AR3rdPersonCamera::PostEditChange(UProperty* PropertyThatChanged)
 {
-	((AR3rdPersonCamera__016898e0*)this)->eventSettingsChanged();
+	eventSettingsChanged();
 	this->UpdateCameraSettings();
 }

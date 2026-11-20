@@ -80,17 +80,11 @@ void UObjectThunk::sub_00ddd040()
     this->ProcessEvent(this->sub_005d7d10(g_026c5078, g_026c507c, 0), 0, 0);
 }
 
-/* FVector2D's component constructor (UnMath.h), which the kit's plain struct lacks */
-struct FVector2D_ : public FVector2D
-{
-	FVector2D_(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
-};
-
 // @baa 0x00ddd0f0
 /* The base client has no viewport: reports a zero size and fails. */
 UBOOL UUISceneClient::GetViewportSize(const UUIScene* Scene, FVector2D& out_ViewportSize)
 {
-	out_ViewportSize = FVector2D_(0.f, 0.f);
+	out_ViewportSize = FVector2D(0.f, 0.f);
 	return 0;
 }
 
@@ -98,7 +92,7 @@ UBOOL UUISceneClient::GetViewportSize(const UUIScene* Scene, FVector2D& out_View
 /* The base client reports a zero offset. */
 UINT UUISceneClient::vf_12c(UINT ViewportIndex, FLOAT* out_ViewportOffset)
 {
-	*(FVector2D*)out_ViewportOffset = FVector2D_(0.f, 0.f);
+	*(FVector2D*)out_ViewportOffset = FVector2D(0.f, 0.f);
 	return 1;
 }
 
@@ -121,7 +115,6 @@ INT UGameUISceneClient::ChangeActiveSkin(UUISkin* NewActiveSkin)
 	}
 	return FALSE;
 }
-
 
 // @baa 0x00de2670
 /* The active scene at this index of the scene stack, or NULL when the index is out of range. */

@@ -621,7 +621,6 @@ void ARPawnCharacter::ChangeIdleStanceWithoutTransition(FName Stance)
     *(FName*)((BYTE*)this + 0x464) = Stance;
 }
 
-
 // @baa 0x0166f640
 void ARPawnCharacter::AimAtActor(AActor* Actor, FName Description, FName ActorBoneName, BYTE AllowTurningToAim)
 {
@@ -1724,7 +1723,6 @@ INT C_0166da40::sub_0166da40(INT A)
     return A;
 }
 
-
 // @baa 0x0166fe20
 /* Where field-of-view checks look from: the FOV check bone when there's a mesh, else the pawn's location. */
 FVector ARPawnCharacter::GetFOVCheckLocation()
@@ -1736,15 +1734,6 @@ FVector ARPawnCharacter::GetFOVCheckLocation()
 	return Location;
 }
 
-/* Kit gap: FMatrix::GetOrigin (UnMath.h) isn't declared. */
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector GetOrigin() const
-	{
-		return FVector(WPlane.X, WPlane.Y, WPlane.Z);
-	}
-};
-
 // @baa 0x0166f7e0
 /* Where the anim node last put the head (world space); the origin when there's no anim node. */
 FVector ARPawnCharacter::GetHeadPosition()
@@ -1753,7 +1742,7 @@ FVector ARPawnCharacter::GetHeadPosition()
 	{
 		return FVector(0.f, 0.f, 0.f);
 	}
-	return ((const FMatrix_&)Anim->WorldSpaceAimingReferences.Head).GetOrigin();
+	return Anim->WorldSpaceAimingReferences.Head.GetOrigin();
 }
 
 // @baa 0x0166f820
@@ -1764,7 +1753,7 @@ FVector ARPawnCharacter::GetHeadPositionBeforeAdditive()
 	{
 		return FVector(0.f, 0.f, 0.f);
 	}
-	return ((const FMatrix_&)Anim->WorldSpaceAimingReferences.Head).GetOrigin();
+	return Anim->WorldSpaceAimingReferences.Head.GetOrigin();
 }
 
 struct C_Anim1e4
@@ -2140,16 +2129,6 @@ BYTE ARPawnCharacter::GetMoveToPhase()
 	return 0;
 }
 
-/* FVector's arithmetic (UnMath.h); the kit has none */
-struct FVector_ : public FVector
-{
-	FVector_() {}
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-	FVector_ operator+(const FVector& V) const { return FVector_(X + V.X, Y + V.Y, Z + V.Z); }
-	FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-	FVector_ operator*(FLOAT Scale) const { return FVector_(X * Scale, Y * Scale, Z * Scale); }
-};
-
 // @baa 0x0166a300
 void ARShimmyEdgeMarker::SetupEndPoints()
 {
@@ -2159,8 +2138,8 @@ void ARShimmyEdgeMarker::SetupEndPoints()
 	EdgeDir.Z = 0.f;
 	EdgeDir.Normalize();
 
-	const FVector_ HalfEdge = ((const FVector_&)EdgeDir) * HalfLength;
-	PointA = ((const FVector_&)Location) - HalfEdge;
+	const FVector HalfEdge = EdgeDir * HalfLength;
+	PointA = Location - HalfEdge;
 	PointB = HalfEdge + Location;
 }
 

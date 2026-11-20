@@ -1370,26 +1370,7 @@ void APawn::SetRemoteViewPitch(INT NewRemoteViewPitch)
     RemoteViewPitch = (BYTE)(NewRemoteViewPitch >> 8);
 }
 
-/* Kit gaps: FRotationMatrix (constructor out of line, 004029a0), FMatrix::TransformFVector/TransformFVector4
- * (UnMath.h), FVector's operator+ and operator!=, and FRotator's operator!= aren't declared. */
-
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector4 TransformFVector4(const FVector4& P) const
-	{
-		FVector4 Result;
-		Result.X = P.X * XPlane.X + P.Y * YPlane.X + P.Z * ZPlane.X + P.W * WPlane.X;
-		Result.Y = P.X * XPlane.Y + P.Y * YPlane.Y + P.Z * ZPlane.Y + P.W * WPlane.Y;
-		Result.Z = P.X * XPlane.Z + P.Y * YPlane.Z + P.Z * ZPlane.Z + P.W * WPlane.Z;
-		Result.W = P.X * XPlane.W + P.Y * YPlane.W + P.Z * ZPlane.W + P.W * WPlane.W;
-		return Result;
-	}
-	FORCEINLINE FVector4 TransformFVector(const FVector& V) const
-	{
-		return TransformFVector4(FVector4(V.X, V.Y, V.Z, 1.0f));
-	}
-};
-
+/* Member-wise vector and rotator arithmetic as this code spells it out (FVector plus an FVector4's XYZ, comparisons). */
 static FORCEINLINE FVector AddVectors(const FVector& A, const FVector4& B)
 {
 	return FVector(A.X + B.X, A.Y + B.Y, A.Z + B.Z);
@@ -1416,7 +1397,7 @@ FVector APawn::GetBasedPosition(FBasedPosition BP)
 		{
 			BP.CachedBaseLocation = BP.Base->Location;
 			BP.CachedBaseRotation = BP.Base->Rotation;
-			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix_&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
+			BP.CachedTransPosition = AddVectors(BP.Base->Location, ((const FMatrix&)FRotationMatrix(BP.Base->Rotation)).TransformFVector(BP.Position));
 		}
 		return BP.CachedTransPosition;
 	}
@@ -1474,7 +1455,6 @@ BYTE APawn::GetTeamNum()
     return 255;
 }
 
-
 // @baa 0x00865610
 void APawn::sub_00865610()
 {
@@ -1500,7 +1480,6 @@ FVector APawn::GetPawnViewLocation()
     return MakeVector(Location.X + EyeOffset.X, Location.Y + EyeOffset.Y, Location.Z + EyeOffset.Z);
 }
 
-
 // @baa 0x00866050
 FVector APawn::sub_00866050()
 {
@@ -1521,7 +1500,7 @@ UBOOL APawn::IsHumanControlled()
 /* APawn slot 0x1b8: UE3's IsLocalPlayerControlled(): locally controlled by a player controller. */
 UBOOL APawn::PlayerControlled()
 {
-    return ((APawn*)this)->IsLocallyControlled() && Controller && Controller->GetAPlayerController();
+    return IsLocallyControlled() && Controller && Controller->GetAPlayerController();
 }
 
 // @baa 0x00867b30
@@ -1545,19 +1524,13 @@ UBOOL APawn::AnchorNeedNotBeReachable()
     return FALSE;
 }
 
-/* Unnamed in the kit: UE3's APawn::IsHumanControlled() (0x00865070), inline here. */
-struct APawn__00869310 : public APawn
-{
-    FORCEINLINE UBOOL IsHumanControlled() { return Controller && Controller->GetAPlayerController(); }
-};
-
 // @baa 0x00869310
 /* APawn slot 0x444: UE3's APawn::MaxSpeedModifier(): AI pawns move at DesiredSpeed, crouching and walking scale it
  * down. */
 FLOAT APawn::MaxSpeedModifier()
 {
     FLOAT Result = 1.f;
-    if (!((APawn__00869310*)this)->IsHumanControlled())
+    if (!IsHumanControlled())
     {
         Result *= DesiredSpeed;
     }
@@ -1572,27 +1545,11 @@ FLOAT APawn::MaxSpeedModifier()
     return Result;
 }
 
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (ObjectFlags & Flags) != 0; }
-	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
-	{
-		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
-		{
-			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
-			{
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-};
-
 // @baa 0x00871a10
 /* Templates have no collision set up yet, so read the cylinder directly. */
 void APawn::GetBoundingCylinder(FLOAT& CollisionRadius, FLOAT& CollisionHeight)
 {
-	if (CylinderComponent != CollisionComponent && ((UObject_*)this)->IsTemplate() && CylinderComponent)
+	if (CylinderComponent != CollisionComponent && IsTemplate() && CylinderComponent)
 	{
 		CollisionRadius = CylinderComponent->CollisionRadius;
 		CollisionHeight = CylinderComponent->CollisionHeight;
@@ -1643,7 +1600,6 @@ UBOOL APawn::ReachedDestination(AActor* Goal)
 	}
 	return FALSE;
 }
-
 
 // @baa 0x007d70c0
 /* The controller gets the first chance to handle the bump. */
@@ -1708,7 +1664,7 @@ UBOOL APhysicsVolume::WillHurt(APawn* P)
 FLOAT APawn::DampenNoise(AActor* NoiseMaker, FLOAT Loudness, FName NoiseType)
 {
 	FLOAT DampeningFactor = 1.f;
-	if ((AActor*)NoiseMaker == this || ((AActor*)NoiseMaker)->Owner == this)
+	if ((AActor*)NoiseMaker == this || NoiseMaker->Owner == this)
 	{
 		DampeningFactor = Instigator->SoundDampening;
 	}

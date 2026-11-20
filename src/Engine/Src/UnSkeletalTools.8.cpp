@@ -3,8 +3,6 @@
 // Every function marked @baa compiles in this file to the original's bytes (python tools/asylum unit-check).
 #include "ue3/Classes.h"
 
-
-
 /* FSkelMeshSection (UnSkeletalMesh.h): a run of triangles of one LOD drawn with one material. Not in the kit. */
 struct FSkelMeshSection
 {
@@ -153,12 +151,6 @@ FSetElementId FNameIntPairSet::Add(const FPair& InElement, UBOOL* bIsAlreadyInSe
     return ElementId;
 }
 
-/* FString::Printf (0x005488a0) isn't declared in the kit. */
-struct FString_ : public FString
-{
-    static FString Printf(const TCHAR* Fmt, ...);
-};
-
 /* FStaticLODModel (UnSkeletalMesh.h): only GetTotalFaces (0x00951780) is used here. */
 struct FStaticLODModel
 {
@@ -175,10 +167,10 @@ FString USkeletalMesh::GetDetailedDescription(INT InIndex)
     switch (InIndex)
     {
     case 0:
-        Description = FString_::Printf(TEXT("%d Triangles"), ((TIndirectArray<FStaticLODModel>&)LODModels)(0).GetTotalFaces());
+        Description = FString::Printf(TEXT("%d Triangles"), ((TIndirectArray<FStaticLODModel>&)LODModels)(0).GetTotalFaces());
         break;
     case 1:
-        Description = FString_::Printf(TEXT("%d Bones"), RefSkeleton.Num());
+        Description = FString::Printf(TEXT("%d Bones"), RefSkeleton.Num());
         break;
     }
     return Description;

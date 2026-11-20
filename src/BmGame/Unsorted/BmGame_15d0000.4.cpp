@@ -23,37 +23,11 @@ FORCEINLINE FLOAT appInvSqrtSSE(FLOAT F)
 }
 
 #define SMALL_NUMBER (1.e-8f)
-/* Kit gap: FVector::SafeNormal2D (UnMath.h). */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector SafeNormal2D(FLOAT Tolerance = SMALL_NUMBER) const
-	{
-		const FLOAT SquareSum = X*X + Y*Y;
-		if (SquareSum == 1.f)
-		{
-			if (Z == 0.f)
-			{
-				return *this;
-			}
-			else
-			{
-				return FVector(X, Y, 0.f);
-			}
-		}
-		else if (SquareSum < Tolerance)
-		{
-			return FVector(0.f, 0.f, 0.f);
-		}
-		const FLOAT Scale = appInvSqrtSSE(SquareSum);
-		return FVector(X*Scale, Y*Scale, 0.f);
-	}
-};
-
 // @baa 0x015dd3a0
 /* The flat direction an attack step animation travels in, mirrored for mirrored combat. */
 FVector URBMBehaviour_Combat::GetStepDirection(UAnimSequence* Anim)
 {
-	FVector_ Direction = (FVector_&)Anim->LinearSpan;
+	FVector Direction = (FVector&)Anim->LinearSpan;
 	if (HostPawn->bCombatMirrored)
 	{
 		Direction.X *= -1.f;

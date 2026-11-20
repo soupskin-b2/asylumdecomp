@@ -289,15 +289,6 @@ INT UOnlineProfileSettings::SetProfileSettingValueFloat(INT ProfileSettingId, FL
 }
 
 /* FName's comparison (UnName.h); the kit's FName has none. */
-/* FString's operator* (UnString.h); the kit's FString has none. */
-struct FStringM_ : public FString
-{
-	FORCEINLINE const TCHAR* operator*() const
-	{
-		return Num() ? &(*this)(0) : TEXT("");
-	}
-};
-
 struct FSettingsData__00d72a10 : public FSettingsData
 {
 	FORCEINLINE void CleanUp()
@@ -358,7 +349,7 @@ INT UOnlineProfileSettings::SetProfileSettingValue(INT ProfileSettingId, const F
 					if (MetaData.MappingType == PVMT_IdMapped)
 					{
 						FName ValueName;
-						ValueName.sub_005d5620(*(const FStringM_&)NewValue, 1, TRUE);
+						ValueName.sub_005d5620(*(const FString&)NewValue, 1, TRUE);
 						for (INT Index = 0; Index < MetaData.ValueMappings.Num(); Index++)
 						{
 							const FIdToStringMapping& Mapping = MetaData.ValueMappings(Index);

@@ -1836,18 +1836,9 @@ FThreeWords& fwords_assign_helper(FThreeWords& A, const FThreeWords& B)
 	return A.sub_005c2e30(B);
 }
 
-struct FMatrix_ : public FMatrix
-{
-	FORCEINLINE FVector GetAxis(INT i) const
-	{
-		const FPlane& P = (&XPlane)[i];
-		return FVector(P.X, P.Y, P.Z);
-	}
-};
-
 // @baa 0x005c99e0
 /* UnMath.cpp: the rotation's forward axis. */
 FVector FRotator::Vector() const
 {
-	return ((const FMatrix_&)FRotationMatrix(*this)).GetAxis(0);
+	return ((const FMatrix&)FRotationMatrix(*this)).GetAxis(0);
 }

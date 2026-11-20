@@ -173,17 +173,11 @@ void C_008348f0::sub_008348f0(float In)
     Value = In;
 }
 
-/* FString::Printf (UnString.h, 005488a0) isn't declared in the kit. */
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, ...);
-};
-
 // @baa 0x0084af10
 /* vf_0b8 is GetDesc: shown in the editor's browser. */
 FString UMorphTargetSet::GetDesc()
 {
-	return FString_::Printf(TEXT("%d MorphTargets"), Targets.Num());
+	return FString::Printf(TEXT("%d MorphTargets"), Targets.Num());
 }
 
 // @baa 0x008343a0

@@ -755,22 +755,15 @@ UBOOL ARPontoonBase::AnimationPlaying()
 	return (AnimNode1 && AnimNode1->bPlaying) || (AnimNode2 && AnimNode2->bPlaying);
 }
 
-/* Slot 0x36c (unnamed in the kit): eases pitch and roll 5% of the way to TargetRotation (yaw is kept), noting
- * whether the pontoon has settled, then clears the target's pitch and roll. */
-struct FRotator_ : public FRotator
-{
-	FRotator_(const FRotator& R) : FRotator(R) {}
-};
-
 // @baa 0x016aca90
 void ARPontoonBase::UpdatePontoonForces()
 {
-	if (((FRotator_&)Rotation) != TargetRotation)
+	if (Rotation != TargetRotation)
 	{
 		FRotator NewRotation = Rotation;
 		NewRotation.Pitch += (INT)((TargetRotation.Pitch - NewRotation.Pitch) * 0.05f);
 		NewRotation.Roll += (INT)((TargetRotation.Roll - NewRotation.Roll) * 0.05f);
-		if (((FRotator_&)NewRotation) == Rotation)
+		if (NewRotation == Rotation)
 		{
 			bInPosition = TRUE;
 		}
@@ -783,7 +776,6 @@ void ARPontoonBase::UpdatePontoonForces()
 	TargetRotation.Pitch = 0;
 	TargetRotation.Roll = 0;
 }
-
 
 // @baa 0x016aa500
 void ARCinematicCameraActor::PreviewSetAnimPosition(FName SlotName, INT ChannelIndex, FName InAnimSeqName, FLOAT InPosition, UBOOL bLooping)

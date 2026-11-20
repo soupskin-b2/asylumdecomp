@@ -7,10 +7,6 @@
 
 /* the object flag ActorIsPendingKill tests in this build */
 
-struct AActor_ : public AActor {
-    UBOOL ActorIsPendingKill() { return bDeleteMe || this->HasAnyFlags(RF_PendingKill); }
-};
-
 // @baa 0x007693c0
 /** marks all components for which Owner is relevant for visibility as dirty, recursing to children */
 void MarkOwnerRelevantComponentsDirty(AActor* TheActor)
@@ -27,7 +23,7 @@ void MarkOwnerRelevantComponentsDirty(AActor* TheActor)
     // recurse to children
     for (INT i = 0; i < TheActor->Children.Num(); i++)
     {
-        AActor_* Child = (AActor_*)TheActor->Children(i);
+        AActor* Child = (AActor*)TheActor->Children(i);
         if (Child != NULL && !Child->ActorIsPendingKill())
         {
             MarkOwnerRelevantComponentsDirty(Child);

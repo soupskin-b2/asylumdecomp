@@ -267,18 +267,12 @@ void USeqAct_SetMatInstVectorParam::Activated()
 	}
 }
 
-/* FLinearColor's component constructor (UnMath.h), which the kit's plain struct lacks */
-struct FLinearColor_ : public FLinearColor
-{
-	FLinearColor_(FLOAT InR, FLOAT InG, FLOAT InB, FLOAT InA) { R = InR; G = InG; B = InB; A = InA; }
-};
-
 // @baa 0x008ac7b0
 /* Reads the material instance's ParamName vector parameter (black and transparent if missing). */
 void USeqAct_GetMatInstVectorParam::GetColour(FLinearColor& Colour)
 {
 	if (MatInst == NULL || !MatInst->GetVectorParameterValue(ParamName, Colour))
 	{
-		Colour = FLinearColor_(0.f, 0.f, 0.f, 0.f);
+		Colour = FLinearColor(0.f, 0.f, 0.f, 0.f);
 	}
 }

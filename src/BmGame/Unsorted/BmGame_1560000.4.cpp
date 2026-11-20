@@ -50,18 +50,6 @@ C_01563940* C_01563940::sub_01563940(INT P)
     return this;
 }
 
-/* Kit gap: FBoneAtom's member-wise operator= (UnSkeletalMesh.h). */
-struct FBoneAtom_ : public FBoneAtom
-{
-	FORCEINLINE FBoneAtom_& operator=(const FBoneAtom& Other)
-	{
-		Rotation = Other.Rotation;
-		Translation = Other.Translation;
-		Scale = Other.Scale;
-		return *this;
-	}
-};
-
 // @baa 0x0156d990
 /* Slot 0x19c: snapshots the mesh's current local bone atoms. */
 void URAnimNode_AnimCapture::Capture(USkeletalMeshComponent* SkelComp)
@@ -95,7 +83,7 @@ void URAnimNode_AnimCapture::GetBoneAtoms(TArray<FBoneAtom>& Atoms, const TArray
 	{
 		for (INT i = 0; i < SavedAtoms.Num() && i < Atoms.Num(); i++)
 		{
-			((TArray<FBoneAtom_>&)Atoms)(i) = ((TArray<FBoneAtom>&)SavedAtoms)(i);
+			((TArray<FBoneAtom>&)Atoms)(i) = ((TArray<FBoneAtom>&)SavedAtoms)(i);
 		}
 	}
 }

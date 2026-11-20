@@ -9,17 +9,12 @@
 /* UnMath.h */
 #define INV_PI (0.31830988618379067154)
 
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) : FVector(InX, InY, InZ) {}
-};
-
 struct FMatrix_ : public FMatrix
 {
-	FORCEINLINE FVector_ GetAxis(INT i) const
+	FORCEINLINE FVector GetAxis(INT i) const
 	{
 		const FLOAT (*M)[4] = (const FLOAT (*)[4])&XPlane;	/* UnMath.h's FLOAT M[4][4] */
-		return FVector_(M[i][0], M[i][1], M[i][2]);
+		return FVector(M[i][0], M[i][1], M[i][2]);
 	}
 	FRotator Rotator() const; /* 0x005c3fc0 */
 };
@@ -29,16 +24,16 @@ struct FMatrix_ : public FMatrix
  * hence the casts: the products are rounded to float before the double INV_PI multiply. */
 FRotator FMatrix_::Rotator() const
 {
-	const FVector_ XAxis = GetAxis(0);
-	const FVector_ YAxis = GetAxis(1);
-	const FVector_ ZAxis = GetAxis(2);
+	const FVector XAxis = GetAxis(0);
+	const FVector YAxis = GetAxis(1);
+	const FVector ZAxis = GetAxis(2);
 
 	FRotator Rotator = FRotator(
 		appRound((FLOAT)appAtan2(XAxis.Z, appSqrt(Square(XAxis.X) + Square(XAxis.Y))) * 32768.f * INV_PI),
 		appRound((FLOAT)appAtan2(XAxis.Y, XAxis.X) * 32768.f * INV_PI),
 		0);
 
-	const FVector_ SYAxis = ((const FMatrix_&)FRotationMatrix(Rotator)).GetAxis(1);
+	const FVector SYAxis = ((const FMatrix_&)FRotationMatrix(Rotator)).GetAxis(1);
 	Rotator.Roll = appRound((FLOAT)appAtan2(ZAxis | SYAxis, YAxis | SYAxis) * 32768.f * INV_PI);
 	return Rotator;
 }

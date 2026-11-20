@@ -4,7 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Script.h"
 
-
 // @baa 0x00c82ec0
 void AActor::execPlayerCanSeeMe( FFrame& Stack, RESULT_DECL )
 {
@@ -52,7 +51,6 @@ void APlayerController::execHasClientLoadedCurrentWorld( FFrame& Stack, RESULT_D
 	P_FINISH;
 	*(UBOOL*)Result = HasClientLoadedCurrentWorld();
 }
-
 
 // @baa 0x00c87630
 void APlayerController::execClientFlushLevelStreaming( FFrame& Stack, RESULT_DECL )
@@ -400,34 +398,16 @@ void AController::execRouteCache_RemoveIndex(FFrame& Stack, RESULT_DECL)
     RouteCache_RemoveIndex(InIndex, Count);
 }
 
-/* Kit gaps: GetPlayerControllerFromNetId (007a1eb0) isn't declared (names from the exe's native table). */
-/* FUniqueNetId's copy constructor (UnrealScript struct cpptext), which the kit's plain struct lacks. */
-struct FUniqueNetId_ : public FUniqueNetId
-{
-	FORCEINLINE FUniqueNetId_(const FUniqueNetId& Other) { Uid = Other.Uid; }
-};
-
-struct APlayerController__00c876e0 : public APlayerController
-{
-	class APlayerController* GetPlayerControllerFromNetId(FUniqueNetId_ PlayerNetId);	/* 0x007a1eb0 */
-};
-
 // @baa 0x00c876e0
 void APlayerController::execGetPlayerControllerFromNetId(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_STRUCT(FUniqueNetId, PlayerNetId);
 	P_FINISH;
-	*(class APlayerController**)Result = ((APlayerController__00c876e0*)this)->GetPlayerControllerFromNetId(PlayerNetId);
+	*(class APlayerController**)Result = GetPlayerControllerFromNetId(PlayerNetId);
 }
 
 /* Kit gap: Script.h lacks UE3's P_GET_STRUCT_OPTX (UnScript.h); the struct constructors (UnMath.h) build the defaults. */
 #define P_GET_STRUCT_OPTX(t, v, d) t v; GRuntimeUCFlags &= ~RUC_SkippedOptionalParm; Stack.Step(Stack.Object, &v); if (GRuntimeUCFlags & RUC_SkippedOptionalParm) v = d;
-struct FVector_ : public FVector
-{
-	FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
-
 // @baa 0x00c82c40
 void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)
 {
@@ -435,7 +415,7 @@ void AActor::execCreateAudioComponent(FFrame& Stack, RESULT_DECL)
 	P_GET_UBOOL_OPTX(bPlay, FALSE);
 	P_GET_UBOOL_OPTX(bStopWhenOwnerDestroyed, FALSE);
 	P_GET_UBOOL_OPTX(bUseLocation, FALSE);
-	P_GET_STRUCT_OPTX(FVector, SourceLocation, FVector_(0.f, 0.f, 0.f));
+	P_GET_STRUCT_OPTX(FVector, SourceLocation, FVector(0.f, 0.f, 0.f));
 	P_GET_UBOOL_OPTX(bAttachToSelf, TRUE);
 	P_FINISH;
 	*(class UAudioComponent**)Result = this->CreateAudioComponent(InSoundCue, bPlay, bStopWhenOwnerDestroyed, bUseLocation, SourceLocation, bAttachToSelf);

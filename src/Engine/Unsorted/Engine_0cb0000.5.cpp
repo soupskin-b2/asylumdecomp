@@ -14,18 +14,12 @@ extern void* g_026667a8;
 extern TCHAR g_01e3f3dc[];
 int sub_00630f20(void*, const TCHAR*, ...);
 
-struct UUISkin_ : public UUISkin
-{
-    /* IsInheritedGroupName(const FString& StyleGroupName); Classes.h doesn't declare it. */
-    UBOOL IsInheritedGroupName(const FString& StyleGroupName);
-};
-
 // @baa 0x00cbd5c0
 void UUISkin::execIsInheritedGroupName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_STR(StyleGroupName);
     P_FINISH;
-    *(UBOOL*)Result = ((UUISkin_*)this)->IsInheritedGroupName(StyleGroupName);
+    *(UBOOL*)Result = IsInheritedGroupName(StyleGroupName);
 }
 
 // @baa 0x00cbd680
@@ -60,25 +54,13 @@ void UUISkin::execGetStyleGroupAtIndex(FFrame& Stack, RESULT_DECL)
     *(FString*)Result = this->GetStyleGroupAtIndex(Index);
 }
 
-struct AWorldInfo_ : public AWorldInfo
-{
-    /* FString GetMapName(UBOOL bIncludePrefix); Classes.h doesn't declare it. */
-    FString GetMapName(UBOOL bIncludePrefix);
-};
-
 // @baa 0x00cb8130
 void AWorldInfo::execGetMapName(FFrame& Stack, RESULT_DECL)
 {
     P_GET_UBOOL_OPTX(bIncludePrefix, FALSE);
     P_FINISH;
-    *(FString*)Result = ((AWorldInfo_*)this)->GetMapName(bIncludePrefix);
+    *(FString*)Result = GetMapName(bIncludePrefix);
 }
-
-struct UUIDataProvider_ : public UUIDataProvider
-{
-    /* UBOOL GetProviderFieldType(const FString& DataTag, BYTE& out_ProviderFieldType); Classes.h doesn't declare it. */
-    UBOOL GetProviderFieldType(const FString& DataTag, BYTE& out_ProviderFieldType);
-};
 
 // @baa 0x00cbd210
 void UUIDataProvider::execGetProviderFieldType(FFrame& Stack, RESULT_DECL)
@@ -86,7 +68,7 @@ void UUIDataProvider::execGetProviderFieldType(FFrame& Stack, RESULT_DECL)
     P_GET_STR(DataTag);
     P_GET_BYTE_REF(out_ProviderFieldType);
     P_FINISH;
-    *(UBOOL*)Result = ((UUIDataProvider_*)this)->GetProviderFieldType(DataTag, out_ProviderFieldType);
+    *(UBOOL*)Result = GetProviderFieldType(DataTag, out_ProviderFieldType);
 }
 
 // @baa 0x00cbd800

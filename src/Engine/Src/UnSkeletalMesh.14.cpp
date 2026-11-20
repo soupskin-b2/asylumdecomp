@@ -81,12 +81,6 @@ struct FGPUSkinVertexFloat32Uvs : public FGPUSkinVertexBase
     FVector2D UV;
 };
 
-/* FVector2D's constructor (UnMath.h); the kit's FVector2D has none */
-struct FVector2D_ : public FVector2D
-{
-    FVector2D_(FLOAT InX, FLOAT InY) { X = InX; Y = InY; }
-};
-
 /* FMatrix's basis constructor and Determinant (UnMath.h, out of line here 0x00649b30) */
 struct FMatrix_ : public FMatrix
 {
@@ -163,6 +157,6 @@ void FSkeletalMeshVertexBuffer::SetVertex(UINT VertexIndex, const FSoftSkinVerte
     }
     else
     {
-        ((FGPUSkinVertexFloat32Uvs*)DestVertex)->UV = FVector2D_(SrcVertex.U, SrcVertex.V);
+        ((FGPUSkinVertexFloat32Uvs*)DestVertex)->UV = FVector2D(SrcVertex.U, SrcVertex.V);
     }
 }

@@ -5,14 +5,8 @@
 #include "ue3/Script.h"
 
 extern FName g_026ccb94;
-// A parameterless UnrealScript event that returns an int: the generated glue, out of line here.
-struct UObject_ : public UObject
-{
-    INT eventScriptCall();
-};
-
 // @baa 0x00f4dcd0
-INT UObject_::eventScriptCall()
+INT UObject::eventScriptCall()
 {
     struct ScriptCall_Parms
     {

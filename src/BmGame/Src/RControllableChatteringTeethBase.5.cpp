@@ -4,15 +4,6 @@
 #include "ue3/Classes.h"
 #include "ue3/Cast.h"
 
-/* Kit gap: FVector's inline operators (UnMath.h) aren't declared. */
-struct FVector_ : public FVector
-{
-	FORCEINLINE FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-	FORCEINLINE FVector_ operator-(const FVector& V) const { return FVector_(X - V.X, Y - V.Y, Z - V.Z); }
-	FORCEINLINE FLOAT SizeSquared() const { return X * X + Y * Y + Z * Z; }
-};
-
-
 // @baa 0x0171f1a0
 /* Whether any villain in the current room is near enough (feet to feet) for the teeth to explode on their own. */
 UBOOL ARControllableChatteringTeethBase::sub_0171f1a0()
@@ -28,7 +19,7 @@ UBOOL ARControllableChatteringTeethBase::sub_0171f1a0()
 				const INT NumControllers = RoomAIState->ControllerList.Num();
 				if (NumControllers > 0)
 				{
-					const FVector_ TeethFeet = ((const FVector_&)Location) - FVector_(0.f, 0.f, CylinderComponent->CollisionHeight);
+					const FVector TeethFeet = Location - FVector(0.f, 0.f, CylinderComponent->CollisionHeight);
 					const FLOAT MinDistSq = MinVillainDistanceBeforeAutoExplode * MinVillainDistanceBeforeAutoExplode;
 					for (INT i = 0; i < NumControllers; i++)
 					{
@@ -38,7 +29,7 @@ UBOOL ARControllableChatteringTeethBase::sub_0171f1a0()
 							ARPawnVillain* Villain = Cast<ARPawnVillain>(AIController->Pawn);
 							if (Villain)
 							{
-								const FVector_ VillainFeet = ((const FVector_&)Villain->Location) - FVector_(0.f, 0.f, Villain->CylinderComponent->CollisionHeight);
+								const FVector VillainFeet = Villain->Location - FVector(0.f, 0.f, Villain->CylinderComponent->CollisionHeight);
 								if ((VillainFeet - TeethFeet).SizeSquared() <= MinDistSq)
 								{
 									return TRUE;

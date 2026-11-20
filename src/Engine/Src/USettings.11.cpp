@@ -11,19 +11,10 @@ struct FStringO_ : public FString
 	const TCHAR* operator*() const; /* 0x00439b40 */
 };
 
-struct FSettingsData_ : public FSettingsData
-{
-	void SetData(INT InData); /* 0x00d6e2e0 */
-	void SetData(DOUBLE InData); /* 0x00d6e320 */
-	void SetData(FLOAT InData); /* 0x00d6e350 */
-	void SetData(const FString& InString); /* 0x00d6e290 */
-	UBOOL FromString(const FString& NewData);
-};
-
 // @baa 0x00d6e4a0
 /* Parses NewData into this value, keeping its type; FALSE for types that can't be parsed (64-bit ints, blobs,
  * dates and empty values). */
-UBOOL FSettingsData_::FromString(const FString& NewData)
+UBOOL FSettingsData::FromString(const FString& NewData)
 {
 	switch (Type)
 	{

@@ -39,7 +39,6 @@ void USeqAct_Latent::execAbortFor(FFrame& Stack, RESULT_DECL)
 	AbortFor(latentActor);
 }
 
-
 // @baa 0x00c980a0
 void USequenceObject::execGetWorldInfo(FFrame& Stack, RESULT_DECL)
 {
@@ -88,19 +87,13 @@ void USequenceOp::execActivateOutputLink(FFrame& Stack, RESULT_DECL)
 	*(UBOOL*)Result = this->ActivateOutputLink(OutputIdx);
 }
 
-struct USequence_ : public USequence
-{
-	void SetEnabled(UBOOL);
-};
-
 // @baa 0x00c982e0
 void USequence::execSetEnabled(FFrame& Stack, RESULT_DECL)
 {
 	P_GET_UBOOL(bInEnabled);
 	P_FINISH;
-	((USequence_*)this)->SetEnabled(bInEnabled);
+	SetEnabled(bInEnabled);
 }
-
 
 // @baa 0x00cbc690
 void USequenceOp::execActivateNamedOutputLink(FFrame& Stack, RESULT_DECL)
@@ -130,23 +123,10 @@ void USequence::execFindSeqObjectsByName(FFrame& Stack, RESULT_DECL)
 	FindSeqObjectsByName(SeqObjName, bCheckComment, OutputObjects, bRecursive);
 }
 
-/* UStruct::IsChildOf isn't declared in Classes.h; this is UE3's inline body. */
-struct UClass_ : public UClass
-{
-	UBOOL IsChildOf( const UField* SomeBase ) const
-	{
-		for ( const UField* Struct = this; Struct; Struct = Struct->SuperField )
-			if ( Struct == SomeBase )
-				return 1;
-		return 0;
-	}
-};
-
-
 // @baa 0x009066d0
 void USequence::execFindSeqObjectsByClass( FFrame& Stack, RESULT_DECL )
 {
-	P_GET_OBJECT(UClass_, DesiredClass);
+	P_GET_OBJECT(UClass, DesiredClass);
 	P_GET_UBOOL(bRecursive);
 	P_GET_TARRAY_REF(USequenceObject*, OutputObjects);
 	P_FINISH;

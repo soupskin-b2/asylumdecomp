@@ -5,19 +5,13 @@
 #include "ue3/Array.h"
 #include "ue3/AppMath.h"
 
-/* FVector's subtraction and Size() (UnMath.h); the kit's FVector has neither. */
-struct FVector_ : public FVector
-{
-    FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
-};
-
 // @baa 0x008e83a0
 UBOOL USeqEvent_AISeeEnemy::CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop)
 {
     // only activate if the enemy is within sight distance (when one is set)
     if (InOriginator != NULL && InInstigator != NULL &&
         (MaxSightDistance <= 0.f ||
-         (((const FVector_&)InOriginator->Location) - InInstigator->Location).Size() <= MaxSightDistance))
+         (InOriginator->Location - InInstigator->Location).Size() <= MaxSightDistance))
     {
         return Super::CheckActivate(InOriginator, InInstigator, bTest, ActivateIndices, bPushTop);
     }

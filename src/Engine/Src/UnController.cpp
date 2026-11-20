@@ -94,20 +94,13 @@ IMPLEMENT_CLASS_AT(UCheatManager, "e:\\Projects\\Amadeus\\AA\\Game\\UnrealEngine
 // @baa 0x007ac450
 
 /* EName entries Core.h doesn't list yet (UnNames.h) */
-/* FName(EName) as UE3 has it (the kit's FName is an aggregate) */
-struct FName_ : public FName { FName_(INT N) { Index = N; Number = 0; } };
-
-struct AController_ : public AController {
-    UBOOL IsProbing(FName_ ProbeName); // UObject::IsProbing (0058f750)
-};
-
 // @baa 0x007a1600
 UBOOL AController::ShouldCheckVisibilityOf(AController* C)
 {
     // only check visibility if one of the two is a player, and the sight counter allows it
     if ((bIsPlayer || C->bIsPlayer) && SightCounter < 0.f)
     {
-        if (C->bIsPlayer ? ((AController_*)this)->IsProbing(NAME_SeePlayer) : ((AController_*)this)->IsProbing(NAME_SeeMonster))
+        if (C->bIsPlayer ? IsProbing(NAME_SeePlayer) : IsProbing(NAME_SeeMonster))
         {
             // don't check visibility of team members unless we want to see friendlies
             if (!bSeeFriendly && (!WorldInfo->Game || WorldInfo->Game->bTeamGame)

@@ -5,22 +5,13 @@
 #include "ue3/Classes.h"
 #include "ue3/Array.h"
 
-/* Kit gaps: FString::operator* (plain inline in UnString.h), FString::Printf (this unit's copy at 0x005495f0)
- * and GLog (0x025d53e8). */
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, ...);
-};
-
-extern FOutputDevice* g_025d53e8;
 // @baa 0x01699eb0
-	/* GLog */
 /* Forwards the Trioviz (stereoscopic 3D) setting to the engine's console command. */
 void ARGameInfo::SetTrioviz(const FString& Value)
 {
 	FString Command;
-	Command = FString_::Printf(TEXT("Trioviz %s"), *(const FString_&)Value);
-	GEngine->Exec(*(const FString_&)Command, *g_025d53e8);
+	Command = FString::Printf(TEXT("Trioviz %s"), *(const FString&)Value);
+	GEngine->Exec(*(const FString&)Command, *GLog);
 }
 
 #line 50 "candidate.cpp"

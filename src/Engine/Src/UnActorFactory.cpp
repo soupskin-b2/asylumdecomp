@@ -984,28 +984,12 @@ void UPrimitiveComponent::sub_009ff9a0(FRBCollisionChannelContainer Channels)
     SetRBChannel();
 }
 
-struct UObject_ : public UObject
-{
-	FORCEINLINE UBOOL HasAnyFlags(QWORD Flags) const { return (ObjectFlags & Flags) != 0; }
-	FORCEINLINE UBOOL IsTemplate(QWORD TemplateTypes = (RF_ArchetypeObject | RF_ClassDefaultObject)) const
-	{
-		for (const UObject* TestOuter = this; TestOuter; TestOuter = TestOuter->Outer)
-		{
-			if (((const UObject_*)TestOuter)->HasAnyFlags(TemplateTypes))
-			{
-				return TRUE;
-			}
-		}
-		return FALSE;
-	}
-};
-
 // @baa 0x00c4cf90
 /* Slot 0x14: on real (non-template) factories, defaults SkeletalMesh to the physics asset's
  * DefaultSkelMesh. */
 void UActorFactoryPhysicsAsset::PreSave()
 {
-	if (!((UObject_*)this)->IsTemplate())
+	if (!IsTemplate())
 	{
 		if (!SkeletalMesh && PhysicsAsset && PhysicsAsset->DefaultSkelMesh)
 		{

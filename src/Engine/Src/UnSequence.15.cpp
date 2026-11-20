@@ -7,13 +7,8 @@
 /* USequenceEvent::CheckActivate (vtable 0x198, declared only as vf_198), called here non-virtually as Super::. */
 
 /* USeqEvent_Touch's override of that slot. */
-struct USeqEvent_Touch_ : public USeqEvent_Touch
-{
-	UBOOL CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop);
-};
-
 // @baa 0x008be740
-UBOOL USeqEvent_Touch_::CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop)
+UBOOL USeqEvent_Touch::CheckActivate(AActor* InOriginator, AActor* InInstigator, UBOOL bTest, TArray<INT>* ActivateIndices, UBOOL bPushTop)
 {
 	UBOOL bPassed = FALSE;
 	if (bEnabled && InInstigator != NULL)

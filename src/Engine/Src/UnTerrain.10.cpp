@@ -32,15 +32,10 @@ struct FPixelFormatInfo
 
 extern FPixelFormatInfo g_025da760[];
 #define GPixelFormats g_025da760
-struct FString_ : public FString
-{
-	static FString Printf(const TCHAR* Fmt, INT A, INT B, const TCHAR* C);
-};
-
 // @baa 0x009917d0
 FString UTerrainWeightMapTexture::GetDesc()
 {
-	return FString_::Printf(TEXT("WeightMap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
+	return FString::Printf(TEXT("WeightMap: %dx%d [%s]"), SizeX, SizeY, GPixelFormats[Format].Name);
 }
 
 // @baa 0x00982010
@@ -78,7 +73,6 @@ struct FTerrainInfoData_
     BYTE Data;
     UBOOL IsVisible() const { return !(Data & TID_Visibility_Off); }
 };
-
 
 // @baa 0x0098be90
 /* UE3's ATerrain::IsTerrainComponentVisible: whether any vertex in the area is visible. */
@@ -131,7 +125,6 @@ UBOOL ATerrain__0098bf00::IsTerrainComponentVisible(UTerrainComponent* InCompone
     return FALSE;
 }
 
-
 // @baa 0x0098caf0
 /* The index of the selected vertex at (X, Y), handing back the entry itself; INDEX_NONE when it isn't selected. */
 INT ATerrain::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& OutVertex)
@@ -149,7 +142,6 @@ INT ATerrain::FindSelectedVertexInList(INT X, INT Y, FSelectedTerrainVertex*& Ou
 }
 
 #line 224 "candidate.cpp"
-
 
 // @baa 0x0098bb70
 /* Whether the vertex (quad) at (X, Y) is visible. */

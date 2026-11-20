@@ -612,7 +612,6 @@ UBOOL RemoveAdjacentDuplicates(TArray<BYTE> Array)
     return TRUE;
 }
 
-
 // @baa 0x0091fad0
 /* index of the instanced vertex weight entry for this pair of bones (in either order), or INDEX_NONE */
 INT USkeletalMeshComponent::FindInstanceVertexweightBonePair(const FBonePair& Bones) const
@@ -642,23 +641,11 @@ public:
 template void Sort<BYTE, CompareUnSkeletalComponentBYTEConstRef>(BYTE* First, INT Num);
 
 class FSceneInterface;
-/* FMatrix::operator* (UnMath.h, out of line at 0x0058e560); the kit's FMatrix has no methods. */
-struct FMatrix_ : public FMatrix
-{
-    FMatrix operator*(const FMatrix& Other) const;
-};
-
 /* FScaleRotationTranslationMatrix (UnMath.h); constructor out of line at 0x006d8130. */
-class FScaleRotationTranslationMatrix : public FMatrix_
+class FScaleRotationTranslationMatrix : public FMatrix
 {
 public:
     FScaleRotationTranslationMatrix(const FVector& Scale, const FRotator& Rot, const FVector& Origin);
-};
-
-/* FVector(X,Y,Z) and IsZero (UnMath.h) */
-struct FVector_ : public FVector
-{
-    FVector_(FLOAT InX, FLOAT InY, FLOAT InZ) { X = InX; Y = InY; Z = InZ; }
 };
 
 inline UBOOL IsZero(const FVector& V) { return V.X == 0.0f && V.Y == 0.0f && V.Z == 0.0f; }
@@ -691,9 +678,9 @@ void USkeletalMeshComponent__0091c910::UpdateChildComponents()
         if (Attachment.Component && BoneIndex != INDEX_NONE && BoneIndex < SpaceBases.Num())
         {
             // a zero scale means unscaled
-            const FVector RelativeScale = IsZero(Attachment.RelativeScale) ? (const FVector&)FVector_(1.0f, 1.0f, 1.0f) : Attachment.RelativeScale;
+            const FVector RelativeScale = IsZero(Attachment.RelativeScale) ? (const FVector&)FVector(1.0f, 1.0f, 1.0f) : Attachment.RelativeScale;
 
-            const FMatrix ParentToWorld = (const FMatrix_&)(FScaleRotationTranslationMatrix(RelativeScale, Attachment.RelativeRotation, Attachment.RelativeLocation) * SpaceBases(BoneIndex)) * LocalToWorld;
+            const FMatrix ParentToWorld = (const FMatrix&)(FScaleRotationTranslationMatrix(RelativeScale, Attachment.RelativeRotation, Attachment.RelativeLocation) * SpaceBases(BoneIndex)) * LocalToWorld;
 
             SetAttachmentOwnerVisibility(Attachment.Component);
             Attachment.Component->UpdateComponent((FSceneInterface*)Scene.Dummy, /* Scene is an FSceneInterface* (script FPointer) */ Owner, ParentToWorld);

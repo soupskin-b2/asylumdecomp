@@ -740,18 +740,9 @@ undefined4 * C_00d5e810::sub_00d5e810(undefined4 param_2, undefined4 param_3, un
   return param_1;
 }
 
-
-
-
 inline FArchive& operator<<(FArchive& Ar, FVector& V) { return Ar << V.X << V.Y << V.Z; }
 
 inline FArchive& operator<<(FArchive& Ar, FQuat& F) { return Ar << F.X << F.Y << F.Z << F.W; }
-
-/* FColor(R, G, B, A) (UnMath.h); the kit's FColor has no constructor. */
-struct FColor_ : public FColor
-{
-    FColor_(BYTE InR, BYTE InG, BYTE InB, BYTE InA) { B = InB; G = InG; R = InR; A = InA; }
-};
 
 FArchive& operator<<(FArchive& Ar, VJointPos& V);
  /* 0x00943a60 */
@@ -766,7 +757,7 @@ FArchive& operator<<(FArchive& Ar, FMeshBone& F)
     Ar << F.Name << F.Flags << F.BonePos << F.NumChildren << F.ParentIndex;
     if (Ar.IsLoading() && Ar.Ver() < VER_ADDED_BONE_COLOR)
     {
-        F.BoneColor = FColor_(255, 255, 255, 255);
+        F.BoneColor = FColor(255, 255, 255, 255);
     }
     else
     {

@@ -32,25 +32,18 @@ void USeqAct_Delay::Activated()
     LastUpdateTime = GWorld->GetWorldInfo()->TimeSeconds;
 }
 
-
 // @baa 0x008aba50
 AWorldInfo* USequenceObject::GetWorldInfo()
 {
     return GWorld ? GWorld->GetWorldInfo() : NULL;
 }
 
-/* UWorld::GetNetMode (0x009c84b0) isn't declared in Classes.h. */
-struct UWorld_ : public UWorld
-{
-    ENetMode GetNetMode();
-};
-
 /* slot 0x174 (vf_174) is USequenceOp::Activated */
 
 // @baa 0x008c0110
 void USeqCond_GetServerType::Activated()
 {
-    switch (((UWorld_*)GWorld)->GetNetMode())
+    switch (GWorld->GetNetMode())
     {
     case NM_Standalone:
         OutputLinks(0).bHasImpulse = TRUE;
@@ -63,7 +56,6 @@ void USeqCond_GetServerType::Activated()
         break;
     }
 }
-
 
 // @baa 0x008ac0e0
 /* TRUE once the streaming level has finished its pending load/unload (and become visible if requested) */

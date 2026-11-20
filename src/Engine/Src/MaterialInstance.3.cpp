@@ -31,14 +31,6 @@ undefined4 C_0072dd00::sub_0072dd00(byte param_2)
   return param_1;
 }
 
-/* Kit gaps: UObject::GetName() (0x0043bbb0) isn't declared, and FString's comparison with a string (UnString.h,
- * out of line here at 0x00544cf0) is missing. */
-
-struct FString_ : public FString
-{
-    UBOOL operator==(const TCHAR* Other) const; /* 0x00544cf0 */
-};
-
 // @baa 0x006bc530
 /* Clearing the parent leaves nothing to build a static permutation from. */
 void UMaterialInstance::PostEditChange(UProperty* PropertyThatChanged)
@@ -46,7 +38,7 @@ void UMaterialInstance::PostEditChange(UProperty* PropertyThatChanged)
     Super::PostEditChange(PropertyThatChanged);
     if (PropertyThatChanged)
     {
-        if ((FString_&)PropertyThatChanged->GetName() == TEXT("Parent"))
+        if ((FString&)PropertyThatChanged->GetName() == TEXT("Parent"))
         {
             if (Parent == NULL)
             {

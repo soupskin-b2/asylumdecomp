@@ -208,12 +208,6 @@ void UObject::execLen(FFrame& Stack, RESULT_DECL)
 	*(INT*)Result = S.Len();
 }
 
-/* Kit gap: FString::Mid (out of line here, 0x0054dd30). */
-struct FString__005abb50 : public FString
-{
-	FString Mid(INT Start, INT Count = MAXINT) const;
-};
-
 // @baa 0x005abb50
 /* Mid(string S, int i, optional int j): up to j characters of S starting at i. */
 void UObject::execMid(FFrame& Stack, RESULT_DECL)
@@ -222,14 +216,8 @@ void UObject::execMid(FFrame& Stack, RESULT_DECL)
 	P_GET_INT(I);
 	P_GET_INT_OPTX(J, MAXINT);
 	P_FINISH;
-	*(FString*)Result = ((const FString__005abb50&)S).Mid(I, J);
+	*(FString*)Result = S.Mid(I, J);
 }
-
-/* Kit gap: FString::Left (out of line here, 0x0054daf0). */
-struct FString__005abc70 : public FString
-{
-	FString Left(INT Count) const;
-};
 
 // @baa 0x005abc70
 /* Left(string S, int i): the leftmost i characters of S. */
@@ -238,14 +226,8 @@ void UObject::execLeft(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(S);
 	P_GET_INT(I);
 	P_FINISH;
-	*(FString*)Result = ((const FString__005abc70&)S).Left(I);
+	*(FString*)Result = S.Left(I);
 }
-
-/* Kit gap: FString::Right (out of line here, 0x0054dc90). */
-struct FString__005abd60 : public FString
-{
-	FString Right(INT Count) const;
-};
 
 // @baa 0x005abd60
 /* Right(string S, int i): the rightmost i characters of S. */
@@ -254,14 +236,8 @@ void UObject::execRight(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(S);
 	P_GET_INT(I);
 	P_FINISH;
-	*(FString*)Result = ((const FString__005abd60&)S).Right(I);
+	*(FString*)Result = S.Right(I);
 }
-
-/* Kit gap: FString::operator+=(const FString&) (out of line here, 0x0056a4b0). */
-struct FString__005a4aa0 : public FString
-{
-	FString__005a4aa0& operator+=(const FString& Str);
-};
 
 // @baa 0x005a4aa0
 /* string $= string: appends B to A in place and yields the result. */
@@ -270,15 +246,8 @@ void UObject::execConcatEqual_StrStr(FFrame& Stack, RESULT_DECL)
 	P_GET_STR_REF(A);
 	P_GET_STR(B);
 	P_FINISH;
-	*(FString*)Result = ((FString__005a4aa0&)A) += B;
+	*(FString*)Result = A += B;
 }
-
-/* Kit gaps: FString::operator+= for a TCHAR string (0x00544b60) and for an FString (0x0056a4b0), out of line here. */
-struct FString__005a4bb0 : public FString
-{
-	FString__005a4bb0& operator+=(const TCHAR* Str);
-	FString__005a4bb0& operator+=(const FString& Str);
-};
 
 // @baa 0x005a4bb0
 /* string @= string: appends a space and then B to A in place, and yields the result. */
@@ -287,14 +256,9 @@ void UObject::execAtEqual_StrStr(FFrame& Stack, RESULT_DECL)
 	P_GET_STR_REF(A);
 	P_GET_STR(B);
 	P_FINISH;
-	((FString__005a4bb0&)A) += TEXT(" ");
-	*(FString*)Result = ((FString__005a4bb0&)A) += B;
+	A += TEXT(" ");
+	*(FString*)Result = A += B;
 }
-
-struct UObject__005a69f0 : public UObject
-{
-	static UObject* StaticFindObject(UClass* Class, UObject* InOuter, const TCHAR* Name, UBOOL ExactClass = 0);
-};
 
 // @baa 0x005a69f0
 /* FindObject(string ObjectName, class ObjectClass): looks an already loaded object up by its path name. */
@@ -303,7 +267,7 @@ void UObject::execFindObject(FFrame& Stack, RESULT_DECL)
 	P_GET_STR(ObjectName);
 	P_GET_OBJECT(UClass, ObjectClass);
 	P_FINISH;
-	*(UObject**)Result = UObject__005a69f0::StaticFindObject(ObjectClass, NULL, *ObjectName, FALSE);
+	*(UObject**)Result = UObject::StaticFindObject(ObjectClass, NULL, *ObjectName, FALSE);
 }
 
 // @baa 0x005a6b00

@@ -23,33 +23,14 @@ FORCEINLINE FLOAT appInvSqrtSSE(FLOAT F)
     return temp;
 }
 
-/* Kit gap: FVector's SizeSquared, SafeNormal and operator*= (UnMath.h). */
-struct FVector_ : public FVector
-{
-    FORCEINLINE FVector SafeNormal(FLOAT Tolerance = SMALL_NUMBER) const
-    {
-        const FLOAT SquareSum = X*X + Y*Y + Z*Z;
-        if (SquareSum == 1.f)
-        {
-            return *this;
-        }
-        else if (SquareSum < Tolerance)
-        {
-            return FVector(0.f);
-        }
-        const FLOAT Scale = appInvSqrtSSE(SquareSum);
-        return FVector(X*Scale, Y*Scale, Z*Scale);
-    }
-};
-
 // @baa 0x0086c1e0
 /* Slot 0x1e8: caps the velocity at MaxSpeed, dropping the acceleration unless the rotation follows the velocity. */
 void AProjectile::BoundProjectileVelocity()
 {
-    if (((FVector_&)Velocity).SizeSquared() > MaxSpeed * MaxSpeed)
+    if (Velocity.SizeSquared() > MaxSpeed * MaxSpeed)
     {
-        Velocity = ((FVector_&)Velocity).SafeNormal();
-        (FVector_&)Velocity *= MaxSpeed;
+        Velocity = Velocity.SafeNormal();
+        (FVector&)Velocity *= MaxSpeed;
         if (!bRotationFollowsVelocity)
         {
             Acceleration.X = 0.f;

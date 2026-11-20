@@ -4,28 +4,17 @@
 #include "ue3/Classes.h"
 #include "ue3/AppMath.h"
 
-/* Kit gap: FBoxSphereBounds' component constructor (UnMath.h) */
-struct FBoxSphereBounds_ : public FBoxSphereBounds
-{
-	FBoxSphereBounds_(const FVector& InOrigin, const FVector& InBoxExtent, FLOAT InSphereRadius)
-	{
-		Origin = InOrigin;
-		BoxExtent = InBoxExtent;
-		SphereRadius = InSphereRadius;
-	}
-};
-
 // @baa 0x006dcb20
 /* UpdateBounds: a box around the (scaled) cylinder, centered on the component. */
 void UCylinderComponent::UpdateBounds()
 {
 	const FVector BoxPoint = FVector(CollisionRadius * AABBScale, CollisionRadius * AABBScale, CollisionHeight);
-	Bounds = FBoxSphereBounds_(LocalToWorld.GetOrigin(), BoxPoint, BoxPoint.Size());
+	Bounds = FBoxSphereBounds(LocalToWorld.GetOrigin(), BoxPoint, BoxPoint.Size());
 }
 
 // @baa 0x006dee10
 /* UpdateBounds: a fixed 128-unit box around the component. */
 void UCameraConeComponent::UpdateBounds()
 {
-	Bounds = FBoxSphereBounds_(LocalToWorld.GetOrigin(), FVector(128, 128, 128), 128);
+	Bounds = FBoxSphereBounds(LocalToWorld.GetOrigin(), FVector(128, 128, 128), 128);
 }
