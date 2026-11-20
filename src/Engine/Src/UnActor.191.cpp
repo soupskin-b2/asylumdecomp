@@ -4,7 +4,7 @@
 #include "ue3/Implement.h"
 
 // @baa 0x00773700
-uint AController::vf_374(void)
+UBOOL AController::IsPlayerOwner()
 {
     int param_1 = (int)this;
 

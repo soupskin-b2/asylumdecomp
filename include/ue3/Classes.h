@@ -11181,7 +11181,7 @@ struct AActor : public UObject {
     virtual UBOOL ShrinkCollision(AActor *HitActor, UPrimitiveComponent* HitComponent, const FVector &StartLocation); /* 0x210 */
     virtual void GrowCollision(); /* 0x214 */
     virtual UBOOL MoveWithInterpMoveTrack(UInterpTrackMove* MoveTrack, UInterpTrackInstMove* MoveInst, FLOAT CurTime, FLOAT DeltaTime); /* 0x218 */
-    virtual void vf_21c(INT, INT, INT); /* 0x21c */
+    virtual void AdjustInterpTrackMove(FVector& Pos, FRotator& Rot, FLOAT DeltaTime); /* 0x21c */
     virtual void physInterpolating(FLOAT DeltaTime); /* 0x220 */
     virtual void PushedBy(AActor* Other); /* 0x224 */
     virtual void UpdateBasedRotation(FRotator &FinalRotation, const FRotator& ReducedRotation); /* 0x228 */
@@ -12513,7 +12513,7 @@ struct AController : public AActor {
     virtual void RouteCache_RemoveIndex(INT InIndex, INT Count); /* 0x368 */
     virtual void SetAdjustLocation(FVector NewLoc, UBOOL bAdjust, UBOOL bOffsetFromBase = FALSE); /* 0x36c */
     virtual void EndClimbLadder(); /* 0x370 */
-    virtual UINT vf_374(); /* 0x374 */
+    virtual UBOOL IsPlayerOwner(); /* 0x374 */
     virtual UBOOL CanHear(const FVector& NoiseLoc, FLOAT Loudness, AActor *Other); /* 0x378 */
     virtual void ShowSelf(); /* 0x37c */
     virtual UBOOL ShouldCheckVisibilityOf(class AController* C); /* 0x380 */
@@ -15823,7 +15823,7 @@ struct UCodecMovie : public UObject {
     virtual void ResetStream(); /* 0x12c */
     virtual void GetFrame( class FTextureMovieResource* InTextureMovieResource ); /* 0x130 */
     virtual FLOAT GetDuration(); /* 0x134 */
-    virtual void vf_138(INT, INT); /* 0x138 */
+    virtual void Play(UBOOL bLooping, UBOOL bOneFrameOnly); /* 0x138 */
     virtual void Pause(UBOOL bPause); /* 0x13c */
     virtual void Stop(); /* 0x140 */
     virtual void ReleaseDynamicResources(); /* 0x144 */
@@ -29471,7 +29471,7 @@ struct AScout : public APawn {
     virtual void SetPathCollision(UBOOL bEnabled); /* 0x488 */
     virtual void UpdateInterpActors(UBOOL &bProblemsMoving, TArray<USeqAct_Interp*> &InterpActs); /* 0x48c */
     virtual void RestoreInterpActors(TArray<USeqAct_Interp*> &InterpActs); /* 0x490 */
-    virtual void vf_494(INT, INT); /* 0x494 */
+    virtual void DefinePaths(UBOOL bReviewPaths, UBOOL bShowMapCheck); /* 0x494 */
     virtual void UndefinePaths(); /* 0x498 */
     virtual void AddLongReachSpecs( INT NumPaths ); /* 0x49c */
     virtual void PrunePaths(INT NumPaths); /* 0x4a0 */
@@ -30208,7 +30208,7 @@ struct USeqAct_Interp : public USeqAct_Latent {
     FLOAT TerminationTime; /* 0x1a4 */
     /* virtual functions this class introduces (vtable 0x0209c9b8) */
     virtual void StepInterp(FLOAT DeltaTime, UBOOL bPreview=FALSE); /* 0x1a0 */
-    virtual void vf_1a4(INT, INT, INT); /* 0x1a4 */
+    virtual void UpdateInterp(FLOAT NewPosition, UBOOL bPreview, UBOOL bJump); /* 0x1a4 */
     virtual void UpdateConnectorsFromData(); /* 0x1a8 */
     virtual void NotifyEventTriggered(class UInterpTrackEvent const* EventTrack, INT EventIdx); /* 0x1ac */
     /* overrides */
@@ -43553,7 +43553,7 @@ struct ARBMScout : public AScout {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_494(INT, INT); /* 0x494 */
+    virtual void DefinePaths(UBOOL bReviewPaths, UBOOL bShowMapCheck); /* 0x494 */
     /* registered size 0x3e0 */
 };
 
@@ -57889,7 +57889,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void polySetAndClearPolyFlags( UModel* Model, DWORD SetBits, DWORD ClearBits, INT SelectedOnly, INT UpdateMaster ); /* 0x204 */
     virtual void SelectActor(AActor* Actor, UBOOL InSelected, FViewportClient* InViewportClient, UBOOL bNotify, UBOOL bSelectEvenIfHidden=FALSE); /* 0x208 */
     virtual void SelectBSPSurf(UModel* InModel, INT iSurf, UBOOL bSelected, UBOOL bNoteSelectionChange); /* 0x20c */
-    virtual void vf_210(INT, INT); /* 0x210 */
+    virtual void SelectNone(UBOOL bNoteSelectionChange, UBOOL bDeselectBSPSurfs); /* 0x210 */
     virtual void polySelectAll ( UModel* Model ); /* 0x214 */
     virtual void polySelectMatchingGroups( UModel* Model ); /* 0x218 */
     virtual void polySelectMatchingItems( UModel* Model ); /* 0x21c */
@@ -57922,7 +57922,7 @@ struct __declspec(align(16)) UEditorEngine : public UEngine, public FCallbackEve
     virtual void bspCleanup( UModel* Model ); /* 0x288 */
     virtual void bspBuildFPolys( UModel* Model, UBOOL SurfLinks, INT iNode ); /* 0x28c */
     virtual void bspMergeCoplanars( UModel* Model, UBOOL RemapLinks, UBOOL MergeDisparateTextures ); /* 0x290 */
-    virtual void vf_294(INT, INT, INT, INT, INT, INT, INT); /* 0x294 */
+    virtual INT bspBrushCSG(ABrush* Actor, UModel* Model, DWORD PolyFlags, ECsgOper CSGOper, UBOOL bBuildBounds, UBOOL bMergePolys, UBOOL bReplaceNULLMaterialRefs); /* 0x294 */
     virtual void bspOptGeom( UModel* Model ); /* 0x298 */
     virtual INT vf_29c(INT, INT, INT); /* 0x29c */
     virtual INT vf_2a0(); /* 0x2a0 */
@@ -58060,7 +58060,7 @@ struct UUnrealEdEngine : public UEditorEngine, public FNotifyHook {
     virtual void edactSelectPrefabActors(); /* 0x1e8 */
     virtual void SelectActor(AActor* Actor, UBOOL InSelected, FViewportClient* InViewportClient, UBOOL bNotify, UBOOL bSelectEvenIfHidden=FALSE); /* 0x208 */
     virtual void SelectBSPSurf(UModel* InModel, INT iSurf, UBOOL bSelected, UBOOL bNoteSelectionChange); /* 0x20c */
-    virtual void vf_210(INT, INT); /* 0x210 */
+    virtual void SelectNone(UBOOL bNoteSelectionChange, UBOOL bDeselectBSPSurfs); /* 0x210 */
     virtual void PasteClipboardIntoClipPad(); /* 0x2a8 */
     virtual INT vf_2cc(INT, INT); /* 0x2cc */
     virtual void vf_2d0(); /* 0x2d0 */
@@ -58779,7 +58779,7 @@ struct UCodecMovieBink : public UCodecMovie {
     virtual void Close(); /* 0x128 */
     virtual void ResetStream(); /* 0x12c */
     virtual void GetFrame( class FTextureMovieResource* InTextureMovieResource ); /* 0x130 */
-    virtual void vf_138(INT, INT); /* 0x138 */
+    virtual void Play(UBOOL bLooping, UBOOL bOneFrameOnly); /* 0x138 */
     virtual void Pause(UBOOL bPause); /* 0x13c */
     virtual void Stop(); /* 0x140 */
     virtual void ReleaseDynamicResources(); /* 0x144 */
@@ -59089,7 +59089,7 @@ struct UPropertyInputProxy : public UObject {
     virtual INT vf_130(INT, INT, INT); /* 0x130 */
     virtual void SendToObjects( WxPropertyControl* InItem ); /* 0x134 */
     virtual void ParentResized( WxPropertyControl* InItem, const wxRect& InRC ); /* 0x138 */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     virtual void RefreshControlValue( UProperty* InProperty, BYTE* InData ); /* 0x140 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -62805,7 +62805,7 @@ struct UPropertyInputArrayItemBase : public UPropertyInputProxy {
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     /* registered size 0x40 */
 };
 
@@ -63003,7 +63003,7 @@ struct UPropertyInputArray : public UPropertyInputProxy {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     /* registered size 0x40 */
 };
 
@@ -63014,7 +63014,7 @@ struct UPropertyInputArrayItem : public UPropertyInputArrayItemBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     /* registered size 0x40 */
 };
 
@@ -63025,7 +63025,7 @@ struct UPropertyInputColor : public UPropertyInputArrayItemBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     /* registered size 0x40 */
 };
 
@@ -63051,7 +63051,7 @@ struct UPropertyInputEditInline : public UPropertyInputArrayItemBase {
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     virtual UBOOL IsClassAllowed( WxPropertyControl* InItem, UClass* CheckClass, UBOOL bAllowAbstract ) const; /* 0x144 */
     /* registered size 0x40 */
 };
@@ -63071,7 +63071,7 @@ struct UPropertyInputText : public UPropertyInputArrayItemBase {
     virtual void OnKillFocus(WxPropertyControl* InItem); /* 0x124 */
     virtual void SendToObjects( WxPropertyControl* InItem ); /* 0x134 */
     virtual void ParentResized( WxPropertyControl* InItem, const wxRect& InRC ); /* 0x138 */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     virtual void RefreshControlValue( UProperty* InProperty, BYTE* InData ); /* 0x140 */
     /* other member functions */
     /* registered size 0x4c */
@@ -65096,7 +65096,7 @@ struct UUITexture_CustomInputProxy : public UPropertyInputText {
     virtual void CreateControls( WxPropertyControl* InItem, UClass* InBaseClass, const wxRect& InRC, const TCHAR* InValue ); /* 0x114 */
     virtual UBOOL Supports( const FPropertyNode* InTreeNode, INT InArrayIdx ) const; /* 0x11c */
     virtual void SendToObjects( WxPropertyControl* InItem ); /* 0x134 */
-    virtual void vf_13c(INT, INT); /* 0x13c */
+    virtual void ButtonClick(WxPropertyControl* InItem, INT InButton); /* 0x13c */
     virtual void RefreshControlValue( UProperty* InProperty, BYTE* InData ); /* 0x140 */
     /* registered size 0x4c */
 };

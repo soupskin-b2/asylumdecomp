@@ -155186,7 +155186,7 @@
     {
      "va": "00f680a0",
      "size": 3,
-     "symbol": "?vf_210@UEditorEngine@@UAEXHH@Z"
+     "symbol": "?SelectNone@UEditorEngine@@UAEXHH@Z"
     },
     {
      "va": "00f680b0",
@@ -275165,7 +275165,7 @@
     {
      "va": "0068ee90",
      "size": 3,
-     "symbol": "?vf_21c@AActor@@UAEXHHH@Z"
+     "symbol": "?AdjustInterpTrackMove@AActor@@UAEXAAUFVector@@AAUFRotator@@M@Z"
     },
     {
      "va": "0068eea0",
@@ -492450,7 +492450,7 @@
     {
      "va": "011f1d60",
      "size": 3,
-     "symbol": "?vf_13c@UPropertyInputProxy@@UAEXHH@Z"
+     "symbol": "?ButtonClick@UPropertyInputProxy@@UAEXPAVWxPropertyControl@@H@Z"
     },
     {
      "va": "011f1d70",

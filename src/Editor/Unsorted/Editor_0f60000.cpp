@@ -472,7 +472,7 @@ void UEditorEngine::SelectActor(AActor* a0, UBOOL a1, FViewportClient* a2, UBOOL
 void UEditorEngine::SelectBSPSurf(UModel* a0, INT a1, UBOOL a2, UBOOL a3) {  }
 
 // @baa 0x00f680a0
-void UEditorEngine::vf_210(int a0, int a1) {  }
+void UEditorEngine::SelectNone(UBOOL a0, UBOOL a1) {  }
 
 // @baa 0x00f680b0
 void UEditorEngine::PasteClipboardIntoClipPad() {  }

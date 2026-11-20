@@ -2279,7 +2279,7 @@ int AActor::vf_1c0(int a0) { return 0; }
 void AActor::GrowCollision() {  }
 
 // @baa 0x0068ee90
-void AActor::vf_21c(int a0, int a1, int a2) {  }
+void AActor::AdjustInterpTrackMove(FVector& a0, FRotator& a1, FLOAT a2) {  }
 
 // @baa 0x0068eea0
 void AActor::PushedBy(AActor* a0) {  }

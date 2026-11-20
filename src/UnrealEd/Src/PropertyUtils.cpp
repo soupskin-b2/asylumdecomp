@@ -162,7 +162,7 @@ undefined4 sub_011f1d50(undefined4 param_1, undefined4 param_2)
 }
 
 // @baa 0x011f1d60
-void UPropertyInputProxy::vf_13c(int a0, int a1) {  }
+void UPropertyInputProxy::ButtonClick(WxPropertyControl* a0, INT a1) {  }
 
 // @baa 0x011f1d70
 int sub_011f1d70(int a0, int a1) { return a1; }

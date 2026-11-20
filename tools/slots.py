@@ -415,7 +415,15 @@ def load():
 
 
 def save(lines):
-    HEADER.write_text("".join(lines), encoding="utf-8", newline="\n")
+    import time
+    for i in range(30):  # Windows: a scanner or editor can hold the file for a moment
+        try:
+            HEADER.write_text("".join(lines), encoding="utf-8", newline="\n")
+            return
+        except PermissionError:
+            if i == 29:
+                raise
+            time.sleep(1)
 
 
 # ---- verification against the exe -------------------------------------------------------------
