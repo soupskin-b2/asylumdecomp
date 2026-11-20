@@ -6,7 +6,9 @@ extern char g_01ebe858[];
 extern char g_02301088[];
 struct C { C* sub_005c7a20(void); };
 
-struct AInfo {
+/* ARGameRI::ARGameRI(): its base classes declare their constructors out of line in Classes.h, but here the
+ * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+struct C_01576090 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -42,11 +44,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_01576090(void);
+    C_01576090* sub_01576090(void);
 };
 
 // @baa 0x01576090
-AInfo* AInfo::sub_01576090(void)
+C_01576090* C_01576090::sub_01576090(void)
 {
     ((C*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

@@ -6,7 +6,9 @@ extern char g_01ebe858[];
 extern char g_01f17720[];
 struct C { C* sub_005c7a20(void); };
 
-struct AInfo {
+/* AAmbientSoundMovable::AAmbientSoundMovable(): its base classes declare their constructors out of line in Classes.h, but here the
+ * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+struct C_00798270 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -42,11 +44,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_00798270(void);
+    C_00798270* sub_00798270(void);
 };
 
 // @baa 0x00798270
-AInfo* AInfo::sub_00798270(void)
+C_00798270* C_00798270::sub_00798270(void)
 {
     ((C*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

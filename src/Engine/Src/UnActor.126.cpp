@@ -9,7 +9,9 @@ extern char g_01ebe858[];
 extern char g_01f02298[];
 struct C { C* sub_005c7a20(void); };
 
-struct AInfo {
+/* ALadderVolume::ALadderVolume(): its base classes declare their constructors out of line in Classes.h, but here the
+ * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+struct C_00773430 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -45,11 +47,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_00773430(void);
+    C_00773430* sub_00773430(void);
 };
 
 // @baa 0x00773430
-AInfo* AInfo::sub_00773430(void)
+C_00773430* C_00773430::sub_00773430(void)
 {
     ((C*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

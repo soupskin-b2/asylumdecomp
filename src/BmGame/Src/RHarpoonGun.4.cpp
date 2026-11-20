@@ -9,7 +9,9 @@ extern char g_01ebe858[];
 extern char g_0235f328[];
 struct C { C* sub_005c7a20(void); };
 
-struct AInfo {
+/* ARHarpoonProjectile::ARHarpoonProjectile(): its base classes declare their constructors out of line in Classes.h, but here the
+ * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+struct C_01656e60 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -45,11 +47,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_01656e60(void);
+    C_01656e60* sub_01656e60(void);
 };
 
 // @baa 0x01656e60
-AInfo* AInfo::sub_01656e60(void)
+C_01656e60* C_01656e60::sub_01656e60(void)
 {
     ((C*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

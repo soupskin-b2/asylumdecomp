@@ -9,7 +9,9 @@ extern char g_01ebe858[];
 extern char g_01f88cf8[];
 struct C { C* sub_005c7a20(void); };
 
-struct AInfo {
+/* ASkeletalMeshActorMAT::ASkeletalMeshActorMAT(): its base classes declare their constructors out of line in Classes.h, but here the
+ * base chain is inlined (UObject(), AActor's vtable and DetachFence), so it is written on a stand-in. */
+struct C_0097b240 {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -45,11 +47,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_0097b240(void);
+    C_0097b240* sub_0097b240(void);
 };
 
 // @baa 0x0097b240
-AInfo* AInfo::sub_0097b240(void)
+C_0097b240* C_0097b240::sub_0097b240(void)
 {
     ((C*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

@@ -152,7 +152,8 @@ extern char g_01ebe858[];
 extern char g_01eef910[];
 struct C_00736070 { C_00736070* sub_005c7a20(void); };
 
-struct AInfo {
+/* A stand-in for the actor constructors below: UObject(), then AActor's vtable and DetachFence, then the class's own vtable. */
+struct AActorCtor_ {
     INT Unk00;  // 0x00 vtable ptr
     INT Unk04;
     INT Unk08;
@@ -188,11 +189,11 @@ struct AInfo {
     INT Unk80;
     INT Unk84;
     INT DetachFence; // 0x88
-    AInfo* sub_00736070(void);
+    AActorCtor_* sub_00736070(void);
 };
 
 // @baa 0x00736070
-AInfo* AInfo::sub_00736070(void)
+AActorCtor_* AActorCtor_::sub_00736070(void)
 {
     ((C_00736070*)this)->sub_005c7a20();
     *(volatile INT*)this = (INT)g_01ebe858;

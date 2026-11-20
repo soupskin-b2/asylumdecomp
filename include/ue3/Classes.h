@@ -12071,317 +12071,11 @@ struct USpriteComponent : public UPrimitiveComponent {
 struct AInfo : public AActor {
     /* Engine.Info */
     DECLARE_CLASS(AInfo, AActor, 0x1, 0x0, Engine)
+    AInfo(); /* 0x0068f5d0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
     /* other member functions */
-    AInfo* sub_0068f5d0(); /* 0x0068f5d0 */
-    AInfo* sub_0068f6d0(); /* 0x0068f6d0 */
-    AInfo* sub_0068f700(); /* 0x0068f700 */
-    AInfo* sub_006918f0(); /* 0x006918f0 */
-    AInfo* sub_00691920(); /* 0x00691920 */
-    AInfo* sub_006919e0(); /* 0x006919e0 */
-    AInfo* sub_00691aa0(); /* 0x00691aa0 */
-    AInfo* sub_006cf090(); /* 0x006cf090 */
-    AInfo* sub_006cf0c0(); /* 0x006cf0c0 */
-    AInfo* sub_006cf180(); /* 0x006cf180 */
-    AInfo* sub_006cf240(); /* 0x006cf240 */
-    AInfo* sub_006cf300(); /* 0x006cf300 */
-    AInfo* sub_006fc170(); /* 0x006fc170 */
-    AInfo* sub_006fc250(); /* 0x006fc250 */
-    AInfo* sub_006fc280(); /* 0x006fc280 */
-    AInfo* sub_006fc350(); /* 0x006fc350 */
-    AInfo* sub_00736070(); /* 0x00736070 */
-    AInfo* sub_00772f30(); /* 0x00772f30 */
-    AInfo* sub_00772f60(); /* 0x00772f60 */
-    AInfo* sub_00773020(); /* 0x00773020 */
-    AInfo* sub_007730f0(); /* 0x007730f0 */
-    AInfo* sub_00773270(); /* 0x00773270 */
-    AInfo* sub_007732a0(); /* 0x007732a0 */
-    AInfo* sub_00773360(); /* 0x00773360 */
-    AInfo* sub_00773430(); /* 0x00773430 */
-    AInfo* sub_007734f0(); /* 0x007734f0 */
-    AInfo* sub_007735b0(); /* 0x007735b0 */
-    AInfo* sub_00773900(); /* 0x00773900 */
-    AInfo* sub_007739c0(); /* 0x007739c0 */
-    AInfo* sub_00774aa0(); /* 0x00774aa0 */
-    AInfo* sub_00774b60(); /* 0x00774b60 */
-    AInfo* sub_00774c20(); /* 0x00774c20 */
-    AInfo* sub_00774cf0(); /* 0x00774cf0 */
-    AInfo* sub_00774e40(); /* 0x00774e40 */
-    AInfo* sub_00774e70(); /* 0x00774e70 */
-    AInfo* sub_00774fb0(); /* 0x00774fb0 */
-    AInfo* sub_007750e0(); /* 0x007750e0 */
-    AInfo* sub_00775210(); /* 0x00775210 */
-    AInfo* sub_00775330(); /* 0x00775330 */
-    AInfo* sub_00775360(); /* 0x00775360 */
-    AInfo* sub_007754b0(); /* 0x007754b0 */
-    AInfo* sub_007755e0(); /* 0x007755e0 */
-    AInfo* sub_00775640(); /* 0x00775640 */
-    AInfo* sub_00775700(); /* 0x00775700 */
-    AInfo* sub_00775860(); /* 0x00775860 */
-    AInfo* sub_00775920(); /* 0x00775920 */
-    AInfo* sub_00775950(); /* 0x00775950 */
-    AInfo* sub_00775ab0(); /* 0x00775ab0 */
-    AInfo* sub_00775ae0(); /* 0x00775ae0 */
-    AInfo* sub_00775bb0(); /* 0x00775bb0 */
-    AInfo* sub_00775ce0(); /* 0x00775ce0 */
-    AInfo* sub_00775d40(); /* 0x00775d40 */
-    AInfo* sub_00775ea0(); /* 0x00775ea0 */
-    AInfo* sub_00775ed0(); /* 0x00775ed0 */
-    AInfo* sub_00775f90(); /* 0x00775f90 */
-    AInfo* sub_00776060(); /* 0x00776060 */
-    AInfo* sub_007762a0(); /* 0x007762a0 */
-    AInfo* sub_007762d0(); /* 0x007762d0 */
-    AInfo* sub_007766c0(); /* 0x007766c0 */
-    AInfo* sub_00776780(); /* 0x00776780 */
-    AInfo* sub_00776860(); /* 0x00776860 */
-    AInfo* sub_00797f20(); /* 0x00797f20 */
-    AInfo* sub_00797f50(); /* 0x00797f50 */
-    AInfo* sub_007980c0(); /* 0x007980c0 */
-    AInfo* sub_007980f0(); /* 0x007980f0 */
-    AInfo* sub_00798240(); /* 0x00798240 */
-    AInfo* sub_00798270(); /* 0x00798270 */
-    AInfo* sub_007983c0(); /* 0x007983c0 */
-    AInfo* sub_007983f0(); /* 0x007983f0 */
-    AInfo* sub_007c8c40(); /* 0x007c8c40 */
-    AInfo* sub_007c8c70(); /* 0x007c8c70 */
-    AInfo* sub_007c8d30(); /* 0x007c8d30 */
-    AInfo* sub_00824fd0(); /* 0x00824fd0 */
-    AInfo* sub_00825090(); /* 0x00825090 */
-    AInfo* sub_00857800(); /* 0x00857800 */
-    AInfo* sub_008871c0(); /* 0x008871c0 */
-    AInfo* sub_00887280(); /* 0x00887280 */
-    AInfo* sub_0089dcb0(); /* 0x0089dcb0 */
-    AInfo* sub_008dd300(); /* 0x008dd300 */
-    AInfo* sub_008dd330(); /* 0x008dd330 */
-    AInfo* sub_008dd3f0(); /* 0x008dd3f0 */
-    AInfo* sub_008dd540(); /* 0x008dd540 */
-    AInfo* sub_008dd600(); /* 0x008dd600 */
-    AInfo* sub_008dd630(); /* 0x008dd630 */
-    AInfo* sub_0097aca0(); /* 0x0097aca0 */
-    AInfo* sub_0097adf0(); /* 0x0097adf0 */
-    AInfo* sub_0097ae20(); /* 0x0097ae20 */
-    AInfo* sub_0097aee0(); /* 0x0097aee0 */
-    AInfo* sub_0097afb0(); /* 0x0097afb0 */
-    AInfo* sub_0097b130(); /* 0x0097b130 */
-    AInfo* sub_0097b160(); /* 0x0097b160 */
-    AInfo* sub_0097b240(); /* 0x0097b240 */
-    AInfo* sub_009eff70(); /* 0x009eff70 */
-    AInfo* sub_009f0240(); /* 0x009f0240 */
-    AInfo* sub_009f0270(); /* 0x009f0270 */
-    AInfo* sub_009f0330(); /* 0x009f0330 */
-    AInfo* sub_009f03f0(); /* 0x009f03f0 */
-    AInfo* sub_009f04b0(); /* 0x009f04b0 */
-    AInfo* sub_009f0570(); /* 0x009f0570 */
-    AInfo* sub_009f0630(); /* 0x009f0630 */
-    AInfo* sub_009f0b70(); /* 0x009f0b70 */
-    AInfo* sub_009f0c30(); /* 0x009f0c30 */
-    AInfo* sub_00a4e2e0(); /* 0x00a4e2e0 */
-    AInfo* sub_00a4e970(); /* 0x00a4e970 */
-    AInfo* sub_00a4e9a0(); /* 0x00a4e9a0 */
-    AInfo* sub_00a4ea60(); /* 0x00a4ea60 */
-    AInfo* sub_00a4eb20(); /* 0x00a4eb20 */
-    AInfo* sub_00a4ec70(); /* 0x00a4ec70 */
-    AInfo* sub_00a4eca0(); /* 0x00a4eca0 */
-    AInfo* sub_00a4edf0(); /* 0x00a4edf0 */
-    AInfo* sub_00a4ee20(); /* 0x00a4ee20 */
-    AInfo* sub_00a4ef70(); /* 0x00a4ef70 */
-    AInfo* sub_00a4efa0(); /* 0x00a4efa0 */
-    AInfo* sub_00b6b2c0(); /* 0x00b6b2c0 */
-    AInfo* sub_00bd3850(); /* 0x00bd3850 */
-    AInfo* sub_00bd3910(); /* 0x00bd3910 */
-    AInfo* sub_00bd3a00(); /* 0x00bd3a00 */
-    AInfo* sub_00be9180(); /* 0x00be9180 */
-    AInfo* sub_00be91b0(); /* 0x00be91b0 */
-    AInfo* sub_00cd00f0(); /* 0x00cd00f0 */
-    AInfo* sub_00cd01d0(); /* 0x00cd01d0 */
-    AInfo* sub_00d0d3b0(); /* 0x00d0d3b0 */
-    AInfo* sub_00d0d470(); /* 0x00d0d470 */
-    AInfo* sub_00d85d00(); /* 0x00d85d00 */
-    AInfo* sub_00d85df0(); /* 0x00d85df0 */
-    AInfo* sub_00d85f40(); /* 0x00d85f40 */
-    AInfo* sub_00d85f70(); /* 0x00d85f70 */
-    AInfo* sub_00d860c0(); /* 0x00d860c0 */
-    AInfo* sub_00d860f0(); /* 0x00d860f0 */
-    AInfo* sub_00d861b0(); /* 0x00d861b0 */
-    AInfo* sub_00e117a0(); /* 0x00e117a0 */
-    AInfo* sub_00e276f0(); /* 0x00e276f0 */
-    AInfo* sub_00e277b0(); /* 0x00e277b0 */
-    AInfo* sub_00e27940(); /* 0x00e27940 */
-    AInfo* sub_00e27a00(); /* 0x00e27a00 */
-    AInfo* sub_01530010(); /* 0x01530010 */
-    AInfo* sub_01530260(); /* 0x01530260 */
-    AInfo* sub_01530320(); /* 0x01530320 */
-    AInfo* sub_01530460(); /* 0x01530460 */
-    AInfo* sub_015304c0(); /* 0x015304c0 */
-    AInfo* sub_015305a0(); /* 0x015305a0 */
-    AInfo* sub_01530660(); /* 0x01530660 */
-    AInfo* sub_01545960(); /* 0x01545960 */
-    AInfo* sub_015459d0(); /* 0x015459d0 */
-    AInfo* sub_01545af0(); /* 0x01545af0 */
-    AInfo* sub_01545b50(); /* 0x01545b50 */
-    AInfo* sub_01545e70(); /* 0x01545e70 */
-    AInfo* sub_015461c0(); /* 0x015461c0 */
-    AInfo* sub_01575820(); /* 0x01575820 */
-    AInfo* sub_015758e0(); /* 0x015758e0 */
-    AInfo* sub_015759a0(); /* 0x015759a0 */
-    AInfo* sub_01575a60(); /* 0x01575a60 */
-    AInfo* sub_01575b20(); /* 0x01575b20 */
-    AInfo* sub_01575cf0(); /* 0x01575cf0 */
-    AInfo* sub_01575e10(); /* 0x01575e10 */
-    AInfo* sub_01576090(); /* 0x01576090 */
-    AInfo* sub_01576250(); /* 0x01576250 */
-    AInfo* sub_01576310(); /* 0x01576310 */
-    AInfo* sub_01576370(); /* 0x01576370 */
-    AInfo* sub_01576430(); /* 0x01576430 */
-    AInfo* sub_01576500(); /* 0x01576500 */
-    AInfo* sub_015765c0(); /* 0x015765c0 */
-    AInfo* sub_015767b0(); /* 0x015767b0 */
-    AInfo* sub_01576a90(); /* 0x01576a90 */
-    AInfo* sub_01576c30(); /* 0x01576c30 */
-    AInfo* sub_01576c60(); /* 0x01576c60 */
-    AInfo* sub_01576d30(); /* 0x01576d30 */
-    AInfo* sub_01576e70(); /* 0x01576e70 */
-    AInfo* sub_01577060(); /* 0x01577060 */
-    AInfo* sub_015771d0(); /* 0x015771d0 */
-    AInfo* sub_01577230(); /* 0x01577230 */
-    AInfo* sub_015773f0(); /* 0x015773f0 */
-    AInfo* sub_01577be0(); /* 0x01577be0 */
-    AInfo* sub_01577ca0(); /* 0x01577ca0 */
-    AInfo* sub_01579070(); /* 0x01579070 */
-    AInfo* sub_01579240(); /* 0x01579240 */
-    AInfo* sub_015793c0(); /* 0x015793c0 */
-    AInfo* sub_015793f0(); /* 0x015793f0 */
-    AInfo* sub_01579660(); /* 0x01579660 */
-    AInfo* sub_01579690(); /* 0x01579690 */
-    AInfo* sub_015799b0(); /* 0x015799b0 */
-    AInfo* sub_015f3bd0(); /* 0x015f3bd0 */
-    AInfo* sub_015f3c90(); /* 0x015f3c90 */
-    AInfo* sub_015f3df0(); /* 0x015f3df0 */
-    AInfo* sub_015f3eb0(); /* 0x015f3eb0 */
-    AInfo* sub_015f4120(); /* 0x015f4120 */
-    AInfo* sub_015f4150(); /* 0x015f4150 */
-    AInfo* sub_015f4910(); /* 0x015f4910 */
-    AInfo* sub_015f4a50(); /* 0x015f4a50 */
-    AInfo* sub_015f4b20(); /* 0x015f4b20 */
-    AInfo* sub_015f4b80(); /* 0x015f4b80 */
-    AInfo* sub_015f4c90(); /* 0x015f4c90 */
-    AInfo* sub_015f4da0(); /* 0x015f4da0 */
-    AInfo* sub_015f4fa0(); /* 0x015f4fa0 */
-    AInfo* sub_015f6030(); /* 0x015f6030 */
-    AInfo* sub_015f6060(); /* 0x015f6060 */
-    AInfo* sub_015f61b0(); /* 0x015f61b0 */
-    AInfo* sub_015f61e0(); /* 0x015f61e0 */
-    AInfo* sub_0162b820(); /* 0x0162b820 */
-    AInfo* sub_0162baa0(); /* 0x0162baa0 */
-    AInfo* sub_0162bbc0(); /* 0x0162bbc0 */
-    AInfo* sub_0162bc20(); /* 0x0162bc20 */
-    AInfo* sub_0162bd00(); /* 0x0162bd00 */
-    AInfo* sub_0162be50(); /* 0x0162be50 */
-    AInfo* sub_0162be80(); /* 0x0162be80 */
-    AInfo* sub_0162c000(); /* 0x0162c000 */
-    AInfo* sub_0162c030(); /* 0x0162c030 */
-    AInfo* sub_0162c0f0(); /* 0x0162c0f0 */
-    AInfo* sub_0162c1b0(); /* 0x0162c1b0 */
-    AInfo* sub_0162c280(); /* 0x0162c280 */
-    AInfo* sub_0162c360(); /* 0x0162c360 */
-    AInfo* sub_0162c420(); /* 0x0162c420 */
-    AInfo* sub_0162c4f0(); /* 0x0162c4f0 */
-    AInfo* sub_0162c5d0(); /* 0x0162c5d0 */
-    AInfo* sub_0162c6a0(); /* 0x0162c6a0 */
-    AInfo* sub_01655700(); /* 0x01655700 */
-    AInfo* sub_01655b60(); /* 0x01655b60 */
-    AInfo* sub_01655c20(); /* 0x01655c20 */
-    AInfo* sub_01655ce0(); /* 0x01655ce0 */
-    AInfo* sub_01655e30(); /* 0x01655e30 */
-    AInfo* sub_01655ff0(); /* 0x01655ff0 */
-    AInfo* sub_016560b0(); /* 0x016560b0 */
-    AInfo* sub_016561b0(); /* 0x016561b0 */
-    AInfo* sub_01656310(); /* 0x01656310 */
-    AInfo* sub_01656670(); /* 0x01656670 */
-    AInfo* sub_01656770(); /* 0x01656770 */
-    AInfo* sub_016567a0(); /* 0x016567a0 */
-    AInfo* sub_01656b00(); /* 0x01656b00 */
-    AInfo* sub_01656bc0(); /* 0x01656bc0 */
-    AInfo* sub_01656e30(); /* 0x01656e30 */
-    AInfo* sub_01656e60(); /* 0x01656e60 */
-    AInfo* sub_01656f20(); /* 0x01656f20 */
-    AInfo* sub_01657070(); /* 0x01657070 */
-    AInfo* sub_016571d0(); /* 0x016571d0 */
-    AInfo* sub_016572d0(); /* 0x016572d0 */
-    AInfo* sub_016574d0(); /* 0x016574d0 */
-    AInfo* sub_016575a0(); /* 0x016575a0 */
-    AInfo* sub_016575d0(); /* 0x016575d0 */
-    AInfo* sub_01657690(); /* 0x01657690 */
-    AInfo* sub_01657770(); /* 0x01657770 */
-    AInfo* sub_01657830(); /* 0x01657830 */
-    AInfo* sub_01657900(); /* 0x01657900 */
-    AInfo* sub_01657a40(); /* 0x01657a40 */
-    AInfo* sub_01657b00(); /* 0x01657b00 */
-    AInfo* sub_01657b60(); /* 0x01657b60 */
-    AInfo* sub_01657c90(); /* 0x01657c90 */
-    AInfo* sub_01657cf0(); /* 0x01657cf0 */
-    AInfo* sub_01658040(); /* 0x01658040 */
-    AInfo* sub_016580a0(); /* 0x016580a0 */
-    AInfo* sub_016581c0(); /* 0x016581c0 */
-    AInfo* sub_01658220(); /* 0x01658220 */
-    AInfo* sub_01682d30(); /* 0x01682d30 */
-    AInfo* sub_01682e40(); /* 0x01682e40 */
-    AInfo* sub_01682f00(); /* 0x01682f00 */
-    AInfo* sub_0169de50(); /* 0x0169de50 */
-    AInfo* sub_0169df60(); /* 0x0169df60 */
-    AInfo* sub_0169e680(); /* 0x0169e680 */
-    AInfo* sub_0169e810(); /* 0x0169e810 */
-    AInfo* sub_0169e870(); /* 0x0169e870 */
-    AInfo* sub_0169e990(); /* 0x0169e990 */
-    AInfo* sub_0169e9f0(); /* 0x0169e9f0 */
-    AInfo* sub_0169eab0(); /* 0x0169eab0 */
-    AInfo* sub_016c8de0(); /* 0x016c8de0 */
-    AInfo* sub_016c8eb0(); /* 0x016c8eb0 */
-    AInfo* sub_016c8f70(); /* 0x016c8f70 */
-    AInfo* sub_016c9030(); /* 0x016c9030 */
-    AInfo* sub_016c90f0(); /* 0x016c90f0 */
-    AInfo* sub_016c91c0(); /* 0x016c91c0 */
-    AInfo* sub_016c9280(); /* 0x016c9280 */
-    AInfo* sub_016c9350(); /* 0x016c9350 */
-    AInfo* sub_016c9410(); /* 0x016c9410 */
-    AInfo* sub_016c94e0(); /* 0x016c94e0 */
-    AInfo* sub_016c95a0(); /* 0x016c95a0 */
-    AInfo* sub_016c96c0(); /* 0x016c96c0 */
-    AInfo* sub_016c9810(); /* 0x016c9810 */
-    AInfo* sub_016c9920(); /* 0x016c9920 */
-    AInfo* sub_016c99f0(); /* 0x016c99f0 */
-    AInfo* sub_016c9ab0(); /* 0x016c9ab0 */
-    AInfo* sub_016c9b80(); /* 0x016c9b80 */
-    AInfo* sub_016c9c80(); /* 0x016c9c80 */
-    AInfo* sub_016c9e20(); /* 0x016c9e20 */
-    AInfo* sub_016df940(); /* 0x016df940 */
-    AInfo* sub_016dfa60(); /* 0x016dfa60 */
-    AInfo* sub_016dfac0(); /* 0x016dfac0 */
-    AInfo* sub_016dfb80(); /* 0x016dfb80 */
-    AInfo* sub_016dfc60(); /* 0x016dfc60 */
-    AInfo* sub_016dfd20(); /* 0x016dfd20 */
-    AInfo* sub_016dfde0(); /* 0x016dfde0 */
-    AInfo* sub_01730c70(); /* 0x01730c70 */
-    AInfo* sub_01730cd0(); /* 0x01730cd0 */
-    AInfo* sub_01730d90(); /* 0x01730d90 */
-    AInfo* sub_01730e50(); /* 0x01730e50 */
-    AInfo* sub_01730f10(); /* 0x01730f10 */
-    AInfo* sub_01731260(); /* 0x01731260 */
-    AInfo* sub_01731440(); /* 0x01731440 */
-    AInfo* sub_01731710(); /* 0x01731710 */
-    AInfo* sub_01731740(); /* 0x01731740 */
-    AInfo* sub_01731aa0(); /* 0x01731aa0 */
-    AInfo* sub_01731b60(); /* 0x01731b60 */
-    AInfo* sub_01731c20(); /* 0x01731c20 */
-    AInfo* sub_01731cf0(); /* 0x01731cf0 */
-    AInfo* sub_01731db0(); /* 0x01731db0 */
-    AInfo* sub_01731fb0(); /* 0x01731fb0 */
-    AInfo* sub_01732070(); /* 0x01732070 */
-    AInfo* sub_01732130(); /* 0x01732130 */
-    AInfo* sub_01732320(); /* 0x01732320 */
-    AInfo* sub_01732710(); /* 0x01732710 */
     /* registered size 0x1a8 */
 };
 
@@ -13647,6 +13341,7 @@ struct UAmbientOcclusionEffect : public UPostProcessEffect {
 struct AKeypoint : public AActor {
     /* Engine.Keypoint */
     DECLARE_CLASS(AKeypoint, AActor, 0x1, 0x0, Engine)
+    AKeypoint(); /* 0x007755e0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -14011,6 +13706,7 @@ struct AAmbientSoundSimpleToggleable : public AAmbientSoundSimple {
 struct ACamera : public AActor {
     /* Engine.Camera */
     DECLARE_CLASS(ACamera, AActor, 0x0, 0x0, Engine)
+    ACamera(); /* 0x00797f20 */
     class APlayerController* PCOwner; /* 0x1a8 */
     FName CameraStyle; /* 0x1ac */
     FLOAT DefaultFOV; /* 0x1b4 */
@@ -15775,6 +15471,7 @@ struct UBrushComponent : public UPrimitiveComponent {
 struct ABrush : public AActor {
     /* Engine.Brush */
     DECLARE_CLASS(ABrush, AActor, 0x0, 0x0, Engine)
+    ABrush(); /* 0x006fc170 */
     BYTE CsgOper; /* 0x1a8 */
     FColor BrushColor; /* 0x1a9 */
     INT PolyFlags; /* 0x1b0 */
@@ -15954,6 +15651,7 @@ struct UDrawFrustumComponent : public UPrimitiveComponent {
 struct ACameraActor : public AActor {
     /* Engine.CameraActor */
     DECLARE_CLASS(ACameraActor, AActor, 0x0, 0x0, Engine)
+    ACameraActor(); /* 0x007980c0 */
     BITFIELD bConstrainAspectRatio : 1; /* 0x1a8 */
     BITFIELD bCamOverridePostProcess : 1; /* 0x1a8 */
     BITFIELD bCamActorSoundStillAtPlayer : 1; /* 0x1a8 */
@@ -17493,6 +17191,7 @@ struct USkeletalMeshComponent : public UMeshComponent {
 struct ACrowdAgent : public AActor {
     /* Engine.CrowdAgent */
     DECLARE_CLASS(ACrowdAgent, AActor, 0x0, 0x0, Engine)
+    ACrowdAgent(); /* 0x00cd01d0 */
     class USeqAct_CrowdSpawner* Spawner; /* 0x1a8 */
     BYTE AgentState; /* 0x1ac */
     FLOAT EndActionTime; /* 0x1b0 */
@@ -17568,6 +17267,7 @@ struct ACrowdAttractor : public AActor {
 struct ACrowdReplicationActor : public AActor {
     /* Engine.CrowdReplicationActor */
     DECLARE_CLASS(ACrowdReplicationActor, AActor, 0x800, 0x0, Engine)
+    ACrowdReplicationActor(); /* 0x00cd00f0 */
     class USeqAct_CrowdSpawner* Spawner; /* 0x1a8 */
     BITFIELD bSpawningActive : 1; /* 0x1ac */
     INT DestroyAllCount; /* 0x1b0 */
@@ -17980,6 +17680,7 @@ struct UDebugManager : public UObject {
 struct ADecalActorBase : public AActor {
     /* Engine.DecalActorBase */
     DECLARE_CLASS(ADecalActorBase, AActor, 0x1, 0x0, Engine)
+    ADecalActorBase(); /* 0x006918f0 */
     class UDecalComponent* Decal; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -18111,6 +17812,7 @@ struct UDecalLifetimeAge : public UDecalLifetime {
 struct ADecalManager : public AActor {
     /* Engine.DecalManager */
     DECLARE_CLASS(ADecalManager, AActor, 0x4, 0x0, Engine)
+    ADecalManager(); /* 0x00691aa0 */
     static const TCHAR* StaticConfigName() { return TEXT("Game"); }
     class UDecalComponent* DecalTemplate; /* 0x1a8 */
     TArrayNoInit<class UDecalComponent*> PoolDecals; /* 0x1ac */
@@ -18391,6 +18093,7 @@ struct UDestructibleDamageParameters : public UObject {
 struct ALight : public AActor {
     /* Engine.Light */
     DECLARE_CLASS(ALight, AActor, 0x0, 0x0, Engine)
+    ALight(); /* 0x00775860 */
     class ULightComponent* LightComponent; /* 0x1a8 */
     FName LightGroup; /* 0x1ac */
     BITFIELD bEnabled : 1; /* 0x1b4 */
@@ -19056,6 +18759,7 @@ struct UDrawQuadComponent : public UPrimitiveComponent {
 struct ADroppedPickup : public AActor {
     /* Engine.DroppedPickup */
     DECLARE_CLASS(ADroppedPickup, AActor, 0x0, 0x0, Engine)
+    ADroppedPickup(); /* 0x00773900 */
     class AInventory* Inventory; /* 0x1a8 */
     class UClass* InventoryClass; /* 0x1ac */
     class ANavigationPoint* PickupCache; /* 0x1b0 */
@@ -19119,6 +18823,7 @@ struct ADynamicPhysicsVolume : public APhysicsVolume {
 struct ADynamicSMActor : public AActor {
     /* Engine.DynamicSMActor */
     DECLARE_CLASS(ADynamicSMActor, AActor, 0x1, 0x0, Engine)
+    ADynamicSMActor(); /* 0x0097aca0 */
     class UStaticMeshComponent* StaticMeshComponent; /* 0x1a8 */
     class UDynamicLightEnvironmentComponent* LightEnvironment; /* 0x1ac */
     class UStaticMesh* ReplicatedMesh; /* 0x1b0 */
@@ -19361,6 +19066,7 @@ struct UParticleSystemComponent : public UPrimitiveComponent {
 struct AEmitter : public AActor {
     /* Engine.Emitter */
     DECLARE_CLASS(AEmitter, AActor, 0x0, 0x0, Engine)
+    AEmitter(); /* 0x009eff70 */
     class UParticleSystemComponent* ParticleSystemComponent; /* 0x1a8 */
     BITFIELD bDestroyOnSystemFinish : 1; /* 0x1ac */
     BITFIELD bPostUpdateTickGroup : 1; /* 0x1ac */
@@ -19396,6 +19102,7 @@ struct AEmitterCameraLensEffectBase : public AEmitter {
 struct AEmitterPool : public AActor {
     /* Engine.EmitterPool */
     DECLARE_CLASS(AEmitterPool, AActor, 0x4, 0x0, Engine)
+    AEmitterPool(); /* 0x007739c0 */
     static const TCHAR* StaticConfigName() { return TEXT("Game"); }
     class UParticleSystemComponent* PSCTemplate; /* 0x1a8 */
     TArrayNoInit<class UParticleSystemComponent*> PoolComponents; /* 0x1ac */
@@ -19814,6 +19521,7 @@ struct UFluidInfluenceComponent : public UPrimitiveComponent {
 struct AFluidInfluenceActor : public AActor {
     /* Engine.FluidInfluenceActor */
     DECLARE_CLASS(AFluidInfluenceActor, AActor, 0x0, 0x0, Engine)
+    AFluidInfluenceActor(); /* 0x00e117a0 */
     class UArrowComponent* FlowDirection; /* 0x1a8 */
     class USpriteComponent* Sprite; /* 0x1ac */
     class UFluidInfluenceComponent* InfluenceComponent; /* 0x1b0 */
@@ -19917,6 +19625,7 @@ struct UFluidSurfaceComponent : public UPrimitiveComponent {
 struct AFluidSurfaceActor : public AActor {
     /* Engine.FluidSurfaceActor */
     DECLARE_CLASS(AFluidSurfaceActor, AActor, 0x0, 0x0, Engine)
+    AFluidSurfaceActor(); /* 0x00be9180 */
     class UFluidSurfaceComponent* FluidComponent; /* 0x1a8 */
     class UParticleSystem* ProjectileEntryEffect; /* 0x1ac */
     /* overrides */
@@ -20399,6 +20108,7 @@ struct UFracturedStaticMeshComponent : public UFracturedBaseComponent {
 struct AFracturedStaticMeshActor : public AActor {
     /* Engine.FracturedStaticMeshActor */
     DECLARE_CLASS(AFracturedStaticMeshActor, AActor, 0x0, 0x0, Engine)
+    AFracturedStaticMeshActor(); /* 0x007c8c40 */
     INT MaxPartsToSpawnAtOnce; /* 0x1a8 */
     class UFracturedStaticMeshComponent* FracturedStaticMeshComponent; /* 0x1ac */
     class UFracturedSkinnedMeshComponent* SkinnedComponent; /* 0x1b0 */
@@ -22470,6 +22180,7 @@ struct UInterpTrackVisibility : public UInterpTrack {
 struct AInventory : public AActor {
     /* Engine.Inventory */
     DECLARE_CLASS(AInventory, AActor, 0x801, 0x0, Engine)
+    AInventory(); /* 0x00775330 */
     class AInventory* Inventory; /* 0x1a8 */
     class AInventoryManager* InvManager; /* 0x1ac */
     FStringNoInit ItemName; /* 0x1b0 */
@@ -22496,6 +22207,7 @@ struct AInventory : public AActor {
 struct AInventoryManager : public AActor {
     /* Engine.InventoryManager */
     DECLARE_CLASS(AInventoryManager, AActor, 0x0, 0x0, Engine)
+    AInventoryManager(); /* 0x007754b0 */
     class AInventory* InventoryChain; /* 0x1a8 */
     class AWeapon* PendingWeapon; /* 0x1ac */
     class AWeapon* LastAttemptedSwitchToWeapon; /* 0x1b0 */
@@ -22577,6 +22289,7 @@ struct AKActorSpawnable : public AKActor {
 struct AKAsset : public AActor {
     /* Engine.KAsset */
     DECLARE_CLASS(AKAsset, AActor, 0x800, 0x0, Engine)
+    AKAsset(); /* 0x009f0330 */
     class USkeletalMeshComponent* SkeletalMeshComponent; /* 0x1a8 */
     BITFIELD bDamageAppliesImpulse : 1; /* 0x1ac */
     BITFIELD bWakeOnLevelStart : 1; /* 0x1ac */
@@ -24490,6 +24203,7 @@ struct UMaterialInstance : public UMaterialInterface {
 struct AMaterialInstanceActor : public AActor {
     /* Engine.MaterialInstanceActor */
     DECLARE_CLASS(AMaterialInstanceActor, AActor, 0x0, 0x0, Engine)
+    AMaterialInstanceActor(); /* 0x006fc350 */
     class UMaterialInstanceConstant* MatInst; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -24588,6 +24302,7 @@ struct UMaterialInstanceTimeVarying : public UMaterialInstance {
 struct AMatineeActor : public AActor {
     /* Engine.MatineeActor */
     DECLARE_CLASS(AMatineeActor, AActor, 0x800, 0x0, Engine)
+    AMatineeActor(); /* 0x00d0d470 */
     class USeqAct_Interp* InterpAction; /* 0x1a8 */
     BITFIELD bIsPlaying : 1; /* 0x1ac */
     BITFIELD bReversePlayback : 1; /* 0x1ac */
@@ -24880,6 +24595,7 @@ struct AMutator : public AInfo {
 struct ANote : public AActor {
     /* Engine.Note */
     DECLARE_CLASS(ANote, AActor, 0x0, 0x0, Engine)
+    ANote(); /* 0x00776060 */
     FStringNoInit Text; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -24891,6 +24607,7 @@ struct ANote : public AActor {
 struct ANxForceField : public AActor {
     /* Engine.NxForceField */
     DECLARE_CLASS(ANxForceField, AActor, 0x1, 0x0, Engine)
+    ANxForceField(); /* 0x00a4e970 */
     INT ExcludeChannel; /* 0x1a8 */
     BITFIELD bForceActive : 1; /* 0x1ac */
     FRBCollisionChannelContainer CollideWithChannels; /* 0x1b0 */
@@ -27742,6 +27459,7 @@ struct APathNode_Dynamic : public APathNode {
 struct APawn : public AActor {
     /* Engine.Pawn */
     DECLARE_CLASS(APawn, AActor, 0x805, 0x0, Engine)
+    APawn(); /* 0x007762a0 */
     static const TCHAR* StaticConfigName() { return TEXT("Game"); }
     FLOAT MaxStepHeight; /* 0x1a8 */
     FLOAT MaxJumpHeight; /* 0x1ac */
@@ -28632,6 +28350,7 @@ struct USceneCaptureReflectComponent : public USceneCaptureComponent {
 struct ASceneCaptureReflectActor : public ASceneCaptureActor {
     /* Engine.SceneCaptureReflectActor */
     DECLARE_CLASS(ASceneCaptureReflectActor, ASceneCaptureActor, 0x0, 0x0, Engine)
+    ASceneCaptureReflectActor(); /* 0x008dd540 */
     class UStaticMeshComponent* StaticMesh; /* 0x1ac */
     class UMaterialInstanceConstant* ReflectMaterialInst; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x01f61e98) */
@@ -28961,6 +28680,7 @@ struct UPrefabSequenceContainer : public USequence {
 struct AProjectile : public AActor {
     /* Engine.Projectile */
     DECLARE_CLASS(AProjectile, AActor, 0x1, 0x0, Engine)
+    AProjectile(); /* 0x00776780 */
     FLOAT Speed; /* 0x1a8 */
     FLOAT MaxSpeed; /* 0x1ac */
     BITFIELD bSwitchToZeroCollision : 1; /* 0x1b0 */
@@ -29228,6 +28948,7 @@ struct URB_ConstraintInstance : public UObject {
 struct ARB_ConstraintActor : public AActor {
     /* Engine.RB_ConstraintActor */
     DECLARE_CLASS(ARB_ConstraintActor, AActor, 0x1, 0x0, Engine)
+    ARB_ConstraintActor(); /* 0x00a4e2e0 */
     class AActor* ConstraintActor1; /* 0x1a8 */
     class AActor* ConstraintActor2; /* 0x1ac */
     class URB_ConstraintSetup* ConstraintSetup; /* 0x1b0 */
@@ -29334,6 +29055,7 @@ struct ARB_ConstraintActorSpawnable : public ARB_ConstraintActor {
 struct ARB_CylindricalForceActor : public AActor {
     /* Engine.RB_CylindricalForceActor */
     DECLARE_CLASS(ARB_CylindricalForceActor, AActor, 0x0, 0x0, Engine)
+    ARB_CylindricalForceActor(); /* 0x009f0b70 */
     class UDrawCylinderComponent* RenderComponent; /* 0x1a8 */
     FLOAT RadialStrength; /* 0x1ac */
     FLOAT RotationalStrength; /* 0x1b0 */
@@ -29442,6 +29164,7 @@ struct ARB_HingeActor : public ARB_ConstraintActor {
 struct ARB_LineImpulseActor : public AActor {
     /* Engine.RB_LineImpulseActor */
     DECLARE_CLASS(ARB_LineImpulseActor, AActor, 0x0, 0x0, Engine)
+    ARB_LineImpulseActor(); /* 0x009f03f0 */
     FLOAT ImpulseStrength; /* 0x1a8 */
     FLOAT ImpulseRange; /* 0x1ac */
     BITFIELD bVelChange : 1; /* 0x1b0 */
@@ -29490,6 +29213,7 @@ struct ARB_PulleyJointActor : public ARB_ConstraintActor {
 struct ARB_RadialForceActor : public AActor {
     /* Engine.RB_RadialForceActor */
     DECLARE_CLASS(ARB_RadialForceActor, AActor, 0x0, 0x0, Engine)
+    ARB_RadialForceActor(); /* 0x009f0c30 */
     class UDrawSphereComponent* RenderComponent; /* 0x1a8 */
     FLOAT ForceStrength; /* 0x1ac */
     FLOAT ForceRadius; /* 0x1b0 */
@@ -29536,6 +29260,7 @@ struct URB_RadialImpulseComponent : public UPrimitiveComponent {
 struct ARB_RadialImpulseActor : public AActor {
     /* Engine.RB_RadialImpulseActor */
     DECLARE_CLASS(ARB_RadialImpulseActor, AActor, 0x0, 0x0, Engine)
+    ARB_RadialImpulseActor(); /* 0x009f04b0 */
     class UDrawSphereComponent* RenderComponent; /* 0x1a8 */
     class URB_RadialImpulseComponent* ImpulseComponent; /* 0x1ac */
     BYTE ImpulseCount; /* 0x1b0 */
@@ -29600,6 +29325,7 @@ struct URB_StayUprightSetup : public URB_ConstraintSetup {
 struct ARB_Thruster : public AActor {
     /* Engine.RB_Thruster */
     DECLARE_CLASS(ARB_Thruster, AActor, 0x0, 0x0, Engine)
+    ARB_Thruster(); /* 0x009f0570 */
     BITFIELD bThrustEnabled : 1; /* 0x1a8 */
     FLOAT ThrustStrength; /* 0x1ac */
     /* overrides */
@@ -29902,6 +29628,7 @@ struct USceneCapture2DComponent : public USceneCaptureComponent {
 struct ASceneCapture2DActor : public ASceneCaptureActor {
     /* Engine.SceneCapture2DActor */
     DECLARE_CLASS(ASceneCapture2DActor, ASceneCaptureActor, 0x0, 0x0, Engine)
+    ASceneCapture2DActor(); /* 0x008dd330 */
     class UDrawFrustumComponent* DrawFrustum; /* 0x1ac */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -29929,6 +29656,7 @@ struct USceneCaptureCubeMapComponent : public USceneCaptureComponent {
 struct ASceneCaptureCubeMapActor : public ASceneCaptureActor {
     /* Engine.SceneCaptureCubeMapActor */
     DECLARE_CLASS(ASceneCaptureCubeMapActor, ASceneCaptureActor, 0x0, 0x0, Engine)
+    ASceneCaptureCubeMapActor(); /* 0x008dd3f0 */
     class UStaticMeshComponent* StaticMesh; /* 0x1ac */
     class UMaterialInstanceConstant* CubeMaterialInst; /* 0x1b0 */
     /* virtual functions this class introduces (vtable 0x01f61b38) */
@@ -32840,6 +32568,7 @@ struct USkeletalMesh : public UObject {
 struct ASkeletalMeshActor : public AActor {
     /* Engine.SkeletalMeshActor */
     DECLARE_CLASS(ASkeletalMeshActor, AActor, 0x0, 0x0, Engine)
+    ASkeletalMeshActor(); /* 0x0097b130 */
     BITFIELD bDamageAppliesImpulse : 1; /* 0x1a8 */
     BITFIELD bCheckpointSaveRotation : 1; /* 0x1a8 */
     BITFIELD bShouldDoAnimNotifies : 1; /* 0x1a8 */
@@ -33422,6 +33151,7 @@ struct USpeedTreeComponent : public UPrimitiveComponent {
 struct ASpeedTreeActor : public AActor {
     /* Engine.SpeedTreeActor */
     DECLARE_CLASS(ASpeedTreeActor, AActor, 0x0, 0x0, Engine)
+    ASpeedTreeActor(); /* 0x00bd3910 */
     class USpeedTreeComponent* SpeedTreeComponent; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -33543,6 +33273,7 @@ struct AStaticLightCollectionActor : public ALight {
 struct AStaticMeshActorBase : public AActor {
     /* Engine.StaticMeshActorBase */
     DECLARE_CLASS(AStaticMeshActorBase, AActor, 0x1, 0x0, Engine)
+    AStaticMeshActorBase(); /* 0x0097adf0 */
     BITFIELD bRailing : 1; /* 0x1a8 */
     BITFIELD bClimbableSlopedRailing : 1; /* 0x1a8 */
     /* overrides */
@@ -33570,6 +33301,7 @@ struct AStaticMeshActor : public AStaticMeshActorBase {
 struct AStaticMeshActorBasedOnExtremeContent : public AActor {
     /* Engine.StaticMeshActorBasedOnExtremeContent */
     DECLARE_CLASS(AStaticMeshActorBasedOnExtremeContent, AActor, 0x0, 0x0, Engine)
+    AStaticMeshActorBasedOnExtremeContent(); /* 0x0097afb0 */
     class UStaticMeshComponent* StaticMeshComponent; /* 0x1a8 */
     TArrayNoInit<FSMMaterialSetterDatum> ExtremeContent; /* 0x1ac */
     TArrayNoInit<FSMMaterialSetterDatum> NonExtremeContent; /* 0x1b8 */
@@ -34098,6 +33830,7 @@ struct UTextureRenderTargetCube : public UTextureRenderTarget {
 struct ATrigger : public AActor {
     /* Engine.Trigger */
     DECLARE_CLASS(ATrigger, AActor, 0x0, 0x0, Engine)
+    ATrigger(); /* 0x00776860 */
     class UCylinderComponent* CylinderComponent; /* 0x1a8 */
     BITFIELD bRecentlyTriggered : 1; /* 0x1ac */
     FLOAT AITriggerDelay; /* 0x1b0 */
@@ -36353,6 +36086,7 @@ struct URActorFactoryRPathNode : public UActorFactory {
 struct ARAutoJezNode : public AActor {
     /* CommonGame.RAutoJezNode */
     DECLARE_CLASS(ARAutoJezNode, AActor, 0x0, 0x0, CommonGame)
+    ARAutoJezNode(); /* 0x01530320 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -36450,6 +36184,7 @@ struct ARDebugCameraHUD : public AHUD {
 struct ARDynamicMenu : public AActor {
     /* CommonGame.RDynamicMenu */
     DECLARE_CLASS(ARDynamicMenu, AActor, 0x0, 0x0, CommonGame)
+    ARDynamicMenu(); /* 0x01530460 */
     TArrayNoInit<FShowEntry> ShowEntries; /* 0x1a8 */
     BITFIELD PauseGameWhileActive : 1; /* 0x1b4 */
     BITFIELD BeingDisplayed : 1; /* 0x1b4 */
@@ -36567,6 +36302,7 @@ struct ARDebugMenu : public ARDynamicMenu {
 struct ARPointSource : public AActor {
     /* CommonGame.RPointSource */
     DECLARE_CLASS(ARPointSource, AActor, 0x0, 0x0, CommonGame)
+    ARPointSource(); /* 0x015305a0 */
     class USoundCue* SoundCue; /* 0x1a8 */
     class URScriptConversation* Conversation; /* 0x1ac */
     FName Name_MatParam; /* 0x1b0 */
@@ -36716,6 +36452,7 @@ struct URFlockComponent : public UActorComponent {
 struct ARFlockActor : public AActor {
     /* CommonGame.RFlockActor */
     DECLARE_CLASS(ARFlockActor, AActor, 0x0, 0x0, CommonGame)
+    ARFlockActor(); /* 0x01545e70 */
     class URFlockComponent* FlockComponent; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -37046,6 +36783,7 @@ struct ARRainVolumeBase : public AREffectVolume {
 struct ARRandomTimedSoundEmitter : public AActor {
     /* CommonGame.RRandomTimedSoundEmitter */
     DECLARE_CLASS(ARRandomTimedSoundEmitter, AActor, 0x0, 0x0, CommonGame)
+    ARRandomTimedSoundEmitter(); /* 0x01530660 */
     FLOAT Timer; /* 0x1a8 */
     FLOAT minTimer; /* 0x1ac */
     FLOAT maxTimer; /* 0x1b0 */
@@ -38188,6 +37926,7 @@ struct URAimingConfig : public UObject {
 struct ARAlertEventCoordinator : public AActor {
     /* BmGame.RAlertEventCoordinator */
     DECLARE_CLASS(ARAlertEventCoordinator, AActor, 0x0, 0x0, BmGame)
+    ARAlertEventCoordinator(); /* 0x015f4a50 */
     class AActor* AlertInstigator; /* 0x1a8 */
     class URBMRoomAIState* RoomState; /* 0x1ac */
     INT EventPriority; /* 0x1b0 */
@@ -39430,6 +39169,7 @@ struct URAnimUtil_RagdollPlayer : public UObject {
 struct ARAudioPoint : public AActor {
     /* BmGame.RAudioPoint */
     DECLARE_CLASS(ARAudioPoint, AActor, 0x0, 0x0, BmGame)
+    ARAudioPoint(); /* 0x01577be0 */
     class UAudioComponent* BackgroundMusicAC; /* 0x1a8 */
     class UAudioComponent* SpeechAC; /* 0x1ac */
     class UAudioComponent* StoredAC; /* 0x1b0 */
@@ -40296,6 +40036,7 @@ struct ARBatarangRope : public ARB_BSJointActor {
 struct ARBatarangTarget : public AActor {
     /* BmGame.RBatarangTarget */
     DECLARE_CLASS(ARBatarangTarget, AActor, 0x0, 0x0, BmGame)
+    ARBatarangTarget(); /* 0x016c9920 */
     BITFIELD bActive : 1; /* 0x1a8 */
     BITFIELD bTakeDamage : 1; /* 0x1a8 */
     BITFIELD AutoTargetable : 1; /* 0x1a8 */
@@ -40552,6 +40293,7 @@ struct ARBMAIController_Venom : public ARBMAIController {
 struct ARBMAIManager : public AActor {
     /* BmGame.RBMAIManager */
     DECLARE_CLASS(ARBMAIManager, AActor, 0x0, 0x0, BmGame)
+    ARBMAIManager(); /* 0x015f4c90 */
     static const TCHAR* StaticConfigName() { return TEXT("Game"); }
     TArrayNoInit<FControllerInfo> GlobalControllerInfoList; /* 0x1a8 */
     BITFIELD bShowThoughtsAggressiveness : 1; /* 0x1b4 */
@@ -42479,6 +42221,7 @@ struct URBMBehaviourSetPiece_CheckExplodedWall : public URBMBehaviour {
 struct ARBMBossManager : public AActor {
     /* BmGame.RBMBossManager */
     DECLARE_CLASS(ARBMBossManager, AActor, 0x0, 0x0, BmGame)
+    ARBMBossManager(); /* 0x016c99f0 */
     class ARPawnBossIvyBase* Ivy; /* 0x1a8 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
@@ -42517,6 +42260,7 @@ struct ARBMCombatCameraInterestPoint : public AActor {
 struct ARBMCombatCollisionProxy : public AActor {
     /* BmGame.RBMCombatCollisionProxy */
     DECLARE_CLASS(ARBMCombatCollisionProxy, AActor, 0x0, 0x0, BmGame)
+    ARBMCombatCollisionProxy(); /* 0x01657770 */
     class ARPawnCombat* ParentCombatPawn; /* 0x1a8 */
     class UCylinderComponent* CollisionCylinder; /* 0x1ac */
     FLOAT InitialRadius; /* 0x1b0 */
@@ -42536,6 +42280,7 @@ struct ARBMCombatCollisionProxy : public AActor {
 struct ARBMCombatPoint : public AActor {
     /* BmGame.RBMCombatPoint */
     DECLARE_CLASS(ARBMCombatPoint, AActor, 0x1, 0x0, BmGame)
+    ARBMCombatPoint(); /* 0x01655700 */
     FVector InvestigateOffset; /* 0x1a8 */
     class ARPawnCombat* User; /* 0x1b4 */
     class ARPawnCombat* Target; /* 0x1b8 */
@@ -42565,6 +42310,7 @@ struct ARBMCombatComboTakedownPoint_Railing : public ARBMCombatComboTakedownPoin
 struct ARBMCombatDamageProxy : public AActor {
     /* BmGame.RBMCombatDamageProxy */
     DECLARE_CLASS(ARBMCombatDamageProxy, AActor, 0x0, 0x0, BmGame)
+    ARBMCombatDamageProxy(); /* 0x01657830 */
     class ARPawnCombat* ParentCombatPawn; /* 0x1a8 */
     BITFIELD bActive : 1; /* 0x1ac */
     BITFIELD bMultipleHits : 1; /* 0x1ac */
@@ -42612,6 +42358,7 @@ struct ARBMCombatDeathZone : public AVolume {
 struct ARBMCombatManager : public AActor {
     /* BmGame.RBMCombatManager */
     DECLARE_CLASS(ARBMCombatManager, AActor, 0x0, 0x0, BmGame)
+    ARBMCombatManager(); /* 0x015f4da0 */
     static const TCHAR* StaticConfigName() { return TEXT("Game"); }
     TArrayNoInit<class ARBMCombatPoint*> CombatPoints; /* 0x1a8 */
     TArrayNoInit<class ARCombatArea*> CombatAreas; /* 0x1b4 */
@@ -42995,6 +42742,7 @@ struct ARBMDebugCameraController : public ARDebugCameraController {
 struct ARBMDialogueCoordinator : public AActor {
     /* BmGame.RBMDialogueCoordinator */
     DECLARE_CLASS(ARBMDialogueCoordinator, AActor, 0x0, 0x0, BmGame)
+    ARBMDialogueCoordinator(); /* 0x015f4fa0 */
     FDialogueInstance CurrentConversation; /* 0x1a8 */
     TArrayNoInit<class URBMBehaviour_StartConversation*> ScriptedConversationBehaviour; /* 0x1e0 */
     FLOAT TimeWithoutBark; /* 0x1ec */
@@ -43693,6 +43441,7 @@ struct URBMRoomAIState : public UActorComponent {
 struct ARBMRouter_DynamicObject : public AActor {
     /* BmGame.RBMRouter_DynamicObject */
     DECLARE_CLASS(ARBMRouter_DynamicObject, AActor, 0x0, 0x0, BmGame)
+    ARBMRouter_DynamicObject(); /* 0x0162bbc0 */
     class AController* HostController; /* 0x1a8 */
     class ARBMPawnAI* HostPawn; /* 0x1ac */
     class ARBMRouterManager* RouterManager; /* 0x1b0 */
@@ -43819,6 +43568,7 @@ struct ARBMRouter_Passive : public ARBMRouter_DynamicObject {
 struct ARBMRouteRequest : public AActor {
     /* BmGame.RBMRouteRequest */
     DECLARE_CLASS(ARBMRouteRequest, AActor, 0x0, 0x0, BmGame)
+    ARBMRouteRequest(); /* 0x0162be50 */
     FVector GoalPos; /* 0x1a8 */
     class URBMRouterPath* CurrentPath; /* 0x1b4 */
     class ARBMRouter* OwningRouter; /* 0x1b8 */
@@ -44042,6 +43792,7 @@ struct ARBMRouteRequest_TerrifiedSearch : public ARBMRouteRequest {
 struct ARBMRouterManager : public AActor {
     /* BmGame.RBMRouterManager */
     DECLARE_CLASS(ARBMRouterManager, AActor, 0x0, 0x0, BmGame)
+    ARBMRouterManager(); /* 0x0162c5d0 */
     TArrayNoInit<class ARBMRouter_DynamicObject*> DynamicObjects; /* 0x1a8 */
     INT PriorityRouter; /* 0x1b4 */
     BITFIELD bShowDebug : 1; /* 0x1b8 */
@@ -44393,6 +44144,7 @@ struct ARBMWeaponSniperBase : public ARBMWeaponRanged {
 struct ARBMWeaponStunStickBase : public ARBMWeaponMelee {
     /* BmGame.RBMWeaponStunStickBase */
     DECLARE_CLASS(ARBMWeaponStunStickBase, ARBMWeaponMelee, 0x1, 0x0, BmGame)
+    ARBMWeaponStunStickBase(); /* 0x01577ca0 */
     FLOAT DamageAmount; /* 0x29c */
     BITFIELD bOn : 1; /* 0x2a0 */
     /* overrides */
@@ -44458,6 +44210,7 @@ struct ARBreakableTV : public AStaticMeshActor {
 struct ARBunkerDoorVillainBlocker : public AActor {
     /* BmGame.RBunkerDoorVillainBlocker */
     DECLARE_CLASS(ARBunkerDoorVillainBlocker, AActor, 0x0, 0x0, BmGame)
+    ARBunkerDoorVillainBlocker(); /* 0x01579240 */
     class UStaticMeshComponent* Mesh; /* 0x1a8 */
     BITFIELD bBlockPlayer : 1; /* 0x1ac */
     BITFIELD bDoorCompletelyClosed : 1; /* 0x1ac */
@@ -45281,6 +45034,7 @@ struct ARCoffinManager : public AActor {
 struct ARCombatArea : public AActor {
     /* BmGame.RCombatArea */
     DECLARE_CLASS(ARCombatArea, AActor, 0x0, 0x0, BmGame)
+    ARCombatArea(); /* 0x01657900 */
     class UDrawCylinderComponent* RenderComponent; /* 0x1a8 */
     class UDrawCylinderComponent* RenderComponent2; /* 0x1ac */
     FLOAT AreaRadius; /* 0x1b0 */
@@ -45337,6 +45091,7 @@ struct URCombatEvent_QuickStrikeHit : public URCombatEvent {
 struct ARCombatMove : public AActor {
     /* BmGame.RCombatMove */
     DECLARE_CLASS(ARCombatMove, AActor, 0x1, 0x0, BmGame)
+    ARCombatMove(); /* 0x01657a40 */
     BITFIELD bDestroyOnExit : 1; /* 0x1a8 */
     BITFIELD bIsUsingCombatPoint : 1; /* 0x1a8 */
     BITFIELD bUpdatePlayerMoveTo : 1; /* 0x1a8 */
@@ -46204,6 +45959,7 @@ struct ARControllableChatteringTeethCamera : public ARCameraActor {
 struct ARCornerPointBase : public AActor {
     /* BmGame.RCornerPointBase */
     DECLARE_CLASS(ARCornerPointBase, AActor, 0x0, 0x0, BmGame)
+    ARCornerPointBase(); /* 0x015f6030 */
     class ARCornerWallMarkerBase* WallPoint[4]; /* 0x1a8 */
     FVector FirstWallNormal; /* 0x1b8 */
     FLOAT OffsetDist; /* 0x1c4 */
@@ -46260,6 +46016,7 @@ struct ARCornerPoint : public ARCornerPointBase {
 struct ARCornerWallMarkerBase : public AActor {
     /* BmGame.RCornerWallMarkerBase */
     DECLARE_CLASS(ARCornerWallMarkerBase, AActor, 0x0, 0x0, BmGame)
+    ARCornerWallMarkerBase(); /* 0x015f61b0 */
     class USpriteComponent* SpriteComponentTwoWay; /* 0x1a8 */
     class USpriteComponent* SpriteComponentOneWay; /* 0x1ac */
     class UArrowComponent* ArrowComponent; /* 0x1b0 */
@@ -46311,6 +46068,7 @@ struct ARCrawlSpaceVolume : public AVolume {
 struct ARCreeperVineBase : public AActor {
     /* BmGame.RCreeperVineBase */
     DECLARE_CLASS(ARCreeperVineBase, AActor, 0x1, 0x0, BmGame)
+    ARCreeperVineBase(); /* 0x01576430 */
     class USkeletalMeshComponent* VineMesh; /* 0x1a8 */
     class UAnimSet* AnimSet; /* 0x1ac */
     FLOAT AnimTime; /* 0x1b0 */
@@ -46360,6 +46118,7 @@ struct ARCrimeSceneBase : public AVolume {
 struct ARSnapToPositionActor : public AActor {
     /* BmGame.RSnapToPositionActor */
     DECLARE_CLASS(ARSnapToPositionActor, AActor, 0x0, 0x0, BmGame)
+    ARSnapToPositionActor(); /* 0x016574d0 */
     /* virtual functions this class introduces (vtable 0x02360438) */
     virtual bool vf_354(FLOAT, FLOAT, INT, FLOAT, INT); /* 0x354 */
     virtual void vf_358(INT); /* 0x358 */
@@ -46450,6 +46209,7 @@ struct ARCrocWaterVolume : public ARWaterVolume {
 struct ARCrowdAgent : public AActor {
     /* BmGame.RCrowdAgent */
     DECLARE_CLASS(ARCrowdAgent, AActor, 0x0, 0x0, BmGame)
+    ARCrowdAgent(); /* 0x016df940 */
     FLOAT MinVelDamping; /* 0x1a8 */
     FLOAT MaxVelDamping; /* 0x1ac */
     FLOAT MoveTowardsFlockForce; /* 0x1b0 */
@@ -46496,6 +46256,7 @@ struct ARCrowdAgent : public AActor {
 struct ARCrowdAttractor : public AActor {
     /* BmGame.RCrowdAttractor */
     DECLARE_CLASS(ARCrowdAttractor, AActor, 0x0, 0x0, BmGame)
+    ARCrowdAttractor(); /* 0x016dfa60 */
     FLOAT AttractionRadius; /* 0x1a8 */
     FLOAT Attraction; /* 0x1ac */
     BITFIELD bAttractorEnabled : 1; /* 0x1b0 */
@@ -46553,6 +46314,7 @@ struct ARCrowdAttractor_Test : public ARCrowdAttractor {
 struct ARCrowdManager : public AActor {
     /* BmGame.RCrowdManager */
     DECLARE_CLASS(ARCrowdManager, AActor, 0x0, 0x0, BmGame)
+    ARCrowdManager(); /* 0x016dfb80 */
     TArrayNoInit<class ARCrowdAgent*> Agents; /* 0x1a8 */
     TArrayNoInit<class ARCrowdAttractor*> Attractors; /* 0x1b4 */
     BITFIELD bAttractorsActivated : 1; /* 0x1c0 */
@@ -46573,6 +46335,7 @@ struct ARCrowdManager : public AActor {
 struct ARCrowdSequence : public AActor {
     /* BmGame.RCrowdSequence */
     DECLARE_CLASS(ARCrowdSequence, AActor, 0x1, 0x0, BmGame)
+    ARCrowdSequence(); /* 0x016dfc60 */
     class ARCrowdManager* CrowdManager; /* 0x1a8 */
     INT FlockID; /* 0x1ac */
     class ARCrowdSpawner* Spawner; /* 0x1b0 */
@@ -46805,6 +46568,7 @@ struct URDisruptableInterface : public UInterface {
 struct ARDisruptableObjectBase : public AActor {
     /* BmGame.RDisruptableObjectBase */
     DECLARE_CLASS(ARDisruptableObjectBase, AActor, 0x0, 0x0, BmGame)
+    ARDisruptableObjectBase(); /* 0x01732130 */
     FVector InvestigateOffset; /* 0x1a8 */
     class UStaticMeshComponent* StaticMeshComponent; /* 0x1b4 */
     BYTE Difficulty; /* 0x1b8 */
@@ -46831,6 +46595,7 @@ struct ARDisruptableItem : public ARDisruptableObjectBase {
 struct ARDisruptableObjectDoor : public AActor {
     /* BmGame.RDisruptableObjectDoor */
     DECLARE_CLASS(ARDisruptableObjectDoor, AActor, 0x0, 0x0, BmGame)
+    ARDisruptableObjectDoor(); /* 0x01732320 */
     class UPointLightComponent* LightComponent; /* 0x1a8 */
     class UPointLightComponent* LightComponentCharacters; /* 0x1ac */
     class UStaticMeshComponent* EndMesh1; /* 0x1b0 */
@@ -47342,6 +47107,7 @@ struct ARElectrifiedFloorPanel : public AStaticMeshActor {
 struct AREndPointMarker : public AActor {
     /* BmGame.REndPointMarker */
     DECLARE_CLASS(AREndPointMarker, AActor, 0x0, 0x0, BmGame)
+    AREndPointMarker(); /* 0x015f3bd0 */
     /* overrides */
     virtual UBOOL HasUniqueStaticConfigName() const; /* 0x000 */
     virtual UBOOL HasParentClassChanged() const; /* 0x004 */
@@ -47541,6 +47307,7 @@ struct URSpecialMoveConfig_PullDownWall : public URSpecialMoveConfig_OpenGrate {
 struct ARExplodableWallBase : public AActor {
     /* BmGame.RExplodableWallBase */
     DECLARE_CLASS(ARExplodableWallBase, AActor, 0x0, 0x0, BmGame)
+    ARExplodableWallBase(); /* 0x01731260 */
     FVector InvestigateOffset; /* 0x1a8 */
     TArrayNoInit<class UStaticMeshComponent*> Bricks; /* 0x1b4 */
     TArrayNoInit<FExplodableWallBrickInfo> BrickInfos; /* 0x1c0 */
@@ -47624,6 +47391,7 @@ struct URExplosionPostProcess : public UObject {
 struct ARExplosiveGooMine : public AActor {
     /* BmGame.RExplosiveGooMine */
     DECLARE_CLASS(ARExplosiveGooMine, AActor, 0x0, 0x0, BmGame)
+    ARExplosiveGooMine(); /* 0x01656b00 */
     FLOAT ExplosionRadius; /* 0x1a8 */
     FLOAT FractureRadius; /* 0x1ac */
     FLOAT ExplosionImpulse; /* 0x1b0 */
@@ -47669,6 +47437,7 @@ struct ARExplosiveGooMine : public AActor {
 struct ARFadeManager : public AActor {
     /* BmGame.RFadeManager */
     DECLARE_CLASS(ARFadeManager, AActor, 0x0, 0x0, BmGame)
+    ARFadeManager(); /* 0x01576500 */
     BITFIELD bFadeIn : 1; /* 0x1a8 */
     BITFIELD bHasPlayedAtLeastOneFrame : 1; /* 0x1a8 */
     BITFIELD FadeDuringMovieCapture : 1; /* 0x1a8 */
@@ -48414,6 +48183,7 @@ struct URGameViewportClient : public UGameViewportClient {
 struct ARGargoyleBombBase : public AActor {
     /* BmGame.RGargoyleBombBase */
     DECLARE_CLASS(ARGargoyleBombBase, AActor, 0x0, 0x0, BmGame)
+    ARGargoyleBombBase(); /* 0x016571d0 */
     class ARHidePoint* TargetHidePoint; /* 0x1a8 */
     class UStaticMeshComponent* BombMesh; /* 0x1ac */
     class UMaterial* GargoyleMaterial; /* 0x1b0 */
@@ -49053,6 +48823,7 @@ struct ARGrappleGun : public ARInventoryGadget {
 struct ARGrapplePointCatchmentArea : public AActor {
     /* BmGame.RGrapplePointCatchmentArea */
     DECLARE_CLASS(ARGrapplePointCatchmentArea, AActor, 0x0, 0x0, BmGame)
+    ARGrapplePointCatchmentArea(); /* 0x01656bc0 */
     class URGrappleCatchmentAreaComponent* CatchmentArea; /* 0x1a8 */
     TArrayNoInit<class AActor*> AttachedHidePoints; /* 0x1ac */
     /* overrides */
@@ -49068,6 +48839,7 @@ struct ARGrapplePointCatchmentArea : public AActor {
 struct ARProjectileWithRope : public AActor {
     /* BmGame.RProjectileWithRope */
     DECLARE_CLASS(ARProjectileWithRope, AActor, 0x0, 0x0, BmGame)
+    ARProjectileWithRope(); /* 0x01656e30 */
     class UParticleSystemComponent* Rope; /* 0x1a8 */
     class URSimpleRopeComponent* RopeComponent; /* 0x1ac */
     class USkeletalMeshComponent* Mesh; /* 0x1b0 */
@@ -49970,6 +49742,7 @@ struct ARJokersTv : public ASkeletalMeshActor {
 struct ARJokerTannoy : public AActor {
     /* BmGame.RJokerTannoy */
     DECLARE_CLASS(ARJokerTannoy, AActor, 0x0, 0x0, BmGame)
+    ARJokerTannoy(); /* 0x0162b820 */
     BITFIELD bFireEventsWithoutAudio : 1; /* 0x1a8 */
     BITFIELD bActive : 1; /* 0x1a8 */
     BITFIELD bTakedownAnnounceOnly : 1; /* 0x1a8 */
@@ -50019,6 +49792,7 @@ struct ARJokerThrownWeapons : public AKAssetSpawnable {
 struct ARSpecialMoveEnvironmentObject : public AActor {
     /* BmGame.RSpecialMoveEnvironmentObject */
     DECLARE_CLASS(ARSpecialMoveEnvironmentObject, AActor, 0x1, 0x0, BmGame)
+    ARSpecialMoveEnvironmentObject(); /* 0x01731710 */
     class URSpecialMoveConfig* InteractingMove; /* 0x1a8 */
     FLOAT InteractRange; /* 0x1ac */
     BITFIELD bAlignPosition : 1; /* 0x1b0 */
@@ -50094,6 +49868,7 @@ struct URLevelTransitionRenderingComponent : public UPrimitiveComponent {
 struct ARLevelTransition : public AActor {
     /* BmGame.RLevelTransition */
     DECLARE_CLASS(ARLevelTransition, AActor, 0x1, 0x0, BmGame)
+    ARLevelTransition(); /* 0x015793c0 */
     FName LevelInFront; /* 0x1a8 */
     FName LevelBehind; /* 0x1b0 */
     FBox StreamingBox; /* 0x1b8 */
@@ -50600,6 +50375,7 @@ struct URPatrolPointRenderingComponent : public UPrimitiveComponent {
 struct ARPatrolPoint : public AActor {
     /* BmGame.RPatrolPoint */
     DECLARE_CLASS(ARPatrolPoint, AActor, 0x0, 0x0, BmGame)
+    ARPatrolPoint(); /* 0x01731440 */
     class ARPatrolPoint* NextPoint; /* 0x1a8 */
     class ARPatrolPoint* PrevPoint; /* 0x1ac */
     FLOAT PauseTime; /* 0x1b0 */
@@ -51537,6 +51313,7 @@ struct ARPawnPlayerJokerBase : public ARPawnPlayer {
 struct ARPawnSpawnObject : public AActor {
     /* BmGame.RPawnSpawnObject */
     DECLARE_CLASS(ARPawnSpawnObject, AActor, 0x0, 0x0, BmGame)
+    ARPawnSpawnObject(); /* 0x015f3c90 */
     class UClass* PawnClass; /* 0x1a8 */
     class UClass* CharactersType; /* 0x1ac */
     class UClass* WeaponType; /* 0x1b0 */
@@ -51827,6 +51604,7 @@ struct ARPhysicsGrabber : public ARInventoryGadget {
 struct ARPickupBase : public AActor {
     /* BmGame.RPickupBase */
     DECLARE_CLASS(ARPickupBase, AActor, 0x1, 0x0, BmGame)
+    ARPickupBase(); /* 0x015765c0 */
     FVector InvestigateOffset; /* 0x1a8 */
     class UStaticMeshComponent* PickupMesh; /* 0x1b4 */
     FStringNoInit PickupName; /* 0x1b8 */
@@ -51860,6 +51638,7 @@ struct ARPlantObstruction : public ARSpecialMoveEnvironmentObject {
 struct ARPlantPod : public AActor {
     /* BmGame.RPlantPod */
     DECLARE_CLASS(ARPlantPod, AActor, 0x1, 0x0, BmGame)
+    ARPlantPod(); /* 0x016c9ab0 */
     class ARPawn* ChaseTarget; /* 0x1a8 */
     class USkeletalMeshComponent* PodMesh; /* 0x1ac */
     class UParticleSystem* ExplosionFX; /* 0x1b0 */
@@ -53042,6 +52821,7 @@ struct FNativeElem_0156eb90 { FScriptInterface Value; FNativeElem_0156eb90() {} 
 struct ARPontoonBase : public AActor {
     /* BmGame.RPontoonBase */
     DECLARE_CLASS(ARPontoonBase, AActor, 0x1, 0x0, BmGame)
+    ARPontoonBase(); /* 0x015767b0 */
     class USkeletalMeshComponent* Mesh; /* 0x1a8 */
     class UFluidInfluenceComponent* SmallFluidInfluence; /* 0x1ac */
     class UFluidInfluenceComponent* MediumFluidInfluence; /* 0x1b0 */
@@ -53127,6 +52907,7 @@ struct ARPontoonBase : public AActor {
 struct ARPontoonBridgeManager : public AActor {
     /* BmGame.RPontoonBridgeManager */
     DECLARE_CLASS(ARPontoonBridgeManager, AActor, 0x0, 0x0, BmGame)
+    ARPontoonBridgeManager(); /* 0x0162c6a0 */
     BITFIELD DoRippleTest : 1; /* 0x1a8 */
     BITFIELD bBuildJunctions : 1; /* 0x1a8 */
     BITFIELD bWasLineLaunching : 1; /* 0x1a8 */
@@ -53264,6 +53045,7 @@ struct URPontoonControllerManager : public UObject {
 struct ARPontoonEdgeBlockerBase : public AActor {
     /* BmGame.RPontoonEdgeBlockerBase */
     DECLARE_CLASS(ARPontoonEdgeBlockerBase, AActor, 0x0, 0x0, BmGame)
+    ARPontoonEdgeBlockerBase(); /* 0x016c8de0 */
     class ARPontoonBase* Pontoon; /* 0x1a8 */
     TArrayNoInit<class UStaticMeshComponent*> BlockingBoxes; /* 0x1ac */
     /* overrides */
@@ -53276,6 +53058,7 @@ struct ARPontoonEdgeBlockerBase : public AActor {
 struct ARPontoonGateBase : public AActor {
     /* BmGame.RPontoonGateBase */
     DECLARE_CLASS(ARPontoonGateBase, AActor, 0x0, 0x0, BmGame)
+    ARPontoonGateBase(); /* 0x016c9b80 */
     class UAnimSet* AnimSet; /* 0x1a8 */
     class USkeletalMeshComponent* AnimatedBit; /* 0x1ac */
     class UStaticMeshComponent* BreakableBit; /* 0x1b0 */
@@ -53345,6 +53128,7 @@ struct ARRagdollWakeupVolume : public AVolume {
 struct ARRandomDelay : public AActor {
     /* BmGame.RRandomDelay */
     DECLARE_CLASS(ARRandomDelay, AActor, 0x0, 0x0, BmGame)
+    ARRandomDelay(); /* 0x01731c20 */
     BITFIELD BRandom : 1; /* 0x1a8 */
     FLOAT MinDelay; /* 0x1ac */
     FLOAT MaxDelay; /* 0x1b0 */
@@ -53606,6 +53390,7 @@ struct URRopeComponent : public URRopeComponentBase {
 struct ARRopeBase : public AActor {
     /* BmGame.RRopeBase */
     DECLARE_CLASS(ARRopeBase, AActor, 0x0, 0x0, BmGame)
+    ARRopeBase(); /* 0x016572d0 */
     class URRopeComponent* RopeComponent; /* 0x1a8 */
     BITFIELD IsEditingPos2 : 1; /* 0x1ac */
     BITFIELD IsRopeBatarangable : 1; /* 0x1ac */
@@ -53643,6 +53428,7 @@ struct ARRopeBase : public AActor {
 struct ARRopeTest : public AActor {
     /* BmGame.RRopeTest */
     DECLARE_CLASS(ARRopeTest, AActor, 0x0, 0x0, BmGame)
+    ARRopeTest(); /* 0x01682e40 */
     class AActor* ConnectActor1; /* 0x1a8 */
     class AActor* ConnectActor2; /* 0x1ac */
     class AActor* ConnectActor3; /* 0x1b0 */
@@ -56502,6 +56288,7 @@ struct URSmashablePropConfig : public URConfig {
 struct ARSoftBodyProjectile : public AActor {
     /* BmGame.RSoftBodyProjectile */
     DECLARE_CLASS(ARSoftBodyProjectile, AActor, 0x1, 0x0, BmGame)
+    ARSoftBodyProjectile(); /* 0x016c9c80 */
     class USkeletalMeshComponent* Mesh; /* 0x1a8 */
     BITFIELD bValidSoftBodyPos : 1; /* 0x1ac */
     FVector LastSoftBodyPos; /* 0x1b0 */
@@ -57316,6 +57103,7 @@ struct ARStationary1stPersonCamera : public ARCameraActor {
 struct ARStealthTakeDownStage : public AActor {
     /* BmGame.RStealthTakeDownStage */
     DECLARE_CLASS(ARStealthTakeDownStage, AActor, 0x1, 0x0, BmGame)
+    ARStealthTakeDownStage(); /* 0x01658040 */
     class ARPawnVillain* Victim; /* 0x1a8 */
     TArrayNoInit<FTakeDownStageAnimSet> StageAnim; /* 0x1ac */
     class UClass* NextStage; /* 0x1b8 */
@@ -57473,6 +57261,7 @@ struct ARTakedownPoint : public AActor {
 struct ARTapePlayer : public AActor {
     /* BmGame.RTapePlayer */
     DECLARE_CLASS(ARTapePlayer, AActor, 0x0, 0x0, BmGame)
+    ARTapePlayer(); /* 0x01656f20 */
     FStringNoInit LoadingTapePackage; /* 0x1a8 */
     FStringNoInit PlayingTapePackage; /* 0x1b4 */
     FStringNoInit QueuedPackage; /* 0x1c0 */
@@ -57584,6 +57373,7 @@ struct ARTrailProximityNode : public AActor {
 struct ARTunnelFunnel : public AActor {
     /* BmGame.RTunnelFunnel */
     DECLARE_CLASS(ARTunnelFunnel, AActor, 0x0, 0x0, BmGame)
+    ARTunnelFunnel(); /* 0x01731b60 */
     BYTE FunnelType; /* 0x1a8 */
     FLOAT CatchCosAngle; /* 0x1ac */
     class UArrowComponent* LeftArrow; /* 0x1b0 */
@@ -60852,6 +60642,7 @@ struct UGameExplosion : public UObject {
 struct AGameExplosionActor : public AActor {
     /* GameFramework.GameExplosionActor (native only: no script package describes it) */
     DECLARE_CLASS(AGameExplosionActor, AActor, 0x0, 0x0, GameFramework)
+    AGameExplosionActor(); /* 0x00e277b0 */
     static const TCHAR* StaticConfigName() { return TEXT("Weapon"); }
     BYTE _native[0x2c]; /* C++-only members, to the registered size 0x1d4 */
     /* overrides */
